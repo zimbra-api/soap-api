@@ -48,8 +48,8 @@ class GetEffectiveRightsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
-    #[SerializedName(name: 'expandAllAttrs')]
-    #[Type(name: 'string')]
+    #[SerializedName('expandAllAttrs')]
+    #[Type('string')]
     #[XmlAttribute]
     private $expandAllAttrs;
 
@@ -64,8 +64,8 @@ class GetEffectiveRightsRequest extends SoapRequest
      * @var EffectiveRightsTargetSelector
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: EffectiveRightsTargetSelector::class)]
+    #[SerializedName('target')]
+    #[Type(EffectiveRightsTargetSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
@@ -80,8 +80,8 @@ class GetEffectiveRightsRequest extends SoapRequest
      * @var GranteeSelector
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName(name: 'grantee')]
-    #[Type(name: GranteeSelector::class)]
+    #[SerializedName('grantee')]
+    #[Type(GranteeSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 

@@ -33,8 +33,8 @@ class CopyCosBody extends SoapBody
      * @var CopyCosRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CopyCosRequest')]
-    #[Type(name: CopyCosRequest::class)]
+    #[SerializedName('CopyCosRequest')]
+    #[Type(CopyCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class CopyCosBody extends SoapBody
      * @var CopyCosResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CopyCosResponse')]
-    #[Type(name: CopyCosResponse::class)]
+    #[SerializedName('CopyCosResponse')]
+    #[Type(CopyCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

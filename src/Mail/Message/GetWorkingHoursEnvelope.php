@@ -37,8 +37,8 @@ class GetWorkingHoursEnvelope extends SoapEnvelope
      * @var GetWorkingHoursBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetWorkingHoursBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetWorkingHoursBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

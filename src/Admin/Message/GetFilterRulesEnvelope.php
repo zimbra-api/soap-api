@@ -39,8 +39,8 @@ class GetFilterRulesEnvelope extends SoapEnvelope
      * @var GetFilterRulesBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetFilterRulesBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetFilterRulesBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

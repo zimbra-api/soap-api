@@ -37,8 +37,8 @@ class DeleteServerEnvelope extends SoapEnvelope
      * @var DeleteServerBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteServerBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteServerBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -35,8 +35,8 @@ class RecordIMAPSessionResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getLastItemId', setter: 'setLastItemId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $lastItemId;
 
@@ -51,8 +51,8 @@ class RecordIMAPSessionResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName(name: 'luuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('luuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderUuid;
 

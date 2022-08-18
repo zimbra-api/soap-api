@@ -36,8 +36,8 @@ class ModifyDomainResponse extends SoapResponse
      * @var DomainInfo
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainInfo::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 

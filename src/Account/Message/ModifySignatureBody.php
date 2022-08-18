@@ -33,8 +33,8 @@ class ModifySignatureBody extends SoapBody
      * @var ModifySignatureRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifySignatureRequest')]
-    #[Type(name: ModifySignatureRequest::class)]
+    #[SerializedName('ModifySignatureRequest')]
+    #[Type(ModifySignatureRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -47,8 +47,8 @@ class ModifySignatureBody extends SoapBody
      * @var ModifySignatureResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifySignatureResponse')]
-    #[Type(name: ModifySignatureResponse::class)]
+    #[SerializedName('ModifySignatureResponse')]
+    #[Type(ModifySignatureResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

@@ -34,7 +34,7 @@ class SearchQueryInfo
      * @var array
      */
     #[Accessor(getter: 'getSuggests', setter: 'setSuggests')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SuggestedQueryString>')]
+    #[Type('array<Zimbra\Mail\Struct\SuggestedQueryString>')]
     #[XmlList(inline: true, entry: "suggest", namespace: 'urn:zimbraMail')]
     private $suggests = [];
 
@@ -48,7 +48,7 @@ class SearchQueryInfo
      * @var array
      */
     #[Accessor(getter: 'getWildcards', setter: 'setWildcards')]
-    #[Type(name: 'array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>')]
+    #[Type('array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>')]
     #[XmlList(inline: true, entry: "wildcard", namespace: 'urn:zimbraMail')]
     private $wildcards = [];
 

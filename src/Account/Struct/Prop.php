@@ -32,8 +32,8 @@ class Prop
      * @var string
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName(name: 'zimlet')]
-    #[Type(name: 'string')]
+    #[SerializedName('zimlet')]
+    #[Type('string')]
     #[XmlAttribute]
     private $zimlet;
 
@@ -46,8 +46,8 @@ class Prop
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -59,7 +59,7 @@ class Prop
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

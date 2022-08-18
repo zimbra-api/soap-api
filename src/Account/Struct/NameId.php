@@ -32,8 +32,8 @@ class NameId
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -46,8 +46,8 @@ class NameId
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 

@@ -59,8 +59,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName(name: 'waitSet')]
-    #[Type(name: 'string')]
+    #[SerializedName('waitSet')]
+    #[Type('string')]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -75,8 +75,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var string
      */
     #[Accessor(getter: 'getLastKnownSeqNo', setter: 'setLastKnownSeqNo')]
-    #[SerializedName(name: 'seq')]
-    #[Type(name: 'string')]
+    #[SerializedName('seq')]
+    #[Type('string')]
     #[XmlAttribute]
     private $lastKnownSeqNo;
 
@@ -91,8 +91,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var bool
      */
     #[Accessor(getter: 'getBlock', setter: 'setBlock')]
-    #[SerializedName(name: 'block')]
-    #[Type(name: 'bool')]
+    #[SerializedName('block')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $block;
 
@@ -115,8 +115,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName(name: 'defTypes')]
-    #[Type(name: 'string')]
+    #[SerializedName('defTypes')]
+    #[Type('string')]
     #[XmlAttribute]
     private $defaultInterests;
 
@@ -131,8 +131,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var int
      */
     #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
-    #[SerializedName(name: 'timeout')]
-    #[Type(name: 'int')]
+    #[SerializedName('timeout')]
+    #[Type('int')]
     #[XmlAttribute]
     private $timeout;
 
@@ -147,8 +147,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var bool
      */
     #[Accessor(getter: 'getExpand', setter: 'setExpand')]
-    #[SerializedName(name: 'expand')]
-    #[Type(name: 'bool')]
+    #[SerializedName('expand')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $expand;
 
@@ -164,8 +164,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var array
      */
     #[Accessor(getter: 'getAddAccounts', setter: 'setAddAccounts')]
-    #[SerializedName(name: 'add')]
-    #[Type(name: 'array<Zimbra\Common\Struct\WaitSetAddSpec>')]
+    #[SerializedName('add')]
+    #[Type('array<Zimbra\Common\Struct\WaitSetAddSpec>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraMail')]
     private $addAccounts = [];
@@ -182,8 +182,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var array
      */
     #[Accessor(getter: 'getUpdateAccounts', setter: 'setUpdateAccounts')]
-    #[SerializedName(name: 'update')]
-    #[Type(name: 'array<Zimbra\Common\Struct\WaitSetAddSpec>')]
+    #[SerializedName('update')]
+    #[Type('array<Zimbra\Common\Struct\WaitSetAddSpec>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraMail')]
     private $updateAccounts = [];
@@ -200,8 +200,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @var array
      */
     #[Accessor(getter: 'getRemoveAccounts', setter: 'setRemoveAccounts')]
-    #[SerializedName(name: 'remove')]
-    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[SerializedName('remove')]
+    #[Type('array<Zimbra\Common\Struct\Id>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraMail')]
     private $removeAccounts = [];

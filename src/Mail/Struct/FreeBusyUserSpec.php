@@ -35,8 +35,8 @@ class FreeBusyUserSpec
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'int')]
+    #[SerializedName('l')]
+    #[Type('int')]
     #[XmlAttribute]
     private $folderId;
 
@@ -51,8 +51,8 @@ class FreeBusyUserSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -67,8 +67,8 @@ class FreeBusyUserSpec
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 

@@ -42,8 +42,8 @@ class SendShareNotificationRequest extends SoapRequest
      * @var Id
      */
     #[Accessor(getter: "getItem", setter: "setItem")]
-    #[SerializedName(name: 'item')]
-    #[Type(name: Id::class)]
+    #[SerializedName('item')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $item;
 
@@ -57,7 +57,7 @@ class SendShareNotificationRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getEmailAddresses', setter: 'setEmailAddresses')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\EmailAddrInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\EmailAddrInfo>')]
     #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
     private $emailAddresses = [];
 
@@ -73,8 +73,8 @@ class SendShareNotificationRequest extends SoapRequest
      * @var ShareAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName(name: 'action')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ShareAction>')]
+    #[SerializedName('action')]
+    #[Type('Enum<Zimbra\Common\Enum\ShareAction>')]
     #[XmlAttribute]
     private $action;
 
@@ -89,8 +89,8 @@ class SendShareNotificationRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: "getNotes", setter: "setNotes")]
-    #[SerializedName(name: 'notes')]
-    #[Type(name: 'string')]
+    #[SerializedName('notes')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $notes;
 

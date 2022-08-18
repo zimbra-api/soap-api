@@ -34,8 +34,8 @@ class NoteActionSelector extends ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName(name: 'content')]
-    #[Type(name: 'string')]
+    #[SerializedName('content')]
+    #[Type('string')]
     #[XmlAttribute]
     private $content;
 
@@ -50,8 +50,8 @@ class NoteActionSelector extends ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getBounds', setter: 'setBounds')]
-    #[SerializedName(name: 'pos')]
-    #[Type(name: 'string')]
+    #[SerializedName('pos')]
+    #[Type('string')]
     #[XmlAttribute]
     private $bounds;
 

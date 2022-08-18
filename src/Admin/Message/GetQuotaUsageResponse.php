@@ -36,8 +36,8 @@ class GetQuotaUsageResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'isMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -52,8 +52,8 @@ class GetQuotaUsageResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName(name: 'searchTotal')]
-    #[Type(name: 'int')]
+    #[SerializedName('searchTotal')]
+    #[Type('int')]
     #[XmlAttribute]
     private $searchTotal;
 
@@ -67,7 +67,7 @@ class GetQuotaUsageResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAccountQuotas', setter: 'setAccountQuotas')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AccountQuotaInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\AccountQuotaInfo>')]
     #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accountQuotas = [];
 

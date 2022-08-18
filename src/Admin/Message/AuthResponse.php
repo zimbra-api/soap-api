@@ -36,8 +36,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName(name: 'authToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('authToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
@@ -52,8 +52,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
-    #[SerializedName(name: 'csrfToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('csrfToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $csrfToken;
 
@@ -68,8 +68,8 @@ class AuthResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName(name: 'lifetime')]
-    #[Type(name: 'int')]
+    #[SerializedName('lifetime')]
+    #[Type('int')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $lifetime;
 

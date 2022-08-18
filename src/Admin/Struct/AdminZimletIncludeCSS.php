@@ -34,7 +34,7 @@ class AdminZimletIncludeCSS implements ZimletIncludeCSS
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

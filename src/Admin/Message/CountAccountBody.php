@@ -33,8 +33,8 @@ class CountAccountBody extends SoapBody
      * @var CountAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CountAccountRequest')]
-    #[Type(name: CountAccountRequest::class)]
+    #[SerializedName('CountAccountRequest')]
+    #[Type(CountAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class CountAccountBody extends SoapBody
      * @var CountAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CountAccountResponse')]
-    #[Type(name: CountAccountResponse::class)]
+    #[SerializedName('CountAccountResponse')]
+    #[Type(CountAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

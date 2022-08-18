@@ -35,8 +35,8 @@ class RankingActionRequest extends SoapRequest
      * @var RankingActionSpec
      */
     #[Accessor(getter: "getAction", setter: "setAction")]
-    #[SerializedName(name: 'action')]
-    #[Type(name: RankingActionSpec::class)]
+    #[SerializedName('action')]
+    #[Type(RankingActionSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $action;
 

@@ -36,8 +36,8 @@ class FreeBusyUserStatus
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -52,8 +52,8 @@ class FreeBusyUserStatus
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreebusyStatus', setter: 'setFreebusyStatus')]
-    #[SerializedName(name: 'fb')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[SerializedName('fb')]
+    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private $freebusyStatus;
 

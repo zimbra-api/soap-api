@@ -39,8 +39,8 @@ class InviteInfo implements InviteInfoInterface
      * @var InviteType
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\InviteType>')]
     #[XmlAttribute]
     private $calItemType;
 
@@ -54,7 +54,7 @@ class InviteInfo implements InviteInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalTZInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
     #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
     private $timezones = [];
 
@@ -69,8 +69,8 @@ class InviteInfo implements InviteInfoInterface
      * @var InviteComponentInterface
      */
     #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
-    #[SerializedName(name: 'comp')]
-    #[Type(name: InviteComponent::class)]
+    #[SerializedName('comp')]
+    #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $inviteComponent;
 
@@ -86,8 +86,8 @@ class InviteInfo implements InviteInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
-    #[SerializedName(name: 'replies')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalendarReply>')]
+    #[SerializedName('replies')]
+    #[Type('array<Zimbra\Mail\Struct\CalendarReply>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
     private $calendarReplies = [];

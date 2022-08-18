@@ -36,8 +36,8 @@ class IntervalRule implements IntervalRuleInterface
      * @var int
      */
     #[Accessor(getter: 'getIval', setter: 'setIval')]
-    #[SerializedName(name: 'ival')]
-    #[Type(name: 'int')]
+    #[SerializedName('ival')]
+    #[Type('int')]
     #[XmlAttribute]
     private $ival;
 

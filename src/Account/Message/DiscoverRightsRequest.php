@@ -46,7 +46,7 @@ class DiscoverRightsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
     private $rights = [];
 

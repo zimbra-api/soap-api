@@ -34,8 +34,8 @@ class ChildAccount
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class ChildAccount
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -66,8 +66,8 @@ class ChildAccount
      * @var bool
      */
     #[Accessor(getter: 'isVisible', setter: 'setIsVisible')]
-    #[SerializedName(name: 'visible')]
-    #[Type(name: 'bool')]
+    #[SerializedName('visible')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isVisible;
 
@@ -82,8 +82,8 @@ class ChildAccount
      * @var bool
      */
     #[Accessor(getter: 'isActive', setter: 'setIsActive')]
-    #[SerializedName(name: 'active')]
-    #[Type(name: 'bool')]
+    #[SerializedName('active')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isActive;
 
@@ -99,8 +99,8 @@ class ChildAccount
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Attr>')]
+    #[SerializedName('attrs')]
+    #[Type('array<Zimbra\Account\Struct\Attr>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
     private $attrs = [];

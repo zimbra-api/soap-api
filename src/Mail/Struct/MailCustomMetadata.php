@@ -37,8 +37,8 @@ class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInte
      * @var string
      */
     #[Accessor(getter: 'getSection', setter: 'setSection')]
-    #[SerializedName(name: 'section')]
-    #[Type(name: 'string')]
+    #[SerializedName('section')]
+    #[Type('string')]
     #[XmlAttribute]
     private $section;
 

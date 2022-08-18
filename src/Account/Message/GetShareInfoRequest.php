@@ -37,8 +37,8 @@ class GetShareInfoRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getInternal', setter: 'setInternal')]
-    #[SerializedName(name: 'internal')]
-    #[Type(name: 'bool')]
+    #[SerializedName('internal')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $internal;
 
@@ -55,8 +55,8 @@ class GetShareInfoRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getIncludeSelf', setter: 'setIncludeSelf')]
-    #[SerializedName(name: 'includeSelf')]
-    #[Type(name: 'bool')]
+    #[SerializedName('includeSelf')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeSelf;
 
@@ -71,8 +71,8 @@ class GetShareInfoRequest extends SoapRequest
      * @var GranteeChooser
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName(name: 'grantee')]
-    #[Type(name: GranteeChooser::class)]
+    #[SerializedName('grantee')]
+    #[Type(GranteeChooser::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $grantee;
 
@@ -87,8 +87,8 @@ class GetShareInfoRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getOwner', setter: 'setOwner')]
-    #[SerializedName(name: 'owner')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('owner')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $owner;
 

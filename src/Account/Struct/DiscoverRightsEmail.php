@@ -34,8 +34,8 @@ class DiscoverRightsEmail
      * @var string
      */
     #[Accessor(getter: 'getAddr', setter: 'setAddr')]
-    #[SerializedName(name: 'addr')]
-    #[Type(name: 'string')]
+    #[SerializedName('addr')]
+    #[Type('string')]
     #[XmlAttribute]
     private $addr;
 

@@ -37,8 +37,8 @@ class CreateCalendarResourceEnvelope extends SoapEnvelope
      * @var CreateCalendarResourceBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateCalendarResourceBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateCalendarResourceBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

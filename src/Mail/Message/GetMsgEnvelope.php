@@ -37,8 +37,8 @@ class GetMsgEnvelope extends SoapEnvelope
      * @var GetMsgBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetMsgBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetMsgBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

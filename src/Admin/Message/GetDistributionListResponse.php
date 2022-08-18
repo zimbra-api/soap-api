@@ -37,8 +37,8 @@ class GetDistributionListResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'isMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -54,8 +54,8 @@ class GetDistributionListResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getTotal', setter: 'setTotal')]
-    #[SerializedName(name: 'total')]
-    #[Type(name: 'int')]
+    #[SerializedName('total')]
+    #[Type('int')]
     #[XmlAttribute]
     private $total;
 
@@ -70,8 +70,8 @@ class GetDistributionListResponse extends SoapResponse
      * @var DLInfo
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName(name: 'dl')]
-    #[Type(name: DLInfo::class)]
+    #[SerializedName('dl')]
+    #[Type(DLInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dl;
 

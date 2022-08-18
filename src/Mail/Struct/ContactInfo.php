@@ -38,8 +38,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName(name: 'sf')]
-    #[Type(name: 'string')]
+    #[SerializedName('sf')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortField;
 
@@ -55,8 +55,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var bool
      */
     #[Accessor(getter: 'getCanExpand', setter: 'setCanExpand')]
-    #[SerializedName(name: 'exp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('exp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $canExpand;
 
@@ -71,8 +71,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -87,8 +87,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var int
      */
     #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
-    #[SerializedName(name: 'i4uid')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4uid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapUid;
 
@@ -103,8 +103,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -119,8 +119,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -135,8 +135,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -151,8 +151,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -167,8 +167,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName(name: 'md')]
-    #[Type(name: 'int')]
+    #[SerializedName('md')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeDate;
 
@@ -183,8 +183,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequenceId', setter: 'setModifiedSequenceId')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequenceId;
 
@@ -199,8 +199,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -215,8 +215,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var int
      */
     #[Accessor(getter: 'getRevisionId', setter: 'setRevisionId')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revisionId;
 
@@ -232,8 +232,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
-    #[SerializedName(name: 'fileAsStr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fileAsStr')]
+    #[Type('string')]
     #[XmlAttribute]
     private $fileAs;
 
@@ -248,8 +248,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName(name: 'email')]
-    #[Type(name: 'string')]
+    #[SerializedName('email')]
+    #[Type('string')]
     #[XmlAttribute]
     private $email;
 
@@ -264,8 +264,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getEmail2', setter: 'setEmail2')]
-    #[SerializedName(name: 'email2')]
-    #[Type(name: 'string')]
+    #[SerializedName('email2')]
+    #[Type('string')]
     #[XmlAttribute]
     private $email2;
 
@@ -280,8 +280,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getEmail3', setter: 'setEmail3')]
-    #[SerializedName(name: 'email3')]
-    #[Type(name: 'string')]
+    #[SerializedName('email3')]
+    #[Type('string')]
     #[XmlAttribute]
     private $email3;
 
@@ -296,8 +296,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $type;
 
@@ -312,8 +312,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getDlist', setter: 'setDlist')]
-    #[SerializedName(name: 'dlist')]
-    #[Type(name: 'string')]
+    #[SerializedName('dlist')]
+    #[Type('string')]
     #[XmlAttribute]
     private $dlist;
 
@@ -328,8 +328,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: 'getReference', setter: 'setReference')]
-    #[SerializedName(name: 'ref')]
-    #[Type(name: 'string')]
+    #[SerializedName('ref')]
+    #[Type('string')]
     #[XmlAttribute]
     private $reference;
 
@@ -345,8 +345,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var bool
      */
     #[Accessor(getter: 'getTooManyMembers', setter: 'setTooManyMembers')]
-    #[SerializedName(name: 'tooManyMembers')]
-    #[Type(name: 'bool')]
+    #[SerializedName('tooManyMembers')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $tooManyMembers;
 
@@ -360,7 +360,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var array
      */
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
@@ -374,7 +374,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var array
      */
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
-    #[Type(name: 'array<Zimbra\Common\Struct\ContactAttr>')]
+    #[Type('array<Zimbra\Common\Struct\ContactAttr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attrs = [];
 
@@ -388,7 +388,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var array
      */
     #[Accessor(getter: "getContactGroupMembers", setter: "setContactGroupMembers")]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ContactGroupMember>')]
+    #[Type('array<Zimbra\Mail\Struct\ContactGroupMember>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
 
@@ -403,8 +403,8 @@ class ContactInfo implements ContactInterface, SearchHit
      * @var string
      */
     #[Accessor(getter: "getMemberOf", setter: "setMemberOf")]
-    #[SerializedName(name: 'memberOf')]
-    #[Type(name: 'string')]
+    #[SerializedName('memberOf')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $memberOf;
 

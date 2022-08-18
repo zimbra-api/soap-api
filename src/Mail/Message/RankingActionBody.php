@@ -33,8 +33,8 @@ class RankingActionBody extends SoapBody
      * @var RankingActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RankingActionRequest')]
-    #[Type(name: RankingActionRequest::class)]
+    #[SerializedName('RankingActionRequest')]
+    #[Type(RankingActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class RankingActionBody extends SoapBody
      * @var RankingActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RankingActionResponse')]
-    #[Type(name: RankingActionResponse::class)]
+    #[SerializedName('RankingActionResponse')]
+    #[Type(RankingActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

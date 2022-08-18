@@ -34,8 +34,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getOwnerId', setter: 'setOwnerId')]
-    #[SerializedName(name: 'ownerId')]
-    #[Type(name: 'string')]
+    #[SerializedName('ownerId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerId;
 
@@ -50,8 +50,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
-    #[SerializedName(name: 'ownerEmail')]
-    #[Type(name: 'string')]
+    #[SerializedName('ownerEmail')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerEmail;
 
@@ -66,8 +66,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getOwnerDisplayName', setter: 'setOwnerDisplayName')]
-    #[SerializedName(name: 'ownerName')]
-    #[Type(name: 'string')]
+    #[SerializedName('ownerName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerDisplayName;
 
@@ -82,8 +82,8 @@ class ShareInfo
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'folderId')]
-    #[Type(name: 'int')]
+    #[SerializedName('folderId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $folderId;
 
@@ -98,8 +98,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName(name: 'folderUuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('folderUuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderUuid;
 
@@ -114,8 +114,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getFolderPath', setter: 'setFolderPath')]
-    #[SerializedName(name: 'folderPath')]
-    #[Type(name: 'string')]
+    #[SerializedName('folderPath')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderPath;
 
@@ -130,8 +130,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName(name: 'view')]
-    #[Type(name: 'string')]
+    #[SerializedName('view')]
+    #[Type('string')]
     #[XmlAttribute]
     private $defaultView;
 
@@ -146,8 +146,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName(name: 'rights')]
-    #[Type(name: 'string')]
+    #[SerializedName('rights')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rights;
 
@@ -161,8 +161,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName(name: 'granteeType')]
-    #[Type(name: 'string')]
+    #[SerializedName('granteeType')]
+    #[Type('string')]
     #[XmlAttribute]
     private $granteeType;
 
@@ -177,8 +177,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
-    #[SerializedName(name: 'granteeId')]
-    #[Type(name: 'string')]
+    #[SerializedName('granteeId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $granteeId;
 
@@ -193,8 +193,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getGranteeName', setter: 'setGranteeName')]
-    #[SerializedName(name: 'granteeName')]
-    #[Type(name: 'string')]
+    #[SerializedName('granteeName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $granteeName;
 
@@ -209,8 +209,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getGranteeDisplayName', setter: 'setGranteeDisplayName')]
-    #[SerializedName(name: 'granteeDisplayName')]
-    #[Type(name: 'string')]
+    #[SerializedName('granteeDisplayName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $granteeDisplayName;
 
@@ -226,8 +226,8 @@ class ShareInfo
      * @var string
      */
     #[Accessor(getter: 'getMountpointId', setter: 'setMountpointId')]
-    #[SerializedName(name: 'mid')]
-    #[Type(name: 'string')]
+    #[SerializedName('mid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $mountpointId;
 

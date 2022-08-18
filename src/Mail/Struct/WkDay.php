@@ -36,8 +36,8 @@ class WkDay implements WkDayInterface
      * @var WeekDay
      */
     #[Accessor(getter: 'getDay', setter: 'setDay')]
-    #[SerializedName(name: 'day')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\WeekDay>')]
+    #[SerializedName('day')]
+    #[Type('Enum<Zimbra\Common\Enum\WeekDay>')]
     #[XmlAttribute]
     private $day;
 
@@ -52,8 +52,8 @@ class WkDay implements WkDayInterface
      * @var int
      */
     #[Accessor(getter: 'getOrdWk', setter: 'setOrdWk')]
-    #[SerializedName(name: 'ordwk')]
-    #[Type(name: 'int')]
+    #[SerializedName('ordwk')]
+    #[Type('int')]
     #[XmlAttribute]
     private $ordWk;
 

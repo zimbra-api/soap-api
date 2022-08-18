@@ -33,8 +33,8 @@ class AutoCompleteBody extends SoapBody
      * @var AutoCompleteRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AutoCompleteRequest')]
-    #[Type(name: AutoCompleteRequest::class)]
+    #[SerializedName('AutoCompleteRequest')]
+    #[Type(AutoCompleteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class AutoCompleteBody extends SoapBody
      * @var AutoCompleteResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AutoCompleteResponse')]
-    #[Type(name: AutoCompleteResponse::class)]
+    #[SerializedName('AutoCompleteResponse')]
+    #[Type(AutoCompleteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

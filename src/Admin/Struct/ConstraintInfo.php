@@ -34,8 +34,8 @@ class ConstraintInfo
      * @var string
      */
     #[Accessor(getter: 'getMin', setter: 'setMin')]
-    #[SerializedName(name: 'min')]
-    #[Type(name: 'string')]
+    #[SerializedName('min')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $min;
 
@@ -50,8 +50,8 @@ class ConstraintInfo
      * @var string
      */
     #[Accessor(getter: 'getMax', setter: 'setMax')]
-    #[SerializedName(name: 'max')]
-    #[Type(name: 'string')]
+    #[SerializedName('max')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $max;
 
@@ -67,8 +67,8 @@ class ConstraintInfo
      * @var array
      */
     #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName(name: 'values')]
-    #[Type(name: 'array<string>')]
+    #[SerializedName('values')]
+    #[Type('array<string>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'v', namespace: 'urn:zimbraAdmin')]
     private $values = [];

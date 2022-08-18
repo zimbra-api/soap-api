@@ -37,8 +37,8 @@ class GetMailQueueInfoRequest extends SoapRequest
      * @var NamedElement
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: NamedElement::class)]
+    #[SerializedName('server')]
+    #[Type(NamedElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 

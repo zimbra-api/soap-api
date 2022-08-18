@@ -34,8 +34,8 @@ class MimePartAttachSpec extends AttachSpec
      * @var string
      */
     #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName(name: 'mid')]
-    #[Type(name: 'string')]
+    #[SerializedName('mid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $messageId;
 
@@ -50,8 +50,8 @@ class MimePartAttachSpec extends AttachSpec
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $part;
 

@@ -35,8 +35,8 @@ class DiscoverRightsTarget
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private $type;
 
@@ -51,8 +51,8 @@ class DiscoverRightsTarget
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -67,8 +67,8 @@ class DiscoverRightsTarget
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -83,8 +83,8 @@ class DiscoverRightsTarget
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 
@@ -98,7 +98,7 @@ class DiscoverRightsTarget
      * @var array
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DiscoverRightsEmail>')]
+    #[Type('array<Zimbra\Account\Struct\DiscoverRightsEmail>')]
     #[XmlList(inline: true, entry: 'email', namespace: 'urn:zimbraAccount')]
     private $emails = [];
 

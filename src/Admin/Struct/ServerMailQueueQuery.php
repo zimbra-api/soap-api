@@ -34,8 +34,8 @@ class ServerMailQueueQuery
      * @var MailQueueQuery
      */
     #[Accessor(getter: 'getQueue', setter: 'setQueue')]
-    #[SerializedName(name: 'queue')]
-    #[Type(name: MailQueueQuery::class)]
+    #[SerializedName('queue')]
+    #[Type(MailQueueQuery::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $queue;
 
@@ -50,8 +50,8 @@ class ServerMailQueueQuery
      * @var string
      */
     #[Accessor(getter: 'getServerName', setter: 'setServerName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $serverName;
 

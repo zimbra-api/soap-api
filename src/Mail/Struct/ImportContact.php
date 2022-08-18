@@ -34,8 +34,8 @@ class ImportContact
      * @var string
      */
     #[Accessor(getter: 'getListOfCreatedIds', setter: 'setListOfCreatedIds')]
-    #[SerializedName(name: 'ids')]
-    #[Type(name: 'string')]
+    #[SerializedName('ids')]
+    #[Type('string')]
     #[XmlAttribute]
     private $listOfCreatedIds;
 
@@ -50,8 +50,8 @@ class ImportContact
      * @var int
      */
     #[Accessor(getter: 'getNumImported', setter: 'setNumImported')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'int')]
+    #[SerializedName('n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numImported;
 

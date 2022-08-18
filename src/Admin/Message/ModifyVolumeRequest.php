@@ -37,8 +37,8 @@ class ModifyVolumeRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -53,8 +53,8 @@ class ModifyVolumeRequest extends SoapRequest
      * @var VolumeInfo
      */
     #[Accessor(getter: 'getVolume', setter: 'setVolume')]
-    #[SerializedName(name: 'volume')]
-    #[Type(name: VolumeInfo::class)]
+    #[SerializedName('volume')]
+    #[Type(VolumeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $volume;
 

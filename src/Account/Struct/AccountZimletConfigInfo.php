@@ -35,8 +35,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -51,8 +51,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'string')]
+    #[SerializedName('version')]
+    #[Type('string')]
     #[XmlAttribute]
     private $version;
 
@@ -67,8 +67,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName(name: 'description')]
-    #[Type(name: 'string')]
+    #[SerializedName('description')]
+    #[Type('string')]
     #[XmlAttribute]
     private $description;
 
@@ -83,8 +83,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName(name: 'extension')]
-    #[Type(name: 'string')]
+    #[SerializedName('extension')]
+    #[Type('string')]
     #[XmlAttribute]
     private $extension;
 
@@ -99,8 +99,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: 'string')]
+    #[SerializedName('target')]
+    #[Type('string')]
     #[XmlAttribute]
     private $target;
 
@@ -115,8 +115,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getLabel', setter: 'setLabel')]
-    #[SerializedName(name: 'label')]
-    #[Type(name: 'string')]
+    #[SerializedName('label')]
+    #[Type('string')]
     #[XmlAttribute]
     private $label;
 
@@ -131,8 +131,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var ZimletGlobalConfigInfo
      */
     #[Accessor(getter: 'getGlobal', setter: 'setGlobal')]
-    #[SerializedName(name: 'global')]
-    #[Type(name: AccountZimletGlobalConfigInfo::class)]
+    #[SerializedName('global')]
+    #[Type(AccountZimletGlobalConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $global;
 
@@ -147,8 +147,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @var ZimletHostConfigInfo
      */
     #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName(name: 'host')]
-    #[Type(name: AccountZimletHostConfigInfo::class)]
+    #[SerializedName('host')]
+    #[Type(AccountZimletHostConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $host;
 

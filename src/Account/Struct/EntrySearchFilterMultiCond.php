@@ -37,8 +37,8 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @var bool
      */
     #[Accessor(getter: 'isNot', setter: 'setNot')]
-    #[SerializedName(name: 'not')]
-    #[Type(name: 'bool')]
+    #[SerializedName('not')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $not;
 
@@ -53,8 +53,8 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @var bool
      */
     #[Accessor(getter: 'isOr', setter: 'setOr')]
-    #[SerializedName(name: 'or')]
-    #[Type(name: 'bool')]
+    #[SerializedName('or')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $or;
 
@@ -68,7 +68,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @var array
      */
     #[Accessor(getter: 'getCompoundConditions', setter: 'setCompoundConditions')]
-    #[Type(name: 'array<Zimbra\Account\Struct\EntrySearchFilterMultiCond>')]
+    #[Type('array<Zimbra\Account\Struct\EntrySearchFilterMultiCond>')]
     #[XmlList(inline: true, entry: 'conds', namespace: 'urn:zimbraAccount')]
     private $compoundConditions = [];
 
@@ -82,7 +82,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @var array
      */
     #[Accessor(getter: 'getSingleConditions', setter: 'setSingleConditions')]
-    #[Type(name: 'array<Zimbra\Account\Struct\EntrySearchFilterSingleCond>')]
+    #[Type('array<Zimbra\Account\Struct\EntrySearchFilterSingleCond>')]
     #[XmlList(inline: true, entry: 'cond', namespace: 'urn:zimbraAccount')]
     private $singleConditions = [];
 

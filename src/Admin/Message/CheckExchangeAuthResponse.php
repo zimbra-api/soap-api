@@ -35,8 +35,8 @@ class CheckExchangeAuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName(name: 'code')]
-    #[Type(name: 'string')]
+    #[SerializedName('code')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $code;
 
@@ -51,8 +51,8 @@ class CheckExchangeAuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName(name: 'message')]
-    #[Type(name: 'string')]
+    #[SerializedName('message')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $message;
 

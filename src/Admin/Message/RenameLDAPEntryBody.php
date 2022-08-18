@@ -33,8 +33,8 @@ class RenameLDAPEntryBody extends SoapBody
      * @var RenameLDAPEntryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RenameLDAPEntryRequest')]
-    #[Type(name: RenameLDAPEntryRequest::class)]
+    #[SerializedName('RenameLDAPEntryRequest')]
+    #[Type(RenameLDAPEntryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class RenameLDAPEntryBody extends SoapBody
      * @var RenameLDAPEntryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RenameLDAPEntryResponse')]
-    #[Type(name: RenameLDAPEntryResponse::class)]
+    #[SerializedName('RenameLDAPEntryResponse')]
+    #[Type(RenameLDAPEntryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

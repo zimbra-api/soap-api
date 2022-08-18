@@ -36,8 +36,8 @@ class ModifySearchFolderSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,8 +52,8 @@ class ModifySearchFolderSpec
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName(name: 'query')]
-    #[Type(name: 'string')]
+    #[SerializedName('query')]
+    #[Type('string')]
     #[XmlAttribute]
     private $query;
 
@@ -68,8 +68,8 @@ class ModifySearchFolderSpec
      * @var string
      */
     #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $searchTypes;
 
@@ -84,8 +84,8 @@ class ModifySearchFolderSpec
      * @var SearchSortBy
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[SerializedName('sortBy')]
+    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
     private $sortBy;
 

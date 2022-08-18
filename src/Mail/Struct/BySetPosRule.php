@@ -37,8 +37,8 @@ class BySetPosRule implements BySetPosRuleInterface
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName(name: 'poslist')]
-    #[Type(name: 'string')]
+    #[SerializedName('poslist')]
+    #[Type('string')]
     #[XmlAttribute]
     private $list;
 

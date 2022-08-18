@@ -36,8 +36,8 @@ class ActionGrantSelector
      * @var string
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName(name: 'perm')]
-    #[Type(name: 'string')]
+    #[SerializedName('perm')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rights;
 
@@ -52,8 +52,8 @@ class ActionGrantSelector
      * @var GranteeType
      */
     #[Accessor(getter: 'getGrantType', setter: 'setGrantType')]
-    #[SerializedName(name: 'gt')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[SerializedName('gt')]
+    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
     private $grantType;
 
@@ -68,8 +68,8 @@ class ActionGrantSelector
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName(name: 'zid')]
-    #[Type(name: 'string')]
+    #[SerializedName('zid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $zimbraId;
 
@@ -84,8 +84,8 @@ class ActionGrantSelector
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 
@@ -100,8 +100,8 @@ class ActionGrantSelector
      * @var string
      */
     #[Accessor(getter: 'getArgs', setter: 'setArgs')]
-    #[SerializedName(name: 'args')]
-    #[Type(name: 'string')]
+    #[SerializedName('args')]
+    #[Type('string')]
     #[XmlAttribute]
     private $args;
 
@@ -116,8 +116,8 @@ class ActionGrantSelector
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'pw')]
-    #[Type(name: 'string')]
+    #[SerializedName('pw')]
+    #[Type('string')]
     #[XmlAttribute]
     private $password;
 
@@ -132,8 +132,8 @@ class ActionGrantSelector
      * @var string
      */
     #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName(name: 'key')]
-    #[Type(name: 'string')]
+    #[SerializedName('key')]
+    #[Type('string')]
     #[XmlAttribute]
     private $accessKey;
 

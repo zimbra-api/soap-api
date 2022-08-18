@@ -35,8 +35,8 @@ class WaitSetInfo
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -51,8 +51,8 @@ class WaitSetInfo
      * @var string
      */
     #[Accessor(getter: 'getOwner', setter: 'setOwner')]
-    #[SerializedName(name: 'owner')]
-    #[Type(name: 'string')]
+    #[SerializedName('owner')]
+    #[Type('string')]
     #[XmlAttribute]
     private $owner;
 
@@ -68,8 +68,8 @@ class WaitSetInfo
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName(name: 'defTypes')]
-    #[Type(name: 'string')]
+    #[SerializedName('defTypes')]
+    #[Type('string')]
     #[XmlAttribute]
     private $defaultInterests;
 
@@ -84,8 +84,8 @@ class WaitSetInfo
      * @var int
      */
     #[Accessor(getter: 'getLastAccessDate', setter: 'setLastAccessDate')]
-    #[SerializedName(name: 'ld')]
-    #[Type(name: 'int')]
+    #[SerializedName('ld')]
+    #[Type('int')]
     #[XmlAttribute]
     private $lastAccessDate;
 
@@ -101,8 +101,8 @@ class WaitSetInfo
      * @var array
      */
     #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[SerializedName(name: 'errors')]
-    #[Type(name: 'array<Zimbra\Common\Struct\IdAndType>')]
+    #[SerializedName('errors')]
+    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'error', namespace: 'urn:zimbraAdmin')]
     private $errors = [];
@@ -118,8 +118,8 @@ class WaitSetInfo
      * @var AccountsAttrib
      */
     #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
-    #[SerializedName(name: 'ready')]
-    #[Type(name: AccountsAttrib::class)]
+    #[SerializedName('ready')]
+    #[Type(AccountsAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $signalledAccounts;
 
@@ -134,8 +134,8 @@ class WaitSetInfo
      * @var string
      */
     #[Accessor(getter: 'getCbSeqNo', setter: 'setCbSeqNo')]
-    #[SerializedName(name: 'cbSeqNo')]
-    #[Type(name: 'string')]
+    #[SerializedName('cbSeqNo')]
+    #[Type('string')]
     #[XmlAttribute]
     private $cbSeqNo;
 
@@ -150,8 +150,8 @@ class WaitSetInfo
      * @var string
      */
     #[Accessor(getter: 'getCurrentSeqNo', setter: 'setCurrentSeqNo')]
-    #[SerializedName(name: 'currentSeqNo')]
-    #[Type(name: 'string')]
+    #[SerializedName('currentSeqNo')]
+    #[Type('string')]
     #[XmlAttribute]
     private $currentSeqNo;
 
@@ -166,8 +166,8 @@ class WaitSetInfo
      * @var string
      */
     #[Accessor(getter: 'getNextSeqNo', setter: 'setNextSeqNo')]
-    #[SerializedName(name: 'nextSeqNo')]
-    #[Type(name: 'string')]
+    #[SerializedName('nextSeqNo')]
+    #[Type('string')]
     #[XmlAttribute]
     private $nextSeqNo;
 
@@ -183,8 +183,8 @@ class WaitSetInfo
      * @var array
      */
     #[Accessor(getter: 'getBufferedCommits', setter: 'setBufferedCommits')]
-    #[SerializedName(name: 'buffered')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\BufferedCommitInfo>')]
+    #[SerializedName('buffered')]
+    #[Type('array<Zimbra\Admin\Struct\BufferedCommitInfo>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'commit', namespace: 'urn:zimbraAdmin')]
     private $bufferedCommits = [];
@@ -199,7 +199,7 @@ class WaitSetInfo
      * @var array
      */
     #[Accessor(getter: 'getSessions', setter: 'setSessions')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\SessionForWaitSet>')]
+    #[Type('array<Zimbra\Admin\Struct\SessionForWaitSet>')]
     #[XmlList(inline: true, entry: 'session', namespace: 'urn:zimbraAdmin')]
     private $sessions = [];
 

@@ -40,8 +40,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getIncludeTagDeleted', setter: 'setIncludeTagDeleted')]
-    #[SerializedName(name: 'includeTagDeleted')]
-    #[Type(name: 'bool')]
+    #[SerializedName('includeTagDeleted')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeTagDeleted;
 
@@ -56,8 +56,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getIncludeTagMuted', setter: 'setIncludeTagMuted')]
-    #[SerializedName(name: 'includeTagMuted')]
-    #[Type(name: 'bool')]
+    #[SerializedName('includeTagMuted')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeTagMuted;
 
@@ -73,8 +73,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: 'getAllowableTaskStatus', setter: 'setAllowableTaskStatus')]
-    #[SerializedName(name: 'allowableTaskStatus')]
-    #[Type(name: 'string')]
+    #[SerializedName('allowableTaskStatus')]
+    #[Type('string')]
     #[XmlAttribute]
     private $allowableTaskStatus;
 
@@ -89,8 +89,8 @@ trait MailSearchParams
      * @var int
      */
     #[Accessor(getter: 'getCalItemExpandStart', setter: 'setCalItemExpandStart')]
-    #[SerializedName(name: 'calExpandInstStart')]
-    #[Type(name: 'int')]
+    #[SerializedName('calExpandInstStart')]
+    #[Type('int')]
     #[XmlAttribute]
     private $calItemExpandStart;
 
@@ -105,8 +105,8 @@ trait MailSearchParams
      * @var int
      */
     #[Accessor(getter: 'getCalItemExpandEnd', setter: 'setCalItemExpandEnd')]
-    #[SerializedName(name: 'calExpandInstEnd')]
-    #[Type(name: 'int')]
+    #[SerializedName('calExpandInstEnd')]
+    #[Type('int')]
     #[XmlAttribute]
     private $calItemExpandEnd;
 
@@ -121,8 +121,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: "getQuery", setter: "setQuery")]
-    #[SerializedName(name: 'query')]
-    #[Type(name: 'string')]
+    #[SerializedName('query')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $query;
 
@@ -137,8 +137,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getInDumpster', setter: 'setInDumpster')]
-    #[SerializedName(name: 'inDumpster')]
-    #[Type(name: 'bool')]
+    #[SerializedName('inDumpster')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $inDumpster;
 
@@ -155,8 +155,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $searchTypes;
 
@@ -171,8 +171,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: 'getGroupBy', setter: 'setGroupBy')]
-    #[SerializedName(name: 'groupBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('groupBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $groupBy;
 
@@ -192,8 +192,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getQuick', setter: 'setQuick')]
-    #[SerializedName(name: 'quick')]
-    #[Type(name: 'bool')]
+    #[SerializedName('quick')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $quick;
 
@@ -211,8 +211,8 @@ trait MailSearchParams
      * @var SearchSortBy
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[SerializedName('sortBy')]
+    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -237,8 +237,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: 'getFetch', setter: 'setFetch')]
-    #[SerializedName(name: 'fetch')]
-    #[Type(name: 'string')]
+    #[SerializedName('fetch')]
+    #[Type('string')]
     #[XmlAttribute]
     private $fetch;
 
@@ -253,8 +253,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getMarkRead', setter: 'setMarkRead')]
-    #[SerializedName(name: 'read')]
-    #[Type(name: 'bool')]
+    #[SerializedName('read')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $markRead;
 
@@ -270,8 +270,8 @@ trait MailSearchParams
      * @var int
      */
     #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
-    #[SerializedName(name: 'max')]
-    #[Type(name: 'int')]
+    #[SerializedName('max')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxInlinedLength;
 
@@ -286,8 +286,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName(name: 'html')]
-    #[Type(name: 'bool')]
+    #[SerializedName('html')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantHtml;
 
@@ -302,8 +302,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName(name: 'needExp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('needExp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $needCanExpand;
 
@@ -318,8 +318,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getNeuterImages', setter: 'setNeuterImages')]
-    #[SerializedName(name: 'neuter')]
-    #[Type(name: 'bool')]
+    #[SerializedName('neuter')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $neuterImages;
 
@@ -343,8 +343,8 @@ trait MailSearchParams
      * @var WantRecipsSetting
      */
     #[Accessor(getter: 'getWantRecipients', setter: 'setWantRecipients')]
-    #[SerializedName(name: 'recip')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\WantRecipsSetting>')]
+    #[SerializedName('recip')]
+    #[Type('Enum<Zimbra\Common\Enum\WantRecipsSetting>')]
     #[XmlAttribute]
     private $wantRecipients;
 
@@ -359,8 +359,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getPrefetch', setter: 'setPrefetch')]
-    #[SerializedName(name: 'prefetch')]
-    #[Type(name: 'bool')]
+    #[SerializedName('prefetch')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $prefetch;
 
@@ -377,8 +377,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: 'getResultMode', setter: 'setResultMode')]
-    #[SerializedName(name: 'resultMode')]
-    #[Type(name: 'string')]
+    #[SerializedName('resultMode')]
+    #[Type('string')]
     #[XmlAttribute]
     private $resultMode;
 
@@ -395,8 +395,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getFullConversation', setter: 'setFullConversation')]
-    #[SerializedName(name: 'fullConversation')]
-    #[Type(name: 'bool')]
+    #[SerializedName('fullConversation')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $fullConversation;
 
@@ -415,8 +415,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: 'getField', setter: 'setField')]
-    #[SerializedName(name: 'field')]
-    #[Type(name: 'string')]
+    #[SerializedName('field')]
+    #[Type('string')]
     #[XmlAttribute]
     private $field;
 
@@ -431,8 +431,8 @@ trait MailSearchParams
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -448,8 +448,8 @@ trait MailSearchParams
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -463,7 +463,7 @@ trait MailSearchParams
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]
+    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
     #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
     private $headers = [];
 
@@ -478,8 +478,8 @@ trait MailSearchParams
      * @var CalTZInfoInterface
      */
     #[Accessor(getter: "getCalTz", setter: "setCalTz")]
-    #[SerializedName(name: 'tz')]
-    #[Type(name: CalTZInfo::class)]
+    #[SerializedName('tz')]
+    #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $calTz;
 
@@ -500,8 +500,8 @@ trait MailSearchParams
      * @var string
      */
     #[Accessor(getter: "getLocale", setter: "setLocale")]
-    #[SerializedName(name: 'locale')]
-    #[Type(name: 'string')]
+    #[SerializedName('locale')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $locale;
 
@@ -515,8 +515,8 @@ trait MailSearchParams
      * @var CursorInfo
      */
     #[Accessor(getter: "getCursor", setter: "setCursor")]
-    #[SerializedName(name: 'cursor')]
-    #[Type(name: CursorInfo::class)]
+    #[SerializedName('cursor')]
+    #[Type(CursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $cursor;
 
@@ -531,8 +531,8 @@ trait MailSearchParams
      * @var MsgContent
      */
     #[Accessor(getter: 'getWantContent', setter: 'setWantContent')]
-    #[SerializedName(name: 'wantContent')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\MsgContent>')]
+    #[SerializedName('wantContent')]
+    #[Type('Enum<Zimbra\Common\Enum\MsgContent>')]
     #[XmlAttribute]
     private $wantContent;
 
@@ -548,8 +548,8 @@ trait MailSearchParams
      * @var bool
      */
     #[Accessor(getter: 'getIncludeMemberOf', setter: 'setIncludeMemberOf')]
-    #[SerializedName(name: 'memberOf')]
-    #[Type(name: 'bool')]
+    #[SerializedName('memberOf')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeMemberOf;
 

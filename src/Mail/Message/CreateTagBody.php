@@ -33,8 +33,8 @@ class CreateTagBody extends SoapBody
      * @var CreateTagRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateTagRequest')]
-    #[Type(name: CreateTagRequest::class)]
+    #[SerializedName('CreateTagRequest')]
+    #[Type(CreateTagRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class CreateTagBody extends SoapBody
      * @var CreateTagResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateTagResponse')]
-    #[Type(name: CreateTagResponse::class)]
+    #[SerializedName('CreateTagResponse')]
+    #[Type(CreateTagResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

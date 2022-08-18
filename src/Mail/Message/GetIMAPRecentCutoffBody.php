@@ -33,8 +33,8 @@ class GetIMAPRecentCutoffBody extends SoapBody
      * @var GetIMAPRecentCutoffRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetIMAPRecentCutoffRequest')]
-    #[Type(name: GetIMAPRecentCutoffRequest::class)]
+    #[SerializedName('GetIMAPRecentCutoffRequest')]
+    #[Type(GetIMAPRecentCutoffRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetIMAPRecentCutoffBody extends SoapBody
      * @var GetIMAPRecentCutoffResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetIMAPRecentCutoffResponse')]
-    #[Type(name: GetIMAPRecentCutoffResponse::class)]
+    #[SerializedName('GetIMAPRecentCutoffResponse')]
+    #[Type(GetIMAPRecentCutoffResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

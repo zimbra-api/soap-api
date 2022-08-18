@@ -33,8 +33,8 @@ class CheckBlobConsistencyBody extends SoapBody
      * @var CheckBlobConsistencyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckBlobConsistencyRequest')]
-    #[Type(name: CheckBlobConsistencyRequest::class)]
+    #[SerializedName('CheckBlobConsistencyRequest')]
+    #[Type(CheckBlobConsistencyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class CheckBlobConsistencyBody extends SoapBody
      * @var CheckBlobConsistencyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckBlobConsistencyResponse')]
-    #[Type(name: CheckBlobConsistencyResponse::class)]
+    #[SerializedName('CheckBlobConsistencyResponse')]
+    #[Type(CheckBlobConsistencyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

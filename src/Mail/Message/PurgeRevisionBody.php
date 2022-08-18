@@ -33,8 +33,8 @@ class PurgeRevisionBody extends SoapBody
      * @var PurgeRevisionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'PurgeRevisionRequest')]
-    #[Type(name: PurgeRevisionRequest::class)]
+    #[SerializedName('PurgeRevisionRequest')]
+    #[Type(PurgeRevisionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class PurgeRevisionBody extends SoapBody
      * @var PurgeRevisionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'PurgeRevisionResponse')]
-    #[Type(name: PurgeRevisionResponse::class)]
+    #[SerializedName('PurgeRevisionResponse')]
+    #[Type(PurgeRevisionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

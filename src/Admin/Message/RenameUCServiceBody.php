@@ -33,8 +33,8 @@ class RenameUCServiceBody extends SoapBody
      * @var RenameUCServiceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RenameUCServiceRequest')]
-    #[Type(name: RenameUCServiceRequest::class)]
+    #[SerializedName('RenameUCServiceRequest')]
+    #[Type(RenameUCServiceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class RenameUCServiceBody extends SoapBody
      * @var RenameUCServiceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RenameUCServiceResponse')]
-    #[Type(name: RenameUCServiceResponse::class)]
+    #[SerializedName('RenameUCServiceResponse')]
+    #[Type(RenameUCServiceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

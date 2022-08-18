@@ -33,8 +33,8 @@ class WaitSetBody extends SoapBody
      * @var WaitSetRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'WaitSetRequest')]
-    #[Type(name: WaitSetRequest::class)]
+    #[SerializedName('WaitSetRequest')]
+    #[Type(WaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class WaitSetBody extends SoapBody
      * @var WaitSetResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'WaitSetResponse')]
-    #[Type(name: WaitSetResponse::class)]
+    #[SerializedName('WaitSetResponse')]
+    #[Type(WaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

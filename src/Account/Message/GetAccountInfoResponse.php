@@ -36,8 +36,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $name;
 
@@ -54,7 +54,7 @@ class GetAccountInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Common\Struct\NamedValue>')]
+    #[Type('array<Zimbra\Common\Struct\NamedValue>')]
     #[XmlList(inline: true, entry: 'attr', namespace: 'urn:zimbraAccount')]
     private $attrs = [];
 
@@ -69,8 +69,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getSoapURL', setter: 'setSoapURL')]
-    #[SerializedName(name: 'soapURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('soapURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $soapURL;
 
@@ -85,8 +85,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getPublicURL', setter: 'setPublicURL')]
-    #[SerializedName(name: 'publicURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('publicURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $publicURL;
 
@@ -102,8 +102,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getChangePasswordURL', setter: 'setChangePasswordURL')]
-    #[SerializedName(name: 'changePasswordURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('changePasswordURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $changePasswordURL;
 
@@ -118,8 +118,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCommunityURL', setter: 'setCommunityURL')]
-    #[SerializedName(name: 'communityURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('communityURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $communityURL;
 
@@ -134,8 +134,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAdminURL', setter: 'setAdminURL')]
-    #[SerializedName(name: 'adminURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('adminURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $adminURL;
 
@@ -151,8 +151,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getBoshURL', setter: 'setBoshURL')]
-    #[SerializedName(name: 'boshURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('boshURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $boshURL;
 

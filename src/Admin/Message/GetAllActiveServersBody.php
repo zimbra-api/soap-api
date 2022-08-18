@@ -33,8 +33,8 @@ class GetAllActiveServersBody extends SoapBody
      * @var GetAllActiveServersRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllActiveServersRequest')]
-    #[Type(name: GetAllActiveServersRequest::class)]
+    #[SerializedName('GetAllActiveServersRequest')]
+    #[Type(GetAllActiveServersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAllActiveServersBody extends SoapBody
      * @var GetAllActiveServersResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllActiveServersResponse')]
-    #[Type(name: GetAllActiveServersResponse::class)]
+    #[SerializedName('GetAllActiveServersResponse')]
+    #[Type(GetAllActiveServersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

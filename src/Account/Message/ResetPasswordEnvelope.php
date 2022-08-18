@@ -37,8 +37,8 @@ class ResetPasswordEnvelope extends SoapEnvelope
      * @var ResetPasswordBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ResetPasswordBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ResetPasswordBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

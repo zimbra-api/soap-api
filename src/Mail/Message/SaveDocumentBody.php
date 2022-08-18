@@ -33,8 +33,8 @@ class SaveDocumentBody extends SoapBody
      * @var SaveDocumentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SaveDocumentRequest')]
-    #[Type(name: SaveDocumentRequest::class)]
+    #[SerializedName('SaveDocumentRequest')]
+    #[Type(SaveDocumentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class SaveDocumentBody extends SoapBody
      * @var SaveDocumentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SaveDocumentResponse')]
-    #[Type(name: SaveDocumentResponse::class)]
+    #[SerializedName('SaveDocumentResponse')]
+    #[Type(SaveDocumentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

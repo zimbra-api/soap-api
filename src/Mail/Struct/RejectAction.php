@@ -33,7 +33,7 @@ class RejectAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $content;
 

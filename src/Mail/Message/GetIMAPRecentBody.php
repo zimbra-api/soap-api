@@ -33,8 +33,8 @@ class GetIMAPRecentBody extends SoapBody
      * @var GetIMAPRecentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetIMAPRecentRequest')]
-    #[Type(name: GetIMAPRecentRequest::class)]
+    #[SerializedName('GetIMAPRecentRequest')]
+    #[Type(GetIMAPRecentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetIMAPRecentBody extends SoapBody
      * @var GetIMAPRecentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetIMAPRecentResponse')]
-    #[Type(name: GetIMAPRecentResponse::class)]
+    #[SerializedName('GetIMAPRecentResponse')]
+    #[Type(GetIMAPRecentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

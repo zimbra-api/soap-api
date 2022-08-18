@@ -31,8 +31,8 @@ trait AttributeSelectorTrait
      * @var string
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'string')]
+    #[SerializedName('attrs')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attrs;
 

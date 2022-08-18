@@ -53,8 +53,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var Frequency
      */
     #[Accessor(getter: 'getFrequency', setter: 'setFrequency')]
-    #[SerializedName(name: 'freq')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\Frequency>')]
+    #[SerializedName('freq')]
+    #[Type('Enum<Zimbra\Common\Enum\Frequency>')]
     #[XmlAttribute]
     private $frequency;
 
@@ -69,8 +69,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var DateTimeStringAttrInterface
      */
     #[Accessor(getter: "getUntil", setter: "setUntil")]
-    #[SerializedName(name: 'until')]
-    #[Type(name: DateTimeStringAttr::class)]
+    #[SerializedName('until')]
+    #[Type(DateTimeStringAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $until;
 
@@ -85,8 +85,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var NumAttrInterface
      */
     #[Accessor(getter: "getCount", setter: "setCount")]
-    #[SerializedName(name: 'count')]
-    #[Type(name: NumAttr::class)]
+    #[SerializedName('count')]
+    #[Type(NumAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $count;
 
@@ -101,8 +101,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var IntervalRuleInterface
      */
     #[Accessor(getter: "getInterval", setter: "setInterval")]
-    #[SerializedName(name: 'interval')]
-    #[Type(name: IntervalRule::class)]
+    #[SerializedName('interval')]
+    #[Type(IntervalRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $interval;
 
@@ -117,8 +117,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var BySecondRuleInterface
      */
     #[Accessor(getter: "getBySecond", setter: "setBySecond")]
-    #[SerializedName(name: 'bysecond')]
-    #[Type(name: BySecondRule::class)]
+    #[SerializedName('bysecond')]
+    #[Type(BySecondRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $bySecond;
 
@@ -133,8 +133,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByMinuteRuleInterface
      */
     #[Accessor(getter: "getByMinute", setter: "setByMinute")]
-    #[SerializedName(name: 'byminute')]
-    #[Type(name: ByMinuteRule::class)]
+    #[SerializedName('byminute')]
+    #[Type(ByMinuteRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byMinute;
 
@@ -149,8 +149,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByHourRuleInterface
      */
     #[Accessor(getter: "getByHour", setter: "setByHour")]
-    #[SerializedName(name: 'byhour')]
-    #[Type(name: ByHourRule::class)]
+    #[SerializedName('byhour')]
+    #[Type(ByHourRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byHour;
 
@@ -165,8 +165,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByDayRuleInterface
      */
     #[Accessor(getter: "getByDay", setter: "setByDay")]
-    #[SerializedName(name: 'byday')]
-    #[Type(name: ByDayRule::class)]
+    #[SerializedName('byday')]
+    #[Type(ByDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byDay;
 
@@ -181,8 +181,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByMonthDayRuleInterface
      */
     #[Accessor(getter: "getByMonthDay", setter: "setByMonthDay")]
-    #[SerializedName(name: 'bymonthday')]
-    #[Type(name: ByMonthDayRule::class)]
+    #[SerializedName('bymonthday')]
+    #[Type(ByMonthDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byMonthDay;
 
@@ -197,8 +197,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByYearDayRuleInterface
      */
     #[Accessor(getter: "getByYearDay", setter: "setByYearDay")]
-    #[SerializedName(name: 'byyearday')]
-    #[Type(name: ByYearDayRule::class)]
+    #[SerializedName('byyearday')]
+    #[Type(ByYearDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byYearDay;
 
@@ -213,8 +213,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByWeekNoRuleInterface
      */
     #[Accessor(getter: "getByWeekNo", setter: "setByWeekNo")]
-    #[SerializedName(name: 'byweekno')]
-    #[Type(name: ByWeekNoRule::class)]
+    #[SerializedName('byweekno')]
+    #[Type(ByWeekNoRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byWeekNo;
 
@@ -229,8 +229,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var ByMonthRuleInterface
      */
     #[Accessor(getter: "getByMonth", setter: "setByMonth")]
-    #[SerializedName(name: 'bymonth')]
-    #[Type(name: ByMonthRule::class)]
+    #[SerializedName('bymonth')]
+    #[Type(ByMonthRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $byMonth;
 
@@ -245,8 +245,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var BySetPosRuleInterface
      */
     #[Accessor(getter: "getBySetPos", setter: "setBySetPos")]
-    #[SerializedName(name: 'bysetpos')]
-    #[Type(name: BySetPosRule::class)]
+    #[SerializedName('bysetpos')]
+    #[Type(BySetPosRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $bySetPos;
 
@@ -261,8 +261,8 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var WkstRuleInterface
      */
     #[Accessor(getter: "getWeekStart", setter: "setWeekStart")]
-    #[SerializedName(name: 'wkst')]
-    #[Type(name: WkstRule::class)]
+    #[SerializedName('wkst')]
+    #[Type(WkstRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $weekStart;
 
@@ -276,7 +276,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @var array
      */
     #[Accessor(getter: 'getXNames', setter: 'setXNames')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\XNameRule>')]
+    #[Type('array<Zimbra\Mail\Struct\XNameRule>')]
     #[XmlList(inline: true, entry: 'rule-x-name', namespace: 'urn:zimbraMail')]
     private $xNames = [];
 

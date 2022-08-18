@@ -33,8 +33,8 @@ class GetVersionInfoBody extends SoapBody
      * @var GetVersionInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetVersionInfoRequest')]
-    #[Type(name: GetVersionInfoRequest::class)]
+    #[SerializedName('GetVersionInfoRequest')]
+    #[Type(GetVersionInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetVersionInfoBody extends SoapBody
      * @var GetVersionInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetVersionInfoResponse')]
-    #[Type(name: GetVersionInfoResponse::class)]
+    #[SerializedName('GetVersionInfoResponse')]
+    #[Type(GetVersionInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

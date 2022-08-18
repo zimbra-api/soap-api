@@ -37,8 +37,8 @@ class MigrateAccountEnvelope extends SoapEnvelope
      * @var MigrateAccountBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: MigrateAccountBody::class)]
+    #[SerializedName('Body')]
+    #[Type(MigrateAccountBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

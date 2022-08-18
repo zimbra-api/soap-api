@@ -33,8 +33,8 @@ class PushFreeBusyBody extends SoapBody
      * @var PushFreeBusyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'PushFreeBusyRequest')]
-    #[Type(name: PushFreeBusyRequest::class)]
+    #[SerializedName('PushFreeBusyRequest')]
+    #[Type(PushFreeBusyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class PushFreeBusyBody extends SoapBody
      * @var PushFreeBusyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'PushFreeBusyResponse')]
-    #[Type(name: PushFreeBusyResponse::class)]
+    #[SerializedName('PushFreeBusyResponse')]
+    #[Type(PushFreeBusyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

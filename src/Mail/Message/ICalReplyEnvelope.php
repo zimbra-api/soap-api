@@ -37,8 +37,8 @@ class ICalReplyEnvelope extends SoapEnvelope
      * @var ICalReplyBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ICalReplyBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ICalReplyBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

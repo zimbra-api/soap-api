@@ -37,8 +37,8 @@ class GetAllLocalesEnvelope extends SoapEnvelope
      * @var GetAllLocalesBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetAllLocalesBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetAllLocalesBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

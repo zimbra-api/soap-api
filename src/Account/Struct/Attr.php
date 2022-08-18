@@ -32,8 +32,8 @@ class Attr
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -45,7 +45,7 @@ class Attr
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -58,8 +58,8 @@ class Attr
      * @var bool
      */
     #[Accessor(getter: 'getPermDenied', setter: 'setPermDenied')]
-    #[SerializedName(name: 'pd')]
-    #[Type(name: 'bool')]
+    #[SerializedName('pd')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $permDenied;
 

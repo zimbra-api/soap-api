@@ -33,8 +33,8 @@ class ResetRecentMessageCountBody extends SoapBody
      * @var ResetRecentMessageCountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ResetRecentMessageCountRequest')]
-    #[Type(name: ResetRecentMessageCountRequest::class)]
+    #[SerializedName('ResetRecentMessageCountRequest')]
+    #[Type(ResetRecentMessageCountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ResetRecentMessageCountBody extends SoapBody
      * @var ResetRecentMessageCountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ResetRecentMessageCountResponse')]
-    #[Type(name: ResetRecentMessageCountResponse::class)]
+    #[SerializedName('ResetRecentMessageCountResponse')]
+    #[Type(ResetRecentMessageCountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

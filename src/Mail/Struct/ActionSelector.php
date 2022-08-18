@@ -36,8 +36,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ids;
 
@@ -73,8 +73,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'string')]
+    #[SerializedName('op')]
+    #[Type('string')]
     #[XmlAttribute]
     private $operation;
 
@@ -95,8 +95,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
-    #[SerializedName(name: 'tcon')]
-    #[Type(name: 'string')]
+    #[SerializedName('tcon')]
+    #[Type('string')]
     #[XmlAttribute]
     private $constraint;
 
@@ -111,8 +111,8 @@ class ActionSelector
      * @var int
      */
     #[Accessor(getter: 'getTag', setter: 'setTag')]
-    #[SerializedName(name: 'tag')]
-    #[Type(name: 'int')]
+    #[SerializedName('tag')]
+    #[Type('int')]
     #[XmlAttribute]
     private $tag;
 
@@ -127,8 +127,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -143,8 +143,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName(name: 'rgb')]
-    #[Type(name: 'string')]
+    #[SerializedName('rgb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rgb;
 
@@ -159,8 +159,8 @@ class ActionSelector
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName(name: 'color')]
-    #[Type(name: 'int')]
+    #[SerializedName('color')]
+    #[Type('int')]
     #[XmlAttribute]
     private $color;
 
@@ -175,8 +175,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -191,8 +191,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -207,8 +207,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -223,8 +223,8 @@ class ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -239,8 +239,8 @@ class ActionSelector
      * @var bool
      */
     #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
-    #[SerializedName(name: 'nei')]
-    #[Type(name: 'bool')]
+    #[SerializedName('nei')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $nonExistentIds;
 
@@ -255,8 +255,8 @@ class ActionSelector
      * @var bool
      */
     #[Accessor(getter: 'getNewlyCreatedIds', setter: 'setNewlyCreatedIds')]
-    #[SerializedName(name: 'nci')]
-    #[Type(name: 'bool')]
+    #[SerializedName('nci')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $newlyCreatedIds;
 

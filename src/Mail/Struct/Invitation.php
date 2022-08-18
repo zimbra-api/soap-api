@@ -34,8 +34,8 @@ class Invitation
      * @var string
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calItemType;
 
@@ -50,8 +50,8 @@ class Invitation
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName(name: 'seq')]
-    #[Type(name: 'int')]
+    #[SerializedName('seq')]
+    #[Type('int')]
     #[XmlAttribute]
     private $sequence;
 
@@ -66,8 +66,8 @@ class Invitation
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -82,8 +82,8 @@ class Invitation
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'compNum')]
-    #[Type(name: 'int')]
+    #[SerializedName('compNum')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 
@@ -98,8 +98,8 @@ class Invitation
      * @var string
      */
     #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
-    #[SerializedName(name: 'recurId')]
-    #[Type(name: 'string')]
+    #[SerializedName('recurId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurrenceId;
 
@@ -113,7 +113,7 @@ class Invitation
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalTZInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
     #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
     private $timezones = [];
 
@@ -128,8 +128,8 @@ class Invitation
      * @var InviteComponent
      */
     #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
-    #[SerializedName(name: 'comp')]
-    #[Type(name: InviteComponent::class)]
+    #[SerializedName('comp')]
+    #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $inviteComponent;
 
@@ -143,7 +143,7 @@ class Invitation
      * @var array
      */
     #[Accessor(getter: 'getPartInfos', setter: 'setPartInfos')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\PartInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\PartInfo>')]
     #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $partInfos = [];
 
@@ -157,7 +157,7 @@ class Invitation
      * @var array
      */
     #[Accessor(getter: 'getShareNotifications', setter: 'setShareNotifications')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ShareNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\ShareNotification>')]
     #[XmlList(inline: true, entry: 'shr', namespace: 'urn:zimbraMail')]
     private $shareNotifications = [];
 
@@ -171,7 +171,7 @@ class Invitation
      * @var array
      */
     #[Accessor(getter: 'getDlSubs', setter: 'setDlSubs')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
     #[XmlList(inline: true, entry: 'dlSubs', namespace: 'urn:zimbraMail')]
     private $dlSubs = [];
 

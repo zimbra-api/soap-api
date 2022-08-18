@@ -33,7 +33,7 @@ class TestResultInfo
      * @var array
      */
     #[Accessor(getter: 'getCompletedTests', setter: 'setCompletedTests')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\CompletedTestInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\CompletedTestInfo>')]
     #[XmlList(inline: true, entry: 'completed', namespace: 'urn:zimbraAdmin')]
     private $completedTests = [];
 
@@ -47,7 +47,7 @@ class TestResultInfo
      * @var array
      */
     #[Accessor(getter: 'getFailedTests', setter: 'setFailedTests')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\FailedTestInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\FailedTestInfo>')]
     #[XmlList(inline: true, entry: 'failure', namespace: 'urn:zimbraAdmin')]
     private $failedTests = [];
 

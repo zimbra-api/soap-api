@@ -34,8 +34,8 @@ class WildcardExpansionQueryInfo
      * @var string
      */
     #[Accessor(getter: 'getStr', setter: 'setStr')]
-    #[SerializedName(name: 'str')]
-    #[Type(name: 'string')]
+    #[SerializedName('str')]
+    #[Type('string')]
     #[XmlAttribute]
     private $str;
 
@@ -52,8 +52,8 @@ class WildcardExpansionQueryInfo
      * @var bool
      */
     #[Accessor(getter: 'getExpanded', setter: 'setExpanded')]
-    #[SerializedName(name: 'expanded')]
-    #[Type(name: 'bool')]
+    #[SerializedName('expanded')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $expanded;
 
@@ -68,8 +68,8 @@ class WildcardExpansionQueryInfo
      * @var int
      */
     #[Accessor(getter: 'getNumExpanded', setter: 'setNumExpanded')]
-    #[SerializedName(name: 'numExpanded')]
-    #[Type(name: 'int')]
+    #[SerializedName('numExpanded')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numExpanded;
 

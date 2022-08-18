@@ -37,8 +37,8 @@ class FixCalendarPriorityEnvelope extends SoapEnvelope
      * @var FixCalendarPriorityBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: FixCalendarPriorityBody::class)]
+    #[SerializedName('Body')]
+    #[Type(FixCalendarPriorityBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

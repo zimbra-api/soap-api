@@ -34,8 +34,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]
-    #[SerializedName(name: 'parentId')]
-    #[Type(name: 'string')]
+    #[SerializedName('parentId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $parentId;
 
@@ -50,8 +50,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -66,8 +66,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName(name: 'uuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uuid;
 
@@ -82,8 +82,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getCreatorEmail', setter: 'setCreatorEmail')]
-    #[SerializedName(name: 'email')]
-    #[Type(name: 'string')]
+    #[SerializedName('email')]
+    #[Type('string')]
     #[XmlAttribute]
     private $creatorEmail;
 
@@ -98,8 +98,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -114,8 +114,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -130,8 +130,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -146,8 +146,8 @@ class CommentInfo
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName(name: 'color')]
-    #[Type(name: 'int')]
+    #[SerializedName('color')]
+    #[Type('int')]
     #[XmlAttribute]
     private $color;
 
@@ -162,8 +162,8 @@ class CommentInfo
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName(name: 'rgb')]
-    #[Type(name: 'string')]
+    #[SerializedName('rgb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rgb;
 
@@ -178,8 +178,8 @@ class CommentInfo
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -193,7 +193,7 @@ class CommentInfo
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 

@@ -33,8 +33,8 @@ class DeleteLDAPEntryBody extends SoapBody
      * @var DeleteLDAPEntryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteLDAPEntryRequest')]
-    #[Type(name: DeleteLDAPEntryRequest::class)]
+    #[SerializedName('DeleteLDAPEntryRequest')]
+    #[Type(DeleteLDAPEntryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class DeleteLDAPEntryBody extends SoapBody
      * @var DeleteLDAPEntryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteLDAPEntryResponse')]
-    #[Type(name: DeleteLDAPEntryResponse::class)]
+    #[SerializedName('DeleteLDAPEntryResponse')]
+    #[Type(DeleteLDAPEntryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

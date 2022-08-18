@@ -33,8 +33,8 @@ class ApplyFilterRulesBody extends SoapBody
      * @var ApplyFilterRulesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ApplyFilterRulesRequest')]
-    #[Type(name: ApplyFilterRulesRequest::class)]
+    #[SerializedName('ApplyFilterRulesRequest')]
+    #[Type(ApplyFilterRulesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ApplyFilterRulesBody extends SoapBody
      * @var ApplyFilterRulesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ApplyFilterRulesResponse')]
-    #[Type(name: ApplyFilterRulesResponse::class)]
+    #[SerializedName('ApplyFilterRulesResponse')]
+    #[Type(ApplyFilterRulesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

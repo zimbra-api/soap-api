@@ -33,8 +33,8 @@ class SearchConvBody extends SoapBody
      * @var SearchConvRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SearchConvRequest')]
-    #[Type(name: SearchConvRequest::class)]
+    #[SerializedName('SearchConvRequest')]
+    #[Type(SearchConvRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class SearchConvBody extends SoapBody
      * @var SearchConvResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SearchConvResponse')]
-    #[Type(name: SearchConvResponse::class)]
+    #[SerializedName('SearchConvResponse')]
+    #[Type(SearchConvResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

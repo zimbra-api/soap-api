@@ -37,8 +37,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getMethod', setter: 'setMethod')]
-    #[SerializedName(name: 'method')]
-    #[Type(name: 'string')]
+    #[SerializedName('method')]
+    #[Type('string')]
     #[XmlAttribute]
     private $method;
 
@@ -53,8 +53,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'compNum')]
-    #[Type(name: 'int')]
+    #[SerializedName('compNum')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 
@@ -69,8 +69,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getRsvp', setter: 'setRsvp')]
-    #[SerializedName(name: 'rsvp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('rsvp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $rsvp;
 
@@ -85,8 +85,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName(name: 'priority')]
-    #[Type(name: 'string')]
+    #[SerializedName('priority')]
+    #[Type('string')]
     #[XmlAttribute]
     private $priority;
 
@@ -101,8 +101,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -117,8 +117,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName(name: 'loc')]
-    #[Type(name: 'string')]
+    #[SerializedName('loc')]
+    #[Type('string')]
     #[XmlAttribute]
     private $location;
 
@@ -133,8 +133,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getPercentComplete', setter: 'setPercentComplete')]
-    #[SerializedName(name: 'percentComplete')]
-    #[Type(name: 'string')]
+    #[SerializedName('percentComplete')]
+    #[Type('string')]
     #[XmlAttribute]
     private $percentComplete;
 
@@ -149,8 +149,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getCompleted', setter: 'setCompleted')]
-    #[SerializedName(name: 'completed')]
-    #[Type(name: 'string')]
+    #[SerializedName('completed')]
+    #[Type('string')]
     #[XmlAttribute]
     private $completed;
 
@@ -165,8 +165,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getNoBlob', setter: 'setNoBlob')]
-    #[SerializedName(name: 'noBlob')]
-    #[Type(name: 'bool')]
+    #[SerializedName('noBlob')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $noBlob;
 
@@ -182,8 +182,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
-    #[SerializedName(name: 'fba')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[SerializedName('fba')]
+    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private $freeBusyActual;
 
@@ -199,8 +199,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreeBusy', setter: 'setFreeBusy')]
-    #[SerializedName(name: 'fb')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[SerializedName('fb')]
+    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private $freeBusy;
 
@@ -215,8 +215,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var Transparency
      */
     #[Accessor(getter: 'getTransparency', setter: 'setTransparency')]
-    #[SerializedName(name: 'transp')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\Transparency>')]
+    #[SerializedName('transp')]
+    #[Type('Enum<Zimbra\Common\Enum\Transparency>')]
     #[XmlAttribute]
     private $transparency;
 
@@ -231,8 +231,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getIsOrganizer', setter: 'setIsOrganizer')]
-    #[SerializedName(name: 'isOrg')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isOrg')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isOrganizer;
 
@@ -247,8 +247,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getXUid', setter: 'setXUid')]
-    #[SerializedName(name: 'x_uid')]
-    #[Type(name: 'string')]
+    #[SerializedName('x_uid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $xUid;
 
@@ -263,8 +263,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName(name: 'uid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uid;
 
@@ -279,8 +279,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName(name: 'seq')]
-    #[Type(name: 'int')]
+    #[SerializedName('seq')]
+    #[Type('int')]
     #[XmlAttribute]
     private $sequence;
 
@@ -295,8 +295,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var int
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $dateTime;
 
@@ -311,8 +311,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName(name: 'calItemId')]
-    #[Type(name: 'string')]
+    #[SerializedName('calItemId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calItemId;
 
@@ -327,8 +327,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getDeprecatedApptId', setter: 'setDeprecatedApptId')]
-    #[SerializedName(name: 'apptId')]
-    #[Type(name: 'string')]
+    #[SerializedName('apptId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $deprecatedApptId;
 
@@ -343,8 +343,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getCalItemFolder', setter: 'setCalItemFolder')]
-    #[SerializedName(name: 'ciFolder')]
-    #[Type(name: 'string')]
+    #[SerializedName('ciFolder')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calItemFolder;
 
@@ -361,8 +361,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var InviteStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteStatus>')]
+    #[SerializedName('status')]
+    #[Type('Enum<Zimbra\Common\Enum\InviteStatus>')]
     #[XmlAttribute]
     private $status;
 
@@ -377,8 +377,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var InviteClass
      */
     #[Accessor(getter: 'getCalClass', setter: 'setCalClass')]
-    #[SerializedName(name: 'class')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteClass>')]
+    #[SerializedName('class')]
+    #[Type('Enum<Zimbra\Common\Enum\InviteClass>')]
     #[XmlAttribute]
     private $calClass;
 
@@ -393,8 +393,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName(name: 'url')]
-    #[Type(name: 'string')]
+    #[SerializedName('url')]
+    #[Type('string')]
     #[XmlAttribute]
     private $url;
 
@@ -409,8 +409,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getIsException', setter: 'setIsException')]
-    #[SerializedName(name: 'ex')]
-    #[Type(name: 'bool')]
+    #[SerializedName('ex')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isException;
 
@@ -425,8 +425,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName(name: 'ridZ')]
-    #[Type(name: 'string')]
+    #[SerializedName('ridZ')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -441,8 +441,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getIsAllDay', setter: 'setIsAllDay')]
-    #[SerializedName(name: 'allDay')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allDay')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isAllDay;
 
@@ -457,8 +457,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getIsDraft', setter: 'setIsDraft')]
-    #[SerializedName(name: 'draft')]
-    #[Type(name: 'bool')]
+    #[SerializedName('draft')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isDraft;
 
@@ -473,8 +473,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var bool
      */
     #[Accessor(getter: 'getNeverSent', setter: 'setNeverSent')]
-    #[SerializedName(name: 'neverSent')]
-    #[Type(name: 'bool')]
+    #[SerializedName('neverSent')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $neverSent;
 
@@ -490,8 +490,8 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @var string
      */
     #[Accessor(getter: 'getChanges', setter: 'setChanges')]
-    #[SerializedName(name: 'changes')]
-    #[Type(name: 'string')]
+    #[SerializedName('changes')]
+    #[Type('string')]
     #[XmlAttribute]
     private $changes;
 

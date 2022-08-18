@@ -33,8 +33,8 @@ class ICalReplyBody extends SoapBody
      * @var ICalReplyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ICalReplyRequest')]
-    #[Type(name: ICalReplyRequest::class)]
+    #[SerializedName('ICalReplyRequest')]
+    #[Type(ICalReplyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ICalReplyBody extends SoapBody
      * @var ICalReplyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ICalReplyResponse')]
-    #[Type(name: ICalReplyResponse::class)]
+    #[SerializedName('ICalReplyResponse')]
+    #[Type(ICalReplyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

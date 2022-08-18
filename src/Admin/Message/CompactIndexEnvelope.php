@@ -37,8 +37,8 @@ class CompactIndexEnvelope extends SoapEnvelope
      * @var CompactIndexBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CompactIndexBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CompactIndexBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

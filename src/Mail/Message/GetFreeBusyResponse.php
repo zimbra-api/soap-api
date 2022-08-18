@@ -35,7 +35,7 @@ class GetFreeBusyResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyUserInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserInfo>')]
     #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
     private $freebusyUsers = [];
 

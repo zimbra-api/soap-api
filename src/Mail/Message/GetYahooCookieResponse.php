@@ -35,8 +35,8 @@ class GetYahooCookieResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName(name: 'error')]
-    #[Type(name: 'string')]
+    #[SerializedName('error')]
+    #[Type('string')]
     #[XmlAttribute]
     private $error;
 
@@ -51,8 +51,8 @@ class GetYahooCookieResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCrumb', setter: 'setCrumb')]
-    #[SerializedName(name: 'crumb')]
-    #[Type(name: 'string')]
+    #[SerializedName('crumb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $crumb;
 
@@ -67,8 +67,8 @@ class GetYahooCookieResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getY', setter: 'setY')]
-    #[SerializedName(name: 'y')]
-    #[Type(name: 'string')]
+    #[SerializedName('y')]
+    #[Type('string')]
     #[XmlAttribute]
     private $y;
 
@@ -83,8 +83,8 @@ class GetYahooCookieResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getT', setter: 'setT')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $t;
 

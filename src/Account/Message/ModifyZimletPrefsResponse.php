@@ -34,7 +34,7 @@ class ModifyZimletPrefsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAccount')]
     private $zimlets = [];
 

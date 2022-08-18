@@ -47,8 +47,8 @@ class FlushCacheRequest extends SoapRequest
      * @var CacheSelector
      */
     #[Accessor(getter: 'getCache', setter: 'setCache')]
-    #[SerializedName(name: 'cache')]
-    #[Type(name: CacheSelector::class)]
+    #[SerializedName('cache')]
+    #[Type(CacheSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cache;
 

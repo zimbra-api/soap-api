@@ -39,8 +39,8 @@ class GetFreeBusyRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $startTime;
 
@@ -55,8 +55,8 @@ class GetFreeBusyRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName(name: 'e')]
-    #[Type(name: 'int')]
+    #[SerializedName('e')]
+    #[Type('int')]
     #[XmlAttribute]
     private $endTime;
 
@@ -72,8 +72,8 @@ class GetFreeBusyRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName(name: 'uid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uid;
 
@@ -88,8 +88,8 @@ class GetFreeBusyRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -103,8 +103,8 @@ class GetFreeBusyRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -119,8 +119,8 @@ class GetFreeBusyRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getExcludeUid', setter: 'setExcludeUid')]
-    #[SerializedName(name: 'excludeUid')]
-    #[Type(name: 'string')]
+    #[SerializedName('excludeUid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $excludeUid;
 
@@ -134,7 +134,7 @@ class GetFreeBusyRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyUserSpec>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserSpec>')]
     #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
     private $freebusyUsers = [];
 

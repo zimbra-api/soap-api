@@ -36,8 +36,8 @@ class SyncGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -52,8 +52,8 @@ class SyncGalResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -69,8 +69,8 @@ class SyncGalResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getGalDefinitionLastModified', setter: 'setGalDefinitionLastModified')]
-    #[SerializedName(name: 'galDefinitionLastModified')]
-    #[Type(name: 'string')]
+    #[SerializedName('galDefinitionLastModified')]
+    #[Type('string')]
     #[XmlAttribute]
     private $galDefinitionLastModified;
 
@@ -85,8 +85,8 @@ class SyncGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getThrottled', setter: 'setThrottled')]
-    #[SerializedName(name: 'throttled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('throttled')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $throttled;
 
@@ -101,8 +101,8 @@ class SyncGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getFullSyncRecommended', setter: 'setFullSyncRecommended')]
-    #[SerializedName(name: 'fullSyncRecommended')]
-    #[Type(name: 'bool')]
+    #[SerializedName('fullSyncRecommended')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $fullSyncRecommended;
 
@@ -117,8 +117,8 @@ class SyncGalResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getRemain', setter: 'setRemain')]
-    #[SerializedName(name: 'remain')]
-    #[Type(name: 'int')]
+    #[SerializedName('remain')]
+    #[Type('int')]
     #[XmlAttribute]
     private $remain;
 
@@ -132,7 +132,7 @@ class SyncGalResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type(name: 'array<Zimbra\Account\Struct\ContactInfo>')]
+    #[Type('array<Zimbra\Account\Struct\ContactInfo>')]
     #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAccount')]
     private $contacts = [];
 
@@ -146,7 +146,7 @@ class SyncGalResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
-    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[Type('array<Zimbra\Common\Struct\Id>')]
     #[XmlList(inline: true, entry: 'deleted', namespace: 'urn:zimbraAccount')]
     private $deleted = [];
 

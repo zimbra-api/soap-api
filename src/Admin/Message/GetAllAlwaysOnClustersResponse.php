@@ -35,7 +35,7 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAlwaysOnClusterList', setter: 'setAlwaysOnClusterList')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>')]
     #[XmlList(inline: true, entry: 'alwaysOnCluster', namespace: 'urn:zimbraAdmin')]
     private $clusterList = [];
 

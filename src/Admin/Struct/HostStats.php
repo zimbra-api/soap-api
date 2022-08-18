@@ -34,8 +34,8 @@ class HostStats
      * @var string
      */
     #[Accessor(getter: 'getHostName', setter: 'setHostName')]
-    #[SerializedName(name: 'hn')]
-    #[Type(name: 'string')]
+    #[SerializedName('hn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $hostName;
 
@@ -50,8 +50,8 @@ class HostStats
      * @var StatsInfo
      */
     #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName(name: 'stats')]
-    #[Type(name: StatsInfo::class)]
+    #[SerializedName('stats')]
+    #[Type(StatsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $stats;
 

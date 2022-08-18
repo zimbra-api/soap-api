@@ -35,7 +35,7 @@ class ExpandRecurResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>')]
+    #[Type('array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>')]
     #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
     private $instances = [];
 

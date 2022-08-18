@@ -33,8 +33,8 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @var DeleteGalSyncAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteGalSyncAccountRequest')]
-    #[Type(name: DeleteGalSyncAccountRequest::class)]
+    #[SerializedName('DeleteGalSyncAccountRequest')]
+    #[Type(DeleteGalSyncAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @var DeleteGalSyncAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteGalSyncAccountResponse')]
-    #[Type(name: DeleteGalSyncAccountResponse::class)]
+    #[SerializedName('DeleteGalSyncAccountResponse')]
+    #[Type(DeleteGalSyncAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

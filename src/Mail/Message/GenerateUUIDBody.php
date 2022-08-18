@@ -33,8 +33,8 @@ class GenerateUUIDBody extends SoapBody
      * @var GenerateUUIDRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GenerateUUIDRequest')]
-    #[Type(name: GenerateUUIDRequest::class)]
+    #[SerializedName('GenerateUUIDRequest')]
+    #[Type(GenerateUUIDRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GenerateUUIDBody extends SoapBody
      * @var GenerateUUIDResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GenerateUUIDResponse')]
-    #[Type(name: GenerateUUIDResponse::class)]
+    #[SerializedName('GenerateUUIDResponse')]
+    #[Type(GenerateUUIDResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

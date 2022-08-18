@@ -37,8 +37,8 @@ class DeleteLDAPEntryEnvelope extends SoapEnvelope
      * @var DeleteLDAPEntryBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteLDAPEntryBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteLDAPEntryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

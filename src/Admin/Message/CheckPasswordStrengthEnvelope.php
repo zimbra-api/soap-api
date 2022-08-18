@@ -37,8 +37,8 @@ class CheckPasswordStrengthEnvelope extends SoapEnvelope
      * @var CheckPasswordStrengthBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CheckPasswordStrengthBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CheckPasswordStrengthBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

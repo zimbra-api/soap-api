@@ -33,8 +33,8 @@ class DeleteUCServiceBody extends SoapBody
      * @var DeleteUCServiceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteUCServiceRequest')]
-    #[Type(name: DeleteUCServiceRequest::class)]
+    #[SerializedName('DeleteUCServiceRequest')]
+    #[Type(DeleteUCServiceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class DeleteUCServiceBody extends SoapBody
      * @var DeleteUCServiceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteUCServiceResponse')]
-    #[Type(name: DeleteUCServiceResponse::class)]
+    #[SerializedName('DeleteUCServiceResponse')]
+    #[Type(DeleteUCServiceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -36,8 +36,8 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sortBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -52,8 +52,8 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -68,8 +68,8 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -86,8 +86,8 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
-    #[SerializedName(name: 'paginationSupported')]
-    #[Type(name: 'bool')]
+    #[SerializedName('paginationSupported')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $pagingSupported;
 
@@ -101,7 +101,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getCalendarResources', setter: 'setCalendarResources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\CalendarResourceInfo>')]
+    #[Type('array<Zimbra\Account\Struct\CalendarResourceInfo>')]
     #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAccount')]
     private $calendarResources = [];
 

@@ -34,8 +34,8 @@ class FlagAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getFlag', setter: 'setFlag')]
-    #[SerializedName(name: 'flagName')]
-    #[Type(name: 'string')]
+    #[SerializedName('flagName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flag;
 

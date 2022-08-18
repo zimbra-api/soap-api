@@ -37,8 +37,8 @@ class GetMiniCalEnvelope extends SoapEnvelope
      * @var GetMiniCalBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetMiniCalBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetMiniCalBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

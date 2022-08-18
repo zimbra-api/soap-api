@@ -33,8 +33,8 @@ class RestoreContactsBody extends SoapBody
      * @var RestoreContactsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RestoreContactsRequest')]
-    #[Type(name: RestoreContactsRequest::class)]
+    #[SerializedName('RestoreContactsRequest')]
+    #[Type(RestoreContactsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class RestoreContactsBody extends SoapBody
      * @var RestoreContactsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RestoreContactsResponse')]
-    #[Type(name: RestoreContactsResponse::class)]
+    #[SerializedName('RestoreContactsResponse')]
+    #[Type(RestoreContactsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

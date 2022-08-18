@@ -35,7 +35,7 @@ class GetLDAPEntriesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getLDAPEntries', setter: 'setLDAPEntries')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\LDAPEntryInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\LDAPEntryInfo>')]
     #[XmlList(inline: true, entry: 'LDAPEntry', namespace: 'urn:zimbraAdmin')]
     private $LDAPEntries = [];
 

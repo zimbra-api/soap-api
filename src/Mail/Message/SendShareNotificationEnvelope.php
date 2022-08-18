@@ -37,8 +37,8 @@ class SendShareNotificationEnvelope extends SoapEnvelope
      * @var SendShareNotificationBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SendShareNotificationBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SendShareNotificationBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

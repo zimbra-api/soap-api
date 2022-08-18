@@ -36,8 +36,8 @@ class ICalReplyRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: "getIcal", setter: "setIcal")]
-    #[SerializedName(name: 'ical')]
-    #[Type(name: 'string')]
+    #[SerializedName('ical')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $ical;
 

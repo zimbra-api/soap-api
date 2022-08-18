@@ -33,8 +33,8 @@ class GetDistributionListBody extends SoapBody
      * @var GetDistributionListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetDistributionListRequest')]
-    #[Type(name: GetDistributionListRequest::class)]
+    #[SerializedName('GetDistributionListRequest')]
+    #[Type(GetDistributionListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetDistributionListBody extends SoapBody
      * @var GetDistributionListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetDistributionListResponse')]
-    #[Type(name: GetDistributionListResponse::class)]
+    #[SerializedName('GetDistributionListResponse')]
+    #[Type(GetDistributionListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

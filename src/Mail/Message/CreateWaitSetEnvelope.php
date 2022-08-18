@@ -37,8 +37,8 @@ class CreateWaitSetEnvelope extends SoapEnvelope
      * @var CreateWaitSetBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateWaitSetBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateWaitSetBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

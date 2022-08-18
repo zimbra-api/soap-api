@@ -35,8 +35,8 @@ class FreeBusyUserInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,7 +50,7 @@ class FreeBusyUserInfo
      * @var array
      */
     #[Accessor(getter: 'getFreeSlots', setter: 'setFreeSlots')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyFREEslot>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyFREEslot>')]
     #[XmlList(inline: true, entry: 'f', namespace: 'urn:zimbraMail')]
     private $freeSlots = [];
 
@@ -64,7 +64,7 @@ class FreeBusyUserInfo
      * @var array
      */
     #[Accessor(getter: 'getBusySlots', setter: 'setBusySlots')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyBUSYslot>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyBUSYslot>')]
     #[XmlList(inline: true, entry: 'b', namespace: 'urn:zimbraMail')]
     private $busySlots = [];
 
@@ -78,7 +78,7 @@ class FreeBusyUserInfo
      * @var array
      */
     #[Accessor(getter: 'getTentativeSlots', setter: 'setTentativeSlots')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>')]
     #[XmlList(inline: true, entry: 't', namespace: 'urn:zimbraMail')]
     private $tentativeSlots = [];
 
@@ -92,7 +92,7 @@ class FreeBusyUserInfo
      * @var array
      */
     #[Accessor(getter: 'getUnavailableSlots', setter: 'setUnavailableSlots')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>')]
     #[XmlList(inline: true, entry: 'u', namespace: 'urn:zimbraMail')]
     private $unavailableSlots = [];
 
@@ -106,7 +106,7 @@ class FreeBusyUserInfo
      * @var array
      */
     #[Accessor(getter: 'getNodataSlots', setter: 'setNodataSlots')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyNODATAslot>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyNODATAslot>')]
     #[XmlList(inline: true, entry: 'n', namespace: 'urn:zimbraMail')]
     private $nodataSlots = [];
 

@@ -35,7 +35,7 @@ class DeployZimletResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getProgresses', setter: 'setProgresses')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ZimletDeploymentStatus>')]
+    #[Type('array<Zimbra\Admin\Struct\ZimletDeploymentStatus>')]
     #[XmlList(inline: true, entry: 'progress', namespace: 'urn:zimbraAdmin')]
     private $progresses = [];
 

@@ -33,8 +33,8 @@ class GetAllVolumesBody extends SoapBody
      * @var GetAllVolumesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllVolumesRequest')]
-    #[Type(name: GetAllVolumesRequest::class)]
+    #[SerializedName('GetAllVolumesRequest')]
+    #[Type(GetAllVolumesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAllVolumesBody extends SoapBody
      * @var GetAllVolumesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllVolumesResponse')]
-    #[Type(name: GetAllVolumesResponse::class)]
+    #[SerializedName('GetAllVolumesResponse')]
+    #[Type(GetAllVolumesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

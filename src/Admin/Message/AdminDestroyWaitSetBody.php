@@ -33,8 +33,8 @@ class AdminDestroyWaitSetBody extends SoapBody
      * @var AdminDestroyWaitSetRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AdminDestroyWaitSetRequest')]
-    #[Type(name: AdminDestroyWaitSetRequest::class)]
+    #[SerializedName('AdminDestroyWaitSetRequest')]
+    #[Type(AdminDestroyWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class AdminDestroyWaitSetBody extends SoapBody
      * @var AdminDestroyWaitSetResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AdminDestroyWaitSetResponse')]
-    #[Type(name: AdminDestroyWaitSetResponse::class)]
+    #[SerializedName('AdminDestroyWaitSetResponse')]
+    #[Type(AdminDestroyWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

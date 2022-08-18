@@ -36,8 +36,8 @@ class ModifyDistributionListResponse extends SoapResponse
      * @var DLInfo
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName(name: 'dl')]
-    #[Type(name: DLInfo::class)]
+    #[SerializedName('dl')]
+    #[Type(DLInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dl;
 

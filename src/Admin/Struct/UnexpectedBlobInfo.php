@@ -34,8 +34,8 @@ class UnexpectedBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName(name: 'volumeId')]
-    #[Type(name: 'int')]
+    #[SerializedName('volumeId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $volumeId;
 
@@ -50,8 +50,8 @@ class UnexpectedBlobInfo
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName(name: 'path')]
-    #[Type(name: 'string')]
+    #[SerializedName('path')]
+    #[Type('string')]
     #[XmlAttribute]
     private $path;
 
@@ -66,8 +66,8 @@ class UnexpectedBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName(name: 'fileSize')]
-    #[Type(name: 'int')]
+    #[SerializedName('fileSize')]
+    #[Type('int')]
     #[XmlAttribute]
     private $fileSize;
 
@@ -82,8 +82,8 @@ class UnexpectedBlobInfo
      * @var bool
      */
     #[Accessor(getter: 'getExternal', setter: 'setExternal')]
-    #[SerializedName(name: 'external')]
-    #[Type(name: 'bool')]
+    #[SerializedName('external')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $external;
 

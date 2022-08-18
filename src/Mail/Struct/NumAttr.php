@@ -36,8 +36,8 @@ class NumAttr implements NumAttrInterface
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName(name: 'num')]
-    #[Type(name: 'int')]
+    #[SerializedName('num')]
+    #[Type('int')]
     #[XmlAttribute]
     private $num;
 

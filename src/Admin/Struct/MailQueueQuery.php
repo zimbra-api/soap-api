@@ -34,8 +34,8 @@ class MailQueueQuery
      * @var QueueQuery
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName(name: 'query')]
-    #[Type(name: QueueQuery::class)]
+    #[SerializedName('query')]
+    #[Type(QueueQuery::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $query;
 
@@ -50,8 +50,8 @@ class MailQueueQuery
      * @var string
      */
     #[Accessor(getter: 'getQueueName', setter: 'setQueueName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $queueName;
 
@@ -66,8 +66,8 @@ class MailQueueQuery
      * @var bool
      */
     #[Accessor(getter: 'getScan', setter: 'setScan')]
-    #[SerializedName(name: 'scan')]
-    #[Type(name: 'bool')]
+    #[SerializedName('scan')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $scan;
 
@@ -82,8 +82,8 @@ class MailQueueQuery
      * @var int
      */
     #[Accessor(getter: 'getWaitSeconds', setter: 'setWaitSeconds')]
-    #[SerializedName(name: 'wait')]
-    #[Type(name: 'int')]
+    #[SerializedName('wait')]
+    #[Type('int')]
     #[XmlAttribute]
     private $waitSeconds;
 

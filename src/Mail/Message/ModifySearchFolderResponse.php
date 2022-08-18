@@ -36,8 +36,8 @@ class ModifySearchFolderResponse extends SoapResponse
      * @var SearchFolder
      */
     #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
-    #[SerializedName(name: 'search')]
-    #[Type(name: SearchFolder::class)]
+    #[SerializedName('search')]
+    #[Type(SearchFolder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $searchFolder;
 

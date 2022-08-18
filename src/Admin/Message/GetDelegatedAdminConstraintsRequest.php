@@ -40,8 +40,8 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private $type;
 
@@ -56,8 +56,8 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -72,8 +72,8 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -88,7 +88,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrs = [];
 

@@ -35,8 +35,8 @@ class ServerSelector
      * @var ServerBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ServerBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\ServerBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -50,7 +50,7 @@ class ServerSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

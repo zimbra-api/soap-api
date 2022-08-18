@@ -37,8 +37,8 @@ class ConvActionRequest extends SoapRequest
      * @var ConvActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]
-    #[SerializedName(name: 'action')]
-    #[Type(name: ConvActionSelector::class)]
+    #[SerializedName('action')]
+    #[Type(ConvActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $action;
 

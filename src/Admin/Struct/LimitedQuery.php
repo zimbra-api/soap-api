@@ -34,8 +34,8 @@ class LimitedQuery
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -49,7 +49,7 @@ class LimitedQuery
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

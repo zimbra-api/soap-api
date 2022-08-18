@@ -34,8 +34,8 @@ class MailboxWithMailboxId
      * @var int
      */
     #[Accessor(getter: 'getMbxid', setter: 'setMbxid')]
-    #[SerializedName(name: 'mbxid')]
-    #[Type(name: 'int')]
+    #[SerializedName('mbxid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $mbxid;
 
@@ -50,8 +50,8 @@ class MailboxWithMailboxId
      * @var string
      */
     #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $accountId;
 
@@ -66,8 +66,8 @@ class MailboxWithMailboxId
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 

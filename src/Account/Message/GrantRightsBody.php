@@ -33,8 +33,8 @@ class GrantRightsBody extends SoapBody
      * @var GrantRightsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GrantRightsRequest')]
-    #[Type(name: GrantRightsRequest::class)]
+    #[SerializedName('GrantRightsRequest')]
+    #[Type(GrantRightsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -47,8 +47,8 @@ class GrantRightsBody extends SoapBody
      * @var GrantRightsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GrantRightsResponse')]
-    #[Type(name: GrantRightsResponse::class)]
+    #[SerializedName('GrantRightsResponse')]
+    #[Type(GrantRightsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

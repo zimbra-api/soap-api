@@ -38,8 +38,8 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
-    #[SerializedName(name: 'expandAllAttrs')]
-    #[Type(name: 'string')]
+    #[SerializedName('expandAllAttrs')]
+    #[Type('string')]
     #[XmlAttribute]
     private $expandAllAttrs;
 
@@ -53,8 +53,8 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      * @var GranteeSelector
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName(name: 'grantee')]
-    #[Type(name: GranteeSelector::class)]
+    #[SerializedName('grantee')]
+    #[Type(GranteeSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 

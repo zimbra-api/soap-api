@@ -33,8 +33,8 @@ class GetCalendarItemSummariesBody extends SoapBody
      * @var GetCalendarItemSummariesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetCalendarItemSummariesRequest')]
-    #[Type(name: GetCalendarItemSummariesRequest::class)]
+    #[SerializedName('GetCalendarItemSummariesRequest')]
+    #[Type(GetCalendarItemSummariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetCalendarItemSummariesBody extends SoapBody
      * @var GetCalendarItemSummariesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetCalendarItemSummariesResponse')]
-    #[Type(name: GetCalendarItemSummariesResponse::class)]
+    #[SerializedName('GetCalendarItemSummariesResponse')]
+    #[Type(GetCalendarItemSummariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

@@ -36,8 +36,8 @@ class XParam implements XParamInterface
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -52,8 +52,8 @@ class XParam implements XParamInterface
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $value;
 

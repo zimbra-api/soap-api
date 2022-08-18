@@ -33,8 +33,8 @@ class GetAllEffectiveRightsBody extends SoapBody
      * @var GetAllEffectiveRightsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllEffectiveRightsRequest')]
-    #[Type(name: GetAllEffectiveRightsRequest::class)]
+    #[SerializedName('GetAllEffectiveRightsRequest')]
+    #[Type(GetAllEffectiveRightsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAllEffectiveRightsBody extends SoapBody
      * @var GetAllEffectiveRightsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllEffectiveRightsResponse')]
-    #[Type(name: GetAllEffectiveRightsResponse::class)]
+    #[SerializedName('GetAllEffectiveRightsResponse')]
+    #[Type(GetAllEffectiveRightsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -37,8 +37,8 @@ class ImportAppointmentsEnvelope extends SoapEnvelope
      * @var ImportAppointmentsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ImportAppointmentsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ImportAppointmentsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

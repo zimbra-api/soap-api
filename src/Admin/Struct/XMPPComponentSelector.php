@@ -35,8 +35,8 @@ class XMPPComponentSelector
      * @var XmppComponentBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\XmppComponentBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\XmppComponentBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -50,7 +50,7 @@ class XMPPComponentSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

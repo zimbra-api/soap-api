@@ -36,8 +36,8 @@ class ChangePrimaryEmailRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -52,8 +52,8 @@ class ChangePrimaryEmailRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName(name: 'newName')]
-    #[Type(name: 'string')]
+    #[SerializedName('newName')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $newName;
 

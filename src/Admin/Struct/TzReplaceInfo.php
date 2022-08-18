@@ -35,8 +35,8 @@ class TzReplaceInfo
      * @var Id
      */
     #[Accessor(getter: 'getWellKnownTz', setter: 'setWellKnownTz')]
-    #[SerializedName(name: 'wellKnownTz')]
-    #[Type(name: Id::class)]
+    #[SerializedName('wellKnownTz')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $wellKnownTz;
 
@@ -50,8 +50,8 @@ class TzReplaceInfo
      * @var CalTZInfo
      */
     #[Accessor(getter: 'getCalTz', setter: 'setCalTz')]
-    #[SerializedName(name: 'tz')]
-    #[Type(name: CalTZInfo::class)]
+    #[SerializedName('tz')]
+    #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $calTz;
 

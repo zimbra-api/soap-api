@@ -37,8 +37,8 @@ class GrantPermissionEnvelope extends SoapEnvelope
      * @var GrantPermissionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GrantPermissionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GrantPermissionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

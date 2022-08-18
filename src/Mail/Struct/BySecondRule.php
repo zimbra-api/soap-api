@@ -36,8 +36,8 @@ class BySecondRule implements BySecondRuleInterface
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName(name: 'seclist')]
-    #[Type(name: 'string')]
+    #[SerializedName('seclist')]
+    #[Type('string')]
     #[XmlAttribute]
     private $list;
 

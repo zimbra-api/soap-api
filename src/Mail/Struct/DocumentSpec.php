@@ -37,8 +37,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -53,8 +53,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -69,8 +69,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName(name: 'desc')]
-    #[Type(name: 'string')]
+    #[SerializedName('desc')]
+    #[Type('string')]
     #[XmlAttribute]
     private $description;
 
@@ -85,8 +85,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -101,8 +101,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -117,8 +117,8 @@ class DocumentSpec
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'ver')]
-    #[Type(name: 'int')]
+    #[SerializedName('ver')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version;
 
@@ -133,8 +133,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName(name: 'content')]
-    #[Type(name: 'string')]
+    #[SerializedName('content')]
+    #[Type('string')]
     #[XmlAttribute]
     private $content;
 
@@ -149,8 +149,8 @@ class DocumentSpec
      * @var bool
      */
     #[Accessor(getter: 'getDescEnabled', setter: 'setDescEnabled')]
-    #[SerializedName(name: 'descEnabled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('descEnabled')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $descEnabled;
 
@@ -166,8 +166,8 @@ class DocumentSpec
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -182,8 +182,8 @@ class DocumentSpec
      * @var Id
      */
     #[Accessor(getter: "getUpload", setter: "setUpload")]
-    #[SerializedName(name: 'upload')]
-    #[Type(name: Id::class)]
+    #[SerializedName('upload')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $upload;
 
@@ -198,8 +198,8 @@ class DocumentSpec
      * @var MessagePartSpec
      */
     #[Accessor(getter: "getMessagePart", setter: "setMessagePart")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: MessagePartSpec::class)]
+    #[SerializedName('m')]
+    #[Type(MessagePartSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $messagePart;
 
@@ -214,8 +214,8 @@ class DocumentSpec
      * @var IdVersion
      */
     #[Accessor(getter: "getDocRevision", setter: "setDocRevision")]
-    #[SerializedName(name: 'doc')]
-    #[Type(name: IdVersion::class)]
+    #[SerializedName('doc')]
+    #[Type(IdVersion::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $docRevision;
 

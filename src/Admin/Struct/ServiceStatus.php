@@ -35,8 +35,8 @@ class ServiceStatus
      * @var string
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: 'string')]
+    #[SerializedName('server')]
+    #[Type('string')]
     #[XmlAttribute]
     private $server;
 
@@ -51,8 +51,8 @@ class ServiceStatus
      * @var string
      */
     #[Accessor(getter: 'getService', setter: 'setService')]
-    #[SerializedName(name: 'service')]
-    #[Type(name: 'string')]
+    #[SerializedName('service')]
+    #[Type('string')]
     #[XmlAttribute]
     private $service;
 
@@ -67,8 +67,8 @@ class ServiceStatus
      * @var int
      */
     #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'int')]
+    #[SerializedName('t')]
+    #[Type('int')]
     #[XmlAttribute]
     private $time;
 
@@ -82,7 +82,7 @@ class ServiceStatus
      * @var ZeroOrOne
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ZeroOrOne>')]
+    #[Type('Enum<Zimbra\Common\Enum\ZeroOrOne>')]
     #[XmlValue(cdata: false)]
     private $status;
 

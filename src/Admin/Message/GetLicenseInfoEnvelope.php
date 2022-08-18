@@ -37,8 +37,8 @@ class GetLicenseInfoEnvelope extends SoapEnvelope
      * @var GetLicenseInfoBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetLicenseInfoBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetLicenseInfoBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

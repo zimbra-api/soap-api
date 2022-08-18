@@ -37,8 +37,8 @@ class GetEffectiveRightsEnvelope extends SoapEnvelope
      * @var GetEffectiveRightsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetEffectiveRightsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetEffectiveRightsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

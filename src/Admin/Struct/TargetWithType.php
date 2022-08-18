@@ -34,8 +34,8 @@ class TargetWithType
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $type;
 
@@ -49,7 +49,7 @@ class TargetWithType
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

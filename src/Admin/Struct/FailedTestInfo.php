@@ -34,8 +34,8 @@ class FailedTestInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class FailedTestInfo
      * @var int
      */
     #[Accessor(getter: 'getExecSeconds', setter: 'setExecSeconds')]
-    #[SerializedName(name: 'execSeconds')]
-    #[Type(name: 'int')]
+    #[SerializedName('execSeconds')]
+    #[Type('int')]
     #[XmlAttribute]
     private $execSeconds;
 
@@ -66,8 +66,8 @@ class FailedTestInfo
      * @var string
      */
     #[Accessor(getter: 'getClassName', setter: 'setClassName')]
-    #[SerializedName(name: 'class')]
-    #[Type(name: 'string')]
+    #[SerializedName('class')]
+    #[Type('string')]
     #[XmlAttribute]
     private $className;
 
@@ -81,7 +81,7 @@ class FailedTestInfo
      * @var string
      */
     #[Accessor(getter: 'getThrowable', setter: 'setThrowable')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $throwable;
 

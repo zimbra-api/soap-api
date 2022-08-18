@@ -34,8 +34,8 @@ class AttributeDescription
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'string')]
+    #[SerializedName('n')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class AttributeDescription
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName(name: 'desc')]
-    #[Type(name: 'string')]
+    #[SerializedName('desc')]
+    #[Type('string')]
     #[XmlAttribute]
     private $description;
 

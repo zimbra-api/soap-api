@@ -36,8 +36,8 @@ class ChangePrimaryEmailResponse extends SoapResponse
      * @var Account
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: Account::class)]
+    #[SerializedName('account')]
+    #[Type(Account::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 

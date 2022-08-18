@@ -38,8 +38,8 @@ class CompactIndexRequest extends SoapRequest
      * @var Mailbox
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName(name: 'mbox')]
-    #[Type(name: Mailbox::class)]
+    #[SerializedName('mbox')]
+    #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mbox;
 
@@ -56,8 +56,8 @@ class CompactIndexRequest extends SoapRequest
      * @var Action
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName(name: 'action')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\CompactIndexAction>')]
+    #[SerializedName('action')]
+    #[Type('Enum<Zimbra\Common\Enum\CompactIndexAction>')]
     #[XmlAttribute]
     private $action;
 

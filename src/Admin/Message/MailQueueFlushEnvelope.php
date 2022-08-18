@@ -37,8 +37,8 @@ class MailQueueFlushEnvelope extends SoapEnvelope
      * @var MailQueueFlushBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: MailQueueFlushBody::class)]
+    #[SerializedName('Body')]
+    #[Type(MailQueueFlushBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

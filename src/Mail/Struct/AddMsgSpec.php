@@ -35,8 +35,8 @@ class AddMsgSpec
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -51,8 +51,8 @@ class AddMsgSpec
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -67,8 +67,8 @@ class AddMsgSpec
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -83,8 +83,8 @@ class AddMsgSpec
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -99,8 +99,8 @@ class AddMsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getNoICal', setter: 'setNoICal')]
-    #[SerializedName(name: 'noICal')]
-    #[Type(name: 'bool')]
+    #[SerializedName('noICal')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $noICal;
 
@@ -115,8 +115,8 @@ class AddMsgSpec
      * @var int
      */
     #[Accessor(getter: 'getDateReceived', setter: 'setDateReceived')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $dateReceived;
 
@@ -131,8 +131,8 @@ class AddMsgSpec
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName(name: 'aid')]
-    #[Type(name: 'string')]
+    #[SerializedName('aid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attachmentId;
 
@@ -148,8 +148,8 @@ class AddMsgSpec
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
-    #[SerializedName(name: 'content')]
-    #[Type(name: 'string')]
+    #[SerializedName('content')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 

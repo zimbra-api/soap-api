@@ -33,8 +33,8 @@ class SignatureContent
      * @var ContentType
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ContentType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\ContentType>')]
     #[XmlAttribute]
     private $type;
 
@@ -46,7 +46,7 @@ class SignatureContent
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

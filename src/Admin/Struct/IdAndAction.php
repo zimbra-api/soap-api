@@ -34,8 +34,8 @@ class IdAndAction
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class IdAndAction
      * @var string
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName(name: 'action')]
-    #[Type(name: 'string')]
+    #[SerializedName('action')]
+    #[Type('string')]
     #[XmlAttribute]
     private $action;
 

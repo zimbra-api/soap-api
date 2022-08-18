@@ -36,8 +36,8 @@ class CreateMountpointResponse extends SoapResponse
      * @var Mountpoint
      */
     #[Accessor(getter: "getMount", setter: "setMount")]
-    #[SerializedName(name: 'link')]
-    #[Type(name: Mountpoint::class)]
+    #[SerializedName('link')]
+    #[Type(Mountpoint::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $mount;
 

@@ -34,8 +34,8 @@ class MailQueueDetails
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class MailQueueDetails
      * @var int
      */
     #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName(name: 'time')]
-    #[Type(name: 'int')]
+    #[SerializedName('time')]
+    #[Type('int')]
     #[XmlAttribute]
     private $time;
 
@@ -67,8 +67,8 @@ class MailQueueDetails
      * @var bool
      */
     #[Accessor(getter: 'getStillScanning', setter: 'setStillScanning')]
-    #[SerializedName(name: 'scan')]
-    #[Type(name: 'bool')]
+    #[SerializedName('scan')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $stillScanning;
 
@@ -81,8 +81,8 @@ class MailQueueDetails
      * @var int
      */
     #[Accessor(getter: 'getTotal', setter: 'setTotal')]
-    #[SerializedName(name: 'total')]
-    #[Type(name: 'int')]
+    #[SerializedName('total')]
+    #[Type('int')]
     #[XmlAttribute]
     private $total;
 
@@ -97,8 +97,8 @@ class MailQueueDetails
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -114,7 +114,7 @@ class MailQueueDetails
      * @var array
      */
     #[Accessor(getter: 'getQueueSummaries', setter: 'setQueueSummaries')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\QueueSummary>')]
+    #[Type('array<Zimbra\Admin\Struct\QueueSummary>')]
     #[XmlList(inline: true, entry: 'qs', namespace: 'urn:zimbraAdmin')]
     private $queueSummaries = [];
 
@@ -128,7 +128,7 @@ class MailQueueDetails
      * @var array
      */
     #[Accessor(getter: 'getQueueItems', setter: 'setQueueItems')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\QueueItem>')]
+    #[Type('array<Zimbra\Admin\Struct\QueueItem>')]
     #[XmlList(inline: true, entry: 'qi', namespace: 'urn:zimbraAdmin')]
     private $queueItems = [];
 

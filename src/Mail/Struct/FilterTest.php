@@ -34,8 +34,8 @@ class FilterTest
      * @var int
      */
     #[Accessor(getter: 'getIndex', setter: 'setIndex')]
-    #[SerializedName(name: 'index')]
-    #[Type(name: 'int')]
+    #[SerializedName('index')]
+    #[Type('int')]
     #[XmlAttribute]
     private $index;
 
@@ -50,8 +50,8 @@ class FilterTest
      * @var bool
      */
     #[Accessor(getter: 'isNegative', setter: 'setNegative')]
-    #[SerializedName(name: 'negative')]
-    #[Type(name: 'bool')]
+    #[SerializedName('negative')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $negative;
 

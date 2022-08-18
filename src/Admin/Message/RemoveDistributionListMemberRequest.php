@@ -37,8 +37,8 @@ class RemoveDistributionListMemberRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,7 +52,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAdmin')]
     private $members = [];
 
@@ -66,7 +66,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 

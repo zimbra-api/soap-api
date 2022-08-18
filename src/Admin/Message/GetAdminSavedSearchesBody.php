@@ -33,8 +33,8 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @var GetAdminSavedSearchesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAdminSavedSearchesRequest')]
-    #[Type(name: GetAdminSavedSearchesRequest::class)]
+    #[SerializedName('GetAdminSavedSearchesRequest')]
+    #[Type(GetAdminSavedSearchesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @var GetAdminSavedSearchesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAdminSavedSearchesResponse')]
-    #[Type(name: GetAdminSavedSearchesResponse::class)]
+    #[SerializedName('GetAdminSavedSearchesResponse')]
+    #[Type(GetAdminSavedSearchesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

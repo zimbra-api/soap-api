@@ -35,8 +35,8 @@ class ModifyZimletPrefsSpec
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -52,8 +52,8 @@ class ModifyZimletPrefsSpec
      * @var ZimletStatus
      */
     #[Accessor(getter: 'getPresence', setter: 'setPresence')]
-    #[SerializedName(name: 'presence')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletStatus>')]
+    #[SerializedName('presence')]
+    #[Type('Enum<Zimbra\Common\Enum\ZimletStatus>')]
     #[XmlAttribute]
     private $presence;
 

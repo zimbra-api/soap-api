@@ -41,8 +41,8 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getOwnerOf', setter: 'setOwnerOf')]
-    #[SerializedName(name: 'ownerOf')]
-    #[Type(name: 'bool')]
+    #[SerializedName('ownerOf')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $ownerOf;
 
@@ -57,8 +57,8 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * @var MemberOfSelector
      */
     #[Accessor(getter: 'getMemberOf', setter: 'setMemberOf')]
-    #[SerializedName(name: 'memberOf')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\MemberOfSelector>')]
+    #[SerializedName('memberOf')]
+    #[Type('Enum<Zimbra\Common\Enum\MemberOfSelector>')]
     #[XmlAttribute]
     private $memberOf;
 
@@ -75,8 +75,8 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'string')]
+    #[SerializedName('attrs')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attrs;
 

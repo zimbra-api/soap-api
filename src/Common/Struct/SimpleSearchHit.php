@@ -34,8 +34,8 @@ class SimpleSearchHit implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class SimpleSearchHit implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName(name: 'sf')]
-    #[Type(name: 'string')]
+    #[SerializedName('sf')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortField;
 

@@ -39,8 +39,8 @@ class GetWorkingHoursRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $startTime;
 
@@ -55,8 +55,8 @@ class GetWorkingHoursRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName(name: 'e')]
-    #[Type(name: 'int')]
+    #[SerializedName('e')]
+    #[Type('int')]
     #[XmlAttribute]
     private $endTime;
 
@@ -71,8 +71,8 @@ class GetWorkingHoursRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -87,8 +87,8 @@ class GetWorkingHoursRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 

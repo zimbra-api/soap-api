@@ -35,7 +35,7 @@ class GetAllVolumesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\VolumeInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\VolumeInfo>')]
     #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
     private $volumes = [];
 

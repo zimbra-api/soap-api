@@ -33,8 +33,8 @@ class MsgActionBody extends SoapBody
      * @var MsgActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'MsgActionRequest')]
-    #[Type(name: MsgActionRequest::class)]
+    #[SerializedName('MsgActionRequest')]
+    #[Type(MsgActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class MsgActionBody extends SoapBody
      * @var MsgActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'MsgActionResponse')]
-    #[Type(name: MsgActionResponse::class)]
+    #[SerializedName('MsgActionResponse')]
+    #[Type(MsgActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

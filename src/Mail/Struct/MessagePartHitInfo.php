@@ -35,8 +35,8 @@ class MessagePartHitInfo implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -51,8 +51,8 @@ class MessagePartHitInfo implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName(name: 'sf')]
-    #[Type(name: 'string')]
+    #[SerializedName('sf')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortField;
 
@@ -67,8 +67,8 @@ class MessagePartHitInfo implements SearchHit
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -83,8 +83,8 @@ class MessagePartHitInfo implements SearchHit
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -99,8 +99,8 @@ class MessagePartHitInfo implements SearchHit
      * @var int
      */
     #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
-    #[SerializedName(name: 'cid')]
-    #[Type(name: 'int')]
+    #[SerializedName('cid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $conversationId;
 
@@ -115,8 +115,8 @@ class MessagePartHitInfo implements SearchHit
      * @var int
      */
     #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName(name: 'mid')]
-    #[Type(name: 'int')]
+    #[SerializedName('mid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $messageId;
 
@@ -131,8 +131,8 @@ class MessagePartHitInfo implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -147,8 +147,8 @@ class MessagePartHitInfo implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getContentName', setter: 'setContentName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentName;
 
@@ -163,8 +163,8 @@ class MessagePartHitInfo implements SearchHit
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $part;
 
@@ -179,8 +179,8 @@ class MessagePartHitInfo implements SearchHit
      * @var EmailInfo
      */
     #[Accessor(getter: "getEmail", setter: "setEmail")]
-    #[SerializedName(name: 'e')]
-    #[Type(name: EmailInfo::class)]
+    #[SerializedName('e')]
+    #[Type(EmailInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $email;
 
@@ -193,8 +193,8 @@ class MessagePartHitInfo implements SearchHit
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     #[Accessor(getter: "getSubject", setter: "setSubject")]
-    #[SerializedName(name: 'su')]
-    #[Type(name: 'string')]
+    #[SerializedName('su')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $subject;
 

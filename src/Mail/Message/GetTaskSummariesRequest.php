@@ -36,8 +36,8 @@ class GetTaskSummariesRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $startTime;
 
@@ -52,8 +52,8 @@ class GetTaskSummariesRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName(name: 'e')]
-    #[Type(name: 'int')]
+    #[SerializedName('e')]
+    #[Type('int')]
     #[XmlAttribute]
     private $endTime;
 
@@ -68,8 +68,8 @@ class GetTaskSummariesRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 

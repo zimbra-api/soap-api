@@ -38,8 +38,8 @@ class SearchAccountsResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -54,8 +54,8 @@ class SearchAccountsResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName(name: 'searchTotal')]
-    #[Type(name: 'int')]
+    #[SerializedName('searchTotal')]
+    #[Type('int')]
     #[XmlAttribute]
     private $searchTotal;
 
@@ -69,7 +69,7 @@ class SearchAccountsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getCalendarResources', setter: 'setCalendarResources')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\CalendarResourceInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\CalendarResourceInfo>')]
     #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAdmin')]
     private $calResources = [];
 
@@ -83,7 +83,7 @@ class SearchAccountsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDistributionLists', setter: 'setDistributionLists')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DistributionListInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\DistributionListInfo>')]
     #[XmlList(inline: true, entry: 'dl', namespace: 'urn:zimbraAdmin')]
     private $dls = [];
 
@@ -97,7 +97,7 @@ class SearchAccountsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAliases', setter: 'setAliases')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AliasInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\AliasInfo>')]
     #[XmlList(inline: true, entry: 'alias', namespace: 'urn:zimbraAdmin')]
     private $aliases = [];
 
@@ -111,7 +111,7 @@ class SearchAccountsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AccountInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\AccountInfo>')]
     #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
@@ -125,7 +125,7 @@ class SearchAccountsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDomains', setter: 'setDomains')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DomainInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\DomainInfo>')]
     #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
     private $domains = [];
 
@@ -139,7 +139,7 @@ class SearchAccountsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getCOSes', setter: 'setCOSes')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\CosInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\CosInfo>')]
     #[XmlList(inline: true, entry: 'cos', namespace: 'urn:zimbraAdmin')]
     private $coses = [];
 

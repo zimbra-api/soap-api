@@ -34,8 +34,8 @@ class MiniCalError
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class MiniCalError
      * @var string
      */
     #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName(name: 'code')]
-    #[Type(name: 'string')]
+    #[SerializedName('code')]
+    #[Type('string')]
     #[XmlAttribute]
     private $code;
 
@@ -65,7 +65,7 @@ class MiniCalError
      * @var string
      */
     #[Accessor(getter: 'getErrorMessage', setter: 'setErrorMessage')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $errorMessage;
 

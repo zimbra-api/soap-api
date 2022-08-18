@@ -34,8 +34,8 @@ class SessionForWaitSet
      * @var string
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: 'string')]
+    #[SerializedName('account')]
+    #[Type('string')]
     #[XmlAttribute]
     private $account;
 
@@ -51,8 +51,8 @@ class SessionForWaitSet
      * @var string
      */
     #[Accessor(getter: 'getInterests', setter: 'setInterests')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $interests;
 
@@ -67,8 +67,8 @@ class SessionForWaitSet
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -83,8 +83,8 @@ class SessionForWaitSet
      * @var int
      */
     #[Accessor(getter: 'getMboxSyncToken', setter: 'setMboxSyncToken')]
-    #[SerializedName(name: 'mboxSyncToken')]
-    #[Type(name: 'int')]
+    #[SerializedName('mboxSyncToken')]
+    #[Type('int')]
     #[XmlAttribute]
     private $mboxSyncToken;
 
@@ -97,8 +97,8 @@ class SessionForWaitSet
      * @var int
      */
     #[Accessor(getter: 'getMboxSyncTokenDiff', setter: 'setMboxSyncTokenDiff')]
-    #[SerializedName(name: 'mboxSyncTokenDiff')]
-    #[Type(name: 'int')]
+    #[SerializedName('mboxSyncTokenDiff')]
+    #[Type('int')]
     #[XmlAttribute]
     private $mboxSyncTokenDiff;
 
@@ -113,8 +113,8 @@ class SessionForWaitSet
      * @var string
      */
     #[Accessor(getter: 'getAcctIdError', setter: 'setAcctIdError')]
-    #[SerializedName(name: 'acctIdError')]
-    #[Type(name: 'string')]
+    #[SerializedName('acctIdError')]
+    #[Type('string')]
     #[XmlAttribute]
     private $acctIdError;
 
@@ -129,8 +129,8 @@ class SessionForWaitSet
      * @var WaitSetSessionInfo
      */
     #[Accessor(getter: 'getWaitSetSession', setter: 'setWaitSetSession')]
-    #[SerializedName(name: 'WaitSetSession')]
-    #[Type(name: WaitSetSessionInfo::class)]
+    #[SerializedName('WaitSetSession')]
+    #[Type(WaitSetSessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $waitSetSession;
 

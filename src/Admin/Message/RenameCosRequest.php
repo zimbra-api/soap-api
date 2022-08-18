@@ -37,8 +37,8 @@ class RenameCosRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $id;
 
@@ -53,8 +53,8 @@ class RenameCosRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName(name: 'newName')]
-    #[Type(name: 'string')]
+    #[SerializedName('newName')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $newName;
 

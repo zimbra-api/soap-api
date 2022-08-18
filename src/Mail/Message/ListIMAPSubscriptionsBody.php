@@ -33,8 +33,8 @@ class ListIMAPSubscriptionsBody extends SoapBody
      * @var ListIMAPSubscriptionsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ListIMAPSubscriptionsRequest')]
-    #[Type(name: ListIMAPSubscriptionsRequest::class)]
+    #[SerializedName('ListIMAPSubscriptionsRequest')]
+    #[Type(ListIMAPSubscriptionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ListIMAPSubscriptionsBody extends SoapBody
      * @var ListIMAPSubscriptionsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ListIMAPSubscriptionsResponse')]
-    #[Type(name: ListIMAPSubscriptionsResponse::class)]
+    #[SerializedName('ListIMAPSubscriptionsResponse')]
+    #[Type(ListIMAPSubscriptionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

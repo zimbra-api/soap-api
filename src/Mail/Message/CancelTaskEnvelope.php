@@ -37,8 +37,8 @@ class CancelTaskEnvelope extends SoapEnvelope
      * @var CancelTaskBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CancelTaskBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CancelTaskBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

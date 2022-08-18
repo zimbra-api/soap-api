@@ -33,8 +33,8 @@ class AddAccountAliasBody extends SoapBody
      * @var AddAccountAliasRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AddAccountAliasRequest')]
-    #[Type(name: AddAccountAliasRequest::class)]
+    #[SerializedName('AddAccountAliasRequest')]
+    #[Type(AddAccountAliasRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class AddAccountAliasBody extends SoapBody
      * @var AddAccountAliasResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AddAccountAliasResponse')]
-    #[Type(name: AddAccountAliasResponse::class)]
+    #[SerializedName('AddAccountAliasResponse')]
+    #[Type(AddAccountAliasResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -33,8 +33,8 @@ class GetAllSkinsBody extends SoapBody
      * @var GetAllSkinsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllSkinsRequest')]
-    #[Type(name: GetAllSkinsRequest::class)]
+    #[SerializedName('GetAllSkinsRequest')]
+    #[Type(GetAllSkinsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAllSkinsBody extends SoapBody
      * @var GetAllSkinsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllSkinsResponse')]
-    #[Type(name: GetAllSkinsResponse::class)]
+    #[SerializedName('GetAllSkinsResponse')]
+    #[Type(GetAllSkinsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

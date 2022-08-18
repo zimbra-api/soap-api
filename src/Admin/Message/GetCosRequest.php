@@ -40,8 +40,8 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosSelector::class)]
+    #[SerializedName('cos')]
+    #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 

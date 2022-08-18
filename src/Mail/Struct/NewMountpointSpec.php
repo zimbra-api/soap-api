@@ -36,8 +36,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -53,8 +53,8 @@ class NewMountpointSpec
      * @var ViewType
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName(name: 'view')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ViewType>')]
+    #[SerializedName('view')]
+    #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
     private $defaultView;
 
@@ -69,8 +69,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -85,8 +85,8 @@ class NewMountpointSpec
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName(name: 'color')]
-    #[Type(name: 'int')]
+    #[SerializedName('color')]
+    #[Type('int')]
     #[XmlAttribute]
     private $color;
 
@@ -101,8 +101,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName(name: 'rgb')]
-    #[Type(name: 'string')]
+    #[SerializedName('rgb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rgb;
 
@@ -117,8 +117,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName(name: 'url')]
-    #[Type(name: 'string')]
+    #[SerializedName('url')]
+    #[Type('string')]
     #[XmlAttribute]
     private $url;
 
@@ -133,8 +133,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -149,8 +149,8 @@ class NewMountpointSpec
      * @var bool
      */
     #[Accessor(getter: 'getFetchIfExists', setter: 'setFetchIfExists')]
-    #[SerializedName(name: 'fie')]
-    #[Type(name: 'bool')]
+    #[SerializedName('fie')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $fetchIfExists;
 
@@ -165,8 +165,8 @@ class NewMountpointSpec
      * @var bool
      */
     #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
-    #[SerializedName(name: 'reminder')]
-    #[Type(name: 'bool')]
+    #[SerializedName('reminder')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $reminderEnabled;
 
@@ -181,8 +181,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getOwnerId', setter: 'setOwnerId')]
-    #[SerializedName(name: 'zid')]
-    #[Type(name: 'string')]
+    #[SerializedName('zid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerId;
 
@@ -197,8 +197,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getOwnerName', setter: 'setOwnerName')]
-    #[SerializedName(name: 'owner')]
-    #[Type(name: 'string')]
+    #[SerializedName('owner')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerName;
 
@@ -213,8 +213,8 @@ class NewMountpointSpec
      * @var int
      */
     #[Accessor(getter: 'getRemoteId', setter: 'setRemoteId')]
-    #[SerializedName(name: 'rid')]
-    #[Type(name: 'int')]
+    #[SerializedName('rid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $remoteId;
 
@@ -229,8 +229,8 @@ class NewMountpointSpec
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName(name: 'path')]
-    #[Type(name: 'string')]
+    #[SerializedName('path')]
+    #[Type('string')]
     #[XmlAttribute]
     private $path;
 

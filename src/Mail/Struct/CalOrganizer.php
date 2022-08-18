@@ -36,8 +36,8 @@ class CalOrganizer implements CalOrganizerInterface
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName(name: 'a')]
-    #[Type(name: 'string')]
+    #[SerializedName('a')]
+    #[Type('string')]
     #[XmlAttribute]
     private $address;
 
@@ -52,8 +52,8 @@ class CalOrganizer implements CalOrganizerInterface
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName(name: 'url')]
-    #[Type(name: 'string')]
+    #[SerializedName('url')]
+    #[Type('string')]
     #[XmlAttribute]
     private $url;
 
@@ -68,8 +68,8 @@ class CalOrganizer implements CalOrganizerInterface
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 
@@ -84,8 +84,8 @@ class CalOrganizer implements CalOrganizerInterface
      * @var string
      */
     #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
-    #[SerializedName(name: 'sentBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sentBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sentBy;
 
@@ -100,8 +100,8 @@ class CalOrganizer implements CalOrganizerInterface
      * @var string
      */
     #[Accessor(getter: 'getDir', setter: 'setDir')]
-    #[SerializedName(name: 'dir')]
-    #[Type(name: 'string')]
+    #[SerializedName('dir')]
+    #[Type('string')]
     #[XmlAttribute]
     private $dir;
 
@@ -116,8 +116,8 @@ class CalOrganizer implements CalOrganizerInterface
      * @var string
      */
     #[Accessor(getter: 'getLanguage', setter: 'setLanguage')]
-    #[SerializedName(name: 'lang')]
-    #[Type(name: 'string')]
+    #[SerializedName('lang')]
+    #[Type('string')]
     #[XmlAttribute]
     private $language;
 
@@ -131,7 +131,7 @@ class CalOrganizer implements CalOrganizerInterface
      * @var array
      */
     #[Accessor(getter: 'getXParams', setter: 'setXParams')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\XParam>')]
+    #[Type('array<Zimbra\Mail\Struct\XParam>')]
     #[XmlList(inline: true, entry: 'xparam', namespace: 'urn:zimbraMail')]
     private $xParams = [];
 

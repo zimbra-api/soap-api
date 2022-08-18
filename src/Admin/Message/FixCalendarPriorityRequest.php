@@ -38,8 +38,8 @@ class FixCalendarPriorityRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName(name: 'sync')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sync')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sync;
 
@@ -53,7 +53,7 @@ class FixCalendarPriorityRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
     #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 

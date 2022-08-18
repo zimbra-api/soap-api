@@ -36,8 +36,8 @@ class GetTaskResponse extends SoapResponse
      * @var CalendarItemInfo
      */
     #[Accessor(getter: "getApptItem", setter: "setApptItem")]
-    #[SerializedName(name: 'appt')]
-    #[Type(name: CalendarItemInfo::class)]
+    #[SerializedName('appt')]
+    #[Type(CalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $appt;
 
@@ -51,8 +51,8 @@ class GetTaskResponse extends SoapResponse
      * @var TaskItemInfo
      */
     #[Accessor(getter: "getTaskItem", setter: "setTaskItem")]
-    #[SerializedName(name: 'task')]
-    #[Type(name: TaskItemInfo::class)]
+    #[SerializedName('task')]
+    #[Type(TaskItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $task;
 

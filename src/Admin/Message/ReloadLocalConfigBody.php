@@ -33,8 +33,8 @@ class ReloadLocalConfigBody extends SoapBody
      * @var ReloadLocalConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ReloadLocalConfigRequest')]
-    #[Type(name: ReloadLocalConfigRequest::class)]
+    #[SerializedName('ReloadLocalConfigRequest')]
+    #[Type(ReloadLocalConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class ReloadLocalConfigBody extends SoapBody
      * @var ReloadLocalConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ReloadLocalConfigResponse')]
-    #[Type(name: ReloadLocalConfigResponse::class)]
+    #[SerializedName('ReloadLocalConfigResponse')]
+    #[Type(ReloadLocalConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

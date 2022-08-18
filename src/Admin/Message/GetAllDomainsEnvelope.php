@@ -37,8 +37,8 @@ class GetAllDomainsEnvelope extends SoapEnvelope
      * @var GetAllDomainsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetAllDomainsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetAllDomainsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

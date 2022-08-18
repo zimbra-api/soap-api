@@ -33,8 +33,8 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @var GetAggregateQuotaUsageOnServerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAggregateQuotaUsageOnServerRequest')]
-    #[Type(name: GetAggregateQuotaUsageOnServerRequest::class)]
+    #[SerializedName('GetAggregateQuotaUsageOnServerRequest')]
+    #[Type(GetAggregateQuotaUsageOnServerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @var GetAggregateQuotaUsageOnServerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAggregateQuotaUsageOnServerResponse')]
-    #[Type(name: GetAggregateQuotaUsageOnServerResponse::class)]
+    #[SerializedName('GetAggregateQuotaUsageOnServerResponse')]
+    #[Type(GetAggregateQuotaUsageOnServerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

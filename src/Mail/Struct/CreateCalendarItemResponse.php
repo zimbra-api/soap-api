@@ -36,8 +36,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName(name: 'calItemId')]
-    #[Type(name: 'string')]
+    #[SerializedName('calItemId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calItemId;
 
@@ -52,8 +52,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getDeprecatedApptId', setter: 'setDeprecatedApptId')]
-    #[SerializedName(name: 'apptId')]
-    #[Type(name: 'string')]
+    #[SerializedName('apptId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $deprecatedApptId;
 
@@ -68,8 +68,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCalInvId', setter: 'setCalInvId')]
-    #[SerializedName(name: 'invId')]
-    #[Type(name: 'string')]
+    #[SerializedName('invId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calInvId;
 
@@ -84,8 +84,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -100,8 +100,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -116,8 +116,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var Id
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: Id::class)]
+    #[SerializedName('m')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
@@ -132,8 +132,8 @@ class CreateCalendarItemResponse extends SoapResponse
      * @var CalEcho
      */
     #[Accessor(getter: "getEcho", setter: "setEcho")]
-    #[SerializedName(name: 'echo')]
-    #[Type(name: CalEcho::class)]
+    #[SerializedName('echo')]
+    #[Type(CalEcho::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $echo;
 

@@ -34,8 +34,8 @@ class SnoozeAlarm
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class SnoozeAlarm
      * @var int
      */
     #[Accessor(getter: 'getSnoozeUntil', setter: 'setSnoozeUntil')]
-    #[SerializedName(name: 'until')]
-    #[Type(name: 'int')]
+    #[SerializedName('until')]
+    #[Type('int')]
     #[XmlAttribute]
     private $snoozeUntil;
 

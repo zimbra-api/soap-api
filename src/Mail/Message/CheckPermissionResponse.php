@@ -36,8 +36,8 @@ class CheckPermissionResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName(name: 'allow')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allow')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allow;
 
@@ -51,7 +51,7 @@ class CheckPermissionResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\RightPermission>')]
+    #[Type('array<Zimbra\Mail\Struct\RightPermission>')]
     #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraMail')]
     private $rights = [];
 

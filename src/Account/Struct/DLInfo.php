@@ -34,8 +34,8 @@ class DLInfo extends ObjectInfo
      * @var string
      */
     #[Accessor(getter: 'getRef', setter: 'setRef')]
-    #[SerializedName(name: 'ref')]
-    #[Type(name: 'string')]
+    #[SerializedName('ref')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ref;
 
@@ -50,8 +50,8 @@ class DLInfo extends ObjectInfo
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 
@@ -66,8 +66,8 @@ class DLInfo extends ObjectInfo
      * @var bool
      */
     #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
-    #[SerializedName(name: 'dynamic')]
-    #[Type(name: 'bool')]
+    #[SerializedName('dynamic')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $dynamic;
 
@@ -84,8 +84,8 @@ class DLInfo extends ObjectInfo
      * @var string
      */
     #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName(name: 'via')]
-    #[Type(name: 'string')]
+    #[SerializedName('via')]
+    #[Type('string')]
     #[XmlAttribute]
     private $via;
 
@@ -101,8 +101,8 @@ class DLInfo extends ObjectInfo
      * @var bool
      */
     #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
-    #[SerializedName(name: 'isOwner')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isOwner')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isOwner;
 
@@ -118,8 +118,8 @@ class DLInfo extends ObjectInfo
      * @var bool
      */
     #[Accessor(getter: 'isMember', setter: 'setIsMember')]
-    #[SerializedName(name: 'isMember')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isMember')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isMember;
 

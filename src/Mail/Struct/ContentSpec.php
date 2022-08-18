@@ -34,8 +34,8 @@ class ContentSpec
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName(name: 'aid')]
-    #[Type(name: 'string')]
+    #[SerializedName('aid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attachmentId;
 
@@ -50,8 +50,8 @@ class ContentSpec
      * @var string
      */
     #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName(name: 'mid')]
-    #[Type(name: 'string')]
+    #[SerializedName('mid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $messageId;
 
@@ -66,8 +66,8 @@ class ContentSpec
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $part;
 
@@ -81,7 +81,7 @@ class ContentSpec
      * @var string
      */
     #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $text;
 

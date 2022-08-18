@@ -38,8 +38,8 @@ class ReIndexRequest extends SoapRequest
      * @var Mbox
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName(name: 'mbox')]
-    #[Type(name: Mbox::class)]
+    #[SerializedName('mbox')]
+    #[Type(Mbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mbox;
 
@@ -57,8 +57,8 @@ class ReIndexRequest extends SoapRequest
      * @var Action
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName(name: 'action')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ReIndexAction>')]
+    #[SerializedName('action')]
+    #[Type('Enum<Zimbra\Common\Enum\ReIndexAction>')]
     #[XmlAttribute]
     private $action;
 

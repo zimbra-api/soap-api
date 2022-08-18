@@ -33,8 +33,8 @@ class CreateGalSyncAccountBody extends SoapBody
      * @var CreateGalSyncAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateGalSyncAccountRequest')]
-    #[Type(name: CreateGalSyncAccountRequest::class)]
+    #[SerializedName('CreateGalSyncAccountRequest')]
+    #[Type(CreateGalSyncAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class CreateGalSyncAccountBody extends SoapBody
      * @var CreateGalSyncAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateGalSyncAccountResponse')]
-    #[Type(name: CreateGalSyncAccountResponse::class)]
+    #[SerializedName('CreateGalSyncAccountResponse')]
+    #[Type(CreateGalSyncAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

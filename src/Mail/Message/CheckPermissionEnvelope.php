@@ -37,8 +37,8 @@ class CheckPermissionEnvelope extends SoapEnvelope
      * @var CheckPermissionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CheckPermissionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CheckPermissionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

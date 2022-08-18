@@ -35,8 +35,8 @@ class AliasInfo extends AdminObjectInfo
      * @var string
      */
     #[Accessor(getter: 'getTargetName', setter: 'setTargetName')]
-    #[SerializedName(name: 'targetName')]
-    #[Type(name: 'string')]
+    #[SerializedName('targetName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $targetName;
 
@@ -51,8 +51,8 @@ class AliasInfo extends AdminObjectInfo
      * @var TargetType
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private $targetType;
 

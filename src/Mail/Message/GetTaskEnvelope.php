@@ -37,8 +37,8 @@ class GetTaskEnvelope extends SoapEnvelope
      * @var GetTaskBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetTaskBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetTaskBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

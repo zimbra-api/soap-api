@@ -44,8 +44,8 @@ class GetFolderRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isVisible', setter: 'setVisible')]
-    #[SerializedName(name: 'visible')]
-    #[Type(name: 'bool')]
+    #[SerializedName('visible')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isVisible;
 
@@ -60,8 +60,8 @@ class GetFolderRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isNeedGranteeName', setter: 'setNeedGranteeName')]
-    #[SerializedName(name: 'needGranteeName')]
-    #[Type(name: 'bool')]
+    #[SerializedName('needGranteeName')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $needGranteeName;
 
@@ -77,8 +77,8 @@ class GetFolderRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getViewConstraint', setter: 'setViewConstraint')]
-    #[SerializedName(name: 'view')]
-    #[Type(name: 'string')]
+    #[SerializedName('view')]
+    #[Type('string')]
     #[XmlAttribute]
     private $viewConstraint;
 
@@ -95,8 +95,8 @@ class GetFolderRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getTreeDepth', setter: 'setTreeDepth')]
-    #[SerializedName(name: 'depth')]
-    #[Type(name: 'int')]
+    #[SerializedName('depth')]
+    #[Type('int')]
     #[XmlAttribute]
     private $treeDepth;
 
@@ -114,8 +114,8 @@ class GetFolderRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isTraverseMountpoints', setter: 'setTraverseMountpoints')]
-    #[SerializedName(name: 'tr')]
-    #[Type(name: 'bool')]
+    #[SerializedName('tr')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $traverseMountpoints;
 
@@ -130,8 +130,8 @@ class GetFolderRequest extends SoapRequest
      * @var GetFolderSpec
      */
     #[Accessor(getter: "getFolder", setter: "setFolder")]
-    #[SerializedName(name: 'folder')]
-    #[Type(name: GetFolderSpec::class)]
+    #[SerializedName('folder')]
+    #[Type(GetFolderSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $folder;
 

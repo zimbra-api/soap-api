@@ -37,8 +37,8 @@ class GetZimletStatusResponse extends SoapResponse
      * @var ZimletStatusParent
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[SerializedName(name: 'zimlets')]
-    #[Type(name: ZimletStatusParent::class)]
+    #[SerializedName('zimlets')]
+    #[Type(ZimletStatusParent::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $zimlets;
 
@@ -52,7 +52,7 @@ class GetZimletStatusResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getCoses', setter: 'setCoses')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ZimletStatusCos>')]
+    #[Type('array<Zimbra\Admin\Struct\ZimletStatusCos>')]
     #[XmlList(inline: true, entry: 'cos', namespace: 'urn:zimbraAdmin')]
     private $coses = [];
 

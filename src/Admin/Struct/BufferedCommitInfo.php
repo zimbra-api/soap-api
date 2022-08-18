@@ -34,8 +34,8 @@ class BufferedCommitInfo
      * @var string
      */
     #[Accessor(getter: 'getAid', setter: 'setAid')]
-    #[SerializedName(name: 'aid')]
-    #[Type(name: 'string')]
+    #[SerializedName('aid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $aid;
 
@@ -50,8 +50,8 @@ class BufferedCommitInfo
      * @var string
      */
     #[Accessor(getter: 'getCid', setter: 'setCid')]
-    #[SerializedName(name: 'cid')]
-    #[Type(name: 'string')]
+    #[SerializedName('cid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $cid;
 

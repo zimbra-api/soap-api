@@ -50,8 +50,8 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $dateTime;
 
@@ -66,8 +66,8 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName(name: 'tz')]
-    #[Type(name: 'string')]
+    #[SerializedName('tz')]
+    #[Type('string')]
     #[XmlAttribute]
     private $timezone;
 
@@ -82,8 +82,8 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getUtcTime', setter: 'setUtcTime')]
-    #[SerializedName(name: 'u')]
-    #[Type(name: 'int')]
+    #[SerializedName('u')]
+    #[Type('int')]
     #[XmlAttribute]
     private $utcTime;
 

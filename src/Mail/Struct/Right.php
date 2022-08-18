@@ -34,8 +34,8 @@ class Right
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: 'string')]
+    #[SerializedName('right')]
+    #[Type('string')]
     #[XmlAttribute]
     private $right;
 

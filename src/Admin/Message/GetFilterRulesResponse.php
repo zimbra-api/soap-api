@@ -38,8 +38,8 @@ class GetFilterRulesResponse extends SoapResponse
      * @var AdminFilterType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AdminFilterType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\AdminFilterType>')]
     #[XmlAttribute]
     private $type;
 
@@ -54,8 +54,8 @@ class GetFilterRulesResponse extends SoapResponse
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -70,8 +70,8 @@ class GetFilterRulesResponse extends SoapResponse
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainSelector::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
@@ -85,8 +85,8 @@ class GetFilterRulesResponse extends SoapResponse
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosSelector::class)]
+    #[SerializedName('cos')]
+    #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
@@ -101,8 +101,8 @@ class GetFilterRulesResponse extends SoapResponse
      * @var ServerSelector
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: ServerSelector::class)]
+    #[SerializedName('server')]
+    #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
@@ -118,8 +118,8 @@ class GetFilterRulesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
-    #[SerializedName(name: 'filterRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FilterRule>')]
+    #[SerializedName('filterRules')]
+    #[Type('array<Zimbra\Mail\Struct\FilterRule>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
     private $rules = [];

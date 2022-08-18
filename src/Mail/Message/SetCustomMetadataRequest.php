@@ -38,8 +38,8 @@ class SetCustomMetadataRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -54,8 +54,8 @@ class SetCustomMetadataRequest extends SoapRequest
      * @var MailCustomMetadata
      */
     #[Accessor(getter: "getMetadata", setter: "setMetadata")]
-    #[SerializedName(name: 'meta')]
-    #[Type(name: MailCustomMetadata::class)]
+    #[SerializedName('meta')]
+    #[Type(MailCustomMetadata::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $metadata;
 

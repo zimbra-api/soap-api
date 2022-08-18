@@ -37,8 +37,8 @@ class GetVolumeEnvelope extends SoapEnvelope
      * @var GetVolumeBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetVolumeBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetVolumeBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

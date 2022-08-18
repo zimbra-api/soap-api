@@ -34,8 +34,8 @@ class BodyTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $value;
 
@@ -50,8 +50,8 @@ class BodyTest extends FilterTest
      * @var bool
      */
     #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName(name: 'caseSensitive')]
-    #[Type(name: 'bool')]
+    #[SerializedName('caseSensitive')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $caseSensitive;
 

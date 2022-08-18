@@ -37,8 +37,8 @@ class CheckRightResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName(name: 'allow')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allow')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allow;
 
@@ -53,8 +53,8 @@ class CheckRightResponse extends SoapResponse
      * @var RightViaInfo
      */
     #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName(name: 'via')]
-    #[Type(name: RightViaInfo::class)]
+    #[SerializedName('via')]
+    #[Type(RightViaInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $via;
 

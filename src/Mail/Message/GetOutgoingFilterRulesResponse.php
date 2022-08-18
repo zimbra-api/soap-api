@@ -37,8 +37,8 @@ class GetOutgoingFilterRulesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
-    #[SerializedName(name: 'filterRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FilterRule>')]
+    #[SerializedName('filterRules')]
+    #[Type('array<Zimbra\Mail\Struct\FilterRule>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
     private $rules = [];

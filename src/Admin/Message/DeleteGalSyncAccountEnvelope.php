@@ -37,8 +37,8 @@ class DeleteGalSyncAccountEnvelope extends SoapEnvelope
      * @var DeleteGalSyncAccountBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteGalSyncAccountBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteGalSyncAccountBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

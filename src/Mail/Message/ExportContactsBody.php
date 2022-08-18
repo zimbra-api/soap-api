@@ -33,8 +33,8 @@ class ExportContactsBody extends SoapBody
      * @var ExportContactsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ExportContactsRequest')]
-    #[Type(name: ExportContactsRequest::class)]
+    #[SerializedName('ExportContactsRequest')]
+    #[Type(ExportContactsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ExportContactsBody extends SoapBody
      * @var ExportContactsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ExportContactsResponse')]
-    #[Type(name: ExportContactsResponse::class)]
+    #[SerializedName('ExportContactsResponse')]
+    #[Type(ExportContactsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

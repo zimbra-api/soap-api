@@ -36,8 +36,8 @@ class AddCommentResponse extends SoapResponse
      * @var Id
      */
     #[Accessor(getter: "getComment", setter: "setComment")]
-    #[SerializedName(name: 'comment')]
-    #[Type(name: Id::class)]
+    #[SerializedName('comment')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $comment;
 

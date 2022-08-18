@@ -37,8 +37,8 @@ class CheckSpellingResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'isAvailable', setter: 'setAvailable')]
-    #[SerializedName(name: 'available')]
-    #[Type(name: 'bool')]
+    #[SerializedName('available')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $available;
 
@@ -52,7 +52,7 @@ class CheckSpellingResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getMisspelledWords', setter: 'setMisspelledWords')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\Misspelling>')]
+    #[Type('array<Zimbra\Mail\Struct\Misspelling>')]
     #[XmlList(inline: true, entry: 'misspelled', namespace: 'urn:zimbraMail')]
     private $misspelledWords = [];
 

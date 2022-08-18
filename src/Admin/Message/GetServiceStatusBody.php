@@ -33,8 +33,8 @@ class GetServiceStatusBody extends SoapBody
      * @var GetServiceStatusRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetServiceStatusRequest')]
-    #[Type(name: GetServiceStatusRequest::class)]
+    #[SerializedName('GetServiceStatusRequest')]
+    #[Type(GetServiceStatusRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetServiceStatusBody extends SoapBody
      * @var GetServiceStatusResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetServiceStatusResponse')]
-    #[Type(name: GetServiceStatusResponse::class)]
+    #[SerializedName('GetServiceStatusResponse')]
+    #[Type(GetServiceStatusResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

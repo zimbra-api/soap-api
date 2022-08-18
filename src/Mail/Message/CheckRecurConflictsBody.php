@@ -33,8 +33,8 @@ class CheckRecurConflictsBody extends SoapBody
      * @var CheckRecurConflictsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckRecurConflictsRequest')]
-    #[Type(name: CheckRecurConflictsRequest::class)]
+    #[SerializedName('CheckRecurConflictsRequest')]
+    #[Type(CheckRecurConflictsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class CheckRecurConflictsBody extends SoapBody
      * @var CheckRecurConflictsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckRecurConflictsResponse')]
-    #[Type(name: CheckRecurConflictsResponse::class)]
+    #[SerializedName('CheckRecurConflictsResponse')]
+    #[Type(CheckRecurConflictsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

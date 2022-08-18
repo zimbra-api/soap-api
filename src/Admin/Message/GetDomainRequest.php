@@ -41,8 +41,8 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
      * @var bool
      */
     #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName(name: 'applyConfig')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyConfig')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyConfig;
 
@@ -57,8 +57,8 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainSelector::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 

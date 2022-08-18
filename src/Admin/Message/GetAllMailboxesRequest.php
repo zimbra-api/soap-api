@@ -36,8 +36,8 @@ class GetAllMailboxesRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -52,8 +52,8 @@ class GetAllMailboxesRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 

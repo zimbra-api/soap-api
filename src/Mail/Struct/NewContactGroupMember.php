@@ -38,8 +38,8 @@ class NewContactGroupMember
      * @var MemberType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\MemberType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\MemberType>')]
     #[XmlAttribute]
     private $type;
 
@@ -58,8 +58,8 @@ class NewContactGroupMember
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $value;
 

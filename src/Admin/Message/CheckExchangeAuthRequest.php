@@ -37,8 +37,8 @@ class CheckExchangeAuthRequest extends SoapRequest
      * @var ExchangeAuthSpec
      */
     #[Accessor(getter: 'getAuth', setter: 'setAuth')]
-    #[SerializedName(name: 'auth')]
-    #[Type(name: ExchangeAuthSpec::class)]
+    #[SerializedName('auth')]
+    #[Type(ExchangeAuthSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $auth;
 

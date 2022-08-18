@@ -33,8 +33,8 @@ class AccountNameSelector
      * @var AccountBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AccountBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -47,8 +47,8 @@ class AccountNameSelector
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -60,7 +60,7 @@ class AccountNameSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

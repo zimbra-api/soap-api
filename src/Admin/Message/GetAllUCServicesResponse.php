@@ -35,7 +35,7 @@ class GetAllUCServicesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getUCServiceList', setter: 'setUCServiceList')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\UCServiceInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\UCServiceInfo>')]
     #[XmlList(inline: true, entry: 'ucservice', namespace: 'urn:zimbraAdmin')]
     private $ucServiceList = [];
 

@@ -39,8 +39,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -55,8 +55,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'comp')]
-    #[Type(name: 'int')]
+    #[SerializedName('comp')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 
@@ -71,8 +71,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -87,8 +87,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -103,8 +103,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var InstanceRecurIdInfo
      */
     #[Accessor(getter: "getInstance", setter: "setInstance")]
-    #[SerializedName(name: 'inst')]
-    #[Type(name: InstanceRecurIdInfo::class)]
+    #[SerializedName('inst')]
+    #[Type(InstanceRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $instance;
 
@@ -119,8 +119,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var CalTZInfo
      */
     #[Accessor(getter: "getTimezone", setter: "setTimezone")]
-    #[SerializedName(name: 'tz')]
-    #[Type(name: CalTZInfo::class)]
+    #[SerializedName('tz')]
+    #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $timezone;
 
@@ -135,8 +135,8 @@ class CancelAppointmentRequest extends SoapRequest
      * @var Msg
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: Msg::class)]
+    #[SerializedName('m')]
+    #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 

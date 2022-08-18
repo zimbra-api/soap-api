@@ -35,8 +35,8 @@ class ConversationSummary
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -51,8 +51,8 @@ class ConversationSummary
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'int')]
+    #[SerializedName('n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $num;
 
@@ -67,8 +67,8 @@ class ConversationSummary
      * @var int
      */
     #[Accessor(getter: 'getNumUnread', setter: 'setNumUnread')]
-    #[SerializedName(name: 'u')]
-    #[Type(name: 'int')]
+    #[SerializedName('u')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numUnread;
 
@@ -83,8 +83,8 @@ class ConversationSummary
      * @var int
      */
     #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName(name: 'total')]
-    #[Type(name: 'int')]
+    #[SerializedName('total')]
+    #[Type('int')]
     #[XmlAttribute]
     private $totalSize;
 
@@ -99,8 +99,8 @@ class ConversationSummary
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -115,8 +115,8 @@ class ConversationSummary
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -131,8 +131,8 @@ class ConversationSummary
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -147,8 +147,8 @@ class ConversationSummary
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -163,8 +163,8 @@ class ConversationSummary
      * @var bool
      */
     #[Accessor(getter: 'getElided', setter: 'setElided')]
-    #[SerializedName(name: 'elided')]
-    #[Type(name: 'bool')]
+    #[SerializedName('elided')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $elided;
 
@@ -179,8 +179,8 @@ class ConversationSummary
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName(name: 'md')]
-    #[Type(name: 'int')]
+    #[SerializedName('md')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeDate;
 
@@ -195,8 +195,8 @@ class ConversationSummary
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -210,7 +210,7 @@ class ConversationSummary
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
@@ -225,8 +225,8 @@ class ConversationSummary
      * @var string
      */
     #[Accessor(getter: "getSubject", setter: "setSubject")]
-    #[SerializedName(name: 'su')]
-    #[Type(name: 'string')]
+    #[SerializedName('su')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $subject;
 
@@ -241,8 +241,8 @@ class ConversationSummary
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
-    #[SerializedName(name: 'fr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fr')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
@@ -256,7 +256,7 @@ class ConversationSummary
      * @var array
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\EmailInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
     #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
     private $emails = [];
 

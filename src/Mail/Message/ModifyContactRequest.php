@@ -41,8 +41,8 @@ class ModifyContactRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getReplace', setter: 'setReplace')]
-    #[SerializedName(name: 'replace')]
-    #[Type(name: 'bool')]
+    #[SerializedName('replace')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $replace;
 
@@ -58,8 +58,8 @@ class ModifyContactRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getVerbose', setter: 'setVerbose')]
-    #[SerializedName(name: 'verbose')]
-    #[Type(name: 'bool')]
+    #[SerializedName('verbose')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $verbose;
 
@@ -74,8 +74,8 @@ class ModifyContactRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName(name: 'wantImapUid')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wantImapUid')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantImapUid;
 
@@ -90,8 +90,8 @@ class ModifyContactRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName(name: 'wantModSeq')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wantModSeq')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
@@ -106,8 +106,8 @@ class ModifyContactRequest extends SoapRequest
      * @var ModifyContactSpec
      */
     #[Accessor(getter: "getContact", setter: "setContact")]
-    #[SerializedName(name: 'cn')]
-    #[Type(name: ModifyContactSpec::class)]
+    #[SerializedName('cn')]
+    #[Type(ModifyContactSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $contact;
 

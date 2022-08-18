@@ -36,8 +36,8 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -51,7 +51,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * @var array
      */
     #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AdminZimletProperty>')]
+    #[Type('array<Zimbra\Admin\Struct\AdminZimletProperty>')]
     #[XmlList(inline: true, entry: 'property', namespace: 'urn:zimbraAdmin')]
     private $properties = [];
 

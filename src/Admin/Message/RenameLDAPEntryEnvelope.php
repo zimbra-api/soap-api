@@ -37,8 +37,8 @@ class RenameLDAPEntryEnvelope extends SoapEnvelope
      * @var RenameLDAPEntryBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: RenameLDAPEntryBody::class)]
+    #[SerializedName('Body')]
+    #[Type(RenameLDAPEntryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

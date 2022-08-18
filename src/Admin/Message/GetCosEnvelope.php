@@ -37,8 +37,8 @@ class GetCosEnvelope extends SoapEnvelope
      * @var GetCosBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetCosBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetCosBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

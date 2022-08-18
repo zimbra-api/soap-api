@@ -37,8 +37,8 @@ class DeleteDataSourceEnvelope extends SoapEnvelope
      * @var DeleteDataSourceBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteDataSourceBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteDataSourceBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

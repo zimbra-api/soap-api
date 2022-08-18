@@ -37,8 +37,8 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
      * @var NamedElement
      */
     #[Accessor(getter: 'getProvider', setter: 'setProvider')]
-    #[SerializedName(name: 'provider')]
-    #[Type(name: NamedElement::class)]
+    #[SerializedName('provider')]
+    #[Type(NamedElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $provider;
 

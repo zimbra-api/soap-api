@@ -33,8 +33,8 @@ class MailQueueActionBody extends SoapBody
      * @var MailQueueActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'MailQueueActionRequest')]
-    #[Type(name: MailQueueActionRequest::class)]
+    #[SerializedName('MailQueueActionRequest')]
+    #[Type(MailQueueActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class MailQueueActionBody extends SoapBody
      * @var MailQueueActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'MailQueueActionResponse')]
-    #[Type(name: MailQueueActionResponse::class)]
+    #[SerializedName('MailQueueActionResponse')]
+    #[Type(MailQueueActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

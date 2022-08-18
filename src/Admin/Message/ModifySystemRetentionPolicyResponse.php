@@ -36,8 +36,8 @@ class ModifySystemRetentionPolicyResponse extends SoapResponse
      * @var Policy
      */
     #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
-    #[SerializedName(name: 'policy')]
-    #[Type(name: Policy::class)]
+    #[SerializedName('policy')]
+    #[Type(Policy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $policy;
 

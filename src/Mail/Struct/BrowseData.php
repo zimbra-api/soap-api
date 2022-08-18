@@ -36,8 +36,8 @@ class BrowseData
      * @var string
      */
     #[Accessor(getter: 'getBrowseDomainHeader', setter: 'setBrowseDomainHeader')]
-    #[SerializedName(name: 'h')]
-    #[Type(name: 'string')]
+    #[SerializedName('h')]
+    #[Type('string')]
     #[XmlAttribute]
     private $browseDomainHeader;
 
@@ -52,8 +52,8 @@ class BrowseData
      * @var int
      */
     #[Accessor(getter: 'getFrequency', setter: 'setFrequency')]
-    #[SerializedName(name: 'freq')]
-    #[Type(name: 'int')]
+    #[SerializedName('freq')]
+    #[Type('int')]
     #[XmlAttribute]
     private $frequency;
 
@@ -70,7 +70,7 @@ class BrowseData
      * @var string
      */
     #[Accessor(getter: 'getData', setter: 'setData')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $data;
 

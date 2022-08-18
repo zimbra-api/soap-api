@@ -34,8 +34,8 @@ class CurrentDayOfWeekTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $values;
 

@@ -37,8 +37,8 @@ class RevokeOAuthConsumerEnvelope extends SoapEnvelope
      * @var RevokeOAuthConsumerBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: RevokeOAuthConsumerBody::class)]
+    #[SerializedName('Body')]
+    #[Type(RevokeOAuthConsumerBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

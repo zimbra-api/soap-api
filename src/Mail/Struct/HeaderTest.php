@@ -35,8 +35,8 @@ class HeaderTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[SerializedName(name: 'header')]
-    #[Type(name: 'string')]
+    #[SerializedName('header')]
+    #[Type('string')]
     #[XmlAttribute]
     private $headers;
 
@@ -51,8 +51,8 @@ class HeaderTest extends FilterTest
      * @var StringComparison
      */
     #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
-    #[SerializedName(name: 'stringComparison')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\StringComparison>')]
+    #[SerializedName('stringComparison')]
+    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
     private $stringComparison;
 
@@ -67,8 +67,8 @@ class HeaderTest extends FilterTest
      * @var ValueComparison
      */
     #[Accessor(getter: 'getValueComparison', setter: 'setValueComparison')]
-    #[SerializedName(name: 'valueComparison')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ValueComparison>')]
+    #[SerializedName('valueComparison')]
+    #[Type('Enum<Zimbra\Common\Enum\ValueComparison>')]
     #[XmlAttribute]
     private $valueComparison;
 
@@ -83,8 +83,8 @@ class HeaderTest extends FilterTest
      * @var CountComparison
      */
     #[Accessor(getter: 'getCountComparison', setter: 'setCountComparison')]
-    #[SerializedName(name: 'countComparison')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\CountComparison>')]
+    #[SerializedName('countComparison')]
+    #[Type('Enum<Zimbra\Common\Enum\CountComparison>')]
     #[XmlAttribute]
     private $countComparison;
 
@@ -99,8 +99,8 @@ class HeaderTest extends FilterTest
      * @var ComparisonComparator
      */
     #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
-    #[SerializedName(name: 'valueComparisonComparator')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ComparisonComparator>')]
+    #[SerializedName('valueComparisonComparator')]
+    #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
     private $valueComparisonComparator;
 
@@ -115,8 +115,8 @@ class HeaderTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $value;
 
@@ -131,8 +131,8 @@ class HeaderTest extends FilterTest
      * @var bool
      */
     #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName(name: 'caseSensitive')]
-    #[Type(name: 'bool')]
+    #[SerializedName('caseSensitive')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $caseSensitive;
 

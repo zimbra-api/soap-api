@@ -37,8 +37,8 @@ class EmptyDumpsterEnvelope extends SoapEnvelope
      * @var EmptyDumpsterBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: EmptyDumpsterBody::class)]
+    #[SerializedName('Body')]
+    #[Type(EmptyDumpsterBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

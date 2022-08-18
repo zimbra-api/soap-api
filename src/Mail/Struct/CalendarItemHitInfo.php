@@ -35,8 +35,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName(name: 'sf')]
-    #[Type(name: 'string')]
+    #[SerializedName('sf')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortField;
 
@@ -51,8 +51,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -67,8 +67,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var bool
      */
     #[Accessor(getter: 'getContentMatched', setter: 'setContentMatched')]
-    #[SerializedName(name: 'cm')]
-    #[Type(name: 'bool')]
+    #[SerializedName('cm')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $contentMatched;
 
@@ -83,8 +83,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var int
      */
     #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName(name: 'nextAlarm')]
-    #[Type(name: 'int')]
+    #[SerializedName('nextAlarm')]
+    #[Type('int')]
     #[XmlAttribute]
     private $nextAlarm;
 
@@ -99,8 +99,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var CalOrganizer
      */
     #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
-    #[SerializedName(name: 'or')]
-    #[Type(name: CalOrganizer::class)]
+    #[SerializedName('or')]
+    #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $organizer;
 
@@ -114,7 +114,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var array
      */
     #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
     private $categories;
 
@@ -129,8 +129,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var GeoInfo
      */
     #[Accessor(getter: "getGeo", setter: "setGeo")]
-    #[SerializedName(name: 'geo')]
-    #[Type(name: GeoInfo::class)]
+    #[SerializedName('geo')]
+    #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $geo;
 
@@ -145,8 +145,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
-    #[SerializedName(name: 'fr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fr')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
@@ -160,7 +160,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\InstanceDataInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\InstanceDataInfo>')]
     #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
     private $instances = [];
 
@@ -175,8 +175,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var AlarmDataInfo
      */
     #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
-    #[SerializedName(name: 'alarmData')]
-    #[Type(name: AlarmDataInfo::class)]
+    #[SerializedName('alarmData')]
+    #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $alarmData;
 
@@ -190,7 +190,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var array
      */
     #[Accessor(getter: 'getInvites', setter: 'setInvites')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\Invitation>')]
+    #[Type('array<Zimbra\Mail\Struct\Invitation>')]
     #[XmlList(inline: true, entry: 'inv', namespace: 'urn:zimbraMail')]
     private $invites = [];
 
@@ -206,8 +206,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @var array
      */
     #[Accessor(getter: 'getReplies', setter: 'setReplies')]
-    #[SerializedName(name: 'replies')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalReply>')]
+    #[SerializedName('replies')]
+    #[Type('array<Zimbra\Mail\Struct\CalReply>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
     private $replies = [];

@@ -37,8 +37,8 @@ class GetAllFreeBusyProvidersEnvelope extends SoapEnvelope
      * @var GetAllFreeBusyProvidersBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetAllFreeBusyProvidersBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetAllFreeBusyProvidersBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

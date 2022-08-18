@@ -35,8 +35,8 @@ class ConversationSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,8 +52,8 @@ class ConversationSpec
      * @var string
      */
     #[Accessor(getter: 'getInlineRule', setter: 'setInlineRule')]
-    #[SerializedName(name: 'fetch')]
-    #[Type(name: 'string')]
+    #[SerializedName('fetch')]
+    #[Type('string')]
     #[XmlAttribute]
     private $inlineRule;
 
@@ -68,8 +68,8 @@ class ConversationSpec
      * @var bool
      */
     #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName(name: 'html')]
-    #[Type(name: 'bool')]
+    #[SerializedName('html')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantHtml;
 
@@ -84,8 +84,8 @@ class ConversationSpec
      * @var int
      */
     #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
-    #[SerializedName(name: 'max')]
-    #[Type(name: 'int')]
+    #[SerializedName('max')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxInlinedLength;
 
@@ -101,8 +101,8 @@ class ConversationSpec
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName(name: 'needExp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('needExp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $needCanExpand;
 
@@ -117,7 +117,7 @@ class ConversationSpec
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]
+    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
     #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
     private $headers = [];
 

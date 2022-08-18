@@ -37,8 +37,8 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosSelector::class)]
+    #[SerializedName('cos')]
+    #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 

@@ -33,8 +33,8 @@ class ListDocumentRevisionsBody extends SoapBody
      * @var ListDocumentRevisionsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ListDocumentRevisionsRequest')]
-    #[Type(name: ListDocumentRevisionsRequest::class)]
+    #[SerializedName('ListDocumentRevisionsRequest')]
+    #[Type(ListDocumentRevisionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ListDocumentRevisionsBody extends SoapBody
      * @var ListDocumentRevisionsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ListDocumentRevisionsResponse')]
-    #[Type(name: ListDocumentRevisionsResponse::class)]
+    #[SerializedName('ListDocumentRevisionsResponse')]
+    #[Type(ListDocumentRevisionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

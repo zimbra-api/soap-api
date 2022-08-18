@@ -35,8 +35,8 @@ class ZimletAcl
      * @var string
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: 'string')]
+    #[SerializedName('cos')]
+    #[Type('string')]
     #[XmlAttribute]
     private $cos;
 
@@ -51,8 +51,8 @@ class ZimletAcl
      * @var AclType
      */
     #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName(name: 'acl')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AclType>')]
+    #[SerializedName('acl')]
+    #[Type('Enum<Zimbra\Common\Enum\AclType>')]
     #[XmlAttribute]
     private $acl;
 

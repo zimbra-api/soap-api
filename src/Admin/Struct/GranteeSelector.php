@@ -35,8 +35,8 @@ class GranteeSelector
      * @var GranteeType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
     private $type;
 
@@ -51,8 +51,8 @@ class GranteeSelector
      * @var GranteeBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\GranteeBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -66,7 +66,7 @@ class GranteeSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -81,8 +81,8 @@ class GranteeSelector
      * @var string
      */
     #[Accessor(getter: 'getSecret', setter: 'setSecret')]
-    #[SerializedName(name: 'secret')]
-    #[Type(name: 'string')]
+    #[SerializedName('secret')]
+    #[Type('string')]
     #[XmlAttribute]
     private $secret;
 
@@ -98,8 +98,8 @@ class GranteeSelector
      * @var bool
      */
     #[Accessor(getter: 'getAll', setter: 'setAll')]
-    #[SerializedName(name: 'all')]
-    #[Type(name: 'bool')]
+    #[SerializedName('all')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $all;
 

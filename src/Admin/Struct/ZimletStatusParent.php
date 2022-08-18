@@ -33,7 +33,7 @@ class ZimletStatusParent
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ZimletStatus>')]
+    #[Type('array<Zimbra\Admin\Struct\ZimletStatus>')]
     #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
     private $zimlets = [];
 

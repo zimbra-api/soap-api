@@ -43,8 +43,8 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * @var bool
      */
     #[Accessor(getter: 'isApplyCos', setter: 'setApplyCos')]
-    #[SerializedName(name: 'applyCos')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyCos')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyCos;
 
@@ -59,8 +59,8 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 

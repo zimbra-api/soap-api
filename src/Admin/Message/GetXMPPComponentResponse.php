@@ -36,8 +36,8 @@ class GetXMPPComponentResponse extends SoapResponse
      * @var XMPPComponentInfo
      */
     #[Accessor(getter: 'getComponent', setter: 'setComponent')]
-    #[SerializedName(name: 'xmppcomponent')]
-    #[Type(name: XMPPComponentInfo::class)]
+    #[SerializedName('xmppcomponent')]
+    #[Type(XMPPComponentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $component;
 

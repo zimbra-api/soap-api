@@ -33,8 +33,8 @@ class PingBody extends SoapBody
      * @var PingRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'PingRequest')]
-    #[Type(name: PingRequest::class)]
+    #[SerializedName('PingRequest')]
+    #[Type(PingRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class PingBody extends SoapBody
      * @var PingResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'PingResponse')]
-    #[Type(name: PingResponse::class)]
+    #[SerializedName('PingResponse')]
+    #[Type(PingResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -36,8 +36,8 @@ class RenameDistributionListRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,8 +52,8 @@ class RenameDistributionListRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName(name: 'newName')]
-    #[Type(name: 'string')]
+    #[SerializedName('newName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $newName;
 

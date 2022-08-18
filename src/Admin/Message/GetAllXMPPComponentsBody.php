@@ -33,8 +33,8 @@ class GetAllXMPPComponentsBody extends SoapBody
      * @var GetAllXMPPComponentsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllXMPPComponentsRequest')]
-    #[Type(name: GetAllXMPPComponentsRequest::class)]
+    #[SerializedName('GetAllXMPPComponentsRequest')]
+    #[Type(GetAllXMPPComponentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAllXMPPComponentsBody extends SoapBody
      * @var GetAllXMPPComponentsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllXMPPComponentsResponse')]
-    #[Type(name: GetAllXMPPComponentsResponse::class)]
+    #[SerializedName('GetAllXMPPComponentsResponse')]
+    #[Type(GetAllXMPPComponentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

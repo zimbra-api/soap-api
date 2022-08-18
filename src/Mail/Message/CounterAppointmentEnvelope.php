@@ -37,8 +37,8 @@ class CounterAppointmentEnvelope extends SoapEnvelope
      * @var CounterAppointmentBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CounterAppointmentBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CounterAppointmentBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -38,8 +38,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: 'string')]
+    #[SerializedName('domain')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domain;
 
@@ -55,8 +55,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isAllServers', setter: 'setAllServers')]
-    #[SerializedName(name: 'allServers')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allServers')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allServers;
 
@@ -71,8 +71,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -87,8 +87,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -103,8 +103,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sortBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -119,8 +119,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isSortAscending', setter: 'setSortAscending')]
-    #[SerializedName(name: 'sortAscending')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sortAscending')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sortAscending;
 
@@ -136,8 +136,8 @@ class GetQuotaUsageRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
-    #[SerializedName(name: 'refresh')]
-    #[Type(name: 'bool')]
+    #[SerializedName('refresh')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $refresh;
 

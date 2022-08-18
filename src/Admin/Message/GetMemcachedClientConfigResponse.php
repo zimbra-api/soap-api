@@ -35,8 +35,8 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getServerList', setter: 'setServerList')]
-    #[SerializedName(name: 'serverList')]
-    #[Type(name: 'string')]
+    #[SerializedName('serverList')]
+    #[Type('string')]
     #[XmlAttribute]
     private $serverList;
 
@@ -51,8 +51,8 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getHashAlgorithm', setter: 'setHashAlgorithm')]
-    #[SerializedName(name: 'hashAlgorithm')]
-    #[Type(name: 'string')]
+    #[SerializedName('hashAlgorithm')]
+    #[Type('string')]
     #[XmlAttribute]
     private $hashAlgorithm;
 
@@ -67,8 +67,8 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getBinaryProtocolEnabled', setter: 'setBinaryProtocolEnabled')]
-    #[SerializedName(name: 'binaryProtocol')]
-    #[Type(name: 'bool')]
+    #[SerializedName('binaryProtocol')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $binaryProtocolEnabled;
 
@@ -83,8 +83,8 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getDefaultExpirySeconds', setter: 'setDefaultExpirySeconds')]
-    #[SerializedName(name: 'defaultExpirySeconds')]
-    #[Type(name: 'int')]
+    #[SerializedName('defaultExpirySeconds')]
+    #[Type('int')]
     #[XmlAttribute]
     private $defaultExpirySeconds;
 
@@ -99,8 +99,8 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getDefaultTimeoutMillis', setter: 'setDefaultTimeoutMillis')]
-    #[SerializedName(name: 'defaultTimeoutMillis')]
-    #[Type(name: 'int')]
+    #[SerializedName('defaultTimeoutMillis')]
+    #[Type('int')]
     #[XmlAttribute]
     private $defaultTimeoutMillis;
 

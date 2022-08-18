@@ -34,8 +34,8 @@ class CalendarItemInfo
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -50,8 +50,8 @@ class CalendarItemInfo
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -66,8 +66,8 @@ class CalendarItemInfo
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -82,8 +82,8 @@ class CalendarItemInfo
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName(name: 'uid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uid;
 
@@ -98,8 +98,8 @@ class CalendarItemInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -114,8 +114,8 @@ class CalendarItemInfo
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -130,8 +130,8 @@ class CalendarItemInfo
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -146,8 +146,8 @@ class CalendarItemInfo
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -162,8 +162,8 @@ class CalendarItemInfo
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -178,8 +178,8 @@ class CalendarItemInfo
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName(name: 'md')]
-    #[Type(name: 'int')]
+    #[SerializedName('md')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeDate;
 
@@ -194,8 +194,8 @@ class CalendarItemInfo
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -210,8 +210,8 @@ class CalendarItemInfo
      * @var int
      */
     #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName(name: 'nextAlarm')]
-    #[Type(name: 'int')]
+    #[SerializedName('nextAlarm')]
+    #[Type('int')]
     #[XmlAttribute]
     private $nextAlarm;
 
@@ -226,8 +226,8 @@ class CalendarItemInfo
      * @var bool
      */
     #[Accessor(getter: 'getOrphan', setter: 'setOrphan')]
-    #[SerializedName(name: 'orphan')]
-    #[Type(name: 'bool')]
+    #[SerializedName('orphan')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $orphan;
 
@@ -241,7 +241,7 @@ class CalendarItemInfo
      * @var array
      */
     #[Accessor(getter: 'getInvites', setter: 'setInvites')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\Invitation>')]
+    #[Type('array<Zimbra\Mail\Struct\Invitation>')]
     #[XmlList(inline: true, entry: 'inv', namespace: 'urn:zimbraMail')]
     private $invites = [];
 
@@ -257,8 +257,8 @@ class CalendarItemInfo
      * @var array
      */
     #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
-    #[SerializedName(name: 'replies')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalendarReply>')]
+    #[SerializedName('replies')]
+    #[Type('array<Zimbra\Mail\Struct\CalendarReply>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
     private $calendarReplies = [];
@@ -273,7 +273,7 @@ class CalendarItemInfo
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 

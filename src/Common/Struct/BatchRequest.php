@@ -33,8 +33,8 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
      * @var OnError
      */
     #[Accessor(getter: 'getOnError', setter: 'setOnError')]
-    #[SerializedName(name: 'onerror')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\OnError>')]
+    #[SerializedName('onerror')]
+    #[Type('Enum<Zimbra\Common\Enum\OnError>')]
     #[XmlAttribute]
     private $onerror;
 

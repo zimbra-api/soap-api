@@ -33,8 +33,8 @@ class ImportAppointmentsBody extends SoapBody
      * @var ImportAppointmentsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ImportAppointmentsRequest')]
-    #[Type(name: ImportAppointmentsRequest::class)]
+    #[SerializedName('ImportAppointmentsRequest')]
+    #[Type(ImportAppointmentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ImportAppointmentsBody extends SoapBody
      * @var ImportAppointmentsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ImportAppointmentsResponse')]
-    #[Type(name: ImportAppointmentsResponse::class)]
+    #[SerializedName('ImportAppointmentsResponse')]
+    #[Type(ImportAppointmentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

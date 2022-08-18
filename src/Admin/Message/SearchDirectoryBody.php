@@ -33,8 +33,8 @@ class SearchDirectoryBody extends SoapBody
      * @var SearchDirectoryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SearchDirectoryRequest')]
-    #[Type(name: SearchDirectoryRequest::class)]
+    #[SerializedName('SearchDirectoryRequest')]
+    #[Type(SearchDirectoryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class SearchDirectoryBody extends SoapBody
      * @var SearchDirectoryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SearchDirectoryResponse')]
-    #[Type(name: SearchDirectoryResponse::class)]
+    #[SerializedName('SearchDirectoryResponse')]
+    #[Type(SearchDirectoryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

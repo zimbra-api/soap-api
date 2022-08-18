@@ -34,8 +34,8 @@ class ExportAndDeleteItemSpec
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class ExportAndDeleteItemSpec
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'int')]
+    #[SerializedName('version')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version;
 

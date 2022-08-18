@@ -34,8 +34,8 @@ class WaitSetSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getInterestMask', setter: 'setInterestMask')]
-    #[SerializedName(name: 'interestMask')]
-    #[Type(name: 'string')]
+    #[SerializedName('interestMask')]
+    #[Type('string')]
     #[XmlAttribute]
     private $interestMask;
 
@@ -50,8 +50,8 @@ class WaitSetSessionInfo
      * @var int
      */
     #[Accessor(getter: 'getHighestChangeId', setter: 'setHighestChangeId')]
-    #[SerializedName(name: 'highestChangeId')]
-    #[Type(name: 'int')]
+    #[SerializedName('highestChangeId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $highestChangeId;
 
@@ -66,8 +66,8 @@ class WaitSetSessionInfo
      * @var int
      */
     #[Accessor(getter: 'getLastAccessTime', setter: 'setLastAccessTime')]
-    #[SerializedName(name: 'lastAccessTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('lastAccessTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $lastAccessTime;
 
@@ -82,8 +82,8 @@ class WaitSetSessionInfo
      * @var int
      */
     #[Accessor(getter: 'getCreationTime', setter: 'setCreationTime')]
-    #[SerializedName(name: 'creationTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('creationTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $creationTime;
 
@@ -98,8 +98,8 @@ class WaitSetSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName(name: 'sessionId')]
-    #[Type(name: 'string')]
+    #[SerializedName('sessionId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sessionId;
 
@@ -114,8 +114,8 @@ class WaitSetSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -130,8 +130,8 @@ class WaitSetSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getFolderInterests', setter: 'setFolderInterests')]
-    #[SerializedName(name: 'folderInterests')]
-    #[Type(name: 'string')]
+    #[SerializedName('folderInterests')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderInterests;
 
@@ -146,8 +146,8 @@ class WaitSetSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getChangedFolders', setter: 'setChangedFolders')]
-    #[SerializedName(name: 'changedFolders')]
-    #[Type(name: 'string')]
+    #[SerializedName('changedFolders')]
+    #[Type('string')]
     #[XmlAttribute]
     private $changedFolders;
 

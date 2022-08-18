@@ -33,8 +33,8 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @var GetEffectiveFolderPermsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetEffectiveFolderPermsRequest')]
-    #[Type(name: GetEffectiveFolderPermsRequest::class)]
+    #[SerializedName('GetEffectiveFolderPermsRequest')]
+    #[Type(GetEffectiveFolderPermsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @var GetEffectiveFolderPermsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetEffectiveFolderPermsResponse')]
-    #[Type(name: GetEffectiveFolderPermsResponse::class)]
+    #[SerializedName('GetEffectiveFolderPermsResponse')]
+    #[Type(GetEffectiveFolderPermsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

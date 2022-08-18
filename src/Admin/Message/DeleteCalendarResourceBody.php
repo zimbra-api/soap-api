@@ -33,8 +33,8 @@ class DeleteCalendarResourceBody extends SoapBody
      * @var DeleteCalendarResourceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteCalendarResourceRequest')]
-    #[Type(name: DeleteCalendarResourceRequest::class)]
+    #[SerializedName('DeleteCalendarResourceRequest')]
+    #[Type(DeleteCalendarResourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class DeleteCalendarResourceBody extends SoapBody
      * @var DeleteCalendarResourceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteCalendarResourceResponse')]
-    #[Type(name: DeleteCalendarResourceResponse::class)]
+    #[SerializedName('DeleteCalendarResourceResponse')]
+    #[Type(DeleteCalendarResourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

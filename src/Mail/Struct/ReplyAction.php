@@ -34,8 +34,8 @@ class ReplyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
-    #[SerializedName(name: 'content')]
-    #[Type(name: 'string')]
+    #[SerializedName('content')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 

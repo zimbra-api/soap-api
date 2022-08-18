@@ -47,8 +47,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getAttachmentSizeLimit', setter: 'setAttachmentSizeLimit')]
-    #[SerializedName(name: 'attSizeLimit')]
-    #[Type(name: 'int')]
+    #[SerializedName('attSizeLimit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $attachmentSizeLimit;
 
@@ -63,8 +63,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getDocumentSizeLimit', setter: 'setDocumentSizeLimit')]
-    #[SerializedName(name: 'docSizeLimit')]
-    #[Type(name: 'int')]
+    #[SerializedName('docSizeLimit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $documentSizeLimit;
 
@@ -79,8 +79,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'string')]
+    #[SerializedName('version')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $version;
 
@@ -95,8 +95,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $accountId;
 
@@ -111,8 +111,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getProfileImageId', setter: 'setProfileImageId')]
-    #[SerializedName(name: 'profileImageId')]
-    #[Type(name: 'int')]
+    #[SerializedName('profileImageId')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $profileImageId;
 
@@ -127,8 +127,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAccountName', setter: 'setAccountName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $accountName;
 
@@ -143,8 +143,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCrumb', setter: 'setCrumb')]
-    #[SerializedName(name: 'crumb')]
-    #[Type(name: 'string')]
+    #[SerializedName('crumb')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $crumb;
 
@@ -159,8 +159,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName(name: 'lifetime')]
-    #[Type(name: 'int')]
+    #[SerializedName('lifetime')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $lifetime;
 
@@ -175,8 +175,8 @@ class GetInfoResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getAdminDelegated', setter: 'setAdminDelegated')]
-    #[SerializedName(name: 'adminDelegated')]
-    #[Type(name: 'bool')]
+    #[SerializedName('adminDelegated')]
+    #[Type('bool')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $adminDelegated;
 
@@ -191,8 +191,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getRestUrl', setter: 'setRestUrl')]
-    #[SerializedName(name: 'rest')]
-    #[Type(name: 'string')]
+    #[SerializedName('rest')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $restUrl;
 
@@ -208,8 +208,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
-    #[SerializedName(name: 'used')]
-    #[Type(name: 'int')]
+    #[SerializedName('used')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $quotaUsed;
 
@@ -225,8 +225,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getPreviousSessionTime', setter: 'setPreviousSessionTime')]
-    #[SerializedName(name: 'prevSession')]
-    #[Type(name: 'int')]
+    #[SerializedName('prevSession')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $previousSessionTime;
 
@@ -243,8 +243,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getLastWriteAccessTime', setter: 'setLastWriteAccessTime')]
-    #[SerializedName(name: 'accessed')]
-    #[Type(name: 'int')]
+    #[SerializedName('accessed')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $lastWriteAccessTime;
 
@@ -260,8 +260,8 @@ class GetInfoResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getRecentMessageCount', setter: 'setRecentMessageCount')]
-    #[SerializedName(name: 'recent')]
-    #[Type(name: 'int')]
+    #[SerializedName('recent')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $recentMessageCount;
 
@@ -276,8 +276,8 @@ class GetInfoResponse extends SoapResponse
      * @var Cos
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: Cos::class)]
+    #[SerializedName('cos')]
+    #[Type(Cos::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $cos;
 
@@ -293,8 +293,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[SerializedName(name: 'prefs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Pref>')]
+    #[SerializedName('prefs')]
+    #[Type('array<Zimbra\Account\Struct\Pref>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'pref', namespace: 'urn:zimbraAccount')]
     private $prefs = [];
@@ -312,8 +312,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Attr>')]
+    #[SerializedName('attrs')]
+    #[Type('array<Zimbra\Account\Struct\Attr>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
     private $attrs = [];
@@ -330,8 +330,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[SerializedName(name: 'zimlets')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountZimletInfo>')]
+    #[SerializedName('zimlets')]
+    #[Type('array<Zimbra\Account\Struct\AccountZimletInfo>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'zimlet', namespace: 'urn:zimbraAccount')]
     private $zimlets = [];
@@ -348,8 +348,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getProps', setter: 'setProps')]
-    #[SerializedName(name: 'props')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Prop>')]
+    #[SerializedName('props')]
+    #[Type('array<Zimbra\Account\Struct\Prop>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'prop', namespace: 'urn:zimbraAccount')]
     private $props = [];
@@ -366,8 +366,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getIdentities', setter: 'setIdentities')]
-    #[SerializedName(name: 'identities')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Identity>')]
+    #[SerializedName('identities')]
+    #[Type('array<Zimbra\Account\Struct\Identity>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'identity', namespace: 'urn:zimbraAccount')]
     private $identities = [];
@@ -384,8 +384,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getSignatures', setter: 'setSignatures')]
-    #[SerializedName(name: 'signatures')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Signature>')]
+    #[SerializedName('signatures')]
+    #[Type('array<Zimbra\Account\Struct\Signature>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'signature', namespace: 'urn:zimbraAccount')]
     private $signatures = [];
@@ -401,8 +401,8 @@ class GetInfoResponse extends SoapResponse
      * @var AccountDataSources
      */
     #[Accessor(getter: 'getAccountDataSources', setter: 'setAccountDataSources')]
-    #[SerializedName(name: 'dataSources')]
-    #[Type(name: AccountDataSources::class)]
+    #[SerializedName('dataSources')]
+    #[Type(AccountDataSources::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $dataSources;
 
@@ -418,8 +418,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getChildAccounts', setter: 'setChildAccounts')]
-    #[SerializedName(name: 'childAccounts')]
-    #[Type(name: 'array<Zimbra\Account\Struct\ChildAccount>')]
+    #[SerializedName('childAccounts')]
+    #[Type('array<Zimbra\Account\Struct\ChildAccount>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'childAccount', namespace: 'urn:zimbraAccount')]
     private $childAccounts = [];
@@ -436,8 +436,8 @@ class GetInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDiscoveredRights', setter: 'setDiscoveredRights')]
-    #[SerializedName(name: 'rights')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DiscoverRightsInfo>')]
+    #[SerializedName('rights')]
+    #[Type('array<Zimbra\Account\Struct\DiscoverRightsInfo>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'targets', namespace: 'urn:zimbraAccount')]
     private $discoveredRights = [];
@@ -453,8 +453,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getSoapURL', setter: 'setSoapURL')]
-    #[SerializedName(name: 'soapURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('soapURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $soapURL;
 
@@ -469,8 +469,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getPublicURL', setter: 'setPublicURL')]
-    #[SerializedName(name: 'publicURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('publicURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $publicURL;
 
@@ -486,8 +486,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getChangePasswordURL', setter: 'setChangePasswordURL')]
-    #[SerializedName(name: 'changePasswordURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('changePasswordURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $changePasswordURL;
 
@@ -502,8 +502,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAdminURL', setter: 'setAdminURL')]
-    #[SerializedName(name: 'adminURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('adminURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $adminURL;
 
@@ -519,8 +519,8 @@ class GetInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getBoshURL', setter: 'setBoshURL')]
-    #[SerializedName(name: 'boshURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('boshURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $boshURL;
 
@@ -535,8 +535,8 @@ class GetInfoResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getIsTrackingIMAP', setter: 'setIsTrackingIMAP')]
-    #[SerializedName(name: 'isTrackingIMAP')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isTrackingIMAP')]
+    #[Type('bool')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $isTrackingIMAP;
 

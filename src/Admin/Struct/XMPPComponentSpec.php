@@ -34,8 +34,8 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainSelector::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
@@ -66,8 +66,8 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @var ServerSelector
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: ServerSelector::class)]
+    #[SerializedName('server')]
+    #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 

@@ -35,8 +35,8 @@ class ZimletAclStatusPri
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -51,8 +51,8 @@ class ZimletAclStatusPri
      * @var ZimletAcl
      */
     #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName(name: 'acl')]
-    #[Type(name: ZimletAcl::class)]
+    #[SerializedName('acl')]
+    #[Type(ZimletAcl::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $acl;
 
@@ -67,8 +67,8 @@ class ZimletAclStatusPri
      * @var ValueAttrib
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: ValueAttrib::class)]
+    #[SerializedName('status')]
+    #[Type(ValueAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $status;
 
@@ -83,8 +83,8 @@ class ZimletAclStatusPri
      * @var IntegerValueAttrib
      */
     #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName(name: 'priority')]
-    #[Type(name: IntegerValueAttrib::class)]
+    #[SerializedName('priority')]
+    #[Type(IntegerValueAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $priority;
 

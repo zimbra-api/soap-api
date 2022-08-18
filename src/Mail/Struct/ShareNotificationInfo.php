@@ -34,8 +34,8 @@ class ShareNotificationInfo
      * @var string
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'string')]
+    #[SerializedName('status')]
+    #[Type('string')]
     #[XmlAttribute]
     private $status;
 
@@ -51,8 +51,8 @@ class ShareNotificationInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -67,8 +67,8 @@ class ShareNotificationInfo
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -83,8 +83,8 @@ class ShareNotificationInfo
      * @var Grantor
      */
     #[Accessor(getter: "getGrantor", setter: "setGrantor")]
-    #[SerializedName(name: 'grantor')]
-    #[Type(name: Grantor::class)]
+    #[SerializedName('grantor')]
+    #[Type(Grantor::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $grantor;
 
@@ -99,8 +99,8 @@ class ShareNotificationInfo
      * @var LinkInfo
      */
     #[Accessor(getter: "getLink", setter: "setLink")]
-    #[SerializedName(name: 'link')]
-    #[Type(name: LinkInfo::class)]
+    #[SerializedName('link')]
+    #[Type(LinkInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $link;
 

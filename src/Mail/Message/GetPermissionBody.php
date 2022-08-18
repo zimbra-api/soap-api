@@ -33,8 +33,8 @@ class GetPermissionBody extends SoapBody
      * @var GetPermissionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetPermissionRequest')]
-    #[Type(name: GetPermissionRequest::class)]
+    #[SerializedName('GetPermissionRequest')]
+    #[Type(GetPermissionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetPermissionBody extends SoapBody
      * @var GetPermissionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetPermissionResponse')]
-    #[Type(name: GetPermissionResponse::class)]
+    #[SerializedName('GetPermissionResponse')]
+    #[Type(GetPermissionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

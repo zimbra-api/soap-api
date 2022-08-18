@@ -33,8 +33,8 @@ class ModifyIdentityBody extends SoapBody
      * @var ModifyIdentityRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifyIdentityRequest')]
-    #[Type(name: ModifyIdentityRequest::class)]
+    #[SerializedName('ModifyIdentityRequest')]
+    #[Type(ModifyIdentityRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -47,8 +47,8 @@ class ModifyIdentityBody extends SoapBody
      * @var ModifyIdentityResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifyIdentityResponse')]
-    #[Type(name: ModifyIdentityResponse::class)]
+    #[SerializedName('ModifyIdentityResponse')]
+    #[Type(ModifyIdentityResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

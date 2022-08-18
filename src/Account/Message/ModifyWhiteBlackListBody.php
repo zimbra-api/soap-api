@@ -33,8 +33,8 @@ class ModifyWhiteBlackListBody extends SoapBody
      * @var ModifyWhiteBlackListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifyWhiteBlackListRequest')]
-    #[Type(name: ModifyWhiteBlackListRequest::class)]
+    #[SerializedName('ModifyWhiteBlackListRequest')]
+    #[Type(ModifyWhiteBlackListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -47,8 +47,8 @@ class ModifyWhiteBlackListBody extends SoapBody
      * @var ModifyWhiteBlackListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifyWhiteBlackListResponse')]
-    #[Type(name: ModifyWhiteBlackListResponse::class)]
+    #[SerializedName('ModifyWhiteBlackListResponse')]
+    #[Type(ModifyWhiteBlackListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

@@ -34,8 +34,8 @@ class DiffDocumentVersionSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class DiffDocumentVersionSpec
      * @var int
      */
     #[Accessor(getter: 'getVersion1', setter: 'setVersion1')]
-    #[SerializedName(name: 'v1')]
-    #[Type(name: 'int')]
+    #[SerializedName('v1')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version1;
 
@@ -66,8 +66,8 @@ class DiffDocumentVersionSpec
      * @var int
      */
     #[Accessor(getter: 'getVersion2', setter: 'setVersion2')]
-    #[SerializedName(name: 'v2')]
-    #[Type(name: 'int')]
+    #[SerializedName('v2')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version2;
 

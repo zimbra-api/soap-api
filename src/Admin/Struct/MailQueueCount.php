@@ -34,8 +34,8 @@ class MailQueueCount
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class MailQueueCount
      * @var int
      */
     #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'int')]
+    #[SerializedName('n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $count;
 

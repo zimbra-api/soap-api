@@ -39,8 +39,8 @@ class DiffDocumentRequest extends SoapRequest
      * @var DiffDocumentVersionSpec
      */
     #[Accessor(getter: "getDoc", setter: "setDoc")]
-    #[SerializedName(name: 'doc')]
-    #[Type(name: DiffDocumentVersionSpec::class)]
+    #[SerializedName('doc')]
+    #[Type(DiffDocumentVersionSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $doc;
 

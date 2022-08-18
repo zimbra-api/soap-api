@@ -37,8 +37,8 @@ class GetAdminExtensionZimletsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[SerializedName(name: 'zimlets')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AdminZimletInfo>')]
+    #[SerializedName('zimlets')]
+    #[Type('array<Zimbra\Admin\Struct\AdminZimletInfo>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
     private $zimlets = [];

@@ -33,8 +33,8 @@ class IMAPCopyBody extends SoapBody
      * @var IMAPCopyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'IMAPCopyRequest')]
-    #[Type(name: IMAPCopyRequest::class)]
+    #[SerializedName('IMAPCopyRequest')]
+    #[Type(IMAPCopyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class IMAPCopyBody extends SoapBody
      * @var IMAPCopyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'IMAPCopyResponse')]
-    #[Type(name: IMAPCopyResponse::class)]
+    #[SerializedName('IMAPCopyResponse')]
+    #[Type(IMAPCopyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

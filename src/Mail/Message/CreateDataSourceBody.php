@@ -33,8 +33,8 @@ class CreateDataSourceBody extends SoapBody
      * @var CreateDataSourceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateDataSourceRequest')]
-    #[Type(name: CreateDataSourceRequest::class)]
+    #[SerializedName('CreateDataSourceRequest')]
+    #[Type(CreateDataSourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class CreateDataSourceBody extends SoapBody
      * @var CreateDataSourceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateDataSourceResponse')]
-    #[Type(name: CreateDataSourceResponse::class)]
+    #[SerializedName('CreateDataSourceResponse')]
+    #[Type(CreateDataSourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

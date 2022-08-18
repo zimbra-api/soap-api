@@ -34,8 +34,8 @@ class FreeBusyProviderInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class FreeBusyProviderInfo
      * @var bool
      */
     #[Accessor(getter: 'getPropagate', setter: 'setPropagate')]
-    #[SerializedName(name: 'propagate')]
-    #[Type(name: 'bool')]
+    #[SerializedName('propagate')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $propagate;
 
@@ -66,8 +66,8 @@ class FreeBusyProviderInfo
      * @var int
      */
     #[Accessor(getter: 'getStart', setter: 'setStart')]
-    #[SerializedName(name: 'start')]
-    #[Type(name: 'int')]
+    #[SerializedName('start')]
+    #[Type('int')]
     #[XmlAttribute]
     private $start;
 
@@ -82,8 +82,8 @@ class FreeBusyProviderInfo
      * @var int
      */
     #[Accessor(getter: 'getEnd', setter: 'setEnd')]
-    #[SerializedName(name: 'end')]
-    #[Type(name: 'int')]
+    #[SerializedName('end')]
+    #[Type('int')]
     #[XmlAttribute]
     private $end;
 
@@ -98,8 +98,8 @@ class FreeBusyProviderInfo
      * @var string
      */
     #[Accessor(getter: 'getQueue', setter: 'setQueue')]
-    #[SerializedName(name: 'queue')]
-    #[Type(name: 'string')]
+    #[SerializedName('queue')]
+    #[Type('string')]
     #[XmlAttribute]
     private $queue;
 
@@ -114,8 +114,8 @@ class FreeBusyProviderInfo
      * @var string
      */
     #[Accessor(getter: 'getPrefix', setter: 'setPrefix')]
-    #[SerializedName(name: 'prefix')]
-    #[Type(name: 'string')]
+    #[SerializedName('prefix')]
+    #[Type('string')]
     #[XmlAttribute]
     private $prefix;
 

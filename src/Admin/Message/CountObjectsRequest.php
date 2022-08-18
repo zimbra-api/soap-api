@@ -48,8 +48,8 @@ class CountObjectsRequest extends SoapRequest
      * @var CountObjectsType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\CountObjectsType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\CountObjectsType>')]
     #[XmlAttribute]
     private $type;
 
@@ -63,7 +63,7 @@ class CountObjectsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getDomains', setter: 'setDomains')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DomainSelector>')]
+    #[Type('array<Zimbra\Admin\Struct\DomainSelector>')]
     #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
     private $domains = [];
 
@@ -78,8 +78,8 @@ class CountObjectsRequest extends SoapRequest
      * @var UcServiceSelector
      */
     #[Accessor(getter: 'getUcService', setter: 'setUcService')]
-    #[SerializedName(name: 'ucservice')]
-    #[Type(name: UcServiceSelector::class)]
+    #[SerializedName('ucservice')]
+    #[Type(UcServiceSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $ucService;
 
@@ -94,8 +94,8 @@ class CountObjectsRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getOnlyRelated', setter: 'setOnlyRelated')]
-    #[SerializedName(name: 'onlyrelated')]
-    #[Type(name: 'bool')]
+    #[SerializedName('onlyrelated')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $onlyRelated;
 

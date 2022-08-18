@@ -34,8 +34,8 @@ class HeaderExistsTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getHeader', setter: 'setHeader')]
-    #[SerializedName(name: 'header')]
-    #[Type(name: 'string')]
+    #[SerializedName('header')]
+    #[Type('string')]
     #[XmlAttribute]
     private $header;
 

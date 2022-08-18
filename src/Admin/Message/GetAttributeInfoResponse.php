@@ -35,7 +35,7 @@ class GetAttributeInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\AttributeDescription>')]
+    #[Type('array<Zimbra\Admin\Struct\AttributeDescription>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrs = [];
 

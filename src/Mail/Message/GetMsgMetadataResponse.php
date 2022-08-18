@@ -35,7 +35,7 @@ class GetMsgMetadataResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getChatMessages', setter: 'setChatMessages')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ChatSummary>')]
+    #[Type('array<Zimbra\Mail\Struct\ChatSummary>')]
     #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
     private $chatMessages = [];
 
@@ -49,7 +49,7 @@ class GetMsgMetadataResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getMsgMessages', setter: 'setMsgMessages')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MessageSummary>')]
+    #[Type('array<Zimbra\Mail\Struct\MessageSummary>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $msgMessages = [];
 

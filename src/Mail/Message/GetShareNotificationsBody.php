@@ -33,8 +33,8 @@ class GetShareNotificationsBody extends SoapBody
      * @var GetShareNotificationsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetShareNotificationsRequest')]
-    #[Type(name: GetShareNotificationsRequest::class)]
+    #[SerializedName('GetShareNotificationsRequest')]
+    #[Type(GetShareNotificationsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetShareNotificationsBody extends SoapBody
      * @var GetShareNotificationsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetShareNotificationsResponse')]
-    #[Type(name: GetShareNotificationsResponse::class)]
+    #[SerializedName('GetShareNotificationsResponse')]
+    #[Type(GetShareNotificationsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

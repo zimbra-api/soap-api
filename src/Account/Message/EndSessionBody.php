@@ -33,8 +33,8 @@ class EndSessionBody extends SoapBody
      * @var EndSessionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'EndSessionRequest')]
-    #[Type(name: EndSessionRequest::class)]
+    #[SerializedName('EndSessionRequest')]
+    #[Type(EndSessionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -47,8 +47,8 @@ class EndSessionBody extends SoapBody
      * @var EndSessionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'EndSessionResponse')]
-    #[Type(name: EndSessionResponse::class)]
+    #[SerializedName('EndSessionResponse')]
+    #[Type(EndSessionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

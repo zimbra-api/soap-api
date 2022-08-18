@@ -47,8 +47,8 @@ class AuthRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
-    #[SerializedName(name: 'persistAuthTokenCookie')]
-    #[Type(name: 'bool')]
+    #[SerializedName('persistAuthTokenCookie')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $persistAuthTokenCookie;
 
@@ -65,8 +65,8 @@ class AuthRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
-    #[SerializedName(name: 'csrfTokenSecured')]
-    #[Type(name: 'bool')]
+    #[SerializedName('csrfTokenSecured')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $csrfSupported;
 
@@ -81,8 +81,8 @@ class AuthRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $account;
 
@@ -97,8 +97,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'password')]
-    #[Type(name: 'string')]
+    #[SerializedName('password')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $password;
 
@@ -113,8 +113,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getRecoveryCode', setter: 'setRecoveryCode')]
-    #[SerializedName(name: 'recoveryCode')]
-    #[Type(name: 'string')]
+    #[SerializedName('recoveryCode')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $recoveryCode;
 
@@ -129,8 +129,8 @@ class AuthRequest extends SoapRequest
      * @var PreAuth
      */
     #[Accessor(getter: 'getPreauth', setter: 'setPreauth')]
-    #[SerializedName(name: 'preauth')]
-    #[Type(name: PreAuth::class)]
+    #[SerializedName('preauth')]
+    #[Type(PreAuth::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $preauth;
 
@@ -145,8 +145,8 @@ class AuthRequest extends SoapRequest
      * @var AuthToken
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName(name: 'authToken')]
-    #[Type(name: AuthToken::class)]
+    #[SerializedName('authToken')]
+    #[Type(AuthToken::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $authToken;
 
@@ -161,8 +161,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getJwtToken', setter: 'setJwtToken')]
-    #[SerializedName(name: 'jwtToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('jwtToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $jwtToken;
 
@@ -177,8 +177,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName(name: 'virtualHost')]
-    #[Type(name: 'string')]
+    #[SerializedName('virtualHost')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $virtualHost;
 
@@ -194,8 +194,8 @@ class AuthRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[SerializedName(name: 'prefs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Pref>')]
+    #[SerializedName('prefs')]
+    #[Type('array<Zimbra\Account\Struct\Pref>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'pref', namespace: 'urn:zimbraAccount')]
     private $prefs = [];
@@ -213,8 +213,8 @@ class AuthRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Attr>')]
+    #[SerializedName('attrs')]
+    #[Type('array<Zimbra\Account\Struct\Attr>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
     private $attrs = [];
@@ -230,8 +230,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getRequestedSkin', setter: 'setRequestedSkin')]
-    #[SerializedName(name: 'requestedSkin')]
-    #[Type(name: 'string')]
+    #[SerializedName('requestedSkin')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $requestedSkin;
 
@@ -246,8 +246,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
-    #[SerializedName(name: 'twoFactorCode')]
-    #[Type(name: 'string')]
+    #[SerializedName('twoFactorCode')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $twoFactorCode;
 
@@ -262,8 +262,8 @@ class AuthRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getDeviceTrusted', setter: 'setDeviceTrusted')]
-    #[SerializedName(name: 'deviceTrusted')]
-    #[Type(name: 'bool')]
+    #[SerializedName('deviceTrusted')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $deviceTrusted;
 
@@ -278,8 +278,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTrustedDeviceToken', setter: 'setTrustedDeviceToken')]
-    #[SerializedName(name: 'trustedToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('trustedToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $trustedDeviceToken;
 
@@ -294,8 +294,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getDeviceId', setter: 'setDeviceId')]
-    #[SerializedName(name: 'deviceId')]
-    #[Type(name: 'string')]
+    #[SerializedName('deviceId')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $deviceId;
 
@@ -308,8 +308,8 @@ class AuthRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getGenerateDeviceId', setter: 'setGenerateDeviceId')]
-    #[SerializedName(name: 'generateDeviceId')]
-    #[Type(name: 'bool')]
+    #[SerializedName('generateDeviceId')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $generateDeviceId;
 
@@ -324,8 +324,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTokenType', setter: 'setTokenType')]
-    #[SerializedName(name: 'tokenType')]
-    #[Type(name: 'string')]
+    #[SerializedName('tokenType')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tokenType;
 

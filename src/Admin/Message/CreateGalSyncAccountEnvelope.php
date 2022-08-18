@@ -37,8 +37,8 @@ class CreateGalSyncAccountEnvelope extends SoapEnvelope
      * @var CreateGalSyncAccountBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateGalSyncAccountBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateGalSyncAccountBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

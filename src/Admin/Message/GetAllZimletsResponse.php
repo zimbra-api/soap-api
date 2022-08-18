@@ -35,7 +35,7 @@ class GetAllZimletsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ZimletInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\ZimletInfo>')]
     #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
     private $zimlets = [];
 

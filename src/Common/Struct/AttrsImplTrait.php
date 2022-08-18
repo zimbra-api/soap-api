@@ -30,7 +30,7 @@ trait AttrsImplTrait
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Common\Struct\KeyValuePair>')]
+    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
     #[XmlList(inline: true, entry: 'a')]
     protected $attrs = [];
 

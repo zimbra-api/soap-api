@@ -36,8 +36,8 @@ class TargetSpec
      * @var TargetType
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private $targetType;
 
@@ -52,8 +52,8 @@ class TargetSpec
      * @var AccountBy
      */
     #[Accessor(getter: 'getAccountBy', setter: 'setAccountBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AccountBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
     #[XmlAttribute]
     private $accountBy;
 
@@ -68,7 +68,7 @@ class TargetSpec
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

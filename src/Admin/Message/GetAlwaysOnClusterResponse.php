@@ -36,8 +36,8 @@ class GetAlwaysOnClusterResponse extends SoapResponse
      * @var AlwaysOnClusterInfo
      */
     #[Accessor(getter: 'getAlwaysOnCluster', setter: 'setAlwaysOnCluster')]
-    #[SerializedName(name: 'alwaysOnCluster')]
-    #[Type(name: AlwaysOnClusterInfo::class)]
+    #[SerializedName('alwaysOnCluster')]
+    #[Type(AlwaysOnClusterInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cluster;
 

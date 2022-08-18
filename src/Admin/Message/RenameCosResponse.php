@@ -36,8 +36,8 @@ class RenameCosResponse extends SoapResponse
      * @var CosInfo
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosInfo::class)]
+    #[SerializedName('cos')]
+    #[Type(CosInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 

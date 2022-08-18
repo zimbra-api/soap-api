@@ -33,8 +33,8 @@ class ExportAndDeleteItemsBody extends SoapBody
      * @var ExportAndDeleteItemsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ExportAndDeleteItemsRequest')]
-    #[Type(name: ExportAndDeleteItemsRequest::class)]
+    #[SerializedName('ExportAndDeleteItemsRequest')]
+    #[Type(ExportAndDeleteItemsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class ExportAndDeleteItemsBody extends SoapBody
      * @var ExportAndDeleteItemsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ExportAndDeleteItemsResponse')]
-    #[Type(name: ExportAndDeleteItemsResponse::class)]
+    #[SerializedName('ExportAndDeleteItemsResponse')]
+    #[Type(ExportAndDeleteItemsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

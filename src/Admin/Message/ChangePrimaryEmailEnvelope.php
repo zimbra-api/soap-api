@@ -37,8 +37,8 @@ class ChangePrimaryEmailEnvelope extends SoapEnvelope
      * @var ChangePrimaryEmailBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ChangePrimaryEmailBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ChangePrimaryEmailBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

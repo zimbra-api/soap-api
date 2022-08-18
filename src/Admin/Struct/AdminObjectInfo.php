@@ -32,8 +32,8 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -46,8 +46,8 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -59,7 +59,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\Attr>')]
+    #[Type('array<Zimbra\Admin\Struct\Attr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrList = [];
 

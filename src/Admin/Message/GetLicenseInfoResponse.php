@@ -36,8 +36,8 @@ class GetLicenseInfoResponse extends SoapResponse
      * @var LicenseExpirationInfo
      */
     #[Accessor(getter: 'getExpiration', setter: 'setExpiration')]
-    #[SerializedName(name: 'expiration')]
-    #[Type(name: LicenseExpirationInfo::class)]
+    #[SerializedName('expiration')]
+    #[Type(LicenseExpirationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $expiration;
 

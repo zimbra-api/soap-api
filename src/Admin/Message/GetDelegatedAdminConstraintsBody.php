@@ -33,8 +33,8 @@ class GetDelegatedAdminConstraintsBody extends SoapBody
      * @var GetDelegatedAdminConstraintsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetDelegatedAdminConstraintsRequest')]
-    #[Type(name: GetDelegatedAdminConstraintsRequest::class)]
+    #[SerializedName('GetDelegatedAdminConstraintsRequest')]
+    #[Type(GetDelegatedAdminConstraintsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetDelegatedAdminConstraintsBody extends SoapBody
      * @var GetDelegatedAdminConstraintsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetDelegatedAdminConstraintsResponse')]
-    #[Type(name: GetDelegatedAdminConstraintsResponse::class)]
+    #[SerializedName('GetDelegatedAdminConstraintsResponse')]
+    #[Type(GetDelegatedAdminConstraintsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

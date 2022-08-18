@@ -34,8 +34,8 @@ class DataSourceUsage
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -50,8 +50,8 @@ class DataSourceUsage
      * @var int
      */
     #[Accessor(getter: 'getUsage', setter: 'setUsage')]
-    #[SerializedName(name: 'usage')]
-    #[Type(name: 'int')]
+    #[SerializedName('usage')]
+    #[Type('int')]
     #[XmlAttribute]
     private $usage;
 

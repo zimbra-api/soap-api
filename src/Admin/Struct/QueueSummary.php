@@ -34,8 +34,8 @@ class QueueSummary
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $type;
 
@@ -49,7 +49,7 @@ class QueueSummary
      * @var array
      */
     #[Accessor(getter: 'getItems', setter: 'setItems')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\QueueSummaryItem>')]
+    #[Type('array<Zimbra\Admin\Struct\QueueSummaryItem>')]
     #[XmlList(inline: true, entry: 'qsi', namespace: 'urn:zimbraAdmin')]
     private $items = [];
 

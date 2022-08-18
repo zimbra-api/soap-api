@@ -37,8 +37,8 @@ class MsgActionResponse extends SoapResponse
      * @var ActionResult
      */
     #[Accessor(getter: "getAction", setter: "setAction")]
-    #[SerializedName(name: 'action')]
-    #[Type(name: ActionResult::class)]
+    #[SerializedName('action')]
+    #[Type(ActionResult::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $action;
 

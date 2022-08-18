@@ -33,8 +33,8 @@ class CreateContactBody extends SoapBody
      * @var CreateContactRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateContactRequest')]
-    #[Type(name: CreateContactRequest::class)]
+    #[SerializedName('CreateContactRequest')]
+    #[Type(CreateContactRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class CreateContactBody extends SoapBody
      * @var CreateContactResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateContactResponse')]
-    #[Type(name: CreateContactResponse::class)]
+    #[SerializedName('CreateContactResponse')]
+    #[Type(CreateContactResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

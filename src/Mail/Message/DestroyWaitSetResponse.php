@@ -35,8 +35,8 @@ class DestroyWaitSetResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName(name: 'waitSet')]
-    #[Type(name: 'string')]
+    #[SerializedName('waitSet')]
+    #[Type('string')]
     #[XmlAttribute]
     private $waitSetId;
 

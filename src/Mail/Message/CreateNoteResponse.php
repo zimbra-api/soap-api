@@ -36,8 +36,8 @@ class CreateNoteResponse extends SoapResponse
      * @var NoteInfo
      */
     #[Accessor(getter: "getNote", setter: "setNote")]
-    #[SerializedName(name: 'note')]
-    #[Type(name: NoteInfo::class)]
+    #[SerializedName('note')]
+    #[Type(NoteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $note;
 

@@ -35,8 +35,8 @@ class ActionResult
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -51,8 +51,8 @@ class ActionResult
      * @var string
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'string')]
+    #[SerializedName('op')]
+    #[Type('string')]
     #[XmlAttribute]
     private $operation;
 
@@ -67,8 +67,8 @@ class ActionResult
      * @var string
      */
     #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
-    #[SerializedName(name: 'nei')]
-    #[Type(name: 'string')]
+    #[SerializedName('nei')]
+    #[Type('string')]
     #[XmlAttribute]
     private $nonExistentIds;
 
@@ -83,8 +83,8 @@ class ActionResult
      * @var string
      */
     #[Accessor(getter: 'getNewlyCreatedIds', setter: 'setNewlyCreatedIds')]
-    #[SerializedName(name: 'nci')]
-    #[Type(name: 'string')]
+    #[SerializedName('nci')]
+    #[Type('string')]
     #[XmlAttribute]
     private $newlyCreatedIds;
 

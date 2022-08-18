@@ -37,8 +37,8 @@ class DeleteAlwaysOnClusterEnvelope extends SoapEnvelope
      * @var DeleteAlwaysOnClusterBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteAlwaysOnClusterBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteAlwaysOnClusterBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

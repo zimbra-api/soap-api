@@ -35,7 +35,7 @@ class PurgeMessagesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getMailboxes', setter: 'setMailboxes')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\MailboxWithMailboxId>')]
+    #[Type('array<Zimbra\Admin\Struct\MailboxWithMailboxId>')]
     #[XmlList(inline: true, entry: 'mbox', namespace: 'urn:zimbraAdmin')]
     private $mailboxes = [];
 

@@ -37,8 +37,8 @@ class PurgeRevisionEnvelope extends SoapEnvelope
      * @var PurgeRevisionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: PurgeRevisionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(PurgeRevisionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

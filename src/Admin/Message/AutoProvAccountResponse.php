@@ -37,8 +37,8 @@ class AutoProvAccountResponse extends SoapResponse
      * @var AccountInfo
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountInfo::class)]
+    #[SerializedName('account')]
+    #[Type(AccountInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 

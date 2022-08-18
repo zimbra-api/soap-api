@@ -37,8 +37,8 @@ class SearchActionEnvelope extends SoapEnvelope
      * @var SearchActionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SearchActionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SearchActionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

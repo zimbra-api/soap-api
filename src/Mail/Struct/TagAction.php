@@ -34,8 +34,8 @@ class TagAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getTag', setter: 'setTag')]
-    #[SerializedName(name: 'tagName')]
-    #[Type(name: 'string')]
+    #[SerializedName('tagName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tag;
 

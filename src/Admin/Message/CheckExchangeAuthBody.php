@@ -33,8 +33,8 @@ class CheckExchangeAuthBody extends SoapBody
      * @var CheckExchangeAuthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckExchangeAuthRequest')]
-    #[Type(name: CheckExchangeAuthRequest::class)]
+    #[SerializedName('CheckExchangeAuthRequest')]
+    #[Type(CheckExchangeAuthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class CheckExchangeAuthBody extends SoapBody
      * @var CheckExchangeAuthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckExchangeAuthResponse')]
-    #[Type(name: CheckExchangeAuthResponse::class)]
+    #[SerializedName('CheckExchangeAuthResponse')]
+    #[Type(CheckExchangeAuthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

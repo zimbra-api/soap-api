@@ -35,7 +35,7 @@ class CheckRecurConflictsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>')]
+    #[Type('array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>')]
     #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
     private $instances = [];
 

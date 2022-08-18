@@ -39,8 +39,8 @@ class GetItemRequest extends SoapRequest
      * @var ItemSpec
      */
     #[Accessor(getter: "getItem", setter: "setItem")]
-    #[SerializedName(name: 'item')]
-    #[Type(name: ItemSpec::class)]
+    #[SerializedName('item')]
+    #[Type(ItemSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $item;
 

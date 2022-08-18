@@ -37,8 +37,8 @@ class DeleteCosEnvelope extends SoapEnvelope
      * @var DeleteCosBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteCosBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteCosBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

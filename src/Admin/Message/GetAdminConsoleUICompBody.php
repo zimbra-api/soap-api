@@ -33,8 +33,8 @@ class GetAdminConsoleUICompBody extends SoapBody
      * @var GetAdminConsoleUICompRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAdminConsoleUICompRequest')]
-    #[Type(name: GetAdminConsoleUICompRequest::class)]
+    #[SerializedName('GetAdminConsoleUICompRequest')]
+    #[Type(GetAdminConsoleUICompRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class GetAdminConsoleUICompBody extends SoapBody
      * @var GetAdminConsoleUICompResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAdminConsoleUICompResponse')]
-    #[Type(name: GetAdminConsoleUICompResponse::class)]
+    #[SerializedName('GetAdminConsoleUICompResponse')]
+    #[Type(GetAdminConsoleUICompResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

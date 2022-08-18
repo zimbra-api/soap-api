@@ -39,8 +39,8 @@ class ListDocumentRevisionsRequest extends SoapRequest
      * @var ListDocumentRevisionsSpec
      */
     #[Accessor(getter: "getDoc", setter: "setDoc")]
-    #[SerializedName(name: 'doc')]
-    #[Type(name: ListDocumentRevisionsSpec::class)]
+    #[SerializedName('doc')]
+    #[Type(ListDocumentRevisionsSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $doc;
 

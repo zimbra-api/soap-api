@@ -40,8 +40,8 @@ class RecordIMAPSessionRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 

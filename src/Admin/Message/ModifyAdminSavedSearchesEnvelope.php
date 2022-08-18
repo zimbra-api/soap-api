@@ -37,8 +37,8 @@ class ModifyAdminSavedSearchesEnvelope extends SoapEnvelope
      * @var ModifyAdminSavedSearchesBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ModifyAdminSavedSearchesBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ModifyAdminSavedSearchesBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

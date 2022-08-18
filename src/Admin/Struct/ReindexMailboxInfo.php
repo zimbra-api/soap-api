@@ -35,8 +35,8 @@ class ReindexMailboxInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,8 +52,8 @@ class ReindexMailboxInfo
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $types;
 
@@ -68,8 +68,8 @@ class ReindexMailboxInfo
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName(name: 'ids')]
-    #[Type(name: 'string')]
+    #[SerializedName('ids')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ids;
 

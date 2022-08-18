@@ -34,8 +34,8 @@ trait MailDataSourceTrait
      * @var MailImapDataSource
      */
     #[Accessor(getter: "getImapDataSource", setter: "setImapDataSource")]
-    #[SerializedName(name: 'imap')]
-    #[Type(name: MailImapDataSource::class)]
+    #[SerializedName('imap')]
+    #[Type(MailImapDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $imapDataSource;
 
@@ -50,8 +50,8 @@ trait MailDataSourceTrait
      * @var MailPop3DataSource
      */
     #[Accessor(getter: "getPop3DataSource", setter: "setPop3DataSource")]
-    #[SerializedName(name: 'pop3')]
-    #[Type(name: MailPop3DataSource::class)]
+    #[SerializedName('pop3')]
+    #[Type(MailPop3DataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $pop3DataSource;
 
@@ -66,8 +66,8 @@ trait MailDataSourceTrait
      * @var MailCaldavDataSource
      */
     #[Accessor(getter: "getCaldavDataSource", setter: "setCaldavDataSource")]
-    #[SerializedName(name: 'caldav')]
-    #[Type(name: MailCaldavDataSource::class)]
+    #[SerializedName('caldav')]
+    #[Type(MailCaldavDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $caldavDataSource;
 
@@ -82,8 +82,8 @@ trait MailDataSourceTrait
      * @var MailYabDataSource
      */
     #[Accessor(getter: "getYabDataSource", setter: "setYabDataSource")]
-    #[SerializedName(name: 'yab')]
-    #[Type(name: MailYabDataSource::class)]
+    #[SerializedName('yab')]
+    #[Type(MailYabDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $yabDataSource;
 
@@ -98,8 +98,8 @@ trait MailDataSourceTrait
      * @var MailRssDataSource
      */
     #[Accessor(getter: "getRssDataSource", setter: "setRssDataSource")]
-    #[SerializedName(name: 'rss')]
-    #[Type(name: MailRssDataSource::class)]
+    #[SerializedName('rss')]
+    #[Type(MailRssDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $rssDataSource;
 
@@ -113,8 +113,8 @@ trait MailDataSourceTrait
      * @var MailGalDataSource
      */
     #[Accessor(getter: "getGalDataSource", setter: "setGalDataSource")]
-    #[SerializedName(name: 'gal')]
-    #[Type(name: MailGalDataSource::class)]
+    #[SerializedName('gal')]
+    #[Type(MailGalDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $galDataSource;
 
@@ -129,8 +129,8 @@ trait MailDataSourceTrait
      * @var MailCalDataSource
      */
     #[Accessor(getter: "getCalDataSource", setter: "setCalDataSource")]
-    #[SerializedName(name: 'cal')]
-    #[Type(name: MailCalDataSource::class)]
+    #[SerializedName('cal')]
+    #[Type(MailCalDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $calDataSource;
 
@@ -145,8 +145,8 @@ trait MailDataSourceTrait
      * @var MailUnknownDataSource
      */
     #[Accessor(getter: "getUnknownDataSource", setter: "setUnknownDataSource")]
-    #[SerializedName(name: 'unknown')]
-    #[Type(name: MailUnknownDataSource::class)]
+    #[SerializedName('unknown')]
+    #[Type(MailUnknownDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $unknownDataSource;
 

@@ -34,8 +34,8 @@ class TzFixupRule
      * @var TzFixupRuleMatch
      */
     #[Accessor(getter: 'getMatch', setter: 'setMatch')]
-    #[SerializedName(name: 'match')]
-    #[Type(name: TzFixupRuleMatch::class)]
+    #[SerializedName('match')]
+    #[Type(TzFixupRuleMatch::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $match;
 
@@ -50,8 +50,8 @@ class TzFixupRule
      * @var SimpleElement
      */
     #[Accessor(getter: 'getTouch', setter: 'setTouch')]
-    #[SerializedName(name: 'touch')]
-    #[Type(name: SimpleElement::class)]
+    #[SerializedName('touch')]
+    #[Type(SimpleElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $touch;
 
@@ -66,8 +66,8 @@ class TzFixupRule
      * @var TzReplaceInfo
      */
     #[Accessor(getter: 'getReplace', setter: 'setReplace')]
-    #[SerializedName(name: 'replace')]
-    #[Type(name: TzReplaceInfo::class)]
+    #[SerializedName('replace')]
+    #[Type(TzReplaceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $replace;
 

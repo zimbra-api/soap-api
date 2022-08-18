@@ -39,8 +39,8 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @var TargetWithType
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: TargetWithType::class)]
+    #[SerializedName('target')]
+    #[Type(TargetWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
@@ -59,8 +59,8 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainSelector::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
@@ -77,8 +77,8 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosSelector::class)]
+    #[SerializedName('cos')]
+    #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 

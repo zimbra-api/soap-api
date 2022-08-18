@@ -34,8 +34,8 @@ class StatsInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -50,8 +50,8 @@ class StatsInfo
      * @var StatsValues
      */
     #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName(name: 'values')]
-    #[Type(name: StatsValues::class)]
+    #[SerializedName('values')]
+    #[Type(StatsValues::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $values;
 

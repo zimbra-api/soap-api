@@ -33,8 +33,8 @@ class RecordIMAPSessionBody extends SoapBody
      * @var RecordIMAPSessionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RecordIMAPSessionRequest')]
-    #[Type(name: RecordIMAPSessionRequest::class)]
+    #[SerializedName('RecordIMAPSessionRequest')]
+    #[Type(RecordIMAPSessionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class RecordIMAPSessionBody extends SoapBody
      * @var RecordIMAPSessionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RecordIMAPSessionResponse')]
-    #[Type(name: RecordIMAPSessionResponse::class)]
+    #[SerializedName('RecordIMAPSessionResponse')]
+    #[Type(RecordIMAPSessionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

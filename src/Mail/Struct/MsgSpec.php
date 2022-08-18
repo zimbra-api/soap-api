@@ -38,8 +38,8 @@ class MsgSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -56,8 +56,8 @@ class MsgSpec
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $part;
 
@@ -73,8 +73,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getRaw', setter: 'setRaw')]
-    #[SerializedName(name: 'raw')]
-    #[Type(name: 'bool')]
+    #[SerializedName('raw')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $raw;
 
@@ -90,8 +90,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getMarkRead', setter: 'setMarkRead')]
-    #[SerializedName(name: 'read')]
-    #[Type(name: 'bool')]
+    #[SerializedName('read')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $markRead;
 
@@ -109,8 +109,8 @@ class MsgSpec
      * @var int
      */
     #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
-    #[SerializedName(name: 'max')]
-    #[Type(name: 'int')]
+    #[SerializedName('max')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxInlinedLength;
 
@@ -127,8 +127,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getUseContentUrl', setter: 'setUseContentUrl')]
-    #[SerializedName(name: 'useContentUrl')]
-    #[Type(name: 'bool')]
+    #[SerializedName('useContentUrl')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $useContentUrl;
 
@@ -143,8 +143,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName(name: 'html')]
-    #[Type(name: 'bool')]
+    #[SerializedName('html')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantHtml;
 
@@ -159,8 +159,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName(name: 'wantImapUid')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wantImapUid')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantImapUid;
 
@@ -175,8 +175,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName(name: 'wantModSeq')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wantModSeq')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
@@ -192,8 +192,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getNeuter', setter: 'setNeuter')]
-    #[SerializedName(name: 'neuter')]
-    #[Type(name: 'bool')]
+    #[SerializedName('neuter')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $neuter;
 
@@ -210,8 +210,8 @@ class MsgSpec
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName(name: 'ridZ')]
-    #[Type(name: 'string')]
+    #[SerializedName('ridZ')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -227,8 +227,8 @@ class MsgSpec
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName(name: 'needExp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('needExp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $needCanExpand;
 
@@ -248,8 +248,8 @@ class MsgSpec
      * @var MsgContent
      */
     #[Accessor(getter: 'getWantContent', setter: 'setWantContent')]
-    #[SerializedName(name: 'wantContent')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\MsgContent>')]
+    #[SerializedName('wantContent')]
+    #[Type('Enum<Zimbra\Common\Enum\MsgContent>')]
     #[XmlAttribute]
     private $wantContent;
 
@@ -264,7 +264,7 @@ class MsgSpec
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]
+    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
     #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
     private $headers = [];
 

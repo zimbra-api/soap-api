@@ -33,8 +33,8 @@ class MigrateAccountBody extends SoapBody
      * @var MigrateAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'MigrateAccountRequest')]
-    #[Type(name: MigrateAccountRequest::class)]
+    #[SerializedName('MigrateAccountRequest')]
+    #[Type(MigrateAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class MigrateAccountBody extends SoapBody
      * @var MigrateAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'MigrateAccountResponse')]
-    #[Type(name: MigrateAccountResponse::class)]
+    #[SerializedName('MigrateAccountResponse')]
+    #[Type(MigrateAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

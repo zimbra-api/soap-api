@@ -31,7 +31,7 @@ class TzFixup
      * @var array
      */
     #[Accessor(getter: 'getFixupRules', setter: 'setFixupRules')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\TzFixupRule>')]
+    #[Type('array<Zimbra\Admin\Struct\TzFixupRule>')]
     #[XmlList(inline: true, entry: 'fixupRule', namespace: 'urn:zimbraAdmin')]
     private $fixupRules = [];
 

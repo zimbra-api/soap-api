@@ -37,8 +37,8 @@ class ChangePasswordRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $account;
 
@@ -53,8 +53,8 @@ class ChangePasswordRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getOldPassword', setter: 'setOldPassword')]
-    #[SerializedName(name: 'oldPassword')]
-    #[Type(name: 'string')]
+    #[SerializedName('oldPassword')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $oldPassword;
 
@@ -69,8 +69,8 @@ class ChangePasswordRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'password')]
-    #[Type(name: 'string')]
+    #[SerializedName('password')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $password;
 
@@ -85,8 +85,8 @@ class ChangePasswordRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName(name: 'virtualHost')]
-    #[Type(name: 'string')]
+    #[SerializedName('virtualHost')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $virtualHost;
 
@@ -99,8 +99,8 @@ class ChangePasswordRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isDryRun', setter: 'setDryRun')]
-    #[SerializedName(name: 'dryRun')]
-    #[Type(name: 'bool')]
+    #[SerializedName('dryRun')]
+    #[Type('bool')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $dryRun;
 

@@ -37,8 +37,8 @@ class AdminWaitSetResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName(name: 'waitSet')]
-    #[Type(name: 'string')]
+    #[SerializedName('waitSet')]
+    #[Type('string')]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -53,8 +53,8 @@ class AdminWaitSetResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getCanceled', setter: 'setCanceled')]
-    #[SerializedName(name: 'canceled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('canceled')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $canceled;
 
@@ -69,8 +69,8 @@ class AdminWaitSetResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getSeqNo', setter: 'setSeqNo')]
-    #[SerializedName(name: 'seq')]
-    #[Type(name: 'string')]
+    #[SerializedName('seq')]
+    #[Type('string')]
     #[XmlAttribute]
     private $seqNo;
 
@@ -84,7 +84,7 @@ class AdminWaitSetResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\AccountWithModifications>')]
+    #[Type('array<Zimbra\Mail\Struct\AccountWithModifications>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $signalledAccounts = [];
 
@@ -98,7 +98,7 @@ class AdminWaitSetResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type(name: 'array<Zimbra\Common\Struct\IdAndType>')]
+    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
     #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraAdmin')]
     private $errors = [];
 

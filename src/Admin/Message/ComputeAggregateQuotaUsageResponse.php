@@ -35,7 +35,7 @@ class ComputeAggregateQuotaUsageResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDomainQuotas', setter: 'setDomainQuotas')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>')]
     #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
     private $domainQuotas = [];
 

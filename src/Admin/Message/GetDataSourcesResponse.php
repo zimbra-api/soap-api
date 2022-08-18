@@ -35,7 +35,7 @@ class GetDataSourcesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDataSources', setter: 'setDataSources')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DataSourceInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\DataSourceInfo>')]
     #[XmlList(inline: true, entry: 'dataSource', namespace: 'urn:zimbraAdmin')]
     private $dataSources = [];
 

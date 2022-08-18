@@ -37,8 +37,8 @@ class SendVerificationCodeEnvelope extends SoapEnvelope
      * @var SendVerificationCodeBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SendVerificationCodeBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SendVerificationCodeBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

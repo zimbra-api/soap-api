@@ -36,8 +36,8 @@ abstract class CalItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getEcho', setter: 'setEcho')]
-    #[SerializedName(name: 'echo')]
-    #[Type(name: 'bool')]
+    #[SerializedName('echo')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $echo;
 
@@ -52,8 +52,8 @@ abstract class CalItemRequestBase extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getMaxSize', setter: 'setMaxSize')]
-    #[SerializedName(name: 'max')]
-    #[Type(name: 'int')]
+    #[SerializedName('max')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxSize;
 
@@ -68,8 +68,8 @@ abstract class CalItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName(name: 'want')]
-    #[Type(name: 'bool')]
+    #[SerializedName('want')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantHtml;
 
@@ -84,8 +84,8 @@ abstract class CalItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getNeuter', setter: 'setNeuter')]
-    #[SerializedName(name: 'neuter')]
-    #[Type(name: 'bool')]
+    #[SerializedName('neuter')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $neuter;
 
@@ -103,8 +103,8 @@ abstract class CalItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getForceSend', setter: 'setForceSend')]
-    #[SerializedName(name: 'forcesend')]
-    #[Type(name: 'bool')]
+    #[SerializedName('forcesend')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $forceSend;
 
@@ -119,8 +119,8 @@ abstract class CalItemRequestBase extends SoapRequest
      * @var Msg
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: Msg::class)]
+    #[SerializedName('m')]
+    #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 

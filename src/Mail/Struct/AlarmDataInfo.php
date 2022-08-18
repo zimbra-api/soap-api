@@ -34,8 +34,8 @@ class AlarmDataInfo
      * @var int
      */
     #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName(name: 'nextAlarm')]
-    #[Type(name: 'int')]
+    #[SerializedName('nextAlarm')]
+    #[Type('int')]
     #[XmlAttribute]
     private $nextAlarm;
 
@@ -50,8 +50,8 @@ class AlarmDataInfo
      * @var int
      */
     #[Accessor(getter: 'getAlarmInstanceStart', setter: 'setAlarmInstanceStart')]
-    #[SerializedName(name: 'alarmInstStart')]
-    #[Type(name: 'int')]
+    #[SerializedName('alarmInstStart')]
+    #[Type('int')]
     #[XmlAttribute]
     private $alarmInstanceStart;
 
@@ -66,8 +66,8 @@ class AlarmDataInfo
      * @var int
      */
     #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName(name: 'invId')]
-    #[Type(name: 'int')]
+    #[SerializedName('invId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $invId;
 
@@ -82,8 +82,8 @@ class AlarmDataInfo
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'compNum')]
-    #[Type(name: 'int')]
+    #[SerializedName('compNum')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 
@@ -98,8 +98,8 @@ class AlarmDataInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -114,8 +114,8 @@ class AlarmDataInfo
      * @var string
      */
     #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName(name: 'loc')]
-    #[Type(name: 'string')]
+    #[SerializedName('loc')]
+    #[Type('string')]
     #[XmlAttribute]
     private $location;
 
@@ -130,8 +130,8 @@ class AlarmDataInfo
      * @var AlarmInfo
      */
     #[Accessor(getter: "getAlarm", setter: "setAlarm")]
-    #[SerializedName(name: 'alarm')]
-    #[Type(name: AlarmInfo::class)]
+    #[SerializedName('alarm')]
+    #[Type(AlarmInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $alarm;
 

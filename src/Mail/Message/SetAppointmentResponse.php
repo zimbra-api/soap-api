@@ -37,8 +37,8 @@ class SetAppointmentResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName(name: 'calItemId')]
-    #[Type(name: 'string')]
+    #[SerializedName('calItemId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calItemId;
 
@@ -53,8 +53,8 @@ class SetAppointmentResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getDeprecatedApptId', setter: 'setDeprecatedApptId')]
-    #[SerializedName(name: 'apptId')]
-    #[Type(name: 'string')]
+    #[SerializedName('apptId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $deprecatedApptId;
 
@@ -68,8 +68,8 @@ class SetAppointmentResponse extends SoapResponse
      * @var Id
      */
     #[Accessor(getter: "getDefaultId", setter: "setDefaultId")]
-    #[SerializedName(name: 'default')]
-    #[Type(name: Id::class)]
+    #[SerializedName('default')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $defaultId;
 
@@ -83,7 +83,7 @@ class SetAppointmentResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getExceptions', setter: 'setExceptions')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ExceptIdInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\ExceptIdInfo>')]
     #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
     private $exceptions = [];
 

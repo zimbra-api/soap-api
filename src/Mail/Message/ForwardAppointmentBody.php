@@ -33,8 +33,8 @@ class ForwardAppointmentBody extends SoapBody
      * @var ForwardAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ForwardAppointmentRequest')]
-    #[Type(name: ForwardAppointmentRequest::class)]
+    #[SerializedName('ForwardAppointmentRequest')]
+    #[Type(ForwardAppointmentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class ForwardAppointmentBody extends SoapBody
      * @var ForwardAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ForwardAppointmentResponse')]
-    #[Type(name: ForwardAppointmentResponse::class)]
+    #[SerializedName('ForwardAppointmentResponse')]
+    #[Type(ForwardAppointmentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

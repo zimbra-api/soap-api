@@ -38,8 +38,8 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosSelector::class)]
+    #[SerializedName('cos')]
+    #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
@@ -54,8 +54,8 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
      * @var Policy
      */
     #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
-    #[SerializedName(name: 'policy')]
-    #[Type(name: Policy::class)]
+    #[SerializedName('policy')]
+    #[Type(Policy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $policy;
 

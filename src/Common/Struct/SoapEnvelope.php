@@ -33,8 +33,8 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
      * @var SoapHeaderInterface
      */
     #[Accessor(getter: 'getHeader', setter: 'setHeader')]
-    #[SerializedName(name: 'Header')]
-    #[Type(name: SoapHeader::class)]
+    #[SerializedName('Header')]
+    #[Type(SoapHeader::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $header;
 

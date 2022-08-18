@@ -33,8 +33,8 @@ class AccountACEinfo
      * @var GranteeType
      */
     #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName(name: 'gt')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[SerializedName('gt')]
+    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
     private $granteeType;
 
@@ -47,8 +47,8 @@ class AccountACEinfo
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: 'string')]
+    #[SerializedName('right')]
+    #[Type('string')]
     #[XmlAttribute]
     private $right;
 
@@ -61,8 +61,8 @@ class AccountACEinfo
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName(name: 'zid')]
-    #[Type(name: 'string')]
+    #[SerializedName('zid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $zimbraId;
 
@@ -75,8 +75,8 @@ class AccountACEinfo
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 
@@ -89,8 +89,8 @@ class AccountACEinfo
      * @var string
      */
     #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName(name: 'key')]
-    #[Type(name: 'string')]
+    #[SerializedName('key')]
+    #[Type('string')]
     #[XmlAttribute]
     private $accessKey;
 
@@ -103,8 +103,8 @@ class AccountACEinfo
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'pw')]
-    #[Type(name: 'string')]
+    #[SerializedName('pw')]
+    #[Type('string')]
     #[XmlAttribute]
     private $password;
 
@@ -117,8 +117,8 @@ class AccountACEinfo
      * @var bool
      */
     #[Accessor(getter: 'getDeny', setter: 'setDeny')]
-    #[SerializedName(name: 'deny')]
-    #[Type(name: 'bool')]
+    #[SerializedName('deny')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $deny;
 

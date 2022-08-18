@@ -37,8 +37,8 @@ class ModifyOutgoingFilterRulesEnvelope extends SoapEnvelope
      * @var ModifyOutgoingFilterRulesBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ModifyOutgoingFilterRulesBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ModifyOutgoingFilterRulesBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

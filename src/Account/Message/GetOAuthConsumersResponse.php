@@ -35,7 +35,7 @@ class GetOAuthConsumersResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getConsumers', setter: 'setConsumers')]
-    #[Type(name: 'array<Zimbra\Account\Struct\OAuthConsumer>')]
+    #[Type('array<Zimbra\Account\Struct\OAuthConsumer>')]
     #[XmlList(inline: true, entry: 'OAuthConsumer', namespace: 'urn:zimbraAccount')]
     private $consumers = [];
 

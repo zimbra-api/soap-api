@@ -33,7 +33,7 @@ class ComboRights
      * @var array
      */
     #[Accessor(getter: 'getComboRights', setter: 'setComboRights')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ComboRightInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\ComboRightInfo>')]
     #[XmlList(inline: true, entry: 'r', namespace: 'urn:zimbraAdmin')]
     private $comboRights = [];
 

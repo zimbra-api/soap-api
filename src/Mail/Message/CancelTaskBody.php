@@ -33,8 +33,8 @@ class CancelTaskBody extends SoapBody
      * @var CancelTaskRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CancelTaskRequest')]
-    #[Type(name: CancelTaskRequest::class)]
+    #[SerializedName('CancelTaskRequest')]
+    #[Type(CancelTaskRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class CancelTaskBody extends SoapBody
      * @var CancelTaskResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CancelTaskResponse')]
-    #[Type(name: CancelTaskResponse::class)]
+    #[SerializedName('CancelTaskResponse')]
+    #[Type(CancelTaskResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

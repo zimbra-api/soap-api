@@ -34,8 +34,8 @@ class NotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName(name: 'a')]
-    #[Type(name: 'string')]
+    #[SerializedName('a')]
+    #[Type('string')]
     #[XmlAttribute]
     private $address;
 
@@ -52,8 +52,8 @@ class NotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName(name: 'su')]
-    #[Type(name: 'string')]
+    #[SerializedName('su')]
+    #[Type('string')]
     #[XmlAttribute]
     private $subject;
 
@@ -68,8 +68,8 @@ class NotifyAction extends FilterAction
      * @var int
      */
     #[Accessor(getter: 'getMaxBodySize', setter: 'setMaxBodySize')]
-    #[SerializedName(name: 'maxBodySize')]
-    #[Type(name: 'int')]
+    #[SerializedName('maxBodySize')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxBodySize;
 
@@ -86,8 +86,8 @@ class NotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
-    #[SerializedName(name: 'content')]
-    #[Type(name: 'string')]
+    #[SerializedName('content')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 
@@ -102,8 +102,8 @@ class NotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getOrigHeaders', setter: 'setOrigHeaders')]
-    #[SerializedName(name: 'origHeaders')]
-    #[Type(name: 'string')]
+    #[SerializedName('origHeaders')]
+    #[Type('string')]
     #[XmlAttribute]
     private $origHeaders;
 

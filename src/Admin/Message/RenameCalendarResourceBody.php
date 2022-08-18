@@ -33,8 +33,8 @@ class RenameCalendarResourceBody extends SoapBody
      * @var RenameCalendarResourceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RenameCalendarResourceRequest')]
-    #[Type(name: RenameCalendarResourceRequest::class)]
+    #[SerializedName('RenameCalendarResourceRequest')]
+    #[Type(RenameCalendarResourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class RenameCalendarResourceBody extends SoapBody
      * @var RenameCalendarResourceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RenameCalendarResourceResponse')]
-    #[Type(name: RenameCalendarResourceResponse::class)]
+    #[SerializedName('RenameCalendarResourceResponse')]
+    #[Type(RenameCalendarResourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

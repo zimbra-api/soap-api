@@ -36,8 +36,8 @@ class GetYahooCookieRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getUser', setter: 'setUser')]
-    #[SerializedName(name: 'user')]
-    #[Type(name: 'string')]
+    #[SerializedName('user')]
+    #[Type('string')]
     #[XmlAttribute]
     private $user;
 

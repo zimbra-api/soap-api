@@ -33,8 +33,8 @@ class RecoverAccountBody extends SoapBody
      * @var RecoverAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RecoverAccountRequest')]
-    #[Type(name: RecoverAccountRequest::class)]
+    #[SerializedName('RecoverAccountRequest')]
+    #[Type(RecoverAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class RecoverAccountBody extends SoapBody
      * @var RecoverAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RecoverAccountResponse')]
-    #[Type(name: RecoverAccountResponse::class)]
+    #[SerializedName('RecoverAccountResponse')]
+    #[Type(RecoverAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

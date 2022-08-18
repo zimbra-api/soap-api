@@ -35,7 +35,7 @@ class GetAllXMPPComponentsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getComponents', setter: 'setComponents')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\XMPPComponentInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\XMPPComponentInfo>')]
     #[XmlList(inline: true, entry: 'xmppcomponent', namespace: 'urn:zimbraAdmin')]
     private $components = [];
 

@@ -35,8 +35,8 @@ class TzFixupRuleMatch
      * @var SimpleElement
      */
     #[Accessor(getter: 'getAny', setter: 'setAny')]
-    #[SerializedName(name: 'any')]
-    #[Type(name: SimpleElement::class)]
+    #[SerializedName('any')]
+    #[Type(SimpleElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $any;
 
@@ -51,8 +51,8 @@ class TzFixupRuleMatch
      * @var Id
      */
     #[Accessor(getter: 'getTzid', setter: 'setTzid')]
-    #[SerializedName(name: 'tzid')]
-    #[Type(name: Id::class)]
+    #[SerializedName('tzid')]
+    #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $tzid;
 
@@ -67,8 +67,8 @@ class TzFixupRuleMatch
      * @var Offset
      */
     #[Accessor(getter: 'getNonDst', setter: 'setNonDst')]
-    #[SerializedName(name: 'nonDst')]
-    #[Type(name: Offset::class)]
+    #[SerializedName('nonDst')]
+    #[Type(Offset::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $nonDst;
 
@@ -83,8 +83,8 @@ class TzFixupRuleMatch
      * @var TzFixupRuleMatchRules
      */
     #[Accessor(getter: 'getRules', setter: 'setRules')]
-    #[SerializedName(name: 'rules')]
-    #[Type(name: TzFixupRuleMatchRules::class)]
+    #[SerializedName('rules')]
+    #[Type(TzFixupRuleMatchRules::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $rules;
 
@@ -99,8 +99,8 @@ class TzFixupRuleMatch
      * @var TzFixupRuleMatchDates
      */
     #[Accessor(getter: 'getDates', setter: 'setDates')]
-    #[SerializedName(name: 'dates')]
-    #[Type(name: TzFixupRuleMatchDates::class)]
+    #[SerializedName('dates')]
+    #[Type(TzFixupRuleMatchDates::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dates;
 

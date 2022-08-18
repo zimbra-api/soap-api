@@ -34,8 +34,8 @@ class QueueQueryField
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -49,7 +49,7 @@ class QueueQueryField
      * @var array
      */
     #[Accessor(getter: 'getMatches', setter: 'setMatches')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ValueAttrib>')]
+    #[Type('array<Zimbra\Admin\Struct\ValueAttrib>')]
     #[XmlList(inline: true, entry: 'match', namespace: 'urn:zimbraAdmin')]
     private $matches = [];
 

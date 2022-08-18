@@ -33,8 +33,8 @@ class DistributionListSelector
      * @var DistributionListBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DistributionListBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\DistributionListBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -46,7 +46,7 @@ class DistributionListSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

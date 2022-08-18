@@ -37,8 +37,8 @@ class GetMsgMetadataRequest extends SoapRequest
      * @var IdsAttr
      */
     #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: IdsAttr::class)]
+    #[SerializedName('m')]
+    #[Type(IdsAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msgIds;
 

@@ -36,8 +36,8 @@ class GetContactBackupListResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getBackup', setter: 'setBackup')]
-    #[SerializedName(name: 'backups')]
-    #[Type(name: 'array<string>')]
+    #[SerializedName('backups')]
+    #[Type('array<string>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'backup', namespace: 'urn:zimbraMail')]
     private $backup = [];

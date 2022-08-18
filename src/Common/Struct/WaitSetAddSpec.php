@@ -37,8 +37,8 @@ class WaitSetAddSpec
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -53,8 +53,8 @@ class WaitSetAddSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -69,8 +69,8 @@ class WaitSetAddSpec
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -85,8 +85,8 @@ class WaitSetAddSpec
      * @var string
      */
     #[Accessor(getter: 'getInterests', setter: 'setInterests')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $interests;
 
@@ -249,9 +249,9 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    #[SerializedName(name: 'folderInterests')]
+    #[SerializedName('folderInterests')]
     #[SkipWhenEmpty]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[VirtualProperty]
     #[XmlAttribute]
     public function getFolderInterests(): ?string

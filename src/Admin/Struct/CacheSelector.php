@@ -33,7 +33,7 @@ class CacheSelector
      * @var array
      */
     #[Accessor(getter: 'getEntries', setter: 'setEntries')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\CacheEntrySelector>')]
+    #[Type('array<Zimbra\Admin\Struct\CacheEntrySelector>')]
     #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
     private $entries = [];
 
@@ -49,8 +49,8 @@ class CacheSelector
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $types;
 
@@ -67,8 +67,8 @@ class CacheSelector
      * @var bool
      */
     #[Accessor(getter: 'isAllServers', setter: 'setAllServers')]
-    #[SerializedName(name: 'allServers')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allServers')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allServers;
 
@@ -85,8 +85,8 @@ class CacheSelector
      * @var bool
      */
     #[Accessor(getter: 'isIncludeImapServers', setter: 'setIncludeImapServers')]
-    #[SerializedName(name: 'imapServers')]
-    #[Type(name: 'bool')]
+    #[SerializedName('imapServers')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $imapServers;
 

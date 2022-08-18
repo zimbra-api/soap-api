@@ -36,8 +36,8 @@ class XProp implements XPropInterface
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -52,8 +52,8 @@ class XProp implements XPropInterface
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $value;
 
@@ -67,7 +67,7 @@ class XProp implements XPropInterface
      * @var array
      */
     #[Accessor(getter: 'getXParams', setter: 'setXParams')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\XParam>')]
+    #[Type('array<Zimbra\Mail\Struct\XParam>')]
     #[XmlList(inline: true, entry: 'xparam', namespace: 'urn:zimbraMail')]
     private $xParams = [];
 

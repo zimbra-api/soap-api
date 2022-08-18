@@ -32,8 +32,8 @@ class OpValue
      * @var string
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'string')]
+    #[SerializedName('op')]
+    #[Type('string')]
     #[XmlAttribute]
     private $op;
 
@@ -45,7 +45,7 @@ class OpValue
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

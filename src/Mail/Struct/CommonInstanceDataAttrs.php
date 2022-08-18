@@ -45,8 +45,8 @@ class CommonInstanceDataAttrs
      * @var ParticipationStatus
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName(name: 'ptst')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[SerializedName('ptst')]
+    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
     private $partStat;
 
@@ -61,8 +61,8 @@ class CommonInstanceDataAttrs
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName(name: 'ridZ')]
-    #[Type(name: 'string')]
+    #[SerializedName('ridZ')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -80,8 +80,8 @@ class CommonInstanceDataAttrs
      * @var int
      */
     #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
-    #[SerializedName(name: 'tzo')]
-    #[Type(name: 'int')]
+    #[SerializedName('tzo')]
+    #[Type('int')]
     #[XmlAttribute]
     private $tzOffset;
 
@@ -101,8 +101,8 @@ class CommonInstanceDataAttrs
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
-    #[SerializedName(name: 'fba')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[SerializedName('fba')]
+    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private $freeBusyActual;
 
@@ -117,8 +117,8 @@ class CommonInstanceDataAttrs
      * @var string
      */
     #[Accessor(getter: 'getTaskPercentComplete', setter: 'setTaskPercentComplete')]
-    #[SerializedName(name: 'percentComplete')]
-    #[Type(name: 'string')]
+    #[SerializedName('percentComplete')]
+    #[Type('string')]
     #[XmlAttribute]
     private $taskPercentComplete;
 
@@ -133,8 +133,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getIsRecurring', setter: 'setIsRecurring')]
-    #[SerializedName(name: 'recur')]
-    #[Type(name: 'bool')]
+    #[SerializedName('recur')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isRecurring;
 
@@ -149,8 +149,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getHasExceptions', setter: 'setHasExceptions')]
-    #[SerializedName(name: 'hasEx')]
-    #[Type(name: 'bool')]
+    #[SerializedName('hasEx')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $hasExceptions;
 
@@ -165,8 +165,8 @@ class CommonInstanceDataAttrs
      * @var string
      */
     #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName(name: 'priority')]
-    #[Type(name: 'string')]
+    #[SerializedName('priority')]
+    #[Type('string')]
     #[XmlAttribute]
     private $priority;
 
@@ -181,8 +181,8 @@ class CommonInstanceDataAttrs
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreeBusyIntended', setter: 'setFreeBusyIntended')]
-    #[SerializedName(name: 'fb')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[SerializedName('fb')]
+    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private $freeBusyIntended;
 
@@ -197,8 +197,8 @@ class CommonInstanceDataAttrs
      * @var Transparency
      */
     #[Accessor(getter: 'getTransparency', setter: 'setTransparency')]
-    #[SerializedName(name: 'transp')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\Transparency>')]
+    #[SerializedName('transp')]
+    #[Type('Enum<Zimbra\Common\Enum\Transparency>')]
     #[XmlAttribute]
     private $transparency;
 
@@ -213,8 +213,8 @@ class CommonInstanceDataAttrs
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -229,8 +229,8 @@ class CommonInstanceDataAttrs
      * @var string
      */
     #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName(name: 'loc')]
-    #[Type(name: 'string')]
+    #[SerializedName('loc')]
+    #[Type('string')]
     #[XmlAttribute]
     private $location;
 
@@ -245,8 +245,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getHasOtherAttendees', setter: 'setHasOtherAttendees')]
-    #[SerializedName(name: 'otherAtt')]
-    #[Type(name: 'bool')]
+    #[SerializedName('otherAtt')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $hasOtherAttendees;
 
@@ -261,8 +261,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getHasAlarm', setter: 'setHasAlarm')]
-    #[SerializedName(name: 'alarm')]
-    #[Type(name: 'bool')]
+    #[SerializedName('alarm')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $hasAlarm;
 
@@ -277,8 +277,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getIsOrganizer', setter: 'setIsOrganizer')]
-    #[SerializedName(name: 'isOrg')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isOrg')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isOrganizer;
 
@@ -293,8 +293,8 @@ class CommonInstanceDataAttrs
      * @var string
      */
     #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName(name: 'invId')]
-    #[Type(name: 'string')]
+    #[SerializedName('invId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $invId;
 
@@ -309,8 +309,8 @@ class CommonInstanceDataAttrs
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'compNum')]
-    #[Type(name: 'int')]
+    #[SerializedName('compNum')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 
@@ -327,8 +327,8 @@ class CommonInstanceDataAttrs
      * @var InviteStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteStatus>')]
+    #[SerializedName('status')]
+    #[Type('Enum<Zimbra\Common\Enum\InviteStatus>')]
     #[XmlAttribute]
     private $status;
 
@@ -343,8 +343,8 @@ class CommonInstanceDataAttrs
      * @var InviteClass
      */
     #[Accessor(getter: 'getCalClass', setter: 'setCalClass')]
-    #[SerializedName(name: 'class')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteClass>')]
+    #[SerializedName('class')]
+    #[Type('Enum<Zimbra\Common\Enum\InviteClass>')]
     #[XmlAttribute]
     private $calClass;
 
@@ -359,8 +359,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
-    #[SerializedName(name: 'allDay')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allDay')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allDay;
 
@@ -375,8 +375,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getDraft', setter: 'setDraft')]
-    #[SerializedName(name: 'draft')]
-    #[Type(name: 'bool')]
+    #[SerializedName('draft')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $draft;
 
@@ -391,8 +391,8 @@ class CommonInstanceDataAttrs
      * @var bool
      */
     #[Accessor(getter: 'getNeverSent', setter: 'setNeverSent')]
-    #[SerializedName(name: 'neverSent')]
-    #[Type(name: 'bool')]
+    #[SerializedName('neverSent')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $neverSent;
 
@@ -407,8 +407,8 @@ class CommonInstanceDataAttrs
      * @var int
      */
     #[Accessor(getter: 'getTaskDueDate', setter: 'setTaskDueDate')]
-    #[SerializedName(name: 'dueDate')]
-    #[Type(name: 'int')]
+    #[SerializedName('dueDate')]
+    #[Type('int')]
     #[XmlAttribute]
     private $taskDueDate;
 
@@ -424,8 +424,8 @@ class CommonInstanceDataAttrs
      * @var int
      */
     #[Accessor(getter: 'getTaskTzOffsetDue', setter: 'setTaskTzOffsetDue')]
-    #[SerializedName(name: 'tzoDue')]
-    #[Type(name: 'int')]
+    #[SerializedName('tzoDue')]
+    #[Type('int')]
     #[XmlAttribute]
     private $taskTzOffsetDue;
 

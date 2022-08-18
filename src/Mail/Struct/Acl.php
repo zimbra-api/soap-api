@@ -35,8 +35,8 @@ class Acl
      * @var int
      */
     #[Accessor(getter: 'getInternalGrantExpiry', setter: 'setInternalGrantExpiry')]
-    #[SerializedName(name: 'internalGrantExpiry')]
-    #[Type(name: 'int')]
+    #[SerializedName('internalGrantExpiry')]
+    #[Type('int')]
     #[XmlAttribute]
     private $internalGrantExpiry;
 
@@ -51,8 +51,8 @@ class Acl
      * @var int
      */
     #[Accessor(getter: 'getGuestGrantExpiry', setter: 'setGuestGrantExpiry')]
-    #[SerializedName(name: 'guestGrantExpiry')]
-    #[Type(name: 'int')]
+    #[SerializedName('guestGrantExpiry')]
+    #[Type('int')]
     #[XmlAttribute]
     private $guestGrantExpiry;
 
@@ -66,7 +66,7 @@ class Acl
      * @var array
      */
     #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\Grant>')]
+    #[Type('array<Zimbra\Mail\Struct\Grant>')]
     #[XmlList(inline: true, entry: 'grant', namespace: 'urn:zimbraMail')]
     private $grants = [];
 

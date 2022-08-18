@@ -35,8 +35,8 @@ class SyncGalAccountDataSourceSpec
      * @var DataSourceBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DataSourceBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\DataSourceBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -52,8 +52,8 @@ class SyncGalAccountDataSourceSpec
      * @var bool
      */
     #[Accessor(getter: 'getFullSync', setter: 'setFullSync')]
-    #[SerializedName(name: 'fullSync')]
-    #[Type(name: 'bool')]
+    #[SerializedName('fullSync')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $fullSync;
 
@@ -68,8 +68,8 @@ class SyncGalAccountDataSourceSpec
      * @var bool
      */
     #[Accessor(getter: 'getReset', setter: 'setReset')]
-    #[SerializedName(name: 'reset')]
-    #[Type(name: 'bool')]
+    #[SerializedName('reset')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $reset;
 
@@ -83,7 +83,7 @@ class SyncGalAccountDataSourceSpec
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

@@ -37,8 +37,8 @@ class CheckHealthEnvelope extends SoapEnvelope
      * @var CheckHealthBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CheckHealthBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CheckHealthBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

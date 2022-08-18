@@ -34,8 +34,8 @@ class TimeAttr
      * @var string
      */
     #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName(name: 'time')]
-    #[Type(name: 'string')]
+    #[SerializedName('time')]
+    #[Type('string')]
     #[XmlAttribute]
     private $time;
 

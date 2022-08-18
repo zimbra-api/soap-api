@@ -37,8 +37,8 @@ class RenameAccountEnvelope extends SoapEnvelope
      * @var RenameAccountBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: RenameAccountBody::class)]
+    #[SerializedName('Body')]
+    #[Type(RenameAccountBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

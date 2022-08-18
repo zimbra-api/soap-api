@@ -33,8 +33,8 @@ class InvalidateReminderDeviceBody extends SoapBody
      * @var InvalidateReminderDeviceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'InvalidateReminderDeviceRequest')]
-    #[Type(name: InvalidateReminderDeviceRequest::class)]
+    #[SerializedName('InvalidateReminderDeviceRequest')]
+    #[Type(InvalidateReminderDeviceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -47,8 +47,8 @@ class InvalidateReminderDeviceBody extends SoapBody
      * @var InvalidateReminderDeviceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'InvalidateReminderDeviceResponse')]
-    #[Type(name: InvalidateReminderDeviceResponse::class)]
+    #[SerializedName('InvalidateReminderDeviceResponse')]
+    #[Type(InvalidateReminderDeviceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

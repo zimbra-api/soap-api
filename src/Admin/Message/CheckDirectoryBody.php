@@ -33,8 +33,8 @@ class CheckDirectoryBody extends SoapBody
      * @var CheckDirectoryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckDirectoryRequest')]
-    #[Type(name: CheckDirectoryRequest::class)]
+    #[SerializedName('CheckDirectoryRequest')]
+    #[Type(CheckDirectoryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -47,8 +47,8 @@ class CheckDirectoryBody extends SoapBody
      * @var CheckDirectoryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckDirectoryResponse')]
-    #[Type(name: CheckDirectoryResponse::class)]
+    #[SerializedName('CheckDirectoryResponse')]
+    #[Type(CheckDirectoryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

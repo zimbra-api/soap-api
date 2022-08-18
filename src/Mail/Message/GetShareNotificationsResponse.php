@@ -35,7 +35,7 @@ class GetShareNotificationsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getShares', setter: 'setShares')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ShareNotificationInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\ShareNotificationInfo>')]
     #[XmlList(inline: true, entry: 'share', namespace: 'urn:zimbraMail')]
     private $shares = [];
 

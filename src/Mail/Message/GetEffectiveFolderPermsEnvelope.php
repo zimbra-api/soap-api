@@ -37,8 +37,8 @@ class GetEffectiveFolderPermsEnvelope extends SoapEnvelope
      * @var GetEffectiveFolderPermsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetEffectiveFolderPermsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetEffectiveFolderPermsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

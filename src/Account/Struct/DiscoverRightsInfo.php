@@ -34,8 +34,8 @@ class DiscoverRightsInfo
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: 'string')]
+    #[SerializedName('right')]
+    #[Type('string')]
     #[XmlAttribute]
     private $right;
 
@@ -49,7 +49,7 @@ class DiscoverRightsInfo
      * @var array
      */
     #[Accessor(getter: 'getTargets', setter: 'setTargets')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DiscoverRightsTarget>')]
+    #[Type('array<Zimbra\Account\Struct\DiscoverRightsTarget>')]
     #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAccount')]
     private $targets = [];
 
