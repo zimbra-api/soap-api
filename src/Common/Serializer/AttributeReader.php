@@ -76,22 +76,24 @@ class AttributeReader implements Reader
 
     private function buildAnnotation(array $attributes): ?object
     {
-        if (!isset($attributes[0])) {
-            return NULL;
+        if (!empty($attributes)) {
+            $attribute = $attributes[0];
+            if (0 === strpos($attribute->getName(), 'JMS\Serializer\Annotation')) {
+                return $attribute->newInstance();
+            }
         }
-
-        return $attributes[0]->newInstance();
+        return NULL;
     }
 
     private function buildAnnotations(array $attributes): array
     {
-        $result = [];
+        $annotations = [];
         foreach ($attributes as $attribute) {
-            if (0 === strpos($attribute->getName(), 'JMS\Serializer\Annotation\\')) {
-                $result[] = $attribute->newInstance();
+            if (0 === strpos($attribute->getName(), 'JMS\Serializer\Annotation')) {
+                $annotations[] = $attribute->newInstance();
             }
         }
 
-        return $result;
+        return $annotations;
     }
 }
