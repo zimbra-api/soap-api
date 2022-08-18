@@ -91,5 +91,5 @@ use Zimbra\Common\Struct\AccountSelector;
 
 $api = new AdminApi('https://zimbra.server:7071/service/admin/soap');
 $api->setAuthToken($authToken);
-$account = $api->getAccountInfo(new AccountSelector(AccountBy::NAME(), $accountName));
+$account = $api->getAccountInfo(new AccountSelector(AccountBy::NAME, $accountName));
 ```
