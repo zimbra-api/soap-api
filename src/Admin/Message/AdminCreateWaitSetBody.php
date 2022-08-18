@@ -28,8 +28,8 @@ class AdminCreateWaitSetBody extends SoapBody
      * @var AdminCreateWaitSetRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AdminCreateWaitSetRequest')]
-    #[Type(name: AdminCreateWaitSetRequest::class)]
+    #[SerializedName('AdminCreateWaitSetRequest')]
+    #[Type(AdminCreateWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class AdminCreateWaitSetBody extends SoapBody
      * @var AdminCreateWaitSetResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AdminCreateWaitSetResponse')]
-    #[Type(name: AdminCreateWaitSetResponse::class)]
+    #[SerializedName('AdminCreateWaitSetResponse')]
+    #[Type(AdminCreateWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

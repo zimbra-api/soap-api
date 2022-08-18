@@ -32,8 +32,8 @@ class GetDistributionListMembersResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -43,8 +43,8 @@ class GetDistributionListMembersResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getTotal', setter: 'setTotal')]
-    #[SerializedName(name: 'total')]
-    #[Type(name: 'int')]
+    #[SerializedName('total')]
+    #[Type('int')]
     #[XmlAttribute]
     private $total;
 
@@ -54,7 +54,7 @@ class GetDistributionListMembersResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDlMembers', setter: 'setDlMembers')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAccount')]
     private $dlMembers = [];
 
@@ -64,8 +64,8 @@ class GetDistributionListMembersResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getHABGroupMembers', setter: 'setHABGroupMembers')]
-    #[SerializedName(name: 'groupMembers')]
-    #[Type(name: 'array<Zimbra\Account\Struct\HABGroupMember>')]
+    #[SerializedName('groupMembers')]
+    #[Type('array<Zimbra\Account\Struct\HABGroupMember>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'groupMember', namespace: 'urn:zimbraAccount')]
     private $habGroupMembers = [];

@@ -28,8 +28,8 @@ class GetDomainInfoBody extends SoapBody
      * @var GetDomainInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetDomainInfoRequest')]
-    #[Type(name: GetDomainInfoRequest::class)]
+    #[SerializedName('GetDomainInfoRequest')]
+    #[Type(GetDomainInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetDomainInfoBody extends SoapBody
      * @var GetDomainInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetDomainInfoResponse')]
-    #[Type(name: GetDomainInfoResponse::class)]
+    #[SerializedName('GetDomainInfoResponse')]
+    #[Type(GetDomainInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

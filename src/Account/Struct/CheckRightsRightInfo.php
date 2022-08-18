@@ -29,8 +29,8 @@ class CheckRightsRightInfo
      * @var bool
      */
     #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName(name: 'allow')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allow')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allow;
 
@@ -40,7 +40,7 @@ class CheckRightsRightInfo
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $right;
 

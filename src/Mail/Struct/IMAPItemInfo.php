@@ -29,8 +29,8 @@ class IMAPItemInfo
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class IMAPItemInfo
      * @var int
      */
     #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
-    #[SerializedName(name: 'i4uid')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4uid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapUid;
 

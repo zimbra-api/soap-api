@@ -28,8 +28,8 @@ class SendDeliveryReportBody extends SoapBody
      * @var SendDeliveryReportRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SendDeliveryReportRequest')]
-    #[Type(name: SendDeliveryReportRequest::class)]
+    #[SerializedName('SendDeliveryReportRequest')]
+    #[Type(SendDeliveryReportRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class SendDeliveryReportBody extends SoapBody
      * @var SendDeliveryReportResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SendDeliveryReportResponse')]
-    #[Type(name: SendDeliveryReportResponse::class)]
+    #[SerializedName('SendDeliveryReportResponse')]
+    #[Type(SendDeliveryReportResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

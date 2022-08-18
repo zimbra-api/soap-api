@@ -30,8 +30,8 @@ class ResetRecentMessageCountEnvelope extends SoapEnvelope
      * @var ResetRecentMessageCountBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ResetRecentMessageCountBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ResetRecentMessageCountBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

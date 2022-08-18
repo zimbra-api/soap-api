@@ -28,8 +28,8 @@ class ComboRightInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'string')]
+    #[SerializedName('n')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -37,8 +37,8 @@ class ComboRightInfo
      * @var RightType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\RightType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\RightType>')]
     #[XmlAttribute]
     private $type;
 
@@ -46,8 +46,8 @@ class ComboRightInfo
      * @var string
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName(name: 'targetType')]
-    #[Type(name: 'string')]
+    #[SerializedName('targetType')]
+    #[Type('string')]
     #[XmlAttribute]
     private $targetType;
 

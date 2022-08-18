@@ -29,8 +29,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getGroupId', setter: 'setGroupId')]
-    #[SerializedName(name: 'groupId')]
-    #[Type(name: 'int')]
+    #[SerializedName('groupId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $groupId;
 
@@ -51,8 +51,8 @@ class MailboxInfo
      * @var string
      */
     #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
-    #[SerializedName(name: 'accountId')]
-    #[Type(name: 'string')]
+    #[SerializedName('accountId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $accountId;
 
@@ -62,8 +62,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getIndexVolumeId', setter: 'setIndexVolumeId')]
-    #[SerializedName(name: 'indexVolumeId')]
-    #[Type(name: 'int')]
+    #[SerializedName('indexVolumeId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $indexVolumeId;
 
@@ -73,8 +73,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getItemIdCheckPoint', setter: 'setItemIdCheckPoint')]
-    #[SerializedName(name: 'itemIdCheckPoint')]
-    #[Type(name: 'int')]
+    #[SerializedName('itemIdCheckPoint')]
+    #[Type('int')]
     #[XmlAttribute]
     private $itemIdCheckPoint;
 
@@ -84,8 +84,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getContactCount', setter: 'setContactCount')]
-    #[SerializedName(name: 'contactCount')]
-    #[Type(name: 'int')]
+    #[SerializedName('contactCount')]
+    #[Type('int')]
     #[XmlAttribute]
     private $contactCount;
 
@@ -95,8 +95,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getSizeCheckPoint', setter: 'setSizeCheckPoint')]
-    #[SerializedName(name: 'sizeCheckPoint')]
-    #[Type(name: 'int')]
+    #[SerializedName('sizeCheckPoint')]
+    #[Type('int')]
     #[XmlAttribute]
     private $sizeCheckPoint;
 
@@ -106,8 +106,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getChangeCheckPoint', setter: 'setChangeCheckPoint')]
-    #[SerializedName(name: 'changeCheckPoint')]
-    #[Type(name: 'int')]
+    #[SerializedName('changeCheckPoint')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeCheckPoint;
 
@@ -117,8 +117,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getTrackingSync', setter: 'setTrackingSync')]
-    #[SerializedName(name: 'trackingSync')]
-    #[Type(name: 'int')]
+    #[SerializedName('trackingSync')]
+    #[Type('int')]
     #[XmlAttribute]
     private $trackingSync;
 
@@ -128,8 +128,8 @@ class MailboxInfo
      * @var bool
      */
     #[Accessor(getter: 'isTrackingImap', setter: 'setTrackingImap')]
-    #[SerializedName(name: 'trackingImap')]
-    #[Type(name: 'bool')]
+    #[SerializedName('trackingImap')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $trackingImap;
 
@@ -139,8 +139,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getLastBackupAt', setter: 'setLastBackupAt')]
-    #[SerializedName(name: 'lastBackupAt')]
-    #[Type(name: 'int')]
+    #[SerializedName('lastBackupAt')]
+    #[Type('int')]
     #[XmlAttribute]
     private $lastBackupAt;
 
@@ -150,8 +150,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getLastSoapAccess', setter: 'setLastSoapAccess')]
-    #[SerializedName(name: 'lastSoapAccess')]
-    #[Type(name: 'int')]
+    #[SerializedName('lastSoapAccess')]
+    #[Type('int')]
     #[XmlAttribute]
     private $lastSoapAccess;
 
@@ -161,8 +161,8 @@ class MailboxInfo
      * @var int
      */
     #[Accessor(getter: 'getNewMessages', setter: 'setNewMessages')]
-    #[SerializedName(name: 'newMessages')]
-    #[Type(name: 'int')]
+    #[SerializedName('newMessages')]
+    #[Type('int')]
     #[XmlAttribute]
     private $newMessages;
 

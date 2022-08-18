@@ -32,8 +32,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -43,8 +43,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
-    #[SerializedName(name: 'i4uid')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4uid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapUid;
 
@@ -54,8 +54,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getCalendarIntendedFor', setter: 'setCalendarIntendedFor')]
-    #[SerializedName(name: 'cif')]
-    #[Type(name: 'string')]
+    #[SerializedName('cif')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calendarIntendedFor;
 
@@ -65,8 +65,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getOrigId', setter: 'setOrigId')]
-    #[SerializedName(name: 'origid')]
-    #[Type(name: 'string')]
+    #[SerializedName('origid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $origId;
 
@@ -76,8 +76,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var ReplyType
      */
     #[Accessor(getter: 'getDraftReplyType', setter: 'setDraftReplyType')]
-    #[SerializedName(name: 'rt')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ReplyType>')]
+    #[SerializedName('rt')]
+    #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
     private $draftReplyType;
 
@@ -87,8 +87,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getIdentityId', setter: 'setIdentityId')]
-    #[SerializedName(name: 'idnt')]
-    #[Type(name: 'string')]
+    #[SerializedName('idnt')]
+    #[Type('string')]
     #[XmlAttribute]
     private $identityId;
 
@@ -98,8 +98,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getDraftAccountId', setter: 'setDraftAccountId')]
-    #[SerializedName(name: 'forAcct')]
-    #[Type(name: 'string')]
+    #[SerializedName('forAcct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $draftAccountId;
 
@@ -110,8 +110,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getDraftAutoSendTime', setter: 'setDraftAutoSendTime')]
-    #[SerializedName(name: 'autoSendTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('autoSendTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $draftAutoSendTime;
 
@@ -121,8 +121,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getSentDate', setter: 'setSentDate')]
-    #[SerializedName(name: 'sd')]
-    #[Type(name: 'int')]
+    #[SerializedName('sd')]
+    #[Type('int')]
     #[XmlAttribute]
     private $sentDate;
 
@@ -132,8 +132,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getResentDate', setter: 'setResentDate')]
-    #[SerializedName(name: 'rd')]
-    #[Type(name: 'int')]
+    #[SerializedName('rd')]
+    #[Type('int')]
     #[XmlAttribute]
     private $resentDate;
 
@@ -143,8 +143,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $part;
 
@@ -154,8 +154,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
-    #[SerializedName(name: 'fr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fr')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
@@ -165,7 +165,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\EmailInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
     #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
     private $emails = [];
 
@@ -175,8 +175,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: "getSubject", setter: "setSubject")]
-    #[SerializedName(name: 'su')]
-    #[Type(name: 'string')]
+    #[SerializedName('su')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $subject;
 
@@ -186,8 +186,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: "getMessageIdHeader", setter: "setMessageIdHeader")]
-    #[SerializedName(name: 'mid')]
-    #[Type(name: 'string')]
+    #[SerializedName('mid')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $messageIdHeader;
 
@@ -197,8 +197,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var string
      */
     #[Accessor(getter: "getInReplyTo", setter: "setInReplyTo")]
-    #[SerializedName(name: 'irt')]
-    #[Type(name: 'string')]
+    #[SerializedName('irt')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $inReplyTo;
 
@@ -208,8 +208,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var InviteInfoInterface
      */
     #[Accessor(getter: "getInvite", setter: "setInvite")]
-    #[SerializedName(name: 'inv')]
-    #[Type(name: InviteInfo::class)]
+    #[SerializedName('inv')]
+    #[Type(InviteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $invite;
 
@@ -219,7 +219,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type(name: 'array<Zimbra\Common\Struct\KeyValuePair>')]
+    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
     #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
     private $headers = [];
 
@@ -229,7 +229,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getPartInfos', setter: 'setPartInfos')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\PartInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\PartInfo>')]
     #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $partInfos = [];
 
@@ -239,7 +239,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getShareNotifications', setter: 'setShareNotifications')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ShareNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\ShareNotification>')]
     #[XmlList(inline: true, entry: 'shr', namespace: 'urn:zimbraMail')]
     private $shareNotifications = [];
 
@@ -249,7 +249,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getDlSubs', setter: 'setDlSubs')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
     #[XmlList(inline: true, entry: 'dlSubs', namespace: 'urn:zimbraMail')]
     private $dlSubs = [];
 

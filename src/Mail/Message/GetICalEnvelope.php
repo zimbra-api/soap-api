@@ -30,8 +30,8 @@ class GetICalEnvelope extends SoapEnvelope
      * @var GetICalBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetICalBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetICalBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

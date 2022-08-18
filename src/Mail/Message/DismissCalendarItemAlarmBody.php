@@ -28,8 +28,8 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @var DismissCalendarItemAlarmRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DismissCalendarItemAlarmRequest')]
-    #[Type(name: DismissCalendarItemAlarmRequest::class)]
+    #[SerializedName('DismissCalendarItemAlarmRequest')]
+    #[Type(DismissCalendarItemAlarmRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @var DismissCalendarItemAlarmResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DismissCalendarItemAlarmResponse')]
-    #[Type(name: DismissCalendarItemAlarmResponse::class)]
+    #[SerializedName('DismissCalendarItemAlarmResponse')]
+    #[Type(DismissCalendarItemAlarmResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

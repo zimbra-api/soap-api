@@ -29,8 +29,8 @@ class RightViaInfo
      * @var TargetWithType
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: TargetWithType::class)]
+    #[SerializedName('target')]
+    #[Type(TargetWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
@@ -40,8 +40,8 @@ class RightViaInfo
      * @var GranteeWithType
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName(name: 'grantee')]
-    #[Type(name: GranteeWithType::class)]
+    #[SerializedName('grantee')]
+    #[Type(GranteeWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
@@ -51,8 +51,8 @@ class RightViaInfo
      * @var CheckedRight
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: CheckedRight::class)]
+    #[SerializedName('right')]
+    #[Type(CheckedRight::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $right;
 

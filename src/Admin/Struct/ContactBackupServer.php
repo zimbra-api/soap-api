@@ -28,8 +28,8 @@ class ContactBackupServer
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -37,8 +37,8 @@ class ContactBackupServer
      * @var ContactBackupStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ContactBackupStatus>')]
+    #[SerializedName('status')]
+    #[Type('Enum<Zimbra\Common\Enum\ContactBackupStatus>')]
     #[XmlAttribute]
     private $status;
 

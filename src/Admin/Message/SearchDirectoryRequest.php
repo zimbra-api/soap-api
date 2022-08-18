@@ -34,8 +34,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName(name: 'query')]
-    #[Type(name: 'string')]
+    #[SerializedName('query')]
+    #[Type('string')]
     #[XmlAttribute]
     private $query;
 
@@ -45,8 +45,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var int
      */
     #[Accessor(getter: 'getMaxResults', setter: 'setMaxResults')]
-    #[SerializedName(name: 'maxResults')]
-    #[Type(name: 'int')]
+    #[SerializedName('maxResults')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxResults;
 
@@ -56,8 +56,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -67,8 +67,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -78,8 +78,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: 'string')]
+    #[SerializedName('domain')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domain;
 
@@ -90,8 +90,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var bool
      */
     #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName(name: 'applyCos')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyCos')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyCos;
 
@@ -102,8 +102,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var bool
      */
     #[Accessor(getter: 'getApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName(name: 'applyConfig')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyConfig')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyConfig;
 
@@ -113,8 +113,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sortBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -125,8 +125,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $types;
 
@@ -136,8 +136,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var bool
      */
     #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName(name: 'sortAscending')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sortAscending')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sortAscending;
 
@@ -147,8 +147,8 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @var bool
      */
     #[Accessor(getter: 'getCountOnly', setter: 'setCountOnly')]
-    #[SerializedName(name: 'countOnly')]
-    #[Type(name: 'bool')]
+    #[SerializedName('countOnly')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isCountOnly;
 

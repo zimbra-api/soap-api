@@ -30,8 +30,8 @@ class EffectiveRightsTargetSelector
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private $type;
 
@@ -41,8 +41,8 @@ class EffectiveRightsTargetSelector
      * @var TargetBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\TargetBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -52,7 +52,7 @@ class EffectiveRightsTargetSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

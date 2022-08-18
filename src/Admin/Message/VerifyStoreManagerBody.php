@@ -28,8 +28,8 @@ class VerifyStoreManagerBody extends SoapBody
      * @var VerifyStoreManagerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'VerifyStoreManagerRequest')]
-    #[Type(name: VerifyStoreManagerRequest::class)]
+    #[SerializedName('VerifyStoreManagerRequest')]
+    #[Type(VerifyStoreManagerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class VerifyStoreManagerBody extends SoapBody
      * @var VerifyStoreManagerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'VerifyStoreManagerResponse')]
-    #[Type(name: VerifyStoreManagerResponse::class)]
+    #[SerializedName('VerifyStoreManagerResponse')]
+    #[Type(VerifyStoreManagerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

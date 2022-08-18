@@ -28,8 +28,8 @@ class CheckAuthConfigBody extends SoapBody
      * @var CheckAuthConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckAuthConfigRequest')]
-    #[Type(name: CheckAuthConfigRequest::class)]
+    #[SerializedName('CheckAuthConfigRequest')]
+    #[Type(CheckAuthConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CheckAuthConfigBody extends SoapBody
      * @var CheckAuthConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckAuthConfigResponse')]
-    #[Type(name: CheckAuthConfigResponse::class)]
+    #[SerializedName('CheckAuthConfigResponse')]
+    #[Type(CheckAuthConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

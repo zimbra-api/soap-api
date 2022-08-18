@@ -28,8 +28,8 @@ class AutoCompleteGalBody extends SoapBody
      * @var AutoCompleteGalRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AutoCompleteGalRequest')]
-    #[Type(name: AutoCompleteGalRequest::class)]
+    #[SerializedName('AutoCompleteGalRequest')]
+    #[Type(AutoCompleteGalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class AutoCompleteGalBody extends SoapBody
      * @var AutoCompleteGalResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AutoCompleteGalResponse')]
-    #[Type(name: AutoCompleteGalResponse::class)]
+    #[SerializedName('AutoCompleteGalResponse')]
+    #[Type(AutoCompleteGalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

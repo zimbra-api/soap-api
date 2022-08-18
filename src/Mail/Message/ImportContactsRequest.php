@@ -33,8 +33,8 @@ class ImportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -44,8 +44,8 @@ class ImportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -56,8 +56,8 @@ class ImportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getCsvFormat', setter: 'setCsvFormat')]
-    #[SerializedName(name: 'csvfmt')]
-    #[Type(name: 'string')]
+    #[SerializedName('csvfmt')]
+    #[Type('string')]
     #[XmlAttribute]
     private $csvFormat;
 
@@ -68,8 +68,8 @@ class ImportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getCsvLocale', setter: 'setCsvLocale')]
-    #[SerializedName(name: 'csvlocale')]
-    #[Type(name: 'string')]
+    #[SerializedName('csvlocale')]
+    #[Type('string')]
     #[XmlAttribute]
     private $csvLocale;
 
@@ -79,8 +79,8 @@ class ImportContactsRequest extends SoapRequest
      * @var Content
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
-    #[SerializedName(name: 'content')]
-    #[Type(name: Content::class)]
+    #[SerializedName('content')]
+    #[Type(Content::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $content;
 

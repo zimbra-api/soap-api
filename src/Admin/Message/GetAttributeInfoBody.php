@@ -28,8 +28,8 @@ class GetAttributeInfoBody extends SoapBody
      * @var GetAttributeInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAttributeInfoRequest')]
-    #[Type(name: GetAttributeInfoRequest::class)]
+    #[SerializedName('GetAttributeInfoRequest')]
+    #[Type(GetAttributeInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetAttributeInfoBody extends SoapBody
      * @var GetAttributeInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAttributeInfoResponse')]
-    #[Type(name: GetAttributeInfoResponse::class)]
+    #[SerializedName('GetAttributeInfoResponse')]
+    #[Type(GetAttributeInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

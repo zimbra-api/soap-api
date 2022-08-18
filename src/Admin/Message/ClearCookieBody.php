@@ -28,8 +28,8 @@ class ClearCookieBody extends SoapBody
      * @var ClearCookieRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ClearCookieRequest')]
-    #[Type(name: ClearCookieRequest::class)]
+    #[SerializedName('ClearCookieRequest')]
+    #[Type(ClearCookieRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class ClearCookieBody extends SoapBody
      * @var ClearCookieResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ClearCookieResponse')]
-    #[Type(name: ClearCookieResponse::class)]
+    #[SerializedName('ClearCookieResponse')]
+    #[Type(ClearCookieResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

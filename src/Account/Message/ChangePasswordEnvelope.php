@@ -30,8 +30,8 @@ class ChangePasswordEnvelope extends SoapEnvelope
      * @var ChangePasswordBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ChangePasswordBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ChangePasswordBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -31,8 +31,8 @@ class GetAllDomainsRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName(name: 'applyConfig')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyConfig')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyConfig;
 

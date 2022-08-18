@@ -37,8 +37,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -48,8 +48,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -59,8 +59,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -70,8 +70,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -81,8 +81,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getNoNextAlarm', setter: 'setNoNextAlarm')]
-    #[SerializedName(name: 'noNextAlarm')]
-    #[Type(name: 'bool')]
+    #[SerializedName('noNextAlarm')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $noNextAlarm;
 
@@ -95,8 +95,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName(name: 'nextAlarm')]
-    #[Type(name: 'int')]
+    #[SerializedName('nextAlarm')]
+    #[Type('int')]
     #[XmlAttribute]
     private $nextAlarm;
 
@@ -106,8 +106,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var SetCalendarItemInfo
      */
     #[Accessor(getter: "getDefaultId", setter: "setDefaultId")]
-    #[SerializedName(name: 'default')]
-    #[Type(name: SetCalendarItemInfo::class)]
+    #[SerializedName('default')]
+    #[Type(SetCalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $defaultId;
 
@@ -117,7 +117,7 @@ class SetAppointmentRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getExceptions', setter: 'setExceptions')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SetCalendarItemInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\SetCalendarItemInfo>')]
     #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
     private $exceptions = [];
 
@@ -127,7 +127,7 @@ class SetAppointmentRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getCancellations', setter: 'setCancellations')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SetCalendarItemInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\SetCalendarItemInfo>')]
     #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
     private $cancellations = [];
 
@@ -141,8 +141,8 @@ class SetAppointmentRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getReplies', setter: 'setReplies')]
-    #[SerializedName(name: 'replies')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalReply>')]
+    #[SerializedName('replies')]
+    #[Type('array<Zimbra\Mail\Struct\CalReply>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
     private $replies = [];

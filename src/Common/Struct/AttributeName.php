@@ -27,8 +27,8 @@ class AttributeName
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'string')]
+    #[SerializedName('n')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 

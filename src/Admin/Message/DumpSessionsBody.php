@@ -28,8 +28,8 @@ class DumpSessionsBody extends SoapBody
      * @var DumpSessionsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DumpSessionsRequest')]
-    #[Type(name: DumpSessionsRequest::class)]
+    #[SerializedName('DumpSessionsRequest')]
+    #[Type(DumpSessionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class DumpSessionsBody extends SoapBody
      * @var DumpSessionsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DumpSessionsResponse')]
-    #[Type(name: DumpSessionsResponse::class)]
+    #[SerializedName('DumpSessionsResponse')]
+    #[Type(DumpSessionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

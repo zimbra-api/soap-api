@@ -28,8 +28,8 @@ class GetApptSummariesBody extends SoapBody
      * @var GetApptSummariesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetApptSummariesRequest')]
-    #[Type(name: GetApptSummariesRequest::class)]
+    #[SerializedName('GetApptSummariesRequest')]
+    #[Type(GetApptSummariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetApptSummariesBody extends SoapBody
      * @var GetApptSummariesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetApptSummariesResponse')]
-    #[Type(name: GetApptSummariesResponse::class)]
+    #[SerializedName('GetApptSummariesResponse')]
+    #[Type(GetApptSummariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

@@ -33,8 +33,8 @@ class DeleteIdentityRequest extends SoapRequest
      * @var NameId
      */
     #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName(name: 'identity')]
-    #[Type(name: NameId::class)]
+    #[SerializedName('identity')]
+    #[Type(NameId::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $identity;
 

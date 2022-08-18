@@ -28,8 +28,8 @@ class ChangePrimaryEmailBody extends SoapBody
      * @var ChangePrimaryEmailRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ChangePrimaryEmailRequest')]
-    #[Type(name: ChangePrimaryEmailRequest::class)]
+    #[SerializedName('ChangePrimaryEmailRequest')]
+    #[Type(ChangePrimaryEmailRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class ChangePrimaryEmailBody extends SoapBody
      * @var ChangePrimaryEmailResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ChangePrimaryEmailResponse')]
-    #[Type(name: ChangePrimaryEmailResponse::class)]
+    #[SerializedName('ChangePrimaryEmailResponse')]
+    #[Type(ChangePrimaryEmailResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

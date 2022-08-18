@@ -30,7 +30,7 @@ class HABGroupMember extends HABMember
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Common\Struct\NamedValue>')]
+    #[Type('array<Zimbra\Common\Struct\NamedValue>')]
     #[XmlList(inline: true, entry: 'attr', namespace: 'urn:zimbraAccount')]
     private $attrs = [];
 

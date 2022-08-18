@@ -29,8 +29,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getFullVersion', setter: 'setFullVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'string')]
+    #[SerializedName('version')]
+    #[Type('string')]
     #[XmlAttribute]
     private $fullVersion;
 
@@ -40,8 +40,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getRelease', setter: 'setRelease')]
-    #[SerializedName(name: 'release')]
-    #[Type(name: 'string')]
+    #[SerializedName('release')]
+    #[Type('string')]
     #[XmlAttribute]
     private $release;
 
@@ -51,8 +51,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'buildDate')]
-    #[Type(name: 'string')]
+    #[SerializedName('buildDate')]
+    #[Type('string')]
     #[XmlAttribute]
     private $date;
 
@@ -62,8 +62,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName(name: 'host')]
-    #[Type(name: 'string')]
+    #[SerializedName('host')]
+    #[Type('string')]
     #[XmlAttribute]
     private $host;
 

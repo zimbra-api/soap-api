@@ -31,8 +31,8 @@ class AutoCompleteGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -42,8 +42,8 @@ class AutoCompleteGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName(name: 'tokenizeKey')]
-    #[Type(name: 'bool')]
+    #[SerializedName('tokenizeKey')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $tokenizeKey;
 
@@ -53,8 +53,8 @@ class AutoCompleteGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
-    #[SerializedName(name: 'paginationSupported')]
-    #[Type(name: 'bool')]
+    #[SerializedName('paginationSupported')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $pagingSupported;
 
@@ -64,7 +64,7 @@ class AutoCompleteGalResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ContactInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\ContactInfo>')]
     #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
     private $contacts = [];
 

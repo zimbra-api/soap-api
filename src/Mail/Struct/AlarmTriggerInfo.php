@@ -31,8 +31,8 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @var DateAttrInterface
      */
     #[Accessor(getter: "getAbsolute", setter: "setAbsolute")]
-    #[SerializedName(name: 'abs')]
-    #[Type(name: DateAttr::class)]
+    #[SerializedName('abs')]
+    #[Type(DateAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $absolute;
 
@@ -42,8 +42,8 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @var DurationInfoInterface
      */
     #[Accessor(getter: "getRelative", setter: "setRelative")]
-    #[SerializedName(name: 'rel')]
-    #[Type(name: DurationInfo::class)]
+    #[SerializedName('rel')]
+    #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $relative;
 

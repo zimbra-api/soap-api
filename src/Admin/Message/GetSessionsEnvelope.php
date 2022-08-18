@@ -30,8 +30,8 @@ class GetSessionsEnvelope extends SoapEnvelope
      * @var GetSessionsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetSessionsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetSessionsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

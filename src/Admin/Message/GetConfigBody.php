@@ -28,8 +28,8 @@ class GetConfigBody extends SoapBody
      * @var GetConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetConfigRequest')]
-    #[Type(name: GetConfigRequest::class)]
+    #[SerializedName('GetConfigRequest')]
+    #[Type(GetConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetConfigBody extends SoapBody
      * @var GetConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetConfigResponse')]
-    #[Type(name: GetConfigResponse::class)]
+    #[SerializedName('GetConfigResponse')]
+    #[Type(GetConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

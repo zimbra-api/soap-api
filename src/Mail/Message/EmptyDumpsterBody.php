@@ -28,8 +28,8 @@ class EmptyDumpsterBody extends SoapBody
      * @var EmptyDumpsterRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'EmptyDumpsterRequest')]
-    #[Type(name: EmptyDumpsterRequest::class)]
+    #[SerializedName('EmptyDumpsterRequest')]
+    #[Type(EmptyDumpsterRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class EmptyDumpsterBody extends SoapBody
      * @var EmptyDumpsterResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'EmptyDumpsterResponse')]
-    #[Type(name: EmptyDumpsterResponse::class)]
+    #[SerializedName('EmptyDumpsterResponse')]
+    #[Type(EmptyDumpsterResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

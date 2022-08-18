@@ -32,7 +32,7 @@ class GetRightsDocResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getPackages', setter: 'setPackages')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\PackageRightsInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\PackageRightsInfo>')]
     #[XmlList(inline: true, entry: 'package', namespace: 'urn:zimbraAdmin')]
     private $pkgs = [];
 
@@ -42,7 +42,7 @@ class GetRightsDocResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getNotUsed', setter: 'setNotUsed')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'notUsed', namespace: 'urn:zimbraAdmin')]
     private $notUsed = [];
 
@@ -52,8 +52,8 @@ class GetRightsDocResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName(name: 'domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DomainAdminRight>')]
+    #[SerializedName('domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template')]
+    #[Type('array<Zimbra\Admin\Struct\DomainAdminRight>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'right', namespace: 'urn:zimbraAdmin')]
     private $rights = [];

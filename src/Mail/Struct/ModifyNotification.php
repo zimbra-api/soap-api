@@ -29,8 +29,8 @@ class ModifyNotification
      * @var int
      */
     #[Accessor(getter: 'getChangeBitmask', setter: 'setChangeBitmask')]
-    #[SerializedName(name: 'change')]
-    #[Type(name: 'int')]
+    #[SerializedName('change')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeBitmask;
 

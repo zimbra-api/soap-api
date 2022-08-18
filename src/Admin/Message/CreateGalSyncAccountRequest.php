@@ -36,8 +36,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -47,8 +47,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: 'string')]
+    #[SerializedName('domain')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domain;
 
@@ -58,8 +58,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var GalMode
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GalMode>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\GalMode>')]
     #[XmlAttribute]
     private $type;
 
@@ -69,8 +69,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -80,8 +80,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'password')]
-    #[Type(name: 'string')]
+    #[SerializedName('password')]
+    #[Type('string')]
     #[XmlAttribute]
     private $password;
 
@@ -91,8 +91,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'folder')]
-    #[Type(name: 'string')]
+    #[SerializedName('folder')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -102,8 +102,8 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getMailHost', setter: 'setMailHost')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: 'string')]
+    #[SerializedName('server')]
+    #[Type('string')]
     #[XmlAttribute]
     private $mailHost;
 

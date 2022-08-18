@@ -30,8 +30,8 @@ class GetNoteEnvelope extends SoapEnvelope
      * @var GetNoteBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetNoteBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetNoteBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

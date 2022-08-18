@@ -30,8 +30,8 @@ class RevokePermissionEnvelope extends SoapEnvelope
      * @var RevokePermissionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: RevokePermissionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(RevokePermissionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

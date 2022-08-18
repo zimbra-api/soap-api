@@ -28,8 +28,8 @@ class SearchAutoProvDirectoryBody extends SoapBody
      * @var SearchAutoProvDirectoryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SearchAutoProvDirectoryRequest')]
-    #[Type(name: SearchAutoProvDirectoryRequest::class)]
+    #[SerializedName('SearchAutoProvDirectoryRequest')]
+    #[Type(SearchAutoProvDirectoryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class SearchAutoProvDirectoryBody extends SoapBody
      * @var SearchAutoProvDirectoryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SearchAutoProvDirectoryResponse')]
-    #[Type(name: SearchAutoProvDirectoryResponse::class)]
+    #[SerializedName('SearchAutoProvDirectoryResponse')]
+    #[Type(SearchAutoProvDirectoryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

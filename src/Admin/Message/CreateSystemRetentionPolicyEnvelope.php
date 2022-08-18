@@ -31,8 +31,8 @@ class CreateSystemRetentionPolicyEnvelope extends SoapEnvelope
      * @var CreateSystemRetentionPolicyBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateSystemRetentionPolicyBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateSystemRetentionPolicyBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

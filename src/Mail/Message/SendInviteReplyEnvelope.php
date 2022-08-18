@@ -30,8 +30,8 @@ class SendInviteReplyEnvelope extends SoapEnvelope
      * @var SendInviteReplyBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SendInviteReplyBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SendInviteReplyBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

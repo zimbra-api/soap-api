@@ -32,8 +32,8 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @var DistributionListSubscribeOp
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
+    #[SerializedName('op')]
+    #[Type('Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
     #[XmlAttribute]
     private $op;
 
@@ -43,8 +43,8 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @var DistributionListSelector
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName(name: 'dl')]
-    #[Type(name: DistributionListSelector::class)]
+    #[SerializedName('dl')]
+    #[Type(DistributionListSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $dl;
 

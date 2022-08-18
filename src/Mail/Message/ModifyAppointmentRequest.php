@@ -35,8 +35,8 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -46,8 +46,8 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'comp')]
-    #[Type(name: 'int')]
+    #[SerializedName('comp')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 
@@ -60,8 +60,8 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -71,8 +71,8 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 

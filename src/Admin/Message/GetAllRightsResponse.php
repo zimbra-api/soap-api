@@ -31,7 +31,7 @@ class GetAllRightsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\RightInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\RightInfo>')]
     #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAdmin')]
     private $rights = [];
 

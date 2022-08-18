@@ -30,8 +30,8 @@ class CreateLDAPEntryEnvelope extends SoapEnvelope
      * @var CreateLDAPEntryBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateLDAPEntryBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateLDAPEntryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

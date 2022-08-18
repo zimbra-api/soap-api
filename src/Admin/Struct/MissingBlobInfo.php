@@ -29,8 +29,8 @@ class MissingBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class MissingBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -51,8 +51,8 @@ class MissingBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -62,8 +62,8 @@ class MissingBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName(name: 'volumeId')]
-    #[Type(name: 'int')]
+    #[SerializedName('volumeId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $volumeId;
 
@@ -73,8 +73,8 @@ class MissingBlobInfo
      * @var string
      */
     #[Accessor(getter: 'getBlobPath', setter: 'setBlobPath')]
-    #[SerializedName(name: 'blobPath')]
-    #[Type(name: 'string')]
+    #[SerializedName('blobPath')]
+    #[Type('string')]
     #[XmlAttribute]
     private $blobPath;
 
@@ -84,8 +84,8 @@ class MissingBlobInfo
      * @var bool
      */
     #[Accessor(getter: 'getExternal', setter: 'setExternal')]
-    #[SerializedName(name: 'external')]
-    #[Type(name: 'bool')]
+    #[SerializedName('external')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $external;
 
@@ -95,8 +95,8 @@ class MissingBlobInfo
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'int')]
+    #[SerializedName('version')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version;
 

@@ -30,8 +30,8 @@ class DateTest extends FilterTest
      * @var DateComparison
      */
     #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
-    #[SerializedName(name: 'dateComparison')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DateComparison>')]
+    #[SerializedName('dateComparison')]
+    #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
     #[XmlAttribute]
     private $dateComparison;
 
@@ -41,8 +41,8 @@ class DateTest extends FilterTest
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'date')]
-    #[Type(name: 'int')]
+    #[SerializedName('date')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 

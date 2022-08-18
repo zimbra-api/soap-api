@@ -31,8 +31,8 @@ class SearchActionRequest extends SoapRequest
      * @var SearchRequest
      */
     #[Accessor(getter: "getSearchRequest", setter: "setSearchRequest")]
-    #[SerializedName(name: 'SearchRequest')]
-    #[Type(name: SearchRequest::class)]
+    #[SerializedName('SearchRequest')]
+    #[Type(SearchRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $searchRequest;
 
@@ -42,8 +42,8 @@ class SearchActionRequest extends SoapRequest
      * @var BulkAction
      */
     #[Accessor(getter: "getBulkAction", setter: "setBulkAction")]
-    #[SerializedName(name: 'BulkAction')]
-    #[Type(name: BulkAction::class)]
+    #[SerializedName('BulkAction')]
+    #[Type(BulkAction::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $bulkAction;
 

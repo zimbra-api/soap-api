@@ -32,8 +32,8 @@ class ItemActionRequest extends SoapRequest
      * @var ActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]
-    #[SerializedName(name: 'action')]
-    #[Type(name: ActionSelector::class)]
+    #[SerializedName('action')]
+    #[Type(ActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $action;
 

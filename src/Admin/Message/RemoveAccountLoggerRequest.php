@@ -37,8 +37,8 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @var Logger
      */
     #[Accessor(getter: 'getLogger', setter: 'setLogger')]
-    #[SerializedName(name: 'logger')]
-    #[Type(name: Logger::class)]
+    #[SerializedName('logger')]
+    #[Type(Logger::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $logger;
 
@@ -48,8 +48,8 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @var Account
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: Account::class)]
+    #[SerializedName('account')]
+    #[Type(Account::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -59,8 +59,8 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $id;
 

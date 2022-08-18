@@ -121,8 +121,8 @@ class FolderActionRequest extends SoapRequest
      * @var FolderActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]
-    #[SerializedName(name: 'action')]
-    #[Type(name: FolderActionSelector::class)]
+    #[SerializedName('action')]
+    #[Type(FolderActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $action;
 

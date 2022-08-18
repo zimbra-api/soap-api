@@ -32,8 +32,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $name;
 
@@ -43,7 +43,7 @@ class GetAccountInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\Attr>')]
+    #[Type('array<Zimbra\Admin\Struct\Attr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrList = [];
 
@@ -53,8 +53,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var CosInfo
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName(name: 'cos')]
-    #[Type(name: CosInfo::class)]
+    #[SerializedName('cos')]
+    #[Type(CosInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
@@ -64,7 +64,7 @@ class GetAccountInfoResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getSoapURLList', setter: 'setSoapURLList')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'soapURL', namespace: 'urn:zimbraAdmin')]
     private $soapURLList = [];
 
@@ -74,8 +74,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAdminSoapURL', setter: 'setAdminSoapURL')]
-    #[SerializedName(name: 'adminSoapURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('adminSoapURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $adminSoapURL;
 
@@ -85,8 +85,8 @@ class GetAccountInfoResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getPublicMailURL', setter: 'setPublicMailURL')]
-    #[SerializedName(name: 'publicMailURL')]
-    #[Type(name: 'string')]
+    #[SerializedName('publicMailURL')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $publicMailURL;
 

@@ -28,8 +28,8 @@ class ConvActionBody extends SoapBody
      * @var ConvActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ConvActionRequest')]
-    #[Type(name: ConvActionRequest::class)]
+    #[SerializedName('ConvActionRequest')]
+    #[Type(ConvActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class ConvActionBody extends SoapBody
      * @var ConvActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ConvActionResponse')]
-    #[Type(name: ConvActionResponse::class)]
+    #[SerializedName('ConvActionResponse')]
+    #[Type(ConvActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

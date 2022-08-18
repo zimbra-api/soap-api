@@ -38,8 +38,8 @@ class SyncRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -50,8 +50,8 @@ class SyncRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getCalendarCutoff', setter: 'setCalendarCutoff')]
-    #[SerializedName(name: 'calCutoff')]
-    #[Type(name: 'int')]
+    #[SerializedName('calCutoff')]
+    #[Type('int')]
     #[XmlAttribute]
     private $calendarCutoff;
 
@@ -62,8 +62,8 @@ class SyncRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getMsgCutoff', setter: 'setMsgCutoff')]
-    #[SerializedName(name: 'msgCutoff')]
-    #[Type(name: 'int')]
+    #[SerializedName('msgCutoff')]
+    #[Type('int')]
     #[XmlAttribute]
     private $msgCutoff;
 
@@ -73,8 +73,8 @@ class SyncRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -84,8 +84,8 @@ class SyncRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getTypedDeletes', setter: 'setTypedDeletes')]
-    #[SerializedName(name: 'typed')]
-    #[Type(name: 'bool')]
+    #[SerializedName('typed')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $typedDeletes;
 
@@ -95,8 +95,8 @@ class SyncRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getDeleteLimit', setter: 'setDeleteLimit')]
-    #[SerializedName(name: 'deleteLimit')]
-    #[Type(name: 'int')]
+    #[SerializedName('deleteLimit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $deleteLimit;
 
@@ -106,8 +106,8 @@ class SyncRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getChangeLimit', setter: 'setChangeLimit')]
-    #[SerializedName(name: 'changeLimit')]
-    #[Type(name: 'int')]
+    #[SerializedName('changeLimit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeLimit;
 

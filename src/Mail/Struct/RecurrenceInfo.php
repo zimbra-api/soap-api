@@ -31,7 +31,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getAddRules', setter: 'setAddRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\AddRecurrenceInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\AddRecurrenceInfo>')]
     #[XmlList(inline: true, entry: 'add', namespace: 'urn:zimbraMail')]
     private $add = [];
 
@@ -41,7 +41,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getExcludeRules', setter: 'setExcludeRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ExcludeRecurrenceInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\ExcludeRecurrenceInfo>')]
     #[XmlList(inline: true, entry: 'exclude', namespace: 'urn:zimbraMail')]
     private $exclude = [];
 
@@ -51,7 +51,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getExceptRules', setter: 'setExceptRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ExceptionRuleInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\ExceptionRuleInfo>')]
     #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
     private $except = [];
 
@@ -61,7 +61,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getCancelRules', setter: 'setCancelRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CancelRuleInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\CancelRuleInfo>')]
     #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
     private $cancel = [];
 
@@ -71,7 +71,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getDatesRules', setter: 'setDatesRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SingleDates>')]
+    #[Type('array<Zimbra\Mail\Struct\SingleDates>')]
     #[XmlList(inline: true, entry: 'dates', namespace: 'urn:zimbraMail')]
     private $dates = [];
 
@@ -81,7 +81,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getSimpleRules', setter: 'setSimpleRules')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SimpleRepeatingRule>')]
+    #[Type('array<Zimbra\Mail\Struct\SimpleRepeatingRule>')]
     #[XmlList(inline: true, entry: 'rule', namespace: 'urn:zimbraMail')]
     private $simple = [];
 

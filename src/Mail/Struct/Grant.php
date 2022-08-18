@@ -31,8 +31,8 @@ class Grant
      * @var string
      */
     #[Accessor(getter: 'getPerm', setter: 'setPerm')]
-    #[SerializedName(name: 'perm')]
-    #[Type(name: 'string')]
+    #[SerializedName('perm')]
+    #[Type('string')]
     #[XmlAttribute]
     private $perm;
 
@@ -42,8 +42,8 @@ class Grant
      * @var GrantGranteeType
      */
     #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName(name: 'gt')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GrantGranteeType>')]
+    #[SerializedName('gt')]
+    #[Type('Enum<Zimbra\Common\Enum\GrantGranteeType>')]
     #[XmlAttribute]
     private $granteeType;
 
@@ -53,8 +53,8 @@ class Grant
      * @var string
      */
     #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
-    #[SerializedName(name: 'zid')]
-    #[Type(name: 'string')]
+    #[SerializedName('zid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $granteeId;
 
@@ -64,8 +64,8 @@ class Grant
      * @var int
      */
     #[Accessor(getter: 'getExpiry', setter: 'setExpiry')]
-    #[SerializedName(name: 'expiry')]
-    #[Type(name: 'int')]
+    #[SerializedName('expiry')]
+    #[Type('int')]
     #[XmlAttribute]
     private $expiry;
 
@@ -75,8 +75,8 @@ class Grant
      * @var string
      */
     #[Accessor(getter: 'getGranteeName', setter: 'setGranteeName')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $granteeName;
 
@@ -86,8 +86,8 @@ class Grant
      * @var string
      */
     #[Accessor(getter: 'getGuestPassword', setter: 'setGuestPassword')]
-    #[SerializedName(name: 'pw')]
-    #[Type(name: 'string')]
+    #[SerializedName('pw')]
+    #[Type('string')]
     #[XmlAttribute]
     private $guestPassword;
 
@@ -97,8 +97,8 @@ class Grant
      * @var string
      */
     #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName(name: 'key')]
-    #[Type(name: 'string')]
+    #[SerializedName('key')]
+    #[Type('string')]
     #[XmlAttribute]
     private $accessKey;
 

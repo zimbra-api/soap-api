@@ -27,8 +27,8 @@ class IntegerValueAttrib
      * @var int
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'int')]
+    #[SerializedName('value')]
+    #[Type('int')]
     #[XmlAttribute]
     private $value;
 

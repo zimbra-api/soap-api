@@ -32,8 +32,8 @@ class CreateContactResponse extends SoapResponse
      * @var ContactInfo
      */
     #[Accessor(getter: "getContact", setter: "setContact")]
-    #[SerializedName(name: 'cn')]
-    #[Type(name: ContactInfo::class)]
+    #[SerializedName('cn')]
+    #[Type(ContactInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $contact;
 

@@ -29,8 +29,8 @@ class AccountSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -40,8 +40,8 @@ class AccountSessionInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -51,7 +51,7 @@ class AccountSessionInfo
      * @var array
      */
     #[Accessor(getter: 'getSessions', setter: 'setSessions')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\SessionInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\SessionInfo>')]
     #[XmlList(inline: true, entry: 's', namespace: 'urn:zimbraAdmin')]
     private $sessions = [];
 

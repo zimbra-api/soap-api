@@ -32,8 +32,8 @@ class DurationInfo implements DurationInfoInterface
      * @var bool
      */
     #[Accessor(getter: 'getDurationNegative', setter: 'setDurationNegative')]
-    #[SerializedName(name: 'neg')]
-    #[Type(name: 'bool')]
+    #[SerializedName('neg')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $durationNegative;
 
@@ -44,8 +44,8 @@ class DurationInfo implements DurationInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getWeeks', setter: 'setWeeks')]
-    #[SerializedName(name: 'w')]
-    #[Type(name: 'int')]
+    #[SerializedName('w')]
+    #[Type('int')]
     #[XmlAttribute]
     private $weeks;
 
@@ -55,8 +55,8 @@ class DurationInfo implements DurationInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getDays', setter: 'setDays')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $days;
 
@@ -66,8 +66,8 @@ class DurationInfo implements DurationInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getHours', setter: 'setHours')]
-    #[SerializedName(name: 'h')]
-    #[Type(name: 'int')]
+    #[SerializedName('h')]
+    #[Type('int')]
     #[XmlAttribute]
     private $hours;
 
@@ -77,8 +77,8 @@ class DurationInfo implements DurationInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getMinutes', setter: 'setMinutes')]
-    #[SerializedName(name: 'm')]
-    #[Type(name: 'int')]
+    #[SerializedName('m')]
+    #[Type('int')]
     #[XmlAttribute]
     private $minutes;
 
@@ -88,8 +88,8 @@ class DurationInfo implements DurationInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getSeconds', setter: 'setSeconds')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $seconds;
 
@@ -100,8 +100,8 @@ class DurationInfo implements DurationInfoInterface
      * @var AlarmRelated
      */
     #[Accessor(getter: 'getRelated', setter: 'setRelated')]
-    #[SerializedName(name: 'related')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AlarmRelated>')]
+    #[SerializedName('related')]
+    #[Type('Enum<Zimbra\Common\Enum\AlarmRelated>')]
     #[XmlAttribute]
     private $related;
 
@@ -111,8 +111,8 @@ class DurationInfo implements DurationInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getRepeatCount', setter: 'setRepeatCount')]
-    #[SerializedName(name: 'count')]
-    #[Type(name: 'int')]
+    #[SerializedName('count')]
+    #[Type('int')]
     #[XmlAttribute]
     private $repeatCount;
 

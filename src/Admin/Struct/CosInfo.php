@@ -29,8 +29,8 @@ class CosInfo implements AdminObjectInterface
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -40,8 +40,8 @@ class CosInfo implements AdminObjectInterface
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -51,8 +51,8 @@ class CosInfo implements AdminObjectInterface
      * @var bool
      */
     #[Accessor(getter: 'getIsDefaultCos', setter: 'setIsDefaultCos')]
-    #[SerializedName(name: 'isDefaultCos')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isDefaultCos')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isDefaultCos;
 
@@ -60,7 +60,7 @@ class CosInfo implements AdminObjectInterface
      * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\CosInfoAttr>')]
+    #[Type('array<Zimbra\Admin\Struct\CosInfoAttr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrs = [];
 

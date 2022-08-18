@@ -31,8 +31,8 @@ class DtVal implements DtValInterface
      * @var DtTimeInfoInterface
      */
     #[Accessor(getter: "getStartTime", setter: "setStartTime")]
-    #[SerializedName(name: 's')]
-    #[Type(name: DtTimeInfo::class)]
+    #[SerializedName('s')]
+    #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $startTime;
 
@@ -42,8 +42,8 @@ class DtVal implements DtValInterface
      * @var DtTimeInfoInterface
      */
     #[Accessor(getter: "getEndTime", setter: "setEndTime")]
-    #[SerializedName(name: 'e')]
-    #[Type(name: DtTimeInfo::class)]
+    #[SerializedName('e')]
+    #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $endTime;
 
@@ -53,8 +53,8 @@ class DtVal implements DtValInterface
      * @var DurationInfoInterface
      */
     #[Accessor(getter: "getDuration", setter: "setDuration")]
-    #[SerializedName(name: 'dur')]
-    #[Type(name: DurationInfo::class)]
+    #[SerializedName('dur')]
+    #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $duration;
 

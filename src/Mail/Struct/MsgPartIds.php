@@ -29,8 +29,8 @@ class MsgPartIds
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class MsgPartIds
      * @var string
      */
     #[Accessor(getter: 'getPartIds', setter: 'setPartIds')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $partIds;
 

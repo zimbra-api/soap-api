@@ -30,8 +30,8 @@ class MailPop3DataSource extends MailDataSource implements Pop3DataSource
      * @var bool
      */
     #[Accessor(getter: 'isLeaveOnServer', setter: 'setLeaveOnServer')]
-    #[SerializedName(name: 'leaveOnServer')]
-    #[Type(name: 'bool')]
+    #[SerializedName('leaveOnServer')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $leaveOnServer;
 

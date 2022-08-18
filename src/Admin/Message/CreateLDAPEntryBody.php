@@ -28,8 +28,8 @@ class CreateLDAPEntryBody extends SoapBody
      * @var CreateLDAPEntryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateLDAPEntryRequest')]
-    #[Type(name: CreateLDAPEntryRequest::class)]
+    #[SerializedName('CreateLDAPEntryRequest')]
+    #[Type(CreateLDAPEntryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CreateLDAPEntryBody extends SoapBody
      * @var CreateLDAPEntryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateLDAPEntryResponse')]
-    #[Type(name: CreateLDAPEntryResponse::class)]
+    #[SerializedName('CreateLDAPEntryResponse')]
+    #[Type(CreateLDAPEntryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

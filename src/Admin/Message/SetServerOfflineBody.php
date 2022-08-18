@@ -28,8 +28,8 @@ class SetServerOfflineBody extends SoapBody
      * @var SetServerOfflineRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SetServerOfflineRequest')]
-    #[Type(name: SetServerOfflineRequest::class)]
+    #[SerializedName('SetServerOfflineRequest')]
+    #[Type(SetServerOfflineRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class SetServerOfflineBody extends SoapBody
      * @var SetServerOfflineResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SetServerOfflineResponse')]
-    #[Type(name: SetServerOfflineResponse::class)]
+    #[SerializedName('SetServerOfflineResponse')]
+    #[Type(SetServerOfflineResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

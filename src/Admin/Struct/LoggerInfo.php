@@ -28,8 +28,8 @@ class LoggerInfo
      * @var string
      */
     #[Accessor(getter: 'getCategory', setter: 'setCategory')]
-    #[SerializedName(name: 'category')]
-    #[Type(name: 'string')]
+    #[SerializedName('category')]
+    #[Type('string')]
     #[XmlAttribute]
     private $category;
 
@@ -37,8 +37,8 @@ class LoggerInfo
      * @var LoggingLevel
      */
     #[Accessor(getter: 'getLevel', setter: 'setLevel')]
-    #[SerializedName(name: 'level')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\LoggingLevel>')]
+    #[SerializedName('level')]
+    #[Type('Enum<Zimbra\Common\Enum\LoggingLevel>')]
     #[XmlAttribute]
     private $level;
 

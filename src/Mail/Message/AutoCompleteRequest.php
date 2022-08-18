@@ -32,8 +32,8 @@ class AutoCompleteRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -43,8 +43,8 @@ class AutoCompleteRequest extends SoapRequest
      * @var GalSearchType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[SerializedName('t')]
+    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
     private $type;
 
@@ -54,8 +54,8 @@ class AutoCompleteRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName(name: 'needExp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('needExp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $needCanExpand;
 
@@ -65,8 +65,8 @@ class AutoCompleteRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderList', setter: 'setFolderList')]
-    #[SerializedName(name: 'folders')]
-    #[Type(name: 'string')]
+    #[SerializedName('folders')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderList;
 
@@ -76,8 +76,8 @@ class AutoCompleteRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getIncludeGal', setter: 'setIncludeGal')]
-    #[SerializedName(name: 'includeGal')]
-    #[Type(name: 'bool')]
+    #[SerializedName('includeGal')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeGal;
 

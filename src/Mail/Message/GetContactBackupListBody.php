@@ -28,8 +28,8 @@ class GetContactBackupListBody extends SoapBody
      * @var GetContactBackupListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetContactBackupListRequest')]
-    #[Type(name: GetContactBackupListRequest::class)]
+    #[SerializedName('GetContactBackupListRequest')]
+    #[Type(GetContactBackupListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetContactBackupListBody extends SoapBody
      * @var GetContactBackupListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetContactBackupListResponse')]
-    #[Type(name: GetContactBackupListResponse::class)]
+    #[SerializedName('GetContactBackupListResponse')]
+    #[Type(GetContactBackupListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

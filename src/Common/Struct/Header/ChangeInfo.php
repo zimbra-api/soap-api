@@ -27,8 +27,8 @@ class ChangeInfo
      * @var string
      */
     #[Accessor(getter: 'getChangeId', setter: 'setChangeId')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $changeId;
 
@@ -36,8 +36,8 @@ class ChangeInfo
      * @var string
      */
     #[Accessor(getter: 'getChangeType', setter: 'setChangeType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $changeType;
 

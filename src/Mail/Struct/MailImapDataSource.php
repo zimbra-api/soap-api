@@ -30,8 +30,8 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
      * @var string
      */
     #[Accessor(getter: 'getOAuthToken', setter: 'setOAuthToken')]
-    #[SerializedName(name: 'oauthToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('oauthToken')]
+    #[Type('string')]
     #[XmlAttribute]
     private $oauthToken;
 
@@ -41,8 +41,8 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
      * @var string
      */
     #[Accessor(getter: 'getClientId', setter: 'setClientId')]
-    #[SerializedName(name: 'clientId')]
-    #[Type(name: 'string')]
+    #[SerializedName('clientId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $clientId;
 
@@ -52,8 +52,8 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
      * @var string
      */
     #[Accessor(getter: 'getClientSecret', setter: 'setClientSecret')]
-    #[SerializedName(name: 'clientSecret')]
-    #[Type(name: 'string')]
+    #[SerializedName('clientSecret')]
+    #[Type('string')]
     #[XmlAttribute]
     private $clientSecret;
 
@@ -63,8 +63,8 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
      * @var bool
      */
     #[Accessor(getter: 'isTest', setter: 'setTest')]
-    #[SerializedName(name: 'test')]
-    #[Type(name: 'bool')]
+    #[SerializedName('test')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $test;
 

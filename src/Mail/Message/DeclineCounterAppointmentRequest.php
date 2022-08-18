@@ -35,8 +35,8 @@ class DeclineCounterAppointmentRequest extends SoapRequest
      * @var Msg
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: Msg::class)]
+    #[SerializedName('m')]
+    #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 

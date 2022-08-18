@@ -28,8 +28,8 @@ class AnnounceOrganizerChangeBody extends SoapBody
      * @var AnnounceOrganizerChangeRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AnnounceOrganizerChangeRequest')]
-    #[Type(name: AnnounceOrganizerChangeRequest::class)]
+    #[SerializedName('AnnounceOrganizerChangeRequest')]
+    #[Type(AnnounceOrganizerChangeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class AnnounceOrganizerChangeBody extends SoapBody
      * @var AnnounceOrganizerChangeResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AnnounceOrganizerChangeResponse')]
-    #[Type(name: AnnounceOrganizerChangeResponse::class)]
+    #[SerializedName('AnnounceOrganizerChangeResponse')]
+    #[Type(AnnounceOrganizerChangeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

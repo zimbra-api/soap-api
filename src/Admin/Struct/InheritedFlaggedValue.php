@@ -31,8 +31,8 @@ class InheritedFlaggedValue
      * @var bool
      */
     #[Accessor(getter: 'getInherited', setter: 'setInherited')]
-    #[SerializedName(name: 'inherited')]
-    #[Type(name: 'bool')]
+    #[SerializedName('inherited')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $inherited;
 
@@ -40,7 +40,7 @@ class InheritedFlaggedValue
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

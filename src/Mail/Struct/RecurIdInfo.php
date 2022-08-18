@@ -32,8 +32,8 @@ class RecurIdInfo implements RecurIdInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getRecurrenceRangeType', setter: 'setRecurrenceRangeType')]
-    #[SerializedName(name: 'rangeType')]
-    #[Type(name: 'int')]
+    #[SerializedName('rangeType')]
+    #[Type('int')]
     #[XmlAttribute]
     private $recurrenceRangeType;
 
@@ -43,8 +43,8 @@ class RecurIdInfo implements RecurIdInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
-    #[SerializedName(name: 'recurId')]
-    #[Type(name: 'string')]
+    #[SerializedName('recurId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurrenceId;
 
@@ -54,8 +54,8 @@ class RecurIdInfo implements RecurIdInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName(name: 'tz')]
-    #[Type(name: 'string')]
+    #[SerializedName('tz')]
+    #[Type('string')]
     #[XmlAttribute]
     private $timezone;
 
@@ -66,8 +66,8 @@ class RecurIdInfo implements RecurIdInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName(name: 'ridZ')]
-    #[Type(name: 'string')]
+    #[SerializedName('ridZ')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurIdZ;
 

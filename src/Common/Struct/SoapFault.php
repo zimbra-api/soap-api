@@ -30,8 +30,8 @@ class SoapFault implements SoapFaultInterface
      * @var Code
      */
     #[Accessor(getter: 'getFaultCode', setter: 'setFaultCode')]
-    #[SerializedName(name: 'Code')]
-    #[Type(name: Code::class)]
+    #[SerializedName('Code')]
+    #[Type(Code::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $faultCode;
 
@@ -41,8 +41,8 @@ class SoapFault implements SoapFaultInterface
      * @var Reason
      */
     #[Accessor(getter: 'getFaultReason', setter: 'setFaultReason')]
-    #[SerializedName(name: 'Reason')]
-    #[Type(name: Reason::class)]
+    #[SerializedName('Reason')]
+    #[Type(Reason::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $faultReason;
 

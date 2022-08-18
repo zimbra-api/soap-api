@@ -30,8 +30,8 @@ class Misspelling
      * @var string
      */
     #[Accessor(getter: 'getWord', setter: 'setWord')]
-    #[SerializedName(name: 'word')]
-    #[Type(name: 'string')]
+    #[SerializedName('word')]
+    #[Type('string')]
     #[XmlAttribute]
     private $word;
 
@@ -42,8 +42,8 @@ class Misspelling
      * @var string
      */
     #[Accessor(getter: 'getSuggestions', setter: 'setSuggestions')]
-    #[SerializedName(name: 'suggestions')]
-    #[Type(name: 'string')]
+    #[SerializedName('suggestions')]
+    #[Type('string')]
     #[XmlAttribute]
     private $suggestions;
 

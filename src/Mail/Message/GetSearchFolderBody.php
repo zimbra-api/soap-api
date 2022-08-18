@@ -28,8 +28,8 @@ class GetSearchFolderBody extends SoapBody
      * @var GetSearchFolderRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetSearchFolderRequest')]
-    #[Type(name: GetSearchFolderRequest::class)]
+    #[SerializedName('GetSearchFolderRequest')]
+    #[Type(GetSearchFolderRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetSearchFolderBody extends SoapBody
      * @var GetSearchFolderResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetSearchFolderResponse')]
-    #[Type(name: GetSearchFolderResponse::class)]
+    #[SerializedName('GetSearchFolderResponse')]
+    #[Type(GetSearchFolderResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

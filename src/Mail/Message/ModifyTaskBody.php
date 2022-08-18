@@ -28,8 +28,8 @@ class ModifyTaskBody extends SoapBody
      * @var ModifyTaskRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifyTaskRequest')]
-    #[Type(name: ModifyTaskRequest::class)]
+    #[SerializedName('ModifyTaskRequest')]
+    #[Type(ModifyTaskRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class ModifyTaskBody extends SoapBody
      * @var ModifyTaskResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifyTaskResponse')]
-    #[Type(name: ModifyTaskResponse::class)]
+    #[SerializedName('ModifyTaskResponse')]
+    #[Type(ModifyTaskResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

@@ -29,8 +29,8 @@ class GrantInfo
      * @var TypeIdName
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: TypeIdName::class)]
+    #[SerializedName('target')]
+    #[Type(TypeIdName::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
@@ -40,8 +40,8 @@ class GrantInfo
      * @var GranteeInfo
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName(name: 'grantee')]
-    #[Type(name: GranteeInfo::class)]
+    #[SerializedName('grantee')]
+    #[Type(GranteeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
@@ -51,8 +51,8 @@ class GrantInfo
      * @var RightModifierInfo
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: RightModifierInfo::class)]
+    #[SerializedName('right')]
+    #[Type(RightModifierInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $right;
 

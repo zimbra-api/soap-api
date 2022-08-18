@@ -31,8 +31,8 @@ class CreateIdentityResponse extends SoapResponse
      * @var Identity
      */
     #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName(name: 'identity')]
-    #[Type(name: Identity::class)]
+    #[SerializedName('identity')]
+    #[Type(Identity::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $identity;
 

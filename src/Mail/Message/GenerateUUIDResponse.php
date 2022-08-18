@@ -30,7 +30,7 @@ class GenerateUUIDResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $uuid;
 

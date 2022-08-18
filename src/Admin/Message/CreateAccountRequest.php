@@ -38,8 +38,8 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -49,8 +49,8 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'password')]
-    #[Type(name: 'string')]
+    #[SerializedName('password')]
+    #[Type('string')]
     #[XmlAttribute]
     private $password;
 

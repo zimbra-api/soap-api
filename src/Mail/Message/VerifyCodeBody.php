@@ -28,8 +28,8 @@ class VerifyCodeBody extends SoapBody
      * @var VerifyCodeRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'VerifyCodeRequest')]
-    #[Type(name: VerifyCodeRequest::class)]
+    #[SerializedName('VerifyCodeRequest')]
+    #[Type(VerifyCodeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class VerifyCodeBody extends SoapBody
      * @var VerifyCodeResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'VerifyCodeResponse')]
-    #[Type(name: VerifyCodeResponse::class)]
+    #[SerializedName('VerifyCodeResponse')]
+    #[Type(VerifyCodeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

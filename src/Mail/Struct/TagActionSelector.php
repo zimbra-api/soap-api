@@ -30,8 +30,8 @@ class TagActionSelector extends ActionSelector
      * @var RetentionPolicy
      */
     #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
-    #[SerializedName(name: 'retentionPolicy')]
-    #[Type(name: RetentionPolicy::class)]
+    #[SerializedName('retentionPolicy')]
+    #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $retentionPolicy;
 

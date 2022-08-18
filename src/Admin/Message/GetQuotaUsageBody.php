@@ -28,8 +28,8 @@ class GetQuotaUsageBody extends SoapBody
      * @var GetQuotaUsageRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetQuotaUsageRequest')]
-    #[Type(name: GetQuotaUsageRequest::class)]
+    #[SerializedName('GetQuotaUsageRequest')]
+    #[Type(GetQuotaUsageRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetQuotaUsageBody extends SoapBody
      * @var GetQuotaUsageResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetQuotaUsageResponse')]
-    #[Type(name: GetQuotaUsageResponse::class)]
+    #[SerializedName('GetQuotaUsageResponse')]
+    #[Type(GetQuotaUsageResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

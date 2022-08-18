@@ -31,8 +31,8 @@ class SaveDocumentResponse extends SoapResponse
      * @var IdVersionName
      */
     #[Accessor(getter: "getDoc", setter: "setDoc")]
-    #[SerializedName(name: 'doc')]
-    #[Type(name: IdVersionName::class)]
+    #[SerializedName('doc')]
+    #[Type(IdVersionName::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $doc;
 

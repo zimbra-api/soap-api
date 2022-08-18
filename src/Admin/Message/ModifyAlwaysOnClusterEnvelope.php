@@ -30,8 +30,8 @@ class ModifyAlwaysOnClusterEnvelope extends SoapEnvelope
      * @var ModifyAlwaysOnClusterBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ModifyAlwaysOnClusterBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ModifyAlwaysOnClusterBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

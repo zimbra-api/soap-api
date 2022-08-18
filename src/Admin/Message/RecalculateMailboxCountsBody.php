@@ -28,8 +28,8 @@ class RecalculateMailboxCountsBody extends SoapBody
      * @var RecalculateMailboxCountsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RecalculateMailboxCountsRequest')]
-    #[Type(name: RecalculateMailboxCountsRequest::class)]
+    #[SerializedName('RecalculateMailboxCountsRequest')]
+    #[Type(RecalculateMailboxCountsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class RecalculateMailboxCountsBody extends SoapBody
      * @var RecalculateMailboxCountsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RecalculateMailboxCountsResponse')]
-    #[Type(name: RecalculateMailboxCountsResponse::class)]
+    #[SerializedName('RecalculateMailboxCountsResponse')]
+    #[Type(RecalculateMailboxCountsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

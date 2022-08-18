@@ -36,8 +36,8 @@ class RemoveAttachmentsResponse extends SoapResponse
      * @var MessageInfo
      */
     #[Accessor(getter: "getMsgMessage", setter: "setMsgMessage")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: MessageInfo::class)]
+    #[SerializedName('m')]
+    #[Type(MessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msgMessage;
 
@@ -47,8 +47,8 @@ class RemoveAttachmentsResponse extends SoapResponse
      * @var ChatMessageInfo
      */
     #[Accessor(getter: "getChatMessage", setter: "setChatMessage")]
-    #[SerializedName(name: 'chat')]
-    #[Type(name: ChatMessageInfo::class)]
+    #[SerializedName('chat')]
+    #[Type(ChatMessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $chatMessage;
 

@@ -31,7 +31,7 @@ class GetMiniCalResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getBusyDates', setter: 'setBusyDates')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'date', namespace: 'urn:zimbraMail')]
     private $busyDates = [];
 
@@ -41,7 +41,7 @@ class GetMiniCalResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MiniCalError>')]
+    #[Type('array<Zimbra\Mail\Struct\MiniCalError>')]
     #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraMail')]
     private $errors = [];
 

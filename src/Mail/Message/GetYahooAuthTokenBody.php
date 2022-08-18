@@ -28,8 +28,8 @@ class GetYahooAuthTokenBody extends SoapBody
      * @var GetYahooAuthTokenRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetYahooAuthTokenRequest')]
-    #[Type(name: GetYahooAuthTokenRequest::class)]
+    #[SerializedName('GetYahooAuthTokenRequest')]
+    #[Type(GetYahooAuthTokenRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetYahooAuthTokenBody extends SoapBody
      * @var GetYahooAuthTokenResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetYahooAuthTokenResponse')]
-    #[Type(name: GetYahooAuthTokenResponse::class)]
+    #[SerializedName('GetYahooAuthTokenResponse')]
+    #[Type(GetYahooAuthTokenResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

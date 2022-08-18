@@ -28,8 +28,8 @@ class RenameAccountBody extends SoapBody
      * @var RenameAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RenameAccountRequest')]
-    #[Type(name: RenameAccountRequest::class)]
+    #[SerializedName('RenameAccountRequest')]
+    #[Type(RenameAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class RenameAccountBody extends SoapBody
      * @var RenameAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RenameAccountResponse')]
-    #[Type(name: RenameAccountResponse::class)]
+    #[SerializedName('RenameAccountResponse')]
+    #[Type(RenameAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

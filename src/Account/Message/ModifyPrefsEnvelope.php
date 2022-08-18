@@ -30,8 +30,8 @@ class ModifyPrefsEnvelope extends SoapEnvelope
      * @var ModifyPrefsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ModifyPrefsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ModifyPrefsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

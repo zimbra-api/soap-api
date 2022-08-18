@@ -30,8 +30,8 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getStoreManagerClass', setter: 'setStoreManagerClass')]
-    #[SerializedName(name: 'storeManagerClass')]
-    #[Type(name: 'string')]
+    #[SerializedName('storeManagerClass')]
+    #[Type('string')]
     #[XmlAttribute]
     private $storeManagerClass;
 
@@ -41,8 +41,8 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getIncomingTime', setter: 'setIncomingTime')]
-    #[SerializedName(name: 'incomingTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('incomingTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $incomingTime;
 
@@ -52,8 +52,8 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getStageTime', setter: 'setStageTime')]
-    #[SerializedName(name: 'stageTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('stageTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $stageTime;
 
@@ -63,8 +63,8 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getLinkTime', setter: 'setLinkTime')]
-    #[SerializedName(name: 'linkTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('linkTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $linkTime;
 
@@ -74,8 +74,8 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getFetchTime', setter: 'setFetchTime')]
-    #[SerializedName(name: 'fetchTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('fetchTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $fetchTime;
 
@@ -85,8 +85,8 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getDeleteTime', setter: 'setDeleteTime')]
-    #[SerializedName(name: 'deleteTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('deleteTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $deleteTime;
 

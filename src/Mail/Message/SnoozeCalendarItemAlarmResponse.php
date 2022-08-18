@@ -31,7 +31,7 @@ class SnoozeCalendarItemAlarmResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getApptUpdatedAlarms', setter: 'setApptUpdatedAlarms')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>')]
     #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
     private $apptUpdatedAlarms = [];
 
@@ -41,7 +41,7 @@ class SnoozeCalendarItemAlarmResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getTaskUpdatedAlarms', setter: 'setTaskUpdatedAlarms')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>')]
     #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
     private $taskUpdatedAlarms = [];
 

@@ -31,8 +31,8 @@ class SyncGalRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -42,8 +42,8 @@ class SyncGalRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName(name: 'galAcctId')]
-    #[Type(name: 'string')]
+    #[SerializedName('galAcctId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $galAccountId;
 
@@ -53,8 +53,8 @@ class SyncGalRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getIdOnly', setter: 'setIdOnly')]
-    #[SerializedName(name: 'idOnly')]
-    #[Type(name: 'bool')]
+    #[SerializedName('idOnly')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $idOnly;
 
@@ -64,8 +64,8 @@ class SyncGalRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName(name: 'getCount')]
-    #[Type(name: 'bool')]
+    #[SerializedName('getCount')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $getCount;
 
@@ -75,8 +75,8 @@ class SyncGalRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 

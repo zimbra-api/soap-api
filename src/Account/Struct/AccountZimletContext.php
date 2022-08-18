@@ -31,8 +31,8 @@ class AccountZimletContext implements ZimletContextInterface
      * @var string
      */
     #[Accessor(getter: 'getZimletBaseUrl', setter: 'setZimletBaseUrl')]
-    #[SerializedName(name: 'baseUrl')]
-    #[Type(name: 'string')]
+    #[SerializedName('baseUrl')]
+    #[Type('string')]
     #[XmlAttribute]
     private $zimletBaseUrl;
 
@@ -42,8 +42,8 @@ class AccountZimletContext implements ZimletContextInterface
      * @var int
      */
     #[Accessor(getter: 'getZimletPriority', setter: 'setZimletPriority')]
-    #[SerializedName(name: 'priority')]
-    #[Type(name: 'int')]
+    #[SerializedName('priority')]
+    #[Type('int')]
     #[XmlAttribute]
     private $zimletPriority;
 
@@ -54,8 +54,8 @@ class AccountZimletContext implements ZimletContextInterface
      * @var ZimletPresence
      */
     #[Accessor(getter: 'getZimletPresence', setter: 'setZimletPresence')]
-    #[SerializedName(name: 'presence')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletPresence>')]
+    #[SerializedName('presence')]
+    #[Type('Enum<Zimbra\Common\Enum\ZimletPresence>')]
     #[XmlAttribute]
     private $zimletPresence;
 

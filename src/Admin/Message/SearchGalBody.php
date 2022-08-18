@@ -28,8 +28,8 @@ class SearchGalBody extends SoapBody
      * @var SearchGalRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SearchGalRequest')]
-    #[Type(name: SearchGalRequest::class)]
+    #[SerializedName('SearchGalRequest')]
+    #[Type(SearchGalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class SearchGalBody extends SoapBody
      * @var SearchGalResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SearchGalResponse')]
-    #[Type(name: SearchGalResponse::class)]
+    #[SerializedName('SearchGalResponse')]
+    #[Type(SearchGalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

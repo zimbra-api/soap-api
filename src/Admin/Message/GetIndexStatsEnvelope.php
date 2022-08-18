@@ -30,8 +30,8 @@ class GetIndexStatsEnvelope extends SoapEnvelope
      * @var GetIndexStatsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetIndexStatsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetIndexStatsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -30,8 +30,8 @@ class UndeployZimletEnvelope extends SoapEnvelope
      * @var UndeployZimletBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: UndeployZimletBody::class)]
+    #[SerializedName('Body')]
+    #[Type(UndeployZimletBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

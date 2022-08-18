@@ -31,8 +31,8 @@ class ModifyServerResponse extends SoapResponse
      * @var ServerInfo
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: ServerInfo::class)]
+    #[SerializedName('server')]
+    #[Type(ServerInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 

@@ -28,7 +28,7 @@ class BlackList
      * @var array
      */
     #[Accessor(getter: 'getAddrs', setter: 'setAddrs')]
-    #[Type(name: 'array<Zimbra\Common\Struct\OpValue>')]
+    #[Type('array<Zimbra\Common\Struct\OpValue>')]
     #[XmlList(inline: true, entry: 'addr', namespace: 'urn:zimbraAccount')]
     private $addrs = [];
 

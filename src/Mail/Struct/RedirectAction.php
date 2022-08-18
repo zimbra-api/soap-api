@@ -29,8 +29,8 @@ class RedirectAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName(name: 'a')]
-    #[Type(name: 'string')]
+    #[SerializedName('a')]
+    #[Type('string')]
     #[XmlAttribute]
     private $address;
 
@@ -42,8 +42,8 @@ class RedirectAction extends FilterAction
      * @var bool
      */
     #[Accessor(getter: 'isCopy', setter: 'setCopy')]
-    #[SerializedName(name: 'copy')]
-    #[Type(name: 'bool')]
+    #[SerializedName('copy')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $copy;
 

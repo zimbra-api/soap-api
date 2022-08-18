@@ -29,8 +29,8 @@ class DirPathInfo
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName(name: 'path')]
-    #[Type(name: 'string')]
+    #[SerializedName('path')]
+    #[Type('string')]
     #[XmlAttribute]
     private $path;
 
@@ -40,8 +40,8 @@ class DirPathInfo
      * @var bool
      */
     #[Accessor(getter: 'isExists', setter: 'setExists')]
-    #[SerializedName(name: 'exists')]
-    #[Type(name: 'bool')]
+    #[SerializedName('exists')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $exists;
 
@@ -51,8 +51,8 @@ class DirPathInfo
      * @var bool
      */
     #[Accessor(getter: 'isDirectory', setter: 'setIsDirectory')]
-    #[SerializedName(name: 'isDirectory')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isDirectory')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $directory;
 
@@ -62,8 +62,8 @@ class DirPathInfo
      * @var bool
      */
     #[Accessor(getter: 'isReadable', setter: 'setReadable')]
-    #[SerializedName(name: 'readable')]
-    #[Type(name: 'bool')]
+    #[SerializedName('readable')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $readable;
 
@@ -73,8 +73,8 @@ class DirPathInfo
      * @var bool
      */
     #[Accessor(getter: 'isWritable', setter: 'setWritable')]
-    #[SerializedName(name: 'writable')]
-    #[Type(name: 'bool')]
+    #[SerializedName('writable')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $writable;
 

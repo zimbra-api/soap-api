@@ -27,8 +27,8 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -36,8 +36,8 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -45,8 +45,8 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getDomainName', setter: 'setDomainName')]
-    #[SerializedName(name: 'x-domainName')]
-    #[Type(name: 'string')]
+    #[SerializedName('x-domainName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domainName;
 
@@ -54,8 +54,8 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getServerName', setter: 'setServerName')]
-    #[SerializedName(name: 'x-serverName')]
-    #[Type(name: 'string')]
+    #[SerializedName('x-serverName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $serverName;
 

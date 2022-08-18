@@ -30,8 +30,8 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
      * @var int
      */
     #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $duration;
 

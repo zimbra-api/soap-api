@@ -31,8 +31,8 @@ class RunUnitTestsResponse extends SoapResponse
      * @var TestResultInfo
      */
     #[Accessor(getter: 'getResults', setter: 'setResults')]
-    #[SerializedName(name: 'results')]
-    #[Type(name: TestResultInfo::class)]
+    #[SerializedName('results')]
+    #[Type(TestResultInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $results;
 
@@ -42,8 +42,8 @@ class RunUnitTestsResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getNumExecuted', setter: 'setNumExecuted')]
-    #[SerializedName(name: 'numExecuted')]
-    #[Type(name: 'int')]
+    #[SerializedName('numExecuted')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numExecuted;
 
@@ -53,8 +53,8 @@ class RunUnitTestsResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getNumFailed', setter: 'setNumFailed')]
-    #[SerializedName(name: 'numFailed')]
-    #[Type(name: 'int')]
+    #[SerializedName('numFailed')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numFailed;
 

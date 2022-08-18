@@ -29,8 +29,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'string')]
+    #[SerializedName('type')]
+    #[Type('string')]
     #[XmlAttribute]
     private $type;
 
@@ -40,8 +40,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'string')]
+    #[SerializedName('version')]
+    #[Type('string')]
     #[XmlAttribute]
     private $version;
 
@@ -51,8 +51,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getRelease', setter: 'setRelease')]
-    #[SerializedName(name: 'release')]
-    #[Type(name: 'string')]
+    #[SerializedName('release')]
+    #[Type('string')]
     #[XmlAttribute]
     private $release;
 
@@ -62,8 +62,8 @@ class VersionInfo
 3     * @var string
      */
     #[Accessor(getter: 'getBuildDate', setter: 'setBuildDate')]
-    #[SerializedName(name: 'buildDate')]
-    #[Type(name: 'string')]
+    #[SerializedName('buildDate')]
+    #[Type('string')]
     #[XmlAttribute]
     private $buildDate;
 
@@ -73,8 +73,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName(name: 'host')]
-    #[Type(name: 'string')]
+    #[SerializedName('host')]
+    #[Type('string')]
     #[XmlAttribute]
     private $host;
 
@@ -84,8 +84,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getMajorVersion', setter: 'setMajorVersion')]
-    #[SerializedName(name: 'majorversion')]
-    #[Type(name: 'string')]
+    #[SerializedName('majorversion')]
+    #[Type('string')]
     #[XmlAttribute]
     private $majorVersion;
 
@@ -95,8 +95,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getMinorVersion', setter: 'setMinorVersion')]
-    #[SerializedName(name: 'minorversion')]
-    #[Type(name: 'string')]
+    #[SerializedName('minorversion')]
+    #[Type('string')]
     #[XmlAttribute]
     private $minorVersion;
 
@@ -106,8 +106,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getMicroVersion', setter: 'setMicroVersion')]
-    #[SerializedName(name: 'microversion')]
-    #[Type(name: 'string')]
+    #[SerializedName('microversion')]
+    #[Type('string')]
     #[XmlAttribute]
     private $microVersion;
 
@@ -117,8 +117,8 @@ class VersionInfo
      * @var string
      */
     #[Accessor(getter: 'getPlatform', setter: 'setPlatform')]
-    #[SerializedName(name: 'platform')]
-    #[Type(name: 'string')]
+    #[SerializedName('platform')]
+    #[Type('string')]
     #[XmlAttribute]
     private $platform;
 

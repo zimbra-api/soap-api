@@ -32,8 +32,8 @@ class ModifyWhiteBlackListRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getWhiteListEntries', setter: 'setWhiteListEntries')]
-    #[SerializedName(name: 'whiteList')]
-    #[Type(name: 'array<Zimbra\Common\Struct\OpValue>')]
+    #[SerializedName('whiteList')]
+    #[Type('array<Zimbra\Common\Struct\OpValue>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
     private $whiteListEntries = [];
@@ -44,8 +44,8 @@ class ModifyWhiteBlackListRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getBlackListEntries', setter: 'setBlackListEntries')]
-    #[SerializedName(name: 'blackList')]
-    #[Type(name: 'array<Zimbra\Common\Struct\OpValue>')]
+    #[SerializedName('blackList')]
+    #[Type('array<Zimbra\Common\Struct\OpValue>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
     private $blackListEntries = [];

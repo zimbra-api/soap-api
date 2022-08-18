@@ -29,8 +29,8 @@ class ZimletStatusCos
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -40,7 +40,7 @@ class ZimletStatusCos
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ZimletStatus>')]
+    #[Type('array<Zimbra\Admin\Struct\ZimletStatus>')]
     #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
     private $zimlets = [];
 

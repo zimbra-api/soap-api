@@ -31,8 +31,8 @@ class GetIndexStatsResponse extends SoapResponse
      * @var IndexStats
      */
     #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName(name: 'stats')]
-    #[Type(name: IndexStats::class)]
+    #[SerializedName('stats')]
+    #[Type(IndexStats::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $stats;
 

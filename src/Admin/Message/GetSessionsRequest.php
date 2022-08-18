@@ -32,8 +32,8 @@ class GetSessionsRequest extends SoapRequest
      * @var SessionType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\SessionType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\SessionType>')]
     #[XmlAttribute]
     private $type;
 
@@ -43,8 +43,8 @@ class GetSessionsRequest extends SoapRequest
      * @var GetSessionsSortBy
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GetSessionsSortBy>')]
+    #[SerializedName('sortBy')]
+    #[Type('Enum<Zimbra\Common\Enum\GetSessionsSortBy>')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -54,8 +54,8 @@ class GetSessionsRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -65,8 +65,8 @@ class GetSessionsRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -76,8 +76,8 @@ class GetSessionsRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getRefresh', setter: 'setRefresh')]
-    #[SerializedName(name: 'refresh')]
-    #[Type(name: 'bool')]
+    #[SerializedName('refresh')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $refresh;
 

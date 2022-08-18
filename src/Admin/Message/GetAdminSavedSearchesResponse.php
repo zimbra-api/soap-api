@@ -31,7 +31,7 @@ class GetAdminSavedSearchesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getSearches', setter: 'setSearches')]
-    #[Type(name: 'array<Zimbra\Common\Struct\NamedValue>')]
+    #[Type('array<Zimbra\Common\Struct\NamedValue>')]
     #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraAdmin')]
     private $searches = [];
 

@@ -28,8 +28,8 @@ class DeleteMailboxBody extends SoapBody
      * @var DeleteMailboxRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteMailboxRequest')]
-    #[Type(name: DeleteMailboxRequest::class)]
+    #[SerializedName('DeleteMailboxRequest')]
+    #[Type(DeleteMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class DeleteMailboxBody extends SoapBody
      * @var DeleteMailboxResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteMailboxResponse')]
-    #[Type(name: DeleteMailboxResponse::class)]
+    #[SerializedName('DeleteMailboxResponse')]
+    #[Type(DeleteMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

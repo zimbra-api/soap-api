@@ -28,8 +28,8 @@ class SendVerificationCodeBody extends SoapBody
      * @var SendVerificationCodeRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SendVerificationCodeRequest')]
-    #[Type(name: SendVerificationCodeRequest::class)]
+    #[SerializedName('SendVerificationCodeRequest')]
+    #[Type(SendVerificationCodeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class SendVerificationCodeBody extends SoapBody
      * @var SendVerificationCodeResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SendVerificationCodeResponse')]
-    #[Type(name: SendVerificationCodeResponse::class)]
+    #[SerializedName('SendVerificationCodeResponse')]
+    #[Type(SendVerificationCodeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

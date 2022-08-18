@@ -29,8 +29,8 @@ class Mountpoint extends Folder
      * @var string
      */
     #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
-    #[SerializedName(name: 'owner')]
-    #[Type(name: 'string')]
+    #[SerializedName('owner')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerEmail;
 
@@ -40,8 +40,8 @@ class Mountpoint extends Folder
      * @var string
      */
     #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
-    #[SerializedName(name: 'zid')]
-    #[Type(name: 'string')]
+    #[SerializedName('zid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ownerAccountId;
 
@@ -51,8 +51,8 @@ class Mountpoint extends Folder
      * @var int
      */
     #[Accessor(getter: 'getRemoteFolderId', setter: 'setRemoteFolderId')]
-    #[SerializedName(name: 'rid')]
-    #[Type(name: 'int')]
+    #[SerializedName('rid')]
+    #[Type('int')]
     #[XmlAttribute]
     private $remoteFolderId;
 
@@ -62,8 +62,8 @@ class Mountpoint extends Folder
      * @var string
      */
     #[Accessor(getter: 'getRemoteUuid', setter: 'setRemoteUuid')]
-    #[SerializedName(name: 'ruuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('ruuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $remoteUuid;
 
@@ -73,8 +73,8 @@ class Mountpoint extends Folder
      * @var string
      */
     #[Accessor(getter: 'getRemoteFolderName', setter: 'setRemoteFolderName')]
-    #[SerializedName(name: 'oname')]
-    #[Type(name: 'string')]
+    #[SerializedName('oname')]
+    #[Type('string')]
     #[XmlAttribute]
     private $remoteFolderName;
 
@@ -84,8 +84,8 @@ class Mountpoint extends Folder
      * @var bool
      */
     #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
-    #[SerializedName(name: 'reminder')]
-    #[Type(name: 'bool')]
+    #[SerializedName('reminder')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $reminderEnabled;
 
@@ -95,8 +95,8 @@ class Mountpoint extends Folder
      * @var bool
      */
     #[Accessor(getter: 'getBroken', setter: 'setBroken')]
-    #[SerializedName(name: 'broken')]
-    #[Type(name: 'bool')]
+    #[SerializedName('broken')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $broken;
 

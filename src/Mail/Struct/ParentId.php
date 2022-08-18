@@ -29,8 +29,8 @@ class ParentId
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]
-    #[SerializedName(name: 'parentId')]
-    #[Type(name: 'string')]
+    #[SerializedName('parentId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $parentId;
 

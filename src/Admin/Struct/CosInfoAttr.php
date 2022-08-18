@@ -29,8 +29,8 @@ class CosInfoAttr extends Attr
      * @var bool
      */
     #[Accessor(getter: 'getCosAttr', setter: 'setCosAttr')]
-    #[SerializedName(name: 'c')]
-    #[Type(name: 'bool')]
+    #[SerializedName('c')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $cosAttr;
 
@@ -40,8 +40,8 @@ class CosInfoAttr extends Attr
      * @var bool
      */
     #[Accessor(getter: 'getPermDenied', setter: 'setPermDenied')]
-    #[SerializedName(name: 'pd')]
-    #[Type(name: 'bool')]
+    #[SerializedName('pd')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $permDenied;
 

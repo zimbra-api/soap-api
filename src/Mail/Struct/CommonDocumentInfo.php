@@ -29,8 +29,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName(name: 'uuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uuid;
 
@@ -51,8 +51,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -62,8 +62,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -74,8 +74,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 
@@ -85,8 +85,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -96,8 +96,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName(name: 'luuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('luuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderUuid;
 
@@ -107,8 +107,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -118,8 +118,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getMetadataVersion', setter: 'setMetadataVersion')]
-    #[SerializedName(name: 'mdver')]
-    #[Type(name: 'int')]
+    #[SerializedName('mdver')]
+    #[Type('int')]
     #[XmlAttribute]
     private $metadataVersion;
 
@@ -130,8 +130,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName(name: 'md')]
-    #[Type(name: 'int')]
+    #[SerializedName('md')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeDate;
 
@@ -141,8 +141,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -152,8 +152,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -163,8 +163,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -174,8 +174,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -185,8 +185,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName(name: 'desc')]
-    #[Type(name: 'string')]
+    #[SerializedName('desc')]
+    #[Type('string')]
     #[XmlAttribute]
     private $description;
 
@@ -196,8 +196,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -207,8 +207,8 @@ class CommonDocumentInfo
      * @var bool
      */
     #[Accessor(getter: 'getDescEnabled', setter: 'setDescEnabled')]
-    #[SerializedName(name: 'descEnabled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('descEnabled')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $descEnabled;
 
@@ -218,8 +218,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'ver')]
-    #[Type(name: 'int')]
+    #[SerializedName('ver')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version;
 
@@ -229,8 +229,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getLastEditedBy', setter: 'setLastEditedBy')]
-    #[SerializedName(name: 'leb')]
-    #[Type(name: 'string')]
+    #[SerializedName('leb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $lastEditedBy;
 
@@ -240,8 +240,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: 'getCreator', setter: 'setCreator')]
-    #[SerializedName(name: 'cr')]
-    #[Type(name: 'string')]
+    #[SerializedName('cr')]
+    #[Type('string')]
     #[XmlAttribute]
     private $creator;
 
@@ -251,8 +251,8 @@ class CommonDocumentInfo
      * @var int
      */
     #[Accessor(getter: 'getCreatedDate', setter: 'setCreatedDate')]
-    #[SerializedName(name: 'cd')]
-    #[Type(name: 'int')]
+    #[SerializedName('cd')]
+    #[Type('int')]
     #[XmlAttribute]
     private $createdDate;
 
@@ -262,7 +262,7 @@ class CommonDocumentInfo
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
@@ -272,8 +272,8 @@ class CommonDocumentInfo
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
-    #[SerializedName(name: 'fr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fr')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
@@ -283,8 +283,8 @@ class CommonDocumentInfo
      * @var Acl
      */
     #[Accessor(getter: "getAcl", setter: "setAcl")]
-    #[SerializedName(name: 'acl')]
-    #[Type(name: Acl::class)]
+    #[SerializedName('acl')]
+    #[Type(Acl::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $acl;
 

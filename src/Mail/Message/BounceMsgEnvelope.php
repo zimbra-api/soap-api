@@ -30,8 +30,8 @@ class BounceMsgEnvelope extends SoapEnvelope
      * @var BounceMsgBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: BounceMsgBody::class)]
+    #[SerializedName('Body')]
+    #[Type(BounceMsgBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

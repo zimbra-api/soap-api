@@ -29,8 +29,8 @@ class MailQueueWithAction
      * @var MailQueueAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName(name: 'action')]
-    #[Type(name: MailQueueAction::class)]
+    #[SerializedName('action')]
+    #[Type(MailQueueAction::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $action;
 
@@ -40,8 +40,8 @@ class MailQueueWithAction
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 

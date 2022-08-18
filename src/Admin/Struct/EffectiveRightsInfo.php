@@ -29,7 +29,7 @@ class EffectiveRightsInfo
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\RightWithName>')]
+    #[Type('array<Zimbra\Admin\Struct\RightWithName>')]
     #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAdmin')]
     private $rights = [];
 
@@ -39,8 +39,8 @@ class EffectiveRightsInfo
      * @var EffectiveAttrsInfo
      */
     #[Accessor(getter: 'getSetAttrs', setter: 'setSetAttrs')]
-    #[SerializedName(name: 'setAttrs')]
-    #[Type(name: EffectiveAttrsInfo::class)]
+    #[SerializedName('setAttrs')]
+    #[Type(EffectiveAttrsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $setAttrs;
 
@@ -50,8 +50,8 @@ class EffectiveRightsInfo
      * @var EffectiveAttrsInfo
      */
     #[Accessor(getter: 'getGetAttrs', setter: 'setGetAttrs')]
-    #[SerializedName(name: 'getAttrs')]
-    #[Type(name: EffectiveAttrsInfo::class)]
+    #[SerializedName('getAttrs')]
+    #[Type(EffectiveAttrsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $getAttrs;
 

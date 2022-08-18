@@ -31,7 +31,7 @@ class GrantRightsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountACEInfo>')]
+    #[Type('array<Zimbra\Account\Struct\AccountACEInfo>')]
     #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraAccount')]
     private $aces = [];
 

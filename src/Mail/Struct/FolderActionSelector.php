@@ -35,8 +35,8 @@ class FolderActionSelector extends ActionSelector
      * @var bool
      */
     #[Accessor(getter: 'getRecursive', setter: 'setRecursive')]
-    #[SerializedName(name: 'recursive')]
-    #[Type(name: 'bool')]
+    #[SerializedName('recursive')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $recursive;
 
@@ -46,8 +46,8 @@ class FolderActionSelector extends ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName(name: 'url')]
-    #[Type(name: 'string')]
+    #[SerializedName('url')]
+    #[Type('string')]
     #[XmlAttribute]
     private $url;
 
@@ -57,8 +57,8 @@ class FolderActionSelector extends ActionSelector
      * @var bool
      */
     #[Accessor(getter: 'getExcludeFreebusy', setter: 'setExcludeFreebusy')]
-    #[SerializedName(name: 'excludeFreeBusy')]
-    #[Type(name: 'bool')]
+    #[SerializedName('excludeFreeBusy')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $excludeFreeBusy;
 
@@ -68,8 +68,8 @@ class FolderActionSelector extends ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName(name: 'zid')]
-    #[Type(name: 'string')]
+    #[SerializedName('zid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $zimbraId;
 
@@ -79,8 +79,8 @@ class FolderActionSelector extends ActionSelector
      * @var GranteeType
      */
     #[Accessor(getter: 'getGrantType', setter: 'setGrantType')]
-    #[SerializedName(name: 'gt')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[SerializedName('gt')]
+    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
     private $grantType;
 
@@ -90,8 +90,8 @@ class FolderActionSelector extends ActionSelector
      * @var string
      */
     #[Accessor(getter: 'getView', setter: 'setView')]
-    #[SerializedName(name: 'view')]
-    #[Type(name: 'string')]
+    #[SerializedName('view')]
+    #[Type('string')]
     #[XmlAttribute]
     private $view;
 
@@ -101,8 +101,8 @@ class FolderActionSelector extends ActionSelector
      * @var ActionGrantSelector
      */
     #[Accessor(getter: "getGrant", setter: "setGrant")]
-    #[SerializedName(name: 'grant')]
-    #[Type(name: ActionGrantSelector::class)]
+    #[SerializedName('grant')]
+    #[Type(ActionGrantSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $grant;
 
@@ -112,8 +112,8 @@ class FolderActionSelector extends ActionSelector
      * @var array
      */
     #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[SerializedName(name: 'acl')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ActionGrantSelector>')]
+    #[SerializedName('acl')]
+    #[Type('array<Zimbra\Mail\Struct\ActionGrantSelector>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     #[XmlList(inline: false, entry: 'grant', namespace: 'urn:zimbraMail')]
     private $grants = [];
@@ -124,8 +124,8 @@ class FolderActionSelector extends ActionSelector
      * @var RetentionPolicy
      */
     #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
-    #[SerializedName(name: 'retentionPolicy')]
-    #[Type(name: RetentionPolicy::class)]
+    #[SerializedName('retentionPolicy')]
+    #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $retentionPolicy;
 
@@ -135,8 +135,8 @@ class FolderActionSelector extends ActionSelector
      * @var int
      */
     #[Accessor(getter: 'getNumDays', setter: 'setNumDays')]
-    #[SerializedName(name: 'numDays')]
-    #[Type(name: 'int')]
+    #[SerializedName('numDays')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numDays;
 

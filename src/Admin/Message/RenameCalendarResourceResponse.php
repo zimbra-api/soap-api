@@ -31,8 +31,8 @@ class RenameCalendarResourceResponse extends SoapResponse
      * @var CalendarResourceInfo
      */
     #[Accessor(getter: 'getCalResource', setter: 'setCalResource')]
-    #[SerializedName(name: 'calresource')]
-    #[Type(name: CalendarResourceInfo::class)]
+    #[SerializedName('calresource')]
+    #[Type(CalendarResourceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $calResource;
 

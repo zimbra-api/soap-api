@@ -30,8 +30,8 @@ class CosSelector
      * @var CosBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\CosBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\CosBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -41,7 +41,7 @@ class CosSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

@@ -32,7 +32,7 @@ class CheckDirectoryRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getPaths', setter: 'setPaths')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\CheckDirSelector>')]
+    #[Type('array<Zimbra\Admin\Struct\CheckDirSelector>')]
     #[XmlList(inline: true, entry: 'directory', namespace: 'urn:zimbraAdmin')]
     private $paths = [];
 

@@ -29,8 +29,8 @@ class Content
      * @var string
      */
     #[Accessor(getter: 'getAttachUploadId', setter: 'setAttachUploadId')]
-    #[SerializedName(name: 'aid')]
-    #[Type(name: 'string')]
+    #[SerializedName('aid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attachUploadId;
 
@@ -40,7 +40,7 @@ class Content
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

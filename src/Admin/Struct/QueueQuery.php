@@ -29,7 +29,7 @@ class QueueQuery
      * @var array
      */
     #[Accessor(getter: 'getFields', setter: 'setFields')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\QueueQueryField>')]
+    #[Type('array<Zimbra\Admin\Struct\QueueQueryField>')]
     #[XmlList(inline: true, entry: 'field', namespace: 'urn:zimbraAdmin')]
     private $fields = [];
 
@@ -39,8 +39,8 @@ class QueueQuery
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -50,8 +50,8 @@ class QueueQuery
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 

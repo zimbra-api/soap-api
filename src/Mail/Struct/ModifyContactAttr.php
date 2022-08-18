@@ -30,8 +30,8 @@ class ModifyContactAttr extends NewContactAttr
      * @var string
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'string')]
+    #[SerializedName('op')]
+    #[Type('string')]
     #[XmlAttribute]
     private $operation;
 

@@ -29,8 +29,8 @@ class TimeZoneInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class TimeZoneInfo
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'displayName')]
-    #[Type(name: 'string')]
+    #[SerializedName('displayName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 

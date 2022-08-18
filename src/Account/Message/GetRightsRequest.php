@@ -34,7 +34,7 @@ class GetRightsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Right>')]
+    #[Type('array<Zimbra\Account\Struct\Right>')]
     #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraAccount')]
     private $aces = [];
 

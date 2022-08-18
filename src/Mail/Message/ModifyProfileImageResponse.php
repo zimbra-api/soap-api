@@ -30,8 +30,8 @@ class ModifyProfileImageResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getItemId', setter: 'setItemId')]
-    #[SerializedName(name: 'itemId')]
-    #[Type(name: 'int')]
+    #[SerializedName('itemId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $itemId;
 

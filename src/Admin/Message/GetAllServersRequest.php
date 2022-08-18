@@ -31,8 +31,8 @@ class GetAllServersRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getService', setter: 'setService')]
-    #[SerializedName(name: 'service')]
-    #[Type(name: 'string')]
+    #[SerializedName('service')]
+    #[Type('string')]
     #[XmlAttribute]
     private $service;
 
@@ -42,8 +42,8 @@ class GetAllServersRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getAlwaysOnClusterId', setter: 'setAlwaysOnClusterId')]
-    #[SerializedName(name: 'alwaysOnClusterId')]
-    #[Type(name: 'string')]
+    #[SerializedName('alwaysOnClusterId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $alwaysOnClusterId;
 
@@ -54,8 +54,8 @@ class GetAllServersRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName(name: 'applyConfig')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyConfig')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyConfig;
 

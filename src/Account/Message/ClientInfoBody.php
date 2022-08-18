@@ -28,8 +28,8 @@ class ClientInfoBody extends SoapBody
      * @var ClientInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ClientInfoRequest')]
-    #[Type(name: ClientInfoRequest::class)]
+    #[SerializedName('ClientInfoRequest')]
+    #[Type(ClientInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -37,8 +37,8 @@ class ClientInfoBody extends SoapBody
      * @var ClientInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ClientInfoResponse')]
-    #[Type(name: ClientInfoResponse::class)]
+    #[SerializedName('ClientInfoResponse')]
+    #[Type(ClientInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

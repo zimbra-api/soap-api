@@ -35,8 +35,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -46,8 +46,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -57,8 +57,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: 'string')]
+    #[SerializedName('domain')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domain;
 
@@ -69,8 +69,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var bool
      */
     #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName(name: 'applyCos')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyCos')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyCos;
 
@@ -80,8 +80,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sortBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -91,8 +91,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var bool
      */
     #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName(name: 'sortAscending')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sortAscending')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sortAscending;
 
@@ -102,8 +102,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @var EntrySearchFilterInfo
      */
     #[Accessor(getter: 'getSearchFilter', setter: 'setSearchFilter')]
-    #[SerializedName(name: 'searchFilter')]
-    #[Type(name: EntrySearchFilterInfo::class)]
+    #[SerializedName('searchFilter')]
+    #[Type(EntrySearchFilterInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $searchFilter;
 

@@ -30,8 +30,8 @@ class GetAttributeInfoEnvelope extends SoapEnvelope
      * @var GetAttributeInfoBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetAttributeInfoBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetAttributeInfoBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

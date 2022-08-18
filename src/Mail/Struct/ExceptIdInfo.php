@@ -29,8 +29,8 @@ class ExceptIdInfo
      * @var string
      */
     #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
-    #[SerializedName(name: 'recurId')]
-    #[Type(name: 'string')]
+    #[SerializedName('recurId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurrenceId;
 
@@ -40,8 +40,8 @@ class ExceptIdInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 

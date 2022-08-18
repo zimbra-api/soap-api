@@ -31,8 +31,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName(name: 'part')]
-    #[Type(name: 'string')]
+    #[SerializedName('part')]
+    #[Type('string')]
     #[XmlAttribute]
     private $part;
 
@@ -42,8 +42,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -53,8 +53,8 @@ class PartInfo implements PartInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -64,8 +64,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getContentDisposition', setter: 'setContentDisposition')]
-    #[SerializedName(name: 'cd')]
-    #[Type(name: 'string')]
+    #[SerializedName('cd')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentDisposition;
 
@@ -75,8 +75,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]
-    #[SerializedName(name: 'filename')]
-    #[Type(name: 'string')]
+    #[SerializedName('filename')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentFilename;
 
@@ -86,8 +86,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getContentId', setter: 'setContentId')]
-    #[SerializedName(name: 'ci')]
-    #[Type(name: 'string')]
+    #[SerializedName('ci')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentId;
 
@@ -97,8 +97,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName(name: 'cl')]
-    #[Type(name: 'string')]
+    #[SerializedName('cl')]
+    #[Type('string')]
     #[XmlAttribute]
     private $location;
 
@@ -108,8 +108,8 @@ class PartInfo implements PartInfoInterface
      * @var bool
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'body')]
-    #[Type(name: 'bool')]
+    #[SerializedName('body')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $body;
 
@@ -119,8 +119,8 @@ class PartInfo implements PartInfoInterface
      * @var bool
      */
     #[Accessor(getter: 'getTruncatedContent', setter: 'setTruncatedContent')]
-    #[SerializedName(name: 'truncated')]
-    #[Type(name: 'bool')]
+    #[SerializedName('truncated')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $truncatedContent;
 
@@ -130,8 +130,8 @@ class PartInfo implements PartInfoInterface
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
-    #[SerializedName(name: 'content')]
-    #[Type(name: 'string')]
+    #[SerializedName('content')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 
@@ -141,7 +141,7 @@ class PartInfo implements PartInfoInterface
      * @var array
      */
     #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\PartInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\PartInfo>')]
     #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $mimeParts = [];
 

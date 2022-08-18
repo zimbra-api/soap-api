@@ -28,8 +28,8 @@ class ContactBackupBody extends SoapBody
      * @var ContactBackupRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ContactBackupRequest')]
-    #[Type(name: ContactBackupRequest::class)]
+    #[SerializedName('ContactBackupRequest')]
+    #[Type(ContactBackupRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class ContactBackupBody extends SoapBody
      * @var ContactBackupResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ContactBackupResponse')]
-    #[Type(name: ContactBackupResponse::class)]
+    #[SerializedName('ContactBackupResponse')]
+    #[Type(ContactBackupResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

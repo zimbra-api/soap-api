@@ -28,8 +28,8 @@ class GetMailboxBody extends SoapBody
      * @var GetMailboxRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetMailboxRequest')]
-    #[Type(name: GetMailboxRequest::class)]
+    #[SerializedName('GetMailboxRequest')]
+    #[Type(GetMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetMailboxBody extends SoapBody
      * @var GetMailboxResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetMailboxResponse')]
-    #[Type(name: GetMailboxResponse::class)]
+    #[SerializedName('GetMailboxResponse')]
+    #[Type(GetMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

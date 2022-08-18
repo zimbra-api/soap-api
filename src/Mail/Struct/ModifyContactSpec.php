@@ -29,8 +29,8 @@ class ModifyContactSpec
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class ModifyContactSpec
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -51,7 +51,7 @@ class ModifyContactSpec
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ModifyContactAttr>')]
+    #[Type('array<Zimbra\Mail\Struct\ModifyContactAttr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attrs = [];
 
@@ -62,7 +62,7 @@ class ModifyContactSpec
      * @var array
      */
     #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ModifyContactGroupMember>')]
+    #[Type('array<Zimbra\Mail\Struct\ModifyContactGroupMember>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
 

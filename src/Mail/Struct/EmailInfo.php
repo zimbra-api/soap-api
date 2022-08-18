@@ -32,8 +32,8 @@ class EmailInfo implements EmailInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName(name: 'a')]
-    #[Type(name: 'string')]
+    #[SerializedName('a')]
+    #[Type('string')]
     #[XmlAttribute]
     private $address;
 
@@ -44,8 +44,8 @@ class EmailInfo implements EmailInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getDisplay', setter: 'setDisplay')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $display;
 
@@ -55,8 +55,8 @@ class EmailInfo implements EmailInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getPersonal', setter: 'setPersonal')]
-    #[SerializedName(name: 'p')]
-    #[Type(name: 'string')]
+    #[SerializedName('p')]
+    #[Type('string')]
     #[XmlAttribute]
     private $personal;
 
@@ -67,8 +67,8 @@ class EmailInfo implements EmailInfoInterface
      * @var AddressType
      */
     #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AddressType>')]
+    #[SerializedName('t')]
+    #[Type('Enum<Zimbra\Common\Enum\AddressType>')]
     #[XmlAttribute]
     private $addressType;
 
@@ -78,8 +78,8 @@ class EmailInfo implements EmailInfoInterface
      * @var bool
      */
     #[Accessor(getter: 'getGroup', setter: 'setGroup')]
-    #[SerializedName(name: 'isGroup')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isGroup')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $group;
 
@@ -89,8 +89,8 @@ class EmailInfo implements EmailInfoInterface
      * @var bool
      */
     #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
-    #[SerializedName(name: 'exp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('exp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $canExpandGroupMembers;
 

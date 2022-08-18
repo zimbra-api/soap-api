@@ -31,8 +31,8 @@ class ExportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -42,8 +42,8 @@ class ExportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -54,8 +54,8 @@ class ExportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getCsvFormat', setter: 'setCsvFormat')]
-    #[SerializedName(name: 'csvfmt')]
-    #[Type(name: 'string')]
+    #[SerializedName('csvfmt')]
+    #[Type('string')]
     #[XmlAttribute]
     private $csvFormat;
 
@@ -66,8 +66,8 @@ class ExportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getCsvLocale', setter: 'setCsvLocale')]
-    #[SerializedName(name: 'csvlocale')]
-    #[Type(name: 'string')]
+    #[SerializedName('csvlocale')]
+    #[Type('string')]
     #[XmlAttribute]
     private $csvLocale;
 
@@ -77,8 +77,8 @@ class ExportContactsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getCsvDelimiter', setter: 'setCsvDelimiter')]
-    #[SerializedName(name: 'csvsep')]
-    #[Type(name: 'string')]
+    #[SerializedName('csvsep')]
+    #[Type('string')]
     #[XmlAttribute]
     private $csvDelimiter;
 

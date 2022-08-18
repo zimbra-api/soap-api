@@ -30,8 +30,8 @@ class CheckExchangeAuthEnvelope extends SoapEnvelope
      * @var CheckExchangeAuthBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CheckExchangeAuthBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CheckExchangeAuthBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

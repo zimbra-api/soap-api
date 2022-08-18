@@ -29,8 +29,8 @@ abstract class HABMember
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $name;
 
@@ -40,8 +40,8 @@ abstract class HABMember
      * @var int
      */
     #[Accessor(getter: 'getSeniorityIndex', setter: 'setSeniorityIndex')]
-    #[SerializedName(name: 'seniorityIndex')]
-    #[Type(name: 'int')]
+    #[SerializedName('seniorityIndex')]
+    #[Type('int')]
     #[XmlAttribute]
     private $seniorityIndex;
 

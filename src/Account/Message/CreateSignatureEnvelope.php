@@ -30,8 +30,8 @@ class CreateSignatureEnvelope extends SoapEnvelope
      * @var CreateSignatureBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateSignatureBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateSignatureBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

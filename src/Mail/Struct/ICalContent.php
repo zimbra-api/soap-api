@@ -29,8 +29,8 @@ class ICalContent
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,7 +40,7 @@ class ICalContent
      * @var string
      */
     #[Accessor(getter: 'getIcal', setter: 'setIcal')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $ical;
 

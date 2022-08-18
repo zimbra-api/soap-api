@@ -30,8 +30,8 @@ class GetDelegatedAdminConstraintsEnvelope extends SoapEnvelope
      * @var GetDelegatedAdminConstraintsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetDelegatedAdminConstraintsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetDelegatedAdminConstraintsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

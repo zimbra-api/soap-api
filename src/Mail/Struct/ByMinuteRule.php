@@ -31,8 +31,8 @@ class ByMinuteRule implements ByMinuteRuleInterface
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName(name: 'minlist')]
-    #[Type(name: 'string')]
+    #[SerializedName('minlist')]
+    #[Type('string')]
     #[XmlAttribute]
     private $list;
 

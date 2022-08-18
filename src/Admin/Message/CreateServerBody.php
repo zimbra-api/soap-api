@@ -28,8 +28,8 @@ class CreateServerBody extends SoapBody
      * @var CreateServerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateServerRequest')]
-    #[Type(name: CreateServerRequest::class)]
+    #[SerializedName('CreateServerRequest')]
+    #[Type(CreateServerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CreateServerBody extends SoapBody
      * @var CreateServerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateServerResponse')]
-    #[Type(name: CreateServerResponse::class)]
+    #[SerializedName('CreateServerResponse')]
+    #[Type(CreateServerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

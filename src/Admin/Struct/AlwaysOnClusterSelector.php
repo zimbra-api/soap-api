@@ -30,8 +30,8 @@ class AlwaysOnClusterSelector
      * @var AlwaysOnClusterBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -41,7 +41,7 @@ class AlwaysOnClusterSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

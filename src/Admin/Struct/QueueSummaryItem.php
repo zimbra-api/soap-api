@@ -29,8 +29,8 @@ class QueueSummaryItem
      * @var int
      */
     #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'int')]
+    #[SerializedName('n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $count;
 
@@ -40,8 +40,8 @@ class QueueSummaryItem
      * @var string
      */
     #[Accessor(getter: 'getTerm', setter: 'setTerm')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $term;
 

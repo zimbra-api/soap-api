@@ -29,8 +29,8 @@ class MessageSummary extends MessageCommon
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class MessageSummary extends MessageCommon
      * @var int
      */
     #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
-    #[SerializedName(name: 'autoSendTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('autoSendTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $autoSendTime;
 
@@ -51,7 +51,7 @@ class MessageSummary extends MessageCommon
      * @var array
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\EmailInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
     #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
     private $emails = [];
 
@@ -61,8 +61,8 @@ class MessageSummary extends MessageCommon
      * @var string
      */
     #[Accessor(getter: "getSubject", setter: "setSubject")]
-    #[SerializedName(name: 'su')]
-    #[Type(name: 'string')]
+    #[SerializedName('su')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $subject;
 
@@ -72,8 +72,8 @@ class MessageSummary extends MessageCommon
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
-    #[SerializedName(name: 'fr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fr')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraMail')]
     private $fragment;
 
@@ -83,8 +83,8 @@ class MessageSummary extends MessageCommon
      * @var InviteInfo
      */
     #[Accessor(getter: "getInvite", setter: "setInvite")]
-    #[SerializedName(name: 'inv')]
-    #[Type(name: InviteInfo::class)]
+    #[SerializedName('inv')]
+    #[Type(InviteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $invite;
 

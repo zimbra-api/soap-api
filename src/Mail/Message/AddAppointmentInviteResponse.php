@@ -30,8 +30,8 @@ class AddAppointmentInviteResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName(name: 'calItemId')]
-    #[Type(name: 'int')]
+    #[SerializedName('calItemId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $calItemId;
 
@@ -41,8 +41,8 @@ class AddAppointmentInviteResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName(name: 'invId')]
-    #[Type(name: 'int')]
+    #[SerializedName('invId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $invId;
 
@@ -52,8 +52,8 @@ class AddAppointmentInviteResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName(name: 'compNum')]
-    #[Type(name: 'int')]
+    #[SerializedName('compNum')]
+    #[Type('int')]
     #[XmlAttribute]
     private $componentNum;
 

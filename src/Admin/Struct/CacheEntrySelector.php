@@ -30,8 +30,8 @@ class CacheEntrySelector
      * @var CacheEntryBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\CacheEntryBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\CacheEntryBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -41,7 +41,7 @@ class CacheEntrySelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

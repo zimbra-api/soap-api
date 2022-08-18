@@ -30,8 +30,8 @@ class DataSourceInfo extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -41,8 +41,8 @@ class DataSourceInfo extends AdminAttrsImpl
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,8 +52,8 @@ class DataSourceInfo extends AdminAttrsImpl
      * @var DataSourceType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DataSourceType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\DataSourceType>')]
     #[XmlAttribute]
     private $type;
 

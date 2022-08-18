@@ -30,8 +30,8 @@ class InstanceRecurIdInfo
      * @var string
      */
     #[Accessor(getter: 'getRange', setter: 'setRange')]
-    #[SerializedName(name: 'range')]
-    #[Type(name: 'string')]
+    #[SerializedName('range')]
+    #[Type('string')]
     #[XmlAttribute]
     private $range;
 
@@ -55,8 +55,8 @@ class InstanceRecurIdInfo
      * @var string
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'string')]
+    #[SerializedName('d')]
+    #[Type('string')]
     #[XmlAttribute]
     private $dateTime;
 
@@ -66,8 +66,8 @@ class InstanceRecurIdInfo
      * @var string
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName(name: 'tz')]
-    #[Type(name: 'string')]
+    #[SerializedName('tz')]
+    #[Type('string')]
     #[XmlAttribute]
     private $timezone;
 

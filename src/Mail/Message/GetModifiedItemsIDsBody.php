@@ -28,8 +28,8 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @var GetModifiedItemsIDsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetModifiedItemsIDsRequest')]
-    #[Type(name: GetModifiedItemsIDsRequest::class)]
+    #[SerializedName('GetModifiedItemsIDsRequest')]
+    #[Type(GetModifiedItemsIDsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @var GetModifiedItemsIDsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetModifiedItemsIDsResponse')]
-    #[Type(name: GetModifiedItemsIDsResponse::class)]
+    #[SerializedName('GetModifiedItemsIDsResponse')]
+    #[Type(GetModifiedItemsIDsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

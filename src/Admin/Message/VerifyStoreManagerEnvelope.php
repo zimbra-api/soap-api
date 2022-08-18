@@ -30,8 +30,8 @@ class VerifyStoreManagerEnvelope extends SoapEnvelope
      * @var VerifyStoreManagerBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: VerifyStoreManagerBody::class)]
+    #[SerializedName('Body')]
+    #[Type(VerifyStoreManagerBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

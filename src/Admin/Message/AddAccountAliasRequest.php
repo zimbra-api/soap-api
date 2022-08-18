@@ -31,8 +31,8 @@ class AddAccountAliasRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -42,8 +42,8 @@ class AddAccountAliasRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getAlias', setter: 'setAlias')]
-    #[SerializedName(name: 'alias')]
-    #[Type(name: 'string')]
+    #[SerializedName('alias')]
+    #[Type('string')]
     #[XmlAttribute]
     private $alias;
 

@@ -33,8 +33,8 @@ class ForwardAppointmentInviteRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -44,8 +44,8 @@ class ForwardAppointmentInviteRequest extends SoapRequest
      * @var Msg
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: Msg::class)]
+    #[SerializedName('m')]
+    #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 

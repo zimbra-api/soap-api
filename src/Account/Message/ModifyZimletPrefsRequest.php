@@ -32,7 +32,7 @@ class ModifyZimletPrefsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type(name: 'array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>')]
+    #[Type('array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>')]
     #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAccount')]
     private $zimlets = [];
 

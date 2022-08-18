@@ -28,8 +28,8 @@ class GetAllFreeBusyProvidersBody extends SoapBody
      * @var GetAllFreeBusyProvidersRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllFreeBusyProvidersRequest')]
-    #[Type(name: GetAllFreeBusyProvidersRequest::class)]
+    #[SerializedName('GetAllFreeBusyProvidersRequest')]
+    #[Type(GetAllFreeBusyProvidersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetAllFreeBusyProvidersBody extends SoapBody
      * @var GetAllFreeBusyProvidersResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllFreeBusyProvidersResponse')]
-    #[Type(name: GetAllFreeBusyProvidersResponse::class)]
+    #[SerializedName('GetAllFreeBusyProvidersResponse')]
+    #[Type(GetAllFreeBusyProvidersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

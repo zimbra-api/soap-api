@@ -29,8 +29,8 @@ class DismissAlarm
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class DismissAlarm
      * @var int
      */
     #[Accessor(getter: 'getDismissedAt', setter: 'setDismissedAt')]
-    #[SerializedName(name: 'dismissedAt')]
-    #[Type(name: 'int')]
+    #[SerializedName('dismissedAt')]
+    #[Type('int')]
     #[XmlAttribute]
     private $dismissedAt;
 

@@ -33,8 +33,8 @@ class GetAdminConsoleUICompRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -44,8 +44,8 @@ class GetAdminConsoleUICompRequest extends SoapRequest
      * @var DlSelector
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName(name: 'dl')]
-    #[Type(name: DlSelector::class)]
+    #[SerializedName('dl')]
+    #[Type(DlSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dl;
 

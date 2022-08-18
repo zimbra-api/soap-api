@@ -31,8 +31,8 @@ class GetZimletResponse extends SoapResponse
      * @var ZimletInfo
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName(name: 'zimlet')]
-    #[Type(name: ZimletInfo::class)]
+    #[SerializedName('zimlet')]
+    #[Type(ZimletInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $zimlet;
 

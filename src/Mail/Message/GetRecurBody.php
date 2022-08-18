@@ -28,8 +28,8 @@ class GetRecurBody extends SoapBody
      * @var GetRecurRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetRecurRequest')]
-    #[Type(name: GetRecurRequest::class)]
+    #[SerializedName('GetRecurRequest')]
+    #[Type(GetRecurRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetRecurBody extends SoapBody
      * @var GetRecurResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetRecurResponse')]
-    #[Type(name: GetRecurResponse::class)]
+    #[SerializedName('GetRecurResponse')]
+    #[Type(GetRecurResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

@@ -35,8 +35,8 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
      * @var bool
      */
     #[Accessor(getter: 'getNeedOwners', setter: 'setNeedOwners')]
-    #[SerializedName(name: 'needOwners')]
-    #[Type(name: 'bool')]
+    #[SerializedName('needOwners')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $needOwners;
 
@@ -46,8 +46,8 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
      * @var string
      */
     #[Accessor(getter: 'getNeedRights', setter: 'setNeedRights')]
-    #[SerializedName(name: 'needRights')]
-    #[Type(name: 'string')]
+    #[SerializedName('needRights')]
+    #[Type('string')]
     #[XmlAttribute]
     private $needRights;
 
@@ -57,8 +57,8 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
      * @var DistributionListSelector
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName(name: 'dl')]
-    #[Type(name: DistributionListSelector::class)]
+    #[SerializedName('dl')]
+    #[Type(DistributionListSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $dl;
 

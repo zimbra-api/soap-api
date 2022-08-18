@@ -29,8 +29,8 @@ class UpdatedAlarmInfo
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName(name: 'calItemId')]
-    #[Type(name: 'string')]
+    #[SerializedName('calItemId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $calItemId;
 
@@ -40,8 +40,8 @@ class UpdatedAlarmInfo
      * @var AlarmDataInfo
      */
     #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
-    #[SerializedName(name: 'alarmData')]
-    #[Type(name: AlarmDataInfo::class)]
+    #[SerializedName('alarmData')]
+    #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $alarmData;
 

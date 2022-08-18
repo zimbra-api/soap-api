@@ -31,8 +31,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -42,8 +42,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName(name: 'uuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uuid;
 
@@ -54,8 +54,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -65,8 +65,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getAbsoluteFolderPath', setter: 'setAbsoluteFolderPath')]
-    #[SerializedName(name: 'absFolderPath')]
-    #[Type(name: 'string')]
+    #[SerializedName('absFolderPath')]
+    #[Type('string')]
     #[XmlAttribute]
     private $absoluteFolderPath;
 
@@ -76,8 +76,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $parentId;
 
@@ -87,8 +87,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName(name: 'luuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('luuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderUuid;
 
@@ -100,8 +100,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'string')]
+    #[SerializedName('f')]
+    #[Type('string')]
     #[XmlAttribute]
     private $flags;
 
@@ -111,8 +111,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName(name: 'color')]
-    #[Type(name: 'int')]
+    #[SerializedName('color')]
+    #[Type('int')]
     #[XmlAttribute]
     private $color;
 
@@ -122,8 +122,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName(name: 'rgb')]
-    #[Type(name: 'string')]
+    #[SerializedName('rgb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rgb;
 
@@ -133,8 +133,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getUnreadCount', setter: 'setUnreadCount')]
-    #[SerializedName(name: 'u')]
-    #[Type(name: 'int')]
+    #[SerializedName('u')]
+    #[Type('int')]
     #[XmlAttribute]
     private $unreadCount;
 
@@ -144,8 +144,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getImapUnreadCount', setter: 'setImapUnreadCount')]
-    #[SerializedName(name: 'i4u')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4u')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapUnreadCount;
 
@@ -155,8 +155,8 @@ class Folder
      * @var ViewType
      */
     #[Accessor(getter: 'getView', setter: 'setView')]
-    #[SerializedName(name: 'view')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ViewType>')]
+    #[SerializedName('view')]
+    #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
     private $view;
 
@@ -166,8 +166,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -177,8 +177,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName(name: 'ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $modifiedSequence;
 
@@ -188,8 +188,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName(name: 'md')]
-    #[Type(name: 'int')]
+    #[SerializedName('md')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeDate;
 
@@ -199,8 +199,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getItemCount', setter: 'setItemCount')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'int')]
+    #[SerializedName('n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $itemCount;
 
@@ -210,8 +210,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getImapItemCount', setter: 'setImapItemCount')]
-    #[SerializedName(name: 'i4n')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapItemCount;
 
@@ -221,8 +221,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $totalSize;
 
@@ -232,8 +232,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getImapModifiedSequence', setter: 'setImapModifiedSequence')]
-    #[SerializedName(name: 'i4ms')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4ms')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapModifiedSequence;
 
@@ -243,8 +243,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getImapUidNext', setter: 'setImapUidNext')]
-    #[SerializedName(name: 'i4next')]
-    #[Type(name: 'int')]
+    #[SerializedName('i4next')]
+    #[Type('int')]
     #[XmlAttribute]
     private $imapUidNext;
 
@@ -254,8 +254,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName(name: 'url')]
-    #[Type(name: 'string')]
+    #[SerializedName('url')]
+    #[Type('string')]
     #[XmlAttribute]
     private $url;
 
@@ -265,8 +265,8 @@ class Folder
      * @var bool
      */
     #[Accessor(getter: 'isActiveSyncDisabled', setter: 'setActiveSyncDisabled')]
-    #[SerializedName(name: 'activesyncdisabled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('activesyncdisabled')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $activeSyncDisabled;
 
@@ -276,8 +276,8 @@ class Folder
      * @var int
      */
     #[Accessor(getter: 'getWebOfflineSyncDays', setter: 'setWebOfflineSyncDays')]
-    #[SerializedName(name: 'webOfflineSyncDays')]
-    #[Type(name: 'int')]
+    #[SerializedName('webOfflineSyncDays')]
+    #[Type('int')]
     #[XmlAttribute]
     private $webOfflineSyncDays;
 
@@ -288,8 +288,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getPerm', setter: 'setPerm')]
-    #[SerializedName(name: 'perm')]
-    #[Type(name: 'string')]
+    #[SerializedName('perm')]
+    #[Type('string')]
     #[XmlAttribute]
     private $perm;
 
@@ -299,8 +299,8 @@ class Folder
      * @var bool
      */
     #[Accessor(getter: 'getRecursive', setter: 'setRecursive')]
-    #[SerializedName(name: 'recursive')]
-    #[Type(name: 'bool')]
+    #[SerializedName('recursive')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $recursive;
 
@@ -310,8 +310,8 @@ class Folder
      * @var string
      */
     #[Accessor(getter: 'getRestUrl', setter: 'setRestUrl')]
-    #[SerializedName(name: 'rest')]
-    #[Type(name: 'string')]
+    #[SerializedName('rest')]
+    #[Type('string')]
     #[XmlAttribute]
     private $restUrl;
 
@@ -321,8 +321,8 @@ class Folder
      * @var bool
      */
     #[Accessor(getter: 'isDeletable', setter: 'setDeletable')]
-    #[SerializedName(name: 'deletable')]
-    #[Type(name: 'bool')]
+    #[SerializedName('deletable')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $deletable;
 
@@ -332,7 +332,7 @@ class Folder
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
@@ -342,8 +342,8 @@ class Folder
      * @var Acl
      */
     #[Accessor(getter: "getAcl", setter: "setAcl")]
-    #[SerializedName(name: 'acl')]
-    #[Type(name: Acl::class)]
+    #[SerializedName('acl')]
+    #[Type(Acl::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $acl;
 
@@ -353,7 +353,7 @@ class Folder
      * @var array
      */
     #[Accessor(getter: 'getSubfolders', setter: 'setSubfolders')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\Folder>')]
+    #[Type('array<Zimbra\Mail\Struct\Folder>')]
     #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
     private $subFolders = [];
 
@@ -363,7 +363,7 @@ class Folder
      * @var array
      */
     #[Accessor(getter: 'getMountpoints', setter: 'setMountpoints')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\Mountpoint>')]
+    #[Type('array<Zimbra\Mail\Struct\Mountpoint>')]
     #[XmlList(inline: true, entry: 'link', namespace: 'urn:zimbraMail')]
     private $mountpoints = [];
 
@@ -373,7 +373,7 @@ class Folder
      * @var array
      */
     #[Accessor(getter: 'getSearchFolders', setter: 'setSearchFolders')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SearchFolder>')]
+    #[Type('array<Zimbra\Mail\Struct\SearchFolder>')]
     #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraMail')]
     private $searchFolders = [];
 
@@ -383,8 +383,8 @@ class Folder
      * @var RetentionPolicy
      */
     #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
-    #[SerializedName(name: 'retentionPolicy')]
-    #[Type(name: RetentionPolicy::class)]
+    #[SerializedName('retentionPolicy')]
+    #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $retentionPolicy;
 

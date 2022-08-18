@@ -29,8 +29,8 @@ abstract class ImportStatusInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ abstract class ImportStatusInfo
      * @var bool
      */
     #[Accessor(getter: 'getRunning', setter: 'setRunning')]
-    #[SerializedName(name: 'isRunning')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isRunning')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $running;
 
@@ -52,8 +52,8 @@ abstract class ImportStatusInfo
      * @var bool
      */
     #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
-    #[SerializedName(name: 'success')]
-    #[Type(name: 'bool')]
+    #[SerializedName('success')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $success;
 
@@ -64,8 +64,8 @@ abstract class ImportStatusInfo
      * @var string
      */
     #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName(name: 'error')]
-    #[Type(name: 'string')]
+    #[SerializedName('error')]
+    #[Type('string')]
     #[XmlAttribute]
     private $error;
 

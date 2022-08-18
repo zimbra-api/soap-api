@@ -31,8 +31,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName(name: 'authToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('authToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $authToken;
 
@@ -42,8 +42,8 @@ class AuthResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName(name: 'lifetime')]
-    #[Type(name: 'int')]
+    #[SerializedName('lifetime')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $lifetime;
 
@@ -53,8 +53,8 @@ class AuthResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getTrustLifetime', setter: 'setTrustLifetime')]
-    #[SerializedName(name: 'trustLifetime')]
-    #[Type(name: 'int')]
+    #[SerializedName('trustLifetime')]
+    #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $trustLifetime;
 
@@ -64,8 +64,8 @@ class AuthResponse extends SoapResponse
      * @var Session
      */
     #[Accessor(getter: 'getSession', setter: 'setSession')]
-    #[SerializedName(name: 'session')]
-    #[Type(name: Session::class)]
+    #[SerializedName('session')]
+    #[Type(Session::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $session;
 
@@ -76,8 +76,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getRefer', setter: 'setRefer')]
-    #[SerializedName(name: 'refer')]
-    #[Type(name: 'string')]
+    #[SerializedName('refer')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $refer;
 
@@ -87,8 +87,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getSkin', setter: 'setSkin')]
-    #[SerializedName(name: 'skin')]
-    #[Type(name: 'string')]
+    #[SerializedName('skin')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $skin;
 
@@ -98,8 +98,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
-    #[SerializedName(name: 'csrfToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('csrfToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $csrfToken;
 
@@ -109,8 +109,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getDeviceId', setter: 'setDeviceId')]
-    #[SerializedName(name: 'deviceId')]
-    #[Type(name: 'string')]
+    #[SerializedName('deviceId')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $deviceId;
 
@@ -120,8 +120,8 @@ class AuthResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getTrustedToken', setter: 'setTrustedToken')]
-    #[SerializedName(name: 'trustedToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('trustedToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $trustedToken;
 
@@ -131,8 +131,8 @@ class AuthResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getZmgProxy', setter: 'setZmgProxy')]
-    #[SerializedName(name: 'zmgProxy')]
-    #[Type(name: 'bool')]
+    #[SerializedName('zmgProxy')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $zmgProxy;
 
@@ -140,8 +140,8 @@ class AuthResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[SerializedName(name: 'prefs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Pref>')]
+    #[SerializedName('prefs')]
+    #[Type('array<Zimbra\Account\Struct\Pref>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'pref', namespace: 'urn:zimbraAccount')]
     private $prefs = [];
@@ -150,8 +150,8 @@ class AuthResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Attr>')]
+    #[SerializedName('attrs')]
+    #[Type('array<Zimbra\Account\Struct\Attr>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
     private $attrs = [];
@@ -160,8 +160,8 @@ class AuthResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getTwoFactorAuthRequired', setter: 'setTwoFactorAuthRequired')]
-    #[SerializedName(name: 'twoFactorAuthRequired')]
-    #[Type(name: 'bool')]
+    #[SerializedName('twoFactorAuthRequired')]
+    #[Type('bool')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $twoFactorAuthRequired;
 
@@ -169,8 +169,8 @@ class AuthResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getTrustedDevicesEnabled', setter: 'setTrustedDevicesEnabled')]
-    #[SerializedName(name: 'trustedDevicesEnabled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('trustedDevicesEnabled')]
+    #[Type('bool')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $trustedDevicesEnabled;
 

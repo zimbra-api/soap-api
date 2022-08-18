@@ -44,8 +44,8 @@ class SyncResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName(name: 'md')]
-    #[Type(name: 'int')]
+    #[SerializedName('md')]
+    #[Type('int')]
     #[XmlAttribute]
     private $changeDate;
 
@@ -55,8 +55,8 @@ class SyncResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName(name: 'token')]
-    #[Type(name: 'string')]
+    #[SerializedName('token')]
+    #[Type('string')]
     #[XmlAttribute]
     private $token;
 
@@ -66,8 +66,8 @@ class SyncResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -78,8 +78,8 @@ class SyncResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -89,8 +89,8 @@ class SyncResponse extends SoapResponse
      * @var SyncDeletedInfo
      */
     #[Accessor(getter: "getDeleted", setter: "setDeleted")]
-    #[SerializedName(name: 'deleted')]
-    #[Type(name: SyncDeletedInfo::class)]
+    #[SerializedName('deleted')]
+    #[Type(SyncDeletedInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $deleted;
 
@@ -100,7 +100,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getFolderItems', setter: 'setFolderItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\SyncFolder>')]
+    #[Type('array<Zimbra\Mail\Struct\SyncFolder>')]
     #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
     private $folderItems = [];
 
@@ -110,7 +110,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getTagItems', setter: 'setTagItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\TagInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\TagInfo>')]
     #[XmlList(inline: true, entry: 'tag', namespace: 'urn:zimbraMail')]
     private $tagItems = [];
 
@@ -120,7 +120,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getNoteItems', setter: 'setNoteItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\NoteInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\NoteInfo>')]
     #[XmlList(inline: true, entry: 'note', namespace: 'urn:zimbraMail')]
     private $noteItems = [];
 
@@ -130,7 +130,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getContactItems', setter: 'setContactItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ContactInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\ContactInfo>')]
     #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
     private $contactItems = [];
 
@@ -140,7 +140,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getApptItems', setter: 'setApptItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CalendarItemInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\CalendarItemInfo>')]
     #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
     private $apptItems = [];
 
@@ -150,7 +150,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getTaskItems', setter: 'setTaskItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\TaskItemInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\TaskItemInfo>')]
     #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
     private $taskItems = [];
 
@@ -160,7 +160,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getConvItems', setter: 'setConvItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ConversationSummary>')]
+    #[Type('array<Zimbra\Mail\Struct\ConversationSummary>')]
     #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
     private $convItems = [];
 
@@ -170,7 +170,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getWikiItems', setter: 'setWikiItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CommonDocumentInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\CommonDocumentInfo>')]
     #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
     private $wikiItems = [];
 
@@ -180,7 +180,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDocItems', setter: 'setDocItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\DocumentInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\DocumentInfo>')]
     #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
     private $docItems = [];
 
@@ -190,7 +190,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getMsgItems', setter: 'setMsgItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MessageSummary>')]
+    #[Type('array<Zimbra\Mail\Struct\MessageSummary>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $msgItems = [];
 
@@ -200,7 +200,7 @@ class SyncResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getChatItems', setter: 'setChatItems')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ChatSummary>')]
+    #[Type('array<Zimbra\Mail\Struct\ChatSummary>')]
     #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
     private $chatItems = [];
 

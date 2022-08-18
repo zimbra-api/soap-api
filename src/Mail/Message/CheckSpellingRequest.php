@@ -35,8 +35,8 @@ class CheckSpellingRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getDictionary', setter: 'setDictionary')]
-    #[SerializedName(name: 'dictionary')]
-    #[Type(name: 'string')]
+    #[SerializedName('dictionary')]
+    #[Type('string')]
     #[XmlAttribute]
     private $dictionary;
 
@@ -47,8 +47,8 @@ class CheckSpellingRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getIgnoreList', setter: 'setIgnoreList')]
-    #[SerializedName(name: 'ignore')]
-    #[Type(name: 'string')]
+    #[SerializedName('ignore')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ignoreList;
 
@@ -58,7 +58,7 @@ class CheckSpellingRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $text;
 

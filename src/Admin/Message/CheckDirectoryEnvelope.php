@@ -30,8 +30,8 @@ class CheckDirectoryEnvelope extends SoapEnvelope
      * @var CheckDirectoryBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CheckDirectoryBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CheckDirectoryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

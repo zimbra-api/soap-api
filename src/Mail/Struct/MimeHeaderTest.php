@@ -30,8 +30,8 @@ class MimeHeaderTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[SerializedName(name: 'header')]
-    #[Type(name: 'string')]
+    #[SerializedName('header')]
+    #[Type('string')]
     #[XmlAttribute]
     private $headers;
 
@@ -41,8 +41,8 @@ class MimeHeaderTest extends FilterTest
      * @var StringComparison
      */
     #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
-    #[SerializedName(name: 'stringComparison')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\StringComparison>')]
+    #[SerializedName('stringComparison')]
+    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
     private $stringComparison;
 
@@ -52,8 +52,8 @@ class MimeHeaderTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'value')]
-    #[Type(name: 'string')]
+    #[SerializedName('value')]
+    #[Type('string')]
     #[XmlAttribute]
     private $value;
 
@@ -63,8 +63,8 @@ class MimeHeaderTest extends FilterTest
      * @var bool
      */
     #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName(name: 'caseSensitive')]
-    #[Type(name: 'bool')]
+    #[SerializedName('caseSensitive')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $caseSensitive;
 

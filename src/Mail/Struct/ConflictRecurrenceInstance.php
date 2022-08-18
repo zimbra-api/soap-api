@@ -30,7 +30,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
      * @var array
      */
     #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyUserStatus>')]
+    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserStatus>')]
     #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
     private $freebusyUsers = [];
 

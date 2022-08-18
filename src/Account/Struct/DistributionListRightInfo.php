@@ -29,8 +29,8 @@ class DistributionListRightInfo
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: 'string')]
+    #[SerializedName('right')]
+    #[Type('string')]
     #[XmlAttribute]
     private $right;
 
@@ -40,7 +40,7 @@ class DistributionListRightInfo
      * @var array
      */
     #[Accessor(getter: 'getGrantees', setter: 'setGrantees')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DistributionListGranteeInfo>')]
+    #[Type('array<Zimbra\Account\Struct\DistributionListGranteeInfo>')]
     #[XmlList(inline: true, entry: 'grantee', namespace: 'urn:zimbraAccount')]
     private $grantees = [];
 

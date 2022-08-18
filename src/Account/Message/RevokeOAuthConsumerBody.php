@@ -28,8 +28,8 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @var RevokeOAuthConsumerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RevokeOAuthConsumerRequest')]
-    #[Type(name: RevokeOAuthConsumerRequest::class)]
+    #[SerializedName('RevokeOAuthConsumerRequest')]
+    #[Type(RevokeOAuthConsumerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -37,8 +37,8 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @var RevokeOAuthConsumerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RevokeOAuthConsumerResponse')]
-    #[Type(name: RevokeOAuthConsumerResponse::class)]
+    #[SerializedName('RevokeOAuthConsumerResponse')]
+    #[Type(RevokeOAuthConsumerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

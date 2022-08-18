@@ -36,8 +36,8 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
      * @var string
      */
     #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
-    #[SerializedName(name: 'cid')]
-    #[Type(name: 'string')]
+    #[SerializedName('cid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $conversationId;
 
@@ -49,8 +49,8 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
      * @var bool
      */
     #[Accessor(getter: 'getNestMessages', setter: 'setNestMessages')]
-    #[SerializedName(name: 'nest')]
-    #[Type(name: 'bool')]
+    #[SerializedName('nest')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $nestMessages;
 

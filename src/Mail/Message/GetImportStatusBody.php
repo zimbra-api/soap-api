@@ -28,8 +28,8 @@ class GetImportStatusBody extends SoapBody
      * @var GetImportStatusRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetImportStatusRequest')]
-    #[Type(name: GetImportStatusRequest::class)]
+    #[SerializedName('GetImportStatusRequest')]
+    #[Type(GetImportStatusRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetImportStatusBody extends SoapBody
      * @var GetImportStatusResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetImportStatusResponse')]
-    #[Type(name: GetImportStatusResponse::class)]
+    #[SerializedName('GetImportStatusResponse')]
+    #[Type(GetImportStatusResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

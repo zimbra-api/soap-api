@@ -28,8 +28,8 @@ class CheckSpellingBody extends SoapBody
      * @var CheckSpellingRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckSpellingRequest')]
-    #[Type(name: CheckSpellingRequest::class)]
+    #[SerializedName('CheckSpellingRequest')]
+    #[Type(CheckSpellingRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class CheckSpellingBody extends SoapBody
      * @var CheckSpellingResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckSpellingResponse')]
-    #[Type(name: CheckSpellingResponse::class)]
+    #[SerializedName('CheckSpellingResponse')]
+    #[Type(CheckSpellingResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

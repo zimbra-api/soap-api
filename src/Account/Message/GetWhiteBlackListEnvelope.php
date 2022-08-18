@@ -30,8 +30,8 @@ class GetWhiteBlackListEnvelope extends SoapEnvelope
      * @var GetWhiteBlackListBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetWhiteBlackListBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetWhiteBlackListBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

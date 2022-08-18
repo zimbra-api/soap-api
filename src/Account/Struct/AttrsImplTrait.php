@@ -27,7 +27,7 @@ trait AttrsImplTrait
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Attr>')]
+    #[Type('array<Zimbra\Account\Struct\Attr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAccount')]
     private $attrs = [];
 

@@ -29,8 +29,8 @@ class FileIntoAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'folderPath')]
-    #[Type(name: 'string')]
+    #[SerializedName('folderPath')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -42,8 +42,8 @@ class FileIntoAction extends FilterAction
      * @var bool
      */
     #[Accessor(getter: 'isCopy', setter: 'setCopy')]
-    #[SerializedName(name: 'copy')]
-    #[Type(name: 'bool')]
+    #[SerializedName('copy')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $copy;
 

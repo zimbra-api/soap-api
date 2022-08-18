@@ -30,8 +30,8 @@ class RecoverAccountResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getRecoveryAccount', setter: 'setRecoveryAccount')]
-    #[SerializedName(name: 'recoveryAccount')]
-    #[Type(name: 'string')]
+    #[SerializedName('recoveryAccount')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recoveryAccount;
 
@@ -41,8 +41,8 @@ class RecoverAccountResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getRecoveryAttemptsLeft', setter: 'setRecoveryAttemptsLeft')]
-    #[SerializedName(name: 'recoveryAttemptsLeft')]
-    #[Type(name: 'int')]
+    #[SerializedName('recoveryAttemptsLeft')]
+    #[Type('int')]
     #[XmlAttribute]
     private $recoveryAttemptsLeft;
 

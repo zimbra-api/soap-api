@@ -31,7 +31,7 @@ class GetIdentitiesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getIdentities', setter: 'setIdentities')]
-    #[Type(name: 'array<Zimbra\Account\Struct\Identity>')]
+    #[Type('array<Zimbra\Account\Struct\Identity>')]
     #[XmlList(inline: true, entry: 'identity', namespace: 'urn:zimbraAccount')]
     private $identities = [];
 

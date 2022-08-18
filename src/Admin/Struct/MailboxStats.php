@@ -29,8 +29,8 @@ class MailboxStats
      * @var int
      */
     #[Accessor(getter: 'getNumMboxes', setter: 'setNumMboxes')]
-    #[SerializedName(name: 'numMboxes')]
-    #[Type(name: 'int')]
+    #[SerializedName('numMboxes')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numMboxes;
 
@@ -40,8 +40,8 @@ class MailboxStats
      * @var int
      */
     #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName(name: 'totalSize')]
-    #[Type(name: 'int')]
+    #[SerializedName('totalSize')]
+    #[Type('int')]
     #[XmlAttribute]
     private $totalSize;
 

@@ -33,8 +33,8 @@ class SearchGalRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: 'string')]
+    #[SerializedName('domain')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domain;
 
@@ -44,8 +44,8 @@ class SearchGalRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -55,8 +55,8 @@ class SearchGalRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -66,8 +66,8 @@ class SearchGalRequest extends SoapRequest
      * @var GalSearchType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
     private $type;
 
@@ -77,8 +77,8 @@ class SearchGalRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName(name: 'galAcctId')]
-    #[Type(name: 'string')]
+    #[SerializedName('galAcctId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $galAccountId;
 

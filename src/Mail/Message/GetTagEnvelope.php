@@ -30,8 +30,8 @@ class GetTagEnvelope extends SoapEnvelope
      * @var GetTagBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetTagBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetTagBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -30,8 +30,8 @@ class ForwardAppointmentInviteEnvelope extends SoapEnvelope
      * @var ForwardAppointmentInviteBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ForwardAppointmentInviteBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ForwardAppointmentInviteBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

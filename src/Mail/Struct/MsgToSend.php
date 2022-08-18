@@ -31,8 +31,8 @@ class MsgToSend extends Msg
      * @var string
      */
     #[Accessor(getter: 'getDraftId', setter: 'setDraftId')]
-    #[SerializedName(name: 'did')]
-    #[Type(name: 'string')]
+    #[SerializedName('did')]
+    #[Type('string')]
     #[XmlAttribute]
     private $draftId;
 
@@ -42,8 +42,8 @@ class MsgToSend extends Msg
      * @var bool
      */
     #[Accessor(getter: 'getSendFromDraft', setter: 'setSendFromDraft')]
-    #[SerializedName(name: 'sfd')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sfd')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sendFromDraft;
 
@@ -53,8 +53,8 @@ class MsgToSend extends Msg
      * @var string
      */
     #[Accessor(getter: 'getDataSourceId', setter: 'setDataSourceId')]
-    #[SerializedName(name: 'dsId')]
-    #[Type(name: 'string')]
+    #[SerializedName('dsId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $dataSourceId;
 

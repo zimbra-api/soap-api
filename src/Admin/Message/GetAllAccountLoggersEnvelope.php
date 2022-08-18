@@ -30,8 +30,8 @@ class GetAllAccountLoggersEnvelope extends SoapEnvelope
      * @var GetAllAccountLoggersBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetAllAccountLoggersBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetAllAccountLoggersBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -45,8 +45,8 @@ class GetMailQueueRequest extends SoapRequest
      * @var Server
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: Server::class)]
+    #[SerializedName('server')]
+    #[Type(Server::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 

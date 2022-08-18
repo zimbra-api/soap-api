@@ -30,8 +30,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -41,8 +41,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var string
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'version')]
-    #[Type(name: 'string')]
+    #[SerializedName('version')]
+    #[Type('string')]
     #[XmlAttribute]
     private $version;
 
@@ -52,8 +52,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName(name: 'description')]
-    #[Type(name: 'string')]
+    #[SerializedName('description')]
+    #[Type('string')]
     #[XmlAttribute]
     private $description;
 
@@ -63,8 +63,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var string
      */
     #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName(name: 'extension')]
-    #[Type(name: 'string')]
+    #[SerializedName('extension')]
+    #[Type('string')]
     #[XmlAttribute]
     private $extension;
 
@@ -74,8 +74,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var string
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: 'string')]
+    #[SerializedName('target')]
+    #[Type('string')]
     #[XmlAttribute]
     private $target;
 
@@ -85,8 +85,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var string
      */
     #[Accessor(getter: 'getLabel', setter: 'setLabel')]
-    #[SerializedName(name: 'label')]
-    #[Type(name: 'string')]
+    #[SerializedName('label')]
+    #[Type('string')]
     #[XmlAttribute]
     private $label;
 
@@ -94,8 +94,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var ZimletServerExtension
      */
     #[Accessor(getter: 'getServerExtension', setter: 'setServerExtension')]
-    #[SerializedName(name: 'serverExtension')]
-    #[Type(name: ZimletServerExtension::class)]
+    #[SerializedName('serverExtension')]
+    #[Type(ZimletServerExtension::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $serverExtension;
 
@@ -103,8 +103,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var AccountZimletInclude
      */
     #[Accessor(getter: 'getZimletInclude', setter: 'setZimletInclude')]
-    #[SerializedName(name: 'include')]
-    #[Type(name: AccountZimletInclude::class)]
+    #[SerializedName('include')]
+    #[Type(AccountZimletInclude::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $include;
 
@@ -112,8 +112,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var AccountZimletIncludeCSS
      */
     #[Accessor(getter: 'getZimletIncludeCSS', setter: 'setZimletIncludeCSS')]
-    #[SerializedName(name: 'includeCSS')]
-    #[Type(name: AccountZimletIncludeCSS::class)]
+    #[SerializedName('includeCSS')]
+    #[Type(AccountZimletIncludeCSS::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $includeCSS;
 
@@ -121,8 +121,8 @@ class AccountZimletDesc implements ZimletDesc
      * @var AccountZimletTarget
      */
     #[Accessor(getter: 'getZimletTarget', setter: 'setZimletTarget')]
-    #[SerializedName(name: 'zimletTarget')]
-    #[Type(name: AccountZimletTarget::class)]
+    #[SerializedName('zimletTarget')]
+    #[Type(AccountZimletTarget::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $zimletTarget;
 

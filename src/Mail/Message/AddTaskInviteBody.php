@@ -28,8 +28,8 @@ class AddTaskInviteBody extends SoapBody
      * @var AddTaskInviteRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AddTaskInviteRequest')]
-    #[Type(name: AddTaskInviteRequest::class)]
+    #[SerializedName('AddTaskInviteRequest')]
+    #[Type(AddTaskInviteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class AddTaskInviteBody extends SoapBody
      * @var AddTaskInviteResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AddTaskInviteResponse')]
-    #[Type(name: AddTaskInviteResponse::class)]
+    #[SerializedName('AddTaskInviteResponse')]
+    #[Type(AddTaskInviteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

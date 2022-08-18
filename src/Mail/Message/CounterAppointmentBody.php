@@ -28,8 +28,8 @@ class CounterAppointmentBody extends SoapBody
      * @var CounterAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CounterAppointmentRequest')]
-    #[Type(name: CounterAppointmentRequest::class)]
+    #[SerializedName('CounterAppointmentRequest')]
+    #[Type(CounterAppointmentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class CounterAppointmentBody extends SoapBody
      * @var CounterAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CounterAppointmentResponse')]
-    #[Type(name: CounterAppointmentResponse::class)]
+    #[SerializedName('CounterAppointmentResponse')]
+    #[Type(CounterAppointmentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

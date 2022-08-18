@@ -31,8 +31,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -42,8 +42,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'password')]
-    #[Type(name: 'string')]
+    #[SerializedName('password')]
+    #[Type('string')]
     #[XmlAttribute]
     private $password;
 
@@ -53,8 +53,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName(name: 'authToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('authToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
@@ -64,8 +64,8 @@ class AuthRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -75,8 +75,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName(name: 'virtualHost')]
-    #[Type(name: 'string')]
+    #[SerializedName('virtualHost')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $virtualHost;
 
@@ -86,8 +86,8 @@ class AuthRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
-    #[SerializedName(name: 'persistAuthTokenCookie')]
-    #[Type(name: 'bool')]
+    #[SerializedName('persistAuthTokenCookie')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $persistAuthTokenCookie;
 
@@ -97,8 +97,8 @@ class AuthRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
-    #[SerializedName(name: 'csrfTokenSecured')]
-    #[Type(name: 'bool')]
+    #[SerializedName('csrfTokenSecured')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $csrfSupported;
 
@@ -108,8 +108,8 @@ class AuthRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
-    #[SerializedName(name: 'twoFactorCode')]
-    #[Type(name: 'string')]
+    #[SerializedName('twoFactorCode')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $twoFactorCode;
 

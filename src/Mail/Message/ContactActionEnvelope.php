@@ -30,8 +30,8 @@ class ContactActionEnvelope extends SoapEnvelope
      * @var ContactActionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ContactActionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ContactActionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

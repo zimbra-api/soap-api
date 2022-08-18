@@ -28,8 +28,8 @@ class SyncGalAccountBody extends SoapBody
      * @var SyncGalAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SyncGalAccountRequest')]
-    #[Type(name: SyncGalAccountRequest::class)]
+    #[SerializedName('SyncGalAccountRequest')]
+    #[Type(SyncGalAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class SyncGalAccountBody extends SoapBody
      * @var SyncGalAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SyncGalAccountResponse')]
-    #[Type(name: SyncGalAccountResponse::class)]
+    #[SerializedName('SyncGalAccountResponse')]
+    #[Type(SyncGalAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -35,7 +35,7 @@ class GetServerStatsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\Stat>')]
+    #[Type('array<Zimbra\Admin\Struct\Stat>')]
     #[XmlList(inline: true, entry: 'stat', namespace: 'urn:zimbraAdmin')]
     private $stats = [];
 

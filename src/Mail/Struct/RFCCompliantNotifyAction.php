@@ -29,8 +29,8 @@ class RFCCompliantNotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getFrom', setter: 'setFrom')]
-    #[SerializedName(name: 'from')]
-    #[Type(name: 'string')]
+    #[SerializedName('from')]
+    #[Type('string')]
     #[XmlAttribute]
     private $from;
 
@@ -40,8 +40,8 @@ class RFCCompliantNotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getImportance', setter: 'setImportance')]
-    #[SerializedName(name: 'importance')]
-    #[Type(name: 'string')]
+    #[SerializedName('importance')]
+    #[Type('string')]
     #[XmlAttribute]
     private $importance;
 
@@ -51,8 +51,8 @@ class RFCCompliantNotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getOptions', setter: 'setOptions')]
-    #[SerializedName(name: 'options')]
-    #[Type(name: 'string')]
+    #[SerializedName('options')]
+    #[Type('string')]
     #[XmlAttribute]
     private $options;
 
@@ -62,8 +62,8 @@ class RFCCompliantNotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName(name: 'message')]
-    #[Type(name: 'string')]
+    #[SerializedName('message')]
+    #[Type('string')]
     #[XmlAttribute]
     private $message;
 
@@ -73,8 +73,8 @@ class RFCCompliantNotifyAction extends FilterAction
      * @var string
      */
     #[Accessor(getter: "getMethod", setter: "setMethod")]
-    #[SerializedName(name: 'method')]
-    #[Type(name: 'string')]
+    #[SerializedName('method')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $method;
 

@@ -35,8 +35,8 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -46,8 +46,8 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -57,8 +57,8 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
      * @var bool
      */
     #[Accessor(getter: 'isSortAscending', setter: 'setSortAscending')]
-    #[SerializedName(name: 'sortAscending')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sortAscending')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sortAscending;
 
@@ -68,8 +68,8 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
      * @var DistributionList
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName(name: 'dl')]
-    #[Type(name: DistributionList::class)]
+    #[SerializedName('dl')]
+    #[Type(DistributionList::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dl;
 

@@ -31,8 +31,8 @@ class ModifyUCServiceResponse extends SoapResponse
      * @var UCServiceInfo
      */
     #[Accessor(getter: 'getUCService', setter: 'setUCService')]
-    #[SerializedName(name: 'ucservice')]
-    #[Type(name: UCServiceInfo::class)]
+    #[SerializedName('ucservice')]
+    #[Type(UCServiceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $ucService;
 

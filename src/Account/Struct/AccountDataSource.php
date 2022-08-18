@@ -31,8 +31,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -42,8 +42,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -53,8 +53,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -64,8 +64,8 @@ class AccountDataSource implements DataSource
      * @var bool
      */
     #[Accessor(getter: 'isEnabled', setter: 'setEnabled')]
-    #[SerializedName(name: 'isEnabled')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isEnabled')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $enabled;
 
@@ -75,8 +75,8 @@ class AccountDataSource implements DataSource
      * @var bool
      */
     #[Accessor(getter: 'isImportOnly', setter: 'setImportOnly')]
-    #[SerializedName(name: 'importOnly')]
-    #[Type(name: 'bool')]
+    #[SerializedName('importOnly')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $importOnly;
 
@@ -87,8 +87,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName(name: 'host')]
-    #[Type(name: 'string')]
+    #[SerializedName('host')]
+    #[Type('string')]
     #[XmlAttribute]
     private $host;
 
@@ -99,8 +99,8 @@ class AccountDataSource implements DataSource
      * @var int
      */
     #[Accessor(getter: 'getPort', setter: 'setPort')]
-    #[SerializedName(name: 'port')]
-    #[Type(name: 'int')]
+    #[SerializedName('port')]
+    #[Type('int')]
     #[XmlAttribute]
     private $port;
 
@@ -111,8 +111,8 @@ class AccountDataSource implements DataSource
      * @var ConnectionType
      */
     #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
-    #[SerializedName(name: 'connectionType')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ConnectionType>')]
+    #[SerializedName('connectionType')]
+    #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
     private $connectionType;
 
@@ -122,8 +122,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getUsername', setter: 'setUsername')]
-    #[SerializedName(name: 'username')]
-    #[Type(name: 'string')]
+    #[SerializedName('username')]
+    #[Type('string')]
     #[XmlAttribute]
     private $username;
 
@@ -133,8 +133,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName(name: 'password')]
-    #[Type(name: 'string')]
+    #[SerializedName('password')]
+    #[Type('string')]
     #[XmlAttribute]
     private $password;
 
@@ -144,8 +144,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getPollingInterval', setter: 'setPollingInterval')]
-    #[SerializedName(name: 'pollingInterval')]
-    #[Type(name: 'string')]
+    #[SerializedName('pollingInterval')]
+    #[Type('string')]
     #[XmlAttribute]
     private $pollingInterval;
 
@@ -155,8 +155,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getEmailAddress', setter: 'setEmailAddress')]
-    #[SerializedName(name: 'emailAddress')]
-    #[Type(name: 'string')]
+    #[SerializedName('emailAddress')]
+    #[Type('string')]
     #[XmlAttribute]
     private $emailAddress;
 
@@ -168,8 +168,8 @@ class AccountDataSource implements DataSource
      * @var bool
      */
     #[Accessor(getter: 'isUseAddressForForwardReply', setter: 'setUseAddressForForwardReply')]
-    #[SerializedName(name: 'useAddressForForwardReply')]
-    #[Type(name: 'bool')]
+    #[SerializedName('useAddressForForwardReply')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $useAddressForForwardReply;
 
@@ -179,8 +179,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getDefaultSignature', setter: 'setDefaultSignature')]
-    #[SerializedName(name: 'defaultSignature')]
-    #[Type(name: 'string')]
+    #[SerializedName('defaultSignature')]
+    #[Type('string')]
     #[XmlAttribute]
     private $defaultSignature;
 
@@ -190,8 +190,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getForwardReplySignature', setter: 'setForwardReplySignature')]
-    #[SerializedName(name: 'forwardReplySignature')]
-    #[Type(name: 'string')]
+    #[SerializedName('forwardReplySignature')]
+    #[Type('string')]
     #[XmlAttribute]
     private $forwardReplySignature;
 
@@ -201,8 +201,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getFromDisplay', setter: 'setFromDisplay')]
-    #[SerializedName(name: 'fromDisplay')]
-    #[Type(name: 'string')]
+    #[SerializedName('fromDisplay')]
+    #[Type('string')]
     #[XmlAttribute]
     private $fromDisplay;
 
@@ -212,8 +212,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getReplyToAddress', setter: 'setReplyToAddress')]
-    #[SerializedName(name: 'replyToAddress')]
-    #[Type(name: 'string')]
+    #[SerializedName('replyToAddress')]
+    #[Type('string')]
     #[XmlAttribute]
     private $replyToAddress;
 
@@ -223,8 +223,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getReplyToDisplay', setter: 'setReplyToDisplay')]
-    #[SerializedName(name: 'replyToDisplay')]
-    #[Type(name: 'string')]
+    #[SerializedName('replyToDisplay')]
+    #[Type('string')]
     #[XmlAttribute]
     private $replyToDisplay;
 
@@ -234,8 +234,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getImportClass', setter: 'setImportClass')]
-    #[SerializedName(name: 'importClass')]
-    #[Type(name: 'string')]
+    #[SerializedName('importClass')]
+    #[Type('string')]
     #[XmlAttribute]
     private $importClass;
 
@@ -245,8 +245,8 @@ class AccountDataSource implements DataSource
      * @var int
      */
     #[Accessor(getter: 'getFailingSince', setter: 'setFailingSince')]
-    #[SerializedName(name: 'failingSince')]
-    #[Type(name: 'int')]
+    #[SerializedName('failingSince')]
+    #[Type('int')]
     #[XmlAttribute]
     private $failingSince;
 
@@ -256,8 +256,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getLastError', setter: 'setLastError')]
-    #[SerializedName(name: 'lastError')]
-    #[Type(name: 'string')]
+    #[SerializedName('lastError')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $lastError;
 
@@ -267,7 +267,7 @@ class AccountDataSource implements DataSource
      * @var array
      */
     #[Accessor(getter: 'getAttributes', setter: 'setAttributes')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAccount')]
     private $attributes;
 
@@ -277,8 +277,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getRefreshToken', setter: 'setRefreshToken')]
-    #[SerializedName(name: 'refreshToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('refreshToken')]
+    #[Type('string')]
     #[XmlAttribute]
     private $refreshToken;
 
@@ -288,8 +288,8 @@ class AccountDataSource implements DataSource
      * @var string
      */
     #[Accessor(getter: 'getRefreshTokenUrl', setter: 'setRefreshTokenUrl')]
-    #[SerializedName(name: 'refreshTokenUrl')]
-    #[Type(name: 'string')]
+    #[SerializedName('refreshTokenUrl')]
+    #[Type('string')]
     #[XmlAttribute]
     private $refreshTokenUrl;
 

@@ -30,8 +30,8 @@ class GetWhiteBlackListResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getWhiteListEntries', setter: 'setWhiteListEntries')]
-    #[SerializedName(name: 'whiteList')]
-    #[Type(name: 'array<string>')]
+    #[SerializedName('whiteList')]
+    #[Type('array<string>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
     private $whiteListEntries = [];
@@ -42,8 +42,8 @@ class GetWhiteBlackListResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getBlackListEntries', setter: 'setBlackListEntries')]
-    #[SerializedName(name: 'blackList')]
-    #[Type(name: 'array<string>')]
+    #[SerializedName('blackList')]
+    #[Type('array<string>')]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
     private $blackListEntries = [];

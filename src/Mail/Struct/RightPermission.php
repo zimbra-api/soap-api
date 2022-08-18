@@ -30,8 +30,8 @@ class RightPermission
      * @var bool
      */
     #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName(name: 'allow')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allow')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allow;
 
@@ -41,7 +41,7 @@ class RightPermission
      * @var string
      */
     #[Accessor(getter: 'getRightName', setter: 'setRightName')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $rightName;
 

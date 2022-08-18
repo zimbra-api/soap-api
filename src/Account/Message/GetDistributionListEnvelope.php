@@ -30,8 +30,8 @@ class GetDistributionListEnvelope extends SoapEnvelope
      * @var GetDistributionListBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetDistributionListBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetDistributionListBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

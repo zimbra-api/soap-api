@@ -29,7 +29,7 @@ class SuggestedQueryString
      * @var string
      */
     #[Accessor(getter: 'getSuggestedQueryString', setter: 'setSuggestedQueryString')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $suggestedQueryString;
 

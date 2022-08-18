@@ -27,8 +27,8 @@ class IdStatus
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -36,8 +36,8 @@ class IdStatus
      * @var string
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'string')]
+    #[SerializedName('status')]
+    #[Type('string')]
     #[XmlAttribute]
     private $status;
 

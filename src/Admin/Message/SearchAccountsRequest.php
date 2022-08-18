@@ -32,8 +32,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName(name: 'query')]
-    #[Type(name: 'string')]
+    #[SerializedName('query')]
+    #[Type('string')]
     #[XmlAttribute]
     private $query;
 
@@ -43,8 +43,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -54,8 +54,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -65,8 +65,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: 'string')]
+    #[SerializedName('domain')]
+    #[Type('string')]
     #[XmlAttribute]
     private $domain;
 
@@ -77,8 +77,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName(name: 'applyCos')]
-    #[Type(name: 'bool')]
+    #[SerializedName('applyCos')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $applyCos;
 
@@ -88,8 +88,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'string')]
+    #[SerializedName('attrs')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attrs;
 
@@ -99,8 +99,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sortBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -110,8 +110,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName(name: 'types')]
-    #[Type(name: 'string')]
+    #[SerializedName('types')]
+    #[Type('string')]
     #[XmlAttribute]
     private $types;
 
@@ -121,8 +121,8 @@ class SearchAccountsRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName(name: 'sortAscending')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sortAscending')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sortAscending;
 

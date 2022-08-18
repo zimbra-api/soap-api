@@ -29,8 +29,8 @@ class LinkInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class LinkInfo
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName(name: 'uuid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uuid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uuid;
 
@@ -51,8 +51,8 @@ class LinkInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -62,8 +62,8 @@ class LinkInfo
      * @var string
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName(name: 'view')]
-    #[Type(name: 'string')]
+    #[SerializedName('view')]
+    #[Type('string')]
     #[XmlAttribute]
     private $defaultView;
 
@@ -73,8 +73,8 @@ class LinkInfo
      * @var string
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName(name: 'perm')]
-    #[Type(name: 'string')]
+    #[SerializedName('perm')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rights;
 

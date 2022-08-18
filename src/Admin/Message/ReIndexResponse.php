@@ -32,8 +32,8 @@ class ReIndexResponse extends SoapResponse
      * @var ReIndexStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ReIndexStatus>')]
+    #[SerializedName('status')]
+    #[Type('Enum<Zimbra\Common\Enum\ReIndexStatus>')]
     #[XmlAttribute]
     private $status;
 
@@ -43,8 +43,8 @@ class ReIndexResponse extends SoapResponse
      * @var ReindexProgressInfo
      */
     #[Accessor(getter: 'getProgress', setter: 'setProgress')]
-    #[SerializedName(name: 'progress')]
-    #[Type(name: ReindexProgressInfo::class)]
+    #[SerializedName('progress')]
+    #[Type(ReindexProgressInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $progress;
 

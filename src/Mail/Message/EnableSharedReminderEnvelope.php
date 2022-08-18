@@ -30,8 +30,8 @@ class EnableSharedReminderEnvelope extends SoapEnvelope
      * @var EnableSharedReminderBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: EnableSharedReminderBody::class)]
+    #[SerializedName('Body')]
+    #[Type(EnableSharedReminderBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -28,8 +28,8 @@ class BrowseBody extends SoapBody
      * @var BrowseRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'BrowseRequest')]
-    #[Type(name: BrowseRequest::class)]
+    #[SerializedName('BrowseRequest')]
+    #[Type(BrowseRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class BrowseBody extends SoapBody
      * @var BrowseResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'BrowseResponse')]
-    #[Type(name: BrowseResponse::class)]
+    #[SerializedName('BrowseResponse')]
+    #[Type(BrowseResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

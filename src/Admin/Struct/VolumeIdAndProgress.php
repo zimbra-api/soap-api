@@ -27,8 +27,8 @@ class VolumeIdAndProgress
      * @var string
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName(name: 'volumeId')]
-    #[Type(name: 'string')]
+    #[SerializedName('volumeId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $volumeId;
 
@@ -36,8 +36,8 @@ class VolumeIdAndProgress
      * @var string
      */
     #[Accessor(getter: 'getProgress', setter: 'setProgress')]
-    #[SerializedName(name: 'progress')]
-    #[Type(name: 'string')]
+    #[SerializedName('progress')]
+    #[Type('string')]
     #[XmlAttribute]
     private $progress;
 

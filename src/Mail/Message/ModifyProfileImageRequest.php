@@ -31,8 +31,8 @@ class ModifyProfileImageRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getUploadId', setter: 'setUploadId')]
-    #[SerializedName(name: 'uid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uploadId;
 
@@ -42,7 +42,7 @@ class ModifyProfileImageRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getImageB64Data', setter: 'setImageB64Data')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $imageB64Data;
 

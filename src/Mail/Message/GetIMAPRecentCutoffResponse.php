@@ -33,8 +33,8 @@ class GetIMAPRecentCutoffResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getCutoff', setter: 'setCutoff')]
-    #[SerializedName(name: 'cutoff')]
-    #[Type(name: 'int')]
+    #[SerializedName('cutoff')]
+    #[Type('int')]
     #[XmlAttribute]
     private $cutoff;
 

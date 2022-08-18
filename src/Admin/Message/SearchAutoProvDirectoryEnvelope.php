@@ -30,8 +30,8 @@ class SearchAutoProvDirectoryEnvelope extends SoapEnvelope
      * @var SearchAutoProvDirectoryBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SearchAutoProvDirectoryBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SearchAutoProvDirectoryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

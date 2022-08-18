@@ -30,8 +30,8 @@ class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope
      * @var SnoozeCalendarItemAlarmBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SnoozeCalendarItemAlarmBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SnoozeCalendarItemAlarmBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

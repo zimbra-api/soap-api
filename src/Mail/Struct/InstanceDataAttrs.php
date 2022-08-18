@@ -36,8 +36,8 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
      * @var int
      */
     #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName(name: 'dur')]
-    #[Type(name: 'int')]
+    #[SerializedName('dur')]
+    #[Type('int')]
     #[XmlAttribute]
     private $duration;
 

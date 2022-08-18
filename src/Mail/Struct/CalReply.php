@@ -30,8 +30,8 @@ class CalReply extends RecurIdInfo
      * @var string
      */
     #[Accessor(getter: 'getAttendee', setter: 'setAttendee')]
-    #[SerializedName(name: 'at')]
-    #[Type(name: 'string')]
+    #[SerializedName('at')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attendee;
 
@@ -41,8 +41,8 @@ class CalReply extends RecurIdInfo
      * @var string
      */
     #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
-    #[SerializedName(name: 'sentBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sentBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sentBy;
 
@@ -56,8 +56,8 @@ class CalReply extends RecurIdInfo
      * @var ParticipationStatus
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName(name: 'ptst')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[SerializedName('ptst')]
+    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
     private $partStat;
 
@@ -67,8 +67,8 @@ class CalReply extends RecurIdInfo
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName(name: 'seq')]
-    #[Type(name: 'int')]
+    #[SerializedName('seq')]
+    #[Type('int')]
     #[XmlAttribute]
     private $sequence;
 
@@ -78,8 +78,8 @@ class CalReply extends RecurIdInfo
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName(name: 'd')]
-    #[Type(name: 'int')]
+    #[SerializedName('d')]
+    #[Type('int')]
     #[XmlAttribute]
     private $date;
 

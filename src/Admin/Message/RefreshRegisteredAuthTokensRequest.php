@@ -31,7 +31,7 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getTokens', setter: 'setTokens')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'token', namespace: 'urn:zimbraAdmin')]
     private $tokens = [];
 

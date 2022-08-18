@@ -28,8 +28,8 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
      * @var RefreshRegisteredAuthTokensRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RefreshRegisteredAuthTokensRequest')]
-    #[Type(name: RefreshRegisteredAuthTokensRequest::class)]
+    #[SerializedName('RefreshRegisteredAuthTokensRequest')]
+    #[Type(RefreshRegisteredAuthTokensRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
      * @var RefreshRegisteredAuthTokensResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RefreshRegisteredAuthTokensResponse')]
-    #[Type(name: RefreshRegisteredAuthTokensResponse::class)]
+    #[SerializedName('RefreshRegisteredAuthTokensResponse')]
+    #[Type(RefreshRegisteredAuthTokensResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

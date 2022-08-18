@@ -30,8 +30,8 @@ class GetIMAPRecentEnvelope extends SoapEnvelope
      * @var GetIMAPRecentBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetIMAPRecentBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetIMAPRecentBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

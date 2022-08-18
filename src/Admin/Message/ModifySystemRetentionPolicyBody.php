@@ -28,8 +28,8 @@ class ModifySystemRetentionPolicyBody extends SoapBody
      * @var ModifySystemRetentionPolicyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifySystemRetentionPolicyRequest')]
-    #[Type(name: ModifySystemRetentionPolicyRequest::class)]
+    #[SerializedName('ModifySystemRetentionPolicyRequest')]
+    #[Type(ModifySystemRetentionPolicyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class ModifySystemRetentionPolicyBody extends SoapBody
      * @var ModifySystemRetentionPolicyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifySystemRetentionPolicyResponse')]
-    #[Type(name: ModifySystemRetentionPolicyResponse::class)]
+    #[SerializedName('ModifySystemRetentionPolicyResponse')]
+    #[Type(ModifySystemRetentionPolicyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

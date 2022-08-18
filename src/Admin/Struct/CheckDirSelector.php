@@ -29,8 +29,8 @@ class CheckDirSelector
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName(name: 'path')]
-    #[Type(name: 'string')]
+    #[SerializedName('path')]
+    #[Type('string')]
     #[XmlAttribute]
     private $path;
 
@@ -40,8 +40,8 @@ class CheckDirSelector
      * @var bool
      */
     #[Accessor(getter: 'isCreate', setter: 'setCreate')]
-    #[SerializedName(name: 'create')]
-    #[Type(name: 'bool')]
+    #[SerializedName('create')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $create;
 

@@ -30,8 +30,8 @@ class AddCommentEnvelope extends SoapEnvelope
      * @var AddCommentBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: AddCommentBody::class)]
+    #[SerializedName('Body')]
+    #[Type(AddCommentBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

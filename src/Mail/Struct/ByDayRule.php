@@ -31,7 +31,7 @@ class ByDayRule implements ByDayRuleInterface
      * @var array
      */
     #[Accessor(getter: 'getDays', setter: 'setDays')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\WkDay>')]
+    #[Type('array<Zimbra\Mail\Struct\WkDay>')]
     #[XmlList(inline: true, entry: 'wkday', namespace: 'urn:zimbraMail')]
     private $days = [];
 

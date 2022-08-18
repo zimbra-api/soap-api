@@ -43,8 +43,8 @@ class SaveDraftRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName(name: 'wantImapUid')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wantImapUid')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantImapUid;
 
@@ -54,8 +54,8 @@ class SaveDraftRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName(name: 'wantModSeq')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wantModSeq')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
@@ -65,8 +65,8 @@ class SaveDraftRequest extends SoapRequest
      * @var SaveDraftMsg
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: SaveDraftMsg::class)]
+    #[SerializedName('m')]
+    #[Type(SaveDraftMsg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 

@@ -43,8 +43,8 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @var EffectiveRightsTargetSelector
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName(name: 'target')]
-    #[Type(name: EffectiveRightsTargetSelector::class)]
+    #[SerializedName('target')]
+    #[Type(EffectiveRightsTargetSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
@@ -54,8 +54,8 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @var GranteeSelector
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName(name: 'grantee')]
-    #[Type(name: GranteeSelector::class)]
+    #[SerializedName('grantee')]
+    #[Type(GranteeSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
@@ -65,8 +65,8 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @var CheckedRight
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName(name: 'right')]
-    #[Type(name: CheckedRight::class)]
+    #[SerializedName('right')]
+    #[Type(CheckedRight::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $right;
 

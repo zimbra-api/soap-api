@@ -31,8 +31,8 @@ class RenameLDAPEntryResponse extends SoapResponse
      * @var LDAPEntryInfo
      */
     #[Accessor(getter: 'getLDAPEntry', setter: 'setLDAPEntry')]
-    #[SerializedName(name: 'LDAPEntry')]
-    #[Type(name: LDAPEntryInfo::class)]
+    #[SerializedName('LDAPEntry')]
+    #[Type(LDAPEntryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $LDAPEntry;
 

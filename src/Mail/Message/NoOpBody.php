@@ -28,8 +28,8 @@ class NoOpBody extends SoapBody
      * @var NoOpRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'NoOpRequest')]
-    #[Type(name: NoOpRequest::class)]
+    #[SerializedName('NoOpRequest')]
+    #[Type(NoOpRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class NoOpBody extends SoapBody
      * @var NoOpResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'NoOpResponse')]
-    #[Type(name: NoOpResponse::class)]
+    #[SerializedName('NoOpResponse')]
+    #[Type(NoOpResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

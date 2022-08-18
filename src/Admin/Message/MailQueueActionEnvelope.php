@@ -30,8 +30,8 @@ class MailQueueActionEnvelope extends SoapEnvelope
      * @var MailQueueActionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: MailQueueActionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(MailQueueActionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

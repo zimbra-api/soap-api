@@ -30,8 +30,8 @@ class ImportAppointmentsResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName(name: 'ids')]
-    #[Type(name: 'string')]
+    #[SerializedName('ids')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ids;
 
@@ -41,8 +41,8 @@ class ImportAppointmentsResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'int')]
+    #[SerializedName('n')]
+    #[Type('int')]
     #[XmlAttribute]
     private $num;
 

@@ -28,8 +28,8 @@ class Context
      * @var int
      */
     #[Accessor(getter: 'getHopCount', setter: 'setHopCount')]
-    #[SerializedName(name: 'hops')]
-    #[Type(name: 'int')]
+    #[SerializedName('hops')]
+    #[Type('int')]
     #[XmlAttribute]
     private $hopCount;
 
@@ -37,8 +37,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName(name: 'authToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('authToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $authToken;
 
@@ -46,8 +46,8 @@ class Context
      * @var SessionInfo
      */
     #[Accessor(getter: 'getSession', setter: 'setSession')]
-    #[SerializedName(name: 'session')]
-    #[Type(name: SessionInfo::class)]
+    #[SerializedName('session')]
+    #[Type(SessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $session;
 
@@ -55,8 +55,8 @@ class Context
      * @var SessionInfo
      */
     #[Accessor(getter: 'getLegacySessionId', setter: 'setLegacySessionId')]
-    #[SerializedName(name: 'sessionId')]
-    #[Type(name: SessionInfo::class)]
+    #[SerializedName('sessionId')]
+    #[Type(SessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $legacySessionId;
 
@@ -64,8 +64,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getNoSession', setter: 'setNoSession')]
-    #[SerializedName(name: 'nosession')]
-    #[Type(name: 'string')]
+    #[SerializedName('nosession')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $noSession;
 
@@ -73,8 +73,8 @@ class Context
      * @var AccountInfo
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountInfo::class)]
+    #[SerializedName('account')]
+    #[Type(AccountInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $account;
 
@@ -82,8 +82,8 @@ class Context
      * @var ChangeInfo
      */
     #[Accessor(getter: 'getChange', setter: 'setChange')]
-    #[SerializedName(name: 'change')]
-    #[Type(name: ChangeInfo::class)]
+    #[SerializedName('change')]
+    #[Type(ChangeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $change;
 
@@ -91,8 +91,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getTargetServer', setter: 'setTargetServer')]
-    #[SerializedName(name: 'targetServer')]
-    #[Type(name: 'string')]
+    #[SerializedName('targetServer')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $targetServer;
 
@@ -100,8 +100,8 @@ class Context
      * @var UserAgentInfo
      */
     #[Accessor(getter: 'getUserAgent', setter: 'setUserAgent')]
-    #[SerializedName(name: 'userAgent')]
-    #[Type(name: UserAgentInfo::class)]
+    #[SerializedName('userAgent')]
+    #[Type(UserAgentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $userAgent;
 
@@ -109,8 +109,8 @@ class Context
      * @var AuthTokenControl
      */
     #[Accessor(getter: 'getAuthTokenControl', setter: 'setAuthTokenControl')]
-    #[SerializedName(name: 'authTokenControl')]
-    #[Type(name: AuthTokenControl::class)]
+    #[SerializedName('authTokenControl')]
+    #[Type(AuthTokenControl::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $authTokenControl;
 
@@ -118,8 +118,8 @@ class Context
      * @var FormatInfo
      */
     #[Accessor(getter: 'getFormat', setter: 'setFormat')]
-    #[SerializedName(name: 'format')]
-    #[Type(name: FormatInfo::class)]
+    #[SerializedName('format')]
+    #[Type(FormatInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $format;
 
@@ -127,8 +127,8 @@ class Context
      * @var NotifyInfo
      */
     #[Accessor(getter: 'getNotify', setter: 'setNotify')]
-    #[SerializedName(name: 'notify')]
-    #[Type(name: NotifyInfo::class)]
+    #[SerializedName('notify')]
+    #[Type(NotifyInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $notify;
 
@@ -136,8 +136,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getNoNotify', setter: 'setNoNotify')]
-    #[SerializedName(name: 'nonotify')]
-    #[Type(name: 'string')]
+    #[SerializedName('nonotify')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $noNotify;
 
@@ -145,8 +145,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getNoQualify', setter: 'setNoQualify')]
-    #[SerializedName(name: 'noqualify')]
-    #[Type(name: 'string')]
+    #[SerializedName('noqualify')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $noQualify;
 
@@ -154,8 +154,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName(name: 'via')]
-    #[Type(name: 'string')]
+    #[SerializedName('via')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $via;
 
@@ -163,8 +163,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getSoapRequestId', setter: 'setSoapRequestId')]
-    #[SerializedName(name: 'soapId')]
-    #[Type(name: 'string')]
+    #[SerializedName('soapId')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $soapRequestId;
 
@@ -172,8 +172,8 @@ class Context
      * @var string
      */
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
-    #[SerializedName(name: 'csrfToken')]
-    #[Type(name: 'string')]
+    #[SerializedName('csrfToken')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
     private $csrfToken;
 

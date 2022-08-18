@@ -34,8 +34,8 @@ class FixCalendarTZRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName(name: 'sync')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sync')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sync;
 
@@ -46,8 +46,8 @@ class FixCalendarTZRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getAfter', setter: 'setAfter')]
-    #[SerializedName(name: 'after')]
-    #[Type(name: 'int')]
+    #[SerializedName('after')]
+    #[Type('int')]
     #[XmlAttribute]
     private $after;
 
@@ -57,7 +57,7 @@ class FixCalendarTZRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
     #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
@@ -67,8 +67,8 @@ class FixCalendarTZRequest extends SoapRequest
      * @var TzFixup
      */
     #[Accessor(getter: 'getTzFixup', setter: 'setTzFixup')]
-    #[SerializedName(name: 'tzfixup')]
-    #[Type(name: TzFixup::class)]
+    #[SerializedName('tzfixup')]
+    #[Type(TzFixup::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $tzFixup;
 

@@ -28,8 +28,8 @@ class ModifyProfileImageBody extends SoapBody
      * @var ModifyProfileImageRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifyProfileImageRequest')]
-    #[Type(name: ModifyProfileImageRequest::class)]
+    #[SerializedName('ModifyProfileImageRequest')]
+    #[Type(ModifyProfileImageRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class ModifyProfileImageBody extends SoapBody
      * @var ModifyProfileImageResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifyProfileImageResponse')]
-    #[Type(name: ModifyProfileImageResponse::class)]
+    #[SerializedName('ModifyProfileImageResponse')]
+    #[Type(ModifyProfileImageResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

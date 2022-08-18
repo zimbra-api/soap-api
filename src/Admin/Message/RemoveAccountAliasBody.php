@@ -28,8 +28,8 @@ class RemoveAccountAliasBody extends SoapBody
      * @var RemoveAccountAliasRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RemoveAccountAliasRequest')]
-    #[Type(name: RemoveAccountAliasRequest::class)]
+    #[SerializedName('RemoveAccountAliasRequest')]
+    #[Type(RemoveAccountAliasRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class RemoveAccountAliasBody extends SoapBody
      * @var RemoveAccountAliasResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RemoveAccountAliasResponse')]
-    #[Type(name: RemoveAccountAliasResponse::class)]
+    #[SerializedName('RemoveAccountAliasResponse')]
+    #[Type(RemoveAccountAliasResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -28,8 +28,8 @@ class SetLocalServerOnlineBody extends SoapBody
      * @var SetLocalServerOnlineRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SetLocalServerOnlineRequest')]
-    #[Type(name: SetLocalServerOnlineRequest::class)]
+    #[SerializedName('SetLocalServerOnlineRequest')]
+    #[Type(SetLocalServerOnlineRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class SetLocalServerOnlineBody extends SoapBody
      * @var SetLocalServerOnlineResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SetLocalServerOnlineResponse')]
-    #[Type(name: SetLocalServerOnlineResponse::class)]
+    #[SerializedName('SetLocalServerOnlineResponse')]
+    #[Type(SetLocalServerOnlineResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

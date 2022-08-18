@@ -30,8 +30,8 @@ class GetContactBackupListEnvelope extends SoapEnvelope
      * @var GetContactBackupListBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetContactBackupListBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetContactBackupListBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

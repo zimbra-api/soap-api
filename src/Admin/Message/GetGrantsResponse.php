@@ -31,7 +31,7 @@ class GetGrantsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\GrantInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\GrantInfo>')]
     #[XmlList(inline: true, entry: 'grant', namespace: 'urn:zimbraAdmin')]
     private $grants = [];
 

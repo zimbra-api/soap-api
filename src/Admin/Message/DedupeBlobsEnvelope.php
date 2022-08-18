@@ -30,8 +30,8 @@ class DedupeBlobsEnvelope extends SoapEnvelope
      * @var DedupeBlobsBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DedupeBlobsBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DedupeBlobsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

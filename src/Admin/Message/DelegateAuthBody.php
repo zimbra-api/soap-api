@@ -28,8 +28,8 @@ class DelegateAuthBody extends SoapBody
      * @var DelegateAuthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DelegateAuthRequest')]
-    #[Type(name: DelegateAuthRequest::class)]
+    #[SerializedName('DelegateAuthRequest')]
+    #[Type(DelegateAuthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class DelegateAuthBody extends SoapBody
      * @var DelegateAuthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DelegateAuthResponse')]
-    #[Type(name: DelegateAuthResponse::class)]
+    #[SerializedName('DelegateAuthResponse')]
+    #[Type(DelegateAuthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

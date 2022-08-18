@@ -28,8 +28,8 @@ class SetAppointmentBody extends SoapBody
      * @var SetAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SetAppointmentRequest')]
-    #[Type(name: SetAppointmentRequest::class)]
+    #[SerializedName('SetAppointmentRequest')]
+    #[Type(SetAppointmentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class SetAppointmentBody extends SoapBody
      * @var SetAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SetAppointmentResponse')]
-    #[Type(name: SetAppointmentResponse::class)]
+    #[SerializedName('SetAppointmentResponse')]
+    #[Type(SetAppointmentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

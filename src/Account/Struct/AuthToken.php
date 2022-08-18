@@ -29,7 +29,7 @@ class AuthToken
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -40,8 +40,8 @@ class AuthToken
      * @var bool
      */
     #[Accessor(getter: 'getVerifyAccount', setter: 'setVerifyAccount')]
-    #[SerializedName(name: 'verifyAccount')]
-    #[Type(name: 'bool')]
+    #[SerializedName('verifyAccount')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $verifyAccount;
 
@@ -51,8 +51,8 @@ class AuthToken
      * @var int
      */
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName(name: 'lifetime')]
-    #[Type(name: 'int')]
+    #[SerializedName('lifetime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $lifetime;
 

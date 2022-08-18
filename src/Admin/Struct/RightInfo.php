@@ -30,8 +30,8 @@ class RightInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -41,8 +41,8 @@ class RightInfo
      * @var RightType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\RightType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\RightType>')]
     #[XmlAttribute]
     private $type;
 
@@ -52,8 +52,8 @@ class RightInfo
      * @var string
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName(name: 'targetType')]
-    #[Type(name: 'string')]
+    #[SerializedName('targetType')]
+    #[Type('string')]
     #[XmlAttribute]
     private $targetType;
 
@@ -63,8 +63,8 @@ class RightInfo
      * @var RightClass
      */
     #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
-    #[SerializedName(name: 'rightClass')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\RightClass>')]
+    #[SerializedName('rightClass')]
+    #[Type('Enum<Zimbra\Common\Enum\RightClass>')]
     #[XmlAttribute]
     private $rightClass;
 
@@ -74,8 +74,8 @@ class RightInfo
      * @var string
      */
     #[Accessor(getter: 'getDesc', setter: 'setDesc')]
-    #[SerializedName(name: 'desc')]
-    #[Type(name: 'string')]
+    #[SerializedName('desc')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $desc;
 
@@ -85,8 +85,8 @@ class RightInfo
      * @var RightsAttrs
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: RightsAttrs::class)]
+    #[SerializedName('attrs')]
+    #[Type(RightsAttrs::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $attrs;
 
@@ -96,8 +96,8 @@ class RightInfo
      * @var ComboRights
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName(name: 'rights')]
-    #[Type(name: ComboRights::class)]
+    #[SerializedName('rights')]
+    #[Type(ComboRights::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $rights;
 

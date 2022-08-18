@@ -28,8 +28,8 @@ class CheckHostnameResolveBody extends SoapBody
      * @var CheckHostnameResolveRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckHostnameResolveRequest')]
-    #[Type(name: CheckHostnameResolveRequest::class)]
+    #[SerializedName('CheckHostnameResolveRequest')]
+    #[Type(CheckHostnameResolveRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CheckHostnameResolveBody extends SoapBody
      * @var CheckHostnameResolveResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckHostnameResolveResponse')]
-    #[Type(name: CheckHostnameResolveResponse::class)]
+    #[SerializedName('CheckHostnameResolveResponse')]
+    #[Type(CheckHostnameResolveResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

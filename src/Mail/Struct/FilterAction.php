@@ -29,8 +29,8 @@ class FilterAction
      * @var int
      */
     #[Accessor(getter: 'getIndex', setter: 'setIndex')]
-    #[SerializedName(name: 'index')]
-    #[Type(name: 'int')]
+    #[SerializedName('index')]
+    #[Type('int')]
     #[XmlAttribute]
     private $index;
 

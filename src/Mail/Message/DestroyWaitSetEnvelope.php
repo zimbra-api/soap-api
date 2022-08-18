@@ -30,8 +30,8 @@ class DestroyWaitSetEnvelope extends SoapEnvelope
      * @var DestroyWaitSetBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DestroyWaitSetBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DestroyWaitSetBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -28,8 +28,8 @@ class SyncBody extends SoapBody
      * @var SyncRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SyncRequest')]
-    #[Type(name: SyncRequest::class)]
+    #[SerializedName('SyncRequest')]
+    #[Type(SyncRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class SyncBody extends SoapBody
      * @var SyncResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SyncResponse')]
-    #[Type(name: SyncResponse::class)]
+    #[SerializedName('SyncResponse')]
+    #[Type(SyncResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

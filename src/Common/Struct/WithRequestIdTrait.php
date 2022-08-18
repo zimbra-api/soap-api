@@ -29,8 +29,8 @@ trait WithRequestIdTrait
      * @var string
      */
     #[Accessor(getter: 'getRequestId', setter: 'setRequestId')]
-    #[SerializedName(name: 'requestId')]
-    #[Type(name: 'string')]
+    #[SerializedName('requestId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $requestId;
 

@@ -28,8 +28,8 @@ class GetAvailableLocalesBody extends SoapBody
      * @var GetAvailableLocalesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAvailableLocalesRequest')]
-    #[Type(name: GetAvailableLocalesRequest::class)]
+    #[SerializedName('GetAvailableLocalesRequest')]
+    #[Type(GetAvailableLocalesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetAvailableLocalesBody extends SoapBody
      * @var GetAvailableLocalesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAvailableLocalesResponse')]
-    #[Type(name: GetAvailableLocalesResponse::class)]
+    #[SerializedName('GetAvailableLocalesResponse')]
+    #[Type(GetAvailableLocalesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

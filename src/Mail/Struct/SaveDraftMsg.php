@@ -30,8 +30,8 @@ class SaveDraftMsg extends Msg
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -41,8 +41,8 @@ class SaveDraftMsg extends Msg
      * @var string
      */
     #[Accessor(getter: 'getDraftAccountId', setter: 'setDraftAccountId')]
-    #[SerializedName(name: 'forAcct')]
-    #[Type(name: 'string')]
+    #[SerializedName('forAcct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $draftAccountId;
 
@@ -52,8 +52,8 @@ class SaveDraftMsg extends Msg
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 
@@ -63,8 +63,8 @@ class SaveDraftMsg extends Msg
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tagNames;
 
@@ -74,8 +74,8 @@ class SaveDraftMsg extends Msg
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName(name: 'rgb')]
-    #[Type(name: 'string')]
+    #[SerializedName('rgb')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rgb;
 
@@ -85,8 +85,8 @@ class SaveDraftMsg extends Msg
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName(name: 'color')]
-    #[Type(name: 'int')]
+    #[SerializedName('color')]
+    #[Type('int')]
     #[XmlAttribute]
     private $color;
 
@@ -96,8 +96,8 @@ class SaveDraftMsg extends Msg
      * @var int
      */
     #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
-    #[SerializedName(name: 'autoSendTime')]
-    #[Type(name: 'int')]
+    #[SerializedName('autoSendTime')]
+    #[Type('int')]
     #[XmlAttribute]
     private $autoSendTime;
 

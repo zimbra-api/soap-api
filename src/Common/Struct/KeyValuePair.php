@@ -27,8 +27,8 @@ class KeyValuePair
      * @var string
      */
     #[Accessor(getter: 'getKey', setter: 'setKey')]
-    #[SerializedName(name: 'n')]
-    #[Type(name: 'string')]
+    #[SerializedName('n')]
+    #[Type('string')]
     #[XmlAttribute]
     private $key;
 
@@ -36,7 +36,7 @@ class KeyValuePair
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

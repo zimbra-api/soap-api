@@ -28,8 +28,8 @@ class GetGrantsBody extends SoapBody
      * @var GetGrantsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetGrantsRequest')]
-    #[Type(name: GetGrantsRequest::class)]
+    #[SerializedName('GetGrantsRequest')]
+    #[Type(GetGrantsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetGrantsBody extends SoapBody
      * @var GetGrantsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetGrantsResponse')]
-    #[Type(name: GetGrantsResponse::class)]
+    #[SerializedName('GetGrantsResponse')]
+    #[Type(GetGrantsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

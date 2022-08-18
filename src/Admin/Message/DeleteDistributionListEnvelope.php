@@ -30,8 +30,8 @@ class DeleteDistributionListEnvelope extends SoapEnvelope
      * @var DeleteDistributionListBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: DeleteDistributionListBody::class)]
+    #[SerializedName('Body')]
+    #[Type(DeleteDistributionListBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

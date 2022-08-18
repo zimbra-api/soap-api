@@ -28,8 +28,8 @@ class CheckPasswordStrengthBody extends SoapBody
      * @var CheckPasswordStrengthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckPasswordStrengthRequest')]
-    #[Type(name: CheckPasswordStrengthRequest::class)]
+    #[SerializedName('CheckPasswordStrengthRequest')]
+    #[Type(CheckPasswordStrengthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CheckPasswordStrengthBody extends SoapBody
      * @var CheckPasswordStrengthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckPasswordStrengthResponse')]
-    #[Type(name: CheckPasswordStrengthResponse::class)]
+    #[SerializedName('CheckPasswordStrengthResponse')]
+    #[Type(CheckPasswordStrengthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

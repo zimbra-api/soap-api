@@ -33,8 +33,8 @@ class ContactBackupRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getServers', setter: 'setServers')]
-    #[SerializedName(name: 'servers')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ServerSelector>')]
+    #[SerializedName('servers')]
+    #[Type('array<Zimbra\Admin\Struct\ServerSelector>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'server', namespace: 'urn:zimbraAdmin')]
     private $servers = [];
@@ -45,8 +45,8 @@ class ContactBackupRequest extends SoapRequest
      * @var ContactBackupOp
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ContactBackupOp>')]
+    #[SerializedName('op')]
+    #[Type('Enum<Zimbra\Common\Enum\ContactBackupOp>')]
     #[XmlAttribute]
     private $op;
 

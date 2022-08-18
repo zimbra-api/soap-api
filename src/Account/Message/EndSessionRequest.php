@@ -34,8 +34,8 @@ class EndSessionRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isLogOff', setter: 'setLogOff')]
-    #[SerializedName(name: 'logoff')]
-    #[Type(name: 'bool')]
+    #[SerializedName('logoff')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $logoff;
 
@@ -45,8 +45,8 @@ class EndSessionRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isClearAllSoapSessions', setter: 'setClearAllSoapSessions')]
-    #[SerializedName(name: 'all')]
-    #[Type(name: 'bool')]
+    #[SerializedName('all')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $clearAllSoapSessions;
 
@@ -56,8 +56,8 @@ class EndSessionRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'isExcludeCurrentSession', setter: 'setExcludeCurrentSession')]
-    #[SerializedName(name: 'excludeCurrent')]
-    #[Type(name: 'bool')]
+    #[SerializedName('excludeCurrent')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $excludeCurrentSession;
 
@@ -67,8 +67,8 @@ class EndSessionRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName(name: 'sessionId')]
-    #[Type(name: 'string')]
+    #[SerializedName('sessionId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sessionId;
 

@@ -30,8 +30,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -41,8 +41,8 @@ class VolumeInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -52,8 +52,8 @@ class VolumeInfo
      * @var string
      */
     #[Accessor(getter: 'getRootPath', setter: 'setRootPath')]
-    #[SerializedName(name: 'rootpath')]
-    #[Type(name: 'string')]
+    #[SerializedName('rootpath')]
+    #[Type('string')]
     #[XmlAttribute]
     private $rootPath;
 
@@ -63,8 +63,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'int')]
+    #[SerializedName('type')]
+    #[Type('int')]
     #[XmlAttribute]
     private $type;
 
@@ -74,8 +74,8 @@ class VolumeInfo
      * @var bool
      */
     #[Accessor(getter: 'getCompressBlobs', setter: 'setCompressBlobs')]
-    #[SerializedName(name: 'compressBlobs')]
-    #[Type(name: 'bool')]
+    #[SerializedName('compressBlobs')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $compressBlobs;
 
@@ -86,8 +86,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getCompressionThreshold', setter: 'setCompressionThreshold')]
-    #[SerializedName(name: 'compressionThreshold')]
-    #[Type(name: 'int')]
+    #[SerializedName('compressionThreshold')]
+    #[Type('int')]
     #[XmlAttribute]
     private $compressionThreshold;
 
@@ -97,8 +97,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getMgbits', setter: 'setMgbits')]
-    #[SerializedName(name: 'mgbits')]
-    #[Type(name: 'int')]
+    #[SerializedName('mgbits')]
+    #[Type('int')]
     #[XmlAttribute]
     private $mgbits;
 
@@ -108,8 +108,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getMbits', setter: 'setMbits')]
-    #[SerializedName(name: 'mbits')]
-    #[Type(name: 'int')]
+    #[SerializedName('mbits')]
+    #[Type('int')]
     #[XmlAttribute]
     private $mbits;
 
@@ -119,8 +119,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getFgbits', setter: 'setFgbits')]
-    #[SerializedName(name: 'fgbits')]
-    #[Type(name: 'int')]
+    #[SerializedName('fgbits')]
+    #[Type('int')]
     #[XmlAttribute]
     private $fgbits;
 
@@ -130,8 +130,8 @@ class VolumeInfo
      * @var int
      */
     #[Accessor(getter: 'getFbits', setter: 'setFbits')]
-    #[SerializedName(name: 'fbits')]
-    #[Type(name: 'int')]
+    #[SerializedName('fbits')]
+    #[Type('int')]
     #[XmlAttribute]
     private $fbits;
 
@@ -141,8 +141,8 @@ class VolumeInfo
      * @var bool
      */
     #[Accessor(getter: 'isCurrent', setter: 'setCurrent')]
-    #[SerializedName(name: 'isCurrent')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isCurrent')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $current;
 

@@ -33,8 +33,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -44,8 +44,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getTzStdOffset', setter: 'setTzStdOffset')]
-    #[SerializedName(name: 'stdoff')]
-    #[Type(name: 'int')]
+    #[SerializedName('stdoff')]
+    #[Type('int')]
     #[XmlAttribute]
     private $tzStdOffset;
 
@@ -55,8 +55,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var int
      */
     #[Accessor(getter: 'getTzDayOffset', setter: 'setTzDayOffset')]
-    #[SerializedName(name: 'dayoff')]
-    #[Type(name: 'int')]
+    #[SerializedName('dayoff')]
+    #[Type('int')]
     #[XmlAttribute]
     private $tzDayOffset;
 
@@ -67,8 +67,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var TzOnsetInfo
      */
     #[Accessor(getter: "getStandardTzOnset", setter: "setStandardTzOnset")]
-    #[SerializedName(name: 'standard')]
-    #[Type(name: TzOnsetInfo::class)]
+    #[SerializedName('standard')]
+    #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $standardTzOnset;
 
@@ -78,8 +78,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var TzOnsetInfo
      */
     #[Accessor(getter: "getDaylightTzOnset", setter: "setDaylightTzOnset")]
-    #[SerializedName(name: 'daylight')]
-    #[Type(name: TzOnsetInfo::class)]
+    #[SerializedName('daylight')]
+    #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $daylightTzOnset;
 
@@ -89,8 +89,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getStandardTZName', setter: 'setStandardTZName')]
-    #[SerializedName(name: 'stdname')]
-    #[Type(name: 'string')]
+    #[SerializedName('stdname')]
+    #[Type('string')]
     #[XmlAttribute]
     private $standardTZName;
 
@@ -100,8 +100,8 @@ class CalTZInfo implements CalTZInfoInterface
      * @var string
      */
     #[Accessor(getter: 'getDaylightTZName', setter: 'setDaylightTZName')]
-    #[SerializedName(name: 'dayname')]
-    #[Type(name: 'string')]
+    #[SerializedName('dayname')]
+    #[Type('string')]
     #[XmlAttribute]
     private $daylightTZName;
 

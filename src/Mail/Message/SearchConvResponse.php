@@ -44,8 +44,8 @@ class SearchConvResponse extends SoapResponse
      * @var SearchSortBy
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[SerializedName('sortBy')]
+    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -56,8 +56,8 @@ class SearchConvResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getQueryOffset', setter: 'setQueryOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $queryOffset;
 
@@ -67,8 +67,8 @@ class SearchConvResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getQueryMore', setter: 'setQueryMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $queryMore;
 
@@ -78,8 +78,8 @@ class SearchConvResponse extends SoapResponse
      * @var NestedSearchConversation
      */
     #[Accessor(getter: "getConversation", setter: "setConversation")]
-    #[SerializedName(name: 'c')]
-    #[Type(name: NestedSearchConversation::class)]
+    #[SerializedName('c')]
+    #[Type(NestedSearchConversation::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $conversation;
 
@@ -89,7 +89,7 @@ class SearchConvResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getMessages', setter: 'setMessages')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\MessageHitInfo>')]
+    #[Type('array<Zimbra\Mail\Struct\MessageHitInfo>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $messages = [];
 
@@ -103,8 +103,8 @@ class SearchConvResponse extends SoapResponse
      * @var SearchQueryInfo
      */
     #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
-    #[SerializedName(name: 'info')]
-    #[Type(name: SearchQueryInfo::class)]
+    #[SerializedName('info')]
+    #[Type(SearchQueryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $queryInfo;
 

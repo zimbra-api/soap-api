@@ -29,8 +29,8 @@ class DocAttachSpec extends AttachSpec
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName(name: 'path')]
-    #[Type(name: 'string')]
+    #[SerializedName('path')]
+    #[Type('string')]
     #[XmlAttribute]
     private $path;
 
@@ -40,8 +40,8 @@ class DocAttachSpec extends AttachSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -51,8 +51,8 @@ class DocAttachSpec extends AttachSpec
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'ver')]
-    #[Type(name: 'int')]
+    #[SerializedName('ver')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version;
 

@@ -30,8 +30,8 @@ class AddGalSyncDataSourceEnvelope extends SoapEnvelope
      * @var AddGalSyncDataSourceBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: AddGalSyncDataSourceBody::class)]
+    #[SerializedName('Body')]
+    #[Type(AddGalSyncDataSourceBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

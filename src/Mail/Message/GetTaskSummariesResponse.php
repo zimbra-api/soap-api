@@ -31,7 +31,7 @@ class GetTaskSummariesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getApptEntries', setter: 'setApptEntries')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\LegacyAppointmentData>')]
+    #[Type('array<Zimbra\Mail\Struct\LegacyAppointmentData>')]
     #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
     private $apptEntries = [];
 
@@ -41,7 +41,7 @@ class GetTaskSummariesResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getTaskEntries', setter: 'setTaskEntries')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\LegacyTaskData>')]
+    #[Type('array<Zimbra\Mail\Struct\LegacyTaskData>')]
     #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
     private $taskEntries = [];
 

@@ -31,8 +31,8 @@ class SoapHeader implements SoapHeaderInterface
      * @var Context
      */
     #[Accessor(getter: 'getContext', setter: 'setContext')]
-    #[SerializedName(name: 'context')]
-    #[Type(name: Context::class)]
+    #[SerializedName('context')]
+    #[Type(Context::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $context;
 

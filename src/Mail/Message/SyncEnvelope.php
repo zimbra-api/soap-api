@@ -30,8 +30,8 @@ class SyncEnvelope extends SoapEnvelope
      * @var SyncBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SyncBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SyncBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

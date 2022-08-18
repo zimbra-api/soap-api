@@ -30,8 +30,8 @@ class CurrentTimeTest extends FilterTest
      * @var DateComparison
      */
     #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
-    #[SerializedName(name: 'dateComparison')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DateComparison>')]
+    #[SerializedName('dateComparison')]
+    #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
     #[XmlAttribute]
     private $dateComparison;
 
@@ -41,8 +41,8 @@ class CurrentTimeTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName(name: 'time')]
-    #[Type(name: 'string')]
+    #[SerializedName('time')]
+    #[Type('string')]
     #[XmlAttribute]
     private $time;
 

@@ -31,8 +31,8 @@ class SetPasswordResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName(name: 'message')]
-    #[Type(name: 'string')]
+    #[SerializedName('message')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $message;
 

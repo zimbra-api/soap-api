@@ -28,8 +28,8 @@ class ModifyPropertiesBody extends SoapBody
      * @var ModifyPropertiesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifyPropertiesRequest')]
-    #[Type(name: ModifyPropertiesRequest::class)]
+    #[SerializedName('ModifyPropertiesRequest')]
+    #[Type(ModifyPropertiesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
@@ -37,8 +37,8 @@ class ModifyPropertiesBody extends SoapBody
      * @var ModifyPropertiesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifyPropertiesResponse')]
-    #[Type(name: ModifyPropertiesResponse::class)]
+    #[SerializedName('ModifyPropertiesResponse')]
+    #[Type(ModifyPropertiesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 

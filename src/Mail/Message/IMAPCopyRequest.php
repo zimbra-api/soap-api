@@ -32,8 +32,8 @@ class IMAPCopyRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName(name: 'ids')]
-    #[Type(name: 'string')]
+    #[SerializedName('ids')]
+    #[Type('string')]
     #[XmlAttribute]
     private $ids;
 
@@ -44,8 +44,8 @@ class IMAPCopyRequest extends SoapRequest
      * @var MailItemType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\MailItemType>')]
+    #[SerializedName('t')]
+    #[Type('Enum<Zimbra\Common\Enum\MailItemType>')]
     #[XmlAttribute]
     private $type;
 
@@ -55,8 +55,8 @@ class IMAPCopyRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'int')]
+    #[SerializedName('l')]
+    #[Type('int')]
     #[XmlAttribute]
     private $folder;
 

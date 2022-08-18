@@ -30,8 +30,8 @@ class SyncGalAccountEnvelope extends SoapEnvelope
      * @var SyncGalAccountBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: SyncGalAccountBody::class)]
+    #[SerializedName('Body')]
+    #[Type(SyncGalAccountBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -30,8 +30,8 @@ class UcServiceSelector
      * @var UcServiceBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\UcServiceBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\UcServiceBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -41,7 +41,7 @@ class UcServiceSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

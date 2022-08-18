@@ -30,8 +30,8 @@ class ZimletStatus
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -41,8 +41,8 @@ class ZimletStatus
      * @var ZimletStatusSetting
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName(name: 'status')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletStatusSetting>')]
+    #[SerializedName('status')]
+    #[Type('Enum<Zimbra\Common\Enum\ZimletStatusSetting>')]
     #[XmlAttribute]
     private $status;
 
@@ -52,8 +52,8 @@ class ZimletStatus
      * @var bool
      */
     #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName(name: 'extension')]
-    #[Type(name: 'bool')]
+    #[SerializedName('extension')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $extension;
 
@@ -63,8 +63,8 @@ class ZimletStatus
      * @var int
      */
     #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName(name: 'priority')]
-    #[Type(name: 'int')]
+    #[SerializedName('priority')]
+    #[Type('int')]
     #[XmlAttribute]
     private $priority;
 

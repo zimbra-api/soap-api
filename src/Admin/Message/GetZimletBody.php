@@ -28,8 +28,8 @@ class GetZimletBody extends SoapBody
      * @var GetZimletRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetZimletRequest')]
-    #[Type(name: GetZimletRequest::class)]
+    #[SerializedName('GetZimletRequest')]
+    #[Type(GetZimletRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetZimletBody extends SoapBody
      * @var GetZimletResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetZimletResponse')]
-    #[Type(name: GetZimletResponse::class)]
+    #[SerializedName('GetZimletResponse')]
+    #[Type(GetZimletResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

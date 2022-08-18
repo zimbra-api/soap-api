@@ -29,8 +29,8 @@ class ExpandedRecurrenceInstance
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $startTime;
 
@@ -40,8 +40,8 @@ class ExpandedRecurrenceInstance
      * @var int
      */
     #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName(name: 'dur')]
-    #[Type(name: 'int')]
+    #[SerializedName('dur')]
+    #[Type('int')]
     #[XmlAttribute]
     private $duration;
 
@@ -51,8 +51,8 @@ class ExpandedRecurrenceInstance
      * @var bool
      */
     #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
-    #[SerializedName(name: 'allDay')]
-    #[Type(name: 'bool')]
+    #[SerializedName('allDay')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $allDay;
 
@@ -62,8 +62,8 @@ class ExpandedRecurrenceInstance
      * @var int
      */
     #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
-    #[SerializedName(name: 'tzo')]
-    #[Type(name: 'int')]
+    #[SerializedName('tzo')]
+    #[Type('int')]
     #[XmlAttribute]
     private $tzOffset;
 
@@ -73,8 +73,8 @@ class ExpandedRecurrenceInstance
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName(name: 'ridZ')]
-    #[Type(name: 'string')]
+    #[SerializedName('ridZ')]
+    #[Type('string')]
     #[XmlAttribute]
     private $recurIdZ;
 

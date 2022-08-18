@@ -33,8 +33,8 @@ class ByYearDayRule implements ByYearDayRuleInterface
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName(name: 'yrdaylist')]
-    #[Type(name: 'string')]
+    #[SerializedName('yrdaylist')]
+    #[Type('string')]
     #[XmlAttribute]
     private $list;
 

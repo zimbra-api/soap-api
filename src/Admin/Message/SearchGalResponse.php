@@ -31,8 +31,8 @@ class SearchGalResponse extends SoapResponse
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName(name: 'sortBy')]
-    #[Type(name: 'string')]
+    #[SerializedName('sortBy')]
+    #[Type('string')]
     #[XmlAttribute]
     private $sortBy;
 
@@ -42,8 +42,8 @@ class SearchGalResponse extends SoapResponse
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -53,8 +53,8 @@ class SearchGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName(name: 'more')]
-    #[Type(name: 'bool')]
+    #[SerializedName('more')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $more;
 
@@ -68,8 +68,8 @@ class SearchGalResponse extends SoapResponse
      * @var bool
      */
     #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName(name: 'tokenizeKey')]
-    #[Type(name: 'bool')]
+    #[SerializedName('tokenizeKey')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $tokenizeKey;
 
@@ -79,7 +79,7 @@ class SearchGalResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ContactInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\ContactInfo>')]
     #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
     private $contacts = [];
 

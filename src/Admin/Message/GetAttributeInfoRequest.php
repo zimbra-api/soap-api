@@ -34,8 +34,8 @@ class GetAttributeInfoRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName(name: 'attrs')]
-    #[Type(name: 'string')]
+    #[SerializedName('attrs')]
+    #[Type('string')]
     #[XmlAttribute]
     private $attrs;
 
@@ -49,8 +49,8 @@ class GetAttributeInfoRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getEntryTypes', setter: 'setEntryTypes')]
-    #[SerializedName(name: 'entryTypes')]
-    #[Type(name: 'string')]
+    #[SerializedName('entryTypes')]
+    #[Type('string')]
     #[XmlAttribute]
     private $entryTypes;
 

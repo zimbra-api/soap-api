@@ -28,8 +28,8 @@ class GetICalBody extends SoapBody
      * @var GetICalRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetICalRequest')]
-    #[Type(name: GetICalRequest::class)]
+    #[SerializedName('GetICalRequest')]
+    #[Type(GetICalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetICalBody extends SoapBody
      * @var GetICalResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetICalResponse')]
-    #[Type(name: GetICalResponse::class)]
+    #[SerializedName('GetICalResponse')]
+    #[Type(GetICalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

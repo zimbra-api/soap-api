@@ -30,8 +30,8 @@ class PrincipalSelector
      * @var AutoProvPrincipalBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -41,7 +41,7 @@ class PrincipalSelector
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

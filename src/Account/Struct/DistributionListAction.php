@@ -31,8 +31,8 @@ class DistributionListAction extends AccountKeyValuePairs
      * @var Operation
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\Operation>')]
+    #[SerializedName('op')]
+    #[Type('Enum<Zimbra\Common\Enum\Operation>')]
     #[XmlAttribute]
     private $op;
 
@@ -40,8 +40,8 @@ class DistributionListAction extends AccountKeyValuePairs
      * @var string
      */
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName(name: 'newName')]
-    #[Type(name: 'string')]
+    #[SerializedName('newName')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $newName;
 
@@ -49,8 +49,8 @@ class DistributionListAction extends AccountKeyValuePairs
      * @var Subscribe
      */
     #[Accessor(getter: 'getSubsReq', setter: 'setSubsReq')]
-    #[SerializedName(name: 'subsReq')]
-    #[Type(name: DistributionListSubscribeReq::class)]
+    #[SerializedName('subsReq')]
+    #[Type(DistributionListSubscribeReq::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $subsReq;
 
@@ -58,7 +58,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAccount')]
     private $members = [];
 
@@ -66,7 +66,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @var array
      */
     #[Accessor(getter: 'getOwners', setter: 'setOwners')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DistributionListGranteeSelector>')]
+    #[Type('array<Zimbra\Account\Struct\DistributionListGranteeSelector>')]
     #[XmlList(inline: true, entry: 'owner', namespace: 'urn:zimbraAccount')]
     private $owners = [];
 
@@ -74,7 +74,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DistributionListRightSpec>')]
+    #[Type('array<Zimbra\Account\Struct\DistributionListRightSpec>')]
     #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
     private $rights = [];
 

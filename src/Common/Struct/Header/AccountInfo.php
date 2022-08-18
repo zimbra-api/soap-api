@@ -28,8 +28,8 @@ class AccountInfo
      * @var AccountBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AccountBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
     #[XmlAttribute]
     private $by;
 
@@ -37,8 +37,8 @@ class AccountInfo
      * @var bool
      */
     #[Accessor(getter: 'getMountpointTraversed', setter: 'setMountpointTraversed')]
-    #[SerializedName(name: 'link')]
-    #[Type(name: 'bool')]
+    #[SerializedName('link')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $mountpointTraversed;
 
@@ -46,7 +46,7 @@ class AccountInfo
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $value;
 

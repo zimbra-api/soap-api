@@ -32,8 +32,8 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $startTime;
 
@@ -43,8 +43,8 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @var bool
      */
     #[Accessor(getter: 'getIsException', setter: 'setIsException')]
-    #[SerializedName(name: 'ex')]
-    #[Type(name: 'bool')]
+    #[SerializedName('ex')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $isException;
 
@@ -54,8 +54,8 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @var CalOrganizer
      */
     #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
-    #[SerializedName(name: 'or')]
-    #[Type(name: CalOrganizer::class)]
+    #[SerializedName('or')]
+    #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $organizer;
 
@@ -65,7 +65,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @var array
      */
     #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
     private $categories = [];
 
@@ -75,8 +75,8 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @var GeoInfo
      */
     #[Accessor(getter: "getGeo", setter: "setGeo")]
-    #[SerializedName(name: 'geo')]
-    #[Type(name: GeoInfo::class)]
+    #[SerializedName('geo')]
+    #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $geo;
 
@@ -86,8 +86,8 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
-    #[SerializedName(name: 'fr')]
-    #[Type(name: 'string')]
+    #[SerializedName('fr')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 

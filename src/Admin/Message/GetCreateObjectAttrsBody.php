@@ -28,8 +28,8 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @var GetCreateObjectAttrsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetCreateObjectAttrsRequest')]
-    #[Type(name: GetCreateObjectAttrsRequest::class)]
+    #[SerializedName('GetCreateObjectAttrsRequest')]
+    #[Type(GetCreateObjectAttrsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @var GetCreateObjectAttrsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetCreateObjectAttrsResponse')]
-    #[Type(name: GetCreateObjectAttrsResponse::class)]
+    #[SerializedName('GetCreateObjectAttrsResponse')]
+    #[Type(GetCreateObjectAttrsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

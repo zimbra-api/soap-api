@@ -30,8 +30,8 @@ class RankingActionEnvelope extends SoapEnvelope
      * @var RankingActionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: RankingActionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(RankingActionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

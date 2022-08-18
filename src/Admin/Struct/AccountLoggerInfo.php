@@ -27,8 +27,8 @@ class AccountLoggerInfo
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -36,8 +36,8 @@ class AccountLoggerInfo
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -47,7 +47,7 @@ class AccountLoggerInfo
      * @var array
      */
     #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\LoggerInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\LoggerInfo>')]
     #[XmlList(inline: true, entry: 'logger', namespace: 'urn:zimbraAdmin')]
     private $loggers = [];
 

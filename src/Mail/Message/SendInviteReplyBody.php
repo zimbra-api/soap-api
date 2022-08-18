@@ -28,8 +28,8 @@ class SendInviteReplyBody extends SoapBody
      * @var SendInviteReplyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'SendInviteReplyRequest')]
-    #[Type(name: SendInviteReplyRequest::class)]
+    #[SerializedName('SendInviteReplyRequest')]
+    #[Type(SendInviteReplyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class SendInviteReplyBody extends SoapBody
      * @var SendInviteReplyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'SendInviteReplyResponse')]
-    #[Type(name: SendInviteReplyResponse::class)]
+    #[SerializedName('SendInviteReplyResponse')]
+    #[Type(SendInviteReplyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

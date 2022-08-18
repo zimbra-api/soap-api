@@ -28,8 +28,8 @@ class MailQueueAction
      * @var QueueQuery
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName(name: 'query')]
-    #[Type(name: QueueQuery::class)]
+    #[SerializedName('query')]
+    #[Type(QueueQuery::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $query;
 
@@ -37,8 +37,8 @@ class MailQueueAction
      * @var QueueAction
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\QueueAction>')]
+    #[SerializedName('op')]
+    #[Type('Enum<Zimbra\Common\Enum\QueueAction>')]
     #[XmlAttribute]
     private $op;
 
@@ -46,8 +46,8 @@ class MailQueueAction
      * @var QueueActionBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName(name: 'by')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\QueueActionBy>')]
+    #[SerializedName('by')]
+    #[Type('Enum<Zimbra\Common\Enum\QueueActionBy>')]
     #[XmlAttribute]
     private $by;
 

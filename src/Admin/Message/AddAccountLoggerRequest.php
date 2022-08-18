@@ -35,8 +35,8 @@ class AddAccountLoggerRequest extends SoapRequest
      * @var LoggerInfo
      */
     #[Accessor(getter: 'getLogger', setter: 'setLogger')]
-    #[SerializedName(name: 'logger')]
-    #[Type(name: LoggerInfo::class)]
+    #[SerializedName('logger')]
+    #[Type(LoggerInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $logger;
 
@@ -46,8 +46,8 @@ class AddAccountLoggerRequest extends SoapRequest
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -57,8 +57,8 @@ class AddAccountLoggerRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $id;
 

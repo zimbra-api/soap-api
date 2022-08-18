@@ -30,8 +30,8 @@ class Policy
      * @var EnumType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\Type>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\Type>')]
     #[XmlAttribute]
     private $type;
 
@@ -41,8 +41,8 @@ class Policy
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -52,8 +52,8 @@ class Policy
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -63,8 +63,8 @@ class Policy
      * @var string
      */
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName(name: 'lifetime')]
-    #[Type(name: 'string')]
+    #[SerializedName('lifetime')]
+    #[Type('string')]
     #[XmlAttribute]
     private $lifetime;
 

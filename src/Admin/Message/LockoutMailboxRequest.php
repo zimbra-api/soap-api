@@ -32,8 +32,8 @@ class LockoutMailboxRequest extends SoapRequest
      * @var AccountNameSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName(name: 'account')]
-    #[Type(name: AccountNameSelector::class)]
+    #[SerializedName('account')]
+    #[Type(AccountNameSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
@@ -43,8 +43,8 @@ class LockoutMailboxRequest extends SoapRequest
      * @var LockoutOperation
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\LockoutOperation>')]
+    #[SerializedName('op')]
+    #[Type('Enum<Zimbra\Common\Enum\LockoutOperation>')]
     #[XmlAttribute]
     private $operation;
 

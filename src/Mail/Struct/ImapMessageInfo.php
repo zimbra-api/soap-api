@@ -29,8 +29,8 @@ class ImapMessageInfo extends IMAPItemInfo
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName(name: 't')]
-    #[Type(name: 'string')]
+    #[SerializedName('t')]
+    #[Type('string')]
     #[XmlAttribute]
     private $type;
 
@@ -40,8 +40,8 @@ class ImapMessageInfo extends IMAPItemInfo
      * @var int
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName(name: 'f')]
-    #[Type(name: 'int')]
+    #[SerializedName('f')]
+    #[Type('int')]
     #[XmlAttribute]
     private $flags;
 
@@ -51,8 +51,8 @@ class ImapMessageInfo extends IMAPItemInfo
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName(name: 'tn')]
-    #[Type(name: 'string')]
+    #[SerializedName('tn')]
+    #[Type('string')]
     #[XmlAttribute]
     private $tags;
 

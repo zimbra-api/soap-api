@@ -32,8 +32,8 @@ class ImportAppointmentsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -44,8 +44,8 @@ class ImportAppointmentsRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -55,8 +55,8 @@ class ImportAppointmentsRequest extends SoapRequest
      * @var ContentSpec
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
-    #[SerializedName(name: 'content')]
-    #[Type(name: ContentSpec::class)]
+    #[SerializedName('content')]
+    #[Type(ContentSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $content;
 

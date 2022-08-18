@@ -29,8 +29,8 @@ class TestDataSource
      * @var int
      */
     #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
-    #[SerializedName(name: 'success')]
-    #[Type(name: 'int')]
+    #[SerializedName('success')]
+    #[Type('int')]
     #[XmlAttribute]
     private $success;
 
@@ -40,8 +40,8 @@ class TestDataSource
      * @var string
      */
     #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName(name: 'error')]
-    #[Type(name: 'string')]
+    #[SerializedName('error')]
+    #[Type('string')]
     #[XmlAttribute]
     private $error;
 

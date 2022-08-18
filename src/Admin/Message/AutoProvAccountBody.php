@@ -28,8 +28,8 @@ class AutoProvAccountBody extends SoapBody
      * @var AutoProvAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AutoProvAccountRequest')]
-    #[Type(name: AutoProvAccountRequest::class)]
+    #[SerializedName('AutoProvAccountRequest')]
+    #[Type(AutoProvAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class AutoProvAccountBody extends SoapBody
      * @var AutoProvAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AutoProvAccountResponse')]
-    #[Type(name: AutoProvAccountResponse::class)]
+    #[SerializedName('AutoProvAccountResponse')]
+    #[Type(AutoProvAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

@@ -28,8 +28,8 @@ class BounceMsgBody extends SoapBody
      * @var BounceMsgRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'BounceMsgRequest')]
-    #[Type(name: BounceMsgRequest::class)]
+    #[SerializedName('BounceMsgRequest')]
+    #[Type(BounceMsgRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class BounceMsgBody extends SoapBody
      * @var BounceMsgResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'BounceMsgResponse')]
-    #[Type(name: BounceMsgResponse::class)]
+    #[SerializedName('BounceMsgResponse')]
+    #[Type(BounceMsgResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

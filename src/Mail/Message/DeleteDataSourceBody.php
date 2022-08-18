@@ -28,8 +28,8 @@ class DeleteDataSourceBody extends SoapBody
      * @var DeleteDataSourceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteDataSourceRequest')]
-    #[Type(name: DeleteDataSourceRequest::class)]
+    #[SerializedName('DeleteDataSourceRequest')]
+    #[Type(DeleteDataSourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class DeleteDataSourceBody extends SoapBody
      * @var DeleteDataSourceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteDataSourceResponse')]
-    #[Type(name: DeleteDataSourceResponse::class)]
+    #[SerializedName('DeleteDataSourceResponse')]
+    #[Type(DeleteDataSourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

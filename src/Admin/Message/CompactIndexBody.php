@@ -28,8 +28,8 @@ class CompactIndexBody extends SoapBody
      * @var CompactIndexRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CompactIndexRequest')]
-    #[Type(name: CompactIndexRequest::class)]
+    #[SerializedName('CompactIndexRequest')]
+    #[Type(CompactIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CompactIndexBody extends SoapBody
      * @var CompactIndexResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CompactIndexResponse')]
-    #[Type(name: CompactIndexResponse::class)]
+    #[SerializedName('CompactIndexResponse')]
+    #[Type(CompactIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

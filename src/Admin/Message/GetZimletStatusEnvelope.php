@@ -30,8 +30,8 @@ class GetZimletStatusEnvelope extends SoapEnvelope
      * @var GetZimletStatusBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetZimletStatusBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetZimletStatusBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

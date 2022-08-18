@@ -30,8 +30,8 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName(name: 'sync')]
-    #[Type(name: 'bool')]
+    #[SerializedName('sync')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $sync;
 
@@ -41,8 +41,8 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getIncludeContent', setter: 'setIncludeContent')]
-    #[SerializedName(name: 'includeContent')]
-    #[Type(name: 'bool')]
+    #[SerializedName('includeContent')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeContent;
 
@@ -52,8 +52,8 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getIncludeInvites', setter: 'setIncludeInvites')]
-    #[SerializedName(name: 'includeInvites')]
-    #[Type(name: 'bool')]
+    #[SerializedName('includeInvites')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeInvites;
 
@@ -64,8 +64,8 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName(name: 'uid')]
-    #[Type(name: 'string')]
+    #[SerializedName('uid')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uid;
 
@@ -76,8 +76,8 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 

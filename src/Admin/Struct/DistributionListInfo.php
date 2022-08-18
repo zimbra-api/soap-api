@@ -29,8 +29,8 @@ class DistributionListInfo extends AdminObjectInfo
      * @var bool
      */
     #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
-    #[SerializedName(name: 'dynamic')]
-    #[Type(name: 'bool')]
+    #[SerializedName('dynamic')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $dynamic;
 
@@ -40,7 +40,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type(name: 'array<string>')]
+    #[Type('array<string>')]
     #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAdmin')]
     private $members = [];
 
@@ -50,8 +50,8 @@ class DistributionListInfo extends AdminObjectInfo
      * @var array
      */
     #[Accessor(getter: 'getOwners', setter: 'setOwners')]
-    #[SerializedName(name: 'owners')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\GranteeInfo>')]
+    #[SerializedName('owners')]
+    #[Type('array<Zimbra\Admin\Struct\GranteeInfo>')]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     #[XmlList(inline: false, entry: 'owner', namespace: 'urn:zimbraAdmin')]
     private $owners = [];

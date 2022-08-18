@@ -30,8 +30,8 @@ class SyncGalAccountSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -41,7 +41,7 @@ class SyncGalAccountSpec
      * @var array
      */
     #[Accessor(getter: 'getDataSources', setter: 'setDataSources')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>')]
+    #[Type('array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>')]
     #[XmlList(inline: true, entry: 'datasource', namespace: 'urn:zimbraAdmin')]
     private $dataSources = [];
 

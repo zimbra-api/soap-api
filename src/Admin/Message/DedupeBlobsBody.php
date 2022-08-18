@@ -28,8 +28,8 @@ class DedupeBlobsBody extends SoapBody
      * @var DedupeBlobsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DedupeBlobsRequest')]
-    #[Type(name: DedupeBlobsRequest::class)]
+    #[SerializedName('DedupeBlobsRequest')]
+    #[Type(DedupeBlobsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class DedupeBlobsBody extends SoapBody
      * @var DedupeBlobsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DedupeBlobsResponse')]
-    #[Type(name: DedupeBlobsResponse::class)]
+    #[SerializedName('DedupeBlobsResponse')]
+    #[Type(DedupeBlobsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

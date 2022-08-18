@@ -31,8 +31,8 @@ class ByHourRule implements ByHourRuleInterface
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName(name: 'hrlist')]
-    #[Type(name: 'string')]
+    #[SerializedName('hrlist')]
+    #[Type('string')]
     #[XmlAttribute]
     private $list;
 

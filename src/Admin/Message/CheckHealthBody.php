@@ -28,8 +28,8 @@ class CheckHealthBody extends SoapBody
      * @var CheckHealthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CheckHealthRequest')]
-    #[Type(name: CheckHealthRequest::class)]
+    #[SerializedName('CheckHealthRequest')]
+    #[Type(CheckHealthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class CheckHealthBody extends SoapBody
      * @var CheckHealthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CheckHealthResponse')]
-    #[Type(name: CheckHealthResponse::class)]
+    #[SerializedName('CheckHealthResponse')]
+    #[Type(CheckHealthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

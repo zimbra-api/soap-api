@@ -54,8 +54,8 @@ class NoOpRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getWait', setter: 'setWait')]
-    #[SerializedName(name: 'wait')]
-    #[Type(name: 'bool')]
+    #[SerializedName('wait')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $wait;
 
@@ -67,8 +67,8 @@ class NoOpRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getIncludeDelegates', setter: 'setIncludeDelegates')]
-    #[SerializedName(name: 'delegate')]
-    #[Type(name: 'bool')]
+    #[SerializedName('delegate')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $includeDelegates;
 
@@ -80,8 +80,8 @@ class NoOpRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getEnforceLimit', setter: 'setEnforceLimit')]
-    #[SerializedName(name: 'limitToOneBlocked')]
-    #[Type(name: 'bool')]
+    #[SerializedName('limitToOneBlocked')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $enforceLimit;
 
@@ -94,8 +94,8 @@ class NoOpRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
-    #[SerializedName(name: 'timeout')]
-    #[Type(name: 'int')]
+    #[SerializedName('timeout')]
+    #[Type('int')]
     #[XmlAttribute]
     private $timeout;
 

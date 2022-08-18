@@ -31,7 +31,7 @@ class GetAccountDistributionListsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getDlList', setter: 'setDlList')]
-    #[Type(name: 'array<Zimbra\Account\Struct\DLInfo>')]
+    #[Type('array<Zimbra\Account\Struct\DLInfo>')]
     #[XmlList(inline: true, entry: 'dl', namespace: 'urn:zimbraAccount')]
     private $dlList = [];
 

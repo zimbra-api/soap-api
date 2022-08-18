@@ -33,8 +33,8 @@ class DedupeBlobsRequest extends SoapRequest
      * @var DedupAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName(name: 'action')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\DedupAction>')]
+    #[SerializedName('action')]
+    #[Type('Enum<Zimbra\Common\Enum\DedupAction>')]
     #[XmlAttribute]
     private $action;
 
@@ -44,7 +44,7 @@ class DedupeBlobsRequest extends SoapRequest
      * @var array
      */
     #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\IntIdAttr>')]
+    #[Type('array<Zimbra\Admin\Struct\IntIdAttr>')]
     #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
     private $volumes = [];
 

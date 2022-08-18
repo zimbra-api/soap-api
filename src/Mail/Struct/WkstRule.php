@@ -32,8 +32,8 @@ class WkstRule implements WkstRuleInterface
      * @var WeekDay
      */
     #[Accessor(getter: 'getDay', setter: 'setDay')]
-    #[SerializedName(name: 'day')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\WeekDay>')]
+    #[SerializedName('day')]
+    #[Type('Enum<Zimbra\Common\Enum\WeekDay>')]
     #[XmlAttribute]
     private $day;
 

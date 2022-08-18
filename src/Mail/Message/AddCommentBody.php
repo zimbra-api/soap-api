@@ -28,8 +28,8 @@ class AddCommentBody extends SoapBody
      * @var AddCommentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'AddCommentRequest')]
-    #[Type(name: AddCommentRequest::class)]
+    #[SerializedName('AddCommentRequest')]
+    #[Type(AddCommentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class AddCommentBody extends SoapBody
      * @var AddCommentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'AddCommentResponse')]
-    #[Type(name: AddCommentResponse::class)]
+    #[SerializedName('AddCommentResponse')]
+    #[Type(AddCommentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

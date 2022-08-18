@@ -32,8 +32,8 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @var SearchFilterCondition
      */
     #[Accessor(getter: 'getCondition', setter: 'setCondition')]
-    #[SerializedName(name: 'cond')]
-    #[Type(name: EntrySearchFilterSingleCond::class)]
+    #[SerializedName('cond')]
+    #[Type(EntrySearchFilterSingleCond::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $condition;
 
@@ -43,8 +43,8 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @var SearchFilterCondition
      */
     #[Accessor(getter: 'getConditions', setter: 'setConditions')]
-    #[SerializedName(name: 'conds')]
-    #[Type(name: EntrySearchFilterMultiCond::class)]
+    #[SerializedName('conds')]
+    #[Type(EntrySearchFilterMultiCond::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $conditions;
 

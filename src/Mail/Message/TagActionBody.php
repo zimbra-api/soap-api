@@ -28,8 +28,8 @@ class TagActionBody extends SoapBody
      * @var TagActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'TagActionRequest')]
-    #[Type(name: TagActionRequest::class)]
+    #[SerializedName('TagActionRequest')]
+    #[Type(TagActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class TagActionBody extends SoapBody
      * @var TagActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'TagActionResponse')]
-    #[Type(name: TagActionResponse::class)]
+    #[SerializedName('TagActionResponse')]
+    #[Type(TagActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

@@ -29,8 +29,8 @@ class IncorrectBlobSizeInfo
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class IncorrectBlobSizeInfo
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName(name: 'rev')]
-    #[Type(name: 'int')]
+    #[SerializedName('rev')]
+    #[Type('int')]
     #[XmlAttribute]
     private $revision;
 
@@ -51,8 +51,8 @@ class IncorrectBlobSizeInfo
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName(name: 's')]
-    #[Type(name: 'int')]
+    #[SerializedName('s')]
+    #[Type('int')]
     #[XmlAttribute]
     private $size;
 
@@ -62,8 +62,8 @@ class IncorrectBlobSizeInfo
      * @var int
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName(name: 'volumeId')]
-    #[Type(name: 'int')]
+    #[SerializedName('volumeId')]
+    #[Type('int')]
     #[XmlAttribute]
     private $volumeId;
 
@@ -73,8 +73,8 @@ class IncorrectBlobSizeInfo
      * @var BlobSizeInfo
      */
     #[Accessor(getter: 'getBlob', setter: 'setBlob')]
-    #[SerializedName(name: 'blob')]
-    #[Type(name: BlobSizeInfo::class)]
+    #[SerializedName('blob')]
+    #[Type(BlobSizeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $blob;
 

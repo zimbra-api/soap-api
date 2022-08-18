@@ -31,7 +31,7 @@ class GetDelegatedAdminConstraintsResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\ConstraintAttr>')]
+    #[Type('array<Zimbra\Admin\Struct\ConstraintAttr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrs = [];
 

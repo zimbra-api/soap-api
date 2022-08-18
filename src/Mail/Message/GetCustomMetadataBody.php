@@ -28,8 +28,8 @@ class GetCustomMetadataBody extends SoapBody
      * @var GetCustomMetadataRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetCustomMetadataRequest')]
-    #[Type(name: GetCustomMetadataRequest::class)]
+    #[SerializedName('GetCustomMetadataRequest')]
+    #[Type(GetCustomMetadataRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetCustomMetadataBody extends SoapBody
      * @var GetCustomMetadataResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetCustomMetadataResponse')]
-    #[Type(name: GetCustomMetadataResponse::class)]
+    #[SerializedName('GetCustomMetadataResponse')]
+    #[Type(GetCustomMetadataResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

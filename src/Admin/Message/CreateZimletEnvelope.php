@@ -30,8 +30,8 @@ class CreateZimletEnvelope extends SoapEnvelope
      * @var CreateZimletBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateZimletBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateZimletBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

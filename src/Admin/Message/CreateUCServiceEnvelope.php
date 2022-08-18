@@ -30,8 +30,8 @@ class CreateUCServiceEnvelope extends SoapEnvelope
      * @var CreateUCServiceBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: CreateUCServiceBody::class)]
+    #[SerializedName('Body')]
+    #[Type(CreateUCServiceBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

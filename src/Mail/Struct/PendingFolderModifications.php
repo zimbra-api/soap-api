@@ -29,8 +29,8 @@ class PendingFolderModifications
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'int')]
+    #[SerializedName('id')]
+    #[Type('int')]
     #[XmlAttribute]
     private $folderId;
 
@@ -40,7 +40,7 @@ class PendingFolderModifications
      * @var array
      */
     #[Accessor(getter: 'getCreated', setter: 'setCreated')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\CreateItemNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\CreateItemNotification>')]
     #[XmlList(inline: true, entry: 'created', namespace: 'urn:zimbraMail')]
     private $created = [];
 
@@ -50,7 +50,7 @@ class PendingFolderModifications
      * @var array
      */
     #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\DeleteItemNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\DeleteItemNotification>')]
     #[XmlList(inline: true, entry: 'deleted', namespace: 'urn:zimbraMail')]
     private $deleted = [];
 
@@ -60,7 +60,7 @@ class PendingFolderModifications
      * @var array
      */
     #[Accessor(getter: 'getModifiedMsgs', setter: 'setModifiedMsgs')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ModifyItemNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\ModifyItemNotification>')]
     #[XmlList(inline: true, entry: 'modMsgs', namespace: 'urn:zimbraMail')]
     private $modifiedMsgs = [];
 
@@ -70,7 +70,7 @@ class PendingFolderModifications
      * @var array
      */
     #[Accessor(getter: 'getModifiedTags', setter: 'setModifiedTags')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\ModifyTagNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\ModifyTagNotification>')]
     #[XmlList(inline: true, entry: 'modTags', namespace: 'urn:zimbraMail')]
     private $modifiedTags = [];
 
@@ -80,7 +80,7 @@ class PendingFolderModifications
      * @var array
      */
     #[Accessor(getter: 'getRenamedFolders', setter: 'setRenamedFolders')]
-    #[Type(name: 'array<Zimbra\Mail\Struct\RenameFolderNotification>')]
+    #[Type('array<Zimbra\Mail\Struct\RenameFolderNotification>')]
     #[XmlList(inline: true, entry: 'modFolders', namespace: 'urn:zimbraMail')]
     private $modifiedFolders = [];
 

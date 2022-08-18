@@ -32,8 +32,8 @@ class GetAllAccountsRequest extends SoapRequest
      * @var ServerSelector
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName(name: 'server')]
-    #[Type(name: ServerSelector::class)]
+    #[SerializedName('server')]
+    #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
@@ -43,8 +43,8 @@ class GetAllAccountsRequest extends SoapRequest
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainSelector::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 

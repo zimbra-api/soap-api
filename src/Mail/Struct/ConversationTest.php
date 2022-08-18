@@ -29,8 +29,8 @@ class ConversationTest extends FilterTest
      * @var string
      */
     #[Accessor(getter: 'getWhere', setter: 'setWhere')]
-    #[SerializedName(name: 'where')]
-    #[Type(name: 'string')]
+    #[SerializedName('where')]
+    #[Type('string')]
     #[XmlAttribute]
     private $where;
 

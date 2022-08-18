@@ -34,8 +34,8 @@ trait SetCalendarItemInfoTrait
      * @var ParticipationStatus
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName(name: 'ptst')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[SerializedName('ptst')]
+    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
     private $partStat;
 
@@ -45,8 +45,8 @@ trait SetCalendarItemInfoTrait
      * @var Msg
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
-    #[SerializedName(name: 'm')]
-    #[Type(name: Msg::class)]
+    #[SerializedName('m')]
+    #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 

@@ -28,8 +28,8 @@ class NoteActionBody extends SoapBody
      * @var NoteActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'NoteActionRequest')]
-    #[Type(name: NoteActionRequest::class)]
+    #[SerializedName('NoteActionRequest')]
+    #[Type(NoteActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class NoteActionBody extends SoapBody
      * @var NoteActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'NoteActionResponse')]
-    #[Type(name: NoteActionResponse::class)]
+    #[SerializedName('NoteActionResponse')]
+    #[Type(NoteActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

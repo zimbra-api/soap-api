@@ -29,8 +29,8 @@ class IndexStats
      * @var int
      */
     #[Accessor(getter: 'getMaxDocs', setter: 'setMaxDocs')]
-    #[SerializedName(name: 'maxDocs')]
-    #[Type(name: 'int')]
+    #[SerializedName('maxDocs')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxDocs;
 
@@ -40,8 +40,8 @@ class IndexStats
      * @var int
      */
     #[Accessor(getter: 'getNumDeletedDocs', setter: 'setNumDeletedDocs')]
-    #[SerializedName(name: 'deletedDocs')]
-    #[Type(name: 'int')]
+    #[SerializedName('deletedDocs')]
+    #[Type('int')]
     #[XmlAttribute]
     private $numDeletedDocs;
 

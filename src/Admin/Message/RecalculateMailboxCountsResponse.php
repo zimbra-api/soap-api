@@ -31,8 +31,8 @@ class RecalculateMailboxCountsResponse extends SoapResponse
      * @var Mailbox
      */
     #[Accessor(getter: 'getMailbox', setter: 'setMailbox')]
-    #[SerializedName(name: 'mbox')]
-    #[Type(name: Mailbox::class)]
+    #[SerializedName('mbox')]
+    #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mailbox;
 

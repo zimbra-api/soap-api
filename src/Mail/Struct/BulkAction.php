@@ -33,8 +33,8 @@ class BulkAction
      * @var BulkOperation
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName(name: 'op')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\BulkOperation>')]
+    #[SerializedName('op')]
+    #[Type('Enum<Zimbra\Common\Enum\BulkOperation>')]
     #[XmlAttribute]
     private $op;
 
@@ -45,8 +45,8 @@ class BulkAction
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 

@@ -28,8 +28,8 @@ class DeleteVolumeBody extends SoapBody
      * @var DeleteVolumeRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'DeleteVolumeRequest')]
-    #[Type(name: DeleteVolumeRequest::class)]
+    #[SerializedName('DeleteVolumeRequest')]
+    #[Type(DeleteVolumeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class DeleteVolumeBody extends SoapBody
      * @var DeleteVolumeResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'DeleteVolumeResponse')]
-    #[Type(name: DeleteVolumeResponse::class)]
+    #[SerializedName('DeleteVolumeResponse')]
+    #[Type(DeleteVolumeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

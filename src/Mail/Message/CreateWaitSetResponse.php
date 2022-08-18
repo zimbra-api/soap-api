@@ -32,8 +32,8 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName(name: 'waitSet')]
-    #[Type(name: 'string')]
+    #[SerializedName('waitSet')]
+    #[Type('string')]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -52,8 +52,8 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName(name: 'defTypes')]
-    #[Type(name: 'string')]
+    #[SerializedName('defTypes')]
+    #[Type('string')]
     #[XmlAttribute]
     private $defaultInterests;
 
@@ -63,8 +63,8 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName(name: 'seq')]
-    #[Type(name: 'int')]
+    #[SerializedName('seq')]
+    #[Type('int')]
     #[XmlAttribute]
     private $sequence;
 
@@ -74,7 +74,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * @var array
      */
     #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type(name: 'array<Zimbra\Common\Struct\IdAndType>')]
+    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
     #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraMail')]
     private $errors = [];
 

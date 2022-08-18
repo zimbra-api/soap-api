@@ -28,8 +28,8 @@ class RemoveAccountLoggerBody extends SoapBody
      * @var RemoveAccountLoggerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'RemoveAccountLoggerRequest')]
-    #[Type(name: RemoveAccountLoggerRequest::class)]
+    #[SerializedName('RemoveAccountLoggerRequest')]
+    #[Type(RemoveAccountLoggerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class RemoveAccountLoggerBody extends SoapBody
      * @var RemoveAccountLoggerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'RemoveAccountLoggerResponse')]
-    #[Type(name: RemoveAccountLoggerResponse::class)]
+    #[SerializedName('RemoveAccountLoggerResponse')]
+    #[Type(RemoveAccountLoggerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

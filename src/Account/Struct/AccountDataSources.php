@@ -29,7 +29,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountImapDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountImapDataSource>')]
     #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraAccount')]
     private $imapDataSources = [];
 
@@ -39,7 +39,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountPop3DataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountPop3DataSource>')]
     #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraAccount')]
     private $pop3DataSources = [];
 
@@ -49,7 +49,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountCaldavDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountCaldavDataSource>')]
     #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraAccount')]
     private $caldavDataSources = [];
 
@@ -59,7 +59,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountYabDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountYabDataSource>')]
     #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraAccount')]
     private $yabDataSources = [];
 
@@ -69,7 +69,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountRssDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountRssDataSource>')]
     #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraAccount')]
     private $rssDataSources = [];
 
@@ -79,7 +79,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountGalDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountGalDataSource>')]
     #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraAccount')]
     private $galDataSources = [];
 
@@ -89,7 +89,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountCalDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountCalDataSource>')]
     #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraAccount')]
     private $calDataSources = [];
 
@@ -99,7 +99,7 @@ class AccountDataSources
      * @var array
      */
     #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
-    #[Type(name: 'array<Zimbra\Account\Struct\AccountUnknownDataSource>')]
+    #[Type('array<Zimbra\Account\Struct\AccountUnknownDataSource>')]
     #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraAccount')]
     private $unknownDataSources = [];
 

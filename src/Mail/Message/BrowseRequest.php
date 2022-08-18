@@ -32,8 +32,8 @@ class BrowseRequest extends SoapRequest
      * @var BrowseBy
      */
     #[Accessor(getter: 'getBrowseBy', setter: 'setBrowseBy')]
-    #[SerializedName(name: 'browseBy')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\BrowseBy>')]
+    #[SerializedName('browseBy')]
+    #[Type('Enum<Zimbra\Common\Enum\BrowseBy>')]
     #[XmlAttribute]
     private $browseBy;
 
@@ -43,8 +43,8 @@ class BrowseRequest extends SoapRequest
      * @var string
      */
     #[Accessor(getter: 'getRegex', setter: 'setRegex')]
-    #[SerializedName(name: 'regex')]
-    #[Type(name: 'string')]
+    #[SerializedName('regex')]
+    #[Type('string')]
     #[XmlAttribute]
     private $regex;
 
@@ -54,8 +54,8 @@ class BrowseRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getMax', setter: 'setMax')]
-    #[SerializedName(name: 'maxToReturn')]
-    #[Type(name: 'int')]
+    #[SerializedName('maxToReturn')]
+    #[Type('int')]
     #[XmlAttribute]
     private $max;
 

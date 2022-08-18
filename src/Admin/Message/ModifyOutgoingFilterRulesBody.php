@@ -28,8 +28,8 @@ class ModifyOutgoingFilterRulesBody extends SoapBody
      * @var ModifyOutgoingFilterRulesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ModifyOutgoingFilterRulesRequest')]
-    #[Type(name: ModifyOutgoingFilterRulesRequest::class)]
+    #[SerializedName('ModifyOutgoingFilterRulesRequest')]
+    #[Type(ModifyOutgoingFilterRulesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class ModifyOutgoingFilterRulesBody extends SoapBody
      * @var ModifyOutgoingFilterRulesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ModifyOutgoingFilterRulesResponse')]
-    #[Type(name: ModifyOutgoingFilterRulesResponse::class)]
+    #[SerializedName('ModifyOutgoingFilterRulesResponse')]
+    #[Type(ModifyOutgoingFilterRulesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

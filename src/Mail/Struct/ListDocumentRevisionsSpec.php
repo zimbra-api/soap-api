@@ -29,8 +29,8 @@ class ListDocumentRevisionsSpec
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -40,8 +40,8 @@ class ListDocumentRevisionsSpec
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName(name: 'ver')]
-    #[Type(name: 'int')]
+    #[SerializedName('ver')]
+    #[Type('int')]
     #[XmlAttribute]
     private $version;
 
@@ -51,8 +51,8 @@ class ListDocumentRevisionsSpec
      * @var int
      */
     #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName(name: 'count')]
-    #[Type(name: 'int')]
+    #[SerializedName('count')]
+    #[Type('int')]
     #[XmlAttribute]
     private $count;
 

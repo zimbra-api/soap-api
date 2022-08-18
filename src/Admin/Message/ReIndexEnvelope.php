@@ -30,8 +30,8 @@ class ReIndexEnvelope extends SoapEnvelope
      * @var ReIndexBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ReIndexBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ReIndexBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

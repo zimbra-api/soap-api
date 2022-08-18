@@ -30,8 +30,8 @@ class ResetAllLoggersEnvelope extends SoapEnvelope
      * @var ResetAllLoggersBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ResetAllLoggersBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ResetAllLoggersBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -28,8 +28,8 @@ class GetAllAccountsBody extends SoapBody
      * @var GetAllAccountsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetAllAccountsRequest')]
-    #[Type(name: GetAllAccountsRequest::class)]
+    #[SerializedName('GetAllAccountsRequest')]
+    #[Type(GetAllAccountsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetAllAccountsBody extends SoapBody
      * @var GetAllAccountsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetAllAccountsResponse')]
-    #[Type(name: GetAllAccountsResponse::class)]
+    #[SerializedName('GetAllAccountsResponse')]
+    #[Type(GetAllAccountsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

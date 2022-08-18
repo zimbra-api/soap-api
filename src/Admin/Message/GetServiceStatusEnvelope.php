@@ -30,8 +30,8 @@ class GetServiceStatusEnvelope extends SoapEnvelope
      * @var GetServiceStatusBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetServiceStatusBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetServiceStatusBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

@@ -27,8 +27,8 @@ class Code
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName(name: 'Value')]
-    #[Type(name: 'string')]
+    #[SerializedName('Value')]
+    #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $value;
 

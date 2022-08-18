@@ -30,8 +30,8 @@ class ConvActionEnvelope extends SoapEnvelope
      * @var ConvActionBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: ConvActionBody::class)]
+    #[SerializedName('Body')]
+    #[Type(ConvActionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

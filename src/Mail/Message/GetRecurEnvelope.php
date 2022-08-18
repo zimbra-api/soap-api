@@ -30,8 +30,8 @@ class GetRecurEnvelope extends SoapEnvelope
      * @var GetRecurBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: GetRecurBody::class)]
+    #[SerializedName('Body')]
+    #[Type(GetRecurBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

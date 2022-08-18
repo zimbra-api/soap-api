@@ -30,8 +30,8 @@ class PingEnvelope extends SoapEnvelope
      * @var PingBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName(name: 'Body')]
-    #[Type(name: PingBody::class)]
+    #[SerializedName('Body')]
+    #[Type(PingBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 

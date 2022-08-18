@@ -31,7 +31,7 @@ class CheckDirectoryResponse extends SoapResponse
      * @var array
      */
     #[Accessor(getter: 'getPaths', setter: 'setPaths')]
-    #[Type(name: 'array<Zimbra\Admin\Struct\DirPathInfo>')]
+    #[Type('array<Zimbra\Admin\Struct\DirPathInfo>')]
     #[XmlList(inline: true, entry: 'directory', namespace: 'urn:zimbraAdmin')]
     private $paths = [];
 

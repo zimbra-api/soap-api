@@ -31,8 +31,8 @@ class CalendarAttach implements CalendarAttachInterface
      * @var string
      */
     #[Accessor(getter: 'getUri', setter: 'setUri')]
-    #[SerializedName(name: 'uri')]
-    #[Type(name: 'string')]
+    #[SerializedName('uri')]
+    #[Type('string')]
     #[XmlAttribute]
     private $uri;
 
@@ -42,8 +42,8 @@ class CalendarAttach implements CalendarAttachInterface
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName(name: 'ct')]
-    #[Type(name: 'string')]
+    #[SerializedName('ct')]
+    #[Type('string')]
     #[XmlAttribute]
     private $contentType;
 
@@ -53,7 +53,7 @@ class CalendarAttach implements CalendarAttachInterface
      * @var string
      */
     #[Accessor(getter: 'getBinaryB64Data', setter: 'setBinaryB64Data')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $binaryB64Data;
 

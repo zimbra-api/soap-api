@@ -31,8 +31,8 @@ class VerifyStoreManagerRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName(name: 'fileSize')]
-    #[Type(name: 'int')]
+    #[SerializedName('fileSize')]
+    #[Type('int')]
     #[XmlAttribute]
     private $fileSize;
 
@@ -42,8 +42,8 @@ class VerifyStoreManagerRequest extends SoapRequest
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName(name: 'num')]
-    #[Type(name: 'int')]
+    #[SerializedName('num')]
+    #[Type('int')]
     #[XmlAttribute]
     private $num;
 
@@ -53,8 +53,8 @@ class VerifyStoreManagerRequest extends SoapRequest
      * @var bool
      */
     #[Accessor(getter: 'getCheckBlobs', setter: 'setCheckBlobs')]
-    #[SerializedName(name: 'checkBlobs')]
-    #[Type(name: 'bool')]
+    #[SerializedName('checkBlobs')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $checkBlobs;
 

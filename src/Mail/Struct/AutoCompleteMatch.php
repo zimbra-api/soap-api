@@ -31,8 +31,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName(name: 'email')]
-    #[Type(name: 'string')]
+    #[SerializedName('email')]
+    #[Type('string')]
     #[XmlAttribute]
     private $email;
 
@@ -42,8 +42,8 @@ class AutoCompleteMatch
      * @var MatchType
      */
     #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
-    #[SerializedName(name: 'type')]
-    #[Type(name: 'Enum<Zimbra\Common\Enum\AutoCompleteMatchType>')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\AutoCompleteMatchType>')]
     #[XmlAttribute]
     private $matchType;
 
@@ -53,8 +53,8 @@ class AutoCompleteMatch
      * @var int
      */
     #[Accessor(getter: 'getRanking', setter: 'setRanking')]
-    #[SerializedName(name: 'ranking')]
-    #[Type(name: 'int')]
+    #[SerializedName('ranking')]
+    #[Type('int')]
     #[XmlAttribute]
     private $ranking;
 
@@ -64,8 +64,8 @@ class AutoCompleteMatch
      * @var bool
      */
     #[Accessor(getter: 'getGroup', setter: 'setGroup')]
-    #[SerializedName(name: 'isGroup')]
-    #[Type(name: 'bool')]
+    #[SerializedName('isGroup')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $group;
 
@@ -76,8 +76,8 @@ class AutoCompleteMatch
      * @var bool
      */
     #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
-    #[SerializedName(name: 'exp')]
-    #[Type(name: 'bool')]
+    #[SerializedName('exp')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $canExpandGroupMembers;
 
@@ -87,8 +87,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName(name: 'id')]
-    #[Type(name: 'string')]
+    #[SerializedName('id')]
+    #[Type('string')]
     #[XmlAttribute]
     private $id;
 
@@ -98,8 +98,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName(name: 'l')]
-    #[Type(name: 'string')]
+    #[SerializedName('l')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folder;
 
@@ -109,8 +109,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName(name: 'display')]
-    #[Type(name: 'string')]
+    #[SerializedName('display')]
+    #[Type('string')]
     #[XmlAttribute]
     private $displayName;
 
@@ -120,8 +120,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getFirstName', setter: 'setFirstName')]
-    #[SerializedName(name: 'first')]
-    #[Type(name: 'string')]
+    #[SerializedName('first')]
+    #[Type('string')]
     #[XmlAttribute]
     private $firstName;
 
@@ -131,8 +131,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getMiddleName', setter: 'setMiddleName')]
-    #[SerializedName(name: 'middle')]
-    #[Type(name: 'string')]
+    #[SerializedName('middle')]
+    #[Type('string')]
     #[XmlAttribute]
     private $middleName;
 
@@ -142,8 +142,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getLastName', setter: 'setLastName')]
-    #[SerializedName(name: 'last')]
-    #[Type(name: 'string')]
+    #[SerializedName('last')]
+    #[Type('string')]
     #[XmlAttribute]
     private $lastName;
 
@@ -153,8 +153,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getFullName', setter: 'setFullName')]
-    #[SerializedName(name: 'full')]
-    #[Type(name: 'string')]
+    #[SerializedName('full')]
+    #[Type('string')]
     #[XmlAttribute]
     private $fullName;
 
@@ -164,8 +164,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getNickname', setter: 'setNickname')]
-    #[SerializedName(name: 'nick')]
-    #[Type(name: 'string')]
+    #[SerializedName('nick')]
+    #[Type('string')]
     #[XmlAttribute]
     private $nickname;
 
@@ -175,8 +175,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getCompany', setter: 'setCompany')]
-    #[SerializedName(name: 'company')]
-    #[Type(name: 'string')]
+    #[SerializedName('company')]
+    #[Type('string')]
     #[XmlAttribute]
     private $company;
 
@@ -186,8 +186,8 @@ class AutoCompleteMatch
      * @var string
      */
     #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
-    #[SerializedName(name: 'fileas')]
-    #[Type(name: 'string')]
+    #[SerializedName('fileas')]
+    #[Type('string')]
     #[XmlAttribute]
     private $fileAs;
 

@@ -28,8 +28,8 @@ class GetMiniCalBody extends SoapBody
      * @var GetMiniCalRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'GetMiniCalRequest')]
-    #[Type(name: GetMiniCalRequest::class)]
+    #[SerializedName('GetMiniCalRequest')]
+    #[Type(GetMiniCalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class GetMiniCalBody extends SoapBody
      * @var GetMiniCalResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'GetMiniCalResponse')]
-    #[Type(name: GetMiniCalResponse::class)]
+    #[SerializedName('GetMiniCalResponse')]
+    #[Type(GetMiniCalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

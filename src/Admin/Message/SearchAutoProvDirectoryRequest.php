@@ -41,8 +41,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var string
      */
     #[Accessor(getter: 'getKeyAttr', setter: 'setKeyAttr')]
-    #[SerializedName(name: 'keyAttr')]
-    #[Type(name: 'string')]
+    #[SerializedName('keyAttr')]
+    #[Type('string')]
     #[XmlAttribute]
     private $keyAttr;
 
@@ -52,8 +52,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName(name: 'query')]
-    #[Type(name: 'string')]
+    #[SerializedName('query')]
+    #[Type('string')]
     #[XmlAttribute]
     private $query;
 
@@ -63,8 +63,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName(name: 'name')]
-    #[Type(name: 'string')]
+    #[SerializedName('name')]
+    #[Type('string')]
     #[XmlAttribute]
     private $name;
 
@@ -74,8 +74,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var int
      */
     #[Accessor(getter: 'getMaxResults', setter: 'setMaxResults')]
-    #[SerializedName(name: 'maxResults')]
-    #[Type(name: 'int')]
+    #[SerializedName('maxResults')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxResults;
 
@@ -85,8 +85,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName(name: 'limit')]
-    #[Type(name: 'int')]
+    #[SerializedName('limit')]
+    #[Type('int')]
     #[XmlAttribute]
     private $limit;
 
@@ -96,8 +96,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName(name: 'offset')]
-    #[Type(name: 'int')]
+    #[SerializedName('offset')]
+    #[Type('int')]
     #[XmlAttribute]
     private $offset;
 
@@ -108,8 +108,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var bool
      */
     #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
-    #[SerializedName(name: 'refresh')]
-    #[Type(name: 'bool')]
+    #[SerializedName('refresh')]
+    #[Type('bool')]
     #[XmlAttribute]
     private $refresh;
 
@@ -119,8 +119,8 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName(name: 'domain')]
-    #[Type(name: DomainSelector::class)]
+    #[SerializedName('domain')]
+    #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 

@@ -30,8 +30,8 @@ class ZmgDeviceSpec
      * @var string
      */
     #[Accessor(getter: 'getAppId', setter: 'setAppId')]
-    #[SerializedName(name: 'appId')]
-    #[Type(name: 'string')]
+    #[SerializedName('appId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $appId;
 
@@ -41,8 +41,8 @@ class ZmgDeviceSpec
      * @var string
      */
     #[Accessor(getter: 'getRegistrationId', setter: 'setRegistrationId')]
-    #[SerializedName(name: 'registrationId')]
-    #[Type(name: 'string')]
+    #[SerializedName('registrationId')]
+    #[Type('string')]
     #[XmlAttribute]
     private $registrationId;
 
@@ -52,8 +52,8 @@ class ZmgDeviceSpec
      * @var string
      */
     #[Accessor(getter: 'getPushProvider', setter: 'setPushProvider')]
-    #[SerializedName(name: 'pushProvider')]
-    #[Type(name: 'string')]
+    #[SerializedName('pushProvider')]
+    #[Type('string')]
     #[XmlAttribute]
     private $pushProvider;
 
@@ -63,8 +63,8 @@ class ZmgDeviceSpec
      * @var string
      */
     #[Accessor(getter: 'getOSName', setter: 'setOSName')]
-    #[SerializedName(name: 'osName')]
-    #[Type(name: 'string')]
+    #[SerializedName('osName')]
+    #[Type('string')]
     #[XmlAttribute]
     private $osName;
 
@@ -78,8 +78,8 @@ class ZmgDeviceSpec
      * @var string
      */
     #[Accessor(getter: 'getOSVersion', setter: 'setOSVersion')]
-    #[SerializedName(name: 'osVersion')]
-    #[Type(name: 'string')]
+    #[SerializedName('osVersion')]
+    #[Type('string')]
     #[XmlAttribute]
     private $osVersion;
 
@@ -91,8 +91,8 @@ class ZmgDeviceSpec
      * @var int
      */
     #[Accessor(getter: 'getMaxPayloadSize', setter: 'setMaxPayloadSize')]
-    #[SerializedName(name: 'maxPayloadSize')]
-    #[Type(name: 'int')]
+    #[SerializedName('maxPayloadSize')]
+    #[Type('int')]
     #[XmlAttribute]
     private $maxPayloadSize;
 

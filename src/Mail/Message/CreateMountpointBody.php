@@ -28,8 +28,8 @@ class CreateMountpointBody extends SoapBody
      * @var CreateMountpointRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CreateMountpointRequest')]
-    #[Type(name: CreateMountpointRequest::class)]
+    #[SerializedName('CreateMountpointRequest')]
+    #[Type(CreateMountpointRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class CreateMountpointBody extends SoapBody
      * @var CreateMountpointResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CreateMountpointResponse')]
-    #[Type(name: CreateMountpointResponse::class)]
+    #[SerializedName('CreateMountpointResponse')]
+    #[Type(CreateMountpointResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

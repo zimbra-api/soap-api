@@ -28,8 +28,8 @@ class FlushCacheBody extends SoapBody
      * @var FlushCacheRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'FlushCacheRequest')]
-    #[Type(name: FlushCacheRequest::class)]
+    #[SerializedName('FlushCacheRequest')]
+    #[Type(FlushCacheRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class FlushCacheBody extends SoapBody
      * @var FlushCacheResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'FlushCacheResponse')]
-    #[Type(name: FlushCacheResponse::class)]
+    #[SerializedName('FlushCacheResponse')]
+    #[Type(FlushCacheResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

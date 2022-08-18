@@ -28,8 +28,8 @@ class ReloadMemcachedClientConfigBody extends SoapBody
      * @var ReloadMemcachedClientConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'ReloadMemcachedClientConfigRequest')]
-    #[Type(name: ReloadMemcachedClientConfigRequest::class)]
+    #[SerializedName('ReloadMemcachedClientConfigRequest')]
+    #[Type(ReloadMemcachedClientConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
@@ -37,8 +37,8 @@ class ReloadMemcachedClientConfigBody extends SoapBody
      * @var ReloadMemcachedClientConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'ReloadMemcachedClientConfigResponse')]
-    #[Type(name: ReloadMemcachedClientConfigResponse::class)]
+    #[SerializedName('ReloadMemcachedClientConfigResponse')]
+    #[Type(ReloadMemcachedClientConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 

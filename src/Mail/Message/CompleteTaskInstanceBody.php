@@ -28,8 +28,8 @@ class CompleteTaskInstanceBody extends SoapBody
      * @var CompleteTaskInstanceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName(name: 'CompleteTaskInstanceRequest')]
-    #[Type(name: CompleteTaskInstanceRequest::class)]
+    #[SerializedName('CompleteTaskInstanceRequest')]
+    #[Type(CompleteTaskInstanceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
@@ -37,8 +37,8 @@ class CompleteTaskInstanceBody extends SoapBody
      * @var CompleteTaskInstanceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName(name: 'CompleteTaskInstanceResponse')]
-    #[Type(name: CompleteTaskInstanceResponse::class)]
+    #[SerializedName('CompleteTaskInstanceResponse')]
+    #[Type(CompleteTaskInstanceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 

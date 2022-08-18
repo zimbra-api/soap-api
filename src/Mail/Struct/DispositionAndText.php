@@ -30,8 +30,8 @@ class DispositionAndText
      * @var string
      */
     #[Accessor(getter: 'getDisposition', setter: 'setDisposition')]
-    #[SerializedName(name: 'disp')]
-    #[Type(name: 'string')]
+    #[SerializedName('disp')]
+    #[Type('string')]
     #[XmlAttribute]
     private $disposition;
 
@@ -41,7 +41,7 @@ class DispositionAndText
      * @var string
      */
     #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type(name: 'string')]
+    #[Type('string')]
     #[XmlValue(cdata: false)]
     private $text;
 
