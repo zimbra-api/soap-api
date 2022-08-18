@@ -13,8 +13,8 @@ class GrantTest extends ZimbraTestCase
 {
     public function testGrant()
     {
-        $perm = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
-        $granteeType = GrantGranteeType::USR();
+        $perm = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $granteeType = GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
         $granteeName = $this->faker->name;
@@ -32,7 +32,7 @@ class GrantTest extends ZimbraTestCase
         $this->assertSame($guestPassword, $grant->getGuestPassword());
         $this->assertSame($accessKey, $grant->getAccessKey());
 
-        $grant = new Grant('', GrantGranteeType::ALL(), '');
+        $grant = new Grant('', GrantGranteeType::ALL, '');
         $grant->setPerm($perm)
             ->setGranteeType($granteeType)
             ->setGranteeId($granteeId)

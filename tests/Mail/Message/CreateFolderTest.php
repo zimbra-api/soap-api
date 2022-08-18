@@ -36,13 +36,13 @@ class CreateFolderTest extends ZimbraTestCase
         $uuid = $this->faker->uuid;
         $name = $this->faker->word;
         $parentFolderId = $this->faker->uuid;
-        $defaultView = ViewType::CONVERSATION();
+        $defaultView = ViewType::CONVERSATION;
         $flags = $this->faker->word;
         $color = $this->faker->numberBetween(0, 127);
         $rgb = $this->faker->hexcolor;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
-        $grantType = GranteeType::USR();
+        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $grantType = GranteeType::USR;
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;
         $args = $this->faker->word;
@@ -54,7 +54,7 @@ class CreateFolderTest extends ZimbraTestCase
         $folderUuid = $this->faker->uuid;
         $unreadCount =  $this->faker->randomNumber;
         $imapUnreadCount =  $this->faker->randomNumber;
-        $view = ViewType::CONVERSATION();
+        $view = ViewType::CONVERSATION;
         $revision =  $this->faker->randomNumber;
         $modifiedSequence =  $this->faker->randomNumber;
         $changeDate =  $this->faker->unixTime;
@@ -65,7 +65,7 @@ class CreateFolderTest extends ZimbraTestCase
         $imapUidNext =  $this->faker->randomNumber;
         $url = $this->faker->word;
         $webOfflineSyncDays =  $this->faker->randomNumber;
-        $perm = implode(',', [RemoteFolderAccess::CREATE(), RemoteFolderAccess::READ()]);
+        $perm = implode(',', [RemoteFolderAccess::CREATE->value, RemoteFolderAccess::READ->value]);
         $restUrl = $this->faker->word;
         $lifetime = $this->faker->word;
         $section = $this->faker->word;
@@ -75,8 +75,8 @@ class CreateFolderTest extends ZimbraTestCase
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
-        $granteeType = GrantGranteeType::USR();
+        $grantRight = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $granteeType = GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
         $granteeName = $this->faker->name;
@@ -89,8 +89,8 @@ class CreateFolderTest extends ZimbraTestCase
         $remoteFolderName = $this->faker->word;
 
         $query = $this->faker->word;
-        $sortBy = SearchSortBy::DATE_DESC();
-        $types = implode(',', [ItemType::MESSAGE(), ItemType::CONVERSATION()]);
+        $sortBy = SearchSortBy::DATE_DESC;
+        $types = implode(',', [ItemType::MESSAGE->value, ItemType::CONVERSATION->value]);
 
         $newFolder = new NewFolderSpec(
             $name, $parentFolderId, $defaultView, $flags, $color, $rgb, $url, TRUE, TRUE, [
@@ -143,8 +143,8 @@ class CreateFolderTest extends ZimbraTestCase
             [new Mountpoint($id, $uuid)],
             [new SearchFolder($id, $uuid)],
             new RetentionPolicy(
-                [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-                [new Policy(Type::USER(), $id, $name, $lifetime)]
+                [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+                [new Policy(Type::USER, $id, $name, $lifetime)]
             )
         );
         $link = new Mountpoint(

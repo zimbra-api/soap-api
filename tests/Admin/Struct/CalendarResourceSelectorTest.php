@@ -14,17 +14,17 @@ class CalendarResourceSelectorTest extends ZimbraTestCase
     public function testCalendarResourceSelector()
     {
         $value = $this->faker->word;
-        $cal = new CalendarResourceSelector(CalResBy::ID(), $value);
-        $this->assertEquals(CalResBy::ID(), $cal->getBy());
+        $cal = new CalendarResourceSelector(CalResBy::ID, $value);
+        $this->assertEquals(CalResBy::ID, $cal->getBy());
         $this->assertSame($value, $cal->getValue());
 
         $cal = new CalendarResourceSelector();
-        $cal->setBy(CalResBy::NAME())
+        $cal->setBy(CalResBy::NAME)
             ->setValue($value);
-        $this->assertEquals(CalResBy::NAME(), $cal->getBy());
+        $this->assertEquals(CalResBy::NAME, $cal->getBy());
         $this->assertSame($value, $cal->getValue());
 
-        $by = CalResBy::NAME()->getValue();
+        $by = CalResBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by">$value</result>

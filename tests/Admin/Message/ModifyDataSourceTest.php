@@ -22,7 +22,7 @@ class ModifyDataSourceTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $dataSource = new DataSourceInfo($name, $id, DataSourceType::POP3(), [new Attr($key, $value)]);
+        $dataSource = new DataSourceInfo($name, $id, DataSourceType::POP3, [new Attr($key, $value)]);
 
         $request = new ModifyDataSourceRequest($dataSource, $id);
         $this->assertSame($id, $request->getId());

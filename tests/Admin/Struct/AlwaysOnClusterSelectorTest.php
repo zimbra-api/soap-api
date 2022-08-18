@@ -13,17 +13,17 @@ class AlwaysOnClusterSelectorTest extends ZimbraTestCase
     public function testAlwaysOnClusterSelector()
     {
         $value = $this->faker->word;
-        $aoc = new AlwaysOnClusterSelector(AlwaysOnClusterBy::ID(), $value);
-        $this->assertEquals(AlwaysOnClusterBy::ID(), $aoc->getBy());
+        $aoc = new AlwaysOnClusterSelector(AlwaysOnClusterBy::ID, $value);
+        $this->assertEquals(AlwaysOnClusterBy::ID, $aoc->getBy());
         $this->assertSame($value, $aoc->getValue());
 
         $aoc = new AlwaysOnClusterSelector();
-        $aoc->setBy(AlwaysOnClusterBy::NAME())
+        $aoc->setBy(AlwaysOnClusterBy::NAME)
             ->setValue($value);
-        $this->assertEquals(AlwaysOnClusterBy::NAME(), $aoc->getBy());
+        $this->assertEquals(AlwaysOnClusterBy::NAME, $aoc->getBy());
         $this->assertSame($value, $aoc->getValue());
 
-        $by = AlwaysOnClusterBy::NAME()->getValue();
+        $by = AlwaysOnClusterBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by">$value</result>

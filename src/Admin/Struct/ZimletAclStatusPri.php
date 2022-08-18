@@ -158,7 +158,7 @@ class ZimletAclStatusPri
      */
     public function setStatus(ValueAttrib $status): self
     {
-        if (ZimletStatus::isValid($status->getValue())) {
+        if (ZimletStatus::tryFrom($status->getValue())) {
             $this->status = $status;
         }
         return $this;

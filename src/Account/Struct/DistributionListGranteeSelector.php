@@ -63,8 +63,8 @@ class DistributionListGranteeSelector
         ?GranteeType $type = NULL, ?DistributionListGranteeBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setType($type ?? new GranteeType('all'))
-             ->setBy($by ?? new DistributionListGranteeBy('name'));
+        $this->setType($type ?? GranteeType::ALL)
+             ->setBy($by ?? DistributionListGranteeBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

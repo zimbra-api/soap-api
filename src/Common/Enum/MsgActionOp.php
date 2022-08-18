@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * MsgActionOp enum class
  *
@@ -21,53 +19,53 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MsgActionOp extends Enum
+enum MsgActionOp: string
 {
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    case DELETE = 'delete';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    case READ = 'read';
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    protected const FLAG = 'flag';
+    case FLAG = 'flag';
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    protected const TAG = 'tag';
+    case TAG = 'tag';
 
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    protected const MOVE = 'move';
+    case MOVE = 'move';
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    protected const UPDATE = 'update';
+    case UPDATE = 'update';
 
     /**
      * Constant for value 'spam'
      * @return string 'spam'
      */
-    protected const SPAM = 'spam';
+    case SPAM = 'spam';
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    protected const TRASH = 'trash';
+    case TRASH = 'trash';
 }

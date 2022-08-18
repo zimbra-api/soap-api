@@ -15,17 +15,17 @@ class CacheEntrySelectorTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
 
-        $entry = new CacheEntrySelector(CacheEntryBy::NAME(), $value);
-        $this->assertEquals(CacheEntryBy::NAME(), $entry->getBy());
+        $entry = new CacheEntrySelector(CacheEntryBy::NAME, $value);
+        $this->assertEquals(CacheEntryBy::NAME, $entry->getBy());
         $this->assertSame($value, $entry->getValue());
 
         $entry = new CacheEntrySelector();
-        $entry->setBy(CacheEntryBy::ID())
+        $entry->setBy(CacheEntryBy::ID)
             ->setValue($value);
-        $this->assertEquals(CacheEntryBy::ID(), $entry->getBy());
+        $this->assertEquals(CacheEntryBy::ID, $entry->getBy());
         $this->assertSame($value, $entry->getValue());
 
-        $by = CacheEntryBy::ID()->getValue();
+        $by = CacheEntryBy::ID->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by">$value</result>

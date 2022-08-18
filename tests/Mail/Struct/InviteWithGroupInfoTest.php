@@ -20,7 +20,7 @@ class InviteWithGroupInfoTest extends ZimbraTestCase
 {
     public function testInviteWithGroupInfo()
     {
-        $calItemType = InviteType::TASK();
+        $calItemType = InviteType::TASK;
         $id = $this->faker->word;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;

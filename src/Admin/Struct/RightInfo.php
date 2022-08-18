@@ -124,8 +124,8 @@ class RightInfo
     )
     {
         $this->setName($name)
-             ->setType($type ?? new RightType('preset'))
-             ->setRightClass($rightClass ?? new RightClass('ALL'))
+             ->setType($type ?? RightType::PRESET)
+             ->setRightClass($rightClass ??RightClass::ALL)
              ->setDesc($desc);
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);

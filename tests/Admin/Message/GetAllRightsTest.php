@@ -30,21 +30,21 @@ class GetAllRightsTest extends ZimbraTestCase
 
         $attrs = new RightsAttrs(TRUE, [new Attr($key, $value)]);
         $rights = new ComboRights([new ComboRightInfo(
-            $name, RightType::PRESET(), $targetType
+            $name, RightType::PRESET, $targetType
         )]);
-        $right = new RightInfo($name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, $attrs, $rights);
+        $right = new RightInfo($name, RightType::PRESET, RightClass::ALL, $desc, $targetType, $attrs, $rights);
 
-        $request = new GetAllRightsRequest($targetType, FALSE, RightClass::ALL());
+        $request = new GetAllRightsRequest($targetType, FALSE, RightClass::ALL);
         $this->assertSame($targetType, $request->getTargetType());
         $this->assertFalse($request->isExpandAllAttrs());
-        $this->assertEquals(RightClass::ALL(), $request->getRightClass());
+        $this->assertEquals(RightClass::ALL, $request->getRightClass());
         $request = new GetAllRightsRequest();
         $request->setTargetType($targetType)
              ->setExpandAllAttrs(TRUE)
-             ->setRightClass(RightClass::ALL());
+             ->setRightClass(RightClass::ALL);
         $this->assertSame($targetType, $request->getTargetType());
         $this->assertTrue($request->isExpandAllAttrs());
-        $this->assertEquals(RightClass::ALL(), $request->getRightClass());
+        $this->assertEquals(RightClass::ALL, $request->getRightClass());
 
         $response = new GetAllRightsResponse([$right]);
         $this->assertSame([$right], $response->getRights());

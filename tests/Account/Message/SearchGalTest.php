@@ -36,8 +36,8 @@ class SearchGalTest extends ZimbraTestCase
         $galAccountId = $this->faker->uuid;
         $ref = $this->faker->word;
         $name = $this->faker->word;
-        $searchType = GalSearchType::ALL();
-        $needIsMember = MemberOfSelector::ALL();
+        $searchType = GalSearchType::ALL;
+        $needIsMember = MemberOfSelector::ALL;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;
@@ -70,8 +70,8 @@ class SearchGalTest extends ZimbraTestCase
 
         $cursor = new CursorInfo($id, $sortVal, $endSortVal, TRUE);
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, TRUE);
-        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ, $value, TRUE);
+        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE, $value, FALSE);
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
         $conds = new EntrySearchFilterMultiCond(TRUE, FALSE, [$cond, $multiConds]);
         $searchFilter = new EntrySearchFilterInfo($conds);

@@ -19,6 +19,17 @@ namespace Zimbra\Common\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CosBy extends NameIdBy
+enum CosBy: string
 {
+    /**
+     * Constant for value 'id'
+     * @return string 'id'
+     */
+    case ID = 'id';
+
+    /**
+     * Constant for value 'name'
+     * @return string 'name'
+     */
+    case NAME = 'name';
 }

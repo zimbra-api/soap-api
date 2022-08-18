@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * LoggingLevel enum class
  *
@@ -21,31 +19,31 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class LoggingLevel extends Enum
+enum LoggingLevel: string
 {
     /**
      * Constant for value 'error'
      * @return string 'error'
      */
-    protected const ERROR = 'error';
+    case ERROR = 'error';
     /**
      * Constant for value 'warn'
      * @return string 'warn'
      */
-    protected const WARN = 'warn';
+    case WARN = 'warn';
     /**
      * Constant for value 'info'
      * @return string 'info'
      */
-    protected const INFO = 'info';
+    case INFO = 'info';
     /**
      * Constant for value 'debug'
      * @return string 'debug'
      */
-    protected const DEBUG = 'debug';
+    case DEBUG = 'debug';
     /**
      * Constant for value 'trace'
      * @return string 'trace'
      */
-    protected const TRACE = 'trace';
+    case TRACE = 'trace';
 }

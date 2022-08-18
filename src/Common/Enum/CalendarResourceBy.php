@@ -19,11 +19,23 @@ namespace Zimbra\Common\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CalendarResourceBy extends NameIdBy
+enum CalendarResourceBy: string
 {
+    /**
+     * Constant for value 'id'
+     * @return string 'id'
+     */
+    case ID = 'id';
+
+    /**
+     * Constant for value 'name'
+     * @return string 'name'
+     */
+    case NAME = 'name';
+
     /**
      * Constant for value 'foreignPrincipal'
      * @return string 'foreignPrincipal'
      */
-    protected const FOREIGN_PRINCIPAL = 'foreignPrincipal';
+    case FOREIGN_PRINCIPAL = 'foreignPrincipal';
 }

@@ -24,7 +24,7 @@ class GetSystemRetentionPolicyTest extends ZimbraTestCase
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
         $retention = new RetentionPolicy(
-            [new Policy(Type::SYSTEM(), $id, $name, $lifetime)], [new Policy(Type::USER(), $id, $name, $lifetime)]
+            [new Policy(Type::SYSTEM, $id, $name, $lifetime)], [new Policy(Type::USER, $id, $name, $lifetime)]
         );
 
         $request = new GetSystemRetentionPolicyRequest();

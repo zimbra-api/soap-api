@@ -62,7 +62,7 @@ class AccountInfo
         ?AccountBy $by = NULL, ?string $value = NULL, ?bool $mountpointTraversed = NULL
     )
     {
-        $this->setBy($by ?? new AccountBy('name'));
+        $this->setBy($by ?? AccountBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

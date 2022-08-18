@@ -18,7 +18,7 @@ class BounceMsgSpecTest extends ZimbraTestCase
     {
         $id = $this->faker->uuid;
         $address = $this->faker->email;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
         $personal = $this->faker->word;
 
         $emailAddress = new EmailAddrInfo($address, $addressType, $personal);

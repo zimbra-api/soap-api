@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DocumentGrantType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DocumentGrantType extends Enum
+enum DocumentGrantType: string
 {
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    protected const PUB = 'pub';
+    case PUB = 'pub';
 }

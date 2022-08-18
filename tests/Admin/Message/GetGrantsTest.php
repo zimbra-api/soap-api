@@ -35,10 +35,10 @@ class GetGrantsTest extends ZimbraTestCase
         $id = $this->faker->uuid;
 
         $target = new EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $value
+            TargetType::ACCOUNT, TargetBy::NAME, $value
         );
         $grantee = new GranteeSelector(
-            $value, GranteeType::USR(), GranteeBy::NAME(), $secret, TRUE
+            $value, GranteeType::USR, GranteeBy::NAME, $secret, TRUE
         );
 
         $request = new GetGrantsRequest($target, $grantee);
@@ -52,7 +52,7 @@ class GetGrantsTest extends ZimbraTestCase
 
         $grant = new GrantInfo(
             new TypeIdName($type, $id, $name),
-            new GranteeInfo($id, $name, GranteeType::USR()),
+            new GranteeInfo($id, $name, GranteeType::USR),
             new RightModifierInfo($value, TRUE, TRUE, TRUE, TRUE)
         );
         $response = new GetGrantsResponse([$grant]);

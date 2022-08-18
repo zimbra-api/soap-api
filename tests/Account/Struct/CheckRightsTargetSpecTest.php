@@ -22,25 +22,25 @@ class CheckRightsTargetSpecTest extends ZimbraTestCase
         $right3 = $this->faker->unique()->word;
 
         $target = new MockCheckRightsTargetSpec(
-            TargetType::DOMAIN(), TargetBy::ID(), $key, [$right1, $right2]
+            TargetType::DOMAIN, TargetBy::ID, $key, [$right1, $right2]
         );
-        $this->assertEquals(TargetType::DOMAIN(), $target->getTargetType());
-        $this->assertEquals(TargetBy::ID(), $target->getTargetBy());
+        $this->assertEquals(TargetType::DOMAIN, $target->getTargetType());
+        $this->assertEquals(TargetBy::ID, $target->getTargetBy());
         $this->assertSame($key, $target->getTargetKey());
         $this->assertSame([$right1, $right2], $target->getRights());
 
-        $target->setTargetType(TargetType::ACCOUNT())
-               ->setTargetBy(TargetBy::NAME())
+        $target->setTargetType(TargetType::ACCOUNT)
+               ->setTargetBy(TargetBy::NAME)
                ->setTargetKey($key)
                ->addRight($right3);
 
-        $this->assertEquals(TargetType::ACCOUNT(), $target->getTargetType());
-        $this->assertEquals(TargetBy::NAME(), $target->getTargetBy());
+        $this->assertEquals(TargetType::ACCOUNT, $target->getTargetType());
+        $this->assertEquals(TargetBy::NAME, $target->getTargetBy());
         $this->assertSame($key, $target->getTargetKey());
         $this->assertSame([$right1, $right2, $right3], $target->getRights());
 
-        $type = TargetType::ACCOUNT()->getValue();
-        $by = TargetBy::NAME()->getValue();
+        $type = TargetType::ACCOUNT->value;
+        $by = TargetBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" by="$by" key="$key" xmlns:urn="urn:zimbraAccount">

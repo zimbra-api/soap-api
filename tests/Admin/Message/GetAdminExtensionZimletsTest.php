@@ -40,7 +40,7 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
         $regex = $this->faker->word;
 
         $zimletContext = new AdminZimletContext(
-            $baseUrl, ZimletPresence::ENABLED(), $priority
+            $baseUrl, ZimletPresence::ENABLED, $priority
         );
         $serverExtension = new ZimletServerExtension(
             $hasKeyword, $extensionClass, $regex

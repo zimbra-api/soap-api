@@ -14,14 +14,14 @@ class ServerSelectorTest extends ZimbraTestCase
     public function testServerSelector()
     {
         $value = $this->faker->word;
-        $server = new ServerSelector(ServerBy::ID(), $value);
-        $this->assertEquals(ServerBy::ID(), $server->getBy());
+        $server = new ServerSelector(ServerBy::ID, $value);
+        $this->assertEquals(ServerBy::ID, $server->getBy());
         $this->assertSame($value, $server->getValue());
 
         $server = new ServerSelector();
-        $server->setBy(ServerBy::NAME())
+        $server->setBy(ServerBy::NAME)
                ->setValue($value);
-        $this->assertEquals(ServerBy::NAME(), $server->getBy());
+        $this->assertEquals(ServerBy::NAME, $server->getBy());
         $this->assertSame($value, $server->getValue());
 
         $xml = <<<EOT

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * BrowseBy enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class BrowseBy extends Enum
+enum BrowseBy: string
 {
     /**
      * Constant for value 'domains'
      * @return string 'domains'
      */
-    protected const DOMAINS = 'domains';
+    case DOMAINS = 'domains';
 
     /**
      * Constant for value 'attachments'
      * @return string 'attachments'
      */
-    protected const ATTACHMENTS = 'attachments';
+    case ATTACHMENTS = 'attachments';
 
     /**
      * Constant for value 'objects'
      * @return string 'objects'
      */
-    protected const OBJECTS = 'objects';
+    case OBJECTS = 'objects';
 }

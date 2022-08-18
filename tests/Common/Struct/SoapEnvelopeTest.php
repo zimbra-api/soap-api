@@ -40,11 +40,11 @@ class EnvelopeTest extends ZimbraTestCase
 
         $session = new SessionInfo(TRUE, $id, $sequence, $value);
         $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID(), $value, TRUE);
+        $account = new AccountInfo(AccountBy::ID, $value, TRUE);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
-        $format = new FormatInfo(RequestFormat::XML());
+        $format = new FormatInfo(RequestFormat::XML);
         $notify = new NotifyInfo($sequence);
         $context = new Context(
             $hopCount,
@@ -75,8 +75,8 @@ class EnvelopeTest extends ZimbraTestCase
         $this->assertSame($header, $envelope->getHeader());
         $this->assertSame($body, $envelope->getBody());
 
-        $byId = AccountBy::ID()->getValue();
-        $requestFormat = RequestFormat::XML()->getValue();
+        $byId = AccountBy::ID->value;
+        $requestFormat = RequestFormat::XML->value;
         $xml = <<<EOT
 <?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">

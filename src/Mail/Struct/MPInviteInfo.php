@@ -85,7 +85,7 @@ class MPInviteInfo
         array $inviteComponents = []
     )
     {
-        $this->setCalItemType($calItemType ?? new InviteType('appt'))
+        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT)
              ->setTimezones($timezones)
              ->setCalendarReplies($calendarReplies)
              ->setInviteComponents($inviteComponents);

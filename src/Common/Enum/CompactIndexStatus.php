@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CompactIndexStatus enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CompactIndexStatus extends Enum
+enum CompactIndexStatus: string
 {
     /**
      * Constant for value 'started'
      * @return string 'started'
      */
-    protected const STARTED = 'started';
+    case STARTED = 'started';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const RUNNING = 'running';
+    case RUNNING = 'running';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const IDLE = 'idle';
+    case IDLE = 'idle';
 }

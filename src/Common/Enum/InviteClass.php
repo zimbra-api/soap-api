@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * InviteClass enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class InviteClass extends Enum
+enum InviteClass: string
 {
     /**
      * Constant for value 'Public'
      * @return string 'PUB'
      */
-    protected const PUB = 'PUB';
+    case PUB = 'PUB';
 
     /**
      * Constant for value 'Private'
      * @return string 'PRI'
      */
-    protected const PRI = 'PRI';
+    case PRI = 'PRI';
 
     /**
      * Constant for value 'Confidential'
      * @return string 'CON'
      */
-    protected const CON = 'CON';
+    case CON = 'CON';
 }

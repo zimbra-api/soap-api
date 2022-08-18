@@ -41,26 +41,26 @@ class EffectiveRightsTargetTest extends ZimbraTestCase
         $inDomains = new InDomainInfo($rights, [$domain]);
         $entries = new RightsEntriesInfo($rights, [$entry]);
 
-        $target = new StubEffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
-        $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
+        $target = new StubEffectiveRightsTarget(TargetType::ACCOUNT, $rights, [$inDomains], [$entries]);
+        $this->assertEquals(TargetType::ACCOUNT, $target->getType());
         $this->assertSame($rights, $target->getAll());
         $this->assertSame([$inDomains], $target->getInDomainLists());
         $this->assertSame([$entries], $target->getEntriesLists());
 
         $target = new StubEffectiveRightsTarget();
-        $target->setType(TargetType::DOMAIN())
+        $target->setType(TargetType::DOMAIN)
             ->setAll($rights)
             ->setInDomainLists([$inDomains])
             ->addInDomainList($inDomains)
             ->setEntriesLists([$entries])
             ->addEntriesList($entries);
-        $this->assertEquals(TargetType::DOMAIN(), $target->getType());
+        $this->assertEquals(TargetType::DOMAIN, $target->getType());
         $this->assertSame($rights, $target->getAll());
         $this->assertSame([$inDomains, $inDomains], $target->getInDomainLists());
         $this->assertSame([$entries, $entries], $target->getEntriesLists());
-        $target = new StubEffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
+        $target = new StubEffectiveRightsTarget(TargetType::ACCOUNT, $rights, [$inDomains], [$entries]);
 
-        $type = TargetType::ACCOUNT()->getValue();
+        $type = TargetType::ACCOUNT->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" xmlns:urn="urn:zimbraAdmin">

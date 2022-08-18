@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * VoiceSortBy enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class VoiceSortBy extends Enum
+enum VoiceSortBy: string
 {
     /**
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    protected const DATE_DESC = 'dateDesc';
+    case DATE_DESC = 'dateDesc';
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    protected const DATE_ASC = 'dateAsc';
+    case DATE_ASC = 'dateAsc';
 
     /**
      * Constant for value 'durDesc'
      * @return string 'durDesc'
      */
-    protected const DUR_DESC = 'durDesc';
+    case DUR_DESC = 'durDesc';
 
     /**
      * Constant for value 'durAsc'
      * @return string 'durAsc'
      */
-    protected const DUR_ASC = 'durAsc';
+    case DUR_ASC = 'durAsc';
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    protected const NAME_DESC = 'nameDesc';
+    case NAME_DESC = 'nameDesc';
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    protected const NAME_ASC = 'nameAsc';
+    case NAME_ASC = 'nameAsc';
 }

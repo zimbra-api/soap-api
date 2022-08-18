@@ -19,7 +19,7 @@ class DistributionListRightInfoTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $right = $this->faker->word;
-        $type = GranteeType::USR();
+        $type = GranteeType::USR;
 
         $grantee = new DistributionListGranteeInfo(
             $type, $id, $name

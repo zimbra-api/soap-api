@@ -19,8 +19,8 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $value= $this->faker->word;
 
         $attr = new Attr($name, $value);
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
 
         $xmpp = new StubXMPPComponentSpec($domain, $server, $name);
         $this->assertSame($name, $xmpp->getName());
@@ -36,7 +36,7 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $this->assertSame($domain, $xmpp->getDomain());
         $this->assertSame($server, $xmpp->getServer());
 
-        $by = DomainBy::NAME()->getValue();
+        $by = DomainBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result name="$name" xmlns:urn="urn:zimbraAdmin">

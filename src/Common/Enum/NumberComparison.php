@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * NumberComparison enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class NumberComparison extends Enum
+enum NumberComparison: string
 {
     /**
      * Constant for value 'over'
      * @return string 'over'
      */
-    protected const OVER = 'over';
+    case OVER = 'over';
 
     /**
      * Constant for value 'under'
      * @return string 'under'
      */
-    protected const UNDER = 'under';
+    case UNDER = 'under';
 }

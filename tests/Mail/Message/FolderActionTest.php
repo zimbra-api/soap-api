@@ -24,7 +24,7 @@ class FolderActionTest extends ZimbraTestCase
 {
     public function testFolderAction()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->value;
         $ids = $this->faker->uuid;
 
         $id = $this->faker->uuid;
@@ -32,14 +32,14 @@ class FolderActionTest extends ZimbraTestCase
 
         $url = $this->faker->url;
         $zimbraId = $this->faker->uuid;
-        $grantType = GranteeType::USR();
+        $grantType = GranteeType::USR;
         $view = $this->faker->word;
         $numDays = $this->faker->randomNumber;
 
         $nonExistentIds = $this->faker->uuid;
         $newlyCreatedIds = $this->faker->uuid;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $displayName = $this->faker->name;
         $args = $this->faker->word;
         $password = $this->faker->word;
@@ -50,8 +50,8 @@ class FolderActionTest extends ZimbraTestCase
             $rights, $grantType, $zimbraId, $displayName, $args, $password, $accessKey
         );
         $retentionPolicy = new RetentionPolicy(
-            [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-            [new Policy(Type::USER(), $id, $name, $lifetime)]
+            [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+            [new Policy(Type::USER, $id, $name, $lifetime)]
         );
         $action = new FolderActionSelector(
             $operation, $ids, TRUE, $url, TRUE, $zimbraId, $grantType, $view, $grant, [$grant], $retentionPolicy, $numDays

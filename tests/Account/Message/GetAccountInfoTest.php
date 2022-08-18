@@ -28,7 +28,7 @@ class GetAccountInfoTest extends ZimbraTestCase
         $adminURL = $this->faker->url;
         $boshURL = $this->faker->url;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
         $request = new GetAccountInfoRequest($account);
         $this->assertSame($account, $request->getAccount());
         $request = new GetAccountInfoRequest(new AccountSelector());

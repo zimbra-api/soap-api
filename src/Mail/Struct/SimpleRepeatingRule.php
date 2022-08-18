@@ -244,7 +244,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
         array $xNames = []
     )
     {
-        $this->setFrequency($frequency ?? new Frequency('SEC'))
+        $this->setFrequency($frequency ?? Frequency::SECOND)
              ->setXNames($xNames);
         if ($until instanceof DateTimeStringAttrInterface) {
             $this->setUntil($until);

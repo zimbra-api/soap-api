@@ -29,21 +29,21 @@ class GetSessionsTest extends ZimbraTestCase
         $offset = $this->faker->randomNumber;
         $total = $this->faker->randomNumber;
 
-        $request = new GetSessionsRequest(SessionType::IMAP(), GetSessionsSortBy::NAME_DESC(), $offset, $limit, FALSE);
-        $this->assertEquals(SessionType::IMAP(), $request->getType());
-        $this->assertEquals(GetSessionsSortBy::NAME_DESC(), $request->getSortBy());
+        $request = new GetSessionsRequest(SessionType::IMAP, GetSessionsSortBy::NAME_DESC, $offset, $limit, FALSE);
+        $this->assertEquals(SessionType::IMAP, $request->getType());
+        $this->assertEquals(GetSessionsSortBy::NAME_DESC, $request->getSortBy());
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
         $this->assertFalse($request->getRefresh());
 
         $request = new GetSessionsRequest();
-        $request->setType(SessionType::SOAP())
-            ->setSortBy(GetSessionsSortBy::NAME_ASC())
+        $request->setType(SessionType::SOAP)
+            ->setSortBy(GetSessionsSortBy::NAME_ASC)
             ->setLimit($limit)
             ->setOffset($offset)
             ->setRefresh(TRUE);
-        $this->assertEquals(SessionType::SOAP(), $request->getType());
-        $this->assertEquals(GetSessionsSortBy::NAME_ASC(), $request->getSortBy());
+        $this->assertEquals(SessionType::SOAP, $request->getType());
+        $this->assertEquals(GetSessionsSortBy::NAME_ASC, $request->getSortBy());
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
         $this->assertTrue($request->getRefresh());

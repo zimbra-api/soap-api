@@ -24,20 +24,20 @@ class DeployZimletTest extends ZimbraTestCase
         $error = $this->faker->word;
 
         $content = new AttachmentIdAttrib($aid);
-        $progress = new ZimletDeploymentStatus($server, ZimletDeployStatus::SUCCEEDED(), $error);
+        $progress = new ZimletDeploymentStatus($server, ZimletDeployStatus::SUCCEEDED, $error);
 
-        $request = new DeployZimletRequest($content, ZimletDeployAction::DEPLOY_ALL(), FALSE, FALSE);
-        $this->assertEquals(ZimletDeployAction::DEPLOY_ALL(), $request->getAction());
+        $request = new DeployZimletRequest($content, ZimletDeployAction::DEPLOY_ALL, FALSE, FALSE);
+        $this->assertEquals(ZimletDeployAction::DEPLOY_ALL, $request->getAction());
         $this->assertSame($content, $request->getContent());
         $this->assertFalse($request->getFlushCache());
         $this->assertFalse($request->getSynchronous());
 
         $request = new DeployZimletRequest(new AttachmentIdAttrib());
-        $request->setAction(ZimletDeployAction::DEPLOY_LOCAL())
+        $request->setAction(ZimletDeployAction::DEPLOY_LOCAL)
             ->setContent($content)
             ->setFlushCache(TRUE)
             ->setSynchronous(TRUE);
-        $this->assertEquals(ZimletDeployAction::DEPLOY_LOCAL(), $request->getAction());
+        $this->assertEquals(ZimletDeployAction::DEPLOY_LOCAL, $request->getAction());
         $this->assertSame($content, $request->getContent());
         $this->assertTrue($request->getFlushCache());
         $this->assertTrue($request->getSynchronous());

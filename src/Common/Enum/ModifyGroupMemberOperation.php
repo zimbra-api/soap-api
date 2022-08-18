@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ModifyGroupMemberOperation enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ModifyGroupMemberOperation extends Enum
+enum ModifyGroupMemberOperation: string
 {
     /**
      * Constant for value ADD
      * @return string '+'
      */
-    protected const ADD = '+';
+    case ADD = '+';
 
     /**
      * Constant for value REMOVE
      * @return string '-'
      */
-    protected const REMOVE = '-';
+    case REMOVE = '-';
 
     /**
      * Constant for value RESET
      * @return string 'reset'
      */
-    protected const RESET = 'reset';
+    case RESET = 'reset';
 }

@@ -22,17 +22,17 @@ class LockoutMailboxTest extends ZimbraTestCase
     {
         $name = $this->faker->name;
         $value = $this->faker->word;
-        $account = new AccountNameSelector(AccountBy::NAME(), $name, $value);
-        $request = new LockoutMailboxRequest($account, LockoutOperation::START());
+        $account = new AccountNameSelector(AccountBy::NAME, $name, $value);
+        $request = new LockoutMailboxRequest($account, LockoutOperation::START);
         $this->assertSame($account, $request->getAccount());
-        $this->assertEquals(LockoutOperation::START(), $request->getOperation());
+        $this->assertEquals(LockoutOperation::START, $request->getOperation());
         $request = new LockoutMailboxRequest(
             new AccountNameSelector()
         );
         $request->setAccount($account)
-            ->setOperation(LockoutOperation::START());
+            ->setOperation(LockoutOperation::START);
         $this->assertSame($account, $request->getAccount());
-        $this->assertEquals(LockoutOperation::START(), $request->getOperation());
+        $this->assertEquals(LockoutOperation::START, $request->getOperation());
 
         $response = new LockoutMailboxResponse();
 

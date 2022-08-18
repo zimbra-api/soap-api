@@ -1141,7 +1141,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     {
         $validChanges = [];
         foreach (explode(',', $changes) as $change) {
-            if (InviteChange::isValid($change)) {
+            if (InviteChange::tryFrom($change)) {
                 $validChanges[] = $change;
             }
         }

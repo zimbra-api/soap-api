@@ -10,7 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-
 /**
  * ReIndexAction enum class
  *
@@ -20,11 +19,23 @@ namespace Zimbra\Common\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ReIndexAction extends CompactIndexAction
+enum ReIndexAction: string
 {
+    /**
+     * Constant for value 'start'
+     * @return string 'start'
+     */
+    case START = 'start';
+
+    /**
+     * Constant for value 'status'
+     * @return string 'status'
+     */
+    case STATUS = 'status';
+
     /**
      * Constant for value 'cancel'
      * @return string 'cancel'
      */
-    protected const CANCEL = 'cancel';
+    case CANCEL = 'cancel';
 }

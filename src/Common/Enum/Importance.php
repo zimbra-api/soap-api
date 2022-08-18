@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Importance enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Importance extends Enum
+enum Importance: string
 {
     /**
      * Constant for value 'high'
      * @return string 'high'
      */
-    protected const HIGH = 'high';
+    case HIGH = 'high';
 
     /**
      * Constant for value 'normal'
      * @return string 'normal'
      */
-    protected const NORMAL = 'normal';
+    case NORMAL = 'normal';
 
     /**
      * Constant for value 'low'
      * @return string 'low'
      */
-    protected const LOW = 'low';
+    case LOW = 'low';
 }

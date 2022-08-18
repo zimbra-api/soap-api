@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AutoProvPrincipalBy enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AutoProvPrincipalBy extends Enum
+enum AutoProvPrincipalBy: string
 {
     /**
      * Constant for value 'dn'
      * @return string 'dn'
      */
-    protected const DN = 'dn';
+    case DN = 'dn';
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    protected const NAME = 'name';
+    case NAME = 'name';
 }

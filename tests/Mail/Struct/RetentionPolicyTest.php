@@ -19,8 +19,8 @@ class RetentionPolicyTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
-        $keep = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
-        $purge = new Policy(Type::USER(), $id, $name, $lifetime);
+        $keep = new Policy(Type::SYSTEM, $id, $name, $lifetime);
+        $purge = new Policy(Type::USER, $id, $name, $lifetime);
 
         $retention = new StubRetentionPolicy([$keep], [$purge]);
         $this->assertSame([$keep], $retention->getKeepPolicy());

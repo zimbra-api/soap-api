@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * GetSessionsSortBy enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GetSessionsSortBy extends Enum
+enum GetSessionsSortBy: string
 {
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    protected const NAME_ASC = 'nameAsc';
+    case NAME_ASC = 'nameAsc';
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    protected const NAME_DESC = 'nameDesc';
+    case NAME_DESC = 'nameDesc';
 
     /**
      * Constant for value 'createdAsc'
      * @return string 'createdAsc'
      */
-    protected const CREATED_ASC = 'createdAsc';
+    case CREATED_ASC = 'createdAsc';
 
     /**
      * Constant for value 'createdDesc'
      * @return string 'createdDesc'
      */
-    protected const CREATED_DESC = 'createdDesc';
+    case CREATED_DESC = 'createdDesc';
 
     /**
      * Constant for value 'accessedAsc'
      * @return string 'accessedAsc'
      */
-    protected const ACCESSED_ASC = 'accessedAsc';
+    case ACCESSED_ASC = 'accessedAsc';
 
     /**
      * Constant for value 'accessedDesc'
      * @return string 'accessedDesc'
      */
-    protected const ACCESSED_DESC = 'accessedDesc';
+    case ACCESSED_DESC = 'accessedDesc';
 }

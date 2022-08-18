@@ -26,9 +26,9 @@ class CreateWaitSetTest extends ZimbraTestCase
         $token = $this->faker->word;
         $sequence = $this->faker->randomNumber;
         $interests = implode(',', [
-            InterestType::FOLDERS()->getValue(),
-            InterestType::MESSAGES()->getValue(),
-            InterestType::CONTACTS()->getValue(),
+            InterestType::FOLDERS->value,
+            InterestType::MESSAGES->value,
+            InterestType::CONTACTS->value,
         ]);
 
         $waitSet = new WaitSetAddSpec($name, $id, $token, $interests);

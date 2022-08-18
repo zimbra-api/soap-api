@@ -16,7 +16,7 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
 {
     public function testDiscoverRightsTarget()
     {
-        $type = TargetType::ACCOUNT();
+        $type = TargetType::ACCOUNT;
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $displayName = $this->faker->word;
@@ -47,7 +47,7 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" id="$id" name="$name" d="$displayName" xmlns:urn="urn:zimbraAccount">
+<result type="account" id="$id" name="$name" d="$displayName" xmlns:urn="urn:zimbraAccount">
     <urn:email addr="$addr" />
 </result>
 EOT;

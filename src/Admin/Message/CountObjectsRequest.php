@@ -96,7 +96,7 @@ class CountObjectsRequest extends SoapRequest
         ?bool $onlyRelated = NULL
     )
     {
-        $this->setType($type ?? new CountObjectsType('account'))
+        $this->setType($type ?? CountObjectsType::ACCOUNT)
              ->setDomains($domains);
         if ($ucService instanceof UcServiceSelector) {
             $this->setUcService($ucService);

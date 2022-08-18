@@ -157,7 +157,7 @@ class PreAuth
     {
         $timestamp = ($this->getTimestamp() > 0) ? $this->getTimestamp() : time();
         $expire = $this->getExpiresTimestamp();
-        $preauth = $account->getValue() . '|'. $account->getBy() . '|' . $expire . '|' . $timestamp;
+        $preauth = $account->getValue() . '|'. $account->getBy()->value . '|' . $expire . '|' . $timestamp;
         return $this->setValue(hash_hmac('sha1', $preauth, $preauthKey));
     }
 }

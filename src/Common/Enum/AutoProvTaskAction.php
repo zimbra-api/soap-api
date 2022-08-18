@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AutoProvTaskAction enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AutoProvTaskAction extends Enum
+enum AutoProvTaskAction: string
 {
     /**
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    case START = 'start';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    case STATUS = 'status';
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    protected const STOP = 'stop';
+    case STOP = 'stop';
 }

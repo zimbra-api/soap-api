@@ -87,7 +87,7 @@ class DeployZimletRequest extends SoapRequest
         ?bool $synchronous = NULL
     )
     {
-        $this->setAction($action ?? new ZimletDeployAction('deployAll'))
+        $this->setAction($action ?? ZimletDeployAction::DEPLOY_ALL)
              ->setContent($content);
         if (NULL !== $flushCache) {
             $this->setFlushCache($flushCache);

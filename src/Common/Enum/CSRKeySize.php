@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CSRKeySize enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CSRKeySize extends Enum
+enum CSRKeySize: int
 {
     /**
      * Constant for value '1024'
      * @return string '1024'
      */
-    protected const SIZE_1024 = 1024;
+    case SIZE_1024 = 1024;
 
     /**
      * Constant for value '2048'
      * @return string '2048'
      */
-    protected const SIZE_2048 = 2048;
+    case SIZE_2048 = 2048;
 }

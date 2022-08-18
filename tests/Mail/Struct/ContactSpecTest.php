@@ -32,7 +32,7 @@ class ContactSpecTest extends ZimbraTestCase
         $attr = new NewContactAttr(
             $name, $attachId, $id, $part, $value
         );
-        $member = new NewContactGroupMember(MemberType::CONTACT(), $value);
+        $member = new NewContactGroupMember(MemberType::CONTACT, $value);
 
         $contact = new StubContactSpec(
             $id, $folder, $tags, $tagNames, $vcard, [$attr], [$member]

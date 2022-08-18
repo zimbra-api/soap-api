@@ -120,7 +120,7 @@ class ReindexMailboxInfo
     public function setTypes(string $types): self
     {
         $types = array_map(static fn ($type) => trim($type), explode(',', $types));
-        $types = array_filter($types, static fn ($type) => ReindexType::isValid($type));
+        $types = array_filter($types, static fn ($type) => ReindexType::tryFrom($type));
         $this->types = implode(',', array_unique($types));
         return $this;
     }

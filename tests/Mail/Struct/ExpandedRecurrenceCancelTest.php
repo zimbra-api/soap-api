@@ -35,7 +35,7 @@ class ExpandedRecurrenceCancelTest extends ZimbraTestCase
 
         $exceptionId = new InstanceRecurIdInfo($range, $dateTime, $timezone);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
-        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
 
         $cancel = new StubExpandedRecurrenceCancel($exceptionId, $startTime, $endTime, $duration, $recurrence);
         $this->assertTrue($cancel instanceof ExpandedRecurrenceComponent);

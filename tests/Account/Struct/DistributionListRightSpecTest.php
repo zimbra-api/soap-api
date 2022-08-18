@@ -20,8 +20,8 @@ class DistributionListRightSpecTest extends ZimbraTestCase
         $name = $this->faker->word;
         $value1 = $this->faker->word;
         $value2 = $this->faker->word;
-        $grantee1 = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::NAME(), $value1);
-        $grantee2 = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::ID(), $value2);
+        $grantee1 = new DistributionListGranteeSelector(GranteeType::ALL, DLGranteeBy::NAME, $value1);
+        $grantee2 = new DistributionListGranteeSelector(GranteeType::USR, DLGranteeBy::ID, $value2);
 
         $right = new MockDistributionListRightSpec($name, [$grantee1]);
         $this->assertSame($name, $right->getRight());
@@ -34,10 +34,10 @@ class DistributionListRightSpecTest extends ZimbraTestCase
         $this->assertSame($name, $right->getRight());
         $this->assertSame([$grantee1, $grantee2], $right->getGrantees());
 
-        $typeAll = GranteeType::ALL()->getValue();
-        $typeUsr = GranteeType::USR()->getValue();
-        $byName = DLGranteeBy::NAME()->getValue();
-        $byId = DLGranteeBy::ID()->getValue();
+        $typeAll = GranteeType::ALL->value;
+        $typeUsr = GranteeType::USR->value;
+        $byName = DLGranteeBy::NAME->value;
+        $byId = DLGranteeBy::ID->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result right="$name" xmlns:urn="urn:zimbraAccount">

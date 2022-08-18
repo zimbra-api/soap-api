@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * InterestType enum class
  *
@@ -21,47 +19,47 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class InterestType extends Enum
+enum InterestType: string
 {
     /**
      * Constant for value 'f'
      * @return string 'f'
      */
-    protected const FOLDERS = 'f';
+    case FOLDERS = 'f';
 
     /**
      * Constant for value 'm'
      * @return string 'm'
      */
-    protected const MESSAGES = 'm';
+    case MESSAGES = 'm';
 
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    protected const CONTACTS = 'c';
+    case CONTACTS = 'c';
 
     /**
      * Constant for value 'a'
      * @return string 'a'
      */
-    protected const APPOINTMENTS = 'a';
+    case APPOINTMENTS = 'a';
 
     /**
      * Constant for value 't'
      * @return string 't'
      */
-    protected const TASKS = 't';
+    case TASKS = 't';
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    protected const DOCUMENTS = 'd';
+    case DOCUMENTS = 'd';
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 }

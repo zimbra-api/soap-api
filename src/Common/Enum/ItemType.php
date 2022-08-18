@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ItemType enum class
  *
@@ -21,59 +19,59 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ItemType extends Enum
+enum ItemType: string
 {
     /**
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
-    protected const APPOINTMENT = 'appointment';
+    case APPOINTMENT = 'appointment';
 
     /**
      * Constant for value 'chat'
      * @return string 'chat'
      */
-    protected const CHAT = 'chat';
+    case CHAT = 'chat';
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    protected const CONTACT = 'contact';
+    case CONTACT = 'contact';
 
     /**
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
-    protected const CONVERSATION = 'conversation';
+    case CONVERSATION = 'conversation';
 
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    protected const DOCUMENT = 'document';
+    case DOCUMENT = 'document';
 
     /**
      * Constant for value 'message'
      * @return string 'message'
      */
-    protected const MESSAGE = 'message';
+    case MESSAGE = 'message';
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    protected const TAG = 'tag';
+    case TAG = 'tag';
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    protected const TASK = 'task';
+    case TASK = 'task';
 
     /**
      * Constant for value 'wiki'
      * @return string 'wiki'
      */
-    protected const WIKI = 'wiki';
+    case WIKI = 'wiki';
 }

@@ -39,7 +39,7 @@ class ConversationSummaryTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
 
         $metadata = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
         $email = new EmailInfo($address, $display, $personal, $addressType, TRUE, TRUE);

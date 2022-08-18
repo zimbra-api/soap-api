@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ExcludeType enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ZimletExcludeType extends Enum
+enum ZimletExcludeType: string
 {
     /**
      * Constant for value 'extension'
      * @return string 'extension'
      */
-    protected const EXTENSION = 'extension';
+    case EXTENSION = 'extension';
 
     /**
      * Constant for value 'mail'
      * @return string 'mail'
      */
-    protected const MAIL = 'mail';
+    case MAIL = 'mail';
 
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    protected const NONE = 'none';
+    case NONE = 'none';
 }

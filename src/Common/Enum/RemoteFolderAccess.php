@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RemoteFolderAccess enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RemoteFolderAccess extends Enum
+enum RemoteFolderAccess: string
 {
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    protected const CREATE = 'c';
+    case CREATE = 'c';
 
     /**
      * Constant for value 'i'
      * @return string 'i'
      */
-    protected const INSERT = 'i';
+    case INSERT = 'i';
 
     /**
      * Constant for value 'r'
      * @return string 'r'
      */
-    protected const READ = 'r';
+    case READ = 'r';
 }

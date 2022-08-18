@@ -25,8 +25,8 @@ class CreateXMPPComponentTest extends ZimbraTestCase
         $serverName = $this->faker->word;
 
         $attr = new Attr($key, $value);
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
 
         $xmppSpec = new XMPPComponentSpec($domain, $server, $name, [$attr]);
         $request = new CreateXMPPComponentRequest($xmppSpec);

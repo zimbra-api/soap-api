@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * StringComparison enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class StringComparison extends Enum
+enum StringComparison: string
 {
     /**
      * Constant for value 'is'
      * @return string 'is'
      */
-    protected const IS = 'is';
+    case IS = 'is';
 
     /**
      * Constant for value 'contains'
      * @return string 'contains'
      */
-    protected const CONTAINS = 'contains';
+    case CONTAINS = 'contains';
 
     /**
      * Constant for value 'matches'
      * @return string 'matches'
      */
-    protected const MATCHES = 'matches';
+    case MATCHES = 'matches';
 }

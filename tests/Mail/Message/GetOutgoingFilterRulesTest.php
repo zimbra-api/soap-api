@@ -110,10 +110,10 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $addressTest = new AddressTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET
         );
         $envelopeTest = new EnvelopeTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET
         );
         $attachmentTest = new AttachmentTest(
             $index, TRUE
@@ -134,10 +134,10 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $value
         );
         $currentTimeTest = new CurrentTimeTest(
-            $index, TRUE, DateComparison::BEFORE(), $time
+            $index, TRUE, DateComparison::BEFORE, $time
         );
         $dateTest = new DateTest(
-            $index, TRUE, DateComparison::BEFORE(), $date
+            $index, TRUE, DateComparison::BEFORE, $date
         );
         $facebookTest = new FacebookTest(
             $index, TRUE
@@ -149,10 +149,10 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $headerTest = new HeaderTest(
-            $index, TRUE, $header, StringComparison::IS(), ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, StringComparison::IS, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
         $inviteTest = new InviteTest(
             $index, TRUE, [$method]
@@ -167,10 +167,10 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $mimeHeaderTest = new MimeHeaderTest(
-            $index, TRUE, $header, StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, StringComparison::IS, $value, TRUE
         );
         $sizeTest = new SizeTest(
-            $index, TRUE, NumberComparison::OVER(), $size
+            $index, TRUE, NumberComparison::OVER, $size
         );
         $socialcastTest = new SocialcastTest(
             $index, TRUE
@@ -191,7 +191,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE
         );
         $filterTests = new FilterTests(
-            FilterCondition::ALL_OF(), [
+            FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -235,19 +235,19 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
         $actionStop = new StopAction($index);
         $actionReject = new RejectAction($index, $content);
         $actionEreject = new ErejectAction($index, $content);
-        $actionLog = new LogAction($index, LoggingLevel::INFO(), $content);
+        $actionLog = new LogAction($index, LoggingLevel::INFO, $content);
         $actionAddheader = new AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new DeleteheaderAction(
             $index, TRUE, $offset
-            , new EditheaderTest(MatchType::IS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new EditheaderTest(MatchType::IS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new ReplaceheaderAction(
             $index, TRUE, $offset,
-            new EditheaderTest(MatchType::IS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new EditheaderTest(MatchType::IS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
 
-        $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
+        $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF));
         $filterRule = new FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,

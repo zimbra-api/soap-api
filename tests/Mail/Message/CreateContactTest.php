@@ -44,7 +44,7 @@ class CreateContactTest extends ZimbraTestCase
             $id, $folder, $tags, $tagNames,
             new VCardInfo($messageId, $part, $attachId, $value),
             [new NewContactAttr($name, $attachId, $id, $part, $value)],
-            [new NewContactGroupMember(MemberType::CONTACT(), $value)]
+            [new NewContactGroupMember(MemberType::CONTACT, $value)]
         );
         $request = new CreateContactRequest($contactSpec, FALSE, FALSE, FALSE);
         $this->assertSame($contactSpec, $request->getContact());
@@ -87,7 +87,7 @@ class CreateContactTest extends ZimbraTestCase
             $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE,
             [new MailCustomMetadata($section)],
             [new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename)],
-            [new ContactGroupMember(MemberType::CONTACT(), $value)],
+            [new ContactGroupMember(MemberType::CONTACT, $value)],
             $memberOf
         );
         $response = new CreateContactResponse($contactInfo);

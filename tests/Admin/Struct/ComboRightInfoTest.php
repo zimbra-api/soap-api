@@ -17,21 +17,21 @@ class ComboRightInfoTest extends ZimbraTestCase
         $targetType = $this->faker->word;
 
         $right = new ComboRightInfo(
-            $name, RightType::COMBO(), $targetType
+            $name, RightType::COMBO, $targetType
         );
         $this->assertSame($name, $right->getName());
-        $this->assertEquals(RightType::COMBO(), $right->getType());
+        $this->assertEquals(RightType::COMBO, $right->getType());
         $this->assertSame($targetType, $right->getTargetType());
 
         $right = new ComboRightInfo();
         $right->setName($name)
-            ->setType(RightType::PRESET())
+            ->setType(RightType::PRESET)
             ->setTargetType($targetType);
         $this->assertSame($name, $right->getName());
-        $this->assertEquals(RightType::PRESET(), $right->getType());
+        $this->assertEquals(RightType::PRESET, $right->getType());
         $this->assertSame($targetType, $right->getTargetType());
 
-        $type = RightType::PRESET()->getValue();
+        $type = RightType::PRESET->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result n="$name" type="$type" targetType="$targetType" />

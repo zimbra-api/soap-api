@@ -2,7 +2,9 @@
 
 namespace Zimbra\Tests\Admin\Message;
 
-use Zimbra\Admin\Message\{GetXMPPComponentBody, GetXMPPComponentEnvelope, GetXMPPComponentRequest, GetXMPPComponentResponse};
+use Zimbra\Admin\Message\{
+    GetXMPPComponentBody, GetXMPPComponentEnvelope, GetXMPPComponentRequest, GetXMPPComponentResponse
+};
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\XMPPComponentInfo;
@@ -29,7 +31,7 @@ class GetXMPPComponentTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $xmppSel = new XMPPComponentSelector(XmppBy::NAME(), $value);
+        $xmppSel = new XMPPComponentSelector(XmppBy::NAME, $value);
         $request = new GetXMPPComponentRequest($xmppSel, $attrs);
         $this->assertSame($xmppSel, $request->getComponent());
         $this->assertSame($attrs, $request->getAttrs());

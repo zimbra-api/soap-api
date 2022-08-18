@@ -19,8 +19,8 @@ class GetAdminConsoleUICompTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
-        $dl = new DistributionListSelector(DLBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
+        $dl = new DistributionListSelector(DLBy::NAME, $value);
         $val = new InheritedFlaggedValue(TRUE, $value);
 
         $request = new GetAdminConsoleUICompRequest($account, $dl);

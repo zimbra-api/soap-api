@@ -59,7 +59,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     )
     {
         parent::__construct($attrs);
-        $this->setType($type ?? new DataSourceType('unknown'))
+        $this->setType($type ?? DataSourceType::UNKNOWN)
              ->setName($name);
     }
 

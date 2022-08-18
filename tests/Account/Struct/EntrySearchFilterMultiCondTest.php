@@ -18,8 +18,8 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $attr = $this->faker->word;
         $value = $this->faker->word;
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, TRUE);
-        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ, $value, TRUE);
+        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE, $value, FALSE);
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
 
         $conds = new MockEntrySearchFilterMultiCond(FALSE, TRUE, [$cond, $multiConds]);
@@ -42,8 +42,8 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $this->assertSame([$multiConds], $conds->getCompoundConditions());
         $this->assertSame([$cond, $singleCond], $conds->getSingleConditions());
 
-        $ge = CondOp::GE()->getValue();
-        $eq = CondOp::EQ()->getValue();
+        $ge = CondOp::GE->value;
+        $eq = CondOp::EQ->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result not="true" or="false" xmlns:urn="urn:zimbraAccount">

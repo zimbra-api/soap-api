@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AccountBy enum class
  *
@@ -21,29 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AccountBy extends NameIdBy
+enum AccountBy: string
 {
+    /**
+     * Constant for value 'id'
+     * @return string 'id'
+     */
+    case ID = 'id';
+
+    /**
+     * Constant for value 'name'
+     * @return string 'name'
+     */
+    case NAME = 'name';
+
     /**
      * Constant for value 'adminName'
      * @return string 'adminName'
      */
-    protected const ADMIN_NAME = 'adminName';
+    case ADMIN_NAME = 'adminName';
 
     /**
      * Constant for value 'appAdminName'
      * @return string 'appAdminName'
      */
-    protected const APP_ADMIN_NAME = 'appAdminName';
+    case APP_ADMIN_NAME = 'appAdminName';
 
     /**
      * Constant for value 'foreignPrincipal'
      * @return string 'foreignPrincipal'
      */
-    protected const FOREIGN_PRINCIPAL = 'foreignPrincipal';
+    case FOREIGN_PRINCIPAL = 'foreignPrincipal';
 
     /**
      * Constant for value 'krb5Principal'
      * @return string 'krb5Principal'
      */
-    protected const KRB5_PRINCIPAL = 'krb5Principal';
+    case KRB5_PRINCIPAL = 'krb5Principal';
 }

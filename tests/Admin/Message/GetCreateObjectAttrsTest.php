@@ -30,8 +30,8 @@ class GetCreateObjectAttrsTest extends ZimbraTestCase
         $min = $this->faker->word;
 
         $target = new TargetWithType($type, $value);
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $cos = new CosSelector(CosBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $cos = new CosSelector(CosBy::NAME, $value);
 
         $constraint = new ConstraintInfo($min, $max, [$value1, $value2]);
         $attr = new EffectiveAttrInfo($name, $constraint, [$value1, $value2]);

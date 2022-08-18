@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * FreeBusyStatus enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class FreeBusyStatus extends Enum
+enum FreeBusyStatus: string
 {
     /**
      * Constant for value 'Free'
      * @return string 'F'
      */
-    protected const FREE = 'F';
+    case FREE = 'F';
 
     /**
      * Constant for value 'Busy'
      * @return string 'B'
      */
-    protected const BUSY = 'B';
+    case BUSY = 'B';
 
     /**
      * Constant for value 'Busy-Tentative'
      * @return string 'T'
      */
-    protected const TENTATIVE = 'T';
+    case TENTATIVE = 'T';
 
     /**
      * Constant for value 'OutOfOffice' (busy-unavailable)
      * @return string 'O'
      */
-    protected const OUT_OF_OFFICE = 'O';
+    case OUT_OF_OFFICE = 'O';
 }

@@ -21,8 +21,8 @@ class SignatureTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $cid = $this->faker->word;
 
-        $content1 = new SignatureContent($value, ContentType::TEXT_PLAIN());
-        $content2 = new SignatureContent($value, ContentType::TEXT_HTML());
+        $content1 = new SignatureContent($value, ContentType::TEXT_PLAIN);
+        $content2 = new SignatureContent($value, ContentType::TEXT_HTML);
 
         $sig = new MockSignature($name, $id, $cid, [$content1]);
         $this->assertSame($name, $sig->getName());

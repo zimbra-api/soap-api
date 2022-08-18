@@ -25,7 +25,7 @@ class CreateSignatureTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $cid = $this->faker->uuid;
 
-        $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML())]);
+        $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML)]);
 
         $request = new CreateSignatureRequest($signature);
         $this->assertSame($signature, $request->getSignature());

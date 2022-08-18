@@ -24,22 +24,28 @@ class MailSearchParamsTest extends ZimbraTestCase
 
         $includeTagDeleted = TRUE;
         $includeTagMuted = TRUE;
-        $taskStatus = implode(',', $this->faker->randomElements(TaskStatus::values(), 3));
+
+        $statuses = array_map(static fn ($status) => $status->value, TaskStatus::cases());
+        $taskStatus = implode(',', $this->faker->randomElements($statuses, 3));
+
         $calItemExpandStart = $this->faker->randomNumber;
         $calItemExpandEnd = $this->faker->randomNumber;
         $query = $this->faker->word;
         $inDumpster = TRUE;
-        $searchTypes = implode(',', $this->faker->randomElements(SearchType::values(), 3));
-        $groupBy = implode(',', $this->faker->randomElements(SearchType::values(), 3));
+
+        $types = array_map(static fn ($type) => $type->value, SearchType::cases());
+        $searchTypes = implode(',', $this->faker->randomElements($types, 3));
+        $groupBy = implode(',', $this->faker->randomElements($types, 3));
+
         $quick = TRUE;
-        $sortBy = SearchSortBy::DATE_DESC();
+        $sortBy = SearchSortBy::DATE_DESC;
         $fetch = $this->faker->word;
         $markRead = TRUE;
         $maxInlinedLength = $this->faker->randomNumber;
         $wantHtml = TRUE;
         $needCanExpand = TRUE;
         $neuterImages = TRUE;
-        $wantRecipients = WantRecipsSetting::PUT_BOTH();
+        $wantRecipients = WantRecipsSetting::PUT_BOTH;
         $prefetch = TRUE;
         $resultMode = $this->faker->randomElement(['NORMAL', 'IDS']);
         $fullConversation = TRUE;
@@ -47,7 +53,7 @@ class MailSearchParamsTest extends ZimbraTestCase
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
         $locale = $this->faker->locale;
-        $wantContent = MsgContent::ORIGINAL();
+        $wantContent = MsgContent::ORIGINAL;
         $includeMemberOf = TRUE;
 
         $tzStdOffset = $this->faker->randomNumber;

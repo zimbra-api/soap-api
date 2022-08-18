@@ -23,8 +23,8 @@ class ZimletAclStatusPriTest extends ZimbraTestCase
         $cos = $this->faker->word;
         $value = mt_rand(0, 10);
 
-        $acl = new ZimletAcl($cos, AclType::GRANT());
-        $status = new ValueAttrib(ZimletStatus::ENABLED()->getValue());
+        $acl = new ZimletAcl($cos, AclType::GRANT);
+        $status = new ValueAttrib(ZimletStatus::ENABLED->value);
         $priority = new IntegerValueAttrib($value);
 
         $zimlet = new StubZimletAclStatusPri($name, $acl, $status, $priority);

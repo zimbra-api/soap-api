@@ -75,7 +75,7 @@ class IMAPCopyRequest extends SoapRequest
     )
     {
         $this->setIds($ids)
-             ->setType($type ?? new MailItemType('MESSAGE'))
+             ->setType($type ?? MailItemType::MESSAGE)
              ->setFolder($folder);
     }
 

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AddressPart enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AddressPart extends Enum
+enum AddressPart: string
 {
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 
     /**
      * Constant for value 'localpart'
      * @return string 'localpart'
      */
-    protected const LOCALPART = 'localpart';
+    case LOCALPART = 'localpart';
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    protected const DOMAIN = 'domain';
+    case DOMAIN = 'domain';
 }

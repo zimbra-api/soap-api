@@ -24,8 +24,8 @@ class GetSearchFolderTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $uuid = $this->faker->uuid;
         $query = $this->faker->word;
-        $sortBy = SearchSortBy::DATE_DESC();
-        $types = implode(',', [ItemType::MESSAGE(), ItemType::CONVERSATION()]);
+        $sortBy = SearchSortBy::DATE_DESC;
+        $types = implode(',', [ItemType::MESSAGE->value, ItemType::CONVERSATION->value]);
         $search = new SearchFolder(
             $id,
             $uuid,

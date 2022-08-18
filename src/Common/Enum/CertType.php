@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CertType enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CertType extends Enum
+enum CertType: string
 {
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 
     /**
      * Constant for value 'mta'
      * @return string 'mta'
      */
-    protected const MTA = 'mta';
+    case MTA = 'mta';
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    protected const LDAP = 'ldap';
+    case LDAP = 'ldap';
 
     /**
      * Constant for value 'mailboxd'
      * @return string 'mailboxd'
      */
-    protected const MAILBOXD = 'mailboxd';
+    case MAILBOXD = 'mailboxd';
 
     /**
      * Constant for value 'proxy'
      * @return string 'proxy'
      */
-    protected const PROXY = 'proxy';
+    case PROXY = 'proxy';
 
     /**
      * Constant for value 'staged'
      * @return string 'staged'
      */
-    protected const STAGED = 'staged';
+    case STAGED = 'staged';
 }

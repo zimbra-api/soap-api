@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RecoverAccountOperation enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RecoverAccountOperation extends Enum
+enum RecoverAccountOperation: string
 {
     /**
      * Constant for value 'getRecoveryAccount'
      * @return string 'getRecoveryAccount'
      */
-    protected const GET_RECOVERY_ACCOUNT = 'getRecoveryAccount';
+    case GET_RECOVERY_ACCOUNT = 'getRecoveryAccount';
 
     /**
      * Constant for value 'sendRecoveryCode'
      * @return string 'sendRecoveryCode'
      */
-    protected const SEND_RECOVERY_CODE = 'sendRecoveryCode';
+    case SEND_RECOVERY_CODE = 'sendRecoveryCode';
 
     /**
      * Constant for value 'sendRecoveryLink'
      * @return string 'sendRecoveryLink'
      */
-    protected const SEND_RECOVERY_LINK = 'sendRecoveryLink';
+    case SEND_RECOVERY_LINK = 'sendRecoveryLink';
 }

@@ -180,7 +180,7 @@ class WaitSetAddSpec
      */
     public function setInterests(string $interests): self
     {
-        $types = array_filter(explode(',', $interests), static fn ($type) => InterestType::isValid($type));
+        $types = array_filter(explode(',', $interests), static fn ($type) => InterestType::tryFrom($type));
         $this->interests = !empty($types) ? implode(',', array_unique($types)) : NULL;
         return $this;
     }

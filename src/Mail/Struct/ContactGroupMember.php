@@ -77,7 +77,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
         ?MemberType $type = NULL, string $value = '', ?ContactInterface $contact = NULL
     )
     {
-        $this->setType($type ?? new MemberType('C'))
+        $this->setType($type ?? MemberType::CONTACT)
              ->setValue($value);
         if ($contact instanceof ContactInfo) {
             $this->setContact($contact);

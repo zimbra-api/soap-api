@@ -20,7 +20,7 @@ class DiscoverRightsTest extends ZimbraTestCase
 {
     public function testDiscoverRights()
     {
-        $type = TargetType::ACCOUNT();
+        $type = TargetType::ACCOUNT;
         $id = $this->faker->uuid;
         $name = $this->faker->email;
         $displayName = $this->faker->name;
@@ -73,7 +73,7 @@ class DiscoverRightsTest extends ZimbraTestCase
         </urn:DiscoverRightsRequest>
         <urn:DiscoverRightsResponse>
             <urn:targets right="$right">
-                <urn:target type="$type" id="$id" name="$name" d="$displayName">
+                <urn:target type="account" id="$id" name="$name" d="$displayName">
                     <urn:email addr="$addr" />
                 </urn:target>
             </urn:targets>

@@ -13,14 +13,14 @@ class NewContactGroupMemberTest extends ZimbraTestCase
 {
     public function testNewContactGroupMember()
     {
-        $type = MemberType::CONTACT();
+        $type = MemberType::CONTACT;
         $value = $this->faker->word;
 
         $member = new NewContactGroupMember($type, $value);
         $this->assertSame($type, $member->getType());
         $this->assertSame($value, $member->getValue());
 
-        $member = new NewContactGroupMember(MemberType::CONTACT(), '');
+        $member = new NewContactGroupMember(MemberType::CONTACT, '');
         $member->setType($type)
             ->setValue($value);
         $this->assertSame($type, $member->getType());

@@ -74,7 +74,7 @@ class AccountZimletContext implements ZimletContextInterface
     )
     {
         $this->setZimletBaseUrl($baseUrl)
-             ->setZimletPresence($presence ?? new ZimletPresence('enabled'));
+             ->setZimletPresence($presence ?? ZimletPresence::ENABLED);
         if (NULL !== $priority) {
             $this->setZimletPriority($priority);
         }

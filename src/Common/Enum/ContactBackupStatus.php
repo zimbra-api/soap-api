@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ContactBackupStatus enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ContactBackupStatus extends Enum
+enum ContactBackupStatus: string
 {
     /**
      * Constant for value 'started'
      * @return string 'started'
      */
-    protected const STARTED = 'started';
+    case STARTED = 'started';
 
     /**
      * Constant for value 'error'
      * @return string 'error'
      */
-    protected const ERROR = 'error';
+    case ERROR = 'error';
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    protected const STOPPED = 'stopped';
+    case STOPPED = 'stopped';
 }

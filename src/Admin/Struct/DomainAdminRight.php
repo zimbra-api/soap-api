@@ -86,7 +86,7 @@ class DomainAdminRight
     )
     {
         $this->setName($name)
-             ->setType($type ?? new RightType('preset'))
+             ->setType($type ?? RightType::PRESET)
              ->setDesc($desc)
              ->setRights($rights);
     }

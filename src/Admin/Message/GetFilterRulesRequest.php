@@ -100,7 +100,7 @@ class GetFilterRulesRequest extends SoapRequest
         ?ServerSelector $server = NULL
     )
     {
-        $this->setType($type ?? new AdminFilterType('before'));
+        $this->setType($type ?? AdminFilterType::BEFORE);
         if ($account instanceof AccountSelector) {
             $this->setAccount($account);
         }

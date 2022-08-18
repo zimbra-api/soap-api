@@ -29,7 +29,7 @@ class GetDistributionListMembershipTest extends ZimbraTestCase
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
 
-        $dlSel = new DistributionListSelector(DLBy::NAME(), $value);
+        $dlSel = new DistributionListSelector(DLBy::NAME, $value);
         $dlmInfo = new DistributionListMembershipInfo($id, $name, $via);
 
         $request = new GetDistributionListMembershipRequest($dlSel, $limit, $offset);

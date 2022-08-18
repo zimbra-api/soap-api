@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * GalConfigAction enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GalConfigAction extends Enum
+enum GalConfigAction: string
 {
     /**
      * Constant for value 'autocomplete'
      * @return string 'autocomplete'
      */
-    protected const AUTOCOMPLETE = 'autocomplete';
+    case AUTOCOMPLETE = 'autocomplete';
 
     /**
      * Constant for value 'search'
      * @return string 'search'
      */
-    protected const SEARCH_ = 'search';
+    case SEARCH_ = 'search';
 
     /**
      * Constant for value 'sync'
      * @return string 'sync'
      */
-    protected const SYNC = 'sync';
+    case SYNC = 'sync';
 }

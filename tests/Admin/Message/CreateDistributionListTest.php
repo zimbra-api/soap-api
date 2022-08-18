@@ -40,7 +40,7 @@ class CreateDistributionListTest extends ZimbraTestCase
         $this->assertTrue($request->getDynamic());
 
         $owner = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
         $dl = new DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
         $response = new CreateDistributionListResponse($dl);

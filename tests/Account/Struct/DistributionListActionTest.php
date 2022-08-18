@@ -25,17 +25,17 @@ class DistributionListActionTest extends ZimbraTestCase
         $value = $this->faker->word;
         $member = $this->faker->word;
 
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE(), $value, TRUE);
-        $owner = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::NAME(), $value);
-        $grantee = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::NAME(), $value);
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE, $value, TRUE);
+        $owner = new DistributionListGranteeSelector(GranteeType::USR, DLGranteeBy::NAME, $value);
+        $grantee = new DistributionListGranteeSelector(GranteeType::USR, DLGranteeBy::NAME, $value);
 
         $right = new DistributionListRightSpec($name, [$grantee]);
         $attr = new KeyValuePair($name, $value);
 
         $dl = new MockDistributionListAction(
-            Operation::MODIFY(), $name, $subsReq, [$member], [$owner], [$right]
+            Operation::MODIFY, $name, $subsReq, [$member], [$owner], [$right]
         );
-        $this->assertEquals(Operation::MODIFY(), $dl->getOp());
+        $this->assertEquals(Operation::MODIFY, $dl->getOp());
         $this->assertSame($name, $dl->getNewName());
         $this->assertSame($subsReq, $dl->getSubsReq());
         $this->assertSame([$member], $dl->getMembers());
@@ -43,7 +43,7 @@ class DistributionListActionTest extends ZimbraTestCase
         $this->assertSame([$right], $dl->getRights());
 
         $dl = new MockDistributionListAction();
-        $dl->setOp(Operation::DELETE())
+        $dl->setOp(Operation::DELETE)
            ->setNewName($name)
            ->setSubsReq($subsReq)
            ->addMember($member)
@@ -51,7 +51,7 @@ class DistributionListActionTest extends ZimbraTestCase
            ->addRight($right)
            ->addKeyValuePair($attr);
 
-        $this->assertEquals(Operation::DELETE(), $dl->getOp());
+        $this->assertEquals(Operation::DELETE, $dl->getOp());
         $this->assertSame($name, $dl->getNewName());
         $this->assertSame($subsReq, $dl->getSubsReq());
         $this->assertSame([$member], $dl->getMembers());

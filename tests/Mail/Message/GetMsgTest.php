@@ -40,12 +40,12 @@ class GetMsgTest extends ZimbraTestCase
         $recurIdZ = $this->faker->uuid;
         $name = $this->faker->word;
         $maxInlinedLength = $this->faker->randomNumber;
-        $wantContent = MsgContent::FULL();
+        $wantContent = MsgContent::FULL;
 
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
         $origId = $this->faker->uuid;
-        $draftReplyType = ReplyType::REPLIED();
+        $draftReplyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $draftAccountId = $this->faker->email;
         $draftAutoSendTime = $this->faker->unixTime;
@@ -62,9 +62,9 @@ class GetMsgTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
 
-        $calItemType = InviteType::TASK();
+        $calItemType = InviteType::TASK;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $method = $this->faker->word;

@@ -19,29 +19,29 @@ class EditheaderTestTest extends ZimbraTestCase
         $headerValue = $this->faker->word;
 
         $test = new StubEditheaderTest(
-            MatchType::IS(), FALSE, FALSE, RelationalComparator::NOT_EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue]
+            MatchType::IS, FALSE, FALSE, RelationalComparator::NOT_EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue]
         );
-        $this->assertEquals(MatchType::IS(), $test->getMatchType());
+        $this->assertEquals(MatchType::IS, $test->getMatchType());
         $this->assertFalse($test->getCount());
         $this->assertFalse($test->getValue());
-        $this->assertEquals(RelationalComparator::NOT_EQUAL(), $test->getRelationalComparator());
-        $this->assertEquals(ComparisonComparator::OCTET(), $test->getComparator());
+        $this->assertEquals(RelationalComparator::NOT_EQUAL, $test->getRelationalComparator());
+        $this->assertEquals(ComparisonComparator::OCTET, $test->getComparator());
         $this->assertSame($headerName, $test->getHeaderName());
         $this->assertSame([$headerValue], $test->getHeaderValue());
 
         $test = new StubEditheaderTest();
-        $test->setMatchType(MatchType::CONTAINS())
+        $test->setMatchType(MatchType::CONTAINS)
             ->setCount(TRUE)
             ->setValue(TRUE)
-            ->setRelationalComparator(RelationalComparator::EQUAL())
-            ->setComparator(ComparisonComparator::ASCII_NUMERIC())
+            ->setRelationalComparator(RelationalComparator::EQUAL)
+            ->setComparator(ComparisonComparator::ASCII_NUMERIC)
             ->setHeaderName($headerName)
             ->setHeaderValue([$headerValue]);
-        $this->assertEquals(MatchType::CONTAINS(), $test->getMatchType());
+        $this->assertEquals(MatchType::CONTAINS, $test->getMatchType());
         $this->assertTrue($test->getCount());
         $this->assertTrue($test->getValue());
-        $this->assertEquals(RelationalComparator::EQUAL(), $test->getRelationalComparator());
-        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC(), $test->getComparator());
+        $this->assertEquals(RelationalComparator::EQUAL, $test->getRelationalComparator());
+        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC, $test->getComparator());
         $this->assertSame($headerName, $test->getHeaderName());
         $this->assertSame([$headerValue], $test->getHeaderValue());
 

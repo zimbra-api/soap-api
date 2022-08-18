@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * VersionCheckAction enum class
  *
@@ -21,16 +19,16 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class VersionCheckAction extends Enum
+enum VersionCheckAction: string
 {
     /**
      * Constant for value 'check'
      * @return string 'check'
      */
-    protected const CHECK = 'check';
+    case CHECK = 'check';
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    case STATUS = 'status';
 }

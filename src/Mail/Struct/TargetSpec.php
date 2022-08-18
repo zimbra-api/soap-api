@@ -70,8 +70,8 @@ class TargetSpec
         ?TargetType $targetType = NULL, ?AccountBy $accountBy = NULL, ?string $value = NULL
     )
     {
-        $this->setTargetType($targetType ?? new TargetType('account'))
-             ->setAccountBy($accountBy ?? new AccountBy('name'));
+        $this->setTargetType($targetType ?? TargetType::ACCOUNT)
+             ->setAccountBy($accountBy ?? AccountBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

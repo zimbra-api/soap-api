@@ -86,7 +86,7 @@ class SetRecoveryAccountRequest extends SoapRequest
         ?Channel $channel = NULL
     )
     {
-        $this->setOp($op ?? new RecoveryAccountOperation('sendCode'));
+        $this->setOp($op ?? RecoveryAccountOperation::SEND_CODE);
         if (NULL !== $recoveryAccount) {
             $this->setRecoveryAccount($recoveryAccount);
         }

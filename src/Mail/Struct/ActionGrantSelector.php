@@ -124,7 +124,7 @@ class ActionGrantSelector
     )
     {
         $this->setRights($rights)
-             ->setGrantType($grantType ?? new GranteeType('all'));
+             ->setGrantType($grantType ?? GranteeType::ALL);
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
@@ -162,7 +162,7 @@ class ActionGrantSelector
     {
         $validRights = [];
         foreach (explode(',', $rights) as $right) {
-            if (ActionGrantRight::isValid($right) && !in_array($right, $validRights)) {
+            if (ActionGrantRight::tryFrom($right) && !in_array($right, $validRights)) {
                 $validRights[] = $right;
             }
         }

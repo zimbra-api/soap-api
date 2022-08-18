@@ -14,17 +14,17 @@ class CosSelectorTest extends ZimbraTestCase
     public function testCosSelector()
     {
         $value = $this->faker->word;
-        $cos = new CosSelector(CosBy::ID(), $value);
-        $this->assertEquals(CosBy::ID(), $cos->getBy());
+        $cos = new CosSelector(CosBy::ID, $value);
+        $this->assertEquals(CosBy::ID, $cos->getBy());
         $this->assertSame($value, $cos->getValue());
 
         $cos = new CosSelector();
-        $cos->setBy(CosBy::NAME())
+        $cos->setBy(CosBy::NAME)
             ->setValue($value);
-        $this->assertEquals(CosBy::NAME(), $cos->getBy());
+        $this->assertEquals(CosBy::NAME, $cos->getBy());
         $this->assertSame($value, $cos->getValue());
 
-        $by = CosBy::NAME()->getValue();
+        $by = CosBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by">$value</result>

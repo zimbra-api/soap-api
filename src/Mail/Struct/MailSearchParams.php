@@ -468,7 +468,7 @@ trait MailSearchParams
     public function setAllowableTaskStatus(string $allowableTaskStatus): self
     {
         $taskStatuses = array_filter(
-            explode(',', $allowableTaskStatus), static fn($status) => TaskStatus::isValid(trim($status))
+            explode(',', $allowableTaskStatus), static fn($status) => TaskStatus::tryFrom(trim($status))
         );
         $this->allowableTaskStatus = implode(',', $taskStatuses);
         return $this;
@@ -581,7 +581,7 @@ trait MailSearchParams
     public function setSearchTypes(string $searchTypes): self
     {
         $validTypes = array_filter(
-            explode(',', $searchTypes), static fn($type) => SearchType::isValid(trim($type))
+            explode(',', $searchTypes), static fn($type) => SearchType::tryFrom(trim($type))
         );
         $this->searchTypes = implode(',', $validTypes);
         return $this;

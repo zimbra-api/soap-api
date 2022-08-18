@@ -28,7 +28,7 @@ class MailQueueWithActionTest extends ZimbraTestCase
         $attr = new ValueAttrib($value);
         $field = new QueueQueryField($name, [$attr]);
         $query = new QueueQuery([$field], $limit, $offset);
-        $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
+        $action = new MailQueueAction($query, QueueAction::HOLD, QueueActionBy::QUERY);
 
         $queue = new StubMailQueueWithAction($action, $name);
         $this->assertSame($name, $queue->getName());
@@ -40,8 +40,8 @@ class MailQueueWithActionTest extends ZimbraTestCase
         $this->assertSame($name, $queue->getName());
         $this->assertSame($action, $queue->getAction());
 
-        $op = QueueAction::HOLD()->getValue();
-        $by = QueueActionBy::QUERY()->getValue();
+        $op = QueueAction::HOLD->value;
+        $by = QueueActionBy::QUERY->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result name="$name" xmlns:urn="urn:zimbraAdmin">

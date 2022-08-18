@@ -15,23 +15,23 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
 
-        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID(), $value, FALSE, TRUE);
-        $this->assertEquals(DataSourceBy::ID(), $ds->getBy());
+        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID, $value, FALSE, TRUE);
+        $this->assertEquals(DataSourceBy::ID, $ds->getBy());
         $this->assertSame($value, $ds->getValue());
         $this->assertFalse($ds->getFullSync());
         $this->assertTrue($ds->getReset());
 
         $ds = new SyncGalAccountDataSourceSpec();
-        $ds->setBy(DataSourceBy::NAME())
+        $ds->setBy(DataSourceBy::NAME)
            ->setValue($value)
            ->setFullSync(TRUE)
            ->setReset(FALSE);
-        $this->assertEquals(DataSourceBy::NAME(), $ds->getBy());
+        $this->assertEquals(DataSourceBy::NAME, $ds->getBy());
         $this->assertSame($value, $ds->getValue());
         $this->assertTrue($ds->getFullSync());
         $this->assertFalse($ds->getReset());
 
-        $by = DataSourceBy::NAME()->getValue();
+        $by = DataSourceBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by" fullSync="true" reset="false">$value</result>

@@ -15,7 +15,7 @@ class ConvActionSelectorTest extends ZimbraTestCase
 {
     public function testConvActionSelector()
     {
-        $operation = $this->faker->randomElement(ConvActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ConvActionOp::cases())->value;
         $ids = $this->faker->uuid;
         $acctRelativePath = $this->faker->word;
 

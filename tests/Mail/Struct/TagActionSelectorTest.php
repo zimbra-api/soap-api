@@ -19,14 +19,15 @@ class TagActionSelectorTest extends ZimbraTestCase
 {
     public function testTagActionSelector()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operations = array_map(static fn ($op) => $op->value, ContactActionOp::cases());
+        $operation = $this->faker->randomElement($operations);
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
 
         $retentionPolicy = new RetentionPolicy(
-            [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-            [new Policy(Type::USER(), $id, $name, $lifetime)]
+            [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+            [new Policy(Type::USER, $id, $name, $lifetime)]
         );
 
         $action = new StubTagActionSelector(

@@ -22,25 +22,25 @@ class AutoCompleteGalTest extends ZimbraTestCase
         $limit = mt_rand(1, 100);
         $request = new AutoCompleteGalRequest(
             $name,
-            GalSearchType::ALL(),
+            GalSearchType::ALL,
             FALSE,
             $galAccountId,
             $limit
         );
         $this->assertSame($name, $request->getName());
-        $this->assertEquals(GalSearchType::ALL(), $request->getType());
+        $this->assertEquals(GalSearchType::ALL, $request->getType());
         $this->assertFalse($request->getNeedCanExpand());
         $this->assertSame($galAccountId, $request->getGalAccountId());
         $this->assertSame($limit, $request->getLimit());
 
         $request = new AutoCompleteGalRequest();
         $request->setName($name)
-            ->setType(GalSearchType::ACCOUNT())
+            ->setType(GalSearchType::ACCOUNT)
             ->setNeedCanExpand(TRUE)
             ->setGalAccountId($galAccountId)
             ->setLimit($limit);
         $this->assertSame($name, $request->getName());
-        $this->assertEquals(GalSearchType::ACCOUNT(), $request->getType());
+        $this->assertEquals(GalSearchType::ACCOUNT, $request->getType());
         $this->assertTrue($request->getNeedCanExpand());
         $this->assertSame($galAccountId, $request->getGalAccountId());
         $this->assertSame($limit, $request->getLimit());

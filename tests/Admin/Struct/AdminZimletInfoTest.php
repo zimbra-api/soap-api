@@ -38,7 +38,7 @@ class AdminZimletInfoTest extends ZimbraTestCase
         $regex = $this->faker->word;
 
         $zimletContext = new AdminZimletContext(
-            $baseUrl, ZimletPresence::ENABLED(), $priority
+            $baseUrl, ZimletPresence::ENABLED, $priority
         );
 
         $serverExtension = new ZimletServerExtension(
@@ -77,7 +77,7 @@ class AdminZimletInfoTest extends ZimbraTestCase
         $this->assertSame($zimletDesc, $zimlet->getZimlet());
         $this->assertSame($zimletConfig, $zimlet->getZimletConfig());
 
-        $presence = ZimletPresence::ENABLED()->getValue();
+        $presence = ZimletPresence::ENABLED->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result xmlns:urn="urn:zimbraAdmin">

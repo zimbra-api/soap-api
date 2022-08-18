@@ -8,7 +8,7 @@ namespace Zimbra\Common\Enum;
 
 use MyCLabs\Enum\Enum;
 
-class CustomEnum extends Enum
+enum CustomEnum: string
 {
     const ENUM_CONST = 'enum value';
 }

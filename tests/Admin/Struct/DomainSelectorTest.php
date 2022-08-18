@@ -14,17 +14,17 @@ class DomainSelectorTest extends ZimbraTestCase
     public function testDomainSelector()
     {
         $value = $this->faker->word;
-        $domain = new DomainSelector(DomainBy::ID(), $value);
-        $this->assertEquals(DomainBy::ID(), $domain->getBy());
+        $domain = new DomainSelector(DomainBy::ID, $value);
+        $this->assertEquals(DomainBy::ID, $domain->getBy());
         $this->assertSame($value, $domain->getValue());
 
         $domain = new DomainSelector();
-        $domain->setBy(DomainBy::NAME())
+        $domain->setBy(DomainBy::NAME)
                ->setValue($value);
-        $this->assertEquals(DomainBy::NAME(), $domain->getBy());
+        $this->assertEquals(DomainBy::NAME, $domain->getBy());
         $this->assertSame($value, $domain->getValue());
 
-        $by = DomainBy::NAME()->getValue();
+        $by = DomainBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by">$value</result>

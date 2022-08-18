@@ -25,25 +25,25 @@ class CountObjectsTest extends ZimbraTestCase
         $num = $this->faker->randomNumber;
         $type = $this->faker->word;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $ucs = new UcServiceSelector(UcServiceBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $ucs = new UcServiceSelector(UcServiceBy::NAME, $value);
 
         $request = new CountObjectsRequest(
-            CountObjectsType::USER_ACCOUNT(), [$domain], $ucs, FALSE
+            CountObjectsType::USER_ACCOUNT, [$domain], $ucs, FALSE
         );
-        $this->assertEquals(CountObjectsType::USER_ACCOUNT(), $request->getType());
+        $this->assertEquals(CountObjectsType::USER_ACCOUNT, $request->getType());
         $this->assertSame([$domain], $request->getDomains());
         $this->assertSame($ucs, $request->getUcService());
         $this->assertFalse($request->getOnlyRelated());
         $request = new CountObjectsRequest(
-            CountObjectsType::USER_ACCOUNT()
+            CountObjectsType::USER_ACCOUNT
         );
-        $request->setType(CountObjectsType::ACCOUNT())
+        $request->setType(CountObjectsType::ACCOUNT)
             ->setDomains([$domain])
             ->addDomain($domain)
             ->setUcService($ucs)
             ->setOnlyRelated(TRUE);
-        $this->assertEquals(CountObjectsType::ACCOUNT(), $request->getType());
+        $this->assertEquals(CountObjectsType::ACCOUNT, $request->getType());
         $this->assertSame([$domain, $domain], $request->getDomains());
         $this->assertSame($ucs, $request->getUcService());
         $this->assertTrue($request->getOnlyRelated());

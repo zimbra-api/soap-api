@@ -20,7 +20,7 @@ class AccountPop3DataSourceTest extends ZimbraTestCase
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = mt_rand(1, 100);
-        $connectionType = ConnectionType::CLEAR_TEXT();
+        $connectionType = ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->text;
         $pollingInterval = $this->faker->word;
@@ -50,7 +50,7 @@ class AccountPop3DataSourceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" leaveOnServer="true" xmlns:urn="urn:zimbraAccount">
+<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="cleartext" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" leaveOnServer="true" xmlns:urn="urn:zimbraAccount">
     <urn:lastError>$lastError</urn:lastError>
     <urn:a>$attribute1</urn:a>
     <urn:a>$attribute2</urn:a>

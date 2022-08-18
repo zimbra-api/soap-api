@@ -60,7 +60,7 @@ class ContactBackupRequest extends SoapRequest
     public function __construct(array $servers = [], ?ContactBackupOp $op = NULL)
     {
         $this->setServers($servers)
-             ->setOp($op ?? new ContactBackupOp('start'));
+             ->setOp($op ?? ContactBackupOp::START);
     }
 
     /**

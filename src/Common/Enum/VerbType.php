@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * VerbType enum class
  *
@@ -21,35 +19,35 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class VerbType extends Enum
+enum VerbType: string
 {
     /**
      * Constant for value 'ACCEPT'
      * @return string 'ACCEPT'
      */
-    protected const ACCEPT = 'ACCEPT';
+    case ACCEPT = 'ACCEPT';
 
     /**
      * Constant for value 'DECLINE'
      * @return string 'DECLINE'
      */
-    protected const DECLINE = 'DECLINE';
+    case DECLINE = 'DECLINE';
 
     /**
      * Constant for value 'TENTATIVE'
      * @return string 'TENTATIVE'
      */
-    protected const TENTATIVE = 'TENTATIVE';
+    case TENTATIVE = 'TENTATIVE';
 
     /**
      * Constant for value 'COMPLETED'
      * @return string 'COMPLETED'
      */
-    protected const COMPLETED = 'COMPLETED';
+    case COMPLETED = 'COMPLETED';
 
     /**
      * Constant for value 'DELEGATED'
      * @return string 'DELEGATED'
      */
-    protected const DELEGATED = 'DELEGATED';
+    case DELEGATED = 'DELEGATED';
 }

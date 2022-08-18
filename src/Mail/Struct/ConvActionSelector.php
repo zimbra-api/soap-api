@@ -103,7 +103,7 @@ class ConvActionSelector extends ActionSelector
      */
     public function setOperation(string $operation): self
     {
-        if (ConvActionOp::isValid($operation)) {
+        if (ConvActionOp::tryFrom($operation)) {
             parent::setOperation($operation);
         }
         return $this;

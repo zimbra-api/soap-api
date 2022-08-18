@@ -14,20 +14,20 @@ class DistributionListSubscribeReqTest extends ZimbraTestCase
     public function testDistributionListSubscribeReq()
     {
         $value = $this->faker->word;
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), $value, FALSE);
-        $this->assertEquals(DLSubscribeOp::UNSUBSCRIBE(), $subsReq->getOp());
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE, $value, FALSE);
+        $this->assertEquals(DLSubscribeOp::UNSUBSCRIBE, $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertFalse($subsReq->getBccOwners());
 
         $subsReq = new DistributionListSubscribeReq();
-        $subsReq->setOp(DLSubscribeOp::SUBSCRIBE())
+        $subsReq->setOp(DLSubscribeOp::SUBSCRIBE)
                 ->setValue($value)
                 ->setBccOwners(TRUE);
-        $this->assertEquals(DLSubscribeOp::SUBSCRIBE(), $subsReq->getOp());
+        $this->assertEquals(DLSubscribeOp::SUBSCRIBE, $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertTrue($subsReq->getBccOwners());
 
-        $op = DLSubscribeOp::SUBSCRIBE()->getValue();
+        $op = DLSubscribeOp::SUBSCRIBE->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result op="$op" bccOwners="true">$value</result>

@@ -25,7 +25,7 @@ class BounceMsgTest extends ZimbraTestCase
         $address = $this->faker->email;
         $personal = $this->faker->word;
 
-        $msg = new BounceMsgSpec($id, [new EmailAddrInfo($address, AddressType::TO(), $personal)]);
+        $msg = new BounceMsgSpec($id, [new EmailAddrInfo($address, AddressType::TO, $personal)]);
         $request = new BounceMsgRequest($msg);
         $this->assertSame($msg, $request->getMsg());
         $request = new BounceMsgRequest(new BounceMsgSpec());

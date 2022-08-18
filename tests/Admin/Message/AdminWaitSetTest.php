@@ -24,8 +24,8 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
         $uid = $this->faker->uuid;
         $token = $this->faker->word;
         $interests = [
-            InterestType::FOLDERS()->getValue(),
-            InterestType::MESSAGES()->getValue(),
+            InterestType::FOLDERS->value,
+            InterestType::MESSAGES->value,
         ];
 
         $seqNo = $this->faker->word;

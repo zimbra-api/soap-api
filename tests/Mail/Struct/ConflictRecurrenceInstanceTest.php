@@ -22,7 +22,7 @@ class ConflictRecurrenceInstanceTest extends ZimbraTestCase
         $tzOffset = $this->faker->randomNumber;
         $recurIdZ = $this->faker->iso8601;
 
-        $freebusyUser = new FreeBusyUserStatus($name, FreeBusyStatus::FREE());
+        $freebusyUser = new FreeBusyUserStatus($name, FreeBusyStatus::FREE);
 
         $inst = new StubConflictRecurrenceInstance([$freebusyUser]);
         $this->assertSame([$freebusyUser], $inst->getFreebusyUsers());

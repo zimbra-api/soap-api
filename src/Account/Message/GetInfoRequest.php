@@ -102,7 +102,7 @@ class GetInfoRequest extends SoapRequest
     {
         if (!empty($sections)) {
             foreach ($sections as $section) {
-                if (InfoSection::isValid($section) && !in_array($section, $this->sections)) {
+                if (InfoSection::tryFrom($section) && !in_array($section, $this->sections)) {
                     $this->sections[] = $section;
                 }
             }

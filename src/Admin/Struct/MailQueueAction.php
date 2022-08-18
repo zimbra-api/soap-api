@@ -64,8 +64,8 @@ class MailQueueAction
     )
     {
         $this->setQuery($query)
-             ->setOp($op ?? new QueueAction('hold'))
-             ->setBy($by ?? new QueueActionBy('query'));
+             ->setOp($op ?? QueueAction::HOLD)
+             ->setBy($by ?? QueueActionBy::QUERY);
     }
 
     /**

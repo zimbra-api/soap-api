@@ -13,13 +13,13 @@ class VolumeInfoTest extends ZimbraTestCase
 {
     public function testVolumeInfo()
     {
-        $id = mt_rand(0, 10);
-        $type = $this->faker->randomElement(VolumeType::toArray());
-        $threshold = mt_rand(0, 10);
-        $mgbits = mt_rand(0, 10);
-        $mbits = mt_rand(0, 10);
-        $fgbits = mt_rand(0, 10);
-        $fbits = mt_rand(0, 10);
+        $id = $this->faker->randomNumber;
+        $type = $this->faker->randomElement(VolumeType::cases())->value;
+        $threshold = $this->faker->randomNumber;
+        $mgbits = $this->faker->randomNumber;
+        $mbits = $this->faker->randomNumber;
+        $fgbits = $this->faker->randomNumber;
+        $fbits = $this->faker->randomNumber;
         $name = $this->faker->word;
         $rootPath = $this->faker->word;
 

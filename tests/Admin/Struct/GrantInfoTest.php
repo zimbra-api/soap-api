@@ -27,7 +27,7 @@ class GrantInfoTest extends ZimbraTestCase
             $type, $id, $name
         );
         $grantee = new GranteeInfo(
-            $id, $name, GranteeType::USR()
+            $id, $name, GranteeType::USR
         );
         $right = new RightModifierInfo($value, TRUE, TRUE, TRUE, TRUE);
 

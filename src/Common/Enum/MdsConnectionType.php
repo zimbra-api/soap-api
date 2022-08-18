@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * MdsConnectionType enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MdsConnectionType extends Enum
+enum MdsConnectionType: string
 {
     /**
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    protected const CLEAR_TEXT = 'cleartext';
+    case CLEAR_TEXT = 'cleartext';
 
     /**
      * Constant for value 'ssl'
      * @return string 'ssl'
      */
-    protected const SSL = 'ssl';
+    case SSL = 'ssl';
 
     /**
      * Constant for value 'tls'
      * @return string 'tls'
      */
-    protected const TLS = 'tls';
+    case TLS = 'tls';
 
     /**
      * Constant for value 'tls_is_available'
      * @return string 'tls_is_available'
      */
-    protected const TLS_IS_AVAILABLE = 'tls_is_available';
+    case TLS_IS_AVAILABLE = 'tls_is_available';
 }

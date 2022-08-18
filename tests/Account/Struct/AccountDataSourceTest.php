@@ -20,7 +20,7 @@ class AccountDataSourceTest extends ZimbraTestCase
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = $this->faker->randomNumber;
-        $connectionType = ConnectionType::CLEAR_TEXT();
+        $connectionType = ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->text;
         $pollingInterval = $this->faker->word;

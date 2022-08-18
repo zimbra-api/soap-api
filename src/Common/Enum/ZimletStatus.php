@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ZimletStatus enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ZimletStatus extends Enum
+enum ZimletStatus: string
 {
     /**
      * Constant for value 'enabled'
      * @return string 'enabled'
      */
-    protected const ENABLED = 'enabled';
+    case ENABLED = 'enabled';
 
     /**
      * Constant for value 'disabled'
      * @return string 'disabled'
      */
-    protected const DISABLED = 'disabled';
+    case DISABLED = 'disabled';
 }

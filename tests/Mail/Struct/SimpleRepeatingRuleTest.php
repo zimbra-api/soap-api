@@ -35,13 +35,13 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
 {
     public function testSimpleRepeatingRule()
     {
-        $frequency = Frequency::HOUR();
+        $frequency = Frequency::HOUR;
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
         $num = $this->faker->unique()->numberBetween(1, 100);
         $ival = $this->faker->unique()->numberBetween(1, 100);
-        $day = WeekDay::SU();
+        $day = WeekDay::SU;
         $ordWk = $this->faker->unique()->numberBetween(1, 53);
         $seclist = implode(',', [
             $this->faker->unique()->numberBetween(0, 59),

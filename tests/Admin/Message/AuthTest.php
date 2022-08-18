@@ -26,7 +26,7 @@ class AuthResponseTest extends ZimbraTestCase
         $csrfToken = $this->faker->sha256;
         $lifetime = $this->faker->randomNumber;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new AuthRequest(
             $name,

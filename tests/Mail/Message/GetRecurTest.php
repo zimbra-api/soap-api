@@ -72,7 +72,7 @@ class GetRecurTest extends ZimbraTestCase
         $dtStart = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $dtEnd = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
-        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
         $cancel = new CancelItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);
         $except = new ExceptionItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);
         $invite = new InviteItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);

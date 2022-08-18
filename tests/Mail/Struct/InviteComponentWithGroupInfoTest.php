@@ -64,11 +64,11 @@ class InviteComponentWithGroupInfoTest extends ZimbraTestCase
         $seconds = $this->faker->numberBetween(0, 59);
 
         $geo = new GeoInfo($latitude, $longitude);
-        $attendee = new CalendarAttendee($address, $displayName, $role, PartStat::ACCEPT(), TRUE, [new XParam($name, $value)]);
-        $alarm = new AlarmInfo(AlarmAction::DISPLAY());
+        $attendee = new CalendarAttendee($address, $displayName, $role, PartStat::ACCEPT, TRUE, [new XParam($name, $value)]);
+        $alarm = new AlarmInfo(AlarmAction::DISPLAY);
         $xprop = new XProp($name, $value, [new XParam($name, $value)]);
         $organizer = new CalOrganizer($address, $url, $displayName, $sentBy, $dir, $language, [new XParam($name, $value)]);
-        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
         $exceptionId = new ExceptionRecurIdInfo($dateTime, $timezone, $recurrenceRangeType);
         $dtStart = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $dtEnd = new DtTimeInfo($dateTime, $timezone, $utcTime);

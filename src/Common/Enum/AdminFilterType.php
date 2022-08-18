@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AdminFilterType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AdminFilterType extends Enum
+enum AdminFilterType: string
 {
     /**
      * Constant for value 'before'
      * @return string 'before'
      */
-    protected const BEFORE = 'before';
+    case BEFORE = 'before';
 
     /**
      * Constant for value 'after'
      * @return string 'after'
      */
-    protected const AFTER = 'after';
+    case AFTER = 'after';
 }

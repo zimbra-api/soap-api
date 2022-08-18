@@ -18,7 +18,7 @@ class CreateVolumeTest extends ZimbraTestCase
     public function testCreateVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(VolumeType::toArray());
+        $type = $this->faker->randomElement(array_map(static fn ($type) => $type->value, VolumeType::cases()));
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;

@@ -19,19 +19,19 @@ class DataSourceSpecifierTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $ds = new StubDataSourceSpecifier(DataSourceType::IMAP(), $name);
-        $this->assertEquals(DataSourceType::IMAP(), $ds->getType());
+        $ds = new StubDataSourceSpecifier(DataSourceType::IMAP, $name);
+        $this->assertEquals(DataSourceType::IMAP, $ds->getType());
         $this->assertSame($name, $ds->getName());
 
         $attr = new Attr($key, $value);
         $ds = new StubDataSourceSpecifier();
-        $ds->setType(DataSourceType::POP3())
+        $ds->setType(DataSourceType::POP3)
            ->setName($name)
            ->addAttr($attr);
-        $this->assertEquals(DataSourceType::POP3(), $ds->getType());
+        $this->assertEquals(DataSourceType::POP3, $ds->getType());
         $this->assertSame($name, $ds->getName());
 
-        $type = DataSourceType::POP3()->getValue();
+        $type = DataSourceType::POP3->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" name="$name" xmlns:urn="urn:zimbraAdmin">

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * MatchType enum class
  *
@@ -21,35 +19,35 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MatchType extends Enum
+enum MatchType: string
 {
     /**
      * Constant for value 'is'
      * @return string 'is'
      */
-    protected const IS = 'is';
+    case IS = 'is';
 
     /**
      * Constant for value 'contains'
      * @return string 'contains'
      */
-    protected const CONTAINS = 'contains';
+    case CONTAINS = 'contains';
 
     /**
      * Constant for value 'matches'
      * @return string 'matches'
      */
-    protected const MATCHES = 'matches';
+    case MATCHES = 'matches';
 
     /**
      * Constant for value 'count'
      * @return string 'count'
      */
-    protected const COUNT = 'count';
+    case COUNT = 'count';
 
     /**
      * Constant for value 'value'
      * @return string 'value'
      */
-    protected const VALUE = 'value';
+    case VALUE = 'value';
 }

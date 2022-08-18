@@ -18,27 +18,27 @@ class ExchangeAuthSpecTest extends ZimbraTestCase
         $pass = $this->faker->word;
         $type = $this->faker->word;
 
-        $auth = new ExchangeAuthSpec($url, $user, $pass, AuthScheme::BASIC(), $type);
+        $auth = new ExchangeAuthSpec($url, $user, $pass, AuthScheme::BASIC, $type);
         $this->assertSame($url, $auth->getUrl());
         $this->assertSame($user, $auth->getAuthUserName());
         $this->assertSame($pass, $auth->getAuthPassword());
-        $this->assertEquals(AuthScheme::BASIC(), $auth->getScheme());
+        $this->assertEquals(AuthScheme::BASIC, $auth->getScheme());
         $this->assertSame($type, $auth->getType());
 
         $auth = new ExchangeAuthSpec();
         $auth->setUrl($url)
              ->setAuthUserName($user)
              ->setAuthPassword($pass)
-             ->setScheme(AuthScheme::FORM())
+             ->setScheme(AuthScheme::FORM)
              ->setType($type);
 
         $this->assertSame($url, $auth->getUrl());
         $this->assertSame($user, $auth->getAuthUserName());
         $this->assertSame($pass, $auth->getAuthPassword());
-        $this->assertEquals(AuthScheme::FORM(), $auth->getScheme());
+        $this->assertEquals(AuthScheme::FORM, $auth->getScheme());
         $this->assertSame($type, $auth->getType());
 
-        $scheme = AuthScheme::FORM()->getValue();
+        $scheme = AuthScheme::FORM->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result url="$url" user="$user" pass="$pass" scheme="$scheme" type="$type" />

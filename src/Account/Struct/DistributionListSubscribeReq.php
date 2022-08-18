@@ -66,7 +66,7 @@ class DistributionListSubscribeReq
         ?DistributionListSubscribeOp $op = NULL, ?string $value = NULL, ?bool $bccOwners = NULL
     )
     {
-		$this->setOp($op ?? new DistributionListSubscribeOp('subscribe'));
+		$this->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE);
         if (NULL !== $value) {
             $this->setValue($value);
         }

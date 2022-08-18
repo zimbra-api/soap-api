@@ -38,7 +38,7 @@ class AccountZimletInfoTest extends ZimbraTestCase
         $regex = $this->faker->word;
 
         $zimletContext = new AccountZimletContext(
-            $baseUrl, ZimletPresence::ENABLED(), $priority
+            $baseUrl, ZimletPresence::ENABLED, $priority
         );
 
         $serverExtension = new ZimletServerExtension(

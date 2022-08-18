@@ -18,14 +18,14 @@ class NewFolderSpecTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $parentFolderId = $this->faker->uuid;
-        $defaultView = ViewType::CONVERSATION();
+        $defaultView = ViewType::CONVERSATION;
         $flags = $this->faker->word;
         $color = $this->faker->numberBetween(0, 127);
         $rgb = $this->faker->hexcolor;
         $url = $this->faker->word;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
-        $grantType = GranteeType::USR();
+        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $grantType = GranteeType::USR;
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;
         $args = $this->faker->word;

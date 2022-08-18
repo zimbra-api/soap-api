@@ -19,7 +19,7 @@ class PolicyHolderTest extends ZimbraTestCase
         $id = $this->faker->word;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
-        $policy = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
+        $policy = new Policy(Type::SYSTEM, $id, $name, $lifetime);
 
         $holder = new StubPolicyHolder($policy);
         $this->assertSame($policy, $holder->getPolicy());

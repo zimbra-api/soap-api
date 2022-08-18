@@ -15,8 +15,8 @@ class TargetSpecTest extends ZimbraTestCase
 {
     public function testTargetSpec()
     {
-        $targetType = TargetType::ACCOUNT();
-        $accountBy = AccountBy::NAME();
+        $targetType = TargetType::ACCOUNT;
+        $accountBy = AccountBy::NAME;
         $value = $this->faker->email;
 
         $target = new TargetSpec($targetType, $accountBy, $value);
@@ -24,7 +24,7 @@ class TargetSpecTest extends ZimbraTestCase
         $this->assertSame($accountBy, $target->getAccountBy());
         $this->assertSame($value, $target->getValue());
 
-        $target = new TargetSpec(TargetType::ACCOUNT(), AccountBy::NAME());
+        $target = new TargetSpec(TargetType::ACCOUNT, AccountBy::NAME);
         $target->setTargetType($targetType)
             ->setAccountBy($accountBy)
             ->setValue($value);

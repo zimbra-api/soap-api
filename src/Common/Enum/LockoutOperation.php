@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * LockoutOperation enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class LockoutOperation extends Enum
+enum LockoutOperation: string
 {
     /**
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    case START = 'start';
 
     /**
      * Constant for value 'end'
      * @return string 'end'
      */
-    protected const END = 'end';
+    case END = 'end';
 }

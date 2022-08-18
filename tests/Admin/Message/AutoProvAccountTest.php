@@ -19,8 +19,8 @@ class AutoProvAccountTest extends ZimbraTestCase
         $value= $this->faker->word;
         $password = $this->faker->word;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $principal = new PrincipalSelector(AutoProvPrincipalBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $principal = new PrincipalSelector(AutoProvPrincipalBy::NAME, $value);
         $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
 
         $request = new AutoProvAccountRequest(
@@ -32,7 +32,7 @@ class AutoProvAccountTest extends ZimbraTestCase
         $this->assertSame($principal, $request->getPrincipal());
         $this->assertSame($password, $request->getPassword());
 
-        $request = new AutoProvAccountRequest(new DomainSelector(DomainBy::ID()), new PrincipalSelector(AutoProvPrincipalBy::DN()));
+        $request = new AutoProvAccountRequest(new DomainSelector(DomainBy::ID), new PrincipalSelector(AutoProvPrincipalBy::DN));
         $request->setDomain($domain)
             ->setPrincipal($principal)
             ->setPassword($password);

@@ -23,7 +23,7 @@ class CreateDataSourceTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $attr = new Attr($key, $value);
-        $ds = new DataSourceSpecifier(DataSourceType::IMAP(), $name, [$attr]);
+        $ds = new DataSourceSpecifier(DataSourceType::IMAP, $name, [$attr]);
         $request = new CreateDataSourceRequest($ds, $id);
         $this->assertSame($id, $request->getId());
         $this->assertSame($ds, $request->getDataSource());
@@ -34,7 +34,7 @@ class CreateDataSourceTest extends ZimbraTestCase
         $this->assertSame($id, $request->getId());
         $this->assertSame($ds, $request->getDataSource());
 
-        $dsInfo = new DataSourceInfo($name, $id, DataSourceType::IMAP(), [$attr]);
+        $dsInfo = new DataSourceInfo($name, $id, DataSourceType::IMAP, [$attr]);
         $response = new CreateDataSourceResponse($dsInfo);
         $this->assertSame($dsInfo, $response->getDataSource());
 

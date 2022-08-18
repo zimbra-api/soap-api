@@ -84,7 +84,7 @@ class SyncGalAccountDataSourceSpec
         ?bool $reset = NULL
     )
     {
-        $this->setBy($by ?? new DataSourceBy('id'));
+        $this->setBy($by ?? DataSourceBy::ID);
         if (NULL !== $value) {
             $this->setValue($value);
         }

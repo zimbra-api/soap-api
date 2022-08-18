@@ -101,7 +101,7 @@ class DistributionListAction extends AccountKeyValuePairs
     )
     {
         parent::__construct($attrs);
-        $this->setOp($op ?? new Operation('grantRights'));
+        $this->setOp($op ?? Operation::GRANT_RIGHTS);
         if (NULL !== $newName) {
             $this->setNewName($newName);
         }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * SectionType enum class
  *
@@ -21,59 +19,59 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SectionType extends Enum
+enum SectionType: string
 {
     /**
      * Constant for value 'mbox'
      * @return string 'mbox'
      */
-    protected const MBOX = 'mbox';
+    case MBOX = 'mbox';
 
     /**
      * Constant for value 'prefs'
      * @return string 'prefs'
      */
-    protected const PREFS = 'prefs';
+    case PREFS = 'prefs';
 
     /**
      * Constant for value 'attrs'
      * @return string 'attrs'
      */
-    protected const ATTRS = 'attrs';
+    case ATTRS = 'attrs';
 
     /**
      * Constant for value 'zimlets'
      * @return string 'zimlets'
      */
-    protected const ZIMLETS = 'zimlets';
+    case ZIMLETS = 'zimlets';
 
     /**
      * Constant for value 'props'
      * @return string 'props'
      */
-    protected const PROPS = 'props';
+    case PROPS = 'props';
 
     /**
      * Constant for value 'idents'
      * @return string 'idents'
      */
-    protected const IDENTS = 'idents';
+    case IDENTS = 'idents';
 
     /**
      * Constant for value 'sigs'
      * @return string 'sigs'
      */
-    protected const SIGS = 'sigs';
+    case SIGS = 'sigs';
 
     /**
      * Constant for value 'dsrcs'
      * @return string 'dsrcs'
      */
-    protected const DSRCS = 'dsrcs';
+    case DSRCS = 'dsrcs';
 
     /**
      * Constant for value 'children'
      * @return string 'children'
      */
-    protected const CHILDREN = 'children';
+    case CHILDREN = 'children';
 }

@@ -33,7 +33,7 @@ class MailQueueActionTest extends ZimbraTestCase
         $query = new QueueQuery(
             [new QueueQueryField($name, [new ValueAttrib($value)])], $limit, $offset
         );
-        $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
+        $action = new MailQueueAction($query, QueueAction::HOLD, QueueActionBy::QUERY);
         $server = new ServerWithQueueAction(new MailQueueWithAction($action, $name), $name);
 
         $request = new MailQueueActionRequest($server);

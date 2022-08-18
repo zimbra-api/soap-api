@@ -35,7 +35,7 @@ class ExpandedRecurrenceInviteTest extends ZimbraTestCase
 
         $exceptionId = new InstanceRecurIdInfo($range, $dateTime, $tz);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
-        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
 
         $comp = new StubExpandedRecurrenceInvite($exceptionId, $startTime, $endTime, $duration, $recurrence);
         $this->assertTrue($comp instanceof ExpandedRecurrenceComponent);

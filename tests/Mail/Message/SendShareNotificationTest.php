@@ -23,10 +23,10 @@ class SendShareNotificationTest extends ZimbraTestCase
     public function testSendShareNotification()
     {
         $id = $this->faker->uuid;
-        $action = ShareAction::EDIT();
+        $action = ShareAction::EDIT;
         $notes = $this->faker->text;
         $address = $this->faker->email;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
         $personal = $this->faker->word;
 
         $item = new Id($id);

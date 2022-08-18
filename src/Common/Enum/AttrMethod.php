@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AttrMethod enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AttrMethod extends Enum
+enum AttrMethod: string
 {
     /**
      * Constant for value 'getAttrs'
      * @return string 'getAttrs'
      */
-    protected const GET_ATTRS = 'getAttrs';
+    case GET_ATTRS = 'getAttrs';
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    protected const SET_ATTRS = 'setAttrs';
+    case SET_ATTRS = 'setAttrs';
 
     /**
      * Constant for value 'getAttrs,setAttrs'
      * @return string 'getAttrs,setAttrs'
      */
-    protected const GET_SET = 'getAttrs,setAttrs';
+    case GET_SET = 'getAttrs,setAttrs';
 }

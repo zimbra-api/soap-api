@@ -50,7 +50,7 @@ class DistributionListSelector
      */
     public function __construct(?DistributionListBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? new DistributionListBy('name'));
+        $this->setBy($by ?? DistributionListBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -14,7 +14,7 @@ class ModifyContactGroupMemberTest extends ZimbraTestCase
 {
     public function testModifyContactGroupMember()
     {
-        $operation = ModifyGroupMemberOperation::RESET();
+        $operation = ModifyGroupMemberOperation::RESET;
 
         $test = new ModifyContactGroupMember(
             $operation

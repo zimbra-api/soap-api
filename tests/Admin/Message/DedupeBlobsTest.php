@@ -29,32 +29,32 @@ class DedupeBlobsTest extends ZimbraTestCase
         $blobsProgress = new VolumeIdAndProgress($volumeId, $progress);
         $digestsProgress = new VolumeIdAndProgress($volumeId, $progress);
 
-        $request = new DedupeBlobsRequest(DedupAction::START(), [$idAttr]);
-        $this->assertEquals(DedupAction::START(), $request->getAction());
+        $request = new DedupeBlobsRequest(DedupAction::START, [$idAttr]);
+        $this->assertEquals(DedupAction::START, $request->getAction());
         $this->assertSame([$idAttr], $request->getVolumes());
         $request = new DedupeBlobsRequest();
-        $request->setAction(DedupAction::STATUS())
+        $request->setAction(DedupAction::STATUS)
             ->setVolumes([$idAttr])
             ->addVolume($idAttr);
-        $this->assertEquals(DedupAction::STATUS(), $request->getAction());
+        $this->assertEquals(DedupAction::STATUS, $request->getAction());
         $this->assertSame([$idAttr, $idAttr], $request->getVolumes());
         $request->setVolumes([$idAttr]);
 
         $response = new DedupeBlobsResponse(
-            DedupStatus::RUNNING(), $totalSize, $totalCount, [$blobsProgress], [$digestsProgress]
+            DedupStatus::RUNNING, $totalSize, $totalCount, [$blobsProgress], [$digestsProgress]
         );
-        $this->assertEquals(DedupStatus::RUNNING(), $response->getStatus());
+        $this->assertEquals(DedupStatus::RUNNING, $response->getStatus());
         $this->assertSame($totalSize, $response->getTotalSize());
         $this->assertSame($totalCount, $response->getTotalCount());
         $this->assertSame([$blobsProgress], $response->getVolumeBlobsProgress());
         $this->assertSame([$digestsProgress], $response->getBlobDigestsProgress());
         $response = new DedupeBlobsResponse();
-        $response->setStatus(DedupStatus::STOPPED())
+        $response->setStatus(DedupStatus::STOPPED)
             ->setTotalSize($totalSize)
             ->setTotalCount($totalCount)
             ->setVolumeBlobsProgress([$blobsProgress])
             ->setBlobDigestsProgress([$digestsProgress]);
-        $this->assertEquals(DedupStatus::STOPPED(), $response->getStatus());
+        $this->assertEquals(DedupStatus::STOPPED, $response->getStatus());
         $this->assertSame($totalSize, $response->getTotalSize());
         $this->assertSame($totalCount, $response->getTotalCount());
         $this->assertSame([$blobsProgress], $response->getVolumeBlobsProgress());

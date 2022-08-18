@@ -18,20 +18,20 @@ class MimeHeaderTestTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $test = new MimeHeaderTest(
-            $index, TRUE, $headers, StringComparison::IS(), $value, FALSE
+            $index, TRUE, $headers, StringComparison::IS, $value, FALSE
         );
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertEquals(StringComparison::IS(), $test->getStringComparison());
+        $this->assertEquals(StringComparison::IS, $test->getStringComparison());
         $this->assertFalse($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
 
         $test = new MimeHeaderTest($index, TRUE);
         $test->setHeaders($headers)
-            ->setStringComparison(StringComparison::CONTAINS())
+            ->setStringComparison(StringComparison::CONTAINS)
             ->setCaseSensitive(TRUE)
             ->setValue($value);
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertEquals(StringComparison::CONTAINS(), $test->getStringComparison());
+        $this->assertEquals(StringComparison::CONTAINS, $test->getStringComparison());
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
 

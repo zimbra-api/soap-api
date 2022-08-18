@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RequestFormat enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RequestFormat extends Enum
+enum RequestFormat: string
 {
     /**
      * Constant for value 'xml'
      * @return string 'xml'
      */
-    protected const XML = 'xml';
+    case XML = 'xml';
 
     /**
      * Constant for value 'js'
      * @return string 'js'
      */
-    protected const JS = 'js';
+    case JS = 'js';
 }

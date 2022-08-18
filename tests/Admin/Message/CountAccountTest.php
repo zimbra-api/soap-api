@@ -23,10 +23,10 @@ class CountAccountTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $count = $this->faker->randomNumber;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
         $request = new CountAccountRequest($domain);
         $this->assertSame($domain, $request->getDomain());
-        $request = new CountAccountRequest(new DomainSelector(DomainBy::ID(), ''));
+        $request = new CountAccountRequest(new DomainSelector(DomainBy::ID, ''));
         $request->setDomain($domain);
         $this->assertSame($domain, $request->getDomain());
 

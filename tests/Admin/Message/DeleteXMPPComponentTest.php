@@ -18,7 +18,7 @@ class DeleteXMPPComponentTest extends ZimbraTestCase
     public function testDeleteXMPPComponent()
     {
         $value = $this->faker->word;
-        $component = new XMPPComponentSelector(XmppBy::NAME(), $value);
+        $component = new XMPPComponentSelector(XmppBy::NAME, $value);
 
         $request = new DeleteXMPPComponentRequest($component);
         $this->assertSame($component, $request->getComponent());

@@ -18,8 +18,8 @@ class RecoverAccountTest extends ZimbraTestCase
 {
     public function testRecoverAccount()
     {
-        $channel = Channel::EMAIL();
-        $op = RecoverAccountOperation::GET_RECOVERY_ACCOUNT();
+        $channel = Channel::EMAIL;
+        $op = RecoverAccountOperation::GET_RECOVERY_ACCOUNT;
         $email = $this->faker->email;
         $recoveryAccount = $this->faker->email;
         $recoveryAttemptsLeft = $this->faker->randomNumber;

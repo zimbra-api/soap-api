@@ -27,7 +27,7 @@ class SearchGalTest extends ZimbraTestCase
         $sortBy = $this->faker->word;
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
-        $type = GalSearchType::ACCOUNT();
+        $type = GalSearchType::ACCOUNT;
         $galAccountId = $this->faker->uuid;
 
         $request = new SearchGalRequest($domain, $name, $limit, $type, $galAccountId);

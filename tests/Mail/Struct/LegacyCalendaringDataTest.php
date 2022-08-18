@@ -55,7 +55,7 @@ class LegacyCalendaringDataTest extends ZimbraTestCase
         $invId = $this->faker->randomNumber;
         $componentNum = $this->faker->randomNumber;
 
-        $action = AlarmAction::DISPLAY();
+        $action = AlarmAction::DISPLAY;
         $date = $this->faker->date;
         $weeks = mt_rand(1, 100);
         $days = mt_rand(1, 30);
@@ -69,7 +69,7 @@ class LegacyCalendaringDataTest extends ZimbraTestCase
         $summary = $this->faker->text;
         $location = $this->faker->text;
         $role = $this->faker->word;
-        $partStat = PartStat::ACCEPT();
+        $partStat = PartStat::ACCEPT;
 
         $trigger = new AlarmTriggerInfo(
             new DateAttr($date), new DurationInfo($weeks, $days, $hours, $minutes, $seconds)

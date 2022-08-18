@@ -25,9 +25,9 @@ class GetSystemRetentionPolicyTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $lifetime = $this->faker->word;
 
-        $cos = new CosSelector(CosBy::NAME(), $value);
-        $keep = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
-        $purge = new Policy(Type::USER(), $id, $name, $lifetime);
+        $cos = new CosSelector(CosBy::NAME, $value);
+        $keep = new Policy(Type::SYSTEM, $id, $name, $lifetime);
+        $purge = new Policy(Type::USER, $id, $name, $lifetime);
         $retention = new RetentionPolicy([$keep], [$purge]);
 
         $request = new GetSystemRetentionPolicyRequest($cos);

@@ -14,17 +14,17 @@ class ZimletAclTest extends ZimbraTestCase
     public function testZimletAcl()
     {
         $cos = $this->faker->word;
-        $acl = new ZimletAcl($cos, AclType::DENY());
+        $acl = new ZimletAcl($cos, AclType::DENY);
         $this->assertSame($cos, $acl->getCos());
-        $this->assertEquals(AclType::DENY(), $acl->getAcl());
+        $this->assertEquals(AclType::DENY, $acl->getAcl());
 
         $acl = new ZimletAcl();
         $acl->setCos($cos)
-            ->setAcl(AclType::GRANT());
+            ->setAcl(AclType::GRANT);
         $this->assertSame($cos, $acl->getCos());
-        $this->assertEquals(AclType::GRANT(), $acl->getAcl());
+        $this->assertEquals(AclType::GRANT, $acl->getAcl());
 
-        $type = AclType::GRANT()->getValue();
+        $type = AclType::GRANT->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result cos="$cos" acl="$type" />

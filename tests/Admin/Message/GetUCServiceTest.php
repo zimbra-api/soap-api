@@ -25,7 +25,7 @@ class GetUCServiceTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $ucservice = new UcServiceSelector(UcServiceBy::NAME(), $value);
+        $ucservice = new UcServiceSelector(UcServiceBy::NAME, $value);
         $request = new GetUCServiceRequest($ucservice, $attrs);
         $this->assertSame($ucservice, $request->getUCService());
         $this->assertSame($attrs, $request->getAttrs());

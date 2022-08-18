@@ -26,10 +26,10 @@ class GetAllZimletsTest extends ZimbraTestCase
 
         $zimlet = new ZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
 
-        $request = new GetAllZimletsRequest(ZimletExcludeType::EXTENSION());
-        $this->assertEquals(ZimletExcludeType::EXTENSION(), $request->getExclude());
-        $request->setExclude(ZimletExcludeType::NONE());
-        $this->assertEquals(ZimletExcludeType::NONE(), $request->getExclude());
+        $request = new GetAllZimletsRequest(ZimletExcludeType::EXTENSION);
+        $this->assertEquals(ZimletExcludeType::EXTENSION, $request->getExclude());
+        $request->setExclude(ZimletExcludeType::NONE);
+        $this->assertEquals(ZimletExcludeType::NONE, $request->getExclude());
 
         $response = new GetAllZimletsResponse([$zimlet]);
         $this->assertSame([$zimlet], $response->getZimlets());

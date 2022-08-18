@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * GalSearchType enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GalSearchType extends Enum
+enum GalSearchType: string
 {
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    protected const ACCOUNT = 'account';
+    case ACCOUNT = 'account';
 
     /**
      * Constant for value 'resource'
      * @return string 'resource'
      */
-    protected const RESOURCE = 'resource';
+    case RESOURCE = 'resource';
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    protected const GROUP = 'group';
+    case GROUP = 'group';
 }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * TaskStatus enum class
  *
@@ -21,35 +19,35 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class TaskStatus extends Enum
+enum TaskStatus: string
 {
     /**
      * Constant for value 'NEED'
      * @return string 'NEED'
      */
-    protected const NEED = 'NEED';
+    case NEED = 'NEED';
 
     /**
      * Constant for value 'INPR'
      * @return string 'INPR'
      */
-    protected const INPR = 'INPR';
+    case INPR = 'INPR';
 
     /**
      * Constant for value 'WAITING'
      * @return string 'WAITING'
      */
-    protected const WAITING = 'WAITING';
+    case WAITING = 'WAITING';
 
     /**
      * Constant for value 'DEFERRED'
      * @return string 'DEFERRED'
      */
-    protected const DEFERRED = 'DEFERRED';
+    case DEFERRED = 'DEFERRED';
 
     /**
      * Constant for value 'COMP'
      * @return string 'COMP'
      */
-    protected const COMP = 'COMP';
+    case COMP = 'COMP';
 }

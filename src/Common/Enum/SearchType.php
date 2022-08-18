@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * SearchType enum class
  *
@@ -21,47 +19,47 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SearchType extends Enum
+enum SearchType: string
 {
     /**
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
-    protected const CONVERSATION = 'conversation';
+    case CONVERSATION = 'conversation';
 
     /**
      * Constant for value 'message'
      * @return string 'message'
      */
-    protected const MESSAGE = 'message';
+    case MESSAGE = 'message';
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    protected const CONTACT = 'contact';
+    case CONTACT = 'contact';
 
     /**
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
-    protected const APPOINTMENT = 'appointment';
+    case APPOINTMENT = 'appointment';
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    protected const TASK = 'task';
+    case TASK = 'task';
 
     /**
      * Constant for value 'wiki'
      * @return string 'wiki'
      */
-    protected const WIKI = 'wiki';
+    case WIKI = 'wiki';
 
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    protected const DOCUMENT = 'document';
+    case DOCUMENT = 'document';
 }

@@ -18,8 +18,8 @@ class SetRecoveryAccountTest extends ZimbraTestCase
 {
     public function testSetRecoveryAccount()
     {
-        $channel = Channel::EMAIL();
-        $op = RecoveryAccountOperation::SEND_CODE();
+        $channel = Channel::EMAIL;
+        $op = RecoveryAccountOperation::SEND_CODE;
         $recoveryAccount = $this->faker->email;
         $verificationCode = $this->faker->word;
 

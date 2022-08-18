@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Operation enum class
  *
@@ -21,53 +19,53 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ConditionOperator extends Enum
+enum ConditionOperator: string
 {
     /**
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    protected const EQ = 'eq';
+    case EQ = 'eq';
 
     /**
      * Constant for value 'has'
      * @return string 'has'
      */
-    protected const HAVE = 'has';
+    case HAVE = 'has';
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    protected const GE = 'ge';
+    case GE = 'ge';
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    protected const LE = 'le';
+    case LE = 'le';
 
     /**
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    protected const GT = 'gt';
+    case GT = 'gt';
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    protected const LT = 'lt';
+    case LT = 'lt';
 
     /**
      * Constant for value 'startswith'
      * @return string 'startswith'
      */
-    protected const STARTS_WITH = 'startswith';
+    case STARTS_WITH = 'startswith';
 
     /**
      * Constant for value 'endswith'
      * @return string 'endswith'
      */
-    protected const ENDS_WITH = 'endswith';
+    case ENDS_WITH = 'endswith';
 }

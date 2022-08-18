@@ -27,11 +27,11 @@ class CheckRightsTest extends ZimbraTestCase
         $right2 = $this->faker->unique->word;
 
         $targetSpec = new CheckRightsTargetSpec(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $key1, [$right1]
+            TargetType::ACCOUNT, TargetBy::NAME, $key1, [$right1]
         );
         $rightInfo = new CheckRightsRightInfo($right2, TRUE);
         $targetInfo = new CheckRightsTargetInfo(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $key2, TRUE, [$rightInfo]
+            TargetType::ACCOUNT, TargetBy::NAME, $key2, TRUE, [$rightInfo]
         );
 
         $request = new CheckRightsRequest([$targetSpec]);

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ZimletDeployStatus enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ZimletDeployStatus extends Enum
+enum ZimletDeployStatus: string
 {
     /**
      * Constant for value 'succeeded'
      * @return string 'succeeded'
      */
-    protected const SUCCEEDED = 'succeeded';
+    case SUCCEEDED = 'succeeded';
 
     /**
      * Constant for value 'failed'
      * @return string 'failed'
      */
-    protected const FAILED = 'failed';
+    case FAILED = 'failed';
 
     /**
      * Constant for value 'pending'
      * @return string 'pending'
      */
-    protected const PENDING = 'pending';
+    case PENDING = 'pending';
 }

@@ -42,8 +42,8 @@ class GetTagTest extends ZimbraTestCase
 
         $metadata = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
         $retentionPolicy = new RetentionPolicy(
-            [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-            [new Policy(Type::USER(), $id, $name, $lifetime)]
+            [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+            [new Policy(Type::USER, $id, $name, $lifetime)]
         );
         $tag = new TagInfo(
             $id,

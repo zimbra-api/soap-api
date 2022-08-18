@@ -14,13 +14,13 @@ class FreeBusyUserStatusTest extends ZimbraTestCase
     public function testFreeBusyUserStatus()
     {
         $name = $this->faker->email;
-        $freebusyStatus = FreeBusyStatus::FREE();
+        $freebusyStatus = FreeBusyStatus::FREE;
 
         $usr = new FreeBusyUserStatus($name, $freebusyStatus);
         $this->assertSame($name, $usr->getName());
         $this->assertSame($freebusyStatus, $usr->getFreebusyStatus());
 
-        $usr = new FreeBusyUserStatus($this->faker->email, FreeBusyStatus::BUSY());
+        $usr = new FreeBusyUserStatus($this->faker->email, FreeBusyStatus::BUSY);
         $usr->setName($name)
             ->setFreebusyStatus($freebusyStatus);
         $this->assertSame($name, $usr->getName());

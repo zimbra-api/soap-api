@@ -15,17 +15,17 @@ class LoggerInfoTest extends ZimbraTestCase
     {
         $category = $this->faker->word;
 
-        $logger = new LoggerInfo($category, LoggingLevel::ERROR());
+        $logger = new LoggerInfo($category, LoggingLevel::ERROR);
         $this->assertSame($category, $logger->getCategory());
-        $this->assertEquals(LoggingLevel::ERROR(), $logger->getLevel());
+        $this->assertEquals(LoggingLevel::ERROR, $logger->getLevel());
 
         $logger = new LoggerInfo();
         $logger->setCategory($category)
-               ->setLevel(LoggingLevel::INFO());
+               ->setLevel(LoggingLevel::INFO);
         $this->assertSame($category, $logger->getCategory());
-        $this->assertEquals(LoggingLevel::INFO(), $logger->getLevel());
+        $this->assertEquals(LoggingLevel::INFO, $logger->getLevel());
 
-        $level = LoggingLevel::INFO()->getValue();
+        $level = LoggingLevel::INFO->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result category="$category" level="$level" />

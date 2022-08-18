@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CountComparison enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CountComparison extends Enum
+enum CountComparison: string
 {
     /**
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    protected const GREATER_THAN = 'gt';
+    case GREATER_THAN = 'gt';
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    protected const GREATER_EQUAL = 'ge';
+    case GREATER_EQUAL = 'ge';
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    protected const LESS_THAN = 'lt';
+    case LESS_THAN = 'lt';
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    protected const LESS_EQUAL = 'le';
+    case LESS_EQUAL = 'le';
 
     /**
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    protected const EQUAL = 'eq';
+    case EQUAL = 'eq';
 
     /**
      * Constant for value 'ne'
      * @return string 'ne'
      */
-    protected const NOT_EQUAL = 'ne';
+    case NOT_EQUAL = 'ne';
 }

@@ -73,7 +73,7 @@ class DataSourceInfo extends AdminAttrsImpl
         parent::__construct($attrs);
         $this->setName($name)
              ->setId($id)
-             ->setType($type ?? new DataSourceType('unknown'));
+             ->setType($type ?? DataSourceType::UNKNOWN);
     }
 
     /**

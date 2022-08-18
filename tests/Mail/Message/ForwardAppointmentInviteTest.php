@@ -29,7 +29,7 @@ class ForwardAppointmentInviteTest extends ZimbraTestCase
     {
         $id = $this->faker->word;
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -52,7 +52,7 @@ class ForwardAppointmentInviteTest extends ZimbraTestCase
         $mimePart = new MimePartInfo($contentType, $content, $contentId);
         $attachments = new AttachmentsInfo($id);
         $invite = new InvitationInfo($method, $componentNum, TRUE);
-        $emailAddress = new EmailAddrInfo($address, AddressType::TO(), $personal);
+        $emailAddress = new EmailAddrInfo($address, AddressType::TO, $personal);
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
 
         $msg = new Msg(

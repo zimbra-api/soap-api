@@ -100,7 +100,7 @@ class ExchangeAuthSpec
         $this->setUrl($url)
              ->setAuthUserName($user)
              ->setAuthPassword($pass)
-             ->setScheme($scheme ?? new AuthScheme('basic'));
+             ->setScheme($scheme ?? AuthScheme::BASIC);
         if (NULL !== $type) {
             $this->setType($type);
         }

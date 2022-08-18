@@ -28,11 +28,11 @@ class AddAppointmentInviteTest extends ZimbraTestCase
 {
     public function testAddAppointmentInvite()
     {
-        $partStat = ParticipationStatus::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT;
 
         $id = $this->faker->uuid;
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -58,7 +58,7 @@ class AddAppointmentInviteTest extends ZimbraTestCase
             [new Header($name, $value)], $inReplyTo, $folderId, $flags, $content,
             new MimePartInfo($contentType, $content, $contentId), new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO, $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)], $fragment
         );
 

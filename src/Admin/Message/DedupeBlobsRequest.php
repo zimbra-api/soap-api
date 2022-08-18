@@ -57,7 +57,7 @@ class DedupeBlobsRequest extends SoapRequest
      */
     public function __construct(?DedupAction $action = NULL, array $volumes = [])
     {
-        $this->setAction($action ?? new DedupAction('start'))
+        $this->setAction($action ?? DedupAction::START)
              ->setVolumes($volumes);
     }
 

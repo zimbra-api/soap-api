@@ -26,17 +26,17 @@ class GetServerNIfsTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
         $ni = new NetworkInformation([new Attr($key, $value)]);
 
-        $request = new GetServerNIfsRequest($server, IpType::BOTH());
+        $request = new GetServerNIfsRequest($server, IpType::BOTH);
         $this->assertSame($server, $request->getServer());
-        $this->assertEquals(IpType::BOTH(), $request->getType());
+        $this->assertEquals(IpType::BOTH, $request->getType());
         $request = new GetServerNIfsRequest(new ServerSelector());
         $request->setServer($server)
-            ->setType(IpType::BOTH());
+            ->setType(IpType::BOTH);
         $this->assertSame($server, $request->getServer());
-        $this->assertEquals(IpType::BOTH(), $request->getType());
+        $this->assertEquals(IpType::BOTH, $request->getType());
 
         $response = new GetServerNIfsResponse([$ni]);
         $this->assertSame([$ni], $response->getNetworkInterfaces());

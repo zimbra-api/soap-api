@@ -89,7 +89,7 @@ class ModifyFilterRulesTest extends ZimbraTestCase
 {
     public function testModifyFilterRules()
     {
-        $type = AdminFilterType::BEFORE();
+        $type = AdminFilterType::BEFORE;
         $index = mt_rand(1, 99);
         $header = $this->faker->word;
         $name = $this->faker->word;
@@ -117,20 +117,20 @@ class ModifyFilterRulesTest extends ZimbraTestCase
         $newName = $this->faker->word;
         $newValue = $this->faker->word;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $cos = new CosSelector(CosBy::NAME(), $value);
-        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $cos = new CosSelector(CosBy::NAME, $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
 
         $filterVariables = new FilterVariables($index, [new FilterVariable($name, $value)]);
         $addressBookTest = new AddressBookTest(
             $index, TRUE, $header
         );
         $addressTest = new AddressTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET
         );
         $envelopeTest = new EnvelopeTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET
         );
         $attachmentTest = new AttachmentTest(
             $index, TRUE
@@ -151,10 +151,10 @@ class ModifyFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $value
         );
         $currentTimeTest = new CurrentTimeTest(
-            $index, TRUE, DateComparison::BEFORE(), $time
+            $index, TRUE, DateComparison::BEFORE, $time
         );
         $dateTest = new DateTest(
-            $index, TRUE, DateComparison::BEFORE(), $date
+            $index, TRUE, DateComparison::BEFORE, $date
         );
         $facebookTest = new FacebookTest(
             $index, TRUE
@@ -166,10 +166,10 @@ class ModifyFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $headerTest = new HeaderTest(
-            $index, TRUE, $header, StringComparison::IS(), ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, StringComparison::IS, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
         $inviteTest = new InviteTest(
             $index, TRUE, [$method]
@@ -184,10 +184,10 @@ class ModifyFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $mimeHeaderTest = new MimeHeaderTest(
-            $index, TRUE, $header, StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, StringComparison::IS, $value, TRUE
         );
         $sizeTest = new SizeTest(
-            $index, TRUE, NumberComparison::OVER(), $size
+            $index, TRUE, NumberComparison::OVER, $size
         );
         $socialcastTest = new SocialcastTest(
             $index, TRUE
@@ -208,7 +208,7 @@ class ModifyFilterRulesTest extends ZimbraTestCase
             $index, TRUE
         );
         $filterTests = new FilterTests(
-            FilterCondition::ALL_OF(), [
+            FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -251,18 +251,18 @@ class ModifyFilterRulesTest extends ZimbraTestCase
         $actionStop = new StopAction($index);
         $actionReject = new RejectAction($index, $content);
         $actionEreject = new ErejectAction($index, $content);
-        $actionLog = new LogAction($index, LoggingLevel::INFO(), $content);
+        $actionLog = new LogAction($index, LoggingLevel::INFO, $content);
         $actionAddheader = new AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new DeleteheaderAction(
             $index, TRUE, $offset
-            , new EditheaderTest(MatchType::IS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new EditheaderTest(MatchType::IS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new ReplaceheaderAction(
             $index, TRUE, $offset,
-            new EditheaderTest(MatchType::IS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new EditheaderTest(MatchType::IS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
-        $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
+        $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF));
         $filterRule = new FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
@@ -328,7 +328,7 @@ class ModifyFilterRulesTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:ModifyFilterRulesRequest type="$type">
+        <urn:ModifyFilterRulesRequest type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>

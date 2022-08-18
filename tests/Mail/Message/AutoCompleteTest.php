@@ -21,7 +21,7 @@ class AutoCompleteTest extends ZimbraTestCase
     public function testAutoComplete()
     {
         $name = $this->faker->name;
-        $type = GalSearchType::ACCOUNT();
+        $type = GalSearchType::ACCOUNT;
         $folderList = $this->faker->text;
 
         $request = new AutoCompleteRequest($name, $type, FALSE, $folderList, FALSE);
@@ -43,7 +43,7 @@ class AutoCompleteTest extends ZimbraTestCase
         $this->assertTrue($request->getIncludeGal());
 
         $email = $this->faker->email;
-        $matchType = AutoCompleteMatchType::GAL();
+        $matchType = AutoCompleteMatchType::GAL;
         $ranking = $this->faker->randomNumber;
         $id = $this->faker->uuid;
         $folder = $this->faker->word;

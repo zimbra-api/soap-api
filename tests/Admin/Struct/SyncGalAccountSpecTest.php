@@ -20,8 +20,8 @@ class SyncGalAccountSpecTest extends ZimbraTestCase
         $value2 = $this->faker->word;
         $id = $this->faker->uuid;
 
-        $ds1 = new SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), $value1, TRUE, FALSE);
-        $ds2 = new SyncGalAccountDataSourceSpec(DataSourceBy::NAME(), $value2, FALSE, TRUE);
+        $ds1 = new SyncGalAccountDataSourceSpec(DataSourceBy::NAME, $value1, TRUE, FALSE);
+        $ds2 = new SyncGalAccountDataSourceSpec(DataSourceBy::NAME, $value2, FALSE, TRUE);
 
         $sync = new StubSyncGalAccountSpec($id, [$ds1]);
         $this->assertSame($id, $sync->getId());

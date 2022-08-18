@@ -85,7 +85,7 @@ class ZimletStatus
     )
     {
         $this->setName($name)
-             ->setStatus($status ?? new ZimletStatusSetting('enabled'))
+             ->setStatus($status ?? ZimletStatusSetting::ENABLED)
              ->setExtension($extension);
         if (NULL !== $priority) {
             $this->setPriority($priority);

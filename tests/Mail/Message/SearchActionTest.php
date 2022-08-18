@@ -30,22 +30,27 @@ class SearchActionTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->word;
 
-        $taskStatus = implode(',', $this->faker->randomElements(TaskStatus::values(), 3));
+        $statuses = array_map(static fn ($status) => $status->value, TaskStatus::cases());
+        $taskStatus = implode(',', $this->faker->randomElements($statuses, 3));
+
         $calItemExpandStart = $this->faker->randomNumber;
         $calItemExpandEnd = $this->faker->randomNumber;
         $query = $this->faker->word;
-        $searchTypes = implode(',', $this->faker->randomElements(SearchType::values(), 3));
-        $groupBy = implode(',', $this->faker->randomElements(SearchType::values(), 3));
-        $sortBy = SearchSortBy::DATE_DESC();
+
+        $types = array_map(static fn ($type) => $type->value, SearchType::cases());
+        $searchTypes = implode(',', $this->faker->randomElements($types, 3));
+        $groupBy = implode(',', $this->faker->randomElements($types, 3));
+
+        $sortBy = SearchSortBy::DATE_DESC;
         $fetch = $this->faker->word;
         $maxInlinedLength = $this->faker->randomNumber;
-        $wantRecipients = WantRecipsSetting::PUT_BOTH();
+        $wantRecipients = WantRecipsSetting::PUT_BOTH;
         $resultMode = $this->faker->randomElement(['NORMAL', 'IDS']);
         $field = $this->faker->word;
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
         $locale = $this->faker->locale;
-        $wantContent = MsgContent::ORIGINAL();
+        $wantContent = MsgContent::ORIGINAL;
 
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
@@ -62,7 +67,7 @@ class SearchActionTest extends ZimbraTestCase
         $week = $this->faker->numberBetween(1, 4);
         $wkday = $this->faker->numberBetween(1, 7);
 
-        $op = BulkOperation::MOVE();
+        $op = BulkOperation::MOVE;
         $folder = $this->faker->uuid;
 
         $standardTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);

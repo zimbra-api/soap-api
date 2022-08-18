@@ -120,7 +120,7 @@ class AccountACEInfo
         ?bool $checkGranteeType = NULL
     )
     {
-        $this->setGranteeType($granteeType ?? new GranteeType('all'))
+        $this->setGranteeType($granteeType ?? GranteeType::ALL)
              ->setRight($right);
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);

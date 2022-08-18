@@ -21,7 +21,7 @@ class MsgSpecTest extends ZimbraTestCase
         $recurIdZ = $this->faker->uuid;
         $name = $this->faker->word;
         $maxInlinedLength = $this->faker->randomNumber;
-        $wantContent = MsgContent::FULL();
+        $wantContent = MsgContent::FULL;
 
         $header = new AttributeName($name);
         $msg = new StubMsgSpec(

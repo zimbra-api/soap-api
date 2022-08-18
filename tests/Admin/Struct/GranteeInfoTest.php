@@ -17,19 +17,19 @@ class GranteeInfoTest extends ZimbraTestCase
         $name = $this->faker->word;
 
         $grantee = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
         $this->assertSame($id, $grantee->getId());
         $this->assertSame($name, $grantee->getName());
-        $this->assertEquals(GranteeType::ALL(), $grantee->getType());
+        $this->assertEquals(GranteeType::ALL, $grantee->getType());
 
         $grantee = new GranteeInfo();
         $grantee->setId($id)
                 ->setName($name)
-                ->setType(GranteeType::USR());
+                ->setType(GranteeType::USR);
         $this->assertSame($id, $grantee->getId());
         $this->assertSame($name, $grantee->getName());
-        $this->assertEquals(GranteeType::USR(), $grantee->getType());
+        $this->assertEquals(GranteeType::USR, $grantee->getType());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

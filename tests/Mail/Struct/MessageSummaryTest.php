@@ -27,8 +27,8 @@ class MessageSummaryTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::TO();
-        $calItemType = InviteType::TASK();
+        $addressType = AddressType::TO;
+        $calItemType = InviteType::TASK;
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
         $invite = new InviteInfo($calItemType);

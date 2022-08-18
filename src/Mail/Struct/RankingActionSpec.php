@@ -60,7 +60,7 @@ class RankingActionSpec
         ?string $email = NULL
     )
     {
-        $this->setOperation($operation ?? new RankingActionOp('reset'));
+        $this->setOperation($operation ?? RankingActionOp::RESET);
         if (NULL !== $email) {
             $this->setEmail($email);
         }

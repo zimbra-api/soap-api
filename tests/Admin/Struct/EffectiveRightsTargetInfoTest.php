@@ -32,20 +32,20 @@ class EffectiveRightsTargetInfoTest extends ZimbraTestCase
         $setAttrs = new EffectiveAttrsInfo(TRUE, [$attr]);
         $getAttrs = new EffectiveAttrsInfo(FALSE, [$attr]);
 
-        $target = new StubEffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT(), $id, $name, [$right]);
-        $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
+        $target = new StubEffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT, $id, $name, [$right]);
+        $this->assertEquals(TargetType::ACCOUNT, $target->getType());
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
 
-        $target = new StubEffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT(), '', '', [$right]);
-        $target->setType(TargetType::DOMAIN())
+        $target = new StubEffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT, '', '', [$right]);
+        $target->setType(TargetType::DOMAIN)
             ->setId($id)
             ->setName($name);
-        $this->assertEquals(TargetType::DOMAIN(), $target->getType());
+        $this->assertEquals(TargetType::DOMAIN, $target->getType());
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
 
-        $type = TargetType::DOMAIN()->getValue();
+        $type = TargetType::DOMAIN->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" id="$id" name="$name" xmlns:urn="urn:zimbraAdmin">

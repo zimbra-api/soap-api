@@ -29,7 +29,7 @@ class GetServiceStatusTest extends ZimbraTestCase
         $request = new GetServiceStatusRequest();
 
         $timezone = new TimeZoneInfo($id, $displayName);
-        $status = new ServiceStatus($server, $service, $time, ZeroOrOne::ONE());
+        $status = new ServiceStatus($server, $service, $time, ZeroOrOne::ONE);
         $response = new GetServiceStatusResponse($timezone, [$status]);
         $this->assertSame($timezone, $response->getTimezone());
         $this->assertSame([$status], $response->getServiceStatuses());

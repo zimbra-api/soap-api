@@ -68,7 +68,7 @@ class EffectiveRightsTargetSelector
         ?TargetType $type = NULL, ?TargetBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setType($type ?? new TargetType('account'));
+        $this->setType($type ?? TargetType::ACCOUNT);
         if (NULL !== $by) {
             $this->setBy($by);
         }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * FilterCondition enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class FilterCondition extends Enum
+enum FilterCondition: string
 {
     /**
      * Constant for value 'allof'
      * @return string 'allof'
      */
-    protected const ALL_OF = 'allof';
+    case ALL_OF = 'allof';
 
     /**
      * Constant for value 'anyof'
      * @return string 'anyof'
      */
-    protected const ANY_OF = 'anyof';
+    case ANY_OF = 'anyof';
 }

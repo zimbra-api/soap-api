@@ -35,13 +35,13 @@ class BatchRequestTest extends ZimbraTestCase
         $response->setRequestId($requestId);
         $this->assertSame($requestId, $response->getRequestId());
 
-        $batchRequest = new FooBatchRequest([$request], OnError::STOP());
+        $batchRequest = new FooBatchRequest([$request], OnError::STOP);
         $this->assertSame([$request], $batchRequest->getRequests());
-        $this->assertEquals(OnError::STOP(), $batchRequest->getOnError());
-        $batchRequest->setOnError(OnError::CONTINUE())
+        $this->assertEquals(OnError::STOP, $batchRequest->getOnError());
+        $batchRequest->setOnError(OnError::CONTINUE)
             ->setRequests([$request, $request]);
         $this->assertSame([$request, $request], $batchRequest->getRequests());
-        $this->assertEquals(OnError::CONTINUE(), $batchRequest->getOnError());
+        $this->assertEquals(OnError::CONTINUE, $batchRequest->getOnError());
 
         $batchResponse = new FooBatchResponse([$response]);
         $this->assertSame([$response], $batchResponse->getResponses());

@@ -55,7 +55,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addAccountLogger(new \Zimbra\Admin\Struct\LoggerInfo());
-        $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO());
+        $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO);
         $this->assertEquals([$logger], $response->getLoggers());
     }
 
@@ -114,7 +114,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addGalSyncDataSource(
-            new \Zimbra\Common\Struct\AccountSelector(), $name, $domain, \Zimbra\Common\Enum\GalMode::BOTH()
+            new \Zimbra\Common\Struct\AccountSelector(), $name, $domain, \Zimbra\Common\Enum\GalMode::BOTH
         );
         $account = new \Zimbra\Admin\Struct\AccountInfo($name, $id, TRUE, [
             new \Zimbra\Admin\Struct\Attr($key, $value)
@@ -353,9 +353,9 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->autoProvTaskControl(
-            \Zimbra\Common\Enum\AutoProvTaskAction::START()
+            \Zimbra\Common\Enum\AutoProvTaskAction::START
         );
-        $this->assertEquals(\Zimbra\Common\Enum\AutoProvTaskStatus::STARTED(), $response->getStatus());
+        $this->assertEquals(\Zimbra\Common\Enum\AutoProvTaskStatus::STARTED, $response->getStatus());
     }
 
     public function testChangePrimaryEmail()
@@ -723,7 +723,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->compactIndex(new \Zimbra\Admin\Struct\MailboxByAccountIdSelector());
-        $this->assertEquals(\Zimbra\Common\Enum\CompactIndexStatus::RUNNING(), $response->getStatus());
+        $this->assertEquals(\Zimbra\Common\Enum\CompactIndexStatus::RUNNING, $response->getStatus());
     }
 
     public function testComputeAggregateQuotaUsage()
@@ -785,7 +785,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->contactBackup();
         $server = new \Zimbra\Admin\Struct\ContactBackupServer(
-            $name, \Zimbra\Common\Enum\ContactBackupStatus::STOPPED()
+            $name, \Zimbra\Common\Enum\ContactBackupStatus::STOPPED
         );
         $this->assertEquals([$server], $response->getServers());
     }
@@ -995,7 +995,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->createDataSource(new \Zimbra\Admin\Struct\DataSourceSpecifier());
-        $dsInfo = new \Zimbra\Admin\Struct\DataSourceInfo($name, $id, \Zimbra\Common\Enum\DataSourceType::IMAP(), [
+        $dsInfo = new \Zimbra\Admin\Struct\DataSourceInfo($name, $id, \Zimbra\Common\Enum\DataSourceType::IMAP, [
             new \Zimbra\Admin\Struct\Attr($key, $value)
         ]);
         $this->assertEquals($dsInfo, $response->getDataSource());
@@ -1026,7 +1026,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->createDistributionList($name);
         $owner = new \Zimbra\Admin\Struct\GranteeInfo(
-            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL
         );
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
         $this->assertEquals($dl, $response->getDl());
@@ -1160,7 +1160,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->createSystemRetentionPolicy();
-        $policy = new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime);
+        $policy = new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime);
         $this->assertEquals($policy, $response->getPolicy());
     }
 
@@ -1195,7 +1195,9 @@ EOT;
     public function testCreateVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::toArray());
+        $type = $this->faker->randomElement(
+            array_map(static fn ($type) => $type->value, \Zimbra\Common\Enum\VolumeType::cases())
+        );
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;
@@ -1305,7 +1307,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->dedupeBlobs();
-        $this->assertEquals(\Zimbra\Common\Enum\DedupStatus::STOPPED(), $response->getStatus());
+        $this->assertEquals(\Zimbra\Common\Enum\DedupStatus::STOPPED, $response->getStatus());
         $this->assertSame($totalSize, $response->getTotalSize());
         $this->assertSame($totalCount, $response->getTotalCount());
 
@@ -1619,7 +1621,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deployZimlet(new \Zimbra\Admin\Struct\AttachmentIdAttrib());
         $progress = new \Zimbra\Admin\Struct\ZimletDeploymentStatus(
-            $server, \Zimbra\Common\Enum\ZimletDeployStatus::SUCCEEDED(), $error
+            $server, \Zimbra\Common\Enum\ZimletDeployStatus::SUCCEEDED, $error
         );
         $this->assertEquals([$progress], $response->getProgresses());
     }
@@ -1876,7 +1878,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getAccountLoggers();
         $logger = new \Zimbra\Admin\Struct\LoggerInfo(
-            $category, \Zimbra\Common\Enum\LoggingLevel::INFO()
+            $category, \Zimbra\Common\Enum\LoggingLevel::INFO
         );
         $this->assertEquals([$logger], $response->getLoggers());
     }
@@ -1978,7 +1980,7 @@ EOT;
         $response = $api->getAdminExtensionZimlets();
 
         $zimletContext = new \Zimbra\Admin\Struct\AdminZimletContext(
-            $baseUrl, \Zimbra\Common\Enum\ZimletPresence::ENABLED(), $priority
+            $baseUrl, \Zimbra\Common\Enum\ZimletPresence::ENABLED, $priority
         );
         $serverExtension = new \Zimbra\Admin\Struct\ZimletServerExtension(
             $hasKeyword, $extensionClass, $regex
@@ -2074,7 +2076,7 @@ EOT;
         $response = $api->getAllAccountLoggers();
         $logger = new \Zimbra\Admin\Struct\AccountLoggerInfo(
             $name, $id, [
-                new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO())
+                new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO)
             ]
         );
         $this->assertEquals([$logger], $response->getLoggers());
@@ -2299,7 +2301,7 @@ EOT;
         $response = $api->getAllDistributionLists();
         $attr = new \Zimbra\Admin\Struct\Attr($key, $value);
         $owner = new \Zimbra\Admin\Struct\GranteeInfo(
-            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL
         );
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo($name, $id, [$member], [$attr], [$owner], TRUE);
         $this->assertEquals([$dl], $response->getDls());
@@ -2469,7 +2471,7 @@ EOT;
 EOT;
 
         $granteeInfo = new \Zimbra\Admin\Struct\GranteeInfo(
-            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL
         );
 
         $right = new \Zimbra\Admin\Struct\RightWithName($name);
@@ -2485,7 +2487,7 @@ EOT;
         $entries = new \Zimbra\Admin\Struct\RightsEntriesInfo($rights, [$entry]);
 
         $target = new \Zimbra\Admin\Struct\EffectiveRightsTarget(
-            \Zimbra\Common\Enum\TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]
+            \Zimbra\Common\Enum\TargetType::ACCOUNT, $rights, [$inDomains], [$entries]
         );
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
@@ -2614,11 +2616,11 @@ EOT;
         $response = $api->getAllRights();
         $attrs = new \Zimbra\Admin\Struct\RightsAttrs(TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
         $rights = new \Zimbra\Admin\Struct\ComboRights([new \Zimbra\Admin\Struct\ComboRightInfo(
-            $name, \Zimbra\Common\Enum\RightType::PRESET(), $targetType
+            $name, \Zimbra\Common\Enum\RightType::PRESET, $targetType
         )]);
         $right = new \Zimbra\Admin\Struct\RightInfo(
-            $name, \Zimbra\Common\Enum\RightType::PRESET(),
-            \Zimbra\Common\Enum\RightClass::ALL(), $desc, $targetType, $attrs, $rights
+            $name, \Zimbra\Common\Enum\RightType::PRESET,
+            \Zimbra\Common\Enum\RightClass::ALL, $desc, $targetType, $attrs, $rights
         );
         $this->assertEquals([$right], $response->getRights());
     }
@@ -2703,7 +2705,9 @@ EOT;
     public function testGetAllVolumes()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::toArray());
+        $type = $this->faker->randomElement(
+            array_map(static fn ($type) => $type->value, \Zimbra\Common\Enum\VolumeType::cases())
+        );
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;
@@ -3008,7 +3012,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getDataSources($id);
         $dataSource = new \Zimbra\Admin\Struct\DataSourceInfo(
-            $name, $id, \Zimbra\Common\Enum\DataSourceType::POP3(), [new \Zimbra\Admin\Struct\Attr($key, $value)]
+            $name, $id, \Zimbra\Common\Enum\DataSourceType::POP3, [new \Zimbra\Admin\Struct\Attr($key, $value)]
         );
         $this->assertEquals([$dataSource], $response->getDataSources());
     }
@@ -3042,7 +3046,7 @@ EOT;
 EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
-        $response = $api->getDelegatedAdminConstraints(\Zimbra\Common\Enum\TargetType::ACCOUNT());
+        $response = $api->getDelegatedAdminConstraints(\Zimbra\Common\Enum\TargetType::ACCOUNT);
         $attr = new \Zimbra\Admin\Struct\ConstraintAttr(
             new \Zimbra\Admin\Struct\ConstraintInfo($min, $max, [$value]), $name
         );
@@ -3076,7 +3080,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getDistributionList(new \Zimbra\Admin\Struct\DistributionListSelector());
         $owner = new \Zimbra\Admin\Struct\GranteeInfo(
-            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL
         );
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
             $name, $id, [$member], [], [$owner], TRUE
@@ -3227,7 +3231,7 @@ EOT;
         $response = $api->getEffectiveRights(new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector());
 
         $granteeInfo = new \Zimbra\Admin\Struct\GranteeInfo(
-            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL
         );
 
         $right = new \Zimbra\Admin\Struct\RightWithName($name);
@@ -3241,7 +3245,7 @@ EOT;
         $entries = new \Zimbra\Admin\Struct\RightsEntriesInfo($rights, [new \Zimbra\Common\Struct\NamedElement($name)]);
 
         $targetInfo = new \Zimbra\Admin\Struct\EffectiveRightsTargetInfo(
-            $setAttrs, $getAttrs, \Zimbra\Common\Enum\TargetType::ACCOUNT(), $id, $name, [$right]
+            $setAttrs, $getAttrs, \Zimbra\Common\Enum\TargetType::ACCOUNT, $id, $name, [$right]
         );
 
         $this->assertEquals($granteeInfo, $response->getGrantee());
@@ -3250,7 +3254,7 @@ EOT;
 
     public function testGetFilterRules()
     {
-        $type = \Zimbra\Common\Enum\AdminFilterType::BEFORE();
+        $type = \Zimbra\Common\Enum\AdminFilterType::BEFORE;
         $index = $this->faker->randomNumber;
         $header = $this->faker->word;
         $name = $this->faker->word;
@@ -3282,7 +3286,7 @@ EOT;
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:GetFilterRulesResponse type="$type">
+        <urn:GetFilterRulesResponse type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>
@@ -3376,10 +3380,10 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $account = new \Zimbra\Common\Struct\AccountSelector(\Zimbra\Common\Enum\AccountBy::NAME(), $value);
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(\Zimbra\Common\Enum\DomainBy::NAME(), $value);
-        $cos = new \Zimbra\Admin\Struct\CosSelector(\Zimbra\Common\Enum\CosBy::NAME(), $value);
-        $server = new \Zimbra\Admin\Struct\ServerSelector(\Zimbra\Common\Enum\ServerBy::NAME(), $value);
+        $account = new \Zimbra\Common\Struct\AccountSelector(\Zimbra\Common\Enum\AccountBy::NAME, $value);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(\Zimbra\Common\Enum\DomainBy::NAME, $value);
+        $cos = new \Zimbra\Admin\Struct\CosSelector(\Zimbra\Common\Enum\CosBy::NAME, $value);
+        $server = new \Zimbra\Admin\Struct\ServerSelector(\Zimbra\Common\Enum\ServerBy::NAME, $value);
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getFilterRules($type, $account, $domain, $cos, $server);
@@ -3395,10 +3399,10 @@ EOT;
             $index, TRUE, $header
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $envelopeTest = new \Zimbra\Mail\Struct\EnvelopeTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
             $index, TRUE
@@ -3419,10 +3423,10 @@ EOT;
             $index, TRUE, $value
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $time
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $time
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $date
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $date
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
             $index, TRUE
@@ -3434,10 +3438,10 @@ EOT;
             $index, TRUE, $header
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH()
+            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
             $index, TRUE, [$method]
@@ -3452,10 +3456,10 @@ EOT;
             $index, TRUE, $header
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, $value, TRUE
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER(), $size
+            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER, $size
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
             $index, TRUE
@@ -3476,7 +3480,7 @@ EOT;
             $index, TRUE
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
-            \Zimbra\Common\Enum\FilterCondition::ALL_OF(), [
+            \Zimbra\Common\Enum\FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -3519,18 +3523,18 @@ EOT;
         $actionStop = new \Zimbra\Mail\Struct\StopAction($index);
         $actionReject = new \Zimbra\Mail\Struct\RejectAction($index, $content);
         $actionEreject = new \Zimbra\Mail\Struct\ErejectAction($index, $content);
-        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO(), $content);
+        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO, $content);
         $actionAddheader = new \Zimbra\Mail\Struct\AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new \Zimbra\Mail\Struct\DeleteheaderAction(
             $index, TRUE, $offset
-            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new \Zimbra\Mail\Struct\ReplaceheaderAction(
             $index, TRUE, $offset,
-            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
-        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF()));
+        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF));
         $filterRule = new \Zimbra\Mail\Struct\FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
@@ -3607,7 +3611,7 @@ EOT;
         $response = $api->getGrants();
         $grant = new \Zimbra\Admin\Struct\GrantInfo(
             new \Zimbra\Admin\Struct\TypeIdName($type, $id, $name),
-            new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::USR()),
+            new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::USR),
             new \Zimbra\Admin\Struct\RightModifierInfo($value, TRUE, TRUE, TRUE, TRUE)
         );
         $this->assertEquals([$grant], $response->getGrants());
@@ -3887,7 +3891,7 @@ EOT;
 
     public function testGetOutgoingFilterRules()
     {
-        $type = \Zimbra\Common\Enum\AdminFilterType::BEFORE();
+        $type = \Zimbra\Common\Enum\AdminFilterType::BEFORE;
         $index = $this->faker->randomNumber;
         $header = $this->faker->word;
         $name = $this->faker->word;
@@ -3919,7 +3923,7 @@ EOT;
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:GetOutgoingFilterRulesResponse type="$type">
+        <urn:GetOutgoingFilterRulesResponse type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>
@@ -4013,10 +4017,10 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $account = new \Zimbra\Common\Struct\AccountSelector(\Zimbra\Common\Enum\AccountBy::NAME(), $value);
-        $domain = new \Zimbra\Admin\Struct\DomainSelector(\Zimbra\Common\Enum\DomainBy::NAME(), $value);
-        $cos = new \Zimbra\Admin\Struct\CosSelector(\Zimbra\Common\Enum\CosBy::NAME(), $value);
-        $server = new \Zimbra\Admin\Struct\ServerSelector(\Zimbra\Common\Enum\ServerBy::NAME(), $value);
+        $account = new \Zimbra\Common\Struct\AccountSelector(\Zimbra\Common\Enum\AccountBy::NAME, $value);
+        $domain = new \Zimbra\Admin\Struct\DomainSelector(\Zimbra\Common\Enum\DomainBy::NAME, $value);
+        $cos = new \Zimbra\Admin\Struct\CosSelector(\Zimbra\Common\Enum\CosBy::NAME, $value);
+        $server = new \Zimbra\Admin\Struct\ServerSelector(\Zimbra\Common\Enum\ServerBy::NAME, $value);
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getOutgoingFilterRules($type, $account, $domain, $cos, $server);
@@ -4032,10 +4036,10 @@ EOT;
             $index, TRUE, $header
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $envelopeTest = new \Zimbra\Mail\Struct\EnvelopeTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
             $index, TRUE
@@ -4056,10 +4060,10 @@ EOT;
             $index, TRUE, $value
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $time
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $time
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $date
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $date
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
             $index, TRUE
@@ -4071,10 +4075,10 @@ EOT;
             $index, TRUE, $header
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH()
+            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
             $index, TRUE, [$method]
@@ -4089,10 +4093,10 @@ EOT;
             $index, TRUE, $header
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, $value, TRUE
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER(), $size
+            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER, $size
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
             $index, TRUE
@@ -4113,7 +4117,7 @@ EOT;
             $index, TRUE
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
-            \Zimbra\Common\Enum\FilterCondition::ALL_OF(), [
+            \Zimbra\Common\Enum\FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -4156,18 +4160,18 @@ EOT;
         $actionStop = new \Zimbra\Mail\Struct\StopAction($index);
         $actionReject = new \Zimbra\Mail\Struct\RejectAction($index, $content);
         $actionEreject = new \Zimbra\Mail\Struct\ErejectAction($index, $content);
-        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO(), $content);
+        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO, $content);
         $actionAddheader = new \Zimbra\Mail\Struct\AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new \Zimbra\Mail\Struct\DeleteheaderAction(
             $index, TRUE, $offset
-            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new \Zimbra\Mail\Struct\ReplaceheaderAction(
             $index, TRUE, $offset,
-            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
-        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF()));
+        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF));
         $filterRule = new \Zimbra\Mail\Struct\FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
@@ -4253,10 +4257,10 @@ EOT;
         $response = $api->getRight($right);
 
         $rights = new \Zimbra\Admin\Struct\ComboRights([new \Zimbra\Admin\Struct\ComboRightInfo(
-            $name, \Zimbra\Common\Enum\RightType::PRESET(), $targetType
+            $name, \Zimbra\Common\Enum\RightType::PRESET, $targetType
         )]);
         $rightInfo = new \Zimbra\Admin\Struct\RightInfo(
-            $name, \Zimbra\Common\Enum\RightType::PRESET(), \Zimbra\Common\Enum\RightClass::ALL(), $desc, $targetType, new \Zimbra\Admin\Struct\RightsAttrs(TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]), $rights
+            $name, \Zimbra\Common\Enum\RightType::PRESET, \Zimbra\Common\Enum\RightClass::ALL, $desc, $targetType, new \Zimbra\Admin\Struct\RightsAttrs(TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]), $rights
         );
         $this->assertEquals($rightInfo, $response->getRight());
     }
@@ -4304,7 +4308,7 @@ EOT;
             $name, [new \Zimbra\Admin\Struct\CmdRightsInfo($name, [new \Zimbra\Common\Struct\NamedElement($name)], [$note])]
         );
         $right = new \Zimbra\Admin\Struct\DomainAdminRight(
-            $name, \Zimbra\Common\Enum\RightType::PRESET(), $desc, [new \Zimbra\Admin\Struct\RightWithName($name)]
+            $name, \Zimbra\Common\Enum\RightType::PRESET, $desc, [new \Zimbra\Admin\Struct\RightWithName($name)]
         );
         $this->assertEquals([$package], $response->getPackages());
         $this->assertSame([$notUsed], $response->getNotUsed());
@@ -4411,7 +4415,7 @@ EOT;
         $response = $api->getServiceStatus();
         $timezone = new \Zimbra\Admin\Struct\TimeZoneInfo($id, $displayName);
         $status = new \Zimbra\Admin\Struct\ServiceStatus(
-            $server, $service, $time, \Zimbra\Common\Enum\ZeroOrOne::ONE()
+            $server, $service, $time, \Zimbra\Common\Enum\ZeroOrOne::ONE
         );
         $this->assertEquals($timezone, $response->getTimezone());
         $this->assertEquals([$status], $response->getServiceStatuses());
@@ -4438,7 +4442,7 @@ EOT;
 EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
-        $response = $api->getSessions(\Zimbra\Common\Enum\SessionType::SOAP());
+        $response = $api->getSessions(\Zimbra\Common\Enum\SessionType::SOAP);
         $session = new \Zimbra\Admin\Struct\SimpleSessionInfo(
             $zimbraId, $name, $sessionId, $createdDate, $lastAccessedDate
         );
@@ -4514,8 +4518,8 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getSystemRetentionPolicy();
         $retention = new \Zimbra\Mail\Struct\RetentionPolicy(
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime)],
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER(), $id, $name, $lifetime)]
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime)],
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER, $id, $name, $lifetime)]
         );
         $this->assertEquals($retention, $response->getRetentionPolicy());
     }
@@ -4582,7 +4586,9 @@ EOT;
     public function testGetVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::toArray());
+        $type = $this->faker->randomElement(
+            array_map(static fn ($type) => $type->value, \Zimbra\Common\Enum\VolumeType::cases())
+        );
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;
@@ -4694,7 +4700,7 @@ EOT;
         $response = $api->getZimletStatus();
 
         $zimlet = new \Zimbra\Admin\Struct\ZimletStatus(
-            $name, \Zimbra\Common\Enum\ZimletStatusSetting::ENABLED(), TRUE, $priority
+            $name, \Zimbra\Common\Enum\ZimletStatusSetting::ENABLED, TRUE, $priority
         );
         $zimlets = new \Zimbra\Admin\Struct\ZimletStatusParent([$zimlet]);
         $cos = new \Zimbra\Admin\Struct\ZimletStatusCos($name, [$zimlet]);
@@ -5000,7 +5006,7 @@ EOT;
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
             $name, $id, [$member],
             [new \Zimbra\Admin\Struct\Attr($key, $value)],
-            [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::USR())],
+            [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::USR)],
             TRUE
         );
         $this->assertEquals($dl, $response->getDl());
@@ -5140,7 +5146,7 @@ EOT;
 EOT;
 
         $policy = new \Zimbra\Mail\Struct\Policy(
-            \Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime
+            \Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime
         );
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifySystemRetentionPolicy($policy);
@@ -5437,7 +5443,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->reIndex(new \Zimbra\Admin\Struct\ReindexMailboxInfo());
         $progress = new \Zimbra\Admin\Struct\ReindexProgressInfo($numSucceeded, $numFailed, $numRemaining);
-        $this->assertEquals(\Zimbra\Common\Enum\ReIndexStatus::RUNNING(), $response->getStatus());
+        $this->assertEquals(\Zimbra\Common\Enum\ReIndexStatus::RUNNING, $response->getStatus());
         $this->assertEquals($progress, $response->getProgress());
     }
 
@@ -5647,7 +5653,7 @@ EOT;
         $response = $api->renameDistributionList($id, $name);
 
         $owner = new \Zimbra\Admin\Struct\GranteeInfo(
-            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL
         );
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
         $this->assertEquals($dl, $response->getDl());
@@ -5786,7 +5792,7 @@ EOT;
         $value= $this->faker->word;
         $member = $this->faker->word;
         $targetName = $this->faker->word;
-        $targetType = \Zimbra\Common\Enum\TargetType::ACCOUNT();
+        $targetType = \Zimbra\Common\Enum\TargetType::ACCOUNT;
         $searchTotal = $this->faker->randomNumber;
         $query = $this->faker->word;
 
@@ -5805,7 +5811,7 @@ EOT;
                     <urn:owner id="$id" name="$name" type="all" />
                 </urn:owners>
             </urn:dl>
-            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="account">
                 <urn:a n="$key">$value</urn:a>
             </urn:alias>
             <urn:account name="$name" id="$id" isExternal="true">
@@ -5827,7 +5833,7 @@ EOT;
 
         $calResource = new \Zimbra\Admin\Struct\CalendarResourceInfo($name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
-            $name, $id, [$member], [new \Zimbra\Admin\Struct\Attr($key, $value)], [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::ALL())], TRUE
+            $name, $id, [$member], [new \Zimbra\Admin\Struct\Attr($key, $value)], [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::ALL)], TRUE
         );
         $alias = new \Zimbra\Admin\Struct\AliasInfo($name, $id, $targetName, $targetType, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
         $account = new \Zimbra\Admin\Struct\AccountInfo($name, $id, TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
@@ -5914,7 +5920,7 @@ EOT;
         $value= $this->faker->word;
         $member = $this->faker->word;
         $targetName = $this->faker->word;
-        $targetType = \Zimbra\Common\Enum\TargetType::ACCOUNT();
+        $targetType = \Zimbra\Common\Enum\TargetType::ACCOUNT;
         $searchTotal = $this->faker->randomNumber;
         $num = $this->faker->randomNumber;
 
@@ -5933,7 +5939,7 @@ EOT;
                     <urn:owner id="$id" name="$name" type="all" />
                 </urn:owners>
             </urn:dl>
-            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="account">
                 <urn:a n="$key">$value</urn:a>
             </urn:alias>
             <urn:account name="$name" id="$id" isExternal="true">
@@ -5957,7 +5963,7 @@ EOT;
             $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
         );
         $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
-            $name, $id, [$member], [new \Zimbra\Admin\Struct\Attr($key, $value)], [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::ALL())], TRUE
+            $name, $id, [$member], [new \Zimbra\Admin\Struct\Attr($key, $value)], [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::ALL)], TRUE
         );
         $alias = new \Zimbra\Admin\Struct\AliasInfo(
             $name, $id, $targetName, $targetType, [new \Zimbra\Admin\Struct\Attr($key, $value)]

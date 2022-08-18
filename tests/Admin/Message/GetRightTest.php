@@ -40,10 +40,10 @@ class GetRightTest extends ZimbraTestCase
         $this->assertTrue($request->getExpandAllAttrs());
 
         $rights = new ComboRights([new ComboRightInfo(
-            $name, RightType::PRESET(), $targetType
+            $name, RightType::PRESET, $targetType
         )]);
         $rightInfo = new RightInfo(
-            $name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, new RightsAttrs(TRUE, [new Attr($key, $value)]), $rights
+            $name, RightType::PRESET, RightClass::ALL, $desc, $targetType, new RightsAttrs(TRUE, [new Attr($key, $value)]), $rights
         );
         $response = new GetRightResponse($rightInfo);
         $this->assertSame($rightInfo, $response->getRight());

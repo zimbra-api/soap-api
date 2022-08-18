@@ -27,18 +27,18 @@ class ModifyDelegatedAdminConstraintsTest extends ZimbraTestCase
 
         $attr = new ConstraintAttr(new ConstraintInfo($min, $max, [$value]), $name);
 
-        $request = new ModifyDelegatedAdminConstraintsRequest(TargetType::DOMAIN(), $id, $name, [$attr]);
-        $this->assertEquals(TargetType::DOMAIN(), $request->getType());
+        $request = new ModifyDelegatedAdminConstraintsRequest(TargetType::DOMAIN, $id, $name, [$attr]);
+        $this->assertEquals(TargetType::DOMAIN, $request->getType());
         $this->assertSame($id, $request->getId());
         $this->assertSame($name, $request->getName());
         $this->assertSame([$attr], $request->getAttrs());
         $request = new ModifyDelegatedAdminConstraintsRequest();
-        $request->setType(TargetType::SERVER())
+        $request->setType(TargetType::SERVER)
             ->setId($id)
             ->setName($name)
             ->setAttrs([$attr])
             ->addAttr($attr);
-        $this->assertEquals(TargetType::SERVER(), $request->getType());
+        $this->assertEquals(TargetType::SERVER, $request->getType());
         $this->assertSame($id, $request->getId());
         $this->assertSame($name, $request->getName());
         $this->assertSame([$attr, $attr], $request->getAttrs());

@@ -27,8 +27,8 @@ class ModifyZimletTest extends ZimbraTestCase
 
         $zimlet = new ZimletAclStatusPri(
             $name,
-            new ZimletAcl($cos, AclType::GRANT()),
-            new ValueAttrib(ZimletStatus::ENABLED()->getValue()),
+            new ZimletAcl($cos, AclType::GRANT),
+            new ValueAttrib(ZimletStatus::ENABLED->value),
             new IntegerValueAttrib($value)
         );
 

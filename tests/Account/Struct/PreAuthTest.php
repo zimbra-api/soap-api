@@ -20,9 +20,9 @@ class PreAuthTest extends ZimbraTestCase
         $expire = $this->faker->randomNumber;
 
         $computeValue = hash_hmac(
-            'sha1', $name . '|' . AccountBy::NAME() . '|' . $expire . '|' . $timestamp, $preauthKey
+            'sha1', $name . '|' . AccountBy::NAME->value . '|' . $expire . '|' . $timestamp, $preauthKey
         );
-        $account = new AccountSelector(AccountBy::NAME(), $name);
+        $account = new AccountSelector(AccountBy::NAME, $name);
 
         $preauth = new PreAuth($account, $preauthKey, $timestamp, $expire);
         $this->assertSame($timestamp, $preauth->getTimestamp());

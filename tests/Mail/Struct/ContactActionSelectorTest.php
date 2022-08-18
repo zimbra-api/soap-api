@@ -16,7 +16,7 @@ class ContactActionSelectorTest extends ZimbraTestCase
 {
     public function testContactActionSelector()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->value;
         $ids = $this->faker->uuid;
         $name = $this->faker->word;
         $attachId = $this->faker->uuid;

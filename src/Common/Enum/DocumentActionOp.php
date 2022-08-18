@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DocumentAction enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DocumentActionOp extends Enum
+enum DocumentActionOp: string
 {
     /**
      * Constant for value 'watch'
      * @return string 'watch'
      */
-    protected const WATCH = 'watch';
+    case WATCH = 'watch';
 
     /**
      * Constant for value '!watch'
      * @return string '!watch'
      */
-    protected const NOT_WATCH = '!watch';
+    case NOT_WATCH = '!watch';
 
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    protected const GRANT = 'grant';
+    case GRANT = 'grant';
 
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    protected const NOT_GRANT = '!grant';
+    case NOT_GRANT = '!grant';
 }

@@ -22,7 +22,7 @@ class DelegateAuthTest extends ZimbraTestCase
         $duration = $this->faker->randomNumber;
         $lifetime = $this->faker->randomNumber;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new DelegateAuthRequest($account, $duration);
         $this->assertSame($account, $request->getAccount());

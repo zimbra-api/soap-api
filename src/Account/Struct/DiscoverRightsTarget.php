@@ -96,7 +96,7 @@ class DiscoverRightsTarget
         array $emails = []
     )
     {
-        $this->setType($type ?? new TargetType('account'))
+        $this->setType($type ?? TargetType::ACCOUNT)
              ->setEmails($emails);
         if (NULL !== $id) {
             $this->setId($id);

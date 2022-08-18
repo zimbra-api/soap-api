@@ -15,16 +15,16 @@ class AccountNameSelectorTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
-        $acc = new AccountNameSelector(AccountBy::ID(), $name, $value);
-        $this->assertEquals(AccountBy::ID(), $acc->getBy());
+        $acc = new AccountNameSelector(AccountBy::ID, $name, $value);
+        $this->assertEquals(AccountBy::ID, $acc->getBy());
         $this->assertSame($name, $acc->getName());
         $this->assertSame($value, $acc->getValue());
 
         $acc = new AccountNameSelector();
-        $acc->setBy(AccountBy::NAME())
+        $acc->setBy(AccountBy::NAME)
             ->setName($name)
             ->setValue($value);
-        $this->assertEquals(AccountBy::NAME(), $acc->getBy());
+        $this->assertEquals(AccountBy::NAME, $acc->getBy());
         $this->assertSame($name, $acc->getName());
         $this->assertSame($value, $acc->getValue());
 

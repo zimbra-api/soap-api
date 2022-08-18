@@ -16,22 +16,22 @@ class EffectiveRightsTargetSelectorTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
         $target = new EffectiveRightsTargetSelector(
-            TargetType::DOMAIN(), TargetBy::ID(), $value
+            TargetType::DOMAIN, TargetBy::ID, $value
         );
-        $this->assertEquals(TargetType::DOMAIN(), $target->getType());
-        $this->assertEquals(TargetBy::ID(), $target->getBy());
+        $this->assertEquals(TargetType::DOMAIN, $target->getType());
+        $this->assertEquals(TargetBy::ID, $target->getBy());
         $this->assertSame($value, $target->getValue());
 
         $target = new EffectiveRightsTargetSelector();
-        $target->setType(TargetType::ACCOUNT())
-               ->setBy(TargetBy::NAME())
+        $target->setType(TargetType::ACCOUNT)
+               ->setBy(TargetBy::NAME)
                ->setValue($value);
-        $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
-        $this->assertEquals(TargetBy::NAME(), $target->getBy());
+        $this->assertEquals(TargetType::ACCOUNT, $target->getType());
+        $this->assertEquals(TargetBy::NAME, $target->getBy());
         $this->assertSame($value, $target->getValue());
 
-        $type = TargetType::ACCOUNT()->getValue();
-        $by = TargetBy::NAME()->getValue();
+        $type = TargetType::ACCOUNT->value;
+        $by = TargetBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" by="$by">$value</result>

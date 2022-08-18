@@ -54,7 +54,7 @@ class GetConvTest extends ZimbraTestCase
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
         $origId = $this->faker->uuid;
-        $draftReplyType = ReplyType::REPLIED();
+        $draftReplyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $draftAccountId = $this->faker->uuid;
         $draftAutoSendTime = $this->faker->randomNumber;
@@ -68,7 +68,7 @@ class GetConvTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
 
         $contentType = $this->faker->mimeType;
         $size = $this->faker->randomNumber;
@@ -78,7 +78,7 @@ class GetConvTest extends ZimbraTestCase
         $location = $this->faker->word;
         $content = $this->faker->text;
 
-        $calItemType = InviteType::TASK();
+        $calItemType = InviteType::TASK;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $method = $this->faker->word;

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * QueueAction enum class
  *
@@ -21,16 +19,16 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class QueueActionBy extends Enum
+enum QueueActionBy: string
 {
     /**
      * Constant for value 'id'
      * @return string 'id'
      */
-    protected const ID = 'id';
+    case ID = 'id';
     /**
      * Constant for value 'query'
      * @return string 'query'
      */
-    protected const QUERY = 'query';
+    case QUERY = 'query';
 }

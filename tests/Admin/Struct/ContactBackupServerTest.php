@@ -15,17 +15,17 @@ class ContactBackupServerTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
 
-        $server = new ContactBackupServer($name, ContactBackupStatus::STARTED());
+        $server = new ContactBackupServer($name, ContactBackupStatus::STARTED);
         $this->assertSame($name, $server->getName());
-        $this->assertEquals(ContactBackupStatus::STARTED(), $server->getStatus());
+        $this->assertEquals(ContactBackupStatus::STARTED, $server->getStatus());
 
         $server = new ContactBackupServer();
         $server->setName($name)
-               ->setStatus(ContactBackupStatus::STOPPED());
+               ->setStatus(ContactBackupStatus::STOPPED);
         $this->assertSame($name, $server->getName());
-        $this->assertEquals(ContactBackupStatus::STOPPED(), $server->getStatus());
+        $this->assertEquals(ContactBackupStatus::STOPPED, $server->getStatus());
 
-        $status = ContactBackupStatus::STOPPED()->getValue();
+        $status = ContactBackupStatus::STOPPED->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result name="$name" status="$status"/>

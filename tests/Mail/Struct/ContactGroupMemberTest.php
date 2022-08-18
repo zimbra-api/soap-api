@@ -17,7 +17,7 @@ class ContactGroupMemberTest extends ZimbraTestCase
     public function testContactGroupMember()
     {
         $id = $this->faker->uuid;
-        $type = MemberType::CONTACT();
+        $type = MemberType::CONTACT;
         $value = $this->faker->word;
 
         $contact = new ContactInfo($id);

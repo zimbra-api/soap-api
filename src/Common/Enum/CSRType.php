@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CSRType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CSRType extends Enum
+enum CSRType: string
 {
     /**
      * Constant for value 'self'
      * @return string 'self'
      */
-    protected const SELF = 'self';
+    case SELF = 'self';
 
     /**
      * Constant for value 'comm'
      * @return string 'comm'
      */
-    protected const COMM = 'comm';
+    case COMM = 'comm';
 }

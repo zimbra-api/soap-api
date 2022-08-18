@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RightType enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RightType extends Enum
+enum RightType: string
 {
     /**
      * Constant for value 'preset'
      * @return string 'preset'
      */
-    protected const PRESET = 'preset';
+    case PRESET = 'preset';
 
     /**
      * Constant for value 'getAttrs'
      * @return string 'getAttrs'
      */
-    protected const GET_ATTRS = 'getAttrs';
+    case GET_ATTRS = 'getAttrs';
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    protected const SET_ATTRS = 'setAttrs';
+    case SET_ATTRS = 'setAttrs';
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    protected const COMBO = 'combo';
+    case COMBO = 'combo';
 }

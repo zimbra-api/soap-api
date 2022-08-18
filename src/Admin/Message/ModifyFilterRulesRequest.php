@@ -115,7 +115,7 @@ class ModifyFilterRulesRequest extends SoapRequest
         array $filterRules = []
     )
     {
-        $this->setType($type ?? new AdminFilterType('before'))
+        $this->setType($type ?? AdminFilterType::BEFORE)
              ->setFilterRules($filterRules);
         if ($account instanceof AccountSelector) {
             $this->setAccount($account);

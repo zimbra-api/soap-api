@@ -19,7 +19,7 @@ class AccountLoggerInfoTest extends ZimbraTestCase
         $name = $this->faker->word;
         $id = $this->faker->uuid;
         $category = $this->faker->word;
-        $logger = new LoggerInfo($category, LoggingLevel::INFO());
+        $logger = new LoggerInfo($category, LoggingLevel::INFO);
 
         $accountLogger = new StubAccountLoggerInfo($name, $id, [$logger]);
         $this->assertSame($name, $accountLogger->getName());

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * BulkOperation enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class BulkOperation extends Enum
+enum BulkOperation: string
 {
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    protected const MOVE = 'move';
+    case MOVE = 'move';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    case READ = 'read';
 
     /**
      * Constant for value 'unread'
      * @return string 'unread'
      */
-    protected const UNREAD = 'unread';
+    case UNREAD = 'unread';
 }

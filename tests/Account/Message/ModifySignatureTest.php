@@ -24,7 +24,7 @@ class ModifySignatureTest extends ZimbraTestCase
         $id = $this->faker->word;
         $cid = $this->faker->word;
 
-        $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML())]);
+        $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML)]);
 
         $request = new ModifySignatureRequest($signature);
         $this->assertSame($signature, $request->getSignature());

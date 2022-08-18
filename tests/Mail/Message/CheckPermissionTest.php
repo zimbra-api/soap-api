@@ -22,8 +22,8 @@ class CheckPermissionTest extends ZimbraTestCase
 {
     public function testCheckPermission()
     {
-        $targetType = TargetType::ACCOUNT();
-        $accountBy = AccountBy::NAME();
+        $targetType = TargetType::ACCOUNT;
+        $accountBy = AccountBy::NAME;
         $value = $this->faker->email;
         $right1 = $this->faker->unique->word;
         $right2 = $this->faker->unique->word;

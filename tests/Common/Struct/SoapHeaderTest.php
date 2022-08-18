@@ -18,16 +18,16 @@ class SoapHeaderTest extends ZimbraTestCase
     public function testHeaderAccountInfo()
     {
         $value = $this->faker->word;
-        $info = new AccountInfo(AccountBy::ID(), $value, FALSE);
-        $this->assertEquals(AccountBy::ID(), $info->getBy());
+        $info = new AccountInfo(AccountBy::ID, $value, FALSE);
+        $this->assertEquals(AccountBy::ID, $info->getBy());
         $this->assertFalse($info->getMountpointTraversed());
         $this->assertSame($value, $info->getValue());
 
         $info = new AccountInfo();
-        $info->setBy(AccountBy::NAME())
+        $info->setBy(AccountBy::NAME)
              ->setMountpointTraversed(TRUE)
              ->setValue($value);
-        $this->assertEquals(AccountBy::NAME(), $info->getBy());
+        $this->assertEquals(AccountBy::NAME, $info->getBy());
         $this->assertTrue($info->getMountpointTraversed());
         $this->assertSame($value, $info->getValue());
     }
@@ -50,10 +50,10 @@ class SoapHeaderTest extends ZimbraTestCase
 
     public function testHeaderFormatInfo()
     {
-        $info = new FormatInfo(RequestFormat::JS());
-        $this->assertEquals(RequestFormat::JS(), $info->getFormat());
-        $info->setFormat(RequestFormat::XML());
-        $this->assertEquals(RequestFormat::XML(), $info->getFormat());
+        $info = new FormatInfo(RequestFormat::JS);
+        $this->assertEquals(RequestFormat::JS, $info->getFormat());
+        $info->setFormat(RequestFormat::XML);
+        $this->assertEquals(RequestFormat::XML, $info->getFormat());
     }
 
     public function testHeaderNotifyInfo()
@@ -129,11 +129,11 @@ class SoapHeaderTest extends ZimbraTestCase
 
         $session = new SessionInfo(TRUE, $id, $sequence, $value);
         $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID(), $value, TRUE);
+        $account = new AccountInfo(AccountBy::ID, $value, TRUE);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
-        $format = new FormatInfo(RequestFormat::XML());
+        $format = new FormatInfo(RequestFormat::XML);
         $notify = new NotifyInfo($sequence);
 
         $context = new Context(
@@ -232,11 +232,11 @@ class SoapHeaderTest extends ZimbraTestCase
 
         $session = new SessionInfo(TRUE, $id, $sequence, $value);
         $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID(), $value, TRUE);
+        $account = new AccountInfo(AccountBy::ID, $value, TRUE);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
-        $format = new FormatInfo(RequestFormat::XML());
+        $format = new FormatInfo(RequestFormat::XML);
         $notify = new NotifyInfo($sequence);
         $context = new Context(
             $hopCount,
@@ -264,8 +264,8 @@ class SoapHeaderTest extends ZimbraTestCase
         $header->setContext($context);
         $this->assertSame($context, $header->getContext());
 
-        $byId = AccountBy::ID()->getValue();
-        $requestFormat = RequestFormat::XML()->getValue();
+        $byId = AccountBy::ID->value;
+        $requestFormat = RequestFormat::XML->value;
         $xml = <<<EOT
 <?xml version="1.0" encoding="UTF-8"?>
 <result xmlns:zm="urn:zimbra">

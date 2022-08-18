@@ -70,7 +70,7 @@ class ZimletDeploymentStatus
     )
     {
         $this->setServer($server)
-             ->setStatus($status ?? new ZimletDeployStatus('succeeded'));
+             ->setStatus($status ?? ZimletDeployStatus::SUCCEEDED);
         if (NULL !== $error) {
             $this->setError($error);
         }

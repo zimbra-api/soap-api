@@ -83,7 +83,7 @@ class ServiceStatus
         $this->setServer($server)
              ->setService($service)
              ->setTime($time)
-             ->setStatus($status ?? new ZeroOrOne('0'));
+             ->setStatus($status ?? ZeroOrOne::ZERO);
     }
 
     /**

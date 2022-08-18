@@ -19,7 +19,7 @@ class GetAccountDistributionListsTest extends ZimbraTestCase
 {
     public function testGetAccountDistributionLists()
     {
-        $memberOf = MemberOfSelector::DIRECT_ONLY();
+        $memberOf = MemberOfSelector::DIRECT_ONLY;
         $attrs = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->word;

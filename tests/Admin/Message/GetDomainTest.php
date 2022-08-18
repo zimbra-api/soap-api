@@ -27,7 +27,7 @@ class GetDomainTest extends ZimbraTestCase
         $value = $this->faker->word;
         $attrs = $this->faker->word;
 
-        $domainSel = new DomainSelector(DomainBy::NAME(), $value);
+        $domainSel = new DomainSelector(DomainBy::NAME, $value);
         $domainInfo = new DomainInfo($name, $id, [new Attr($key, $value)]);
 
         $request = new GetDomainRequest($domainSel, FALSE, $attrs);

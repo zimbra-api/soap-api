@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ReIndexStatus enum class
  *
@@ -21,11 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ReIndexStatus extends CompactIndexStatus
+enum ReIndexStatus: string
 {
+    /**
+     * Constant for value 'started'
+     * @return string 'started'
+     */
+    case STARTED = 'started';
+
+    /**
+     * Constant for value 'status'
+     * @return string 'status'
+     */
+    case RUNNING = 'running';
+
+    /**
+     * Constant for value 'status'
+     * @return string 'status'
+     */
+    case IDLE = 'idle';
+
     /**
      * Constant for value 'cancelled'
      * @return string 'cancelled'
      */
-    protected const CANCELLED = 'cancelled';
+    case CANCELLED = 'cancelled';
 }

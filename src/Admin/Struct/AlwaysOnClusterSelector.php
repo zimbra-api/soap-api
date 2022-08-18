@@ -56,7 +56,7 @@ class AlwaysOnClusterSelector
         ?AlwaysOnClusterBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setBy($by ?? new AlwaysOnClusterBy('id'));
+        $this->setBy($by ?? AlwaysOnClusterBy::ID);
         if (NULL !== $value) {
             $this->setValue($value);
         }

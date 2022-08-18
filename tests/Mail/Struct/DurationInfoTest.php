@@ -18,7 +18,7 @@ class DurationInfoTest extends ZimbraTestCase
         $hours = mt_rand(0, 23);
         $minutes = mt_rand(0, 59);
         $seconds = mt_rand(0, 59);
-        $related = AlarmRelated::START();
+        $related = AlarmRelated::START;
         $repeatCount = mt_rand(0, 59);
 
         $info = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);

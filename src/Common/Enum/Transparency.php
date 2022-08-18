@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Transparency enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Transparency extends Enum
+enum Transparency: string
 {
     /**
      * Constant for value 'Opaque'
      * @return string 'O'
      */
-    protected const OPAQUE = 'O';
+    case OPAQUE = 'O';
 
     /**
      * Constant for value 'Transparent'
      * @return string 'T'
      */
-    protected const TRANSPARENT = 'T';
+    case TRANSPARENT = 'T';
 }

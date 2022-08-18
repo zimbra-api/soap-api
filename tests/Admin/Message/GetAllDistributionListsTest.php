@@ -29,10 +29,10 @@ class GetAllDistributionListsTest extends ZimbraTestCase
         $value = $this->faker->word;
         $member = $this->faker->word;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
         $attr = new Attr($key, $value);
         $owner = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
         $dl = new DistributionListInfo($name, $id, [$member], [$attr], [$owner], TRUE);
 

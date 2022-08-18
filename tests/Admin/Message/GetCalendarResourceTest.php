@@ -26,7 +26,7 @@ class GetCalendarResourceTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $calResource = new CalendarResourceSelector(CalResBy::NAME(), $value);
+        $calResource = new CalendarResourceSelector(CalResBy::NAME, $value);
         $request = new GetCalendarResourceRequest($calResource, FALSE, $attrs);
         $this->assertSame($calResource, $request->getCalResource());
         $this->assertFalse($request->getApplyCos());

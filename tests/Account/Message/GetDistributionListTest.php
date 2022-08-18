@@ -34,7 +34,7 @@ class GetDistributionListTest extends ZimbraTestCase
         $member1 = $this->faker->unique->email;
         $member2 = $this->faker->unique->email;
 
-        $dl = new DistributionListSelector(DLBy::NAME(), $value);
+        $dl = new DistributionListSelector(DLBy::NAME, $value);
 
         $request = new GetDistributionListRequest($dl, FALSE, $needRights);
         $this->assertSame($dl, $request->getDl());
@@ -50,7 +50,7 @@ class GetDistributionListTest extends ZimbraTestCase
         $this->assertSame($needRights, $request->getNeedRights());
 
         $owner = new DistributionListGranteeInfo(
-            GranteeType::USR(), $id, $name
+            GranteeType::USR, $id, $name
         );
         $right = new DistributionListRightInfo(
             $name, [$owner]

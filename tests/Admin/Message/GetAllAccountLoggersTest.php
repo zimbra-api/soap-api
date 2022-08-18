@@ -22,7 +22,7 @@ class GetAllAccountLoggersTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $category = $this->faker->word;
 
-        $logger = new AccountLoggerInfo($name, $id, [new LoggerInfo($category, LoggingLevel::INFO())]);
+        $logger = new AccountLoggerInfo($name, $id, [new LoggerInfo($category, LoggingLevel::INFO)]);
 
         $request = new GetAllAccountLoggersRequest();
 

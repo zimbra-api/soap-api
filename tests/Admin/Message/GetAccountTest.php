@@ -25,7 +25,7 @@ class GetAccountTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
         $request = new GetAccountRequest($account, FALSE, $attrs);
         $this->assertSame($account, $request->getAccount());
         $this->assertFalse($request->isApplyCos());
