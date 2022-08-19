@@ -56,12 +56,12 @@ class ObjectConstructor implements ObjectConstructorInterface
         $reflection = new ReflectionClass($metadata->name);
         $constructor = $reflection->getConstructor();
         if (empty($constructor)) {
-            return new $metadata->name;
+            return $reflection->newInstanceArgs();
         }
         else {
             $parameters = $constructor->getParameters();
             if (empty($parameters)) {
-                return new $metadata->name;
+                return $reflection->newInstanceArgs();
             }
             else {
                 $isDefaultConstructor = TRUE;
@@ -72,7 +72,7 @@ class ObjectConstructor implements ObjectConstructorInterface
                     }
                 }
                 if ($isDefaultConstructor) {
-                    return new $metadata->name;
+                    return $reflection->newInstanceArgs();
                 }
             }
         }
