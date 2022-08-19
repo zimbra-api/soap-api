@@ -40,7 +40,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     #[SerializedName('cond')]
     #[Type(EntrySearchFilterSingleCond::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $condition;
+    private ?SearchFilterCondition $condition;
 
     /**
      * Search filter compound condition
@@ -56,7 +56,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     #[SerializedName('conds')]
     #[Type(EntrySearchFilterMultiCond::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $conditions;
+    private ?SearchFilterCondition $conditions;
 
     /**
      * Constructor
@@ -66,6 +66,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      */
     public function __construct(?SearchFilterCondition $condition = NULL)
     {
+        $this->condition = $this->conditions = NULL;
         if ($condition instanceof MultiCond) {
             $this->setConditions($condition);
         }

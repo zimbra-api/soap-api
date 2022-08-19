@@ -36,7 +36,7 @@ class SignatureContent
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\ContentType>')]
     #[XmlAttribute]
-    private $type;
+    private ?ContentType $type;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -59,11 +59,9 @@ class SignatureContent
      */
     public function __construct(?string $value = NULL, ?ContentType $type = NULL)
     {
+        $this->type = $type;
         if (NULL !== $value) {
             $this->setValue($value);
-        }
-        if ($type instanceof ContentType) {
-            $this->setContentType($type);
         }
     }
 

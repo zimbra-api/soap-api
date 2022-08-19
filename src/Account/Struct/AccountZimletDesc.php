@@ -132,7 +132,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName('serverExtension')]
     #[Type(ZimletServerExtension::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $serverExtension;
+    private ?ZimletServerExtension $serverExtension;
 
     /**
      * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
@@ -146,7 +146,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName('include')]
     #[Type(AccountZimletInclude::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $include;
+    private ?AccountZimletInclude $include;
 
     /**
      * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
@@ -160,7 +160,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName('includeCSS')]
     #[Type(AccountZimletIncludeCSS::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $includeCSS;
+    private ?AccountZimletIncludeCSS $includeCSS;
 
     /**
      * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
@@ -174,7 +174,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName('zimletTarget')]
     #[Type(AccountZimletTarget::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $zimletTarget;
+    private ?AccountZimletTarget $zimletTarget;
 
     /**
      * Constructor
@@ -185,6 +185,10 @@ class AccountZimletDesc implements ZimletDesc
      * @param string $extension
      * @param string $target
      * @param string $label
+     * @param ZimletServerExtension $serverExtension
+     * @param AccountZimletInclude $include
+     * @param AccountZimletIncludeCSS $includeCSS
+     * @param AccountZimletTarget $zimletTarget
      * @return self
      */
     public function __construct(
@@ -193,9 +197,17 @@ class AccountZimletDesc implements ZimletDesc
         ?string $description = NULL,
         ?string $extension = NULL,
         ?string $target = NULL,
-        ?string $label = NULL
+        ?string $label = NULL,
+        ?ZimletServerExtension $serverExtension = NULL,
+        ?AccountZimletInclude $include = NULL,
+        ?AccountZimletIncludeCSS $includeCSS = NULL,
+        ?AccountZimletTarget $zimletTarget = NULL
     )
     {
+        $this->serverExtension = $serverExtension;
+        $this->include = $include;
+        $this->includeCSS = $includeCSS;
+        $this->zimletTarget = $zimletTarget;
         if (NULL !== $name) {
             $this->setName($name);
         }

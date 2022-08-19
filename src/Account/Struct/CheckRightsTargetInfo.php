@@ -36,7 +36,7 @@ class CheckRightsTargetInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $targetType;
+    private TargetType $targetType;
 
     /**
      * @Accessor(getter="getTargetBy", setter="setTargetBy")
@@ -50,7 +50,7 @@ class CheckRightsTargetInfo
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\TargetBy>')]
     #[XmlAttribute]
-    private $targetBy;
+    private TargetBy $targetBy;
 
     /**
      * @Accessor(getter="getTargetKey", setter="setTargetKey")

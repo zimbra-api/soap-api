@@ -55,7 +55,7 @@ class ModifyZimletPrefsSpec
     #[SerializedName('presence')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletStatus>')]
     #[XmlAttribute]
-    private $presence;
+    private ZimletStatus $presence;
 
     /**
      * Constructor

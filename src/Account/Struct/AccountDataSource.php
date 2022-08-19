@@ -154,7 +154,7 @@ class AccountDataSource implements DataSource
     #[SerializedName('connectionType')]
     #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
-    private $connectionType;
+    private ?ConnectionType $connectionType;
 
     /**
      * Login string on data-source-server, for example a user name
@@ -468,6 +468,7 @@ class AccountDataSource implements DataSource
         ?string $refreshTokenUrl = NULL
     )
     {
+        $this->connectionType = $connectionType;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -488,9 +489,6 @@ class AccountDataSource implements DataSource
         }
         if (NULL !== $port) {
             $this->setPort($port);
-        }
-        if ($connectionType instanceof ConnectionType) {
-            $this->setConnectionType($connectionType);
         }
         if (NULL !== $username) {
             $this->setUsername($username);

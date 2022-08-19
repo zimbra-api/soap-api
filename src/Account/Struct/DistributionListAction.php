@@ -39,7 +39,7 @@ class DistributionListAction extends AccountKeyValuePairs
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\Operation>')]
     #[XmlAttribute]
-    private $op;
+    private Operation $op;
 
     /**
      * @Accessor(getter="getNewName", setter="setNewName")
@@ -67,7 +67,7 @@ class DistributionListAction extends AccountKeyValuePairs
     #[SerializedName('subsReq')]
     #[Type(DistributionListSubscribeReq::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $subsReq;
+    private ?Subscribe $subsReq;
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")
@@ -128,16 +128,14 @@ class DistributionListAction extends AccountKeyValuePairs
     )
     {
         parent::__construct($attrs);
-        $this->setOp($op ?? new Operation('grantRights'));
+        $this->setOp($op ?? new Operation('grantRights'))
+             ->setMembers($dlms)
+             ->setOwners($owners)
+             ->setRights($rights);
+        $this->subsReq = $subsReq;
         if (NULL !== $newName) {
             $this->setNewName($newName);
         }
-        if ($subsReq instanceof Subscribe) {
-            $this->setSubsReq($subsReq);
-        }
-        $this->setMembers($dlms);
-        $this->setOwners($owners);
-        $this->setRights($rights);
     }
 
     /**

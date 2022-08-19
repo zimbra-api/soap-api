@@ -38,7 +38,7 @@ class DistributionListGranteeInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
-    private $type;
+    private GranteeType $type;
 
     /**
      * Grantee id

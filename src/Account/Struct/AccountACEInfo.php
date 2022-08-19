@@ -36,7 +36,7 @@ class AccountACEInfo
     #[SerializedName('gt')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
-    private $granteeType;
+    private GranteeType $granteeType;
 
     /**
      * @Accessor(getter="getRight", setter="setRight")

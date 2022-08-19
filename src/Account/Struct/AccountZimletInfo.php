@@ -11,7 +11,9 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface};
+use Zimbra\Common\Struct\{
+    ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface
+};
 
 /**
  * AccountZimletInfo class
@@ -38,7 +40,7 @@ class AccountZimletInfo implements ZimletInterface
     #[SerializedName('zimletContext')]
     #[Type(AccountZimletContext::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $zimletContext;
+    private ?AccountZimletContext $zimletContext;
 
     /**
      * Zimlet description
@@ -54,7 +56,7 @@ class AccountZimletInfo implements ZimletInterface
     #[SerializedName('zimlet')]
     #[Type(AccountZimletDesc::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $zimlet;
+    private ?AccountZimletDesc $zimlet;
 
     /**
      * Zimlet config
@@ -70,7 +72,7 @@ class AccountZimletInfo implements ZimletInterface
     #[SerializedName('zimletConfig')]
     #[Type(AccountZimletConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $zimletConfig;
+    private ?AccountZimletConfigInfo $zimletConfig;
 
     /**
      * Constructor
@@ -86,15 +88,9 @@ class AccountZimletInfo implements ZimletInterface
         ?AccountZimletConfigInfo $zimletConfig = NULL
     )
     {
-        if ($zimletContext instanceof AccountZimletContext) {
-            $this->setZimletContext($zimletContext);
-        }
-        if ($zimlet instanceof AccountZimletDesc) {
-            $this->setZimlet($zimlet);
-        }
-        if ($zimletConfig instanceof AccountZimletConfigInfo) {
-            $this->setZimletConfig($zimletConfig);
-        }
+        $this->zimletContext = $zimletContext;
+        $this->zimlet = $zimlet;
+        $this->zimletConfig = $zimletConfig;
     }
 
     /**

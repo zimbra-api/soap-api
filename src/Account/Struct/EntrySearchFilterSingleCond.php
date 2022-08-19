@@ -51,7 +51,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\ConditionOperator>')]
     #[XmlAttribute]
-    private $op;
+    private ConditionOperator $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

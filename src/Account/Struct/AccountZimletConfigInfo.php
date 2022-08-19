@@ -134,7 +134,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName('global')]
     #[Type(AccountZimletGlobalConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $global;
+    private ?ZimletGlobalConfigInfo $global;
 
     /**
      * Zimlet host configuration information
@@ -150,7 +150,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName('host')]
     #[Type(AccountZimletHostConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $host;
+    private ?ZimletHostConfigInfo $host;
 
     /**
      * Constructor
@@ -161,6 +161,8 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @param string $extension
      * @param string $target
      * @param string $label
+     * @param AccountZimletGlobalConfigInfo $global
+     * @param AccountZimletHostConfigInfo $host
      * @return self
      */
     public function __construct(
@@ -169,9 +171,13 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
         ?string $description = NULL,
         ?string $extension = NULL,
         ?string $target = NULL,
-        ?string $label = NULL
+        ?string $label = NULL,
+        ?AccountZimletGlobalConfigInfo $global = NULL,
+        ?AccountZimletHostConfigInfo $host = NULL
     )
     {
+        $this->global = $global;
+        $this->host = $host;
         if (NULL !== $name) {
             $this->setName($name);
         }
