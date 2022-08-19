@@ -25,8 +25,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn1")
  * @XmlRoot(name="soap:Envelope")
  */
-#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
-#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn1")]
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn1')]
 #[XmlRoot(name: 'soap:Envelope')]
 class ModifyFilterRulesEnvelope extends SoapEnvelope
 {

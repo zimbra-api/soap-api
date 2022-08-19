@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
-#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
 #[XmlRoot(name: 'soap:Envelope')]
 class DeleteLDAPEntryEnvelope extends SoapEnvelope
 {

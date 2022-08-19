@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
-#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
+#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: 'urn')]
 #[XmlRoot(name: 'soap:Envelope')]
 class RevokeRightsEnvelope extends SoapEnvelope
 {
