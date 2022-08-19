@@ -11,7 +11,7 @@
 namespace Zimbra\Common\Soap;
 
 use JMS\Serializer\SerializerInterface;
-use Psr\Log\{LoggerAwareInterface, LoggerInterface, NullLogger};
+use Psr\Log\{LoggerAwareInterface, LoggerAwareTrait, LoggerInterface, NullLogger};
 use Zimbra\Common\Serializer\SerializerFactory;
 use Zimbra\Common\Struct\Header\{AccountInfo, Context};
 use Zimbra\Common\Struct\{
@@ -35,6 +35,7 @@ use Zimbra\Common\Struct\{
  */
 abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, LoggerAwareInterface
 {
+    use LoggerAwareTrait;
     const SERIALIZE_FORMAT = 'xml';
 
     /**
@@ -50,13 +51,6 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
      * @var SerializerInterface
      */
     private ?SerializerInterface $serializer = NULL;
-
-    /**
-     * Logger
-     * 
-     * @var LoggerInterface
-     */
-    private ?LoggerInterface $logger = NULL;
 
     /**
      * Request soap header
@@ -113,18 +107,6 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
             $this->logger = new NullLogger();
         }
         return $this->logger;
-    }
-
-    /**
-     * Set the logger.
-     *
-     * @param LoggerInterface $logger
-     * @return self
-     */
-    public function setLogger(LoggerInterface $logger): self
-    {
-        $this->logger = $logger;
-        return $this;
     }
 
     /**
