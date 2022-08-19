@@ -15,8 +15,6 @@ use JMS\Serializer\DeserializationContext as Context;
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as Visitor;
 
-use ReflectionClass;
-
 /**
  * Object constructor class.
  * 
@@ -53,7 +51,7 @@ class ObjectConstructor implements ObjectConstructorInterface
         Visitor $visitor, ClassMetadata $metadata, $data, array $type, Context $context
     ): ?object
     {
-        $reflection = new ReflectionClass($metadata->name);
+        $reflection = new \ReflectionClass($metadata->name);
         $constructor = $reflection->getConstructor();
         if (empty($constructor)) {
             return $reflection->newInstanceArgs();
