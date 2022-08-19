@@ -70,8 +70,8 @@ class SearchGalTest extends ZimbraTestCase
 
         $cursor = new CursorInfo($id, $sortVal, $endSortVal, TRUE);
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, TRUE);
-        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQUAL(), $value, TRUE);
+        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GREATER_EQUAL(), $value, FALSE);
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
         $conds = new EntrySearchFilterMultiCond(TRUE, FALSE, [$cond, $multiConds]);
         $searchFilter = new EntrySearchFilterInfo($conds);

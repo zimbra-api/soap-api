@@ -27,37 +27,37 @@ class ConditionOperator extends Enum
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    protected const EQ = 'eq';
+    protected const EQUAL = 'eq';
 
     /**
      * Constant for value 'has'
      * @return string 'has'
      */
-    protected const HAVE = 'has';
+    protected const HAS = 'has';
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    protected const GE = 'ge';
+    protected const GREATER_EQUAL = 'ge';
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    protected const LE = 'le';
+    protected const LESS_EQUAL = 'le';
 
     /**
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    protected const GT = 'gt';
+    protected const GREATER_THAN = 'gt';
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    protected const LT = 'lt';
+    protected const LESS_THAN = 'lt';
 
     /**
      * Constant for value 'startswith'

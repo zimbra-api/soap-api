@@ -16,23 +16,23 @@ class EntrySearchFilterSingleCondTest extends ZimbraTestCase
         $attr = $this->faker->word;
         $value = $this->faker->word;
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::GREATER_EQUAL(), $value, FALSE);
         $this->assertSame($attr, $cond->getAttr());
-        $this->assertEquals(CondOp::GE(), $cond->getOp());
+        $this->assertEquals(CondOp::GREATER_EQUAL(), $cond->getOp());
         $this->assertSame($value, $cond->getValue());
         $this->assertFalse($cond->isNot());
 
         $cond = new EntrySearchFilterSingleCond();
         $cond->setAttr($attr)
-             ->setOp(CondOp::EQ())
+             ->setOp(CondOp::EQUAL())
              ->setValue($value)
              ->setNot(TRUE);
         $this->assertSame($attr, $cond->getAttr());
-        $this->assertEquals(CondOp::EQ(), $cond->getOp());
+        $this->assertEquals(CondOp::EQUAL(), $cond->getOp());
         $this->assertSame($value, $cond->getValue());
         $this->assertTrue($cond->isNot());
 
-        $op = CondOp::EQ()->getValue();
+        $op = CondOp::EQUAL()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result attr="$attr" op="$op" value="$value" not="true" />
