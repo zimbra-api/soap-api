@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\Header\Context;
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
-#[XmlNamespace(uri: 'urn:zimbra', prefix: "zm")]
+#[XmlNamespace(uri: 'urn:zimbra', prefix: 'zm')]
 class SoapHeader implements SoapHeaderInterface
 {
     /**

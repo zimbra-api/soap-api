@@ -41,7 +41,7 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
         $date = $this->faker->date;
         $num = $this->faker->unique()->numberBetween(1, 100);
         $ival = $this->faker->unique()->numberBetween(1, 100);
-        $day = WeekDay::SU();
+        $day = WeekDay::SUNDAY();
         $ordWk = $this->faker->unique()->numberBetween(1, 53);
         $seclist = implode(',', [
             $this->faker->unique()->numberBetween(0, 59),

@@ -13,13 +13,13 @@ class WeekDayTest extends TestCase
     public function testWeekDay()
     {
         $values = [
-            'SU' => 'SU',
-            'MO' => 'MO',
-            'TU' => 'TU',
-            'WE' => 'WE',
-            'TH' => 'TH',
-            'FR' => 'FR',
-            'SA' => 'SA',
+            'SUNDAY' => 'SU',
+            'MONDAY' => 'MO',
+            'TUESDAY' => 'TU',
+            'WEDNESDAY' => 'WE',
+            'THURSDAY' => 'TH',
+            'FRIDAY' => 'FR',
+            'SATURDAY' => 'SA',
         ];
         foreach ($values as $enum => $value) {
             $this->assertSame(WeekDay::$enum()->getValue(), $value);

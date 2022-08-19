@@ -16,7 +16,7 @@ class ByDayRuleTest extends ZimbraTestCase
 {
     public function testByDayRule()
     {
-        $day = WeekDay::SU();
+        $day = WeekDay::SUNDAY();
         $ordWk = $this->faker->numberBetween(1, 53);
         $wkday = new WkDay($day, $ordWk);
 
