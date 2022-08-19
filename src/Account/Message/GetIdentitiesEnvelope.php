@@ -22,7 +22,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
+#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: 'urn')]
 #[XmlRoot(name: 'soap:Envelope')]
 class GetIdentitiesEnvelope extends SoapEnvelope
 {
