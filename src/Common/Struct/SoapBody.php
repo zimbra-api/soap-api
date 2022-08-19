@@ -37,7 +37,7 @@ abstract class SoapBody implements SoapBodyInterface
     #[SerializedName('Fault')]
     #[Type(SoapFault::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $soapFault;
+    private ?SoapFaultInterface $soapFault;
 
     /**
      * Constructor
@@ -53,14 +53,12 @@ abstract class SoapBody implements SoapBodyInterface
         ?SoapFaultInterface $soapFault = NULL
     )
     {
+        $this->soapFault = $soapFault;
         if ($request instanceof SoapRequestInterface) {
             $this->setRequest($request);
         }
         if ($response instanceof SoapResponseInterface) {
             $this->setResponse($response);
-        }
-        if ($soapFault instanceof SoapFaultInterface) {
-            $this->setSoapFault($soapFault);
         }
     }
 

@@ -38,7 +38,7 @@ class FormatInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\RequestFormat>')]
     #[XmlAttribute]
-    private $format;
+    private ?RequestFormat $format;
 
     /**
      * Constructor
@@ -48,9 +48,7 @@ class FormatInfo
      */
     public function __construct(?RequestFormat $format = NULL)
     {
-        if ($format instanceof RequestFormat) {
-            $this->setFormat($format);
-        }
+        $this->format = $format;
     }
 
     /**

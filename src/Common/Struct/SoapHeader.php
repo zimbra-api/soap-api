@@ -40,7 +40,7 @@ class SoapHeader implements SoapHeaderInterface
     #[SerializedName('context')]
     #[Type(Context::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $context;
+    private ?Context $context;
 
     /**
      * Constructor

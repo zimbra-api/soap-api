@@ -36,7 +36,7 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
     #[SerializedName('onerror')]
     #[Type('Enum<Zimbra\Common\Enum\OnError>')]
     #[XmlAttribute]
-    private $onerror;
+    private OnError $onerror;
 
     /**
      * Constructor

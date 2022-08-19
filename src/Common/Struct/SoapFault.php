@@ -38,7 +38,7 @@ class SoapFault implements SoapFaultInterface
     #[SerializedName('Code')]
     #[Type(Code::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $faultCode;
+    private ?Code $faultCode;
 
     /**
      * Fault reason
@@ -54,7 +54,7 @@ class SoapFault implements SoapFaultInterface
     #[SerializedName('Reason')]
     #[Type(Reason::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $faultReason;
+    private ?Reason $faultReason;
 
     /**
      * Constructor
@@ -67,12 +67,8 @@ class SoapFault implements SoapFaultInterface
         ?Code $faultCode = NULL, ?Reason $faultReason = NULL
     )
     {
-        if ($faultCode instanceof Code) {
-            $this->setFaultCode($faultCode);
-        }
-        if ($faultReason instanceof Reason) {
-            $this->setFaultReason($faultReason);
-        }
+        $this->faultCode = $faultCode;
+        $this->faultReason = $faultReason;
     }
 
     /**

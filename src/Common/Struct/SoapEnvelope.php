@@ -36,7 +36,7 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
     #[SerializedName('Header')]
     #[Type(SoapHeader::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $header;
+    private ?SoapHeaderInterface $header;
 
     /**
      * Constructor
@@ -47,11 +47,9 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
      */
     public function __construct(?SoapBodyInterface $body = NULL, ?SoapHeaderInterface $header = NULL)
     {
+        $this->header = $header;
         if ($body instanceof SoapBodyInterface) {
             $this->setBody($body);
-        }
-        if ($header instanceof SoapHeaderInterface) {
-            $this->setHeader($header);
         }
     }
 

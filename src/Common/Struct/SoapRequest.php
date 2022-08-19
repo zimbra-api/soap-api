@@ -33,7 +33,7 @@ abstract class SoapRequest implements SoapRequestInterface
      * @var SoapEnvelopeInterface
      */
     #[Exclude]
-    private $soapEnvelope;
+    private ?SoapEnvelopeInterface $soapEnvelope = NULL;
 
     /**
      * {@inheritdoc}

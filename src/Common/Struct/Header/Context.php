@@ -64,7 +64,7 @@ class Context
     #[SerializedName('session')]
     #[Type(SessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $session;
+    private ?SessionInfo $session;
 
     /**
      * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
@@ -78,7 +78,7 @@ class Context
     #[SerializedName('sessionId')]
     #[Type(SessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $legacySessionId;
+    private ?SessionInfo $legacySessionId;
 
     /**
      * @Accessor(getter="getNoSession", setter="setNoSession")
@@ -106,7 +106,7 @@ class Context
     #[SerializedName('account')]
     #[Type(AccountInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $account;
+    private ?AccountInfo $account;
 
     /**
      * @Accessor(getter="getChange", setter="setChange")
@@ -120,7 +120,7 @@ class Context
     #[SerializedName('change')]
     #[Type(ChangeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $change;
+    private ?ChangeInfo $change;
 
     /**
      * @Accessor(getter="getTargetServer", setter="setTargetServer")
@@ -148,7 +148,7 @@ class Context
     #[SerializedName('userAgent')]
     #[Type(UserAgentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $userAgent;
+    private ?UserAgentInfo $userAgent;
 
     /**
      * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
@@ -176,7 +176,7 @@ class Context
     #[SerializedName('format')]
     #[Type(FormatInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $format;
+    private ?FormatInfo $format;
 
     /**
      * @Accessor(getter="getNotify", setter="setNotify")
@@ -190,7 +190,7 @@ class Context
     #[SerializedName('notify')]
     #[Type(NotifyInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $notify;
+    private ?NotifyInfo $notify;
 
     /**
      * @Accessor(getter="getNoNotify", setter="setNoNotify")
@@ -304,41 +304,25 @@ class Context
         ?string $csrfToken = NULL
     )
     {
+        $this->session = $session;
+        $this->legacySessionId = $legacySessionId;
+        $this->account = $account;
+        $this->change = $change;
+        $this->userAgent = $userAgent;
+        $this->authTokenControl = $authTokenControl;
+        $this->format = $format;
+        $this->notify = $notify;
         if (NULL !== $hopCount) {
             $this->setHopCount($hopCount);
         }
         if (NULL !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if ($session instanceof SessionInfo) {
-            $this->setSession($session);
-        }
-        if ($legacySessionId instanceof SessionInfo) {
-            $this->setLegacySessionId($legacySessionId);
-        }
         if (NULL !== $noSession) {
             $this->setNoSession($noSession);
         }
-        if ($account instanceof AccountInfo) {
-            $this->setAccount($account);
-        }
-        if ($change instanceof ChangeInfo) {
-            $this->setChange($change);
-        }
         if (NULL !== $targetServer) {
             $this->setTargetServer($targetServer);
-        }
-        if ($userAgent instanceof UserAgentInfo) {
-            $this->setUserAgent($userAgent);
-        }
-        if ($authTokenControl instanceof AuthTokenControl) {
-            $this->setAuthTokenControl($authTokenControl);
-        }
-        if ($format instanceof FormatInfo) {
-            $this->setFormat($format);
-        }
-        if ($notify instanceof NotifyInfo) {
-            $this->setNotify($notify);
         }
         if (NULL !== $noNotify) {
             $this->setNoNotify($noNotify);
