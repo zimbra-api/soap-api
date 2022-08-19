@@ -279,7 +279,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName('cos')]
     #[Type(Cos::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $cos;
+    private ?Cos $cos;
 
     /**
      * User-settable preferences
@@ -404,7 +404,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName('dataSources')]
     #[Type(AccountDataSources::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $dataSources;
+    private AccountDataSources $dataSources;
 
     /**
      * Child accounts
@@ -608,6 +608,7 @@ class GetInfoResponse extends SoapResponse
         ?bool $isTrackingIMAP = NULL
     )
     {
+        $this->cos = $cos;
         if (NULL !== $attachmentSizeLimit) {
             $this->setAttachmentSizeLimit($attachmentSizeLimit);
         }
@@ -649,9 +650,6 @@ class GetInfoResponse extends SoapResponse
         }
         if (NULL !== $recentMessageCount) {
             $this->setRecentMessageCount($recentMessageCount);
-        }
-        if ($cos instanceof Cos) {
-            $this->setCos($cos);
         }
         $this->setPrefs($prefs)
              ->setAttrs($attrs)

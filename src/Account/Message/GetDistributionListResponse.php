@@ -39,7 +39,7 @@ class GetDistributionListResponse extends SoapResponse
     #[SerializedName('dl')]
     #[Type(DistributionListInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $dl;
+    private ?DistributionListInfo $dl;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetDistributionListResponse extends SoapResponse
      */
     public function __construct(?DistributionListInfo $dl = NULL)
     {
-        if ($dl instanceof DistributionListInfo) {
-            $this->setDl($dl);
-        }
+        $this->dl = $dl;
     }
 
     /**

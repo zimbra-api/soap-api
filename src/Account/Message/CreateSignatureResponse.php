@@ -38,7 +38,7 @@ class CreateSignatureResponse extends SoapResponse
     #[SerializedName('signature')]
     #[Type(NameId::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $signature;
+    private ?NameId $signature;
 
     /**
      * Constructor
@@ -48,9 +48,7 @@ class CreateSignatureResponse extends SoapResponse
      */
     public function __construct(?NameId $signature = NULL)
     {
-        if ($signature instanceof NameId) {
-            $this->setSignature($signature);
-        }
+        $this->signature = $signature;
     }
 
     /**

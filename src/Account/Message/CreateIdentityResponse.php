@@ -39,7 +39,7 @@ class CreateIdentityResponse extends SoapResponse
     #[SerializedName('identity')]
     #[Type(Identity::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $identity;
+    private ?Identity $identity;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateIdentityResponse extends SoapResponse
      */
     public function __construct(?Identity $identity = NULL)
     {
-        if ($identity instanceof Identity) {
-            $this->setIdentity($identity);
-        }
+        $this->identity = $identity;
     }
 
     /**

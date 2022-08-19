@@ -47,7 +47,7 @@ class DistributionListActionRequest extends SoapRequest
     #[SerializedName('dl')]
     #[Type(DistributionListSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Specifies the action to perform
@@ -63,7 +63,7 @@ class DistributionListActionRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type(DistributionListAction::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $action;
+    private DistributionListAction $action;
 
     /**
      * Constructor

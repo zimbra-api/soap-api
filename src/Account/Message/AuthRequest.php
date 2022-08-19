@@ -84,7 +84,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * Password to use in conjunction with an account
@@ -132,7 +132,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName('preauth')]
     #[Type(PreAuth::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $preauth;
+    private ?PreAuth $preauth;
 
     /**
      * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
@@ -148,7 +148,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName('authToken')]
     #[Type(AuthToken::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $authToken;
+    private ?AuthToken $authToken;
 
     /**
      * JWT auth token
@@ -375,20 +375,14 @@ class AuthRequest extends SoapRequest
     {
         $this->setPrefs($prefs)
              ->setAttrs($attrs);
-        if($account instanceof AccountSelector) {
-            $this->setAccount($account);
-        }
+        $this->account = $account;
+        $this->preauth = $preauth;
+        $this->authToken = $authToken;
         if(NULL !== $password) {
             $this->setPassword($password);
         }
         if(NULL !== $recoveryCode) {
             $this->setRecoveryCode($recoveryCode);
-        }
-        if($preauth instanceof PreAuth) {
-            $this->setPreauth($preauth);
-        }
-        if($authToken instanceof AuthToken) {
-            $this->setAuthToken($authToken);
         }
         if(NULL !== $jwtToken) {
             $this->setJwtToken($jwtToken);

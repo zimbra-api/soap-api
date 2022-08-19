@@ -43,7 +43,7 @@ class ModifySignatureRequest extends SoapRequest
     #[SerializedName('signature')]
     #[Type(Signature::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $signature;
+    private Signature $signature;
 
     /**
      * Constructor

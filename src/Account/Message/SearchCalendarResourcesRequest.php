@@ -129,7 +129,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     #[SerializedName('cursor')]
     #[Type(CursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $cursor;
+    private ?CursorInfo $cursor;
 
     /**
      * GAL Account ID
@@ -177,7 +177,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     #[SerializedName('searchFilter')]
     #[Type(EntrySearchFilterInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter;
 
     /**
      * Constructor
@@ -207,12 +207,8 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
         ?string $attrs = NULL
     )
     {
-        if ($cursor instanceof CursorInfo) {
-            $this->setCursor($cursor);
-        }
-        if ($searchFilter instanceof EntrySearchFilterInfo) {
-            $this->setSearchFilter($searchFilter);
-        }
+        $this->cursor = $cursor;
+        $this->searchFilter = $searchFilter;
         if (NULL !== $quick) {
             $this->setQuick($quick);
         }

@@ -74,7 +74,7 @@ class GetShareInfoRequest extends SoapRequest
     #[SerializedName('grantee')]
     #[Type(GranteeChooser::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $grantee;
+    private ?GranteeChooser $grantee;
 
     /**
      * Specifies the owner of the share
@@ -90,7 +90,7 @@ class GetShareInfoRequest extends SoapRequest
     #[SerializedName('owner')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $owner;
+    private ?AccountSelector $owner;
 
     /**
      * Constructor
@@ -108,12 +108,8 @@ class GetShareInfoRequest extends SoapRequest
         ?bool $includeSelf = NULL
     )
     {
-        if($owner instanceof AccountSelector) {
-            $this->setOwner($owner);
-        }
-        if($grantee instanceof GranteeChooser) {
-            $this->setGrantee($grantee);
-        }
+        $this->grantee = $grantee;
+        $this->owner = $owner;
         if(NULL !== $internal) {
             $this->setInternal($internal);
         }

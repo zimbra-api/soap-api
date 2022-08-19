@@ -42,7 +42,7 @@ class CreateIdentityRequest extends SoapRequest
     #[SerializedName('identity')]
     #[Type(Identity::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $identity;
+    private Identity $identity;
 
     /**
      * Constructor

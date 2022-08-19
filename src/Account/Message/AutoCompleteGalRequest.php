@@ -63,7 +63,7 @@ class AutoCompleteGalRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
-    private  $type;
+    private ?GalSearchType $type;
 
     /**
      * flag whether the {exp} flag is needed in the response for group entries.
@@ -133,9 +133,7 @@ class AutoCompleteGalRequest extends SoapRequest
     )
     {
         $this->setName($name);
-        if(NULL !== $type) {
-            $this->setType($type);
-        }
+        $this->type = $type;
         if(NULL !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }

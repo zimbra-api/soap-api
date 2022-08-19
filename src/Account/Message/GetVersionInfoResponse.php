@@ -39,7 +39,7 @@ class GetVersionInfoResponse extends SoapResponse
     #[SerializedName('info')]
     #[Type(VersionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $versionInfo;
+    private ?VersionInfo $versionInfo;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetVersionInfoResponse extends SoapResponse
      */
     public function __construct(?VersionInfo $versionInfo = NULL)
     {
-        if ($versionInfo instanceof VersionInfo) {
-            $this->setVersionInfo($versionInfo);
-        }
+        $this->versionInfo = $versionInfo;
     }
 
     /**

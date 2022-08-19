@@ -60,7 +60,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     #[SerializedName('memberOf')]
     #[Type('Enum<Zimbra\Common\Enum\MemberOfSelector>')]
     #[XmlAttribute]
-    private $memberOf;
+    private ?MemberOfSelector $memberOf;
 
     /**
      * comma-seperated attributes to return.
@@ -94,11 +94,9 @@ class GetAccountDistributionListsRequest extends SoapRequest
         ?string $attrs = NULL
     )
     {
+        $this->memberOf = $memberOf;
         if(NULL !== $ownerOf) {
             $this->setOwnerOf($ownerOf);
-        }
-        if($memberOf instanceof MemberOfSelector) {
-            $this->setMemberOf($memberOf);
         }
         if(NULL !== $attrs) {
             $this->setAttrs($attrs);

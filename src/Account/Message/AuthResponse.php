@@ -87,7 +87,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName('session')]
     #[Type(Session::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $session;
+    private ?Session $session;
 
     /**
      * host additional SOAP requests should be directed to.
@@ -282,6 +282,7 @@ class AuthResponse extends SoapResponse
         ?bool $trustedDevicesEnabled = NULL
     )
     {
+        $this->session = $session;
         $this->setPrefs($prefs)
              ->setAttrs($attrs);
         if(NULL !== $authToken) {
@@ -289,9 +290,6 @@ class AuthResponse extends SoapResponse
         }
         if(NULL !== $lifetime) {
             $this->setLifetime($lifetime);
-        }
-        if($session instanceof Session) {
-            $this->setSession($session);
         }
         if(NULL !== $refer) {
             $this->setRefer($refer);

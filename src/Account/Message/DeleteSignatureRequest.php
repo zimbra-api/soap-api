@@ -41,7 +41,7 @@ class DeleteSignatureRequest extends SoapRequest
     #[SerializedName('signature')]
     #[Type(NameId::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $signature;
+    private NameId $signature;
 
     /**
      * Constructor

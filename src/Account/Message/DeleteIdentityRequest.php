@@ -41,7 +41,7 @@ class DeleteIdentityRequest extends SoapRequest
     #[SerializedName('identity')]
     #[Type(NameId::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $identity;
+    private NameId $identity;
 
     /**
      * Constructor

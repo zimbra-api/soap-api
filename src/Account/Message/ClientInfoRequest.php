@@ -39,7 +39,7 @@ class ClientInfoRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Constructor

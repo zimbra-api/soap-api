@@ -76,7 +76,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
-    private $type;
+    private ?GalSearchType $type;
 
     /**
      * flag whether the <b>{exp}</b> flag is needed in the response for group entries.
@@ -126,7 +126,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName('needIsMember')]
     #[Type('Enum<Zimbra\Common\Enum\MemberOfSelector>')]
     #[XmlAttribute]
-    private $needIsMember;
+    private ?MemberOfSelector $needIsMember;
 
     /**
      * Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
@@ -259,7 +259,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName('cursor')]
     #[Type(CursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $cursor;
+    private ?CursorInfo $cursor;
 
     /**
      * Search Filter
@@ -275,7 +275,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName('searchFilter')]
     #[Type(EntrySearchFilterInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter;
 
     /**
      * Constructor
@@ -315,29 +315,21 @@ class SearchGalRequest extends SoapRequest
         ?string $locale = NULL
     )
     {
-        if ($cursor instanceof CursorInfo) {
-            $this->setCursor($cursor);
-        }
-        if ($searchFilter instanceof EntrySearchFilterInfo) {
-            $this->setSearchFilter($searchFilter);
-        }
+        $this->cursor = $cursor;
+        $this->searchFilter = $searchFilter;
+        $this->type = $type;
+        $this->needIsMember = $needIsMember;
         if (NULL !== $ref) {
             $this->setRef($ref);
         }
         if (NULL !== $name) {
             $this->setName($name);
         }
-        if ($type instanceof GalSearchType) {
-            $this->setType($type);
-        }
         if (NULL !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
         if (NULL !== $needIsOwner) {
             $this->setNeedIsOwner($needIsOwner);
-        }
-        if ($needIsMember instanceof MemberOfSelector) {
-            $this->setNeedIsMember($needIsMember);
         }
         if (NULL !== $needSMIMECerts) {
             $this->setNeedSMIMECerts($needSMIMECerts);
