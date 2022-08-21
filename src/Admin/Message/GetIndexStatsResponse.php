@@ -39,7 +39,7 @@ class GetIndexStatsResponse extends SoapResponse
     #[SerializedName('stats')]
     #[Type(IndexStats::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $stats;
+    private ?IndexStats $stats;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetIndexStatsResponse extends SoapResponse
      */
     public function __construct(?IndexStats $stats = NULL)
     {
-        if ($stats instanceof IndexStats) {
-            $this->setStats($stats);
-        }
+        $this->stats = $stats;
     }
 
     /**

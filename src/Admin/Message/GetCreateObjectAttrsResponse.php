@@ -39,7 +39,7 @@ class GetCreateObjectAttrsResponse extends SoapResponse
     #[SerializedName('setAttrs')]
     #[Type(EffectiveAttrsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $setAttrs;
+    private ?EffectiveAttrsInfo $setAttrs;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetCreateObjectAttrsResponse extends SoapResponse
      */
     public function __construct(?EffectiveAttrsInfo $setAttrs = NULL)
     {
-        if ($setAttrs instanceof EffectiveAttrsInfo) {
-            $this->setSetAttrs($setAttrs);
-        }
+        $this->setAttrs = $setAttrs;
     }
 
     /**

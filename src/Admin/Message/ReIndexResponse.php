@@ -40,7 +40,7 @@ class ReIndexResponse extends SoapResponse
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\ReIndexStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ?ReIndexStatus $status;
 
     /**
      * Specify reindexing to perform
@@ -56,7 +56,7 @@ class ReIndexResponse extends SoapResponse
     #[SerializedName('progress')]
     #[Type(ReindexProgressInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $progress;
+    private ?ReindexProgressInfo $progress;
 
     /**
      * Constructor
@@ -67,12 +67,8 @@ class ReIndexResponse extends SoapResponse
      */
     public function __construct(?ReIndexStatus $status = NULL, ?ReindexProgressInfo $progress = NULL)
     {
-        if ($status instanceof ReIndexStatus) {
-            $this->setStatus($status);
-        }
-        if ($progress instanceof ReindexProgressInfo) {
-            $this->setProgress($progress);
-        }
+        $this->status = $status;
+        $this->progress = $progress;
     }
 
     /**

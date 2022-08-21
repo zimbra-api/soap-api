@@ -39,7 +39,7 @@ class GetXMPPComponentResponse extends SoapResponse
     #[SerializedName('xmppcomponent')]
     #[Type(XMPPComponentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $component;
+    private ?XMPPComponentInfo $component;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetXMPPComponentResponse extends SoapResponse
      */
     public function __construct(?XMPPComponentInfo $component = NULL)
     {
-        if ($component instanceof XMPPComponentInfo) {
-            $this->setComponent($component);
-        }
+        $this->component = $component;
     }
 
     /**

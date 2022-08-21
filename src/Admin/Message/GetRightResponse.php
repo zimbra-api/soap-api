@@ -39,7 +39,7 @@ class GetRightResponse extends SoapResponse
     #[SerializedName('right')]
     #[Type(RightInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $right;
+    private ?RightInfo $right;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetRightResponse extends SoapResponse
      */
     public function __construct(?RightInfo $right = NULL)
     {
-        if ($right instanceof RightInfo) {
-            $this->setRight($right);
-        }
+        $this->right = $right;
     }
 
     /**

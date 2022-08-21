@@ -39,7 +39,7 @@ class GetVolumeResponse extends SoapResponse
     #[SerializedName('volume')]
     #[Type(VolumeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $volume;
+    private ?VolumeInfo $volume;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetVolumeResponse extends SoapResponse
      */
     public function __construct(?VolumeInfo $volume = NULL)
     {
-        if ($volume instanceof VolumeInfo) {
-            $this->setVolume($volume);
-        }
+        $this->volume = $volume;
     }
 
     /**

@@ -39,7 +39,7 @@ class GetMailQueueResponse extends SoapResponse
     #[SerializedName('server')]
     #[Type(Server::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?Server $server;
 
     /**
      * Constructor
@@ -49,6 +49,7 @@ class GetMailQueueResponse extends SoapResponse
      */
     public function __construct(?Server $server = NULL)
     {
+        $this->server = $server;
         if ($server instanceof Server) {
             $this->setServer($server);
         }

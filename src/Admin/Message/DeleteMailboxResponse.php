@@ -39,7 +39,7 @@ class DeleteMailboxResponse extends SoapResponse
     #[SerializedName('mbox')]
     #[Type(MailboxId::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mbox;
+    private ?MailboxId $mbox;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class DeleteMailboxResponse extends SoapResponse
      */
     public function __construct(?MailboxId $mbox = NULL)
     {
-        if ($mbox instanceof MailboxId) {
-            $this->setMbox($mbox);
-        }
+        $this->mbox = $mbox;
     }
 
     /**

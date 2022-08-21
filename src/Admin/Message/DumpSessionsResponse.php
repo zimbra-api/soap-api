@@ -55,7 +55,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName('soap')]
     #[Type(InfoForSessionType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $soapSessions;
+    private ?InfoForSessionType $soapSessions;
 
     /**
      * Information about IMAP sessions
@@ -71,7 +71,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName('imap')]
     #[Type(InfoForSessionType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $imapSessions;
+    private ?InfoForSessionType $imapSessions;
 
     /**
      * Information about ADMIN sessions
@@ -87,7 +87,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName('admin')]
     #[Type(InfoForSessionType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $adminSessions;
+    private ?InfoForSessionType $adminSessions;
 
     /**
      * Information about WIKI sessions
@@ -103,7 +103,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName('wiki')]
     #[Type(InfoForSessionType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $wikiSessions;
+    private ?InfoForSessionType $wikiSessions;
 
     /**
      * Information about SYNCLISTENER sessions
@@ -119,7 +119,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName('synclistener')]
     #[Type(InfoForSessionType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $synclistenerSessions;
+    private ?InfoForSessionType $synclistenerSessions;
 
     /**
      * Information about WaitSet sessions
@@ -135,7 +135,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName('waitset')]
     #[Type(InfoForSessionType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $waitsetSessions;
+    private ?InfoForSessionType $waitsetSessions;
 
     /**
      * Constructor
@@ -160,24 +160,12 @@ class DumpSessionsResponse extends SoapResponse
     )
     {
         $this->setTotalActiveSessions($totalActiveSessions);
-        if ($soapSessions instanceof InfoForSessionType) {
-            $this->setSoapSessions($soapSessions);
-        }
-        if ($imapSessions instanceof InfoForSessionType) {
-            $this->setImapSessions($imapSessions);
-        }
-        if ($adminSessions instanceof InfoForSessionType) {
-            $this->setAdminSessions($adminSessions);
-        }
-        if ($wikiSessions instanceof InfoForSessionType) {
-            $this->setWikiSessions($wikiSessions);
-        }
-        if ($synclistenerSessions instanceof InfoForSessionType) {
-            $this->setSynclistenerSessions($synclistenerSessions);
-        }
-        if ($waitsetSessions instanceof InfoForSessionType) {
-            $this->setWaitsetSessions($waitsetSessions);
-        }
+        $this->soapSessions = $soapSessions;
+        $this->imapSessions = $imapSessions;
+        $this->adminSessions = $adminSessions;
+        $this->wikiSessions = $wikiSessions;
+        $this->synclistenerSessions = $synclistenerSessions;
+        $this->waitsetSessions = $waitsetSessions;
     }
 
     /**

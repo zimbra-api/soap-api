@@ -40,7 +40,7 @@ class GetZimletStatusResponse extends SoapResponse
     #[SerializedName('zimlets')]
     #[Type(ZimletStatusParent::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimlets;
+    private ?ZimletStatusParent $zimlets;
 
     /**
      * Class Of Service (COS) Information
@@ -66,9 +66,7 @@ class GetZimletStatusResponse extends SoapResponse
     public function __construct(?ZimletStatusParent $zimlets = NULL, array $coses = [])
     {
         $this->setCoses($coses);
-        if ($zimlets instanceof ZimletStatusParent) {
-            $this->setZimlets($zimlets);
-        }
+        $this->zimlets = $zimlets;
     }
 
     /**

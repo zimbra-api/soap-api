@@ -56,7 +56,7 @@ class CheckRightResponse extends SoapResponse
     #[SerializedName('via')]
     #[Type(RightViaInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $via;
+    private ?RightViaInfo $via;
 
     /**
      * Constructor
@@ -68,9 +68,7 @@ class CheckRightResponse extends SoapResponse
     public function __construct(bool $allow = FALSE, ?RightViaInfo $via = NULL)
     {
         $this->setAllow($allow);
-        if ($via instanceof RightViaInfo) {
-            $this->setVia($via);
-        }
+        $this->via = $via;
     }
 
     /**

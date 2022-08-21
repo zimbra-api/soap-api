@@ -39,7 +39,7 @@ class RenameAccountResponse extends SoapResponse
     #[SerializedName('account')]
     #[Type(AccountInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountInfo $account;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class RenameAccountResponse extends SoapResponse
      */
     public function __construct(?AccountInfo $account = NULL)
     {
-        if ($account instanceof AccountInfo) {
-            $this->setAccount($account);
-        }
+        $this->account = $account;
     }
 
     /**

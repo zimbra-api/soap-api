@@ -39,7 +39,7 @@ class CreateServerResponse extends SoapResponse
     #[SerializedName('server')]
     #[Type(ServerInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?ServerInfo $server;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateServerResponse extends SoapResponse
      */
     public function __construct(?ServerInfo $server = NULL)
     {
-        if ($server instanceof ServerInfo) {
-            $this->setServer($server);
-        }
+        $this->server = $server;
     }
 
     /**

@@ -39,7 +39,7 @@ class AutoProvTaskControlResponse extends SoapResponse
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\AutoProvTaskStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ?AutoProvTaskStatus $status;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class AutoProvTaskControlResponse extends SoapResponse
      */
     public function __construct(?AutoProvTaskStatus $status = NULL)
     {
-        if ($status instanceof AutoProvTaskStatus) {
-            $this->setStatus($status);
-        }
+        $this->status = $status;
     }
 
     /**

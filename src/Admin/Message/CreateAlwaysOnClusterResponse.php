@@ -39,7 +39,7 @@ class CreateAlwaysOnClusterResponse extends SoapResponse
     #[SerializedName('alwaysOnCluster')]
     #[Type(AlwaysOnClusterInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cluster;
+    private ?AlwaysOnClusterInfo $cluster;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateAlwaysOnClusterResponse extends SoapResponse
      */
     public function __construct(?AlwaysOnClusterInfo $cluster = NULL)
     {
-        if ($cluster instanceof AlwaysOnClusterInfo) {
-            $this->setAlwaysOnCluster($cluster);
-        }
+        $this->cluster = $cluster;
     }
 
     /**

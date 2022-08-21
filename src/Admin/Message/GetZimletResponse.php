@@ -39,7 +39,7 @@ class GetZimletResponse extends SoapResponse
     #[SerializedName('zimlet')]
     #[Type(ZimletInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimlet;
+    private ?ZimletInfo $zimlet;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetZimletResponse extends SoapResponse
      */
     public function __construct(?ZimletInfo $zimlet = NULL)
     {
-        if ($zimlet instanceof ZimletInfo) {
-            $this->setZimlet($zimlet);
-        }
+        $this->zimlet = $zimlet;
     }
 
     /**

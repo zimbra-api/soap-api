@@ -39,7 +39,7 @@ class CreateGalSyncAccountResponse extends SoapResponse
     #[SerializedName('account')]
     #[Type(AccountInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountInfo $account;
 
     /**
      * Constructor
@@ -49,6 +49,7 @@ class CreateGalSyncAccountResponse extends SoapResponse
      */
     public function __construct(?AccountInfo $account = NULL)
     {
+        $this->account = $account;
         if ($account instanceof AccountInfo) {
             $this->setAccount($account);
         }

@@ -68,7 +68,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName('cos')]
     #[Type(CosInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosInfo $cos;
 
     /**
      * URL to talk to for SOAP service for this account.
@@ -139,9 +139,7 @@ class GetAccountInfoResponse extends SoapResponse
         $this->setName($name)
              ->setAttrList($attrList)
              ->setSoapURLList($soapURLList);
-        if ($cos instanceof CosInfo) {
-            $this->setCos($cos);
-        }
+        $this->cos = $cos;
         if (NULL !== $adminSoapURL) {
             $this->setAdminSoapURL($adminSoapURL);
         }

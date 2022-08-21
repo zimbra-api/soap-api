@@ -39,7 +39,7 @@ class ChangePrimaryEmailResponse extends SoapResponse
     #[SerializedName('account')]
     #[Type(Account::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?Account $account;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class ChangePrimaryEmailResponse extends SoapResponse
      */
     public function __construct(?Account $account = NULL)
     {
-        if ($account instanceof Account) {
-            $this->setAccount($account);
-        }
+        $this->account = $account;
     }
 
     /**

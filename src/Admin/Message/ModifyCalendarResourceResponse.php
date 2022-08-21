@@ -39,7 +39,7 @@ class ModifyCalendarResourceResponse extends SoapResponse
     #[SerializedName('calresource')]
     #[Type(CalendarResourceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $calResource;
+    private ?CalendarResourceInfo $calResource;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class ModifyCalendarResourceResponse extends SoapResponse
      */
     public function __construct(?CalendarResourceInfo $calResource = NULL)
     {
-        if ($calResource instanceof CalendarResourceInfo) {
-            $this->setCalResource($calResource);
-        }
+        $this->calResource = $calResource;
     }
 
     /**

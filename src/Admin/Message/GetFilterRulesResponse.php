@@ -41,7 +41,7 @@ class GetFilterRulesResponse extends SoapResponse
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\AdminFilterType>')]
     #[XmlAttribute]
-    private $type;
+    private ?AdminFilterType $type;
 
     /**
      * Account
@@ -57,7 +57,7 @@ class GetFilterRulesResponse extends SoapResponse
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * Domain
@@ -73,7 +73,7 @@ class GetFilterRulesResponse extends SoapResponse
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * COS
@@ -88,7 +88,7 @@ class GetFilterRulesResponse extends SoapResponse
     #[SerializedName('cos')]
     #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosSelector $cos;
 
     /**
      * Server
@@ -104,7 +104,7 @@ class GetFilterRulesResponse extends SoapResponse
     #[SerializedName('server')]
     #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?ServerSelector $server;
 
     /**
      * Filter rules
@@ -145,21 +145,11 @@ class GetFilterRulesResponse extends SoapResponse
     )
     {
         $this->setFilterRules($rules);
-        if ($type instanceof AdminFilterType) {
-            $this->setType($type);
-        }
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
-        }
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
-        if ($cos instanceof CosSelector) {
-            $this->setCos($cos);
-        }
-        if ($server instanceof ServerSelector) {
-            $this->setServer($server);
-        }
+        $this->type = $type;
+        $this->account = $account;
+        $this->domain = $domain;
+        $this->cos = $cos;
+        $this->server = $server;
     }
 
     /**

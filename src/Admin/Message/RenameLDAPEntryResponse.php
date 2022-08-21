@@ -39,7 +39,7 @@ class RenameLDAPEntryResponse extends SoapResponse
     #[SerializedName('LDAPEntry')]
     #[Type(LDAPEntryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $LDAPEntry;
+    private ?LDAPEntryInfo $LDAPEntry;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class RenameLDAPEntryResponse extends SoapResponse
      */
     public function __construct(?LDAPEntryInfo $LDAPEntry = NULL)
     {
-        if ($LDAPEntry instanceof LDAPEntryInfo) {
-            $this->setLDAPEntry($LDAPEntry);
-        }
+        $this->LDAPEntry = $LDAPEntry;
     }
 
     /**

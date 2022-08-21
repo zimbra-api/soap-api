@@ -39,7 +39,7 @@ class GetLicenseInfoResponse extends SoapResponse
     #[SerializedName('expiration')]
     #[Type(LicenseExpirationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $expiration;
+    private ?LicenseExpirationInfo $expiration;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetLicenseInfoResponse extends SoapResponse
      */
     public function __construct(?LicenseExpirationInfo $expiration = NULL)
     {
-        if ($expiration instanceof LicenseExpirationInfo) {
-            $this->setExpiration($expiration);
-        }
+        $this->expiration = $expiration;
     }
 
     /**

@@ -39,7 +39,7 @@ class CreateDataSourceResponse extends SoapResponse
     #[SerializedName('dataSource')]
     #[Type(DataSourceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $dataSource;
+    private ?DataSourceInfo $dataSource;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateDataSourceResponse extends SoapResponse
      */
     public function __construct(?DataSourceInfo $dataSource = NULL)
     {
-        if ($dataSource instanceof DataSourceInfo) {
-            $this->setDataSource($dataSource);
-        }
+        $this->dataSource = $dataSource;
     }
 
     /**

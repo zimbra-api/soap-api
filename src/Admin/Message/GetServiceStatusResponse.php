@@ -39,7 +39,7 @@ class GetServiceStatusResponse extends SoapResponse
     #[SerializedName('timezone')]
     #[Type(TimeZoneInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $timezone;
+    private ?TimeZoneInfo $timezone;
 
     /**
      * Service status information
@@ -67,9 +67,7 @@ class GetServiceStatusResponse extends SoapResponse
     )
     {
         $this->setServiceStatuses($serviceStatuses);
-        if ($timezone instanceof TimeZoneInfo) {
-            $this->setTimezone($timezone);
-        }
+        $this->timezone = $timezone;
     }
 
     /**

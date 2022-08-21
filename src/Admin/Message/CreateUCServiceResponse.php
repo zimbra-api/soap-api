@@ -39,7 +39,7 @@ class CreateUCServiceResponse extends SoapResponse
     #[SerializedName('ucservice')]
     #[Type(UCServiceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $ucService;
+    private ?UCServiceInfo $ucService;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateUCServiceResponse extends SoapResponse
      */
     public function __construct(?UCServiceInfo $ucService = NULL)
     {
-        if ($ucService instanceof UCServiceInfo) {
-            $this->setUCService($ucService);
-        }
+        $this->ucService = $ucService;
     }
 
     /**

@@ -39,7 +39,7 @@ class GetDomainResponse extends SoapResponse
     #[SerializedName('domain')]
     #[Type(DomainInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainInfo $domain;
 
     /**
      * Constructor
@@ -49,6 +49,7 @@ class GetDomainResponse extends SoapResponse
      */
     public function __construct(?DomainInfo $domain = NULL)
     {
+        $this->domain = $domain;
         if ($domain instanceof DomainInfo) {
             $this->setDomain($domain);
         }

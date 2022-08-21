@@ -39,7 +39,7 @@ class CompactIndexResponse extends SoapResponse
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\CompactIndexStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ?Status $status;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CompactIndexResponse extends SoapResponse
      */
     public function __construct(?Status $status = NULL)
     {
-        if ($status instanceof Status) {
-            $this->setStatus($status);
-        }
+        $this->status = $status;
     }
 
     /**

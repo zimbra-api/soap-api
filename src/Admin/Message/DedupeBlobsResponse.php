@@ -40,7 +40,7 @@ class DedupeBlobsResponse extends SoapResponse
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\DedupStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ?DedupStatus $status;
 
     /**
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
@@ -116,17 +116,15 @@ class DedupeBlobsResponse extends SoapResponse
         array $blobDigestsProgress = []
     )
     {
-        if ($status instanceof DedupStatus) {
-            $this->setStatus($status);
-        }
+        $this->setVolumeBlobsProgress($volumeBlobsProgress)
+             ->setBlobDigestsProgress($blobDigestsProgress);
+        $this->status = $status;
         if (NULL !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
         if (NULL !== $totalCount) {
             $this->setTotalCount($totalCount);
         }
-        $this->setVolumeBlobsProgress($volumeBlobsProgress)
-             ->setBlobDigestsProgress($blobDigestsProgress);
     }
 
     /**

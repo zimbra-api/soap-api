@@ -40,7 +40,7 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     #[SerializedName('grantee')]
     #[Type(GranteeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $grantee;
+    private ?GranteeInfo $grantee;
 
     /**
      * Effective rights targets
@@ -66,9 +66,7 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     public function __construct(?GranteeInfo $grantee = NULL, array $targets = [])
     {
         $this->setTargets($targets);
-        if ($grantee instanceof GranteeInfo) {
-            $this->setGrantee($grantee);
-        }
+        $this->grantee = $grantee;
     }
 
     /**

@@ -39,7 +39,7 @@ class RenameCosResponse extends SoapResponse
     #[SerializedName('cos')]
     #[Type(CosInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosInfo $cos;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class RenameCosResponse extends SoapResponse
      */
     public function __construct(?CosInfo $cos = NULL)
     {
-        if ($cos instanceof CosInfo) {
-            $this->setCos($cos);
-        }
+        $this->cos = $cos;
     }
 
     /**

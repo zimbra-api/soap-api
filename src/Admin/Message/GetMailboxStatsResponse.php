@@ -39,7 +39,7 @@ class GetMailboxStatsResponse extends SoapResponse
     #[SerializedName('stats')]
     #[Type(MailboxStats::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $stats;
+    private ?MailboxStats $stats;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetMailboxStatsResponse extends SoapResponse
      */
     public function __construct(?MailboxStats $stats = NULL)
     {
-        if ($stats instanceof MailboxStats) {
-            $this->setStats($stats);
-        }
+        $this->stats = $stats;
     }
 
     /**

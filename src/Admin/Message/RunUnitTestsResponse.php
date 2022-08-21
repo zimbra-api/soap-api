@@ -39,7 +39,7 @@ class RunUnitTestsResponse extends SoapResponse
     #[SerializedName('results')]
     #[Type(TestResultInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $results;
+    private ?TestResultInfo $results;
 
     /**
      * Number of executed tests
@@ -89,9 +89,7 @@ class RunUnitTestsResponse extends SoapResponse
     {
         $this->setNumExecuted($numExecuted)
              ->setNumFailed($numFailed);
-        if ($results instanceof TestResultInfo) {
-            $this->setResults($results);
-        }
+        $this->results = $results;
     }
 
     /**
