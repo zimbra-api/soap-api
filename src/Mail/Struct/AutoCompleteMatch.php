@@ -55,7 +55,7 @@ class AutoCompleteMatch
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\AutoCompleteMatchType>')]
     #[XmlAttribute]
-    private $matchType;
+    private ?MatchType $matchType;
 
     /**
      * Ranking
@@ -304,11 +304,9 @@ class AutoCompleteMatch
         ?string $fileAs = NULL
     )
     {
+        $this->matchType = $matchType;
         if (NULL !== $email) {
             $this->setEmail($email);
-        }
-        if ($matchType instanceof MatchType) {
-            $this->setMatchType($matchType);
         }
         if (NULL !== $ranking) {
             $this->setRanking($ranking);

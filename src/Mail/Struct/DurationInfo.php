@@ -138,7 +138,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName('related')]
     #[Type('Enum<Zimbra\Common\Enum\AlarmRelated>')]
     #[XmlAttribute]
-    private $related;
+    private ?AlarmRelated $related;
 
     /**
      * Alarm repeat count
@@ -164,6 +164,7 @@ class DurationInfo implements DurationInfoInterface
      * @param  int $hours
      * @param  int $minutes
      * @param  int $seconds
+     * @param  AlarmRelated $related
      * @return self
      */
     public function __construct(
@@ -171,9 +172,11 @@ class DurationInfo implements DurationInfoInterface
         ?int $days = NULL,
         ?int $hours = NULL,
         ?int $minutes = NULL,
-        ?int $seconds = NULL
+        ?int $seconds = NULL,
+        ?AlarmRelated $related = NULL
     )
     {
+        $this->related = $related;
         if (NULL !== $weeks) {
             $this->setWeeks($weeks);
         }

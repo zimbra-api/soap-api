@@ -90,7 +90,7 @@ class CalTZInfo implements CalTZInfoInterface
     #[SerializedName('standard')]
     #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $standardTzOnset;
+    private ?TzOnsetInfo $standardTzOnset;
 
     /**
      * Time/rule for transitioning from standard time to daylight time
@@ -106,7 +106,7 @@ class CalTZInfo implements CalTZInfoInterface
     #[SerializedName('daylight')]
     #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $daylightTzOnset;
+    private ?TzOnsetInfo $daylightTzOnset;
 
     /**
      * Standard Time component's timezone name
@@ -165,12 +165,8 @@ class CalTZInfo implements CalTZInfoInterface
         $this->setId($id)
              ->setTzStdOffset($tzStdOffset)
              ->setTzDayOffset($tzDayOffset);
-        if ($standardTzOnset instanceof TzOnsetInfo) {
-            $this->setStandardTzOnset($standardTzOnset);
-        }
-        if ($daylightTzOnset instanceof TzOnsetInfo) {
-            $this->setDaylightTzOnset($daylightTzOnset);
-        }
+        $this->standardTzOnset = $standardTzOnset;
+        $this->daylightTzOnset = $daylightTzOnset;
         if (NULL !== $standardTZName) {
             $this->setStandardTZName($standardTZName);
         }

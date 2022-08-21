@@ -39,7 +39,7 @@ class DtVal implements DtValInterface
     #[SerializedName('s')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $startTime;
+    private ?DtTimeInfoInterface $startTime;
 
     /**
      * Start DATE-TIME
@@ -55,7 +55,7 @@ class DtVal implements DtValInterface
     #[SerializedName('e')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $endTime;
+    private ?DtTimeInfoInterface $endTime;
 
     /**
      * Duration information
@@ -71,7 +71,7 @@ class DtVal implements DtValInterface
     #[SerializedName('dur')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $duration;
+    private ?DurationInfoInterface $duration;
 
     /**
      * Constructor
@@ -87,15 +87,9 @@ class DtVal implements DtValInterface
         ?DurationInfo $duration = NULL
     )
     {
-        if ($startTime instanceof DtTimeInfo) {
-            $this->setStartTime($startTime);
-        }
-        if ($endTime instanceof DtTimeInfo) {
-            $this->setEndTime($endTime);
-        }
-        if ($duration instanceof DurationInfo) {
-            $this->setDuration($duration);
-        }
+        $this->startTime = $startTime;
+        $this->endTime = $endTime;
+        $this->duration = $duration;
     }
 
     /**

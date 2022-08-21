@@ -39,7 +39,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     #[SerializedName('abs')]
     #[Type(DateAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $absolute;
+    private ?DateAttrInterface $absolute;
 
     /**
      * Relative trigger information
@@ -55,7 +55,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     #[SerializedName('rel')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $relative;
+    private ?DurationInfoInterface $relative;
 
     /**
      * Constructor
@@ -69,12 +69,8 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
         ?DurationInfo $relative = NULL
     )
     {
-        if ($absolute instanceof DateAttr) {
-            $this->setAbsolute($absolute);
-        }
-        if ($relative instanceof DurationInfo) {
-            $this->setRelative($relative);
-        }
+        $this->absolute = $absolute;
+        $this->relative = $relative;
     }
 
     /**

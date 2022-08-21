@@ -38,7 +38,7 @@ class CurrentTimeTest extends FilterTest
     #[SerializedName('dateComparison')]
     #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
     #[XmlAttribute]
-    private $dateComparison;
+    private ?DateComparison $dateComparison;
 
     /**
      * Time in HHmm format
@@ -73,9 +73,7 @@ class CurrentTimeTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
-        if ($dateComparison instanceof DateComparison) {
-            $this->setDateComparison($dateComparison);
-        }
+        $this->dateComparison = $dateComparison;
         if (NULL !== $time) {
             $this->setTime($time);
         }

@@ -182,7 +182,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName('e')]
     #[Type(EmailInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $email;
+    private ?EmailInfo $email;
 
     /**
      * Subject
@@ -228,6 +228,7 @@ class MessagePartHitInfo implements SearchHit
         ?string $subject = NULL
     )
     {
+        $this->email = $email;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -254,9 +255,6 @@ class MessagePartHitInfo implements SearchHit
         }
         if (NULL !== $part) {
             $this->setPart($part);
-        }
-        if ($email instanceof EmailInfo) {
-            $this->setEmail($email);
         }
         if (NULL !== $subject) {
             $this->setSubject($subject);

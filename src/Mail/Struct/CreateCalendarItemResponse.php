@@ -119,7 +119,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName('m')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Id $msg;
 
     /**
      * Included if "echo" was set in the request
@@ -135,7 +135,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName('echo')]
     #[Type(CalEcho::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $echo;
+    private ?CalEcho $echo;
 
     /**
      * Constructor
@@ -159,6 +159,8 @@ class CreateCalendarItemResponse extends SoapResponse
         ?CalEcho $echo = NULL
     )
     {
+        $this->msg = $msg;
+        $this->echo = $echo;
         if (NULL !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
@@ -173,12 +175,6 @@ class CreateCalendarItemResponse extends SoapResponse
         }
         if (NULL !== $revision) {
             $this->setRevision($revision);
-        }
-        if ($msg instanceof Id) {
-            $this->setMsg($msg);
-        }
-        if ($echo instanceof CalEcho) {
-            $this->setEcho($echo);
         }
     }
 

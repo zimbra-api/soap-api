@@ -38,7 +38,7 @@ class EditheaderTest
     #[SerializedName('matchType')]
     #[Type('Enum<Zimbra\Common\Enum\MatchType>')]
     #[XmlAttribute]
-    private $matchType;
+    private ?MatchType $matchType;
 
     /**
      * if true count comparison will be done
@@ -86,7 +86,7 @@ class EditheaderTest
     #[SerializedName('relationalComparator')]
     #[Type('Enum<Zimbra\Common\Enum\RelationalComparator>')]
     #[XmlAttribute]
-    private $relationalComparator;
+    private ?RelationalComparator $relationalComparator;
 
     /**
      * comparator - i;ascii-numeric|i;ascii-casemap|i;octet
@@ -102,7 +102,7 @@ class EditheaderTest
     #[SerializedName('comparator')]
     #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
-    private $comparator;
+    private ?ComparisonComparator $comparator;
 
     /**
      * name of the header to be compared
@@ -156,25 +156,19 @@ class EditheaderTest
         array $headerValue = []
     )
     {
-        if ($matchType instanceof MatchType) {
-            $this->setMatchType($matchType);
-        }
+        $this->setHeaderValue($headerValue);
+        $this->matchType = $matchType;
+        $this->relationalComparator = $relationalComparator;
+        $this->comparator = $comparator;
         if (NULL !== $count) {
             $this->setCount($count);
         }
         if (NULL !== $value) {
             $this->setValue($value);
         }
-        if ($relationalComparator instanceof RelationalComparator) {
-            $this->setRelationalComparator($relationalComparator);
-        }
-        if ($comparator instanceof ComparisonComparator) {
-            $this->setComparator($comparator);
-        }
         if (NULL !== $headerName) {
             $this->setHeaderName($headerName);
         }
-        $this->setHeaderValue($headerValue);
     }
 
     /**

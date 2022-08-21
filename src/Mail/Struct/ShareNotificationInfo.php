@@ -86,7 +86,7 @@ class ShareNotificationInfo
     #[SerializedName('grantor')]
     #[Type(Grantor::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $grantor;
+    private ?Grantor $grantor;
 
     /**
      * Link information
@@ -102,7 +102,7 @@ class ShareNotificationInfo
     #[SerializedName('link')]
     #[Type(LinkInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $link;
+    private ?LinkInfo $link;
 
     /**
      * Constructor
@@ -125,12 +125,8 @@ class ShareNotificationInfo
         $this->setId($id)
              ->setStatus($status)
              ->setDate($date);
-        if ($grantor instanceof Grantor) {
-            $this->setGrantor($grantor);
-        }
-        if ($link instanceof LinkInfo) {
-            $this->setLink($link);
-        }
+        $this->grantor = $grantor;
+        $this->link = $link;
     }
 
     /**

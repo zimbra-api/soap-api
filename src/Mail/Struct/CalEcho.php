@@ -37,7 +37,7 @@ class CalEcho
     #[SerializedName('m')]
     #[Type(InviteAsMP::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $invite;
+    private ?InviteAsMP $invite;
 
     /**
      * Constructor
@@ -47,9 +47,7 @@ class CalEcho
      */
     public function __construct(?InviteAsMP $invite = NULL)
     {
-        if ($invite instanceof InviteAsMP) {
-            $this->setInvite($invite);
-        }
+        $this->invite = $invite;
     }
 
     /**

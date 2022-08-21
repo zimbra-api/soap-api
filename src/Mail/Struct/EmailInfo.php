@@ -90,7 +90,7 @@ class EmailInfo implements EmailInfoInterface
     #[SerializedName('t')]
     #[Type('Enum<Zimbra\Common\Enum\AddressType>')]
     #[XmlAttribute]
-    private $addressType;
+    private ?AddressType $addressType;
 
     /**
      * Set if the email address is a group
@@ -144,6 +144,7 @@ class EmailInfo implements EmailInfoInterface
         ?bool $canExpandGroupMembers = NULL
     )
     {
+        $this->addressType = $addressType;
         if (NULL !== $address) {
             $this->setAddress($address);
         }
@@ -152,9 +153,6 @@ class EmailInfo implements EmailInfoInterface
         }
         if (NULL !== $personal) {
             $this->setPersonal($personal);
-        }
-        if ($addressType instanceof AddressType) {
-            $this->setAddressType($addressType);
         }
         if (NULL !== $group) {
             $this->setGroup($group);

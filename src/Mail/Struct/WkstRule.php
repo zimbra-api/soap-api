@@ -40,7 +40,7 @@ class WkstRule implements WkstRuleInterface
     #[SerializedName('day')]
     #[Type('Enum<Zimbra\Common\Enum\WeekDay>')]
     #[XmlAttribute]
-    private $day;
+    private WeekDay $day;
 
     /**
      * Constructor

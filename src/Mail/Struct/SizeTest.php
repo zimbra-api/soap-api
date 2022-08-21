@@ -38,7 +38,7 @@ class SizeTest extends FilterTest
     #[SerializedName('numberComparison')]
     #[Type('Enum<Zimbra\Common\Enum\NumberComparison>')]
     #[XmlAttribute]
-    private $numberComparison;
+    private ?NumberComparison $numberComparison;
 
     /**
      * size value.  Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
@@ -73,9 +73,7 @@ class SizeTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
-        if ($numberComparison instanceof NumberComparison) {
-            $this->setNumberComparison($numberComparison);
-        }
+        $this->numberComparison = $numberComparison;
         if (NULL !== $size) {
             $this->setSize($size);
         }

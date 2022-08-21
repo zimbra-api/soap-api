@@ -39,7 +39,7 @@ class WkDay implements WkDayInterface
     #[SerializedName('day')]
     #[Type('Enum<Zimbra\Common\Enum\WeekDay>')]
     #[XmlAttribute]
-    private $day;
+    private WeekDay $day;
 
     /**
      * Week number.  [[+]|-]num: 1 to 53
@@ -77,7 +77,7 @@ class WkDay implements WkDayInterface
      *
      * @return WeekDay
      */
-    public function getDay(): ?WeekDay
+    public function getDay(): WeekDay
     {
         return $this->day;
     }

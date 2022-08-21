@@ -42,7 +42,7 @@ class InviteInfo implements InviteInfoInterface
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\InviteType>')]
     #[XmlAttribute]
-    private $calItemType;
+    private InviteType $calItemType;
 
     /**
      * Timezones
@@ -72,7 +72,7 @@ class InviteInfo implements InviteInfoInterface
     #[SerializedName('comp')]
     #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $inviteComponent;
+    private ?InviteComponentInterface $inviteComponent;
 
     /**
      * List of replies received from attendees.
@@ -111,9 +111,7 @@ class InviteInfo implements InviteInfoInterface
         $this->setCalItemType($calItemType ?? new InviteType('appt'))
              ->setTimezones($timezones)
              ->setCalendarReplies($calendarReplies);
-        if ($inviteComponent instanceof InviteComponent) {
-            $this->setInviteComponent($inviteComponent);
-        }
+        $this->inviteComponent = $inviteComponent;
     }
 
     /**
@@ -202,7 +200,9 @@ class InviteInfo implements InviteInfoInterface
      */
     public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = array_filter($replies, static fn ($reply) => $reply instanceof CalendarReplyInterface);
+        $this->calendarReplies = array_filter(
+            $replies, static fn ($reply) => $reply instanceof CalendarReplyInterface
+        );
         return $this;
     }
 

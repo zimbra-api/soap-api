@@ -214,7 +214,7 @@ trait MailSearchParams
     #[SerializedName('sortBy')]
     #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
-    private $sortBy;
+    private ?SearchSortBy $sortBy;
 
     /**
      * Select setting for hit expansion.
@@ -346,7 +346,7 @@ trait MailSearchParams
     #[SerializedName('recip')]
     #[Type('Enum<Zimbra\Common\Enum\WantRecipsSetting>')]
     #[XmlAttribute]
-    private $wantRecipients;
+    private ?WantRecipsSetting $wantRecipients;
 
     /**
      * Prefetch
@@ -481,7 +481,7 @@ trait MailSearchParams
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $calTz;
+    private ?CalTZInfoInterface $calTz;
 
     /**
      * Client locale identification.
@@ -518,7 +518,7 @@ trait MailSearchParams
     #[SerializedName('cursor')]
     #[Type(CursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $cursor;
+    private ?CursorInfo $cursor;
 
     /**
      * used by clients if they want mail content with/without quoted text
@@ -534,7 +534,7 @@ trait MailSearchParams
     #[SerializedName('wantContent')]
     #[Type('Enum<Zimbra\Common\Enum\MsgContent>')]
     #[XmlAttribute]
-    private $wantContent;
+    private ?MsgContent $wantContent;
 
     /**
      * If set, Include the list of contact groups this contact is a member of.

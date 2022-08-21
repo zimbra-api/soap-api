@@ -125,6 +125,11 @@ class SearchRequest extends SoapRequest implements SearchParameters
     )
     {
         $this->setHeaders($headers);
+        $this->sortBy = $sortBy;
+        $this->wantRecipients = $wantRecipients;
+        $this->calTz = $calTz;
+        $this->cursor = $cursor;
+        $this->wantContent = $wantContent;
         if (NULL !== $query) {
             $this->setQuery($query);
         }
@@ -139,9 +144,6 @@ class SearchRequest extends SoapRequest implements SearchParameters
         }
         if (NULL !== $quick) {
             $this->setQuick($quick);
-        }
-        if (NULL !== $sortBy) {
-            $this->setSortBy($sortBy);
         }
         if (NULL !== $includeTagDeleted) {
             $this->setIncludeTagDeleted($includeTagDeleted);
@@ -176,9 +178,6 @@ class SearchRequest extends SoapRequest implements SearchParameters
         if (NULL !== $neuterImages) {
             $this->setNeuterImages($neuterImages);
         }
-        if (NULL !== $wantRecipients) {
-            $this->setWantRecipients($wantRecipients);
-        }
         if (NULL !== $prefetch) {
             $this->setPrefetch($prefetch);
         }
@@ -197,17 +196,8 @@ class SearchRequest extends SoapRequest implements SearchParameters
         if (NULL !== $offset) {
             $this->setOffset($offset);
         }
-        if ($calTz instanceof CalTZInfo) {
-            $this->setCalTz($calTz);
-        }
         if (NULL !== $locale) {
             $this->setLocale($locale);
-        }
-        if ($cursor instanceof CursorInfo) {
-            $this->setCursor($cursor);
-        }
-        if (NULL !== $wantContent) {
-            $this->setWantContent($wantContent);
         }
         if (NULL !== $includeMemberOf) {
             $this->setIncludeMemberOf($includeMemberOf);

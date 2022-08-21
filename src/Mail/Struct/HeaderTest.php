@@ -54,7 +54,7 @@ class HeaderTest extends FilterTest
     #[SerializedName('stringComparison')]
     #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
-    private $stringComparison;
+    private ?StringComparison $stringComparison;
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
@@ -70,7 +70,7 @@ class HeaderTest extends FilterTest
     #[SerializedName('valueComparison')]
     #[Type('Enum<Zimbra\Common\Enum\ValueComparison>')]
     #[XmlAttribute]
-    private $valueComparison;
+    private ?ValueComparison $valueComparison;
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
@@ -86,7 +86,7 @@ class HeaderTest extends FilterTest
     #[SerializedName('countComparison')]
     #[Type('Enum<Zimbra\Common\Enum\CountComparison>')]
     #[XmlAttribute]
-    private $countComparison;
+    private ?CountComparison $countComparison;
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
@@ -94,15 +94,15 @@ class HeaderTest extends FilterTest
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
-     * 
      * @XmlAttribute
+     * 
      * @var ComparisonComparator
      */
     #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
     #[SerializedName('valueComparisonComparator')]
     #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
-    private $valueComparisonComparator;
+    private ?ComparisonComparator $valueComparisonComparator;
 
     /**
      * Value
@@ -163,20 +163,12 @@ class HeaderTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
+        $this->stringComparison = $stringComparison;
+        $this->valueComparison = $valueComparison;
+        $this->countComparison = $countComparison;
+        $this->valueComparisonComparator = $valueComparisonComparator;
         if (NULL !== $headers) {
             $this->setHeaders($headers);
-        }
-        if ($stringComparison instanceof StringComparison) {
-            $this->setStringComparison($stringComparison);
-        }
-        if ($valueComparison instanceof ValueComparison) {
-            $this->setValueComparison($valueComparison);
-        }
-        if ($countComparison instanceof CountComparison) {
-            $this->setCountComparison($countComparison);
-        }
-        if ($valueComparisonComparator instanceof ComparisonComparator) {
-            $this->setValueComparisonComparator($valueComparisonComparator);
         }
         if (NULL !== $value) {
             $this->setValue($value);

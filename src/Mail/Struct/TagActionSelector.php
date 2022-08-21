@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Enum\GranteeType;
 
 /**
  * TagActionSelector class
@@ -38,7 +37,7 @@ class TagActionSelector extends ActionSelector
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy;
 
     /**
      * Constructor
@@ -91,9 +90,7 @@ class TagActionSelector extends ActionSelector
             $nonExistentIds,
             $newlyCreatedIds
         );
-        if ($retentionPolicy instanceof RetentionPolicy) {
-            $this->setRetentionPolicy($retentionPolicy);
-        }
+        $this->retentionPolicy = $retentionPolicy;
     }
 
     /**

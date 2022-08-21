@@ -56,7 +56,7 @@ class AddressTest extends FilterTest
     #[SerializedName('part')]
     #[Type('Enum<Zimbra\Common\Enum\AddressPart>')]
     #[XmlAttribute]
-    private $part;
+    private ?AddressPart $part;
 
     /**
      * comparison type - is|contains|matches
@@ -72,7 +72,7 @@ class AddressTest extends FilterTest
     #[SerializedName('stringComparison')]
     #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
-    private $comparison;
+    private ?StringComparison $comparison;
 
     /**
      * Case sensitive setting
@@ -120,7 +120,7 @@ class AddressTest extends FilterTest
     #[SerializedName('valueComparison')]
     #[Type('Enum<Zimbra\Common\Enum\ValueComparison>')]
     #[XmlAttribute]
-    private $valueComparison;
+    private ?ValueComparison $valueComparison;
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
@@ -136,7 +136,7 @@ class AddressTest extends FilterTest
     #[SerializedName('countComparison')]
     #[Type('Enum<Zimbra\Common\Enum\CountComparison>')]
     #[XmlAttribute]
-    private $countComparison;
+    private ?CountComparison $countComparison;
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
@@ -152,7 +152,7 @@ class AddressTest extends FilterTest
     #[SerializedName('valueComparisonComparator')]
     #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
-    private $valueComparisonComparator;
+    private ?ComparisonComparator $valueComparisonComparator;
 
     /**
      * Constructor
@@ -183,29 +183,19 @@ class AddressTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
+        $this->part = $part;
+        $this->comparison = $comparison;
+        $this->valueComparison = $valueComparison;
+        $this->countComparison = $countComparison;
+        $this->valueComparisonComparator = $valueComparisonComparator;
         if (NULL !== $header) {
             $this->setHeader($header);
-        }
-        if ($part instanceof AddressPart) {
-            $this->setPart($part);
-        }
-        if ($comparison instanceof StringComparison) {
-            $this->setStringComparison($comparison);
         }
         if (NULL !== $caseSensitive) {
             $this->setCaseSensitive($caseSensitive);
         }
         if (NULL !== $value) {
             $this->setValue($value);
-        }
-        if ($valueComparison instanceof ValueComparison) {
-            $this->setValueComparison($valueComparison);
-        }
-        if ($countComparison instanceof CountComparison) {
-            $this->setCountComparison($countComparison);
-        }
-        if ($valueComparisonComparator instanceof ComparisonComparator) {
-            $this->setValueComparisonComparator($valueComparisonComparator);
         }
     }
 

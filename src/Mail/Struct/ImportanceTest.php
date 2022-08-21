@@ -38,7 +38,7 @@ class ImportanceTest extends FilterTest
     #[SerializedName('imp')]
     #[Type('Enum<Zimbra\Common\Enum\Importance>')]
     #[XmlAttribute]
-    private $importance;
+    private ?Importance $importance;
 
     /**
      * Constructor
@@ -55,9 +55,7 @@ class ImportanceTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
-        if ($importance instanceof Importance) {
-            $this->setImportance($importance);
-        }
+        $this->importance = $importance;
     }
 
     /**

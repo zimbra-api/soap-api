@@ -99,7 +99,7 @@ class MimePartInfo
     #[SerializedName('attach')]
     #[Type(AttachmentsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $attachments;
+    private ?AttachmentsInfo $attachments;
 
     /**
      * Constructor
@@ -120,6 +120,7 @@ class MimePartInfo
     )
     {
         $this->setMimeParts($mimeParts);
+        $this->attachments = $attachments;
         if (NULL !== $contentType) {
             $this->setContentType($contentType);
         }
@@ -128,9 +129,6 @@ class MimePartInfo
         }
         if (NULL !== $contentId) {
             $this->setContentId($contentId);
-        }
-        if ($attachments instanceof AttachmentsInfo) {
-            $this->setAttachments($attachments);
         }
     }
 

@@ -133,7 +133,7 @@ class AlarmDataInfo
     #[SerializedName('alarm')]
     #[Type(AlarmInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $alarm;
+    private ?AlarmInfo $alarm;
 
     /**
      * Constructor
@@ -157,6 +157,7 @@ class AlarmDataInfo
         ?AlarmInfo $alarm = NULL
     )
     {
+        $this->alarm = $alarm;
         if (NULL !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
@@ -174,9 +175,6 @@ class AlarmDataInfo
         }
         if (NULL !== $location) {
             $this->setLocation($location);
-        }
-        if ($alarm instanceof AlarmInfo) {
-            $this->setAlarm($alarm);
         }
     }
 

@@ -40,7 +40,7 @@ class RankingActionSpec
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\RankingActionOp>')]
     #[XmlAttribute]
-    private $operation;
+    private RankingActionOp $operation;
 
     /**
      * Email

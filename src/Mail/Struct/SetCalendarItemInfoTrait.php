@@ -42,7 +42,7 @@ trait SetCalendarItemInfoTrait
     #[SerializedName('ptst')]
     #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
-    private $partStat;
+    private ?ParticipationStatus $partStat;
 
     /**
      * Message
@@ -58,7 +58,7 @@ trait SetCalendarItemInfoTrait
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Msg $msg;
 
     /**
      * Constructor
@@ -71,12 +71,8 @@ trait SetCalendarItemInfoTrait
         ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
     )
     {
-        if ($partStat instanceof ParticipationStatus) {
-            $this->setPartStat($partStat);
-        }
-        if ($msg instanceof Msg) {
-            $this->setMsg($msg);
-        }
+        $this->partStat = $partStat;
+        $this->msg = $msg;
     }
 
     /**

@@ -38,7 +38,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $organizer;
+    private ?CalOrganizer $organizer;
 
     /**
      * Categories
@@ -68,7 +68,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $geo;
+    private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -114,7 +114,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     #[SerializedName('alarmData')]
     #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $alarmData;
+    private ?AlarmDataInfo $alarmData;
 
     /**
      * Constructor
@@ -248,17 +248,11 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
         );
         $this->setCategories($categories)
              ->setInstances($instances);
-        if ($organizer instanceof CalOrganizer) {
-            $this->setOrganizer($organizer);
-        }
-        if ($geo instanceof GeoInfo) {
-            $this->setGeo($geo);
-        }
+        $this->organizer = $organizer;
+        $this->geo = $geo;
+        $this->alarmData = $alarmData;
         if (NULL !== $fragment) {
             $this->setFragment($fragment);
-        }
-        if ($alarmData instanceof AlarmDataInfo) {
-            $this->setAlarmData($alarmData);
         }
     }
 

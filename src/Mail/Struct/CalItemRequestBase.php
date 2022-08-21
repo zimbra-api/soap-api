@@ -122,7 +122,7 @@ abstract class CalItemRequestBase extends SoapRequest
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Msg $msg;
 
     /**
      * Constructor
@@ -144,9 +144,7 @@ abstract class CalItemRequestBase extends SoapRequest
         ?bool $forceSend = NULL
     )
     {
-        if ($msg instanceof Msg) {
-            $this->setMsg($msg);
-        }
+        $this->msg = $msg;
         if (NULL !== $echo) {
             $this->setEcho($echo);
         }

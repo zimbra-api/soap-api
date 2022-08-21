@@ -134,7 +134,7 @@ class InviteAsMP extends MessageCommon
     #[SerializedName('inv')]
     #[Type(MPInviteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $invite;
+    private ?MPInviteInfo $invite;
 
     /**
      * Headers
@@ -221,6 +221,7 @@ class InviteAsMP extends MessageCommon
         $this->setEmails($emails)
              ->setHeaders($headers)
              ->setContentElems($contentElems);
+        $this->invite = $invite;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -235,9 +236,6 @@ class InviteAsMP extends MessageCommon
         }
         if (NULL !== $messageIdHeader) {
             $this->setMessageIdHeader($messageIdHeader);
-        }
-        if ($invite instanceof MPInviteInfo) {
-            $this->setInvite($invite);
         }
     }
 

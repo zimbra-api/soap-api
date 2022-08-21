@@ -48,7 +48,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[SerializedName('action')]
     #[Type('Enum<Zimbra\Common\Enum\AlarmAction>')]
     #[XmlAttribute]
-    private $action;
+    private AlarmAction $action;
 
     /**
      * Alarm trigger information
@@ -64,7 +64,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[SerializedName('trigger')]
     #[Type(AlarmTriggerInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $trigger;
+    private ?AlarmTriggerInfoInterface $trigger;
 
     /**
      * Alarm repeat information
@@ -80,7 +80,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[SerializedName('repeat')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $repeat;
+    private ?DurationInfoInterface $repeat;
 
     /**
      * Alarm description
@@ -115,7 +115,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[SerializedName('attach')]
     #[Type(CalendarAttach::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $attach;
+    private ?CalendarAttachInterface $attach;
 
     /**
      * Alarm summary
@@ -188,17 +188,11 @@ class AlarmInfo implements AlarmInfoInterface
         $this->setAction($action ?? new AlarmAction('DISPLAY'))
              ->setAttendees($attendees)
              ->setXProps($xProps);
-        if ($trigger instanceof AlarmTriggerInfo) {
-            $this->setTrigger($trigger);
-        }
-        if ($repeat instanceof DurationInfo) {
-            $this->setRepeat($repeat);
-        }
+        $this->trigger = $trigger;
+        $this->repeat = $repeat;
+        $this->attach = $attach;
         if (NULL !== $description) {
             $this->setDescription($description);
-        }
-        if ($attach instanceof CalendarAttach) {
-            $this->setAttach($attach);
         }
         if (NULL !== $summary) {
             $this->setSummary($summary);

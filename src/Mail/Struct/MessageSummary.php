@@ -111,7 +111,7 @@ class MessageSummary extends MessageCommon
     #[SerializedName('inv')]
     #[Type(InviteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $invite;
+    private ?InviteInfo $invite;
 
     /**
      * Constructor
@@ -135,6 +135,7 @@ class MessageSummary extends MessageCommon
     {
         $this->setId($id)
              ->setEmails($emails);
+        $this->invite = $invite;
         if (NULL !== $autoSendTime) {
             $this->setAutoSendTime($autoSendTime);
         }
@@ -143,9 +144,6 @@ class MessageSummary extends MessageCommon
         }
         if (NULL !== $fragment) {
             $this->setFragment($fragment);
-        }
-        if ($invite instanceof InviteInfo) {
-            $this->setInvite($invite);
         }
     }
 

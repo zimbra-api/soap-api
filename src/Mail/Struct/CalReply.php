@@ -74,7 +74,7 @@ class CalReply extends RecurIdInfo
     #[SerializedName('ptst')]
     #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
-    private $partStat;
+    private ?ParticipationStatus $partStat;
 
     /**
      * Sequence
@@ -132,11 +132,9 @@ class CalReply extends RecurIdInfo
         $this->setSequence($sequence)
              ->setDate($date)
              ->setAttendee($attendee);
+        $this->partStat = $partStat;
         if (NULL != $sentBy) {
             $this->setSentBy($sentBy);
-        }
-        if ($partStat instanceof ParticipationStatus) {
-            $this->setPartStat($partStat);
         }
     }
 

@@ -185,7 +185,7 @@ class DocumentSpec
     #[SerializedName('upload')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $upload;
+    private ?Id $upload;
 
     /**
      * Message part specification
@@ -201,7 +201,7 @@ class DocumentSpec
     #[SerializedName('m')]
     #[Type(MessagePartSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $messagePart;
+    private ?MessagePartSpec $messagePart;
 
     /**
      * Information on document version to restore to
@@ -217,7 +217,7 @@ class DocumentSpec
     #[SerializedName('doc')]
     #[Type(IdVersion::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $docRevision;
+    private ?IdVersion $docRevision;
 
     /**
      * Constructor
@@ -251,6 +251,9 @@ class DocumentSpec
         ?IdVersion $docRevision = NULL
     )
     {
+        $this->upload = $upload;
+        $this->messagePart = $messagePart;
+        $this->docRevision = $docRevision;
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -277,15 +280,6 @@ class DocumentSpec
         }
         if (NULL !== $flags) {
             $this->setFlags($flags);
-        }
-        if ($upload instanceof Id) {
-            $this->setUpload($upload);
-        }
-        if ($messagePart instanceof MessagePartSpec) {
-            $this->setMessagePart($messagePart);
-        }
-        if ($docRevision instanceof IdVersion) {
-            $this->setDocRevision($docRevision);
         }
     }
 

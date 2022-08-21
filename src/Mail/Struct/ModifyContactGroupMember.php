@@ -39,7 +39,7 @@ class ModifyContactGroupMember extends NewContactGroupMember
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>')]
     #[XmlAttribute]
-    private $operation;
+    private ?ModifyGroupMemberOperation $operation;
 
     /**
      * Constructor
@@ -56,9 +56,7 @@ class ModifyContactGroupMember extends NewContactGroupMember
     )
     {
         parent::__construct($type, $value);
-        if ($operation instanceof ModifyGroupMemberOperation) {
-            $this->setOperation($operation);
-        }
+        $this->operation = $operation;
     }
 
     /**

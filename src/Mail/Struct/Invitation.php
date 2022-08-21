@@ -131,7 +131,7 @@ class Invitation
     #[SerializedName('comp')]
     #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $inviteComponent;
+    private ?InviteComponent $inviteComponent;
 
     /**
      * Mime parts
@@ -211,11 +211,9 @@ class Invitation
              ->setSequence($sequence)
              ->setId($id)
              ->setComponentNum($componentNum);
+        $this->inviteComponent = $inviteComponent;
         if (NULL !== $recurrenceId) {
             $this->setRecurrenceId($recurrenceId);
-        }
-        if ($inviteComponent instanceof InviteComponent) {
-            $this->setInviteComponent($inviteComponent);
         }
     }
 

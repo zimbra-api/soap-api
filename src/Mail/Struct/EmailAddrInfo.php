@@ -56,7 +56,7 @@ class EmailAddrInfo
     #[SerializedName('t')]
     #[Type('Enum<Zimbra\Common\Enum\AddressType>')]
     #[XmlAttribute]
-    private $addressType;
+    private ?AddressType $addressType;
 
     /**
      * The comment/name part of an address
@@ -87,9 +87,7 @@ class EmailAddrInfo
     )
     {
         $this->setAddress($address);
-        if ($addressType instanceof AddressType) {
-            $this->setAddressType($addressType);
-        }
+        $this->addressType = $addressType;
         if (NULL !== $personal) {
             $this->setPersonal($personal);
         }

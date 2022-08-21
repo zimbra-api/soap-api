@@ -212,7 +212,7 @@ class TagInfo
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy;
 
     /**
      * Constructor
@@ -248,6 +248,7 @@ class TagInfo
     {
         $this->setId($id)
              ->setMetadatas($metadatas);
+        $this->retentionPolicy = $retentionPolicy;
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -274,9 +275,6 @@ class TagInfo
         }
         if (NULL !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
-        }
-        if ($retentionPolicy instanceof RetentionPolicy) {
-            $this->setRetentionPolicy($retentionPolicy);
         }
     }
 

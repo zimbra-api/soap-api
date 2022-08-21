@@ -38,7 +38,7 @@ class LogAction extends FilterAction
     #[SerializedName('level')]
     #[Type('Enum<Zimbra\Common\Enum\LoggingLevel>')]
     #[XmlAttribute]
-    private $level;
+    private ?LoggingLevel $level;
 
     /**
      * message text
@@ -67,9 +67,7 @@ class LogAction extends FilterAction
     )
     {
     	parent::__construct($index);
-        if ($level instanceof LoggingLevel) {
-            $this->setLevel($level);
-        }
+        $this->level = $level;
         if (NULL !== $content) {
             $this->setContent($content);
         }

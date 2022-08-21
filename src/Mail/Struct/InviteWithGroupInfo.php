@@ -39,7 +39,7 @@ class InviteWithGroupInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\InviteType>')]
     #[XmlAttribute]
-    private $calItemType;
+    private InviteType $calItemType;
 
     /**
      * Timezones

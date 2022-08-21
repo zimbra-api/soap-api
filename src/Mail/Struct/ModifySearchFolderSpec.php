@@ -87,7 +87,7 @@ class ModifySearchFolderSpec
     #[SerializedName('sortBy')]
     #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
-    private $sortBy;
+    private ?SearchSortBy $sortBy;
 
     /**
      * Constructor
@@ -107,11 +107,9 @@ class ModifySearchFolderSpec
     {
         $this->setId($id)
              ->setQuery($query);
+        $this->sortBy = $sortBy;
         if (NULL !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
-        }
-        if ($sortBy instanceof SearchSortBy) {
-            $this->setSortBy($sortBy);
         }
     }
 

@@ -154,7 +154,7 @@ class MailDataSource implements DataSource
     #[SerializedName('connectionType')]
     #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
-    private $connectionType;
+    private ?ConnectionType $connectionType;
 
     /**
      * Login string on data-source-server, for example a user name
@@ -282,7 +282,7 @@ class MailDataSource implements DataSource
     #[SerializedName('smtpConnectionType')]
     #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
-    private $smtpConnectionType;
+    private ?ConnectionType $smtpConnectionType;
 
     /**
      * Whether SMTP server associated with this data source requires authentication.
@@ -594,6 +594,8 @@ class MailDataSource implements DataSource
         array $attributes = []
     )
     {
+        $this->connectionType = $connectionType;
+        $this->smtpConnectionType = $smtpConnectionType;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -615,9 +617,6 @@ class MailDataSource implements DataSource
         if (NULL !== $port) {
             $this->setPort($port);
         }
-        if ($connectionType instanceof ConnectionType) {
-            $this->setConnectionType($connectionType);
-        }
         if (NULL !== $username) {
             $this->setUsername($username);
         }
@@ -638,9 +637,6 @@ class MailDataSource implements DataSource
         }
         if (NULL !== $smtpPort) {
             $this->setSmtpPort($smtpPort);
-        }
-        if ($smtpConnectionType instanceof ConnectionType) {
-            $this->setSmtpConnectionType($smtpConnectionType);
         }
         if (NULL !== $smtpAuthRequired) {
             $this->setSmtpAuthRequired($smtpAuthRequired);

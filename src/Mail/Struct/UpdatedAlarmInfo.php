@@ -53,7 +53,7 @@ class UpdatedAlarmInfo
     #[SerializedName('alarmData')]
     #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $alarmData;
+    private ?AlarmDataInfo $alarmData;
 
     /**
      * Constructor
@@ -68,9 +68,7 @@ class UpdatedAlarmInfo
     )
     {
         $this->setCalItemId($calItemId);
-        if ($alarmData instanceof AlarmDataInfo) {
-            $this->setAlarmData($alarmData);
-        }
+        $this->alarmData = $alarmData;
     }
 
     /**

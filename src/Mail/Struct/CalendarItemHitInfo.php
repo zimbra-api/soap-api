@@ -102,7 +102,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $organizer;
+    private ?CalOrganizer $organizer;
 
     /**
      * Categories
@@ -132,7 +132,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $geo;
+    private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -178,7 +178,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     #[SerializedName('alarmData')]
     #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $alarmData;
+    private ?AlarmDataInfo $alarmData;
 
     /**
      * Invites
@@ -246,6 +246,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
         array $replies = []
     )
     {
+        parent::__construct();
         $this->setCategories($categories)
              ->setInstances($instances)
              ->setInvites($invites)
@@ -265,17 +266,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
         if (NULL !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
-        if ($organizer instanceof CalOrganizer) {
-            $this->setOrganizer($organizer);
-        }
-        if ($geo instanceof GeoInfo) {
-            $this->setGeo($geo);
-        }
+        $this->organizer = $organizer;
+        $this->geo = $geo;
+        $this->alarmData = $alarmData;
         if (NULL !== $fragment) {
             $this->setFragment($fragment);
-        }
-        if ($alarmData instanceof AlarmDataInfo) {
-            $this->setAlarmData($alarmData);
         }
     }
 

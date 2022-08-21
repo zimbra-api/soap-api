@@ -104,7 +104,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName('rt')]
     #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
-    private $draftReplyType;
+    private ?ReplyType $draftReplyType;
 
     /**
      * If set, this specifies the identity being used to compose the message
@@ -295,7 +295,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName('inv')]
     #[Type(InviteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $invite;
+    private ?InviteInfoInterface $invite;
 
     /**
      * Headers
@@ -444,6 +444,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
         	 ->setPartInfos($partInfos)
         	 ->setShareNotifications($shareNotifications)
         	 ->setDlSubs($dlSubs);
+        $this->draftReplyType = $draftReplyType;
+        $this->invite = $invite;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -455,9 +457,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
         }
         if (NULL !== $origId) {
             $this->setOrigId($origId);
-        }
-        if (NULL !== $draftReplyType) {
-            $this->setDraftReplyType($draftReplyType);
         }
         if (NULL !== $identityId) {
             $this->setIdentityId($identityId);
@@ -488,9 +487,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
         }
         if (NULL !== $inReplyTo) {
             $this->setInReplyTo($inReplyTo);
-        }
-        if ($invite instanceof InviteInfo) {
-            $this->setInvite($invite);
         }
     }
 

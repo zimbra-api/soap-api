@@ -151,7 +151,7 @@ class NestedSearchConversation
     #[SerializedName('info')]
     #[Type(SearchQueryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $queryInfo;
+    private ?SearchQueryInfo $queryInfo;
 
     /**
      * Constructor
@@ -178,6 +178,7 @@ class NestedSearchConversation
     )
     {
         $this->setMessages($messages);
+        $this->queryInfo = $queryInfo;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -195,9 +196,6 @@ class NestedSearchConversation
         }
         if (NULL !== $tagNames) {
             $this->setTagNames($tagNames);
-        }
-        if ($queryInfo instanceof SearchQueryInfo) {
-            $this->setQueryInfo($queryInfo);
         }
     }
 

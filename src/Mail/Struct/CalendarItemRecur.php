@@ -43,7 +43,7 @@ class CalendarItemRecur
     #[SerializedName('exceptId')]
     #[Type(ExceptionRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $exceptionId;
+    private ?ExceptionRecurIdInfoInterface $exceptionId;
 
     /**
      * Start time
@@ -59,7 +59,7 @@ class CalendarItemRecur
     #[SerializedName('s')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $dtStart;
+    private ?DtTimeInfoInterface $dtStart;
 
     /**
      * End time
@@ -75,7 +75,7 @@ class CalendarItemRecur
     #[SerializedName('e')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $dtEnd;
+    private ?DtTimeInfoInterface $dtEnd;
 
     /**
      * Duration information
@@ -91,7 +91,7 @@ class CalendarItemRecur
     #[SerializedName('dur')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $duration;
+    private ?DurationInfoInterface $duration;
 
     /**
      * Recurrence information
@@ -107,41 +107,31 @@ class CalendarItemRecur
     #[SerializedName('recur')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $recurrence;
+    private ?RecurrenceInfoInterface $recurrence;
 
     /**
      * Constructor
      *
-     * @param ExceptionRecurIdInfoInterface $exceptionId
-     * @param DtTimeInfoInterface $dtStart
-     * @param DtTimeInfoInterface $dtEnd
-     * @param DurationInfoInterface $duration
-     * @param RecurrenceInfoInterface $recurrence
+     * @param ExceptionRecurIdInfo $exceptionId
+     * @param DtTimeInfo $dtStart
+     * @param DtTimeInfo $dtEnd
+     * @param DurationInfo $duration
+     * @param RecurrenceInfo $recurrence
      * @return self
      */
     public function __construct(
-        ?ExceptionRecurIdInfoInterface $exceptionId = NULL,
-        ?DtTimeInfoInterface $dtStart = NULL,
-        ?DtTimeInfoInterface $dtEnd = NULL,
-        ?DurationInfoInterface $duration = NULL,
-        ?RecurrenceInfoInterface $recurrence = NULL
+        ?ExceptionRecurIdInfo $exceptionId = NULL,
+        ?DtTimeInfo $dtStart = NULL,
+        ?DtTimeInfo $dtEnd = NULL,
+        ?DurationInfo $duration = NULL,
+        ?RecurrenceInfo $recurrence = NULL
     )
     {
-        if ($exceptionId instanceof ExceptionRecurIdInfoInterface) {
-            $this->setExceptionId($exceptionId);
-        }
-        if ($dtStart instanceof DtTimeInfoInterface) {
-            $this->setDtStart($dtStart);
-        }
-        if ($dtEnd instanceof DtTimeInfoInterface) {
-            $this->setDtEnd($dtEnd);
-        }
-        if ($duration instanceof DurationInfoInterface) {
-            $this->setDuration($duration);
-        }
-        if ($recurrence instanceof RecurrenceInfoInterface) {
-            $this->setRecurrence($recurrence);
-        }
+        $this->exceptionId = $exceptionId;
+        $this->dtStart = $dtStart;
+        $this->dtEnd = $dtEnd;
+        $this->duration = $duration;
+        $this->recurrence = $recurrence;
     }
 
     /**

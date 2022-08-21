@@ -41,7 +41,7 @@ class BulkAction
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\BulkOperation>')]
     #[XmlAttribute]
-    private $op;
+    private BulkOperation $op;
 
     /**
      * Folder

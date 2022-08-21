@@ -106,7 +106,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName('rt')]
     #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
-    private $draftReplyType;
+    private ?ReplyType $draftReplyType;
 
     /**
      * If set, this specifies the identity being used to compose the message
@@ -296,7 +296,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName('inv')]
     #[Type(InviteWithGroupInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $invite;
+    private ?InviteWithGroupInfo $invite;
 
     /**
      * Headers
@@ -326,7 +326,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName('mp')]
     #[Type(MimePartInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $mimePart;
+    private ?MimePartInfo $mimePart;
 
     /**
      * Share Notification information
@@ -342,7 +342,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName('shr')]
     #[Type(ShareNotification::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $shr;
+    private ?ShareNotification $shr;
 
     /**
      * DL Subscription Notification information
@@ -358,7 +358,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName('dlSubs')]
     #[Type(DLSubscriptionNotification::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $dlSubs;
+    private ?DLSubscriptionNotification $dlSubs;
 
     /**
      * Content
@@ -374,7 +374,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName('content')]
     #[Type(UrlAndValue::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $content;
+    private ?UrlAndValue $content;
 
     /**
      * Constructor
@@ -430,6 +430,12 @@ class MsgWithGroupInfo extends MessageCommon
     {
         $this->setHeaders($headers)
              ->setEmails($emails);
+        $this->draftReplyType = $draftReplyType;
+        $this->invite = $invite;
+        $this->mimePart = $mimePart;
+        $this->shr = $shr;
+        $this->dlSubs = $dlSubs;
+        $this->content = $content;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -441,9 +447,6 @@ class MsgWithGroupInfo extends MessageCommon
         }
         if (NULL !== $origId) {
             $this->setOrigId($origId);
-        }
-        if ($draftReplyType instanceof ReplyType) {
-            $this->setDraftReplyType($draftReplyType);
         }
         if (NULL !== $identityId) {
             $this->setIdentityId($identityId);
@@ -474,21 +477,6 @@ class MsgWithGroupInfo extends MessageCommon
         }
         if (NULL !== $inReplyTo) {
             $this->setInReplyTo($inReplyTo);
-        }
-        if ($invite instanceof InviteWithGroupInfo) {
-            $this->setInvite($invite);
-        }
-        if ($mimePart instanceof MimePartInfo) {
-            $this->setMimePart($mimePart);
-        }
-        if ($shr instanceof ShareNotification) {
-            $this->setShareNotification($shr);
-        }
-        if ($dlSubs instanceof DLSubscriptionNotification) {
-            $this->setDLSubscription($dlSubs);
-        }
-        if ($content instanceof UrlAndValue) {
-            $this->setContent($content);
         }
     }
 

@@ -37,7 +37,7 @@ class NestedRule
     #[SerializedName('filterVariables')]
     #[Type(FilterVariables::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $filterVariables;
+    private ?FilterVariables $filterVariables;
 
     /**
      * Filter tests
@@ -53,7 +53,7 @@ class NestedRule
     #[SerializedName('filterTests')]
     #[Type(FilterTests::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $tests;
+    private ?FilterTests $tests;
 
     /**
      * Filter actions
@@ -85,7 +85,7 @@ class NestedRule
     #[SerializedName('nestedRule')]
     #[Type(NestedRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $child;
+    private ?NestedRule $child;
 
     /**
      * Constructor
@@ -97,20 +97,16 @@ class NestedRule
      * @return self
      */
     public function __construct(
-        FilterTests $tests,
+        ?FilterTests $tests = NULL,
         ?FilterVariables $filterVariables = NULL,
         array $actions = [],
         ?NestedRule $child = NULL
     )
     {
-        $this->setFilterTests($tests)
-             ->setFilterActions($actions);
-        if ($filterVariables instanceof FilterVariables) {
-            $this->setFilterVariables($filterVariables);
-        }
-        if ($child instanceof NestedRule) {
-            $this->setChild($child);
-        }
+        $this->setFilterActions($actions);
+        $this->tests = $tests;
+        $this->filterVariables = $filterVariables;
+        $this->child = $child;
     }
 
     /**

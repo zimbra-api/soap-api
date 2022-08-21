@@ -56,7 +56,7 @@ class NewFolderSpec
     #[SerializedName('view')]
     #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
-    private $defaultView;
+    private ?ViewType $defaultView;
 
     /**
      * Flags
@@ -219,9 +219,7 @@ class NewFolderSpec
         $this->setName($name)
              ->setParentFolderId($parentFolderId)
              ->setGrants($grants);
-        if ($defaultView instanceof ViewType) {
-            $this->setDefaultView($defaultView);
-        }
+        $this->defaultView = $defaultView;
         if (NULL !== $flags) {
             $this->setFlags($flags);
         }

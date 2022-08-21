@@ -172,7 +172,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName('ptst')]
     #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
-    private $partStat;
+    private ?PartStat $partStat;
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
@@ -272,6 +272,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     )
     {
         $this->setXParams($xParams);
+        $this->partStat = $partStat;
         if (NULL !== $attendeeEmail) {
             $this->setAddress($attendeeEmail);
         }
@@ -280,9 +281,6 @@ class CalendarAttendee implements CalendarAttendeeInterface
         }
         if (NULL !== $role) {
             $this->setRole($role);
-        }
-        if ($partStat instanceof PartStat) {
-            $this->setPartStat($partStat);
         }
         if (NULL !== $rsvp) {
             $this->setRsvp($rsvp);

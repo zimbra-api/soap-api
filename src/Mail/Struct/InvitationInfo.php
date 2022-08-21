@@ -86,7 +86,7 @@ class InvitationInfo extends InviteComponent
     #[SerializedName('content')]
     #[Type(RawInvite::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $content;
+    private ?RawInvite $content;
 
     /**
      * Invite component
@@ -102,7 +102,7 @@ class InvitationInfo extends InviteComponent
     #[SerializedName('comp')]
     #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $inviteComponent;
+    private ?InviteComponent $inviteComponent;
 
     /**
      * Timezones
@@ -146,7 +146,7 @@ class InvitationInfo extends InviteComponent
     #[SerializedName('attach')]
     #[Type(AttachmentsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $attachments;
+    private ?AttachmentsInfo $attachments;
 
     /**
      * Constructor
@@ -154,15 +154,24 @@ class InvitationInfo extends InviteComponent
      * @param string $method
      * @param int $componentNum
      * @param bool $rsvp
+     * @param RawInvite $content
+     * @param InviteComponent $inviteComponent
+     * @param AttachmentsInfo $attachments
      * @return self
      */
     public function __construct(
         ?string $method = NULL,
         ?int $componentNum = NULL,
-        ?bool $rsvp = NULL
+        ?bool $rsvp = NULL,
+        ?RawInvite $content = NULL,
+        ?InviteComponent $inviteComponent = NULL,
+        ?AttachmentsInfo $attachments = NULL
     )
     {
         parent::__construct($method, $componentNum, $rsvp);
+        $this->content = $content;
+        $this->inviteComponent = $inviteComponent;
+        $this->attachments = $attachments;
     }
 
     /**

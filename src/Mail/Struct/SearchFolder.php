@@ -54,7 +54,7 @@ class SearchFolder extends Folder
     #[SerializedName('sortBy')]
     #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
-    private $sortBy;
+    private ?SearchSortBy $sortBy;
 
     /**
      * Comma-separated list.  Legal values in list are:
@@ -92,11 +92,9 @@ class SearchFolder extends Folder
     )
     {
     	parent::__construct($id, $uuid);
+        $this->sortBy = $sortBy;
         if (NULL !== $query) {
             $this->setQuery($query);
-        }
-        if ($sortBy instanceof SearchSortBy) {
-            $this->setSortBy($sortBy);
         }
         if (NULL !== $types) {
             $this->setTypes($types);

@@ -107,7 +107,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName('gt')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
-    private $grantType;
+    private ?GranteeType $grantType;
 
     /**
      * User with op=update to change folder's default view (usefor for migration)
@@ -139,7 +139,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName('grant')]
     #[Type(ActionGrantSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $grant;
+    private ?ActionGrantSelector $grant;
 
     /**
      * List of grants used with op=grant and op=!grant
@@ -173,7 +173,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy;
 
     /**
      * Number of days for which web client would sync folder data for offline use
@@ -225,6 +225,9 @@ class FolderActionSelector extends ActionSelector
     {
         parent::__construct($operation, $ids);
         $this->setGrants($grants);
+        $this->grantType = $grantType;
+        $this->grant = $grant;
+        $this->retentionPolicy = $retentionPolicy;
         if (NULL !== $recursive) {
             $this->setRecursive($recursive);
         }
@@ -237,17 +240,8 @@ class FolderActionSelector extends ActionSelector
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if ($grantType instanceof GranteeType) {
-            $this->setGrantType($grantType);
-        }
         if (NULL !== $view) {
             $this->setView($view);
-        }
-        if ($grant instanceof ActionGrantSelector) {
-            $this->setGrant($grant);
-        }
-        if ($retentionPolicy instanceof RetentionPolicy) {
-            $this->setRetentionPolicy($retentionPolicy);
         }
         if (NULL !== $numDays) {
             $this->setNumDays($numDays);

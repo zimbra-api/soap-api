@@ -102,7 +102,7 @@ class ContactSpec implements SpecifyContact
     #[SerializedName('vcard')]
     #[Type(VCardInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $vcard;
+    private ?VCardInfo $vcard;
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
@@ -157,6 +157,7 @@ class ContactSpec implements SpecifyContact
     {
         $this->setAttrs($attrs)
              ->setContactGroupMembers($contactGroupMembers);
+        $this->vcard = $vcard;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -168,9 +169,6 @@ class ContactSpec implements SpecifyContact
         }
         if (NULL !== $tagNames) {
             $this->setTagNames($tagNames);
-        }
-        if ($vcard instanceof VCardInfo) {
-            $this->setVcard($vcard);
         }
     }
 

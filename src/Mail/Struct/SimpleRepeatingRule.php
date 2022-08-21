@@ -56,7 +56,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('freq')]
     #[Type('Enum<Zimbra\Common\Enum\Frequency>')]
     #[XmlAttribute]
-    private $frequency;
+    private Frequency $frequency;
 
     /**
      * UNTIL date specification
@@ -72,7 +72,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('until')]
     #[Type(DateTimeStringAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $until;
+    private ?DateTimeStringAttrInterface $until;
 
     /**
      * Count of instances to generate
@@ -88,7 +88,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('count')]
     #[Type(NumAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $count;
+    private ?NumAttrInterface $count;
 
     /**
      * Interval specification
@@ -104,7 +104,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('interval')]
     #[Type(IntervalRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $interval;
+    private ?IntervalRuleInterface $interval;
 
     /**
      * BYSECOND rule
@@ -120,7 +120,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('bysecond')]
     #[Type(BySecondRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $bySecond;
+    private ?BySecondRuleInterface $bySecond;
 
     /**
      * BYMINUTE rule
@@ -136,7 +136,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('byminute')]
     #[Type(ByMinuteRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byMinute;
+    private ?ByMinuteRuleInterface $byMinute;
 
     /**
      * BYHOUR rule
@@ -152,7 +152,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('byhour')]
     #[Type(ByHourRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byHour;
+    private ?ByHourRuleInterface $byHour;
 
     /**
      * BYDAY rule
@@ -168,7 +168,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('byday')]
     #[Type(ByDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byDay;
+    private ?ByDayRuleInterface $byDay;
 
     /**
      * BYMONTHDAY rule
@@ -184,7 +184,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('bymonthday')]
     #[Type(ByMonthDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byMonthDay;
+    private ?ByMonthDayRuleInterface $byMonthDay;
 
     /**
      * BYYEARDAY rule
@@ -200,7 +200,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('byyearday')]
     #[Type(ByYearDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byYearDay;
+    private ?ByYearDayRuleInterface $byYearDay;
 
     /**
      * BYWEEKNO rule
@@ -216,7 +216,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('byweekno')]
     #[Type(ByWeekNoRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byWeekNo;
+    private ?ByWeekNoRuleInterface $byWeekNo;
 
     /**
      * BYMONTH rule
@@ -232,7 +232,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('bymonth')]
     #[Type(ByMonthRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $byMonth;
+    private ?ByMonthRuleInterface $byMonth;
 
     /**
      * BYSETPOS rule
@@ -248,7 +248,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('bysetpos')]
     #[Type(BySetPosRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $bySetPos;
+    private ?BySetPosRuleInterface $bySetPos;
 
     /**
      * Week start day - SU,MO,TU,WE,TH,FR,SA
@@ -264,7 +264,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[SerializedName('wkst')]
     #[Type(WkstRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $weekStart;
+    private ?WkstRuleInterface $weekStart;
 
     /**
      * X Name rules
@@ -320,45 +320,19 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     {
         $this->setFrequency($frequency ?? new Frequency('SEC'))
              ->setXNames($xNames);
-        if ($until instanceof DateTimeStringAttrInterface) {
-            $this->setUntil($until);
-        }
-        if ($count instanceof NumAttrInterface) {
-            $this->setCount($count);
-        }
-        if ($interval instanceof IntervalRuleInterface) {
-            $this->setInterval($interval);
-        }
-        if ($bySecond instanceof BySecondRuleInterface) {
-            $this->setBySecond($bySecond);
-        }
-        if ($byMinute instanceof ByMinuteRuleInterface) {
-            $this->setByMinute($byMinute);
-        }
-        if ($byHour instanceof ByHourRuleInterface) {
-            $this->setByHour($byHour);
-        }
-        if ($byDay instanceof ByDayRuleInterface) {
-            $this->setByDay($byDay);
-        }
-        if ($byMonthDay instanceof ByMonthDayRuleInterface) {
-            $this->setByMonthDay($byMonthDay);
-        }
-        if ($byYearDay instanceof ByYearDayRuleInterface) {
-            $this->setByYearDay($byYearDay);
-        }
-        if ($byWeekNo instanceof ByWeekNoRuleInterface) {
-            $this->setByWeekNo($byWeekNo);
-        }
-        if ($byMonth instanceof ByMonthRuleInterface) {
-            $this->setByMonth($byMonth);
-        }
-        if ($bySetPos instanceof BySetPosRuleInterface) {
-            $this->setBySetPos($bySetPos);
-        }
-        if ($weekStart instanceof WkstRuleInterface) {
-            $this->setWeekStart($weekStart);
-        }
+        $this->until = $until;
+        $this->count = $count;
+        $this->interval = $interval;
+        $this->bySecond = $bySecond;
+        $this->byMinute = $byMinute;
+        $this->byHour = $byHour;
+        $this->byDay = $byDay;
+        $this->byMonthDay = $byMonthDay;
+        $this->byYearDay = $byYearDay;
+        $this->byWeekNo = $byWeekNo;
+        $this->byMonth = $byMonth;
+        $this->bySetPos = $bySetPos;
+        $this->weekStart = $weekStart;
     }
 
     /**

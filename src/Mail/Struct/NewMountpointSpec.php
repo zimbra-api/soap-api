@@ -56,7 +56,7 @@ class NewMountpointSpec
     #[SerializedName('view')]
     #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
-    private $defaultView;
+    private ?ViewType $defaultView;
 
     /**
      * Flags
@@ -270,9 +270,7 @@ class NewMountpointSpec
     {
         $this->setName($name)
              ->setFolderId($folderId);
-        if ($defaultView instanceof ViewType) {
-            $this->setDefaultView($defaultView);
-        }
+        $this->defaultView = $defaultView;
         if (NULL !== $flags) {
             $this->setFlags($flags);
         }

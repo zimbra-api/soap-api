@@ -37,7 +37,7 @@ class CreateItemNotification
     #[SerializedName('m')]
     #[Type(ImapMessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msgInfo;
+    private ImapMessageInfo $msgInfo;
 
     /**
      * Constructor

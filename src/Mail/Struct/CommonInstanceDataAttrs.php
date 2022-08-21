@@ -48,7 +48,7 @@ class CommonInstanceDataAttrs
     #[SerializedName('ptst')]
     #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
-    private $partStat;
+    private ?ParticipationStatus $partStat;
 
     /**
      * Recurrence-id string in UTC timezone
@@ -104,7 +104,7 @@ class CommonInstanceDataAttrs
     #[SerializedName('fba')]
     #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
-    private $freeBusyActual;
+    private ?FreeBusyStatus $freeBusyActual;
 
     /**
      * Percent complete - only for tasks
@@ -184,7 +184,7 @@ class CommonInstanceDataAttrs
     #[SerializedName('fb')]
     #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
-    private $freeBusyIntended;
+    private ?FreeBusyStatus $freeBusyIntended;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
@@ -200,7 +200,7 @@ class CommonInstanceDataAttrs
     #[SerializedName('transp')]
     #[Type('Enum<Zimbra\Common\Enum\Transparency>')]
     #[XmlAttribute]
-    private $transparency;
+    private ?Transparency $transparency;
 
     /**
      * Name
@@ -330,7 +330,7 @@ class CommonInstanceDataAttrs
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\InviteStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ?InviteStatus $status;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
@@ -346,7 +346,7 @@ class CommonInstanceDataAttrs
     #[SerializedName('class')]
     #[Type('Enum<Zimbra\Common\Enum\InviteClass>')]
     #[XmlAttribute]
-    private $calClass;
+    private ?InviteClass $calClass;
 
     /**
      * If set, this is an "all day" appointment
@@ -485,17 +485,17 @@ class CommonInstanceDataAttrs
         ?int $taskTzOffsetDue = NULL
     )
     {
-        if ($partStat instanceof ParticipationStatus) {
-            $this->setPartStat($partStat);
-        }
+        $this->partStat = $partStat;
+        $this->freeBusyActual = $freeBusyActual;
+        $this->freeBusyIntended = $freeBusyIntended;
+        $this->transparency = $transparency;
+        $this->status = $status;
+        $this->calClass = $calClass;
         if (NULL !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
         if (NULL !== $tzOffset) {
             $this->setTzOffset($tzOffset);
-        }
-        if ($freeBusyActual instanceof FreeBusyStatus) {
-            $this->setFreeBusyActual($freeBusyActual);
         }
         if (NULL !== $taskPercentComplete) {
             $this->setTaskPercentComplete($taskPercentComplete);
@@ -508,12 +508,6 @@ class CommonInstanceDataAttrs
         }
         if (NULL !== $priority) {
             $this->setPriority($priority);
-        }
-        if ($freeBusyIntended instanceof FreeBusyStatus) {
-            $this->setFreeBusyIntended($freeBusyIntended);
-        }
-        if ($transparency instanceof Transparency) {
-            $this->setTransparency($transparency);
         }
         if (NULL !== $name) {
             $this->setName($name);
@@ -535,12 +529,6 @@ class CommonInstanceDataAttrs
         }
         if (NULL !== $componentNum) {
             $this->setComponentNum($componentNum);
-        }
-        if ($status instanceof InviteStatus) {
-            $this->setStatus($status);
-        }
-        if ($calClass instanceof InviteClass) {
-            $this->setCalClass($calClass);
         }
         if (NULL !== $allDay) {
             $this->setAllDay($allDay);

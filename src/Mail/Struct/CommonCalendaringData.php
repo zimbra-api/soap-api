@@ -248,8 +248,8 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @return self
      */
     public function __construct(
-        string $xUid = '',
-        string $uid = '',
+        string $xUid = NULL,
+        string $uid = NULL,
         ?string $flags = NULL,
         ?string $tags = NULL,
         ?string $tagNames = NULL,
@@ -313,8 +313,12 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
             $taskDueDate,
             $taskTzOffsetDue
         );
-        $this->setXUid($xUid)
-             ->setUid($uid);
+        if (NULL !== $xUid) {
+            $this->setXUid($xUid);
+        }
+        if (NULL !== $uid) {
+            $this->setUid($uid);
+        }
         if (NULL !== $flags) {
             $this->setFlags($flags);
         }

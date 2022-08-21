@@ -69,7 +69,7 @@ class DeleteheaderAction extends FilterAction
     #[SerializedName('test')]
     #[Type(EditheaderTest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $test;
+    private ?EditheaderTest $test;
 
     /**
      * Constructor
@@ -85,14 +85,12 @@ class DeleteheaderAction extends FilterAction
     )
     {
     	parent::__construct($index);
+        $this->test = $test;
         if (NULL !== $last) {
             $this->setLast($last);
         }
         if (NULL !== $offset) {
             $this->setOffset($offset);
-        }
-        if ($test instanceof EditheaderTest) {
-            $this->setTest($test);
         }
     }
 

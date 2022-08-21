@@ -54,7 +54,7 @@ class MimeHeaderTest extends FilterTest
     #[SerializedName('stringComparison')]
     #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
-    private $stringComparison;
+    private ?StringComparison $stringComparison;
 
     /**
      * Value
@@ -109,11 +109,9 @@ class MimeHeaderTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
+        $this->stringComparison = $stringComparison;
         if (NULL !== $headers) {
             $this->setHeaders($headers);
-        }
-        if ($stringComparison instanceof StringComparison) {
-            $this->setStringComparison($stringComparison);
         }
         if (NULL !== $value) {
             $this->setValue($value);

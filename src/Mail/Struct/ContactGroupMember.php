@@ -42,7 +42,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\MemberType>')]
     #[XmlAttribute]
-    private $type;
+    private MemberType $type;
 
     /**
      * Member value
@@ -78,25 +78,23 @@ class ContactGroupMember implements ContactGroupMemberInterface
     #[SerializedName('cn')]
     #[Type(ContactInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $contact;
+    private ?ContactInterface $contact;
 
     /**
      * Constructor
      * 
      * @param  MemberType $type
      * @param  string $value
-     * @param  ContactInterface $contact
+     * @param  ContactInfo $contact
      * @return self
      */
     public function __construct(
-        ?MemberType $type = NULL, string $value = '', ?ContactInterface $contact = NULL
+        ?MemberType $type = NULL, string $value = '', ?ContactInfo $contact = NULL
     )
     {
         $this->setType($type ?? new MemberType('C'))
              ->setValue($value);
-        if ($contact instanceof ContactInfo) {
-            $this->setContact($contact);
-        }
+        $this->contact = $contact;
     }
 
     /**

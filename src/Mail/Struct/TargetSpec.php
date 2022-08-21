@@ -39,7 +39,7 @@ class TargetSpec
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $targetType;
+    private TargetType $targetType;
 
     /**
      * Select the meaning of {value}
@@ -55,7 +55,7 @@ class TargetSpec
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
     #[XmlAttribute]
-    private $accountBy;
+    private AccountBy $accountBy;
 
     /**
      * The key used to identify the target

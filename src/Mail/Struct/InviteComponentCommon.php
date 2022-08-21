@@ -185,7 +185,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName('fba')]
     #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
-    private $freeBusyActual;
+    private ?FreeBusyStatus $freeBusyActual;
 
     /**
      * FreeBusy setting F|B|T|U
@@ -202,7 +202,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName('fb')]
     #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
-    private $freeBusy;
+    private ?FreeBusyStatus $freeBusy;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
@@ -218,7 +218,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName('transp')]
     #[Type('Enum<Zimbra\Common\Enum\Transparency>')]
     #[XmlAttribute]
-    private $transparency;
+    private ?Transparency $transparency;
 
     /**
      * Am I the organizer?  [default 0 (false)]
@@ -364,7 +364,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\InviteStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ?InviteStatus $status;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
@@ -380,7 +380,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName('class')]
     #[Type('Enum<Zimbra\Common\Enum\InviteClass>')]
     #[XmlAttribute]
-    private $calClass;
+    private ?InviteClass $calClass;
 
     /**
      * URL
@@ -561,6 +561,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
         ?string $changes = NULL
     )
     {
+        $this->freeBusyActual = $freeBusyActual;
+        $this->freeBusy = $freeBusy;
+        $this->transparency = $transparency;
+        $this->status = $status;
+        $this->calClass = $calClass;
         if (NULL !== $method) {
             $this->setMethod($method);
         }
@@ -588,15 +593,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
         if (NULL !== $noBlob) {
             $this->setNoBlob($noBlob);
         }
-        if ($freeBusyActual instanceof FreeBusyStatus) {
-            $this->setFreeBusyActual($freeBusyActual);
-        }
-        if ($freeBusy instanceof FreeBusyStatus) {
-            $this->setFreeBusy($freeBusy);
-        }
-        if ($transparency instanceof Transparency) {
-            $this->setTransparency($transparency);
-        }
         if (NULL !== $isOrganizer) {
             $this->setIsOrganizer($isOrganizer);
         }
@@ -620,12 +616,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
         }
         if (NULL !== $calItemFolder) {
             $this->setCalItemFolder($calItemFolder);
-        }
-        if ($status instanceof InviteStatus) {
-            $this->setStatus($status);
-        }
-        if ($calClass instanceof InviteClass) {
-            $this->setCalClass($calClass);
         }
         if (NULL !== $url) {
             $this->setUrl($url);

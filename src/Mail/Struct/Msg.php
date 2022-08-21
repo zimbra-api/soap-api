@@ -71,7 +71,7 @@ class Msg
     #[SerializedName('rt')]
     #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
-    private $replyType;
+    private ?ReplyType $replyType;
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
@@ -174,6 +174,8 @@ class Msg
      * @SerializedName("content")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
     #[SerializedName('content')]
@@ -195,7 +197,7 @@ class Msg
     #[SerializedName('mp')]
     #[Type(MimePartInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $mimePart;
+    private ?MimePartInfo $mimePart;
 
     /**
      * Attachments information
@@ -211,7 +213,7 @@ class Msg
     #[SerializedName('attach')]
     #[Type(AttachmentsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $attachments;
+    private ?AttachmentsInfo $attachments;
 
     /**
      * Invite information
@@ -227,7 +229,7 @@ class Msg
     #[SerializedName('inv')]
     #[Type(InvitationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $invite;
+    private ?InvitationInfo $invite;
 
     /**
      * Email address information
@@ -316,14 +318,15 @@ class Msg
         $this->setHeaders($headers)
              ->setEmailAddresses($emailAddresses)
              ->setTimezones($timezones);
+        $this->replyType = $replyType;
+        $this->mimePart = $mimePart;
+        $this->attachments = $attachments;
+        $this->invite = $invite;
         if (NULL !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
         if (NULL !== $origId) {
             $this->setOrigId($origId);
-        }
-        if ($replyType instanceof ReplyType) {
-            $this->setReplyType($replyType);
         }
         if (NULL !== $identityId) {
             $this->setIdentityId($identityId);
@@ -342,15 +345,6 @@ class Msg
         }
         if (NULL !== $content) {
             $this->setContent($content);
-        }
-        if ($mimePart instanceof MimePartInfo) {
-            $this->setMimePart($mimePart);
-        }
-        if ($attachments instanceof AttachmentsInfo) {
-            $this->setAttachments($attachments);
-        }
-        if ($invite instanceof InvitationInfo) {
-            $this->setInvite($invite);
         }
         if (NULL !== $fragment) {
             $this->setFragment($fragment);

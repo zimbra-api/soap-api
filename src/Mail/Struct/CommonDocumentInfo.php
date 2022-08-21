@@ -405,7 +405,7 @@ class CommonDocumentInfo
     #[SerializedName('acl')]
     #[Type(Acl::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $acl;
+    private ?Acl $acl;
 
     /**
      * Constructor
@@ -464,6 +464,7 @@ class CommonDocumentInfo
     )
     {
         $this->setMetadatas($metadatas);
+        $this->acl = $acl;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -529,9 +530,6 @@ class CommonDocumentInfo
         }
         if (NULL !== $fragment) {
             $this->setFragment($fragment);
-        }
-        if ($acl instanceof Acl) {
-            $this->setAcl($acl);
         }
     }
 

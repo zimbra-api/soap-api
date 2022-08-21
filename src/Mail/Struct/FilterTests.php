@@ -38,7 +38,7 @@ class FilterTests
     #[SerializedName('condition')]
     #[Type('Enum<Zimbra\Common\Enum\FilterCondition>')]
     #[XmlAttribute]
-    private $condition;
+    private FilterCondition $condition;
 
     /**
      * Address book filter tests

@@ -72,7 +72,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $organizer;
+    private ?CalOrganizer $organizer;
 
     /**
      * Categories
@@ -101,7 +101,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $geo;
+    private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -217,17 +217,13 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
             $taskTzOffsetDue
         );
         $this->setCategories($categories);
+        $this->organizer = $organizer;
+        $this->geo = $geo;
         if (NULL !== $startTime) {
             $this->setStartTime($startTime);
         }
         if (NULL !== $isException) {
             $this->setIsException($isException);
-        }
-        if ($organizer instanceof CalOrganizer) {
-            $this->setOrganizer($organizer);
-        }
-        if ($geo instanceof GeoInfo) {
-            $this->setGeo($geo);
         }
         if (NULL !== $fragment) {
             $this->setFragment($fragment);

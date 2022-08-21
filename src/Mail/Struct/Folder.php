@@ -218,7 +218,7 @@ class Folder
     #[SerializedName('view')]
     #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
-    private $view;
+    private ?ViewType $view;
 
     /**
      * Revision
@@ -489,7 +489,7 @@ class Folder
     #[SerializedName('acl')]
     #[Type(Acl::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $acl;
+    private ?Acl $acl;
 
     /**
      * Sub folders
@@ -547,7 +547,7 @@ class Folder
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy;
 
     /**
      * Constructor
@@ -629,6 +629,9 @@ class Folder
              ->setSubfolders($subFolders)
              ->setMountpoints($mountpoints)
              ->setSearchFolders($searchFolders);
+        $this->view = $view;
+        $this->acl = $acl;
+        $this->retentionPolicy = $retentionPolicy;
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -655,9 +658,6 @@ class Folder
         }
         if (NULL !== $imapUnreadCount) {
             $this->setImapUnreadCount($imapUnreadCount);
-        }
-        if ($view instanceof ViewType) {
-            $this->setView($view);
         }
         if (NULL !== $revision) {
             $this->setRevision($revision);
@@ -706,12 +706,6 @@ class Folder
         }
         if (NULL !== $name) {
             $this->setName($name);
-        }
-        if ($acl instanceof Acl) {
-            $this->setAcl($acl);
-        }
-        if ($retentionPolicy instanceof RetentionPolicy) {
-            $this->setRetentionPolicy($retentionPolicy);
         }
     }
 

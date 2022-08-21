@@ -38,7 +38,7 @@ class DateTest extends FilterTest
     #[SerializedName('dateComparison')]
     #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
     #[XmlAttribute]
-    private $dateComparison;
+    private ?DateComparison $dateComparison;
 
     /**
      * Date
@@ -73,9 +73,7 @@ class DateTest extends FilterTest
     )
     {
     	parent::__construct($index, $negative);
-        if ($dateComparison instanceof DateComparison) {
-            $this->setDateComparison($dateComparison);
-        }
+        $this->dateComparison = $dateComparison;
         if (NULL !== $date) {
             $this->setDate($date);
         }

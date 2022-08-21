@@ -93,7 +93,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $geo;
+    private ?GeoInfoInterface $geo;
 
     /**
      * Attendees
@@ -199,7 +199,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $organizer;
+    private ?CalOrganizerInterface $organizer;
 
     /**
      * Recurrence information
@@ -215,7 +215,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('recur')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $recurrence;
+    private ?RecurrenceInfoInterface $recurrence;
 
     /**
      * Recurrence id, if this is an exception
@@ -231,7 +231,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('exceptId')]
     #[Type(ExceptionRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $exceptionId;
+    private ?ExceptionRecurIdInfoInterface $exceptionId;
 
     /**
      * Start date-time (required)
@@ -247,7 +247,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('s')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $dtStart;
+    private ?DtTimeInfoInterface $dtStart;
 
     /**
      * End date-time
@@ -263,7 +263,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('e')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $dtEnd;
+    private ?DtTimeInfoInterface $dtEnd;
 
     /**
      * Duration
@@ -279,7 +279,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     #[SerializedName('dur')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $duration;
+    private ?DurationInfoInterface $duration;
 
     /**
      * Constructor
@@ -416,9 +416,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
              ->setAttendees($attendees)
              ->setAlarms($alarms)
              ->setXProps($xProps);
-        if ($geo instanceof GeoInfoInterface) {
-            $this->setGeo($geo);
-        }
+        $this->geo = $geo;
+        $this->organizer = $organizer;
+        $this->recurrence = $recurrence;
+        $this->exceptionId = $exceptionId;
+        $this->dtStart = $dtStart;
+        $this->dtEnd = $dtEnd;
+        $this->duration = $duration;
         if (NULL !== $fragment) {
             $this->setFragment($fragment);
         }
@@ -427,24 +431,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
         }
         if (NULL !== $htmlDescription) {
             $this->setHtmlDescription($htmlDescription);
-        }
-        if ($organizer instanceof CalOrganizerInterface) {
-            $this->setOrganizer($organizer);
-        }
-        if ($recurrence instanceof RecurrenceInfoInterface) {
-            $this->setRecurrence($recurrence);
-        }
-        if ($exceptionId instanceof ExceptionRecurIdInfoInterface) {
-            $this->setExceptionId($exceptionId);
-        }
-        if ($dtStart instanceof DtTimeInfoInterface) {
-            $this->setDtStart($dtStart);
-        }
-        if ($dtEnd instanceof DtTimeInfoInterface) {
-            $this->setDtEnd($dtEnd);
-        }
-        if ($duration instanceof DurationInfoInterface) {
-            $this->setDuration($duration);
         }
     }
 

@@ -108,7 +108,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     #[SerializedName('ptst')]
     #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
-    private $partStat;
+    private ?ParticipationStatus $partStat;
 
     /**
      * Constructor
@@ -136,11 +136,9 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
         $this->setSeq($seq)
              ->setDate($date)
              ->setAttendee($attendee);
+        $this->partStat = $partStat;
         if (NULL != $sentBy) {
             $this->setSentBy($sentBy);
-        }
-        if ($partStat instanceof ParticipationStatus) {
-            $this->setPartStat($partStat);
         }
     }
 

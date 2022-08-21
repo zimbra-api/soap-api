@@ -55,7 +55,7 @@ class ActionGrantSelector
     #[SerializedName('gt')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
-    private $grantType;
+    private GranteeType $grantType;
 
     /**
      * Zimbra ID

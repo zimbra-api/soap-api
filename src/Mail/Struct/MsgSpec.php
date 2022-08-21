@@ -251,7 +251,7 @@ class MsgSpec
     #[SerializedName('wantContent')]
     #[Type('Enum<Zimbra\Common\Enum\MsgContent>')]
     #[XmlAttribute]
-    private $wantContent;
+    private ?MsgContent $wantContent;
 
     /**
      * Requested headers.  if <header>s are requested, any matching headers are
@@ -305,6 +305,7 @@ class MsgSpec
     )
     {
         $this->setHeaders($headers);
+        $this->wantContent = $wantContent;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -340,9 +341,6 @@ class MsgSpec
         }
         if (NULL !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
-        }
-        if ($wantContent instanceof MsgContent) {
-            $this->setWantContent($wantContent);
         }
     }
 

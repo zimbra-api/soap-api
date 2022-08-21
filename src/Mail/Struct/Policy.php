@@ -38,7 +38,7 @@ class Policy
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\Type>')]
     #[XmlAttribute]
-    private $type;
+    private ?EnumType $type;
 
     /**
      * The id
@@ -101,9 +101,7 @@ class Policy
         ?EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL
     )
     {
-        if ($type instanceof EnumType) {
-            $this->setType($type);
-        }
+        $this->type = $type;
         if (NULL !== $id) {
             $this->setId($id);
         }

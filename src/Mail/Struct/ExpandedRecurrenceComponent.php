@@ -38,7 +38,7 @@ class ExpandedRecurrenceComponent
     #[SerializedName('exceptId')]
     #[Type(InstanceRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $exceptionId;
+    private ?InstanceRecurIdInfo $exceptionId;
 
     /**
      * DTSTART time in milliseconds since the Epoch
@@ -86,7 +86,7 @@ class ExpandedRecurrenceComponent
     #[SerializedName('dur')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $duration;
+    private ?DurationInfo $duration;
 
     /**
      * RRULE/RDATE/EXDATE information
@@ -102,7 +102,7 @@ class ExpandedRecurrenceComponent
     #[SerializedName('recur')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $recurrence;
+    private ?RecurrenceInfo $recurrence;
 
     /**
      * Constructor
@@ -122,20 +122,14 @@ class ExpandedRecurrenceComponent
         ?RecurrenceInfo $recurrence = NULL
     )
     {
-        if ($exceptionId instanceof InstanceRecurIdInfo) {
-            $this->setExceptionId($exceptionId);
-        }
+        $this->exceptionId = $exceptionId;
+        $this->duration = $duration;
+        $this->recurrence = $recurrence;
         if (NULL !== $startTime) {
             $this->setStartTime($startTime);
         }
         if (NULL !== $endTime) {
             $this->setEndTime($endTime);
-        }
-        if ($duration instanceof DurationInfo) {
-            $this->setDuration($duration);
-        }
-        if ($recurrence instanceof RecurrenceInfo) {
-            $this->setRecurrence($recurrence);
         }
     }
 
