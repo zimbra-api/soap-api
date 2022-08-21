@@ -41,7 +41,7 @@ class DeployZimletRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletDeployAction>')]
     #[XmlAttribute]
-    private $action;
+    private ZimletDeployAction $action;
 
     /**
      * Flag whether to flush the cache
@@ -89,7 +89,7 @@ class DeployZimletRequest extends SoapRequest
     #[SerializedName('content')]
     #[Type(AttachmentIdAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $content;
+    private AttachmentIdAttrib $content;
 
     /**
      * Constructor

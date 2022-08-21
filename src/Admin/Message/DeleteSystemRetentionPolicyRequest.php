@@ -41,7 +41,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     #[SerializedName('cos')]
     #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosSelector $cos;
 
     /**
      * Details of policy
@@ -57,7 +57,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     #[SerializedName('policy')]
     #[Type(Policy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $policy;
+    private Policy $policy;
 
     /**
      * Constructor
@@ -69,9 +69,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     public function __construct(Policy $policy, ?CosSelector $cos = NULL)
     {
         $this->setPolicy($policy);
-        if ($cos instanceof CosSelector) {
-            $this->setCos($cos);
-        }
+        $this->cos = $cos;
     }
 
     /**

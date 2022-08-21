@@ -40,7 +40,7 @@ class CreateXMPPComponentRequest extends SoapRequest
     #[SerializedName('xmppcomponent')]
     #[Type(XMPPComponentSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $component;
+    private XMPPComponentSpec $component;
 
     /**
      * Constructor

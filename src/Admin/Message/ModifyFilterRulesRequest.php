@@ -42,7 +42,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\AdminFilterType>')]
     #[XmlAttribute]
-    private $type;
+    private AdminFilterType $type;
 
     /**
      * Account
@@ -58,7 +58,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * Domain
@@ -73,7 +73,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * COS
@@ -89,7 +89,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     #[SerializedName('cos')]
     #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosSelector $cos;
 
     /**
      * Server
@@ -105,7 +105,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     #[SerializedName('server')]
     #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?ServerSelector $server;
 
     /**
      * Filter filterRules
@@ -147,18 +147,10 @@ class ModifyFilterRulesRequest extends SoapRequest
     {
         $this->setType($type ?? new AdminFilterType('before'))
              ->setFilterRules($filterRules);
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
-        }
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
-        if ($cos instanceof CosSelector) {
-            $this->setCos($cos);
-        }
-        if ($server instanceof ServerSelector) {
-            $this->setServer($server);
-        }
+        $this->account = $account;
+        $this->domain = $domain;
+        $this->cos = $cos;
+        $this->server = $server;
     }
 
     /**

@@ -60,7 +60,7 @@ class GetDomainInfoRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * Constructor
@@ -74,9 +74,7 @@ class GetDomainInfoRequest extends SoapRequest
         ?bool $applyConfig = NULL
     )
     {
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
+        $this->domain = $domain;
         if (NULL !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }

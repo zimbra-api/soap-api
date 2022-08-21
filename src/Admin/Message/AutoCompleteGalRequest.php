@@ -72,7 +72,7 @@ class AutoCompleteGalRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
-    private $type;
+    private ?GalSearchType $type;
 
     /**
      * GAL Account ID
@@ -126,9 +126,7 @@ class AutoCompleteGalRequest extends SoapRequest
     {
         $this->setDomain($domain)
              ->setName($name);
-        if (NULL !== $type) {
-            $this->setType($type);
-        }
+        $this->type = $type;
         if (NULL !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }

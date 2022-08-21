@@ -40,7 +40,7 @@ class GetAllDistributionListsRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class GetAllDistributionListsRequest extends SoapRequest
      */
     public function __construct(?DomainSelector $domain = NULL)
     {
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
+        $this->domain = $domain;
     }
 
     /**

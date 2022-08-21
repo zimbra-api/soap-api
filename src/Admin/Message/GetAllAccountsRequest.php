@@ -40,7 +40,7 @@ class GetAllAccountsRequest extends SoapRequest
     #[SerializedName('server')]
     #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?ServerSelector $server;
 
     /**
      * Domain
@@ -56,7 +56,7 @@ class GetAllAccountsRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * Constructor
@@ -67,12 +67,8 @@ class GetAllAccountsRequest extends SoapRequest
      */
     public function __construct(?ServerSelector $server = NULL, ?DomainSelector $domain = NULL)
     {
-        if ($server instanceof ServerSelector) {
-            $this->setServer($server);
-        }
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
+        $this->server = $server;
+        $this->domain = $domain;
     }
 
     /**

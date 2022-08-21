@@ -41,7 +41,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     #[SerializedName('cos')]
     #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosSelector $cos;
 
     /**
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
@@ -55,7 +55,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     #[SerializedName('keep')]
     #[Type(PolicyHolder::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $keep;
+    private ?PolicyHolder $keep;
 
     /**
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
@@ -69,7 +69,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     #[SerializedName('purge')]
     #[Type(PolicyHolder::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $purge;
+    private ?PolicyHolder $purge;
 
     /**
      * Constructor
@@ -83,15 +83,9 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
         ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
     )
     {
-        if ($cos instanceof CosSelector) {
-            $this->setCos($cos);
-        }
-        if ($keep instanceof PolicyHolder) {
-            $this->setKeepPolicy($keep);
-        }
-        if ($purge instanceof PolicyHolder) {
-            $this->setPurgePolicy($purge);
-        }
+        $this->cos = $cos;
+        $this->keep = $keep;
+        $this->purge = $purge;
     }
 
     public static function newKeepRequest(Policy $policy): CreateSystemRetentionPolicyRequest

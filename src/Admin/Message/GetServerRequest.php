@@ -60,7 +60,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     #[SerializedName('server')]
     #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?ServerSelector $server;
 
     /**
      * Constructor
@@ -76,9 +76,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
         ?string $attrs = NULL
     )
     {
-        if ($server instanceof ServerSelector) {
-            $this->setServer($server);
-        }
+        $this->server = $server;
         if (NULL !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }

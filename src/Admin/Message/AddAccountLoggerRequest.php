@@ -43,7 +43,7 @@ class AddAccountLoggerRequest extends SoapRequest
     #[SerializedName('logger')]
     #[Type(LoggerInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $logger;
+    private LoggerInfo $logger;
 
     /**
      * Use to select account
@@ -59,7 +59,7 @@ class AddAccountLoggerRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * id
@@ -88,9 +88,7 @@ class AddAccountLoggerRequest extends SoapRequest
     )
     {
         $this->setLogger($logger);
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
-        }
+        $this->account = $account;
         if (NULL !== $id) {
             $this->setId($id);
         }

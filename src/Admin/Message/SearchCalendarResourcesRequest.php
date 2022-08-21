@@ -140,7 +140,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     #[SerializedName('searchFilter')]
     #[Type(EntrySearchFilterInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter;
 
     /**
      * Constructor
@@ -166,9 +166,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
         ?string $attrs = NULL
     )
     {
-        if ($searchFilter instanceof EntrySearchFilterInfo) {
-            $this->setSearchFilter($searchFilter);
-        }
+        $this->searchFilter = $searchFilter;
         if (NULL !== $limit) {
             $this->setLimit($limit);
         }

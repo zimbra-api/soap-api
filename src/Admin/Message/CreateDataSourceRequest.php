@@ -60,7 +60,7 @@ class CreateDataSourceRequest extends SoapRequest
     #[SerializedName('dataSource')]
     #[Type(DataSourceSpecifier::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $dataSource;
+    private DataSourceSpecifier $dataSource;
 
     /**
      * Constructor

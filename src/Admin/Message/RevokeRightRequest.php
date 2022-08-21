@@ -41,7 +41,7 @@ class RevokeRightRequest extends SoapRequest
     #[SerializedName('target')]
     #[Type(EffectiveRightsTargetSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee selector
@@ -57,7 +57,7 @@ class RevokeRightRequest extends SoapRequest
     #[SerializedName('grantee')]
     #[Type(GranteeSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $grantee;
+    private GranteeSelector $grantee;
 
     /**
      * Right
@@ -73,7 +73,7 @@ class RevokeRightRequest extends SoapRequest
     #[SerializedName('right')]
     #[Type(RightModifierInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $right;
+    private RightModifierInfo $right;
 
     /**
      * Constructor

@@ -45,7 +45,7 @@ class GetLoggerStatsRequest extends SoapRequest
     #[SerializedName('hostname')]
     #[Type(HostName::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $hostName;
+    private ?HostName $hostName;
 
     /**
      * Stats
@@ -61,7 +61,7 @@ class GetLoggerStatsRequest extends SoapRequest
     #[SerializedName('stats')]
     #[Type(StatsSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $stats;
+    private ?StatsSpec $stats;
 
     /**
      * Start time
@@ -77,7 +77,7 @@ class GetLoggerStatsRequest extends SoapRequest
     #[SerializedName('startTime')]
     #[Type(TimeAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $startTime;
+    private ?TimeAttr $startTime;
 
     /**
      * End time
@@ -93,7 +93,7 @@ class GetLoggerStatsRequest extends SoapRequest
     #[SerializedName('endTime')]
     #[Type(TimeAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $endTime;
+    private ?TimeAttr $endTime;
 
     /**
      * Constructor
@@ -108,18 +108,10 @@ class GetLoggerStatsRequest extends SoapRequest
         ?HostName $hostName = NULL, ?StatsSpec $stats = NULL, ?TimeAttr $startTime = NULL, ?TimeAttr $endTime = NULL
     )
     {
-        if ($hostName instanceof HostName) {
-            $this->setHostName($hostName);
-        }
-        if ($stats instanceof StatsSpec) {
-            $this->setStats($stats);
-        }
-        if ($startTime instanceof TimeAttr) {
-            $this->setStartTime($startTime);
-        }
-        if ($endTime instanceof TimeAttr) {
-            $this->setEndTime($endTime);
-        }
+        $this->hostName = $hostName;
+        $this->stats = $stats;
+        $this->startTime = $startTime;
+        $this->endTime = $endTime;
     }
 
     /**

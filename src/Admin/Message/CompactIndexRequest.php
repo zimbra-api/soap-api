@@ -41,7 +41,7 @@ class CompactIndexRequest extends SoapRequest
     #[SerializedName('mbox')]
     #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mbox;
+    private Mailbox $mbox;
 
     /**
      * Action to perform
@@ -59,7 +59,7 @@ class CompactIndexRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type('Enum<Zimbra\Common\Enum\CompactIndexAction>')]
     #[XmlAttribute]
-    private $action;
+    private ?Action $action;
 
     /**
      * Constructor
@@ -71,9 +71,7 @@ class CompactIndexRequest extends SoapRequest
     public function __construct(Mailbox $mbox, ?Action $action = NULL)
     {
         $this->setMbox($mbox);
-        if ($action instanceof Action) {
-            $this->setAction($action);
-        }
+        $this->action = $action;
     }
 
     /**

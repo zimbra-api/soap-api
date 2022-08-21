@@ -89,7 +89,7 @@ class FixCalendarTZRequest extends SoapRequest
     #[SerializedName('tzfixup')]
     #[Type(TzFixup::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $tzFixup;
+    private ?TzFixup $tzFixup;
 
     /**
      * Constructor
@@ -105,14 +105,12 @@ class FixCalendarTZRequest extends SoapRequest
     )
     {
         $this->setAccounts($accounts);
+        $this->tzFixup = $tzFixup;
         if (NULL !== $sync) {
             $this->setSync($sync);
         }
         if (NULL !== $after) {
             $this->setAfter($after);
-        }
-        if ($tzFixup instanceof TzFixup) {
-            $this->setTzFixup($tzFixup);
         }
     }
 

@@ -42,7 +42,7 @@ class GetAccountInfoRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Constructor

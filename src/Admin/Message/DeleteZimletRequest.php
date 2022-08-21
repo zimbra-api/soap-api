@@ -40,7 +40,7 @@ class DeleteZimletRequest extends SoapRequest
     #[SerializedName('zimlet')]
     #[Type(NamedElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimlet;
+    private NamedElement $zimlet;
 
     /**
      * Constructor

@@ -43,7 +43,7 @@ class GetAllZimletsRequest extends SoapRequest
     #[SerializedName('exclude')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletExcludeType>')]
     #[XmlAttribute]
-    private $exclude;
+    private ?ZimletExcludeType $exclude;
 
     /**
      * Constructor
@@ -53,9 +53,7 @@ class GetAllZimletsRequest extends SoapRequest
      */
     public function __construct(?ZimletExcludeType $exclude = NULL)
     {
-        if (NULL !== $exclude) {
-            $this->setExclude($exclude);
-        }
+        $this->exclude = $exclude;
     }
 
     /**

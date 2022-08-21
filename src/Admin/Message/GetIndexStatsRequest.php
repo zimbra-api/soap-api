@@ -39,7 +39,7 @@ class GetIndexStatsRequest extends SoapRequest
     #[SerializedName('mbox')]
     #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mbox;
+    private Mailbox $mbox;
 
     /**
      * Constructor

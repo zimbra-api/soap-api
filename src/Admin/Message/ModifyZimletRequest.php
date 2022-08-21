@@ -40,7 +40,7 @@ class ModifyZimletRequest extends SoapRequest
     #[SerializedName('zimlet')]
     #[Type(ZimletAclStatusPri::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimlet;
+    private ZimletAclStatusPri $zimlet;
 
     /**
      * Constructor

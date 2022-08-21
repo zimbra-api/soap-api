@@ -67,7 +67,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     #[SerializedName('target')]
     #[Type(EffectiveRightsTargetSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee
@@ -83,7 +83,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     #[SerializedName('grantee')]
     #[Type(GranteeSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $grantee;
+    private ?GranteeSelector $grantee;
 
     /**
      * Constructor
@@ -102,9 +102,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     )
     {
         $this->setTarget($target);
-        if ($grantee instanceof GranteeSelector) {
-            $this->setGrantee($grantee);
-        }
+        $this->grantee = $grantee;
         $attrs = [];
         if (NULL !== $expandSetAttrs) {
             $attrs[self::EXPAND_SET_ATTRS] = self::EXPAND_SET_ATTRS;

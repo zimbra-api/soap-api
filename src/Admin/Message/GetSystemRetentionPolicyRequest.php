@@ -40,7 +40,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
     #[SerializedName('cos')]
     #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosSelector $cos;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
      */
     public function __construct(?CosSelector $cos = NULL)
     {
-        if ($cos instanceof CosSelector) {
-            $this->setCos($cos);
-        }
+        $this->cos = $cos;
     }
 
     /**

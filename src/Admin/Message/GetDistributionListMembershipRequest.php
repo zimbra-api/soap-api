@@ -72,7 +72,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
     #[SerializedName('dl')]
     #[Type(DistributionList::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $dl;
+    private ?DistributionList $dl;
 
     /**
      * Constructor
@@ -88,9 +88,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
         ?int $offset = NULL
     )
     {
-        if ($dl instanceof DistributionList) {
-            $this->setDl($dl);
-        }
+        $this->dl = $dl;
         if (NULL !== $limit) {
             $this->setLimit($limit);
         }

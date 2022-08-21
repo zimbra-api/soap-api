@@ -80,7 +80,7 @@ class GetAllRightsRequest extends SoapRequest
     #[SerializedName('rightClass')]
     #[Type('Enum<Zimbra\Common\Enum\RightClass>')]
     #[XmlAttribute]
-    private $rightClass;
+    private ?RightClass $rightClass;
 
     /**
      * Constructor
@@ -100,9 +100,7 @@ class GetAllRightsRequest extends SoapRequest
         if (NULL !== $expandAllAttrs) {
             $this->setExpandAllAttrs($expandAllAttrs);
         }
-        if ($rightClass instanceof RightClass) {
-            $this->setRightClass($rightClass);
-        }
+        $this->rightClass = $rightClass;
     }
 
     /**

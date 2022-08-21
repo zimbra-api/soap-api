@@ -51,7 +51,7 @@ class CountObjectsRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\CountObjectsType>')]
     #[XmlAttribute]
-    private $type;
+    private CountObjectsType $type;
 
     /**
      * Domain
@@ -81,7 +81,7 @@ class CountObjectsRequest extends SoapRequest
     #[SerializedName('ucservice')]
     #[Type(UcServiceSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $ucService;
+    private ?UcServiceSelector $ucService;
 
     /**
      * Get only related if delegated/domain admin
@@ -117,9 +117,7 @@ class CountObjectsRequest extends SoapRequest
     {
         $this->setType($type ?? new CountObjectsType('account'))
              ->setDomains($domains);
-        if ($ucService instanceof UcServiceSelector) {
-            $this->setUcService($ucService);
-        }
+        $this->ucService = $ucService;
         if (NULL !== $onlyRelated) {
             $this->setOnlyRelated($onlyRelated);
         }

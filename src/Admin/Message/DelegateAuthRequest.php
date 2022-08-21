@@ -41,7 +41,7 @@ class DelegateAuthRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Lifetime in seconds of the newly-created authtoken. defaults to 1 hour.

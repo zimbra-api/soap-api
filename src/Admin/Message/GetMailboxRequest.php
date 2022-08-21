@@ -40,7 +40,7 @@ class GetMailboxRequest extends SoapRequest
     #[SerializedName('mbox')]
     #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mbox;
+    private ?Mailbox $mbox;
 
     /**
      * Constructor
@@ -52,6 +52,7 @@ class GetMailboxRequest extends SoapRequest
         ?Mailbox $mbox = NULL
     )
     {
+        $this->mbox = $mbox;
         if ($mbox instanceof Mailbox) {
             $this->setMbox($mbox);
         }

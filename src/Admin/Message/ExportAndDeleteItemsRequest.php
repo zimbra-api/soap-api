@@ -74,7 +74,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     #[SerializedName('mbox')]
     #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mailbox;
+    private Mailbox $mailbox;
 
     /**
      * Constructor

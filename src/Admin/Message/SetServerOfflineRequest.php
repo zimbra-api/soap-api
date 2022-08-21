@@ -43,7 +43,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
     #[SerializedName('server')]
     #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ?ServerSelector $server;
 
     /**
      * Constructor
@@ -54,9 +54,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
      */
     public function __construct(?ServerSelector $server = NULL, ?string $attrs = NULL)
     {
-        if ($server instanceof ServerSelector) {
-            $this->setServer($server);
-        }
+        $this->server = $server;
         if (NULL !== $attrs) {
             $this->setAttrs($attrs);
         }

@@ -42,7 +42,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     #[SerializedName('query')]
     #[Type(LimitedQuery::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $query;
+    private ?LimitedQuery $query;
 
     /**
      * GAL action
@@ -72,13 +72,11 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
         ?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = []
     )
     {
-        if ($query instanceof LimitedQuery) {
-            $this->setQuery($query);
-        }
+        $this->setAttrs($attrs);
+        $this->query = $query;
         if (NULL !== $action) {
             $this->setAction($action);
         }
-        $this->setAttrs($attrs);
     }
 
     /**

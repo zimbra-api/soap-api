@@ -40,7 +40,7 @@ class LockoutMailboxRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountNameSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private AccountNameSelector $account;
 
     /**
      * one of 'start' or 'end'
@@ -56,7 +56,7 @@ class LockoutMailboxRequest extends SoapRequest
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\LockoutOperation>')]
     #[XmlAttribute]
-    private $operation;
+    private ?LockoutOperation $operation;
 
     /**
      * Constructor
@@ -70,9 +70,7 @@ class LockoutMailboxRequest extends SoapRequest
     )
     {
         $this->setAccount($account);
-        if ($operation instanceof LockoutOperation) {
-            $this->setOperation($operation);
-        }
+        $this->operation = $operation;
     }
 
     /**

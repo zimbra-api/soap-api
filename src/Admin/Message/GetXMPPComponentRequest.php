@@ -44,7 +44,7 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
     #[SerializedName('xmppcomponent')]
     #[Type(XMPPComponentSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $component;
+    private XMPPComponentSelector $component;
 
     /**
      * Constructor

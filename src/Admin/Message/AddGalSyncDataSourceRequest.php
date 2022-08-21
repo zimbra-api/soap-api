@@ -43,7 +43,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Name of the data source
@@ -91,7 +91,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GalMode>')]
     #[XmlAttribute]
-    private $type;
+    private GalMode $type;
 
     /**
      * Contact folder name

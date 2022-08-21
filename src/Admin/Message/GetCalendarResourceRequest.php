@@ -61,7 +61,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     #[SerializedName('calresource')]
     #[Type(CalendarResourceSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $calResource;
+    private ?CalendarResourceSelector $calResource;
 
     /**
      * Constructor
@@ -75,9 +75,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
         ?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL
     )
     {
-        if ($calResource instanceof CalendarResourceSelector) {
-            $this->setCalResource($calResource);
-        }
+        $this->calResource = $calResource;
         if (NULL !== $applyCos) {
             $this->setApplyCos($applyCos);
         }

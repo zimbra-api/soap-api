@@ -41,7 +41,7 @@ class ReIndexRequest extends SoapRequest
     #[SerializedName('mbox')]
     #[Type(Mbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mbox;
+    private Mbox $mbox;
 
     /**
      * Action to perform
@@ -60,7 +60,7 @@ class ReIndexRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type('Enum<Zimbra\Common\Enum\ReIndexAction>')]
     #[XmlAttribute]
-    private $action;
+    private ?Action $action;
 
     /**
      * Constructor
@@ -72,9 +72,7 @@ class ReIndexRequest extends SoapRequest
     public function __construct(Mbox $mbox, ?Action $action = NULL)
     {
         $this->setMbox($mbox);
-        if ($action instanceof Action) {
-            $this->setAction($action);
-        }
+        $this->action = $action;
     }
 
     /**

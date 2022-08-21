@@ -40,7 +40,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
     #[SerializedName('provider')]
     #[Type(NamedElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $provider;
+    private ?NamedElement $provider;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
      */
     public function __construct(?NamedElement $provider = NULL)
     {
-        if ($provider instanceof NamedElement) {
-            $this->setProvider($provider);
-        }
+        $this->provider = $provider;
     }
 
     /**

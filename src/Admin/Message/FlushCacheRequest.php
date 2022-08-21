@@ -50,7 +50,7 @@ class FlushCacheRequest extends SoapRequest
     #[SerializedName('cache')]
     #[Type(CacheSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cache;
+    private ?CacheSelector $cache;
 
     /**
      * Constructor
@@ -60,9 +60,7 @@ class FlushCacheRequest extends SoapRequest
      */
     public function __construct(?CacheSelector $cache = NULL)
     {
-        if ($cache instanceof CacheSelector) {
-            $this->setCache($cache);
-        }
+        $this->cache = $cache;
     }
 
     /**

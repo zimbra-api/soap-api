@@ -40,7 +40,7 @@ class CheckExchangeAuthRequest extends SoapRequest
     #[SerializedName('auth')]
     #[Type(ExchangeAuthSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $auth;
+    private ?ExchangeAuthSpec $auth;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class CheckExchangeAuthRequest extends SoapRequest
      */
     public function __construct(?ExchangeAuthSpec $auth = NULL)
     {
-        if ($auth instanceof ExchangeAuthSpec) {
-            $this->setAuth($auth);
-        }
+        $this->auth = $auth;
     }
 
     /**

@@ -43,7 +43,7 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
     #[SerializedName('ucservice')]
     #[Type(UcServiceSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $ucService;
+    private UcServiceSelector $ucService;
 
     /**
      * Constructor

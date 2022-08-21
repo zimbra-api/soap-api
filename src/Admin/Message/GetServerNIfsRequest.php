@@ -43,7 +43,7 @@ class GetServerNIfsRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\IpType>')]
     #[XmlAttribute]
-    private $type;
+    private ?IpType $type;
 
     /**
      * Server
@@ -59,7 +59,7 @@ class GetServerNIfsRequest extends SoapRequest
     #[SerializedName('server')]
     #[Type(Server::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private Server $server;
 
     /**
      * Constructor
@@ -71,9 +71,7 @@ class GetServerNIfsRequest extends SoapRequest
     public function __construct(Server $server, ?IpType $type = NULL)
     {
         $this->setServer($server);
-        if ($type instanceof IpType) {
-            $this->setType($type);
-        }
+        $this->type = $type;
     }
 
     /**

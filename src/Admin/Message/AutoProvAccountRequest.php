@@ -40,7 +40,7 @@ class AutoProvAccountRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * The principal
@@ -56,7 +56,7 @@ class AutoProvAccountRequest extends SoapRequest
     #[SerializedName('principal')]
     #[Type(PrincipalSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $principal;
+    private PrincipalSelector $principal;
 
     /**
      * Password

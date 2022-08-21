@@ -56,7 +56,7 @@ class GetAccountLoggersRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * Constructor
@@ -67,11 +67,9 @@ class GetAccountLoggersRequest extends SoapRequest
      */
     public function __construct(?string $id = NULL, ?AccountSelector $account = NULL)
     {
+        $this->account = $account;
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
         }
     }
 

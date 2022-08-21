@@ -43,7 +43,7 @@ class AutoProvTaskControlRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type('Enum<Zimbra\Common\Enum\AutoProvTaskAction>')]
     #[XmlAttribute]
-    private $action;
+    private AutoProvTaskAction $action;
 
     /**
      * Constructor
@@ -51,9 +51,9 @@ class AutoProvTaskControlRequest extends SoapRequest
      * @param AutoProvTaskAction $action
      * @return self
      */
-    public function __construct(AutoProvTaskAction $action)
+    public function __construct(?AutoProvTaskAction $action = NULL)
     {
-        $this->setAction($action);
+        $this->setAction($action ?? new AutoProvTaskAction('status'));
     }
 
     /**

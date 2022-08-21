@@ -40,7 +40,7 @@ class GetSessionsRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\SessionType>')]
     #[XmlAttribute]
-    private $type;
+    private SessionType $type;
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
@@ -56,7 +56,7 @@ class GetSessionsRequest extends SoapRequest
     #[SerializedName('sortBy')]
     #[Type('Enum<Zimbra\Common\Enum\GetSessionsSortBy>')]
     #[XmlAttribute]
-    private $sortBy;
+    private ?GetSessionsSortBy $sortBy;
 
     /**
      * Offset - the starting offset (0, 25, etc)
@@ -125,9 +125,7 @@ class GetSessionsRequest extends SoapRequest
     )
     {
         $this->setType($type ?? new SessionType('soap'));
-        if ($sortBy instanceof GetSessionsSortBy) {
-            $this->setSortBy($sortBy);
-        }
+        $this->sortBy = $sortBy;
         if (NULL !== $offset) {
             $this->setOffset($offset);
         }

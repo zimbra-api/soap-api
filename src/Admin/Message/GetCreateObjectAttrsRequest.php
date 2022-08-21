@@ -42,7 +42,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     #[SerializedName('target')]
     #[Type(TargetWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $target;
+    private TargetWithType $target;
 
     /**
      * Domain
@@ -62,7 +62,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * COS
@@ -80,7 +80,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     #[SerializedName('cos')]
     #[Type(CosSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $cos;
+    private ?CosSelector $cos;
 
     /**
      * Constructor
@@ -95,12 +95,8 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     )
     {
         $this->setTarget($target);
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
-        if ($cos instanceof CosSelector) {
-            $this->setCos($cos);
-        }
+        $this->domain = $domain;
+        $this->cos = $cos;
     }
 
     /**

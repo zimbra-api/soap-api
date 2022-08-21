@@ -40,7 +40,7 @@ class CreateVolumeRequest extends SoapRequest
     #[SerializedName('volume')]
     #[Type(VolumeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $volume;
+    private VolumeInfo $volume;
 
     /**
      * Constructor

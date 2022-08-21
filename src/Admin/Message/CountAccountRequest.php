@@ -41,7 +41,7 @@ class CountAccountRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Constructor

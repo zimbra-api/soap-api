@@ -89,7 +89,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
-    private $type;
+    private ?GalSearchType $type;
 
     /**
      * GAL account ID
@@ -126,14 +126,12 @@ class SearchGalRequest extends SoapRequest
     )
     {
         $this->setDomain($domain);
+        $this->type = $type;
         if (NULL !== $name) {
             $this->setName($name);
         }
         if (NULL !== $limit) {
             $this->setLimit($limit);
-        }
-        if ($type instanceof GalSearchType) {
-            $this->setType($type);
         }
         if (NULL !== $galAccountId) {
             $this->setGalAccountId($galAccountId);

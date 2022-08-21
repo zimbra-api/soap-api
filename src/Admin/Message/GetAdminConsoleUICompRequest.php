@@ -41,7 +41,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * Distribution List
@@ -57,7 +57,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     #[SerializedName('dl')]
     #[Type(DlSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $dl;
+    private ?DlSelector $dl;
 
     /**
      * Constructor
@@ -68,12 +68,8 @@ class GetAdminConsoleUICompRequest extends SoapRequest
      */
     public function __construct(?AccountSelector $account = NULL, ?DlSelector $dl = NULL)
     {
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
-        }
-        if ($dl instanceof DlSelector) {
-            $this->setDl($dl);
-        }
+        $this->account = $account;
+        $this->dl = $dl;
     }
 
     /**

@@ -40,7 +40,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
     #[SerializedName('xmppcomponent')]
     #[Type(Component::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $component;
+    private ?Component $component;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
      */
     public function __construct(?Component $component = NULL)
     {
-        if ($component instanceof Component) {
-            $this->setComponent($component);
-        }
+        $this->component = $component;
     }
 
     /**

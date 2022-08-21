@@ -45,7 +45,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     #[SerializedName('logger')]
     #[Type(Logger::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $logger;
+    private ?Logger $logger;
 
     /**
      * Use to select account
@@ -61,7 +61,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(Account::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?Account $account;
 
     /**
      * id
@@ -91,12 +91,8 @@ class RemoveAccountLoggerRequest extends SoapRequest
         ?Logger $logger = NULL, ?Account $account = NULL, ?string $id = NULL
     )
     {
-        if ($logger instanceof Logger) {
-            $this->setLogger($logger);
-        }
-        if ($account instanceof Account) {
-            $this->setAccount($account);
-        }
+        $this->logger = $logger;
+        $this->account = $account;
         if (NULL !== $id) {
             $this->setId($id);
         }

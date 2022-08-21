@@ -87,7 +87,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName('account')]
     #[Type(AccountSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $account;
+    private ?AccountSelector $account;
 
     /**
      * Virtual host
@@ -177,6 +177,7 @@ class AuthRequest extends SoapRequest
         ?string $twoFactorCode = NULL
     )
     {
+        $this->account = $account;
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -185,9 +186,6 @@ class AuthRequest extends SoapRequest
         }
         if (NULL !== $authToken) {
             $this->setAuthToken($authToken);
-        }
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
         }
         if (NULL !== $virtualHost) {
             $this->setVirtualHost($virtualHost);

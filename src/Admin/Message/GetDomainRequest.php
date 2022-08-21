@@ -60,7 +60,7 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private ?DomainSelector $domain;
 
     /**
      * Constructor
@@ -76,9 +76,7 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
         ?string $attrs = NULL
     )
     {
-        if ($domain instanceof DomainSelector) {
-            $this->setDomain($domain);
-        }
+        $this->domain = $domain;
         if (NULL !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }

@@ -40,7 +40,7 @@ class MigrateAccountRequest extends SoapRequest
     #[SerializedName('migrate')]
     #[Type(IdAndAction::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $migrate;
+    private IdAndAction $migrate;
 
     /**
      * Constructor

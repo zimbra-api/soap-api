@@ -44,7 +44,7 @@ class PushFreeBusyRequest extends SoapRequest
     #[SerializedName('domain')]
     #[Type(Names::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domains;
+    private ?Names $domains;
 
     /**
      * Account ID
@@ -70,9 +70,7 @@ class PushFreeBusyRequest extends SoapRequest
     public function __construct(?Names $domains = NULL, array $accounts = [])
     {
         $this->setAccounts($accounts);
-        if ($domains instanceof Names) {
-            $this->setDomains($domains);
-        }
+        $this->domains = $domains;
     }
 
     /**

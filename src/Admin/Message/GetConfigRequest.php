@@ -40,7 +40,7 @@ class GetConfigRequest extends SoapRequest
     #[SerializedName('a')]
     #[Type(Attr::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $attr;
+    private ?Attr $attr;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class GetConfigRequest extends SoapRequest
      */
     public function __construct(?Attr $attr = NULL)
     {
-        if ($attr instanceof Attr) {
-            $this->setAttr($attr);
-        }
+        $this->attr = $attr;
     }
 
     /**

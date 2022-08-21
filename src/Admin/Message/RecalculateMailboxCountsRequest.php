@@ -41,7 +41,7 @@ class RecalculateMailboxCountsRequest extends SoapRequest
     #[SerializedName('mbox')]
     #[Type(Mailbox::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $mbox;
+    private ?Mailbox $mbox;
 
     /**
      * Constructor
@@ -51,9 +51,7 @@ class RecalculateMailboxCountsRequest extends SoapRequest
      */
     public function __construct(?Mailbox $mbox = NULL)
     {
-        if ($mbox instanceof Mailbox) {
-            $this->setMbox($mbox);
-        }
+        $this->mbox = $mbox;
     }
 
     /**
