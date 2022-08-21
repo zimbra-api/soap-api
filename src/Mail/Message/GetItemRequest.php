@@ -42,7 +42,7 @@ class GetItemRequest extends SoapRequest
     #[SerializedName('item')]
     #[Type(ItemSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $item;
+    private ItemSpec $item;
 
     /**
      * Constructor

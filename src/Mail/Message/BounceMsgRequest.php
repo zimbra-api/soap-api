@@ -45,7 +45,7 @@ class BounceMsgRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(BounceMsgSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private BounceMsgSpec $msg;
 
     /**
      * Constructor

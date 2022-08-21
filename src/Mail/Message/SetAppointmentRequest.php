@@ -144,7 +144,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName('default')]
     #[Type(SetCalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $defaultId;
+    private ?SetCalendarItemInfo $defaultId;
 
     /**
      * Calendar item information for exceptions
@@ -227,6 +227,7 @@ class SetAppointmentRequest extends SoapRequest
         $this->setExceptions($exceptions)
              ->setCancellations($cancellations)
              ->setReplies($replies);
+        $this->defaultId = $defaultId;
         if (NULL !== $flags) {
             $this->setFlags($flags);
         }
@@ -244,9 +245,6 @@ class SetAppointmentRequest extends SoapRequest
         }
         if (NULL !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
-        }
-        if ($defaultId instanceof SetCalendarItemInfo) {
-            $this->setDefaultId($defaultId);
         }
     }
 

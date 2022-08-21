@@ -129,7 +129,7 @@ class FolderActionRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type(FolderActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private FolderActionSelector $action;
 
     /**
      * Constructor

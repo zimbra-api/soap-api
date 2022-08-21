@@ -48,7 +48,7 @@ class GetConvRequest extends SoapRequest
     #[SerializedName('c')]
     #[Type(ConversationSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $conversation;
+    private ConversationSpec $conversation;
 
     /**
      * Constructor

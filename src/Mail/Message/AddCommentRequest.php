@@ -40,7 +40,7 @@ class AddCommentRequest extends SoapRequest
     #[SerializedName('comment')]
     #[Type(AddedComment::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $comment;
+    private AddedComment $comment;
 
     /**
      * Constructor

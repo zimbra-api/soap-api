@@ -40,7 +40,7 @@ class NoteActionRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type(NoteActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private NoteActionSelector $action;
 
     /**
      * Constructor

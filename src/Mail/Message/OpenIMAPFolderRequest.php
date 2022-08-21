@@ -71,7 +71,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     #[SerializedName('cursor')]
     #[Type(ImapCursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $cursor;
+    private ?ImapCursorInfo $cursor;
 
     /**
      * Constructor
@@ -89,9 +89,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     {
         $this->setFolderId($folderId)
              ->setLimit($limit);
-        if ($cursor instanceof ImapCursorInfo) {
-            $this->setCursor($cursor);
-        }
+        $this->cursor = $cursor;
     }
 
     /**

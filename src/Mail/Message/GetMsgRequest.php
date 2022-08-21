@@ -40,7 +40,7 @@ class GetMsgRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(MsgSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private MsgSpec $msg;
 
     /**
      * Constructor

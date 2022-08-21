@@ -40,7 +40,7 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
     #[SerializedName('folder')]
     #[Type(FolderSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folder;
+    private FolderSpec $folder;
 
     /**
      * Constructor

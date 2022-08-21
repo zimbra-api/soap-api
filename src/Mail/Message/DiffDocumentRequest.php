@@ -42,7 +42,7 @@ class DiffDocumentRequest extends SoapRequest
     #[SerializedName('doc')]
     #[Type(DiffDocumentVersionSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $doc;
+    private ?DiffDocumentVersionSpec $doc;
 
     /**
      * Constructor
@@ -52,9 +52,7 @@ class DiffDocumentRequest extends SoapRequest
      */
     public function __construct(?DiffDocumentVersionSpec $doc = NULL)
     {
-        if ($doc instanceof DiffDocumentVersionSpec) {
-            $this->setDoc($doc);
-        }
+        $this->doc = $doc;
     }
 
     /**

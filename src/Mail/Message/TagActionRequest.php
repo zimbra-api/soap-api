@@ -43,7 +43,7 @@ class TagActionRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type(TagActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private TagActionSelector $action;
 
     /**
      * Constructor

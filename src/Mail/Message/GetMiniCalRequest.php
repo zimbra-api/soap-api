@@ -90,7 +90,7 @@ class GetMiniCalRequest extends SoapRequest
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $timezone;
+    private ?CalTZInfo $timezone;
 
     /**
      * Constructor
@@ -111,9 +111,7 @@ class GetMiniCalRequest extends SoapRequest
         $this->setStartTime($startTime)
              ->setEndTime($endTime)
              ->setFolders($folders);
-        if ($timezone instanceof CalTZInfo) {
-            $this->setTimezone($timezone);
-        }
+        $this->timezone = $timezone;
     }
 
     /**

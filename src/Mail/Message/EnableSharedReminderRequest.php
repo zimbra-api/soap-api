@@ -40,7 +40,7 @@ class EnableSharedReminderRequest extends SoapRequest
     #[SerializedName('link')]
     #[Type(SharedReminderMount::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $mount;
+    private SharedReminderMount $mount;
 
     /**
      * Constructor

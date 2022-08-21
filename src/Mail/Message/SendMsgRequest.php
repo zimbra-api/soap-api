@@ -59,7 +59,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(MsgToSend::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private MsgToSend $msg;
 
     /**
      * If set then Add SENT-BY parameter to ORGANIZER and/or ATTENDEE properties in

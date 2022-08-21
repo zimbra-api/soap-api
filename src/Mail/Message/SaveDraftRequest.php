@@ -83,7 +83,7 @@ class SaveDraftRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(SaveDraftMsg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private SaveDraftMsg $msg;
 
     /**
      * Constructor

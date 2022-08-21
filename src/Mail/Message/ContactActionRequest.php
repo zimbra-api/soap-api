@@ -40,7 +40,7 @@ class ContactActionRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type(ContactActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private ContactActionSelector $action;
 
     /**
      * Constructor

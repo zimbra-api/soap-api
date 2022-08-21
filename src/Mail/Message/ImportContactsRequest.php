@@ -107,7 +107,7 @@ class ImportContactsRequest extends SoapRequest
     #[SerializedName('content')]
     #[Type(Content::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $content;
+    private Content $content;
 
     /**
      * Constructor

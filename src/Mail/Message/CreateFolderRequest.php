@@ -40,7 +40,7 @@ class CreateFolderRequest extends SoapRequest
     #[SerializedName('folder')]
     #[Type(NewFolderSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folder;
+    private NewFolderSpec $folder;
 
     /**
      * Constructor

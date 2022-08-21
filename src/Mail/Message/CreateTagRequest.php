@@ -40,7 +40,7 @@ class CreateTagRequest extends SoapRequest
     #[SerializedName('tag')]
     #[Type(TagSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $tag;
+    private ?TagSpec $tag;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class CreateTagRequest extends SoapRequest
      */
     public function __construct(?TagSpec $tag = NULL)
     {
-        if ($tag instanceof TagSpec) {
-            $this->setTag($tag);
-        }
+        $this->tag = $tag;
     }
 
     /**

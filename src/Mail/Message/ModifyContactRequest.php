@@ -109,7 +109,7 @@ class ModifyContactRequest extends SoapRequest
     #[SerializedName('cn')]
     #[Type(ModifyContactSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $contact;
+    private ModifyContactSpec $contact;
 
     /**
      * Constructor

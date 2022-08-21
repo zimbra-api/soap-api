@@ -41,7 +41,7 @@ class CheckPermissionRequest extends SoapRequest
     #[SerializedName('target')]
     #[Type(TargetSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $target;
+    private ?TargetSpec $target;
 
     /**
      * Rights to check
@@ -67,9 +67,7 @@ class CheckPermissionRequest extends SoapRequest
     public function __construct(?TargetSpec $target = NULL, array $rights = [])
     {
         $this->setRights($rights);
-        if ($target instanceof TargetSpec) {
-            $this->setTarget($target);
-        }
+        $this->target = $target;
     }
 
     /**

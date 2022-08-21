@@ -39,7 +39,7 @@ class SearchActionRequest extends SoapRequest
     #[SerializedName('SearchRequest')]
     #[Type(SearchRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $searchRequest;
+    private SearchRequest $searchRequest;
 
     /**
      * Bulk action
@@ -55,7 +55,7 @@ class SearchActionRequest extends SoapRequest
     #[SerializedName('BulkAction')]
     #[Type(BulkAction::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $bulkAction;
+    private BulkAction $bulkAction;
 
     /**
      * Constructor

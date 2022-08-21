@@ -57,7 +57,7 @@ class SetCustomMetadataRequest extends SoapRequest
     #[SerializedName('meta')]
     #[Type(MailCustomMetadata::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $metadata;
+    private MailCustomMetadata $metadata;
 
     /**
      * Constructor

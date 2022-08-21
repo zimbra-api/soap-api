@@ -50,9 +50,7 @@ class ModifyOutgoingFilterRulesRequest extends SoapRequest
      * @param  array $filterRules
      * @return self
      */
-    public function __construct(
-        array $filterRules = []
-    )
+    public function __construct(array $filterRules = [])
     {
         $this->setFilterRules($filterRules);
     }

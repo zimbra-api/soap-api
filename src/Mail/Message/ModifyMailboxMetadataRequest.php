@@ -44,7 +44,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
     #[SerializedName('meta')]
     #[Type(MailCustomMetadata::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $metadata;
+    private ?MailCustomMetadata $metadata;
 
     /**
      * Constructor
@@ -54,9 +54,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
      */
     public function __construct(?MailCustomMetadata $metadata = NULL)
     {
-        if ($metadata instanceof MailCustomMetadata) {
-            $this->setMetadata($metadata);
-        }
+        $this->metadata = $metadata;
     }
 
     /**

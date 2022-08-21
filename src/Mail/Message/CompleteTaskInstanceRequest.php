@@ -56,7 +56,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     #[SerializedName('exceptId')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $exceptionId;
+    private DtTimeInfo $exceptionId;
 
     /**
      * Timezone information
@@ -72,7 +72,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $timezone;
+    private ?CalTZInfo $timezone;
 
     /**
      * Constructor
@@ -88,9 +88,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     {
         $this->setId($id)
              ->setExceptionId($exceptionId);
-        if (NULL !== $timezone) {
-            $this->setTimezone($timezone);
-        }
+        $this->timezone = $timezone;
     }
 
     /**

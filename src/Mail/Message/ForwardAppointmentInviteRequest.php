@@ -57,7 +57,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Msg $msg;
 
     /**
      * Constructor
@@ -68,11 +68,9 @@ class ForwardAppointmentInviteRequest extends SoapRequest
      */
     public function __construct(?string $id = NULL, ?Msg $msg = NULL)
     {
+        $this->msg = $msg;
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if ($msg instanceof Msg) {
-            $this->setMsg($msg);
         }
     }
 

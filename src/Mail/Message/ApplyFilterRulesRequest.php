@@ -63,7 +63,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(IdsAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msgIds;
+    private ?IdsAttr $msgIds;
 
     /**
      * Query string
@@ -94,9 +94,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     )
     {
         $this->setFilterRules($filterRules);
-        if ($msgIds instanceof IdsAttr) {
-            $this->setMsgIds($msgIds);
-        }
+        $this->msgIds = $msgIds;
         if (NULL !== $query) {
             $this->setQuery($query);
         }

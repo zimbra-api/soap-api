@@ -45,7 +45,7 @@ class SendShareNotificationRequest extends SoapRequest
     #[SerializedName('item')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $item;
+    private Id $item;
 
     /**
      * Email addresses
@@ -76,7 +76,7 @@ class SendShareNotificationRequest extends SoapRequest
     #[SerializedName('action')]
     #[Type('Enum<Zimbra\Common\Enum\ShareAction>')]
     #[XmlAttribute]
-    private $action;
+    private ?ShareAction $action;
 
     /**
      * Notes
@@ -109,9 +109,7 @@ class SendShareNotificationRequest extends SoapRequest
     {
         $this->setItem($item)
              ->setEmailAddresses($emailAddresses);
-        if ($action instanceof ShareAction) {
-            $this->setAction($action);
-        }
+        $this->action = $action;
         if (NULL !== $notes) {
             $this->setNotes($notes);
         }

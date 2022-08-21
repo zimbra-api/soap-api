@@ -40,7 +40,7 @@ class RecoverAccountRequest extends SoapRequest
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\RecoverAccountOperation>')]
     #[XmlAttribute]
-    private $op;
+    private RecoverAccountOperation $op;
 
     /**
      * Email
@@ -122,7 +122,7 @@ class RecoverAccountRequest extends SoapRequest
      *
      * @return RecoverAccountOperation
      */
-    public function getOp(): ?RecoverAccountOperation
+    public function getOp(): RecoverAccountOperation
     {
         return $this->op;
     }

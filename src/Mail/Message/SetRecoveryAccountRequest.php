@@ -40,7 +40,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\RecoveryAccountOperation>')]
     #[XmlAttribute]
-    private $op;
+    private RecoveryAccountOperation $op;
 
     /**
      * recovery account
@@ -88,7 +88,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     #[SerializedName('channel')]
     #[Type('Enum<Zimbra\Common\Enum\Channel>')]
     #[XmlAttribute]
-    private $channel;
+    private ?Channel $channel;
 
     /**
      * Constructor
@@ -107,14 +107,12 @@ class SetRecoveryAccountRequest extends SoapRequest
     )
     {
         $this->setOp($op ?? new RecoveryAccountOperation('sendCode'));
+        $this->channel = $channel;
         if (NULL !== $recoveryAccount) {
             $this->setRecoveryAccount($recoveryAccount);
         }
         if (NULL !== $verificationCode) {
             $this->setVerificationCode($verificationCode);
-        }
-        if ($channel instanceof Channel) {
-            $this->setChannel($channel);
         }
     }
 

@@ -109,7 +109,7 @@ class CounterAppointmentRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Msg $msg;
 
     /**
      * Constructor
@@ -129,6 +129,7 @@ class CounterAppointmentRequest extends SoapRequest
         ?Msg $msg = NULL
     )
     {
+        $this->msg = $msg;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -140,9 +141,6 @@ class CounterAppointmentRequest extends SoapRequest
         }
         if (NULL !== $revision) {
             $this->setRevision($revision);
-        }
-        if ($msg instanceof Msg) {
-            $this->setMsg($msg);
         }
     }
 

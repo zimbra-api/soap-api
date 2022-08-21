@@ -60,7 +60,7 @@ class RestoreContactsRequest extends SoapRequest
     #[SerializedName('resolve')]
     #[Type('Enum<Zimbra\Common\Enum\RestoreResolve>')]
     #[XmlAttribute]
-    private $resolve;
+    private ?RestoreResolve $resolve;
 
     /**
      * Constructor
@@ -75,9 +75,7 @@ class RestoreContactsRequest extends SoapRequest
     )
     {
         $this->setContactsBackupFileName($fileName);
-        if ($resolve instanceof RestoreResolve) {
-            $this->setResolve($resolve);
-        }
+        $this->resolve = $resolve;
     }
 
     /**

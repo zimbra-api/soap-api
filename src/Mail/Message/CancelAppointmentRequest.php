@@ -106,7 +106,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName('inst')]
     #[Type(InstanceRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $instance;
+    private ?InstanceRecurIdInfo $instance;
 
     /**
      * Definition for TZID referenced by DATETIME in instance
@@ -122,7 +122,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $timezone;
+    private ?CalTZInfo $timezone;
 
     /**
      * Message
@@ -138,7 +138,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Msg $msg;
 
     /**
      * Constructor
@@ -162,6 +162,9 @@ class CancelAppointmentRequest extends SoapRequest
         ?Msg $msg = NULL
     )
     {
+        $this->instance = $instance;
+        $this->timezone = $timezone;
+        $this->msg = $msg;
         if (NULL !== $id) {
             $this->setId($id);
         }
@@ -173,15 +176,6 @@ class CancelAppointmentRequest extends SoapRequest
         }
         if (NULL !== $revision) {
             $this->setRevision($revision);
-        }
-        if ($instance instanceof InstanceRecurIdInfo) {
-            $this->setInstance($instance);
-        }
-        if ($timezone instanceof CalTZInfo) {
-            $this->setTimezone($timezone);
-        }
-        if ($msg instanceof Msg) {
-            $this->setMsg($msg);
         }
     }
 

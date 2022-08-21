@@ -42,7 +42,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?Msg $msg;
 
     /**
      * Constructor
@@ -52,9 +52,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
      */
     public function __construct(?Msg $msg = NULL)
     {
-        if ($msg instanceof Msg) {
-            $this->setMsg($msg);
-        }
+        $this->msg = $msg;
     }
 
     /**

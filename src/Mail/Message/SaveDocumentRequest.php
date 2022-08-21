@@ -65,7 +65,7 @@ class SaveDocumentRequest extends SoapRequest
     #[SerializedName('doc')]
     #[Type(DocumentSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $doc;
+    private DocumentSpec $doc;
 
     /**
      * Constructor

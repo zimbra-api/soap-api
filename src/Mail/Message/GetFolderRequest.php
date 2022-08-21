@@ -133,7 +133,7 @@ class GetFolderRequest extends SoapRequest
     #[SerializedName('folder')]
     #[Type(GetFolderSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folder;
+    private ?GetFolderSpec $folder;
 
     /**
      * Constructor
@@ -155,9 +155,7 @@ class GetFolderRequest extends SoapRequest
         ?bool $traverseMountpoints = NULL
     )
     {
-        if ($folder instanceof GetFolderSpec) {
-            $this->setFolder($folder);
-        }
+        $this->folder = $folder;
         if (NULL !== $isVisible) {
             $this->setVisible($isVisible);
         }

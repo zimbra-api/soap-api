@@ -40,7 +40,7 @@ class PurgeRevisionRequest extends SoapRequest
     #[SerializedName('revision')]
     #[Type(PurgeRevisionSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $revision;
+    private PurgeRevisionSpec $revision;
 
     /**
      * Constructor

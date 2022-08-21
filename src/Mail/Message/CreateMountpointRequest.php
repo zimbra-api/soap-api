@@ -40,7 +40,7 @@ class CreateMountpointRequest extends SoapRequest
     #[SerializedName('link')]
     #[Type(NewMountpointSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folder;
+    private NewMountpointSpec $folder;
 
     /**
      * Constructor

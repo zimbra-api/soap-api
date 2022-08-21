@@ -40,7 +40,7 @@ class GetNoteRequest extends SoapRequest
     #[SerializedName('note')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $note;
+    private Id $note;
 
     /**
      * Constructor
