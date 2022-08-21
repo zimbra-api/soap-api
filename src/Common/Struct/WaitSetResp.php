@@ -9,7 +9,6 @@
  */
 
 namespace Zimbra\Common\Struct;
-use Zimbra\Mail\Struct\AccountWithModifications;
 
 /**
  * WaitSetResp interface
