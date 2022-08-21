@@ -39,7 +39,7 @@ class CreateMountpointResponse extends SoapResponse
     #[SerializedName('link')]
     #[Type(Mountpoint::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $mount;
+    private ?Mountpoint $mount;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateMountpointResponse extends SoapResponse
      */
     public function __construct(?Mountpoint $mount = NULL)
     {
-        if ($mount instanceof Mountpoint) {
-            $this->setMount($mount);
-        }
+        $this->mount = $mount;
     }
 
     /**

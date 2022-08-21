@@ -40,7 +40,7 @@ class TagActionResponse extends SoapResponse
     #[SerializedName('action')]
     #[Type(TagActionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private ?TagActionInfo $action;
 
     /**
      * Constructor
@@ -50,9 +50,7 @@ class TagActionResponse extends SoapResponse
      */
     public function __construct(?TagActionInfo $action = NULL)
     {
-        if ($action instanceof TagActionInfo) {
-            $this->setAction($action);
-        }
+        $this->action = $action;
     }
 
     /**

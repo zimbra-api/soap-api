@@ -39,7 +39,7 @@ class AddCommentResponse extends SoapResponse
     #[SerializedName('comment')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $comment;
+    private ?Id $comment;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class AddCommentResponse extends SoapResponse
      */
     public function __construct(?Id $comment = NULL)
     {
-        if ($comment instanceof Id) {
-            $this->setComment($comment);
-        }
+        $this->comment = $comment;
     }
 
     /**

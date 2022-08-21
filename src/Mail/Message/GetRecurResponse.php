@@ -44,7 +44,7 @@ class GetRecurResponse extends SoapResponse
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $timezone;
+    private ?CalTZInfo $timezone;
 
     /**
      * Cancel recurrence component
@@ -60,7 +60,7 @@ class GetRecurResponse extends SoapResponse
     #[SerializedName('cancel')]
     #[Type(CancelItemRecur::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $cancelComponent;
+    private ?CancelItemRecur $cancelComponent;
 
     /**
      * Except recurrence component
@@ -76,7 +76,7 @@ class GetRecurResponse extends SoapResponse
     #[SerializedName('except')]
     #[Type(ExceptionItemRecur::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $exceptComponent;
+    private ?ExceptionItemRecur $exceptComponent;
 
     /**
      * Invite recurrence component
@@ -92,7 +92,7 @@ class GetRecurResponse extends SoapResponse
     #[SerializedName('comp')]
     #[Type(InviteItemRecur::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $inviteComponent;
+    private ?InviteItemRecur $inviteComponent;
 
     /**
      * Constructor
@@ -110,18 +110,10 @@ class GetRecurResponse extends SoapResponse
         ?InviteItemRecur $inviteComponent = NULL
     )
     {
-        if ($timezone instanceof CalTZInfo) {
-            $this->setTimezone($timezone);
-        }
-        if ($cancelComponent instanceof CancelItemRecur) {
-            $this->setCancelComponent($cancelComponent);
-        }
-        if ($exceptComponent instanceof ExceptionItemRecur) {
-            $this->setExceptComponent($exceptComponent);
-        }
-        if ($inviteComponent instanceof InviteItemRecur) {
-            $this->setInviteComponent($inviteComponent);
-        }
+        $this->timezone = $timezone;
+        $this->cancelComponent = $cancelComponent;
+        $this->exceptComponent = $exceptComponent;
+        $this->inviteComponent = $inviteComponent;
     }
 
     /**

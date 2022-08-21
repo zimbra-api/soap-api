@@ -39,7 +39,7 @@ class CreateSearchFolderResponse extends SoapResponse
     #[SerializedName('search')]
     #[Type(SearchFolder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $searchFolder;
+    private ?SearchFolder $searchFolder;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateSearchFolderResponse extends SoapResponse
      */
     public function __construct(?SearchFolder $searchFolder = NULL)
     {
-        if ($searchFolder instanceof SearchFolder) {
-            $this->setSearchFolder($searchFolder);
-        }
+        $this->searchFolder = $searchFolder;
     }
 
     /**

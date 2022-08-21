@@ -55,7 +55,7 @@ class GetCustomMetadataResponse extends SoapResponse
     #[SerializedName('meta')]
     #[Type(MailCustomMetadata::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $metadata;
+    private ?MailCustomMetadata $metadata;
 
     /**
      * Constructor
@@ -68,11 +68,9 @@ class GetCustomMetadataResponse extends SoapResponse
         ?string $id = NULL, ?MailCustomMetadata $metadata = NULL
     )
     {
+        $this->metadata = $metadata;
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if ($metadata instanceof MailCustomMetadata) {
-            $this->setMetadata($metadata);
         }
     }
 

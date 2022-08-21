@@ -39,7 +39,7 @@ class ConvActionResponse extends SoapResponse
     #[SerializedName('action')]
     #[Type(ActionResult::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private ?ActionResult $action;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class ConvActionResponse extends SoapResponse
      */
     public function __construct(?ActionResult $action = NULL)
     {
-        if ($action instanceof ActionResult) {
-            $this->setAction($action);
-        }
+        $this->action = $action;
     }
 
     /**

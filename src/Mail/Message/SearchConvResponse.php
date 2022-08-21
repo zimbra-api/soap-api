@@ -52,7 +52,7 @@ class SearchConvResponse extends SoapResponse
     #[SerializedName('sortBy')]
     #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
-    private $sortBy;
+    private ?SearchSortBy $sortBy;
 
     /**
      * Offset - an int specifying the 0-based offset into the results list returned as
@@ -101,7 +101,7 @@ class SearchConvResponse extends SoapResponse
     #[SerializedName('c')]
     #[Type(NestedSearchConversation::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $conversation;
+    private ?NestedSearchConversation $conversation;
 
     /**
      * Message search hits
@@ -135,7 +135,7 @@ class SearchConvResponse extends SoapResponse
     #[SerializedName('info')]
     #[Type(SearchQueryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $queryInfo;
+    private ?SearchQueryInfo $queryInfo;
 
     /**
      * Constructor
@@ -158,20 +158,14 @@ class SearchConvResponse extends SoapResponse
     )
     {
         $this->setMessages($messages);
-        if ($sortBy instanceof SearchSortBy) {
-            $this->setSortBy($sortBy);
-        }
+        $this->sortBy = $sortBy;
+        $this->conversation = $conversation;
+        $this->queryInfo = $queryInfo;
         if (NULL !== $queryOffset) {
             $this->setQueryOffset($queryOffset);
         }
         if (NULL !== $queryMore) {
             $this->setQueryMore($queryMore);
-        }
-        if ($conversation instanceof NestedSearchConversation) {
-            $this->setConversation($conversation);
-        }
-        if ($queryInfo instanceof SearchQueryInfo) {
-            $this->setQueryInfo($queryInfo);
         }
     }
 

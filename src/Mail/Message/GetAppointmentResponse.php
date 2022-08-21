@@ -40,7 +40,7 @@ class GetAppointmentResponse extends SoapResponse
     #[SerializedName('appt')]
     #[Type(CalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $appt;
+    private ?CalendarItemInfo $appt;
 
     /**
      * Task information
@@ -56,7 +56,7 @@ class GetAppointmentResponse extends SoapResponse
     #[SerializedName('task')]
     #[Type(TaskItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $task;
+    private ?TaskItemInfo $task;
 
     /**
      * Constructor
@@ -69,12 +69,8 @@ class GetAppointmentResponse extends SoapResponse
         ?TaskItemInfo $task = NULL
     )
     {
-        if ($appt instanceof CalendarItemInfo) {
-            $this->setApptItem($appt);
-        }
-        if ($task instanceof TaskItemInfo) {
-            $this->setTaskItem($task);
-        }
+        $this->appt = $appt;
+        $this->task = $task;
     }
 
     /**

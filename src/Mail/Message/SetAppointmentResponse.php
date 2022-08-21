@@ -71,7 +71,7 @@ class SetAppointmentResponse extends SoapResponse
     #[SerializedName('default')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $defaultId;
+    private ?Id $defaultId;
 
     /**
      * Information about exceptions
@@ -104,14 +104,12 @@ class SetAppointmentResponse extends SoapResponse
     )
     {
         $this->setExceptions($exceptions);
+        $this->defaultId = $defaultId;
         if (NULL !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
         if (NULL !== $deprecatedApptId) {
             $this->setDeprecatedApptId($deprecatedApptId);
-        }
-        if ($defaultId instanceof Id) {
-            $this->setDefaultId($defaultId);
         }
     }
 

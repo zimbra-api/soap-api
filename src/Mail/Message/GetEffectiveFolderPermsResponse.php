@@ -39,7 +39,7 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
     #[SerializedName('folder')]
     #[Type(Rights::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folder;
+    private ?Rights $folder;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
      */
     public function __construct(?Rights $folder = NULL)
     {
-        if ($folder instanceof Rights) {
-            $this->setFolder($folder);
-        }
+        $this->folder = $folder;
     }
 
     /**

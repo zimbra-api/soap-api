@@ -41,6 +41,14 @@ class ModifyDataSourceRequest extends SoapRequest
      */
     public function __construct(?MailDataSource $dataSource = NULL)
     {
+        $this->imapDataSource = 
+        $this->pop3DataSource = 
+        $this->caldavDataSource = 
+        $this->yabDataSource = 
+        $this->rssDataSource = 
+        $this->galDataSource = 
+        $this->calDataSource = 
+        $this->unknownDataSource = NULL;
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);
         }

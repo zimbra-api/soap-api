@@ -39,7 +39,7 @@ class GetConvResponse extends SoapResponse
     #[SerializedName('c')]
     #[Type(ConversationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $conversation;
+    private ?ConversationInfo $conversation;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetConvResponse extends SoapResponse
      */
     public function __construct(?ConversationInfo $conversation = NULL)
     {
-        if ($conversation instanceof ConversationInfo) {
-            $this->setConversation($conversation);
-        }
+        $this->conversation = $conversation;
     }
 
     /**

@@ -39,7 +39,7 @@ class GetICalResponse extends SoapResponse
     #[SerializedName('ical')]
     #[Type(ICalContent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $content;
+    private ?ICalContent $content;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetICalResponse extends SoapResponse
      */
     public function __construct(?ICalContent $content = NULL)
     {
-        if ($content instanceof ICalContent) {
-            $this->setContent($content);
-        }
+        $this->content = $content;
     }
 
     /**

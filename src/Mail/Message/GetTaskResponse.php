@@ -28,6 +28,7 @@ class GetTaskResponse extends SoapResponse
 {
     /**
      * Appointment information
+     * 
      * @Accessor(getter="getApptItem", setter="setApptItem")
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
@@ -39,10 +40,11 @@ class GetTaskResponse extends SoapResponse
     #[SerializedName('appt')]
     #[Type(CalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $appt;
+    private ?CalendarItemInfo $appt;
 
     /**
      * Task information
+     * 
      * @Accessor(getter="getTaskItem", setter="setTaskItem")
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
@@ -54,7 +56,7 @@ class GetTaskResponse extends SoapResponse
     #[SerializedName('task')]
     #[Type(TaskItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $task;
+    private ?TaskItemInfo $task;
 
     /**
      * Constructor
@@ -68,12 +70,8 @@ class GetTaskResponse extends SoapResponse
         ?TaskItemInfo $task = NULL
     )
     {
-        if ($appt instanceof CalendarItemInfo) {
-            $this->setApptItem($appt);
-        }
-        if ($task instanceof TaskItemInfo) {
-            $this->setTaskItem($task);
-        }
+        $this->appt = $appt;
+        $this->task = $task;
     }
 
     /**

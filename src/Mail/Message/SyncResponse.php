@@ -117,7 +117,7 @@ class SyncResponse extends SoapResponse
     #[SerializedName('deleted')]
     #[Type(SyncDeletedInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $deleted;
+    private ?SyncDeletedInfo $deleted;
 
     /**
      * Sync folder items
@@ -295,6 +295,7 @@ class SyncResponse extends SoapResponse
     {
         $this->setChangeDate($changeDate)
              ->setItems($items);
+        $this->deleted = $deleted;
         if (NULL !== $token) {
             $this->setToken($token);
         }
@@ -303,9 +304,6 @@ class SyncResponse extends SoapResponse
         }
         if (NULL !== $more) {
             $this->setMore($more);
-        }
-        if ($deleted instanceof SyncDeletedInfo) {
-            $this->setDeleted($deleted);
         }
     }
 

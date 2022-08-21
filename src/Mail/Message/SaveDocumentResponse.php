@@ -39,7 +39,7 @@ class SaveDocumentResponse extends SoapResponse
     #[SerializedName('doc')]
     #[Type(IdVersionName::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $doc;
+    private ?IdVersionName $doc;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class SaveDocumentResponse extends SoapResponse
      */
     public function __construct(?IdVersionName $doc = NULL)
     {
-        if ($doc instanceof IdVersionName) {
-            $this->setDoc($doc);
-        }
+        $this->doc = $doc;
     }
 
     /**

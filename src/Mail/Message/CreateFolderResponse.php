@@ -41,7 +41,7 @@ class CreateFolderResponse extends SoapResponse
     #[SerializedName('folder')]
     #[Type(Folder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folder;
+    private ?Folder $folder;
 
     /**
      * Information about created mountpoint
@@ -57,7 +57,7 @@ class CreateFolderResponse extends SoapResponse
     #[SerializedName('link')]
     #[Type(Mountpoint::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $mountpoint;
+    private ?Mountpoint $mountpoint;
 
     /**
      * Information about created search folder
@@ -73,7 +73,7 @@ class CreateFolderResponse extends SoapResponse
     #[SerializedName('search')]
     #[Type(SearchFolder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $searchFolder;
+    private ?SearchFolder $searchFolder;
 
     /**
      * Constructor
@@ -83,6 +83,7 @@ class CreateFolderResponse extends SoapResponse
      */
     public function __construct(?Folder $folder = NULL)
     {
+        $this->folder = $this->mountpoint = $this->searchFolder = NULL;
         if ($folder instanceof Mountpoint) {
             $this->setMountpoint($folder);
         }

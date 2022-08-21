@@ -37,7 +37,7 @@ trait MailDataSourceTrait
     #[SerializedName('imap')]
     #[Type(MailImapDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $imapDataSource;
+    private ?MailImapDataSource $imapDataSource;
 
     /**
      * Pop3 data source
@@ -53,7 +53,7 @@ trait MailDataSourceTrait
     #[SerializedName('pop3')]
     #[Type(MailPop3DataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $pop3DataSource;
+    private ?MailPop3DataSource $pop3DataSource;
 
     /**
      * Caldav data source
@@ -69,7 +69,7 @@ trait MailDataSourceTrait
     #[SerializedName('caldav')]
     #[Type(MailCaldavDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $caldavDataSource;
+    private ?MailCaldavDataSource $caldavDataSource;
 
     /**
      * Yab data source
@@ -85,7 +85,7 @@ trait MailDataSourceTrait
     #[SerializedName('yab')]
     #[Type(MailYabDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $yabDataSource;
+    private ?MailYabDataSource $yabDataSource;
 
     /**
      * Rss data source
@@ -101,7 +101,7 @@ trait MailDataSourceTrait
     #[SerializedName('rss')]
     #[Type(MailRssDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $rssDataSource;
+    private ?MailRssDataSource $rssDataSource;
 
     /**
      * Gal data source
@@ -116,7 +116,7 @@ trait MailDataSourceTrait
     #[SerializedName('gal')]
     #[Type(MailGalDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $galDataSource;
+    private ?MailGalDataSource $galDataSource;
 
     /**
      * Cal data source
@@ -132,7 +132,7 @@ trait MailDataSourceTrait
     #[SerializedName('cal')]
     #[Type(MailCalDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $calDataSource;
+    private ?MailCalDataSource $calDataSource;
 
     /**
      * Unknown data source
@@ -148,7 +148,7 @@ trait MailDataSourceTrait
     #[SerializedName('unknown')]
     #[Type(MailUnknownDataSource::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $unknownDataSource;
+    private ?MailUnknownDataSource $unknownDataSource;
 
     /**
      * Set dataSource

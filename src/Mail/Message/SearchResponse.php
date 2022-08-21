@@ -61,7 +61,7 @@ class SearchResponse extends SoapResponse
     #[SerializedName('sortBy')]
     #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
-    private $sortBy;
+    private ?SearchSortBy $sortBy;
 
     /**
      * Offset - an int specifying the 0-based offset into the results list returned as
@@ -284,7 +284,7 @@ class SearchResponse extends SoapResponse
     #[SerializedName('info')]
     #[Type(SearchQueryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $queryInfo;
+    private ?SearchQueryInfo $queryInfo;
 
     /**
      * Constructor
@@ -337,9 +337,8 @@ class SearchResponse extends SoapResponse
              ->setWikiHits($wikiHits)
              ->setAppointmentHits($appointmentHits)
              ->setTaskHits($taskHits);
-        if ($sortBy instanceof SearchSortBy) {
-            $this->setSortBy($sortBy);
-        }
+        $this->sortBy = $sortBy;
+        $this->queryInfo = $queryInfo;
         if (NULL !== $queryOffset) {
             $this->setQueryOffset($queryOffset);
         }
@@ -348,9 +347,6 @@ class SearchResponse extends SoapResponse
         }
         if (NULL !== $totalSize) {
             $this->setTotalSize($totalSize);
-        }
-        if ($queryInfo instanceof SearchQueryInfo) {
-            $this->setQueryInfo($queryInfo);
         }
     }
 

@@ -39,7 +39,7 @@ class CreateTagResponse extends SoapResponse
     #[SerializedName('tag')]
     #[Type(TagInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $tag;
+    private ?TagInfo $tag;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class CreateTagResponse extends SoapResponse
      */
     public function __construct(?TagInfo $tag = NULL)
     {
-        if ($tag instanceof TagInfo) {
-            $this->setTag($tag);
-        }
+        $this->tag = $tag;
     }
 
     /**

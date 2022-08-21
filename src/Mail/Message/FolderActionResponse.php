@@ -39,7 +39,7 @@ class FolderActionResponse extends SoapResponse
     #[SerializedName('action')]
     #[Type(FolderActionResult::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $action;
+    private ?FolderActionResult $action;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class FolderActionResponse extends SoapResponse
      */
     public function __construct(?FolderActionResult $action = NULL)
     {
-        if ($action instanceof FolderActionResult) {
-            $this->setAction($action);
-        }
+        $this->action = $action;
     }
 
     /**

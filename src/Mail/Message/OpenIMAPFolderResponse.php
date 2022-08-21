@@ -74,7 +74,7 @@ class OpenIMAPFolderResponse extends SoapResponse
     #[SerializedName('cursor')]
     #[Type(ImapCursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $cursor;
+    private ?ImapCursorInfo $cursor;
 
     /**
      * Constructor
@@ -91,11 +91,9 @@ class OpenIMAPFolderResponse extends SoapResponse
     )
     {
         $this->setMessages($messages);
+        $this->cursor = $cursor;
         if (NULL !== $hasMore) {
             $this->setHasMore($hasMore);
-        }
-        if ($cursor instanceof ImapCursorInfo) {
-            $this->setCursor($cursor);
         }
     }
 

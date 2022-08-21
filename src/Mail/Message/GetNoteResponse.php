@@ -39,7 +39,7 @@ class GetNoteResponse extends SoapResponse
     #[SerializedName('note')]
     #[Type(NoteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $note;
+    private ?NoteInfo $note;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetNoteResponse extends SoapResponse
      */
     public function __construct(?NoteInfo $note = NULL)
     {
-        if ($note instanceof NoteInfo) {
-            $this->setNote($note);
-        }
+        $this->note = $note;
     }
 
     /**

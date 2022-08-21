@@ -39,7 +39,7 @@ class GetMsgResponse extends SoapResponse
     #[SerializedName('m')]
     #[Type(MsgWithGroupInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msg;
+    private ?MsgWithGroupInfo $msg;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetMsgResponse extends SoapResponse
      */
     public function __construct(?MsgWithGroupInfo $msg = NULL)
     {
-        if ($msg instanceof MsgWithGroupInfo) {
-            $this->setMsg($msg);
-        }
+        $this->msg = $msg;
     }
 
     /**

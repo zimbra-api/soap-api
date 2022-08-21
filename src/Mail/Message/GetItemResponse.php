@@ -53,7 +53,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('folder')]
     #[Type(Folder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $folderItem;
+    private ?Folder $folderItem;
 
     /**
      * Tag item
@@ -69,7 +69,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('tag')]
     #[Type(TagInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $tagItem;
+    private ?TagInfo $tagItem;
 
     /**
      * Note item
@@ -85,7 +85,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('note')]
     #[Type(NoteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $noteItem;
+    private ?NoteInfo $noteItem;
 
     /**
      * Contact item
@@ -101,7 +101,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('cn')]
     #[Type(ContactInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $contactItem;
+    private ?ContactInfo $contactItem;
 
     /**
      * Calendar item
@@ -117,7 +117,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('appt')]
     #[Type(CalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $apptItem;
+    private ?CalendarItemInfo $apptItem;
 
     /**
      * Task item
@@ -133,7 +133,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('task')]
     #[Type(TaskItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $taskItem;
+    private ?TaskItemInfo $taskItem;
 
     /**
      * Conversation item
@@ -149,7 +149,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('c')]
     #[Type(ConversationSummary::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $convItem;
+    private ?ConversationSummary $convItem;
 
     /**
      * Wiki item
@@ -165,7 +165,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('w')]
     #[Type(CommonDocumentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $wikiItem;
+    private ?CommonDocumentInfo $wikiItem;
 
     /**
      * Document item
@@ -181,7 +181,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('doc')]
     #[Type(DocumentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $docItem;
+    private ?DocumentInfo $docItem;
 
     /**
      * Message item
@@ -197,7 +197,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('m')]
     #[Type(MessageSummary::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msgItem;
+    private ?MessageSummary $msgItem;
 
     /**
      * Chat item
@@ -213,7 +213,7 @@ class GetItemResponse extends SoapResponse
     #[SerializedName('chat')]
     #[Type(ChatSummary::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $chatItem;
+    private ?ChatSummary $chatItem;
 
     /**
      * Constructor
@@ -223,6 +223,17 @@ class GetItemResponse extends SoapResponse
      */
     public function __construct($item = NULL)
     {
+        $this->folderItem = 
+        $this->tagItem = 
+        $this->noteItem = 
+        $this->contactItem = 
+        $this->apptItem = 
+        $this->taskItem = 
+        $this->convItem = 
+        $this->wikiItem = 
+        $this->docItem = 
+        $this->msgItem = 
+        $this->chatItem = NULL;
         if (NULL !== $item) {
             $this->setItem($item);
         }

@@ -39,7 +39,7 @@ class ModifyContactResponse extends SoapResponse
     #[SerializedName('cn')]
     #[Type(ContactInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $contact;
+    private ?ContactInfo $contact;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class ModifyContactResponse extends SoapResponse
      */
     public function __construct(?ContactInfo $contact = NULL)
     {
-        if ($contact instanceof ContactInfo) {
-            $this->setContact($contact);
-        }
+        $this->contact = $contact;
     }
 
     /**

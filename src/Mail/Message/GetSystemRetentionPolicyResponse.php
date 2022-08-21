@@ -39,7 +39,7 @@ class GetSystemRetentionPolicyResponse extends SoapResponse
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class GetSystemRetentionPolicyResponse extends SoapResponse
      */
     public function __construct(?RetentionPolicy $retentionPolicy = NULL)
     {
-        if ($retentionPolicy instanceof RetentionPolicy) {
-            $this->setRetentionPolicy($retentionPolicy);
-        }
+        $this->retentionPolicy = $retentionPolicy;
     }
 
     /**

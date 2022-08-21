@@ -39,7 +39,7 @@ class ApplyFilterRulesResponse extends SoapResponse
     #[SerializedName('m')]
     #[Type(IdsAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msgIds;
+    private ?IdsAttr $msgIds;
 
     /**
      * Constructor
@@ -49,9 +49,7 @@ class ApplyFilterRulesResponse extends SoapResponse
      */
     public function __construct(?IdsAttr $msgIds = NULL)
     {
-        if ($msgIds instanceof IdsAttr) {
-            $this->setMsgIds($msgIds);
-        }
+        $this->msgIds = $msgIds;
     }
 
     /**

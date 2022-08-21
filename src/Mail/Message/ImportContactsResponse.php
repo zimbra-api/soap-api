@@ -39,7 +39,7 @@ class ImportContactsResponse extends SoapResponse
     #[SerializedName('cn')]
     #[Type(ImportContact::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $contact;
+    private ?ImportContact $contact;
 
     /**
      * Constructor
@@ -51,9 +51,7 @@ class ImportContactsResponse extends SoapResponse
         ?ImportContact $contact = NULL
     )
     {
-        if ($contact instanceof ImportContact) {
-            $this->setContact($contact);
-        }
+        $this->contact = $contact;
     }
 
     /**

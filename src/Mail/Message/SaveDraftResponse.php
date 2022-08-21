@@ -44,7 +44,7 @@ class SaveDraftResponse extends SoapResponse
     #[SerializedName('m')]
     #[Type(MessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $msgMessage;
+    private ?MessageInfo $msgMessage;
 
     /**
      * Information on saved chat draft
@@ -60,7 +60,7 @@ class SaveDraftResponse extends SoapResponse
     #[SerializedName('chat')]
     #[Type(ChatMessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $chatMessage;
+    private ?ChatMessageInfo $chatMessage;
 
     /**
      * Constructor
@@ -70,6 +70,7 @@ class SaveDraftResponse extends SoapResponse
      */
     public function __construct(?MessageInfo $message = NULL)
     {
+        $this->msgMessage = $this->chatMessage = NULL;
         if (NULL !== $message) {
             $this->setMessage($message);
         }
