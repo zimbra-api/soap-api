@@ -38,7 +38,7 @@ class TzReplaceInfo
     #[SerializedName('wellKnownTz')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $wellKnownTz;
+    private ?Id $wellKnownTz;
 
     /**
      * Timezone
@@ -53,23 +53,19 @@ class TzReplaceInfo
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $calTz;
+    private ?CalTZInfo $calTz;
 
     /**
      * Constructor
      * 
      * @param Id $wellKnownTz
-     * @param CalTZInfo $tz
+     * @param CalTZInfo $calTz
      * @return self
      */
-    public function __construct(?Id $wellKnownTz = NULL, ?CalTZInfo $tz = NULL)
+    public function __construct(?Id $wellKnownTz = NULL, ?CalTZInfo $calTz = NULL)
     {
-        if ($wellKnownTz instanceof Id) {
-            $this->setWellKnownTz($wellKnownTz);
-        }
-        if ($tz instanceof CalTZInfo) {
-            $this->setCalTz($tz);
-        }
+        $this->wellKnownTz = $wellKnownTz;
+        $this->calTz = $calTz;
     }
 
     /**
@@ -95,7 +91,7 @@ class TzReplaceInfo
     }
 
     /**
-     * Get the tz.
+     * Get the calTz.
      *
      * @return CalTZInfo
      */
@@ -105,14 +101,14 @@ class TzReplaceInfo
     }
 
     /**
-     * Set the tz.
+     * Set the calTz.
      *
-     * @param  CalTZInfo $tz
+     * @param  CalTZInfo $calTz
      * @return self
      */
-    public function setCalTz(CalTZInfo $tz): self
+    public function setCalTz(CalTZInfo $calTz): self
     {
-        $this->calTz = $tz;
+        $this->calTz = $calTz;
         return $this;
     }
 }

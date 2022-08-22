@@ -88,7 +88,7 @@ class CalTZInfo
     #[SerializedName('standard')]
     #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $standardTzOnset;
+    private ?TzOnsetInfo $standardTzOnset;
 
     /**
      * Time/rule for transitioning from standard time to daylight time
@@ -104,7 +104,7 @@ class CalTZInfo
     #[SerializedName('daylight')]
     #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $daylightTzOnset;
+    private ?TzOnsetInfo $daylightTzOnset;
 
     /**
      * Standard Time component's timezone name
@@ -163,13 +163,8 @@ class CalTZInfo
         $this->setId($id)
              ->setTzStdOffset($stdoff)
              ->setTzDayOffset($dayoff);
-
-        if ($standard instanceof TzOnsetInfo) {
-            $this->setStandardTzOnset($standard);
-        }
-        if ($daylight instanceof TzOnsetInfo) {
-            $this->setDaylightTzOnset($daylight);
-        }
+        $this->standardTzOnset = $standard;
+        $this->daylightTzOnset = $daylight;
         if (NULL !== $stdname) {
             $this->setStandardTZName($stdname);
         }
