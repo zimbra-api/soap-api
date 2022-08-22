@@ -12,8 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Mail\Struct\AccountWithModifications;
-use Zimbra\Common\Struct\{IdAndType, WaitSetResp};
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{IdAndType, SoapResponse, WaitSetResp};
 
 /**
  * WaitSetResponse class
