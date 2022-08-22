@@ -12,8 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Enum\InterestType;
-use Zimbra\Common\Struct\{CreateWaitSetResp, IdAndType};
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{CreateWaitSetResp, IdAndType, SoapResponse};
 
 /**
  * CreateWaitSetResponse class

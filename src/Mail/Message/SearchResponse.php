@@ -11,9 +11,6 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-
-use Zimbra\Common\Enum\SearchSortBy;
-use Zimbra\Common\Struct\SimpleSearchHit;
 use Zimbra\Mail\Struct\{
     ConversationHitInfo,
     MessageHitInfo,
@@ -27,7 +24,8 @@ use Zimbra\Mail\Struct\{
     TaskHitInfo,
     SearchQueryInfo
 };
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Enum\SearchSortBy;
+use Zimbra\Common\Struct\{SimpleSearchHit, SoapResponse};
 
 /**
  * SearchResponse class

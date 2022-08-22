@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-
 use Zimbra\Mail\Struct\{
     Folder,
     TagInfo,
@@ -25,7 +24,6 @@ use Zimbra\Mail\Struct\{
     MessageSummary,
     ChatSummary
 };
-
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

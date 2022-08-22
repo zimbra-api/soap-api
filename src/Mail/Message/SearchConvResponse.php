@@ -11,13 +11,12 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-
-use Zimbra\Common\Enum\SearchSortBy;
 use Zimbra\Mail\Struct\{
     NestedSearchConversation,
     MessageHitInfo,
     SearchQueryInfo
 };
+use Zimbra\Common\Enum\SearchSortBy;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

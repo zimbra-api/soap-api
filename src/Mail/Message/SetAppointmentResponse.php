@@ -11,9 +11,8 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\ExceptIdInfo;
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * SetAppointmentResponse class

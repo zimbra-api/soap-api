@@ -11,9 +11,8 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetMiniCalRequest class

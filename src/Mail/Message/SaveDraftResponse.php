@@ -11,12 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-
-use Zimbra\Mail\Struct\{
-    MessageInfo,
-    ChatMessageInfo
-};
-
+use Zimbra\Mail\Struct\{MessageInfo, ChatMessageInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

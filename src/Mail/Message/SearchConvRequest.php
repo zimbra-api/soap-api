@@ -11,10 +11,9 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\{MsgContent, SearchSortBy, WantRecipsSetting};
-use Zimbra\Common\Struct\{CursorInfo, SearchParameters};
 use Zimbra\Mail\Struct\{CalTZInfo, MailSearchParams};
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Enum\{MsgContent, SearchSortBy, WantRecipsSetting};
+use Zimbra\Common\Struct\{CursorInfo, SearchParameters, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchConvRequest class

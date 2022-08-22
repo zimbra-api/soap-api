@@ -11,15 +11,17 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Mail\Struct\CalDataSourceNameOrId;
-use Zimbra\Mail\Struct\CaldavDataSourceNameOrId;
-use Zimbra\Mail\Struct\DataSourceNameOrId;
-use Zimbra\Mail\Struct\GalDataSourceNameOrId;
-use Zimbra\Mail\Struct\ImapDataSourceNameOrId;
-use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;
-use Zimbra\Mail\Struct\RssDataSourceNameOrId;
-use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
-use Zimbra\Mail\Struct\YabDataSourceNameOrId;
+use Zimbra\Mail\Struct\{
+    CalDataSourceNameOrId,
+    CaldavDataSourceNameOrId,
+    DataSourceNameOrId,
+    GalDataSourceNameOrId,
+    ImapDataSourceNameOrId,
+    Pop3DataSourceNameOrId,
+    RssDataSourceNameOrId,
+    UnknownDataSourceNameOrId,
+    YabDataSourceNameOrId
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**

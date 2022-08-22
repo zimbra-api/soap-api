@@ -11,8 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\SectionAttr;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{SectionAttr, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetCustomMetadataRequest class

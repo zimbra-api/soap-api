@@ -13,10 +13,9 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{
     Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
 };
-use Zimbra\Common\Enum\ShareAction;
-use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\EmailAddrInfo;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Enum\ShareAction;
+use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SendShareNotificationRequest class

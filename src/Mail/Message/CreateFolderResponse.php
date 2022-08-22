@@ -11,9 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Mail\Struct\Folder;
-use Zimbra\Mail\Struct\Mountpoint;
-use Zimbra\Mail\Struct\SearchFolder;
+use Zimbra\Mail\Struct\{Folder, Mountpoint, SearchFolder};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

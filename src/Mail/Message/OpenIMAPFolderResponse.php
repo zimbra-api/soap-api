@@ -11,8 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Mail\Struct\ImapCursorInfo;
-use Zimbra\Mail\Struct\ImapMessageInfo;
+use Zimbra\Mail\Struct\{ImapCursorInfo, ImapMessageInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

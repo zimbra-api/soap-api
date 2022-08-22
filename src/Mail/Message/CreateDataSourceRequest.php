@@ -10,10 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Mail\Struct\{
-    MailDataSource,
-    MailDataSourceTrait
-};
+use Zimbra\Mail\Struct\{MailDataSource, MailDataSourceTrait};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
