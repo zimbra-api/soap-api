@@ -11,8 +11,9 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, NamedElement};
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector, AttributeSelectorTrait, NamedElement, SoapEnvelopeInterface, SoapRequest
+};
 
 /**
  * GetZimletRequest class

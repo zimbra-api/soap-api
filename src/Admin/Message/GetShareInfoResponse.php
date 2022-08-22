@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Common\Struct\ShareInfo;
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{ShareInfo, SoapResponse};
 
 /**
  * GetShareInfoResponse class

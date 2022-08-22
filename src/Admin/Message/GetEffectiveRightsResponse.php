@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\EffectiveRightsTargetInfo as Target;
-use Zimbra\Admin\Struct\GranteeInfo;
+use Zimbra\Admin\Struct\{EffectiveRightsTargetInfo, GranteeInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -50,23 +49,23 @@ class GetEffectiveRightsResponse extends SoapResponse
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var Target
+     * @var EffectiveRightsTargetInfo
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
     #[SerializedName('target')]
-    #[Type(Target::class)]
+    #[Type(EffectiveRightsTargetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?Target $target;
+    private ?EffectiveRightsTargetInfo $target;
 
     /**
      * Constructor
      * 
      * @param GranteeInfo $grantee
-     * @param Target $target
+     * @param EffectiveRightsTargetInfo $target
      * @return self
      */
     public function __construct(
-        ?GranteeInfo $grantee = NULL, ?Target $target = NULL
+        ?GranteeInfo $grantee = NULL, ?EffectiveRightsTargetInfo $target = NULL
     )
     {
         $this->grantee = $grantee;
@@ -98,10 +97,10 @@ class GetEffectiveRightsResponse extends SoapResponse
     /**
      * Set target
      *
-     * @param  Target $target
+     * @param  EffectiveRightsTargetInfo $target
      * @return self
      */
-    public function setTarget(Target $target): self
+    public function setTarget(EffectiveRightsTargetInfo $target): self
     {
         $this->target = $target;
         return $this;
@@ -110,9 +109,9 @@ class GetEffectiveRightsResponse extends SoapResponse
     /**
      * Get target
      *
-     * @return Target
+     * @return EffectiveRightsTargetInfo
      */
-    public function getTarget(): ?Target
+    public function getTarget(): ?EffectiveRightsTargetInfo
     {
         return $this->target;
     }

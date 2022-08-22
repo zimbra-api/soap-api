@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Common\Struct\NamedValue;
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{NamedValue, SoapResponse};
 
 /**
  * GetAdminSavedSearchesResponse class

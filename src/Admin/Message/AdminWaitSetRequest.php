@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Common\Struct\{Id, WaitSetAddSpec};
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest, WaitSetAddSpec};
 
 /**
  * AdminWaitSet request class

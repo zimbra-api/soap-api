@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Admin\Struct\Attr;
-use Zimbra\Admin\Struct\CosInfo;
+use Zimbra\Admin\Struct\{Attr, CosInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

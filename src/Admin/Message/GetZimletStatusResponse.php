@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Admin\Struct\ZimletStatusCos;
-use Zimbra\Admin\Struct\ZimletStatusParent;
+use Zimbra\Admin\Struct\{ZimletStatusCos, ZimletStatusParent};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

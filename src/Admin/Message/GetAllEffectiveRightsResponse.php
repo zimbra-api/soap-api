@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Admin\Struct\EffectiveRightsTarget;
-use Zimbra\Admin\Struct\GranteeInfo;
+use Zimbra\Admin\Struct\{EffectiveRightsTarget, GranteeInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

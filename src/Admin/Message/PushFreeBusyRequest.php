@@ -12,8 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Common\Struct\Id;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * PushFreeBusyRequest class

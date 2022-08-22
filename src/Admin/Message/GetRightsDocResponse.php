@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, SerializedName, XmlElement, XmlList};
-use Zimbra\Admin\Struct\DomainAdminRight as Right;
-use Zimbra\Admin\Struct\PackageRightsInfo as Package;
+use Zimbra\Admin\Struct\{DomainAdminRight, PackageRightsInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -95,7 +94,7 @@ class GetRightsDocResponse extends SoapResponse
      */
     public function setPackages(array $pkgs): self
     {
-        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof Package);
+        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof PackageRightsInfo);
         return $this;
     }
 
@@ -139,7 +138,7 @@ class GetRightsDocResponse extends SoapResponse
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof Right);
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof DomainAdminRight);
         return $this;
     }
 
