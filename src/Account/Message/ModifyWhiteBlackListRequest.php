@@ -11,8 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Common\Struct\OpValue;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{OpValue, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyWhiteBlackListRequest class

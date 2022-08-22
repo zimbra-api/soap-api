@@ -9,6 +9,7 @@
  */
 
 namespace Zimbra\Common\Struct;
+
 use Zimbra\Common\Enum\ReplyType;
 
 /**

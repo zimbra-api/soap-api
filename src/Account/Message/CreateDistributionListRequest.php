@@ -11,8 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CreateDistributionListRequest class

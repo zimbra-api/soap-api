@@ -11,8 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Common\Struct\NamedValue;
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{NamedValue, SoapResponse};
 
 /**
  * GetAccountInfoResponse class

@@ -13,10 +13,8 @@ namespace Zimbra\Common\Serializer;
 use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
-use JMS\Serializer\Metadata\Driver\AnnotationDriver;
-use JMS\Serializer\Metadata\Driver\DefaultValuePropertyDriver;
-use JMS\Serializer\Naming\CamelCaseNamingStrategy;
-use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
+use JMS\Serializer\Metadata\Driver\{AnnotationDriver, DefaultValuePropertyDriver};
+use JMS\Serializer\Naming\{CamelCaseNamingStrategy, SerializedNameAnnotationStrategy};
 use JMS\Serializer\Type\Parser;
 
 /**

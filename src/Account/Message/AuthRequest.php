@@ -12,8 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
-use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AuthRequest class

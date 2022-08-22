@@ -13,8 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Enum\{GalSearchType, MemberOfSelector};
-use Zimbra\Common\Struct\CursorInfo;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{CursorInfo, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchGalRequest class

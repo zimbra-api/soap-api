@@ -12,8 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\DistributionListAction;
-use Zimbra\Common\Struct\DistributionListSelector;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{DistributionListSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * DistributionListActionRequest class

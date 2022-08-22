@@ -11,8 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Common\Enum\DistributionListGranteeBy;
-use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\{DistributionListGranteeBy, GranteeType};
 
 /**
  * DistributionListGranteeSelector struct class

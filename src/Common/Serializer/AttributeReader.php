@@ -11,9 +11,6 @@
 namespace Zimbra\Common\Serializer;
 
 use Doctrine\Common\Annotations\Reader;
-use ReflectionClass;
-use ReflectionMethod;
-use ReflectionProperty;
 
 /**
  * Attribute reader class.
@@ -29,7 +26,7 @@ class AttributeReader implements Reader
     /**
      * {@inheritdoc}
      */
-    public function getClassAnnotations(ReflectionClass $class)
+    public function getClassAnnotations(\ReflectionClass $class)
     {
         return $this->buildAnnotations($class->getAttributes());
     }
@@ -37,7 +34,7 @@ class AttributeReader implements Reader
     /**
      * {@inheritdoc}
      */
-    public function getClassAnnotation(ReflectionClass $class, $annotationName)
+    public function getClassAnnotation(\ReflectionClass $class, $annotationName)
     {
         return $this->buildAnnotation($class->getAttributes($annotationName));
     }
@@ -45,7 +42,7 @@ class AttributeReader implements Reader
     /**
      * {@inheritdoc}
      */
-    public function getMethodAnnotations(ReflectionMethod $method)
+    public function getMethodAnnotations(\ReflectionMethod $method)
     {
         return $this->buildAnnotations($method->getAttributes());
     }
@@ -53,7 +50,7 @@ class AttributeReader implements Reader
     /**
      * {@inheritdoc}
      */
-    public function getMethodAnnotation(ReflectionMethod $method, $annotationName)
+    public function getMethodAnnotation(\ReflectionMethod $method, $annotationName)
     {
         return $this->buildAnnotation($method->getAttributes($annotationName));
     }
@@ -61,7 +58,7 @@ class AttributeReader implements Reader
     /**
      * {@inheritdoc}
      */
-    public function getPropertyAnnotations(ReflectionProperty $property)
+    public function getPropertyAnnotations(\ReflectionProperty $property)
     {
         return $this->buildAnnotations($property->getAttributes());
     }
@@ -69,7 +66,7 @@ class AttributeReader implements Reader
     /**
      * {@inheritdoc}
      */
-    public function getPropertyAnnotation(ReflectionProperty $property, $annotationName)
+    public function getPropertyAnnotation(\ReflectionProperty $property, $annotationName)
     {
         return $this->buildAnnotation($property->getAttributes($annotationName));
     }

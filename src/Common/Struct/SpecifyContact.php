@@ -10,8 +10,7 @@
 
 namespace Zimbra\Common\Struct;
 
-use Zimbra\Mail\Struct\NewContactAttr;
-use Zimbra\Mail\Struct\NewContactGroupMember;
+use Zimbra\Mail\Struct\{NewContactAttr, NewContactGroupMember};
 
 /**
  * SpecifyContact interface

@@ -11,8 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{NamedElement, SoapResponse};
 
 /**
  * GetAvailableCsvFormatsResponse class
