@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.0.6 - 2022-08-23
+[Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.5...2.0.6)
+
+* Add object constructor class for deserialization with class have constructor with all optional parameters
+
 ## 2.0.5 - 2022-08-18
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.4...2.0.5)
 
