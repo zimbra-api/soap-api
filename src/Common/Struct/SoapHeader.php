@@ -50,9 +50,7 @@ class SoapHeader implements SoapHeaderInterface
      */
     public function __construct(?Context $context = NULL)
     {
-        if ($context instanceof Context) {
-            $this->setContext($context);
-        }
+        $this->context = $context;
     }
 
     /**

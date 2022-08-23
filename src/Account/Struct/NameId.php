@@ -58,9 +58,7 @@ class NameId
      * @param string $id
      * @return self
      */
-    public function __construct(
-        string $name = '', string $id = ''
-    )
+    public function __construct(string $name = '', string $id = '')
     {
         $this->setName($name)
              ->setId($id);

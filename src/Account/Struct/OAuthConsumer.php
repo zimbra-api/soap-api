@@ -89,7 +89,10 @@ class OAuthConsumer
      * @return self
      */
     public function __construct(
-        ?string $accessToken = NULL, ?string $approvedOn = NULL, ?string $applicationName = NULL, ?string $device = NULL
+        ?string $accessToken = NULL,
+        ?string $approvedOn = NULL,
+        ?string $applicationName = NULL,
+        ?string $device = NULL
     )
     {
         if (NULL !== $accessToken) {
