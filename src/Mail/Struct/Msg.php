@@ -177,7 +177,7 @@ class Msg
      * 
      * @var string
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('content')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -193,7 +193,7 @@ class Msg
      * 
      * @var MimePartInfo
      */
-    #[Accessor(getter: "getMimePart", setter: "setMimePart")]
+    #[Accessor(getter: 'getMimePart', setter: 'setMimePart')]
     #[SerializedName('mp')]
     #[Type(MimePartInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -209,7 +209,7 @@ class Msg
      * 
      * @var AttachmentsInfo
      */
-    #[Accessor(getter: "getAttachments", setter: "setAttachments")]
+    #[Accessor(getter: 'getAttachments', setter: 'setAttachments')]
     #[SerializedName('attach')]
     #[Type(AttachmentsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -225,7 +225,7 @@ class Msg
      * 
      * @var InvitationInfo
      */
-    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
     #[SerializedName('inv')]
     #[Type(InvitationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -269,7 +269,7 @@ class Msg
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

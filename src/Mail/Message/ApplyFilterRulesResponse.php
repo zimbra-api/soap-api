@@ -35,7 +35,7 @@ class ApplyFilterRulesResponse extends SoapResponse
      * 
      * @var IdsAttr
      */
-    #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
+    #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]
     #[SerializedName('m')]
     #[Type(IdsAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

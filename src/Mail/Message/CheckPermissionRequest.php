@@ -37,7 +37,7 @@ class CheckPermissionRequest extends SoapRequest
      * 
      * @var TargetSpec
      */
-    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
     #[SerializedName('target')]
     #[Type(TargetSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -178,7 +178,7 @@ class MessagePartHitInfo implements SearchHit
      * 
      * @var EmailInfo
      */
-    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
     #[SerializedName('e')]
     #[Type(EmailInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -192,7 +192,7 @@ class MessagePartHitInfo implements SearchHit
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
     #[SerializedName('su')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

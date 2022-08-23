@@ -89,7 +89,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var GeoInfoInterface
      */
-    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -147,7 +147,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -163,7 +163,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
     #[SerializedName('desc')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -179,7 +179,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getHtmlDescription", setter: "setHtmlDescription")]
+    #[Accessor(getter: 'getHtmlDescription', setter: 'setHtmlDescription')]
     #[SerializedName('descHtml')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -195,7 +195,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var CalOrganizerInterface
      */
-    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -211,7 +211,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[Accessor(getter: 'getRecurrence', setter: 'setRecurrence')]
     #[SerializedName('recur')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -227,7 +227,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var ExceptionRecurIdInfoInterface
      */
-    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
     #[SerializedName('exceptId')]
     #[Type(ExceptionRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -243,7 +243,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: "getDtStart", setter: "setDtStart")]
+    #[Accessor(getter: 'getDtStart', setter: 'setDtStart')]
     #[SerializedName('s')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -259,7 +259,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
+    #[Accessor(getter: 'getDtEnd', setter: 'setDtEnd')]
     #[SerializedName('e')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -275,7 +275,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * 
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
     #[SerializedName('dur')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -40,7 +40,7 @@ class SendShareNotificationRequest extends SoapRequest
      * 
      * @var Id
      */
-    #[Accessor(getter: "getItem", setter: "setItem")]
+    #[Accessor(getter: 'getItem', setter: 'setItem')]
     #[SerializedName('item')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -87,7 +87,7 @@ class SendShareNotificationRequest extends SoapRequest
      * 
      * @var string
      */
-    #[Accessor(getter: "getNotes", setter: "setNotes")]
+    #[Accessor(getter: 'getNotes', setter: 'setNotes')]
     #[SerializedName('notes')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

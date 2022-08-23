@@ -36,7 +36,7 @@ class CreateTagRequest extends SoapRequest
      * 
      * @var TagSpec
      */
-    #[Accessor(getter: "getTag", setter: "setTag")]
+    #[Accessor(getter: 'getTag', setter: 'setTag')]
     #[SerializedName('tag')]
     #[Type(TagSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

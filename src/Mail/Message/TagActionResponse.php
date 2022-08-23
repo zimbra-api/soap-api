@@ -36,7 +36,7 @@ class TagActionResponse extends SoapResponse
      * 
      * @var TagActionInfo
      */
-    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
     #[Type(TagActionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

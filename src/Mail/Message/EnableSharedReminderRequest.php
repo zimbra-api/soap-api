@@ -36,7 +36,7 @@ class EnableSharedReminderRequest extends SoapRequest
      * 
      * @var SharedReminderMount
      */
-    #[Accessor(getter: "getMount", setter: "setMount")]
+    #[Accessor(getter: 'getMount', setter: 'setMount')]
     #[SerializedName('link')]
     #[Type(SharedReminderMount::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -35,7 +35,7 @@ class SaveDraftResponse extends SoapResponse
      * 
      * @var MessageInfo
      */
-    #[Accessor(getter: "getMsgMessage", setter: "setMsgMessage")]
+    #[Accessor(getter: 'getMsgMessage', setter: 'setMsgMessage')]
     #[SerializedName('m')]
     #[Type(MessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -51,7 +51,7 @@ class SaveDraftResponse extends SoapResponse
      * 
      * @var ChatMessageInfo
      */
-    #[Accessor(getter: "getChatMessage", setter: "setChatMessage")]
+    #[Accessor(getter: 'getChatMessage', setter: 'setChatMessage')]
     #[SerializedName('chat')]
     #[Type(ChatMessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

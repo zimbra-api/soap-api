@@ -35,7 +35,7 @@ class ContactActionResponse extends SoapResponse
      * 
      * @var FolderActionResult
      */
-    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
     #[Type(FolderActionResult::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

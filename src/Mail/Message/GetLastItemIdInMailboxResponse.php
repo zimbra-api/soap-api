@@ -34,7 +34,7 @@ class GetLastItemIdInMailboxResponse extends SoapResponse
      * 
      * @var int
      */
-    #[Accessor(getter: "getId", setter: "setId")]
+    #[Accessor(getter: 'getId', setter: 'setId')]
     #[SerializedName('id')]
     #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

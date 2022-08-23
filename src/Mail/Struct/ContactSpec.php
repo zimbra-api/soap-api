@@ -98,7 +98,7 @@ class ContactSpec implements SpecifyContact
      * 
      * @var VCardInfo
      */
-    #[Accessor(getter: "getVcard", setter: "setVcard")]
+    #[Accessor(getter: 'getVcard', setter: 'setVcard')]
     #[SerializedName('vcard')]
     #[Type(VCardInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -128,7 +128,7 @@ class ContactSpec implements SpecifyContact
      * 
      * @var array
      */
-    #[Accessor(getter: "getContactGroupMembers", setter: 'setContactGroupMembers')]
+    #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
     #[Type('array<Zimbra\Mail\Struct\NewContactGroupMember>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];

@@ -37,7 +37,7 @@ class RemoveAttachmentsRequest extends SoapRequest
      * 
      * @var MsgPartIds
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(MsgPartIds::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -97,7 +97,7 @@ class RFCCompliantNotifyAction extends FilterAction
      * 
      * @var string
      */
-    #[Accessor(getter: "getMethod", setter: "setMethod")]
+    #[Accessor(getter: 'getMethod', setter: 'setMethod')]
     #[SerializedName('method')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

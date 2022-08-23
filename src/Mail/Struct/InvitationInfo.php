@@ -82,7 +82,7 @@ class InvitationInfo extends InviteComponent
      * 
      * @var RawInvite
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('content')]
     #[Type(RawInvite::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -98,7 +98,7 @@ class InvitationInfo extends InviteComponent
      * 
      * @var InviteComponent
      */
-    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
     #[SerializedName('comp')]
     #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -142,7 +142,7 @@ class InvitationInfo extends InviteComponent
      * 
      * @var AttachmentsInfo
      */
-    #[Accessor(getter: "getAttachments", setter: "setAttachments")]
+    #[Accessor(getter: 'getAttachments', setter: 'setAttachments')]
     #[SerializedName('attach')]
     #[Type(AttachmentsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

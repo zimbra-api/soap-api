@@ -68,7 +68,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var DateTimeStringAttrInterface
      */
-    #[Accessor(getter: "getUntil", setter: "setUntil")]
+    #[Accessor(getter: 'getUntil', setter: 'setUntil')]
     #[SerializedName('until')]
     #[Type(DateTimeStringAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -84,7 +84,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var NumAttrInterface
      */
-    #[Accessor(getter: "getCount", setter: "setCount")]
+    #[Accessor(getter: 'getCount', setter: 'setCount')]
     #[SerializedName('count')]
     #[Type(NumAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -100,7 +100,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var IntervalRuleInterface
      */
-    #[Accessor(getter: "getInterval", setter: "setInterval")]
+    #[Accessor(getter: 'getInterval', setter: 'setInterval')]
     #[SerializedName('interval')]
     #[Type(IntervalRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -116,7 +116,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var BySecondRuleInterface
      */
-    #[Accessor(getter: "getBySecond", setter: "setBySecond")]
+    #[Accessor(getter: 'getBySecond', setter: 'setBySecond')]
     #[SerializedName('bysecond')]
     #[Type(BySecondRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -132,7 +132,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByMinuteRuleInterface
      */
-    #[Accessor(getter: "getByMinute", setter: "setByMinute")]
+    #[Accessor(getter: 'getByMinute', setter: 'setByMinute')]
     #[SerializedName('byminute')]
     #[Type(ByMinuteRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -148,7 +148,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByHourRuleInterface
      */
-    #[Accessor(getter: "getByHour", setter: "setByHour")]
+    #[Accessor(getter: 'getByHour', setter: 'setByHour')]
     #[SerializedName('byhour')]
     #[Type(ByHourRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -164,7 +164,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByDayRuleInterface
      */
-    #[Accessor(getter: "getByDay", setter: "setByDay")]
+    #[Accessor(getter: 'getByDay', setter: 'setByDay')]
     #[SerializedName('byday')]
     #[Type(ByDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -180,7 +180,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByMonthDayRuleInterface
      */
-    #[Accessor(getter: "getByMonthDay", setter: "setByMonthDay")]
+    #[Accessor(getter: 'getByMonthDay', setter: 'setByMonthDay')]
     #[SerializedName('bymonthday')]
     #[Type(ByMonthDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -196,7 +196,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByYearDayRuleInterface
      */
-    #[Accessor(getter: "getByYearDay", setter: "setByYearDay")]
+    #[Accessor(getter: 'getByYearDay', setter: 'setByYearDay')]
     #[SerializedName('byyearday')]
     #[Type(ByYearDayRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -212,7 +212,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByWeekNoRuleInterface
      */
-    #[Accessor(getter: "getByWeekNo", setter: "setByWeekNo")]
+    #[Accessor(getter: 'getByWeekNo', setter: 'setByWeekNo')]
     #[SerializedName('byweekno')]
     #[Type(ByWeekNoRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -228,7 +228,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var ByMonthRuleInterface
      */
-    #[Accessor(getter: "getByMonth", setter: "setByMonth")]
+    #[Accessor(getter: 'getByMonth', setter: 'setByMonth')]
     #[SerializedName('bymonth')]
     #[Type(ByMonthRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -244,7 +244,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var BySetPosRuleInterface
      */
-    #[Accessor(getter: "getBySetPos", setter: "setBySetPos")]
+    #[Accessor(getter: 'getBySetPos', setter: 'setBySetPos')]
     #[SerializedName('bysetpos')]
     #[Type(BySetPosRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -260,7 +260,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * 
      * @var WkstRuleInterface
      */
-    #[Accessor(getter: "getWeekStart", setter: "setWeekStart")]
+    #[Accessor(getter: 'getWeekStart', setter: 'setWeekStart')]
     #[SerializedName('wkst')]
     #[Type(WkstRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

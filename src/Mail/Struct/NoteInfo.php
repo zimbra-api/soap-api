@@ -226,7 +226,7 @@ class NoteInfo
      * 
      * @var string
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('content')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

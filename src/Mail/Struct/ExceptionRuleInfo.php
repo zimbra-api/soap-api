@@ -35,7 +35,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * 
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: "getAdd", setter: "setAdd")]
+    #[Accessor(getter: 'getAdd', setter: 'setAdd')]
     #[SerializedName('add')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -51,7 +51,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * 
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: "getExclude", setter: "setExclude")]
+    #[Accessor(getter: 'getExclude', setter: 'setExclude')]
     #[SerializedName('exclude')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

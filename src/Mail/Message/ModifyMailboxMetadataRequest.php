@@ -40,7 +40,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
      * 
      * @var MailCustomMetadata
      */
-    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
     #[SerializedName('meta')]
     #[Type(MailCustomMetadata::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

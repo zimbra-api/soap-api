@@ -127,7 +127,7 @@ class Invitation
      * 
      * @var InviteComponent
      */
-    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
     #[SerializedName('comp')]
     #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

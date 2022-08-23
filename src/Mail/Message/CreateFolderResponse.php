@@ -35,7 +35,7 @@ class CreateFolderResponse extends SoapResponse
      * 
      * @var Folder
      */
-    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
     #[SerializedName('folder')]
     #[Type(Folder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -51,7 +51,7 @@ class CreateFolderResponse extends SoapResponse
      * 
      * @var Mountpoint
      */
-    #[Accessor(getter: "getMountpoint", setter: "setMountpoint")]
+    #[Accessor(getter: 'getMountpoint', setter: 'setMountpoint')]
     #[SerializedName('link')]
     #[Type(Mountpoint::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -67,7 +67,7 @@ class CreateFolderResponse extends SoapResponse
      * 
      * @var SearchFolder
      */
-    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]
     #[SerializedName('search')]
     #[Type(SearchFolder::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

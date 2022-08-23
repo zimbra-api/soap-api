@@ -35,7 +35,7 @@ class ICalReplyRequest extends SoapRequest
      * 
      * @var string
      */
-    #[Accessor(getter: "getIcal", setter: "setIcal")]
+    #[Accessor(getter: 'getIcal', setter: 'setIcal')]
     #[SerializedName('ical')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

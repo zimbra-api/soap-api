@@ -85,7 +85,7 @@ class GetMiniCalRequest extends SoapRequest
      * 
      * @var CalTZInfo
      */
-    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

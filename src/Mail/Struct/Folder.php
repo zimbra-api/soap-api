@@ -485,7 +485,7 @@ class Folder
      * 
      * @var Acl
      */
-    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
     #[SerializedName('acl')]
     #[Type(Acl::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -543,7 +543,7 @@ class Folder
      * 
      * @var RetentionPolicy
      */
-    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -58,7 +58,7 @@ class ApplyFilterRulesRequest extends SoapRequest
      * 
      * @var IdsAttr
      */
-    #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
+    #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]
     #[SerializedName('m')]
     #[Type(IdsAttr::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -74,7 +74,7 @@ class ApplyFilterRulesRequest extends SoapRequest
      * 
      * @var string
      */
-    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
     #[SerializedName('query')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

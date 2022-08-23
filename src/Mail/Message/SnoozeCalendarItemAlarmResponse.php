@@ -10,10 +10,6 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Mail\Struct\{UpdatedAppointmentAlarmInfo, UpdatedTaskAlarmInfo};
-use Zimbra\Common\Struct\SoapResponse;
-
 /**
  * SnoozeCalendarItemAlarmResponse class
  * 
@@ -23,93 +19,6 @@ use Zimbra\Common\Struct\SoapResponse;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SnoozeCalendarItemAlarmResponse extends SoapResponse
+class SnoozeCalendarItemAlarmResponse extends DismissCalendarItemAlarmResponse
 {
-    /**
-     * Updated appt alarm information so the client knows when to trigger the next alarm
-     * 
-     * @Accessor(getter="getApptUpdatedAlarms", setter="setApptUpdatedAlarms")
-     * @Type("array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>")
-     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
-     * @var array
-     */
-    #[Accessor(getter: 'getApptUpdatedAlarms', setter: 'setApptUpdatedAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
-    private $apptUpdatedAlarms = [];
-
-    /**
-     * Updated task alarm information so the client knows when to trigger the next alarm
-     * 
-     * @Accessor(getter="getTaskUpdatedAlarms", setter="setTaskUpdatedAlarms")
-     * @Type("array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>")
-     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
-     * @var array
-     */
-    #[Accessor(getter: 'getTaskUpdatedAlarms', setter: 'setTaskUpdatedAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
-    private $taskUpdatedAlarms = [];
-
-    /**
-     * Constructor
-     *
-     * @param  array $alarms
-     * @return self
-     */
-    public function __construct(array $alarms = [])
-    {
-        $this->setApptUpdatedAlarms($alarms)
-             ->setTaskUpdatedAlarms($alarms);
-    }
-
-    /**
-     * Set apptUpdatedAlarms
-     *
-     * @param  array $alarms
-     * @return self
-     */
-    public function setApptUpdatedAlarms(array $alarms): self
-    {
-        $this->apptUpdatedAlarms = array_values(
-            array_filter($alarms, static fn ($alarm) => $alarm instanceof UpdatedAppointmentAlarmInfo)
-        );
-        return $this;
-    }
-
-    /**
-     * Get apptUpdatedAlarms
-     *
-     * @return array
-     */
-    public function getApptUpdatedAlarms(): array
-    {
-        return $this->apptUpdatedAlarms;
-    }
-
-    /**
-     * Set taskUpdatedAlarms
-     *
-     * @param  array $alarms
-     * @return self
-     */
-    public function setTaskUpdatedAlarms(array $alarms): self
-    {
-        $this->taskUpdatedAlarms = array_values(
-            array_filter($alarms, static fn ($alarm) => $alarm instanceof UpdatedTaskAlarmInfo)
-        );
-        return $this;
-    }
-
-    /**
-     * Get taskUpdatedAlarms
-     *
-     * @return array
-     */
-    public function getTaskUpdatedAlarms(): array
-    {
-        return $this->taskUpdatedAlarms;
-    }
 }

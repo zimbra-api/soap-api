@@ -144,7 +144,7 @@ class ConversationInfo
      * 
      * @var string
      */
-    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
     #[SerializedName('su')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

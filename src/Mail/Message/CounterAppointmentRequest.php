@@ -105,7 +105,7 @@ class CounterAppointmentRequest extends SoapRequest
      * 
      * @var Msg
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

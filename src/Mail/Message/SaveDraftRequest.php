@@ -79,7 +79,7 @@ class SaveDraftRequest extends SoapRequest
      * 
      * @var SaveDraftMsg
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(SaveDraftMsg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

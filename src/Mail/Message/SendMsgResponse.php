@@ -38,7 +38,7 @@ class SendMsgResponse extends SoapResponse
      * 
      * @var MsgWithGroupInfo
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(MsgWithGroupInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

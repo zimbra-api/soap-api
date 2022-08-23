@@ -55,7 +55,7 @@ class SendMsgRequest extends SoapRequest
      * 
      * @var MsgToSend
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(MsgToSend::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

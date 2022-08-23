@@ -129,7 +129,7 @@ class GetFolderRequest extends SoapRequest
      * 
      * @var GetFolderSpec
      */
-    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
     #[SerializedName('folder')]
     #[Type(GetFolderSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

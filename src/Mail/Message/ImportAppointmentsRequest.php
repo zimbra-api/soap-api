@@ -69,7 +69,7 @@ class ImportAppointmentsRequest extends SoapRequest
      * 
      * @var ContentSpec
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('content')]
     #[Type(ContentSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

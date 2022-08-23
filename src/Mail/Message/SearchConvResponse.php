@@ -96,7 +96,7 @@ class SearchConvResponse extends SoapResponse
      * 
      * @var NestedSearchConversation
      */
-    #[Accessor(getter: "getConversation", setter: "setConversation")]
+    #[Accessor(getter: 'getConversation', setter: 'setConversation')]
     #[SerializedName('c')]
     #[Type(NestedSearchConversation::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -130,7 +130,7 @@ class SearchConvResponse extends SoapResponse
      * 
      * @var SearchQueryInfo
      */
-    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[Accessor(getter: 'getQueryInfo', setter: 'setQueryInfo')]
     #[SerializedName('info')]
     #[Type(SearchQueryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

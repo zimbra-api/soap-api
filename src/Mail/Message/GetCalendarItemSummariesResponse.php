@@ -10,10 +10,6 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Mail\Struct\{LegacyAppointmentData, LegacyTaskData};
-use Zimbra\Common\Struct\SoapResponse;
-
 /**
  * GetCalendarItemSummariesResponse class
  * 
@@ -23,93 +19,6 @@ use Zimbra\Common\Struct\SoapResponse;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyentry © 2020-present by Nguyen Van Nguyen.
  */
-class GetCalendarItemSummariesResponse extends SoapResponse
+class GetCalendarItemSummariesResponse extends GetApptSummariesResponse
 {
-    /**
-     * Appointment summaries
-     * 
-     * @Accessor(getter="getApptEntries", setter="setApptEntries")
-     * @Type("array<Zimbra\Mail\Struct\LegacyAppointmentData>")
-     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
-     * @var array
-     */
-    #[Accessor(getter: 'getApptEntries', setter: 'setApptEntries')]
-    #[Type('array<Zimbra\Mail\Struct\LegacyAppointmentData>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
-    private $apptEntries = [];
-
-    /**
-     * Task summaries
-     * 
-     * @Accessor(getter="getTaskEntries", setter="setTaskEntries")
-     * @Type("array<Zimbra\Mail\Struct\LegacyTaskData>")
-     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
-     * @var array
-     */
-    #[Accessor(getter: 'getTaskEntries', setter: 'setTaskEntries')]
-    #[Type('array<Zimbra\Mail\Struct\LegacyTaskData>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
-    private $taskEntries = [];
-
-    /**
-     * Constructor
-     *
-     * @param  array $apptEntries
-     * @param  array $taskEntries
-     * @return self
-     */
-    public function __construct(
-        array $apptEntries = [],
-        array $taskEntries = []
-    )
-    {
-        $this->setApptEntries($apptEntries)
-             ->setTaskEntries($taskEntries);
-    }
-
-    /**
-     * Set apptEntries
-     *
-     * @param  array $entries
-     * @return self
-     */
-    public function setApptEntries(array $entries): self
-    {
-        $this->apptEntries = array_filter($entries, static fn ($entry) => $entry instanceof LegacyAppointmentData);
-        return $this;
-    }
-
-    /**
-     * Get apptEntries
-     *
-     * @return array
-     */
-    public function getApptEntries(): array
-    {
-        return $this->apptEntries;
-    }
-
-    /**
-     * Set taskEntries
-     *
-     * @param  array $entries
-     * @return self
-     */
-    public function setTaskEntries(array $entries): self
-    {
-        $this->taskEntries = array_filter($entries, static fn ($entry) => $entry instanceof LegacyTaskData);
-        return $this;
-    }
-
-    /**
-     * Get taskEntries
-     *
-     * @return array
-     */
-    public function getTaskEntries(): array
-    {
-        return $this->taskEntries;
-    }
 }

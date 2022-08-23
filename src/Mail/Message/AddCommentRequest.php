@@ -36,7 +36,7 @@ class AddCommentRequest extends SoapRequest
      * 
      * @var AddedComment
      */
-    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[Accessor(getter: 'getComment', setter: 'setComment')]
     #[SerializedName('comment')]
     #[Type(AddedComment::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -135,7 +135,7 @@ class FolderActionSelector extends ActionSelector
      * 
      * @var ActionGrantSelector
      */
-    #[Accessor(getter: "getGrant", setter: "setGrant")]
+    #[Accessor(getter: 'getGrant', setter: 'setGrant')]
     #[SerializedName('grant')]
     #[Type(ActionGrantSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -169,7 +169,7 @@ class FolderActionSelector extends ActionSelector
      * 
      * @var RetentionPolicy
      */
-    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
     #[SerializedName('retentionPolicy')]
     #[Type(RetentionPolicy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

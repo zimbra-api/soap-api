@@ -69,7 +69,7 @@ class OpenIMAPFolderResponse extends SoapResponse
      * 
      * @var ImapCursorInfo
      */
-    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
     #[SerializedName('cursor')]
     #[Type(ImapCursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

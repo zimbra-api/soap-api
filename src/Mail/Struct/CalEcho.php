@@ -33,7 +33,7 @@ class CalEcho
      * 
      * @var InviteAsMP
      */
-    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
     #[SerializedName('m')]
     #[Type(InviteAsMP::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -98,7 +98,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var CalOrganizer
      */
-    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -128,7 +128,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var GeoInfo
      */
-    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -144,7 +144,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -174,7 +174,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var AlarmDataInfo
      */
-    #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
+    #[Accessor(getter: 'getAlarmData', setter: 'setAlarmData')]
     #[SerializedName('alarmData')]
     #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -82,7 +82,7 @@ class ShareNotificationInfo
      * 
      * @var Grantor
      */
-    #[Accessor(getter: "getGrantor", setter: "setGrantor")]
+    #[Accessor(getter: 'getGrantor', setter: 'setGrantor')]
     #[SerializedName('grantor')]
     #[Type(Grantor::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -98,7 +98,7 @@ class ShareNotificationInfo
      * 
      * @var LinkInfo
      */
-    #[Accessor(getter: "getLink", setter: "setLink")]
+    #[Accessor(getter: 'getLink', setter: 'setLink')]
     #[SerializedName('link')]
     #[Type(LinkInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

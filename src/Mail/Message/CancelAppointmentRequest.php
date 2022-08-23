@@ -102,7 +102,7 @@ class CancelAppointmentRequest extends SoapRequest
      * 
      * @var InstanceRecurIdInfo
      */
-    #[Accessor(getter: "getInstance", setter: "setInstance")]
+    #[Accessor(getter: 'getInstance', setter: 'setInstance')]
     #[SerializedName('inst')]
     #[Type(InstanceRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -118,7 +118,7 @@ class CancelAppointmentRequest extends SoapRequest
      * 
      * @var CalTZInfo
      */
-    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -134,7 +134,7 @@ class CancelAppointmentRequest extends SoapRequest
      * 
      * @var Msg
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -65,7 +65,7 @@ class DeleteheaderAction extends FilterAction
      * 
      * @var EditheaderTest
      */
-    #[Accessor(getter: "getTest", setter: "setTest")]
+    #[Accessor(getter: 'getTest', setter: 'setTest')]
     #[SerializedName('test')]
     #[Type(EditheaderTest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

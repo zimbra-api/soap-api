@@ -34,7 +34,7 @@ class RetentionPolicy
      * 
      * @var array
      */
-    #[Accessor(getter: "getKeepPolicy", setter: "setKeepPolicy")]
+    #[Accessor(getter: 'getKeepPolicy', setter: 'setKeepPolicy')]
     #[SerializedName('keep')]
     #[Type('array<Zimbra\Mail\Struct\Policy>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]

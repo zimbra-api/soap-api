@@ -114,7 +114,7 @@ class EditheaderTest
      * 
      * @var string
      */
-    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[Accessor(getter: 'getHeaderName', setter: 'setHeaderName')]
     #[SerializedName('headerName')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

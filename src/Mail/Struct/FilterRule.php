@@ -65,7 +65,7 @@ class FilterRule
      * 
      * @var FilterVariables
      */
-    #[Accessor(getter: "getFilterVariables", setter: "setFilterVariables")]
+    #[Accessor(getter: 'getFilterVariables', setter: 'setFilterVariables')]
     #[SerializedName('filterVariables')]
     #[Type(FilterVariables::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -81,7 +81,7 @@ class FilterRule
      * 
      * @var FilterTests
      */
-    #[Accessor(getter: "getFilterTests", setter: "setFilterTests")]
+    #[Accessor(getter: 'getFilterTests', setter: 'setFilterTests')]
     #[SerializedName('filterTests')]
     #[Type(FilterTests::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -97,7 +97,7 @@ class FilterRule
      * 
      * @var FilterActions
      */
-    #[Accessor(getter: "getActions", setter: "setActions")]
+    #[Accessor(getter: 'getActions', setter: 'setActions')]
     #[SerializedName('filterActions')]
     #[Type(FilterActions::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -113,7 +113,7 @@ class FilterRule
      * 
      * @var NestedRule
      */
-    #[Accessor(getter: "getChild", setter: "setChild")]
+    #[Accessor(getter: 'getChild', setter: 'setChild')]
     #[SerializedName('nestedRule')]
     #[Type(NestedRule::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

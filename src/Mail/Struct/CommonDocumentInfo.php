@@ -385,7 +385,7 @@ class CommonDocumentInfo
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -401,7 +401,7 @@ class CommonDocumentInfo
      * 
      * @var Acl
      */
-    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
     #[SerializedName('acl')]
     #[Type(Acl::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

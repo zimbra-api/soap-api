@@ -278,7 +278,7 @@ class SearchResponse extends SoapResponse
      * 
      * @var SearchQueryInfo
      */
-    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[Accessor(getter: 'getQueryInfo', setter: 'setQueryInfo')]
     #[SerializedName('info')]
     #[Type(SearchQueryInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

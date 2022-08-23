@@ -181,7 +181,7 @@ class DocumentSpec
      * 
      * @var Id
      */
-    #[Accessor(getter: "getUpload", setter: "setUpload")]
+    #[Accessor(getter: 'getUpload', setter: 'setUpload')]
     #[SerializedName('upload')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -197,7 +197,7 @@ class DocumentSpec
      * 
      * @var MessagePartSpec
      */
-    #[Accessor(getter: "getMessagePart", setter: "setMessagePart")]
+    #[Accessor(getter: 'getMessagePart', setter: 'setMessagePart')]
     #[SerializedName('m')]
     #[Type(MessagePartSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -213,7 +213,7 @@ class DocumentSpec
      * 
      * @var IdVersion
      */
-    #[Accessor(getter: "getDocRevision", setter: "setDocRevision")]
+    #[Accessor(getter: 'getDocRevision', setter: 'setDocRevision')]
     #[SerializedName('doc')]
     #[Type(IdVersion::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

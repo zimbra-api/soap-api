@@ -86,7 +86,7 @@ class CalTZInfo implements CalTZInfoInterface
      * 
      * @var TzOnsetInfo
      */
-    #[Accessor(getter: "getStandardTzOnset", setter: "setStandardTzOnset")]
+    #[Accessor(getter: 'getStandardTzOnset', setter: 'setStandardTzOnset')]
     #[SerializedName('standard')]
     #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -102,7 +102,7 @@ class CalTZInfo implements CalTZInfoInterface
      * 
      * @var TzOnsetInfo
      */
-    #[Accessor(getter: "getDaylightTzOnset", setter: "setDaylightTzOnset")]
+    #[Accessor(getter: 'getDaylightTzOnset', setter: 'setDaylightTzOnset')]
     #[SerializedName('daylight')]
     #[Type(TzOnsetInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

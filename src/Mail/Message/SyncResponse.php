@@ -113,7 +113,7 @@ class SyncResponse extends SoapResponse
      * 
      * @var SyncDeletedInfo
      */
-    #[Accessor(getter: "getDeleted", setter: "setDeleted")]
+    #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
     #[SerializedName('deleted')]
     #[Type(SyncDeletedInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

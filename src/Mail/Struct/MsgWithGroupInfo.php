@@ -214,7 +214,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -244,7 +244,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
     #[SerializedName('su')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -260,7 +260,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getMessageIdHeader", setter: "setMessageIdHeader")]
+    #[Accessor(getter: 'getMessageIdHeader', setter: 'setMessageIdHeader')]
     #[SerializedName('mid')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -276,7 +276,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var string
      */
-    #[Accessor(getter: "getInReplyTo", setter: "setInReplyTo")]
+    #[Accessor(getter: 'getInReplyTo', setter: 'setInReplyTo')]
     #[SerializedName('irt')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -292,7 +292,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var InviteWithGroupInfo
      */
-    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
     #[SerializedName('inv')]
     #[Type(InviteWithGroupInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -322,7 +322,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var MimePartInfo
      */
-    #[Accessor(getter: "getMimePart", setter: "setMimePart")]
+    #[Accessor(getter: 'getMimePart', setter: 'setMimePart')]
     #[SerializedName('mp')]
     #[Type(MimePartInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -338,7 +338,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var ShareNotification
      */
-    #[Accessor(getter: "getShareNotification", setter: "setShareNotification")]
+    #[Accessor(getter: 'getShareNotification', setter: 'setShareNotification')]
     #[SerializedName('shr')]
     #[Type(ShareNotification::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -354,7 +354,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var DLSubscriptionNotification
      */
-    #[Accessor(getter: "getDLSubscription", setter: "setDLSubscription")]
+    #[Accessor(getter: 'getDLSubscription', setter: 'setDLSubscription')]
     #[SerializedName('dlSubs')]
     #[Type(DLSubscriptionNotification::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -370,7 +370,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @var UrlAndValue
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('content')]
     #[Type(UrlAndValue::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

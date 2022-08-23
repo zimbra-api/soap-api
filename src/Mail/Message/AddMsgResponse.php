@@ -34,7 +34,7 @@ class AddMsgResponse extends SoapResponse
      * 
      * @var MessageSummary
      */
-    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
     #[SerializedName('m')]
     #[Type(MessageSummary::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -49,7 +49,7 @@ class AddMsgResponse extends SoapResponse
      * 
      * @var ChatSummary
      */
-    #[Accessor(getter: "getChatMessage", setter: "setMessage")]
+    #[Accessor(getter: 'getChatMessage', setter: 'setMessage')]
     #[SerializedName('chat')]
     #[Type(ChatSummary::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

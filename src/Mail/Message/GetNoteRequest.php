@@ -35,7 +35,7 @@ class GetNoteRequest extends SoapRequest
      * 
      * @var Id
      */
-    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[Accessor(getter: 'getNote', setter: 'setNote')]
     #[SerializedName('note')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

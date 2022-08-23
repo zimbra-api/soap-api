@@ -120,7 +120,7 @@ trait MailSearchParams
      * 
      * @var string
      */
-    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
     #[SerializedName('query')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -477,7 +477,7 @@ trait MailSearchParams
      * 
      * @var CalTZInfoInterface
      */
-    #[Accessor(getter: "getCalTz", setter: "setCalTz")]
+    #[Accessor(getter: 'getCalTz', setter: 'setCalTz')]
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -499,7 +499,7 @@ trait MailSearchParams
      * 
      * @var string
      */
-    #[Accessor(getter: "getLocale", setter: "setLocale")]
+    #[Accessor(getter: 'getLocale', setter: 'setLocale')]
     #[SerializedName('locale')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -514,7 +514,7 @@ trait MailSearchParams
      * @XmlElement(namespace="urn:zimbraMail")
      * @var CursorInfo
      */
-    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
     #[SerializedName('cursor')]
     #[Type(CursorInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

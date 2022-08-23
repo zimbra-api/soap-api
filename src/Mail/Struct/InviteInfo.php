@@ -68,7 +68,7 @@ class InviteInfo implements InviteInfoInterface
      * 
      * @var InviteComponentInterface
      */
-    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
     #[SerializedName('comp')]
     #[Type(InviteComponent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

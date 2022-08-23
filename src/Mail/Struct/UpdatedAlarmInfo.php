@@ -49,7 +49,7 @@ class UpdatedAlarmInfo
      * 
      * @var AlarmDataInfo
      */
-    #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
+    #[Accessor(getter: 'getAlarmData', setter: 'setAlarmData')]
     #[SerializedName('alarmData')]
     #[Type(AlarmDataInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

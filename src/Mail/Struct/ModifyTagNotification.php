@@ -33,7 +33,7 @@ class ModifyTagNotification extends ModifyNotification
      * 
      * @var int
      */
-    #[Accessor(getter: "getId", setter: "setId")]
+    #[Accessor(getter: 'getId', setter: 'setId')]
     #[SerializedName('id')]
     #[Type('int')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -49,7 +49,7 @@ class ModifyTagNotification extends ModifyNotification
      * 
      * @var string
      */
-    #[Accessor(getter: "getName", setter: "setName")]
+    #[Accessor(getter: 'getName', setter: 'setName')]
     #[SerializedName('name')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

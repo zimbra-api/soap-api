@@ -103,7 +103,7 @@ class ImportContactsRequest extends SoapRequest
      * 
      * @var Content
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('content')]
     #[Type(Content::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

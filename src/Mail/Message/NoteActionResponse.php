@@ -36,7 +36,7 @@ class NoteActionResponse extends SoapResponse
      * 
      * @var ActionResult
      */
-    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
     #[Type(ActionResult::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

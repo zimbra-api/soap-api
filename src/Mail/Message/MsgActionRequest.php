@@ -39,7 +39,7 @@ class MsgActionRequest extends SoapRequest
      * 
      * @var ActionSelector
      */
-    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
     #[Type(ActionSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

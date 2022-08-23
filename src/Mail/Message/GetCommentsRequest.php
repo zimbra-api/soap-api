@@ -36,7 +36,7 @@ class GetCommentsRequest extends SoapRequest
      * 
      * @var ParentId
      */
-    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[Accessor(getter: 'getComment', setter: 'setComment')]
     #[SerializedName('comment')]
     #[Type(ParentId::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

@@ -224,7 +224,7 @@ class ConversationSummary
      * 
      * @var string
      */
-    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
     #[SerializedName('su')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -240,7 +240,7 @@ class ConversationSummary
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

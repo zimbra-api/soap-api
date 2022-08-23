@@ -85,7 +85,7 @@ class CreateContactRequest extends SoapRequest
      * 
      * @var ContactSpec
      */
-    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[Accessor(getter: 'getContact', setter: 'setContact')]
     #[SerializedName('cn')]
     #[Type(ContactSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

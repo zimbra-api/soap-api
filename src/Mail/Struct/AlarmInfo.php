@@ -60,7 +60,7 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var AlarmTriggerInfoInterface
      */
-    #[Accessor(getter: "getTrigger", setter: "setTrigger")]
+    #[Accessor(getter: 'getTrigger', setter: 'setTrigger')]
     #[SerializedName('trigger')]
     #[Type(AlarmTriggerInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -76,7 +76,7 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: "getRepeat", setter: "setRepeat")]
+    #[Accessor(getter: 'getRepeat', setter: 'setRepeat')]
     #[SerializedName('repeat')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -95,7 +95,7 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var string
      */
-    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
     #[SerializedName('desc')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -111,7 +111,7 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var CalendarAttachInterface
      */
-    #[Accessor(getter: "getAttach", setter: "setAttach")]
+    #[Accessor(getter: 'getAttach', setter: 'setAttach')]
     #[SerializedName('attach')]
     #[Type(CalendarAttach::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -127,7 +127,7 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var string
      */
-    #[Accessor(getter: "getSummary", setter: "setSummary")]
+    #[Accessor(getter: 'getSummary', setter: 'setSummary')]
     #[SerializedName('summary')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

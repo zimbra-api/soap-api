@@ -10,10 +10,6 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Mail\Struct\IdsAttr;
-use Zimbra\Common\Struct\SoapResponse;
-
 /**
  * ApplyOutgoingFilterRulesResponse class
  * 
@@ -23,54 +19,6 @@ use Zimbra\Common\Struct\SoapResponse;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ApplyOutgoingFilterRulesResponse extends SoapResponse
+class ApplyOutgoingFilterRulesResponse extends ApplyFilterRulesResponse
 {
-    /**
-     * Comma-separated list of message IDs that were affected
-     * 
-     * @Accessor(getter="getMsgIds", setter="setMsgIds")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
-     * @var IdsAttr
-     */
-    #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
-    #[SerializedName('m')]
-    #[Type(IdsAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?IdsAttr $msgIds;
-
-    /**
-     * Constructor
-     *
-     * @param  IdsAttr $msgIds
-     * @return self
-     */
-    public function __construct(?IdsAttr $msgIds = NULL)
-    {
-        $this->msgIds = $msgIds;
-    }
-
-    /**
-     * Get msgIds
-     *
-     * @return IdsAttr
-     */
-    public function getMsgIds(): ?IdsAttr
-    {
-        return $this->msgIds;
-    }
-
-    /**
-     * Set msgIds
-     *
-     * @param  IdsAttr $msgIds
-     * @return self
-     */
-    public function setMsgIds(IdsAttr $msgIds): self
-    {
-        $this->msgIds = $msgIds;
-        return $this;
-    }
 }

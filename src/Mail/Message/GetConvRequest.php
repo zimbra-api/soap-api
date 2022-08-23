@@ -44,7 +44,7 @@ class GetConvRequest extends SoapRequest
      * 
      * @var ConversationSpec
      */
-    #[Accessor(getter: "getConversation", setter: "setConversation")]
+    #[Accessor(getter: 'getConversation', setter: 'setConversation')]
     #[SerializedName('c')]
     #[Type(ConversationSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

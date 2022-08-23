@@ -33,7 +33,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * 
      * @var string
      */
-    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
     #[SerializedName('newName')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -49,7 +49,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * 
      * @var string
      */
-    #[Accessor(getter: "getNewValue", setter: "setNewValue")]
+    #[Accessor(getter: 'getNewValue', setter: 'setNewValue')]
     #[SerializedName('newValue')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

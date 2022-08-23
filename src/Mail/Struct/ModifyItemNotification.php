@@ -33,7 +33,7 @@ class ModifyItemNotification extends ModifyNotification
      * 
      * @var ImapMessageInfo
      */
-    #[Accessor(getter: "getMessageInfo", setter: "setMessageInfo")]
+    #[Accessor(getter: 'getMessageInfo', setter: 'setMessageInfo')]
     #[SerializedName('m')]
     #[Type(ImapMessageInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

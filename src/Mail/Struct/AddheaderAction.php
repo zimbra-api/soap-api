@@ -33,7 +33,7 @@ class AddheaderAction extends FilterAction
      * 
      * @var string
      */
-    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[Accessor(getter: 'getHeaderName', setter: 'setHeaderName')]
     #[SerializedName('headerName')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -49,7 +49,7 @@ class AddheaderAction extends FilterAction
      * 
      * @var string
      */
-    #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
+    #[Accessor(getter: 'getHeaderValue', setter: 'setHeaderValue')]
     #[SerializedName('headerValue')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

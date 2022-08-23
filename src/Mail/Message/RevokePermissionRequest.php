@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Mail\Struct\AccountACEinfo;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * RevokePermissionRequest class
@@ -26,67 +24,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RevokePermissionRequest extends SoapRequest
+class RevokePermissionRequest extends GrantPermissionRequest
 {
-    /**
-     * Specify Access Control Entries (ACEs)
-     * 
-     * @Accessor(getter="getAces", setter="setAces")
-     * @Type("array<Zimbra\Mail\Struct\AccountACEinfo>")
-     * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
-     * 
-     * @var array
-     */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Mail\Struct\AccountACEinfo>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraMail')]
-    private $aces = [];
-
-    /**
-     * Constructor
-     *
-     * @param  array $aces
-     * @return self
-     */
-    public function __construct(array $aces = [])
-    {
-        $this->setAces($aces);
-    }
-
-    /**
-     * Add a ace
-     *
-     * @param  AccountACEinfo $ace
-     * @return self
-     */
-    public function addAce(AccountACEinfo $ace): self
-    {
-        $this->aces[] = $ace;
-        return $this;
-    }
-
-    /**
-     * Set aces
-     *
-     * @param  array $aces
-     * @return self
-     */
-    public function setAces(array $aces): self
-    {
-        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEinfo);
-        return $this;
-    }
-
-    /**
-     * Get aces
-     *
-     * @return array
-     */
-    public function getAces(): array
-    {
-        return $this->aces;
-    }
-
     /**
      * {@inheritdoc}
      */

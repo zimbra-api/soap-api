@@ -34,7 +34,7 @@ class ExpandedRecurrenceComponent
      * 
      * @var InstanceRecurIdInfo
      */
-    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
     #[SerializedName('exceptId')]
     #[Type(InstanceRecurIdInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -82,7 +82,7 @@ class ExpandedRecurrenceComponent
      * 
      * @var DurationInfo
      */
-    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
     #[SerializedName('dur')]
     #[Type(DurationInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -98,7 +98,7 @@ class ExpandedRecurrenceComponent
      * 
      * @var RecurrenceInfo
      */
-    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[Accessor(getter: 'getRecurrence', setter: 'setRecurrence')]
     #[SerializedName('recur')]
     #[Type(RecurrenceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

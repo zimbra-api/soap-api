@@ -67,7 +67,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      * 
      * @var CalOrganizer
      */
-    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
     #[SerializedName('or')]
     #[Type(CalOrganizer::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -97,7 +97,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      * 
      * @var GeoInfo
      */
-    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
     #[SerializedName('geo')]
     #[Type(GeoInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -113,7 +113,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      * 
      * @var string
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

@@ -77,7 +77,7 @@ class MessageSummary extends MessageCommon
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
     #[SerializedName('su')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
@@ -91,7 +91,7 @@ class MessageSummary extends MessageCommon
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
     #[Type('string')]
     #[XmlElement(cdata: false,namespace: 'urn:zimbraMail')]
@@ -107,7 +107,7 @@ class MessageSummary extends MessageCommon
      * 
      * @var InviteInfo
      */
-    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
     #[SerializedName('inv')]
     #[Type(InviteInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

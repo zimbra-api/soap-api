@@ -35,7 +35,7 @@ class GetAppointmentResponse extends SoapResponse
      * 
      * @var CalendarItemInfo
      */
-    #[Accessor(getter: "getApptItem", setter: "setApptItem")]
+    #[Accessor(getter: 'getApptItem', setter: 'setApptItem')]
     #[SerializedName('appt')]
     #[Type(CalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -51,7 +51,7 @@ class GetAppointmentResponse extends SoapResponse
      * 
      * @var TaskItemInfo
      */
-    #[Accessor(getter: "getTaskItem", setter: "setTaskItem")]
+    #[Accessor(getter: 'getTaskItem', setter: 'setTaskItem')]
     #[SerializedName('task')]
     #[Type(TaskItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

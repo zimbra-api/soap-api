@@ -140,7 +140,7 @@ class SetAppointmentRequest extends SoapRequest
      * 
      * @var SetCalendarItemInfo
      */
-    #[Accessor(getter: "getDefaultId", setter: "setDefaultId")]
+    #[Accessor(getter: 'getDefaultId', setter: 'setDefaultId')]
     #[SerializedName('default')]
     #[Type(SetCalendarItemInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

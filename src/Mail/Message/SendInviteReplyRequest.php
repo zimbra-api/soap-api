@@ -121,7 +121,7 @@ class SendInviteReplyRequest extends SoapRequest
      * 
      * @var DtTimeInfo
      */
-    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
     #[SerializedName('exceptId')]
     #[Type(DtTimeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -137,7 +137,7 @@ class SendInviteReplyRequest extends SoapRequest
      * 
      * @var CalTZInfo
      */
-    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
     #[SerializedName('tz')]
     #[Type(CalTZInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
@@ -155,7 +155,7 @@ class SendInviteReplyRequest extends SoapRequest
      * 
      * @var Msg
      */
-    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
     #[SerializedName('m')]
     #[Type(Msg::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

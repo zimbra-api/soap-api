@@ -105,7 +105,7 @@ class ModifyContactRequest extends SoapRequest
      * 
      * @var ModifyContactSpec
      */
-    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[Accessor(getter: 'getContact', setter: 'setContact')]
     #[SerializedName('cn')]
     #[Type(ModifyContactSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

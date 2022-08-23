@@ -472,7 +472,7 @@ class MailDataSource implements DataSource
      * 
      * @var string
      */
-    #[Accessor(getter: "getLastError", setter: "setLastError")]
+    #[Accessor(getter: 'getLastError', setter: 'setLastError')]
     #[SerializedName('lastError')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

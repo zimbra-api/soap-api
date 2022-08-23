@@ -38,7 +38,7 @@ class ConvActionSelector extends ActionSelector
      * 
      * @var string
      */
-    #[Accessor(getter: "getAcctRelativePath", setter: "setAcctRelativePath")]
+    #[Accessor(getter: 'getAcctRelativePath', setter: 'setAcctRelativePath')]
     #[SerializedName('acctRelPath')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]

@@ -95,7 +95,7 @@ class MimePartInfo
      * 
      * @var AttachmentsInfo
      */
-    #[Accessor(getter: "getAttachments", setter: "setAttachments")]
+    #[Accessor(getter: 'getAttachments', setter: 'setAttachments')]
     #[SerializedName('attach')]
     #[Type(AttachmentsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

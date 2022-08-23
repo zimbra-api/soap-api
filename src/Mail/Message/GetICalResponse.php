@@ -35,7 +35,7 @@ class GetICalResponse extends SoapResponse
      * 
      * @var ICalContent
      */
-    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
     #[SerializedName('ical')]
     #[Type(ICalContent::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

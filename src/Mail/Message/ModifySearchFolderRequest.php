@@ -36,7 +36,7 @@ class ModifySearchFolderRequest extends SoapRequest
      * 
      * @var ModifySearchFolderSpec
      */
-    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]
     #[SerializedName('search')]
     #[Type(ModifySearchFolderSpec::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]

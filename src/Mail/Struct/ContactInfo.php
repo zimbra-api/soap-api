@@ -359,7 +359,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * 
      * @var array
      */
-    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
     #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
@@ -373,7 +373,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * 
      * @var array
      */
-    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
     #[Type('array<Zimbra\Common\Struct\ContactAttr>')]
     #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attrs = [];
@@ -387,7 +387,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * 
      * @var array
      */
-    #[Accessor(getter: "getContactGroupMembers", setter: "setContactGroupMembers")]
+    #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
     #[Type('array<Zimbra\Mail\Struct\ContactGroupMember>')]
     #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
@@ -402,7 +402,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * 
      * @var string
      */
-    #[Accessor(getter: "getMemberOf", setter: "setMemberOf")]
+    #[Accessor(getter: 'getMemberOf', setter: 'setMemberOf')]
     #[SerializedName('memberOf')]
     #[Type('string')]
     #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
