@@ -30,13 +30,13 @@ class ModifyCosBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ModifyCosRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ModifyCosRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ModifyCosRequest')]
     #[Type(ModifyCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ModifyCosBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ModifyCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ModifyCosResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ModifyCosResponse')]
     #[Type(ModifyCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class FixCalendarTZBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FixCalendarTZRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FixCalendarTZRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('FixCalendarTZRequest')]
     #[Type(FixCalendarTZRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class FixCalendarTZBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FixCalendarTZResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FixCalendarTZResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('FixCalendarTZResponse')]
     #[Type(FixCalendarTZResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

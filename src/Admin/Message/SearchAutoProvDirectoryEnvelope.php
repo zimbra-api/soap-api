@@ -34,13 +34,13 @@ class SearchAutoProvDirectoryEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\SearchAutoProvDirectoryBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var SearchAutoProvDirectoryBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(SearchAutoProvDirectoryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

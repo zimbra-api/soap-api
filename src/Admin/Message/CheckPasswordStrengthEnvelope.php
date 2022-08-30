@@ -34,13 +34,13 @@ class CheckPasswordStrengthEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\CheckPasswordStrengthBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var CheckPasswordStrengthBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(CheckPasswordStrengthBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

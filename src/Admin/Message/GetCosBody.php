@@ -30,13 +30,13 @@ class GetCosBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetCosRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetCosRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetCosRequest')]
     #[Type(GetCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetCosBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetCosResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetCosResponse')]
     #[Type(GetCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

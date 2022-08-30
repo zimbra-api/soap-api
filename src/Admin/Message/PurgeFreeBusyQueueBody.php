@@ -30,13 +30,13 @@ class PurgeFreeBusyQueueBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PurgeFreeBusyQueueRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('PurgeFreeBusyQueueRequest')]
     #[Type(PurgeFreeBusyQueueRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class PurgeFreeBusyQueueBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PurgeFreeBusyQueueResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('PurgeFreeBusyQueueResponse')]
     #[Type(PurgeFreeBusyQueueResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

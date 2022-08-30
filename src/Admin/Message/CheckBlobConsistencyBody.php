@@ -30,13 +30,13 @@ class CheckBlobConsistencyBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckBlobConsistencyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckBlobConsistencyRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckBlobConsistencyRequest')]
     #[Type(CheckBlobConsistencyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckBlobConsistencyBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckBlobConsistencyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckBlobConsistencyResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckBlobConsistencyResponse')]
     #[Type(CheckBlobConsistencyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

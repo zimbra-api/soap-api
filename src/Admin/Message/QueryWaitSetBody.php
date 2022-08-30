@@ -30,13 +30,13 @@ class QueryWaitSetBody extends SoapBody
      * @Type("Zimbra\Admin\Message\QueryWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var QueryWaitSetRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('QueryWaitSetRequest')]
     #[Type(QueryWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class QueryWaitSetBody extends SoapBody
      * @Type("Zimbra\Admin\Message\QueryWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var QueryWaitSetResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('QueryWaitSetResponse')]
     #[Type(QueryWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

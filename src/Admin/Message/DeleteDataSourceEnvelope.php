@@ -34,13 +34,13 @@ class DeleteDataSourceEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\DeleteDataSourceBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var DeleteDataSourceBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(DeleteDataSourceBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

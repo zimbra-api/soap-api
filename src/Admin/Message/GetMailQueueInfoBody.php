@@ -30,13 +30,13 @@ class GetMailQueueInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetMailQueueInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetMailQueueInfoRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetMailQueueInfoRequest')]
     #[Type(GetMailQueueInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetMailQueueInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetMailQueueInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetMailQueueInfoResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetMailQueueInfoResponse')]
     #[Type(GetMailQueueInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

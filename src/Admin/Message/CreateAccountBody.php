@@ -30,13 +30,13 @@ class CreateAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateAccountRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateAccountRequest')]
     #[Type(CreateAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateAccountResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateAccountResponse')]
     #[Type(CreateAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

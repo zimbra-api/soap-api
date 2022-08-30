@@ -30,13 +30,13 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AddGalSyncDataSourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AddGalSyncDataSourceRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AddGalSyncDataSourceRequest')]
     #[Type(AddGalSyncDataSourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AddGalSyncDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AddGalSyncDataSourceResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AddGalSyncDataSourceResponse')]
     #[Type(AddGalSyncDataSourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

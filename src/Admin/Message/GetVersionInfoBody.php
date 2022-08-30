@@ -30,13 +30,13 @@ class GetVersionInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetVersionInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetVersionInfoRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetVersionInfoRequest')]
     #[Type(GetVersionInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetVersionInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetVersionInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetVersionInfoResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetVersionInfoResponse')]
     #[Type(GetVersionInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class DeleteZimletBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteZimletRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteZimletRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeleteZimletRequest')]
     #[Type(DeleteZimletRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeleteZimletBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteZimletResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteZimletResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeleteZimletResponse')]
     #[Type(DeleteZimletResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

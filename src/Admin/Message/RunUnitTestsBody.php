@@ -30,13 +30,13 @@ class RunUnitTestsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RunUnitTestsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RunUnitTestsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RunUnitTestsRequest')]
     #[Type(RunUnitTestsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RunUnitTestsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RunUnitTestsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RunUnitTestsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RunUnitTestsResponse')]
     #[Type(RunUnitTestsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

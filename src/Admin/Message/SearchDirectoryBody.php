@@ -30,13 +30,13 @@ class SearchDirectoryBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SearchDirectoryRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SearchDirectoryRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SearchDirectoryRequest')]
     #[Type(SearchDirectoryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SearchDirectoryBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SearchDirectoryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SearchDirectoryResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SearchDirectoryResponse')]
     #[Type(SearchDirectoryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

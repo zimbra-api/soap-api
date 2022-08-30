@@ -30,13 +30,13 @@ class AddDistributionListMemberBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AddDistributionListMemberRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AddDistributionListMemberRequest')]
     #[Type(AddDistributionListMemberRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AddDistributionListMemberBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AddDistributionListMemberResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AddDistributionListMemberResponse')]
     #[Type(AddDistributionListMemberResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

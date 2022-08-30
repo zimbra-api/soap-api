@@ -30,13 +30,13 @@ class CheckPasswordStrengthBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckPasswordStrengthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckPasswordStrengthRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckPasswordStrengthRequest')]
     #[Type(CheckPasswordStrengthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckPasswordStrengthBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckPasswordStrengthResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckPasswordStrengthResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckPasswordStrengthResponse')]
     #[Type(CheckPasswordStrengthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

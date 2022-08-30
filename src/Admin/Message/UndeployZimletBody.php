@@ -30,13 +30,13 @@ class UndeployZimletBody extends SoapBody
      * @Type("Zimbra\Admin\Message\UndeployZimletRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var UndeployZimletRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('UndeployZimletRequest')]
     #[Type(UndeployZimletRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class UndeployZimletBody extends SoapBody
      * @Type("Zimbra\Admin\Message\UndeployZimletResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var UndeployZimletResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('UndeployZimletResponse')]
     #[Type(UndeployZimletResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

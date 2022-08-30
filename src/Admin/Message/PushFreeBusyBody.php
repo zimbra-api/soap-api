@@ -30,13 +30,13 @@ class PushFreeBusyBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PushFreeBusyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PushFreeBusyRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('PushFreeBusyRequest')]
     #[Type(PushFreeBusyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class PushFreeBusyBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PushFreeBusyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PushFreeBusyResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('PushFreeBusyResponse')]
     #[Type(PushFreeBusyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

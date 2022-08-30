@@ -30,13 +30,13 @@ class CheckHealthBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckHealthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckHealthRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckHealthRequest')]
     #[Type(CheckHealthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckHealthBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckHealthResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckHealthResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckHealthResponse')]
     #[Type(CheckHealthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

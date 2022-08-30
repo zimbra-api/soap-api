@@ -30,13 +30,13 @@ class CreateDataSourceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateDataSourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateDataSourceRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateDataSourceRequest')]
     #[Type(CreateDataSourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateDataSourceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateDataSourceResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateDataSourceResponse')]
     #[Type(CreateDataSourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

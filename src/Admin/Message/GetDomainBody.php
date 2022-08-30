@@ -30,13 +30,13 @@ class GetDomainBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetDomainRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetDomainRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetDomainRequest')]
     #[Type(GetDomainRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetDomainBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetDomainResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetDomainResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetDomainResponse')]
     #[Type(GetDomainResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class GetDistributionListMembershipBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetDistributionListMembershipRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetDistributionListMembershipRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetDistributionListMembershipRequest')]
     #[Type(GetDistributionListMembershipRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetDistributionListMembershipBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetDistributionListMembershipResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetDistributionListMembershipResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetDistributionListMembershipResponse')]
     #[Type(GetDistributionListMembershipResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

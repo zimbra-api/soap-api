@@ -30,13 +30,13 @@ class VerifyIndexBody extends SoapBody
      * @Type("Zimbra\Admin\Message\VerifyIndexRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var VerifyIndexRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('VerifyIndexRequest')]
     #[Type(VerifyIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class VerifyIndexBody extends SoapBody
      * @Type("Zimbra\Admin\Message\VerifyIndexResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var VerifyIndexResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('VerifyIndexResponse')]
     #[Type(VerifyIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

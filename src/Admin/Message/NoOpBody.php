@@ -29,12 +29,14 @@ class NoOpBody extends SoapBody
      * @SerializedName("NoOpRequest")
      * @Type("Zimbra\Admin\Message\NoOpRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('NoOpRequest')]
     #[Type(NoOpRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -42,13 +44,13 @@ class NoOpBody extends SoapBody
      * @Type("Zimbra\Admin\Message\NoOpResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var NoOpResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('NoOpResponse')]
     #[Type(NoOpResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

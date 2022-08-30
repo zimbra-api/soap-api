@@ -30,13 +30,13 @@ class ReIndexBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ReIndexRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ReIndexRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ReIndexRequest')]
     #[Type(ReIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ReIndexBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ReIndexResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ReIndexResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ReIndexResponse')]
     #[Type(ReIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class CheckDomainMXRecordBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckDomainMXRecordRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckDomainMXRecordRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckDomainMXRecordRequest')]
     #[Type(CheckDomainMXRecordRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckDomainMXRecordBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckDomainMXRecordResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckDomainMXRecordResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckDomainMXRecordResponse')]
     #[Type(CheckDomainMXRecordResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

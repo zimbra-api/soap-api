@@ -30,13 +30,13 @@ class ComputeAggregateQuotaUsageBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ComputeAggregateQuotaUsageRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ComputeAggregateQuotaUsageRequest')]
     #[Type(ComputeAggregateQuotaUsageRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ComputeAggregateQuotaUsageBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ComputeAggregateQuotaUsageResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ComputeAggregateQuotaUsageResponse')]
     #[Type(ComputeAggregateQuotaUsageResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

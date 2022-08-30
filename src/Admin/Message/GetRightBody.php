@@ -30,13 +30,13 @@ class GetRightBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetRightRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetRightRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetRightRequest')]
     #[Type(GetRightRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetRightBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetRightResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetRightResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetRightResponse')]
     #[Type(GetRightResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteAlwaysOnClusterRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteAlwaysOnClusterRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeleteAlwaysOnClusterRequest')]
     #[Type(DeleteAlwaysOnClusterRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteAlwaysOnClusterResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteAlwaysOnClusterResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeleteAlwaysOnClusterResponse')]
     #[Type(DeleteAlwaysOnClusterResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

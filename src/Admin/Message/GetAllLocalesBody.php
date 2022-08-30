@@ -30,13 +30,13 @@ class GetAllLocalesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllLocalesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAllLocalesRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAllLocalesRequest')]
     #[Type(GetAllLocalesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAllLocalesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllLocalesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAllLocalesResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAllLocalesResponse')]
     #[Type(GetAllLocalesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

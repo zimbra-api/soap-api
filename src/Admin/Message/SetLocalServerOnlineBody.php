@@ -30,13 +30,13 @@ class SetLocalServerOnlineBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SetLocalServerOnlineRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SetLocalServerOnlineRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SetLocalServerOnlineRequest')]
     #[Type(SetLocalServerOnlineRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SetLocalServerOnlineBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SetLocalServerOnlineResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SetLocalServerOnlineResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SetLocalServerOnlineResponse')]
     #[Type(SetLocalServerOnlineResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

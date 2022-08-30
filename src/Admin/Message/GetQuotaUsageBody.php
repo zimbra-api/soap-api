@@ -30,13 +30,13 @@ class GetQuotaUsageBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetQuotaUsageRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetQuotaUsageRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetQuotaUsageRequest')]
     #[Type(GetQuotaUsageRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetQuotaUsageBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetQuotaUsageResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetQuotaUsageResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetQuotaUsageResponse')]
     #[Type(GetQuotaUsageResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class GetAttributeInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAttributeInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAttributeInfoRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAttributeInfoRequest')]
     #[Type(GetAttributeInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAttributeInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAttributeInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAttributeInfoResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAttributeInfoResponse')]
     #[Type(GetAttributeInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

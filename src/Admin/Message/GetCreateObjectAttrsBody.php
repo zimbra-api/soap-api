@@ -30,13 +30,13 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetCreateObjectAttrsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetCreateObjectAttrsRequest')]
     #[Type(GetCreateObjectAttrsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetCreateObjectAttrsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetCreateObjectAttrsResponse')]
     #[Type(GetCreateObjectAttrsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

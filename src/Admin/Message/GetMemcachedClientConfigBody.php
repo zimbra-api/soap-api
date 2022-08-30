@@ -30,13 +30,13 @@ class GetMemcachedClientConfigBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetMemcachedClientConfigRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetMemcachedClientConfigRequest')]
     #[Type(GetMemcachedClientConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetMemcachedClientConfigBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetMemcachedClientConfigResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetMemcachedClientConfigResponse')]
     #[Type(GetMemcachedClientConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

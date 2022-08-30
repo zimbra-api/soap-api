@@ -30,13 +30,13 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAdminSavedSearchesRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAdminSavedSearchesRequest')]
     #[Type(GetAdminSavedSearchesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAdminSavedSearchesResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAdminSavedSearchesResponse')]
     #[Type(GetAdminSavedSearchesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

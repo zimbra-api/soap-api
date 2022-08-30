@@ -34,13 +34,13 @@ class GetCreateObjectAttrsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetCreateObjectAttrsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetCreateObjectAttrsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

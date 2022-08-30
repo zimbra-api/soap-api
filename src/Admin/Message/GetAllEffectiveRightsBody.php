@@ -30,13 +30,13 @@ class GetAllEffectiveRightsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllEffectiveRightsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAllEffectiveRightsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAllEffectiveRightsRequest')]
     #[Type(GetAllEffectiveRightsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAllEffectiveRightsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllEffectiveRightsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAllEffectiveRightsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAllEffectiveRightsResponse')]
     #[Type(GetAllEffectiveRightsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

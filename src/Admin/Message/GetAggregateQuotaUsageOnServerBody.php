@@ -30,13 +30,13 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAggregateQuotaUsageOnServerRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAggregateQuotaUsageOnServerRequest')]
     #[Type(GetAggregateQuotaUsageOnServerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAggregateQuotaUsageOnServerResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAggregateQuotaUsageOnServerResponse')]
     #[Type(GetAggregateQuotaUsageOnServerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

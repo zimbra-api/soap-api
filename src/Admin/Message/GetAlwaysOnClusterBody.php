@@ -30,13 +30,13 @@ class GetAlwaysOnClusterBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAlwaysOnClusterRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAlwaysOnClusterRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAlwaysOnClusterRequest')]
     #[Type(GetAlwaysOnClusterRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAlwaysOnClusterBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAlwaysOnClusterResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAlwaysOnClusterResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAlwaysOnClusterResponse')]
     #[Type(GetAlwaysOnClusterResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

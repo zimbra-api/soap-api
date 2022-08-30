@@ -30,13 +30,13 @@ class PurgeMessagesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PurgeMessagesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PurgeMessagesRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('PurgeMessagesRequest')]
     #[Type(PurgeMessagesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class PurgeMessagesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PurgeMessagesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PurgeMessagesResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('PurgeMessagesResponse')]
     #[Type(PurgeMessagesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class SetPasswordBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SetPasswordRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SetPasswordRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SetPasswordRequest')]
     #[Type(SetPasswordRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SetPasswordBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SetPasswordResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SetPasswordResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SetPasswordResponse')]
     #[Type(SetPasswordResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

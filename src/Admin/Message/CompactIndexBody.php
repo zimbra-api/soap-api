@@ -30,13 +30,13 @@ class CompactIndexBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CompactIndexRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CompactIndexRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CompactIndexRequest')]
     #[Type(CompactIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CompactIndexBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CompactIndexResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CompactIndexResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CompactIndexResponse')]
     #[Type(CompactIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

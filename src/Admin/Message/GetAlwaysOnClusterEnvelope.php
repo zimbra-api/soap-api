@@ -34,13 +34,13 @@ class GetAlwaysOnClusterEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\GetAlwaysOnClusterBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetAlwaysOnClusterBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetAlwaysOnClusterBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

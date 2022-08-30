@@ -30,13 +30,13 @@ class PurgeAccountCalendarCacheBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PurgeAccountCalendarCacheRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PurgeAccountCalendarCacheRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('PurgeAccountCalendarCacheRequest')]
     #[Type(PurgeAccountCalendarCacheRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class PurgeAccountCalendarCacheBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PurgeAccountCalendarCacheResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PurgeAccountCalendarCacheResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('PurgeAccountCalendarCacheResponse')]
     #[Type(PurgeAccountCalendarCacheResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

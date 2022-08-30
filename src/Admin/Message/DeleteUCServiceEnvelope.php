@@ -34,13 +34,13 @@ class DeleteUCServiceEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\DeleteUCServiceBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var DeleteUCServiceBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(DeleteUCServiceBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

@@ -34,13 +34,13 @@ class ModifyLDAPEntryEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\ModifyLDAPEntryBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var ModifyLDAPEntryBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(ModifyLDAPEntryBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

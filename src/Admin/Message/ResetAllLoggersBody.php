@@ -30,13 +30,13 @@ class ResetAllLoggersBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ResetAllLoggersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ResetAllLoggersRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ResetAllLoggersRequest')]
     #[Type(ResetAllLoggersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ResetAllLoggersBody extends SoapBody
      * @Type("Zimbra\Admin\Message\ResetAllLoggersResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var ResetAllLoggersResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ResetAllLoggersResponse')]
     #[Type(ResetAllLoggersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

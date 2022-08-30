@@ -30,13 +30,13 @@ class DeleteCosBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteCosRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteCosRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeleteCosRequest')]
     #[Type(DeleteCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeleteCosBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteCosResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeleteCosResponse')]
     #[Type(DeleteCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

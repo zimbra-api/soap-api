@@ -30,13 +30,13 @@ class DelegateAuthBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DelegateAuthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DelegateAuthRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DelegateAuthRequest')]
     #[Type(DelegateAuthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DelegateAuthBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DelegateAuthResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DelegateAuthResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DelegateAuthResponse')]
     #[Type(DelegateAuthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

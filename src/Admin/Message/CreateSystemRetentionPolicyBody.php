@@ -30,13 +30,13 @@ class CreateSystemRetentionPolicyBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateSystemRetentionPolicyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateSystemRetentionPolicyRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateSystemRetentionPolicyRequest')]
     #[Type(CreateSystemRetentionPolicyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateSystemRetentionPolicyBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateSystemRetentionPolicyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateSystemRetentionPolicyResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateSystemRetentionPolicyResponse')]
     #[Type(CreateSystemRetentionPolicyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

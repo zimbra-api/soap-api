@@ -30,13 +30,13 @@ class DeleteXMPPComponentBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteXMPPComponentRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteXMPPComponentRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeleteXMPPComponentRequest')]
     #[Type(DeleteXMPPComponentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeleteXMPPComponentBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteXMPPComponentResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteXMPPComponentResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeleteXMPPComponentResponse')]
     #[Type(DeleteXMPPComponentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

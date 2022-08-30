@@ -30,13 +30,13 @@ class GetIndexStatsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetIndexStatsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetIndexStatsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetIndexStatsRequest')]
     #[Type(GetIndexStatsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetIndexStatsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetIndexStatsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetIndexStatsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetIndexStatsResponse')]
     #[Type(GetIndexStatsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

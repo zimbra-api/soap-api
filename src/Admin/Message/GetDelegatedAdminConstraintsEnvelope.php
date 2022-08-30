@@ -34,13 +34,13 @@ class GetDelegatedAdminConstraintsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\GetDelegatedAdminConstraintsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetDelegatedAdminConstraintsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetDelegatedAdminConstraintsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

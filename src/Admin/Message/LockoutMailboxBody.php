@@ -30,13 +30,13 @@ class LockoutMailboxBody extends SoapBody
      * @Type("Zimbra\Admin\Message\LockoutMailboxRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var LockoutMailboxRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('LockoutMailboxRequest')]
     #[Type(LockoutMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class LockoutMailboxBody extends SoapBody
      * @Type("Zimbra\Admin\Message\LockoutMailboxResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var LockoutMailboxResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('LockoutMailboxResponse')]
     #[Type(LockoutMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

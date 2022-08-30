@@ -30,13 +30,13 @@ class GetServiceStatusBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetServiceStatusRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetServiceStatusRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetServiceStatusRequest')]
     #[Type(GetServiceStatusRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetServiceStatusBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetServiceStatusResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetServiceStatusResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetServiceStatusResponse')]
     #[Type(GetServiceStatusResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

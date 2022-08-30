@@ -30,13 +30,13 @@ class AutoProvTaskControlBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AutoProvTaskControlRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AutoProvTaskControlRequest')]
     #[Type(AutoProvTaskControlRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AutoProvTaskControlBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AutoProvTaskControlResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AutoProvTaskControlResponse')]
     #[Type(AutoProvTaskControlResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

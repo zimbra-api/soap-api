@@ -30,13 +30,13 @@ class GetLDAPEntriesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetLDAPEntriesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetLDAPEntriesRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetLDAPEntriesRequest')]
     #[Type(GetLDAPEntriesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetLDAPEntriesBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetLDAPEntriesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetLDAPEntriesResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetLDAPEntriesResponse')]
     #[Type(GetLDAPEntriesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

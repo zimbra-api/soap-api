@@ -30,13 +30,13 @@ class CreateDomainBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateDomainRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateDomainRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateDomainRequest')]
     #[Type(CreateDomainRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateDomainBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateDomainResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateDomainResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateDomainResponse')]
     #[Type(CreateDomainResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

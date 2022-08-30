@@ -30,13 +30,13 @@ class AutoProvAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AutoProvAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AutoProvAccountRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AutoProvAccountRequest')]
     #[Type(AutoProvAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AutoProvAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\AutoProvAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var AutoProvAccountResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AutoProvAccountResponse')]
     #[Type(AutoProvAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

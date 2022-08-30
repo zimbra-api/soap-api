@@ -30,13 +30,13 @@ class PingBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PingRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PingRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('PingRequest')]
     #[Type(PingRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class PingBody extends SoapBody
      * @Type("Zimbra\Admin\Message\PingResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var PingResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('PingResponse')]
     #[Type(PingResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

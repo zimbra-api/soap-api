@@ -30,13 +30,13 @@ class DeployZimletBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeployZimletRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeployZimletRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeployZimletRequest')]
     #[Type(DeployZimletRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeployZimletBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeployZimletResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeployZimletResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeployZimletResponse')]
     #[Type(DeployZimletResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

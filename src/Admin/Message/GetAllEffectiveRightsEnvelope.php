@@ -34,13 +34,13 @@ class GetAllEffectiveRightsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\GetAllEffectiveRightsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetAllEffectiveRightsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetAllEffectiveRightsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

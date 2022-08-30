@@ -30,13 +30,13 @@ class RenameDistributionListBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RenameDistributionListRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RenameDistributionListRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RenameDistributionListRequest')]
     #[Type(RenameDistributionListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RenameDistributionListBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RenameDistributionListResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RenameDistributionListResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RenameDistributionListResponse')]
     #[Type(RenameDistributionListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

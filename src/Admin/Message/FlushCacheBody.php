@@ -30,13 +30,13 @@ class FlushCacheBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FlushCacheRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FlushCacheRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('FlushCacheRequest')]
     #[Type(FlushCacheRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class FlushCacheBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FlushCacheResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FlushCacheResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('FlushCacheResponse')]
     #[Type(FlushCacheResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

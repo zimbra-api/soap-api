@@ -30,13 +30,13 @@ class GetLicenseInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetLicenseInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetLicenseInfoRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetLicenseInfoRequest')]
     #[Type(GetLicenseInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetLicenseInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetLicenseInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetLicenseInfoResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetLicenseInfoResponse')]
     #[Type(GetLicenseInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

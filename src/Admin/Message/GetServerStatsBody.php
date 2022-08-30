@@ -30,13 +30,13 @@ class GetServerStatsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetServerStatsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetServerStatsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetServerStatsRequest')]
     #[Type(GetServerStatsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetServerStatsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetServerStatsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetServerStatsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetServerStatsResponse')]
     #[Type(GetServerStatsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

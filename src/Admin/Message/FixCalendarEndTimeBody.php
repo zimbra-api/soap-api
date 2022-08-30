@@ -30,13 +30,13 @@ class FixCalendarEndTimeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FixCalendarEndTimeRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FixCalendarEndTimeRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('FixCalendarEndTimeRequest')]
     #[Type(FixCalendarEndTimeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class FixCalendarEndTimeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FixCalendarEndTimeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FixCalendarEndTimeResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('FixCalendarEndTimeResponse')]
     #[Type(FixCalendarEndTimeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

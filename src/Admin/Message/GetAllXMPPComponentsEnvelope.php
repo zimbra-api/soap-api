@@ -34,13 +34,13 @@ class GetAllXMPPComponentsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\GetAllXMPPComponentsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetAllXMPPComponentsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetAllXMPPComponentsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

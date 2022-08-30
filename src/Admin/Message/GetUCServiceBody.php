@@ -30,13 +30,13 @@ class GetUCServiceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetUCServiceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetUCServiceRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetUCServiceRequest')]
     #[Type(GetUCServiceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetUCServiceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetUCServiceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetUCServiceResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetUCServiceResponse')]
     #[Type(GetUCServiceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

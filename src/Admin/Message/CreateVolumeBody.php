@@ -30,13 +30,13 @@ class CreateVolumeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateVolumeRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateVolumeRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateVolumeRequest')]
     #[Type(CreateVolumeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateVolumeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CreateVolumeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CreateVolumeResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateVolumeResponse')]
     #[Type(CreateVolumeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

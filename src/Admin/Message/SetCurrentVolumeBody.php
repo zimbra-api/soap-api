@@ -30,13 +30,13 @@ class SetCurrentVolumeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SetCurrentVolumeRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SetCurrentVolumeRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SetCurrentVolumeRequest')]
     #[Type(SetCurrentVolumeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SetCurrentVolumeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SetCurrentVolumeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SetCurrentVolumeResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SetCurrentVolumeResponse')]
     #[Type(SetCurrentVolumeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

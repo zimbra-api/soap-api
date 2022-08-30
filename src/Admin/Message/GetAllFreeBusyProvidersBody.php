@@ -30,13 +30,13 @@ class GetAllFreeBusyProvidersBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllFreeBusyProvidersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAllFreeBusyProvidersRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAllFreeBusyProvidersRequest')]
     #[Type(GetAllFreeBusyProvidersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAllFreeBusyProvidersBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllFreeBusyProvidersResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAllFreeBusyProvidersResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAllFreeBusyProvidersResponse')]
     #[Type(GetAllFreeBusyProvidersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

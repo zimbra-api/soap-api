@@ -30,13 +30,13 @@ class CheckGalConfigBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckGalConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckGalConfigRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckGalConfigRequest')]
     #[Type(CheckGalConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckGalConfigBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckGalConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckGalConfigResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckGalConfigResponse')]
     #[Type(CheckGalConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

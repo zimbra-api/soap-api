@@ -30,13 +30,13 @@ class FixCalendarPriorityBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FixCalendarPriorityRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('FixCalendarPriorityRequest')]
     #[Type(FixCalendarPriorityRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class FixCalendarPriorityBody extends SoapBody
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var FixCalendarPriorityResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('FixCalendarPriorityResponse')]
     #[Type(FixCalendarPriorityResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class SearchGalBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SearchGalRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SearchGalRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SearchGalRequest')]
     #[Type(SearchGalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SearchGalBody extends SoapBody
      * @Type("Zimbra\Admin\Message\SearchGalResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var SearchGalResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SearchGalResponse')]
     #[Type(SearchGalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class GetGrantsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetGrantsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetGrantsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetGrantsRequest')]
     #[Type(GetGrantsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetGrantsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetGrantsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetGrantsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetGrantsResponse')]
     #[Type(GetGrantsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

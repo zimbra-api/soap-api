@@ -30,13 +30,13 @@ class RenameLDAPEntryBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RenameLDAPEntryRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RenameLDAPEntryRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RenameLDAPEntryRequest')]
     #[Type(RenameLDAPEntryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RenameLDAPEntryBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RenameLDAPEntryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RenameLDAPEntryResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RenameLDAPEntryResponse')]
     #[Type(RenameLDAPEntryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

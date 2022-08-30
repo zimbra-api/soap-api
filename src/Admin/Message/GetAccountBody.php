@@ -30,13 +30,13 @@ class GetAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAccountRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAccountRequest')]
     #[Type(GetAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAccountResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAccountResponse')]
     #[Type(GetAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

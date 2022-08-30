@@ -30,13 +30,13 @@ class CountObjectsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CountObjectsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CountObjectsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CountObjectsRequest')]
     #[Type(CountObjectsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CountObjectsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CountObjectsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CountObjectsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CountObjectsResponse')]
     #[Type(CountObjectsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

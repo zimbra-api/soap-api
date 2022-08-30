@@ -30,13 +30,13 @@ class DeleteDataSourceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteDataSourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteDataSourceRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeleteDataSourceRequest')]
     #[Type(DeleteDataSourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeleteDataSourceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var DeleteDataSourceResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeleteDataSourceResponse')]
     #[Type(DeleteDataSourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

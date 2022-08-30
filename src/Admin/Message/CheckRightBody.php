@@ -30,13 +30,13 @@ class CheckRightBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckRightRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckRightRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckRightRequest')]
     #[Type(CheckRightRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckRightBody extends SoapBody
      * @Type("Zimbra\Admin\Message\CheckRightResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var CheckRightResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckRightResponse')]
     #[Type(CheckRightResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

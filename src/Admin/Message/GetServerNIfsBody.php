@@ -30,13 +30,13 @@ class GetServerNIfsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetServerNIfsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetServerNIfsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetServerNIfsRequest')]
     #[Type(GetServerNIfsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetServerNIfsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetServerNIfsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetServerNIfsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetServerNIfsResponse')]
     #[Type(GetServerNIfsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

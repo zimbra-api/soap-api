@@ -30,13 +30,13 @@ class MailQueueFlushBody extends SoapBody
      * @Type("Zimbra\Admin\Message\MailQueueFlushRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var MailQueueFlushRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('MailQueueFlushRequest')]
     #[Type(MailQueueFlushRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class MailQueueFlushBody extends SoapBody
      * @Type("Zimbra\Admin\Message\MailQueueFlushResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var MailQueueFlushResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('MailQueueFlushResponse')]
     #[Type(MailQueueFlushResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

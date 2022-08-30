@@ -36,13 +36,13 @@ class DeleteSystemRetentionPolicyEnvelope extends SoapEnvelope
      * @Type("Zimbra\Admin\Message\DeleteSystemRetentionPolicyBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var DeleteSystemRetentionPolicyBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(DeleteSystemRetentionPolicyBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

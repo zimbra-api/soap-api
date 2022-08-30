@@ -30,13 +30,13 @@ class GetAdminExtensionZimletsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAdminExtensionZimletsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAdminExtensionZimletsRequest')]
     #[Type(GetAdminExtensionZimletsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAdminExtensionZimletsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetAdminExtensionZimletsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAdminExtensionZimletsResponse')]
     #[Type(GetAdminExtensionZimletsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

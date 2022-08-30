@@ -30,13 +30,13 @@ class RemoveDistributionListAliasBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RemoveDistributionListAliasRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RemoveDistributionListAliasRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RemoveDistributionListAliasRequest')]
     #[Type(RemoveDistributionListAliasRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RemoveDistributionListAliasBody extends SoapBody
      * @Type("Zimbra\Admin\Message\RemoveDistributionListAliasResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var RemoveDistributionListAliasResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RemoveDistributionListAliasResponse')]
     #[Type(RemoveDistributionListAliasResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

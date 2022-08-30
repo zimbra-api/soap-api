@@ -30,13 +30,13 @@ class GetLoggerStatsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetLoggerStatsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetLoggerStatsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetLoggerStatsRequest')]
     #[Type(GetLoggerStatsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetLoggerStatsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetLoggerStatsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetLoggerStatsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetLoggerStatsResponse')]
     #[Type(GetLoggerStatsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

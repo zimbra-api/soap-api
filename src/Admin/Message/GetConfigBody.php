@@ -30,13 +30,13 @@ class GetConfigBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetConfigRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetConfigRequest')]
     #[Type(GetConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetConfigBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetConfigResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetConfigResponse')]
     #[Type(GetConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

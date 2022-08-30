@@ -30,13 +30,13 @@ class GetSessionsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetSessionsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetSessionsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetSessionsRequest')]
     #[Type(GetSessionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetSessionsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetSessionsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * 
-     * @var GetSessionsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetSessionsResponse')]
     #[Type(GetSessionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor
