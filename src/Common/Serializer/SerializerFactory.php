@@ -11,7 +11,6 @@
 namespace Zimbra\Common\Serializer;
 
 use JMS\Serializer\{
-    Construction\UnserializeObjectConstructor,
     Handler\HandlerRegistryInterface,
     Handler\SubscribingHandlerInterface,
     SerializerBuilder,
@@ -135,7 +134,7 @@ final class SerializerFactory
                 }
             }
         })
-        ->setObjectConstructor(new ObjectConstructor(new UnserializeObjectConstructor()))
+        ->setObjectConstructor(new ObjectConstructor())
         ->build();
     }
 }
