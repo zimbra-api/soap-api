@@ -13,7 +13,7 @@ namespace Zimbra\Common\Serializer;
 use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
-use JMS\Serializer\Metadata\Driver\{AnnotationDriver, DefaultValuePropertyDriver};
+use JMS\Serializer\Metadata\Driver\{AnnotationDriver, TypedPropertiesDriver};
 use JMS\Serializer\Naming\{CamelCaseNamingStrategy, SerializedNameAnnotationStrategy};
 use JMS\Serializer\Type\Parser;
 
@@ -34,10 +34,11 @@ class AttributeDriverFactory implements DriverFactoryInterface
     public function createDriver(array $metadataDirs, Reader $annotationReader): DriverInterface
     {
         $propertyNamingStrategy = new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
+        $typeParser = new Parser();
         $driver = new AnnotationDriver(
-            new AttributeReader(), $propertyNamingStrategy, new Parser()
+            new AttributeReader(), $propertyNamingStrategy, $typeParser
         );
 
-        return new DefaultValuePropertyDriver($driver);
+        return new TypedPropertiesDriver($driver, $typeParser);
     }
 }
