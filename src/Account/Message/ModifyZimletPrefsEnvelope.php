@@ -34,13 +34,13 @@ class ModifyZimletPrefsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\ModifyZimletPrefsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var ModifyZimletPrefsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(ModifyZimletPrefsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

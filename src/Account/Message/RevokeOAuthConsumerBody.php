@@ -30,13 +30,13 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @Type("Zimbra\Account\Message\RevokeOAuthConsumerRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var RevokeOAuthConsumerRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RevokeOAuthConsumerRequest')]
     #[Type(RevokeOAuthConsumerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @Type("Zimbra\Account\Message\RevokeOAuthConsumerResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var RevokeOAuthConsumerResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RevokeOAuthConsumerResponse')]
     #[Type(RevokeOAuthConsumerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

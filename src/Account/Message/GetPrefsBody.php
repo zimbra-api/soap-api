@@ -30,13 +30,13 @@ class GetPrefsBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetPrefsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetPrefsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetPrefsRequest')]
     #[Type(GetPrefsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetPrefsBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetPrefsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetPrefsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetPrefsResponse')]
     #[Type(GetPrefsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

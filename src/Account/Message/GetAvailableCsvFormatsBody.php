@@ -30,13 +30,13 @@ class GetAvailableCsvFormatsBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetAvailableCsvFormatsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetAvailableCsvFormatsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAvailableCsvFormatsRequest')]
     #[Type(GetAvailableCsvFormatsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAvailableCsvFormatsBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetAvailableCsvFormatsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetAvailableCsvFormatsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAvailableCsvFormatsResponse')]
     #[Type(GetAvailableCsvFormatsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

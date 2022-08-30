@@ -30,13 +30,13 @@ class AuthBody extends SoapBody
      * @Type("Zimbra\Account\Message\AuthRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var AuthRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AuthRequest')]
     #[Type(AuthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AuthBody extends SoapBody
      * @Type("Zimbra\Account\Message\AuthResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var AuthResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AuthResponse')]
     #[Type(AuthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

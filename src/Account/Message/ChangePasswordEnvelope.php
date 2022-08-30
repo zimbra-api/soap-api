@@ -34,13 +34,13 @@ class ChangePasswordEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\ChangePasswordBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var ChangePasswordBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(ChangePasswordBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

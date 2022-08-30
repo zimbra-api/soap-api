@@ -34,13 +34,13 @@ class GetInfoEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\GetInfoBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetInfoBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetInfoBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

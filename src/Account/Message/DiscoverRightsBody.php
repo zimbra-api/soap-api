@@ -30,13 +30,13 @@ class DiscoverRightsBody extends SoapBody
      * @Type("Zimbra\Account\Message\DiscoverRightsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var DiscoverRightsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DiscoverRightsRequest')]
     #[Type(DiscoverRightsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DiscoverRightsBody extends SoapBody
      * @Type("Zimbra\Account\Message\DiscoverRightsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var DiscoverRightsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DiscoverRightsResponse')]
     #[Type(DiscoverRightsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

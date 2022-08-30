@@ -30,13 +30,13 @@ class GetShareInfoBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetShareInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetShareInfoRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetShareInfoRequest')]
     #[Type(GetShareInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetShareInfoBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetShareInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetShareInfoResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetShareInfoResponse')]
     #[Type(GetShareInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class SyncGalBody extends SoapBody
      * @Type("Zimbra\Account\Message\SyncGalRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var SyncGalRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SyncGalRequest')]
     #[Type(SyncGalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SyncGalBody extends SoapBody
      * @Type("Zimbra\Account\Message\SyncGalResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var SyncGalResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SyncGalResponse')]
     #[Type(SyncGalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

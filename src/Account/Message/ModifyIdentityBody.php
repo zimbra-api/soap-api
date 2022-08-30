@@ -30,13 +30,13 @@ class ModifyIdentityBody extends SoapBody
      * @Type("Zimbra\Account\Message\ModifyIdentityRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var ModifyIdentityRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ModifyIdentityRequest')]
     #[Type(ModifyIdentityRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ModifyIdentityBody extends SoapBody
      * @Type("Zimbra\Account\Message\ModifyIdentityResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var ModifyIdentityResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ModifyIdentityResponse')]
     #[Type(ModifyIdentityResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

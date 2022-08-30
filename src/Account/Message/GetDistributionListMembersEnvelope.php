@@ -33,12 +33,14 @@ class GetDistributionListMembersEnvelope extends SoapEnvelope
      * @SerializedName("Body")
      * @Type("Zimbra\Account\Message\GetDistributionListMembersBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetDistributionListMembersBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

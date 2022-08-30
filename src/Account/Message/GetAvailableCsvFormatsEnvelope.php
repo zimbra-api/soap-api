@@ -34,13 +34,13 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\GetAvailableCsvFormatsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetAvailableCsvFormatsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetAvailableCsvFormatsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

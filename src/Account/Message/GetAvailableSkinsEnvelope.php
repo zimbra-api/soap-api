@@ -34,13 +34,13 @@ class GetAvailableSkinsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\GetAvailableSkinsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var GetAvailableSkinsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(GetAvailableSkinsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

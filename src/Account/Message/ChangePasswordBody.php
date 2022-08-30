@@ -30,13 +30,13 @@ class ChangePasswordBody extends SoapBody
      * @Type("Zimbra\Account\Message\ChangePasswordRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var ChangePasswordRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ChangePasswordRequest')]
     #[Type(ChangePasswordRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ChangePasswordBody extends SoapBody
      * @Type("Zimbra\Account\Message\ChangePasswordResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var ChangePasswordResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ChangePasswordResponse')]
     #[Type(ChangePasswordResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

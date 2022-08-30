@@ -30,13 +30,13 @@ class ClientInfoBody extends SoapBody
      * @Type("Zimbra\Account\Message\ClientInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var ClientInfoRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ClientInfoRequest')]
     #[Type(ClientInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ClientInfoBody extends SoapBody
      * @Type("Zimbra\Account\Message\ClientInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var ClientInfoResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ClientInfoResponse')]
     #[Type(ClientInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

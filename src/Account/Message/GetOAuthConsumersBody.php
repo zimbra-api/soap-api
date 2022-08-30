@@ -30,13 +30,13 @@ class GetOAuthConsumersBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetOAuthConsumersRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetOAuthConsumersRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetOAuthConsumersRequest')]
     #[Type(GetOAuthConsumersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetOAuthConsumersBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetOAuthConsumersResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetOAuthConsumersResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetOAuthConsumersResponse')]
     #[Type(GetOAuthConsumersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

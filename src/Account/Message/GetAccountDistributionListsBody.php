@@ -30,13 +30,13 @@ class GetAccountDistributionListsBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetAccountDistributionListsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetAccountDistributionListsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetAccountDistributionListsRequest')]
     #[Type(GetAccountDistributionListsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetAccountDistributionListsBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetAccountDistributionListsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
-     * @var GetAccountDistributionListsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetAccountDistributionListsResponse')]
     #[Type(GetAccountDistributionListsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

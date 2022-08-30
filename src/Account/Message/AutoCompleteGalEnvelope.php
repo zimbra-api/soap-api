@@ -34,13 +34,13 @@ class AutoCompleteGalEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\AutoCompleteGalBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var AutoCompleteGalBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(AutoCompleteGalBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor
