@@ -14,8 +14,10 @@ use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
 use JMS\Serializer\Metadata\Driver\{AnnotationDriver, TypedPropertiesDriver};
-use JMS\Serializer\Naming\{CamelCaseNamingStrategy, SerializedNameAnnotationStrategy};
-use JMS\Serializer\Type\Parser;
+use JMS\Serializer\Naming\{
+    CamelCaseNamingStrategy, PropertyNamingStrategyInterface, SerializedNameAnnotationStrategy
+};
+use JMS\Serializer\Type\{Parser, ParserInterface};
 
 /**
  * Attribute driver factory class.
@@ -29,16 +31,45 @@ use JMS\Serializer\Type\Parser;
 class AttributeDriverFactory implements DriverFactoryInterface
 {
     /**
+     * Property naming strategy
+     * 
+     * @var PropertyNamingStrategyInterface
+     */
+    private PropertyNamingStrategyInterface $propertyNamingStrategy;
+
+    /**
+     * Type parser
+     * 
+     * @var ParserInterface
+     */
+    private ParserInterface $typeParser;
+
+    /**
+     * Constructor
+     * 
+     * @param PropertyNamingStrategyInterface $propertyNamingStrategy
+     * @param ParserInterface $typeParser
+     */
+    public function __construct(
+        ?PropertyNamingStrategyInterface $propertyNamingStrategy = NULL,
+        ?ParserInterface $typeParser = NULL
+    )
+    {
+        $this->propertyNamingStrategy = $propertyNamingStrategy ?: new SerializedNameAnnotationStrategy(
+            new CamelCaseNamingStrategy()
+        );
+        $this->typeParser = $typeParser ?: new Parser();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function createDriver(array $metadataDirs, Reader $annotationReader): DriverInterface
     {
-        $propertyNamingStrategy = new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
-        $typeParser = new Parser();
         $driver = new AnnotationDriver(
-            new AttributeReader(), $propertyNamingStrategy, $typeParser
+            new AttributeReader(), $this->propertyNamingStrategy, $this->typeParser
         );
 
-        return new TypedPropertiesDriver($driver, $typeParser);
+        return new TypedPropertiesDriver($driver, $this->typeParser);
     }
 }
