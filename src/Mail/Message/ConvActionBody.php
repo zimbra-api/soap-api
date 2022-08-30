@@ -30,13 +30,13 @@ class ConvActionBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ConvActionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ConvActionRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ConvActionRequest')]
     #[Type(ConvActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ConvActionBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ConvActionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ConvActionResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ConvActionResponse')]
     #[Type(ConvActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

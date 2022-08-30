@@ -34,13 +34,13 @@ class RemoveAttachmentsEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\RemoveAttachmentsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var RemoveAttachmentsBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(RemoveAttachmentsBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

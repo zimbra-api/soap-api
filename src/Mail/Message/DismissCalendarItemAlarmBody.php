@@ -30,13 +30,13 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DismissCalendarItemAlarmRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DismissCalendarItemAlarmRequest')]
     #[Type(DismissCalendarItemAlarmRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DismissCalendarItemAlarmResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DismissCalendarItemAlarmResponse')]
     #[Type(DismissCalendarItemAlarmResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

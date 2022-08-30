@@ -30,13 +30,13 @@ class IMAPCopyBody extends SoapBody
      * @Type("Zimbra\Mail\Message\IMAPCopyRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var IMAPCopyRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('IMAPCopyRequest')]
     #[Type(IMAPCopyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class IMAPCopyBody extends SoapBody
      * @Type("Zimbra\Mail\Message\IMAPCopyResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var IMAPCopyResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('IMAPCopyResponse')]
     #[Type(IMAPCopyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class CreateTaskBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CreateTaskRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CreateTaskRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateTaskRequest')]
     #[Type(CreateTaskRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateTaskBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CreateTaskResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CreateTaskResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateTaskResponse')]
     #[Type(CreateTaskResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

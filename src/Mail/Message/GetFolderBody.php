@@ -30,13 +30,13 @@ class GetFolderBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetFolderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetFolderRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetFolderRequest')]
     #[Type(GetFolderRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetFolderBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetFolderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetFolderResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetFolderResponse')]
     #[Type(GetFolderResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

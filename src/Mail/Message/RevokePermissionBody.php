@@ -30,13 +30,13 @@ class RevokePermissionBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RevokePermissionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RevokePermissionRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RevokePermissionRequest')]
     #[Type(RevokePermissionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RevokePermissionBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RevokePermissionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RevokePermissionResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RevokePermissionResponse')]
     #[Type(RevokePermissionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

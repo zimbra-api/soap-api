@@ -30,13 +30,13 @@ class RecoverAccountBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RecoverAccountRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RecoverAccountRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RecoverAccountRequest')]
     #[Type(RecoverAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RecoverAccountBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RecoverAccountResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RecoverAccountResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RecoverAccountResponse')]
     #[Type(RecoverAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

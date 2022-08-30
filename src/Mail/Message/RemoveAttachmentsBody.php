@@ -30,13 +30,13 @@ class RemoveAttachmentsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RemoveAttachmentsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RemoveAttachmentsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RemoveAttachmentsRequest')]
     #[Type(RemoveAttachmentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RemoveAttachmentsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RemoveAttachmentsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RemoveAttachmentsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RemoveAttachmentsResponse')]
     #[Type(RemoveAttachmentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

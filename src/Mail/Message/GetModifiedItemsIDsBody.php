@@ -30,13 +30,13 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetModifiedItemsIDsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetModifiedItemsIDsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetModifiedItemsIDsRequest')]
     #[Type(GetModifiedItemsIDsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetModifiedItemsIDsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetModifiedItemsIDsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetModifiedItemsIDsResponse')]
     #[Type(GetModifiedItemsIDsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class GetTaskSummariesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetTaskSummariesRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetTaskSummariesRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetTaskSummariesRequest')]
     #[Type(GetTaskSummariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetTaskSummariesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetTaskSummariesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetTaskSummariesResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetTaskSummariesResponse')]
     #[Type(GetTaskSummariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class ExpandRecurBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ExpandRecurRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ExpandRecurRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ExpandRecurRequest')]
     #[Type(ExpandRecurRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ExpandRecurBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ExpandRecurResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ExpandRecurResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ExpandRecurResponse')]
     #[Type(ExpandRecurResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

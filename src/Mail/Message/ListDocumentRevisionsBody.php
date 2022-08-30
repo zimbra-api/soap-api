@@ -30,13 +30,13 @@ class ListDocumentRevisionsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ListDocumentRevisionsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ListDocumentRevisionsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ListDocumentRevisionsRequest')]
     #[Type(ListDocumentRevisionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ListDocumentRevisionsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ListDocumentRevisionsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ListDocumentRevisionsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ListDocumentRevisionsResponse')]
     #[Type(ListDocumentRevisionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

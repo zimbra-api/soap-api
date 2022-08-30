@@ -30,13 +30,13 @@ class CheckRecurConflictsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CheckRecurConflictsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CheckRecurConflictsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckRecurConflictsRequest')]
     #[Type(CheckRecurConflictsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckRecurConflictsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CheckRecurConflictsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CheckRecurConflictsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckRecurConflictsResponse')]
     #[Type(CheckRecurConflictsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

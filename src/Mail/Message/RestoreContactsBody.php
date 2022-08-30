@@ -30,13 +30,13 @@ class RestoreContactsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RestoreContactsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RestoreContactsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('RestoreContactsRequest')]
     #[Type(RestoreContactsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class RestoreContactsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\RestoreContactsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var RestoreContactsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('RestoreContactsResponse')]
     #[Type(RestoreContactsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

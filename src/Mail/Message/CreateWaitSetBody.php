@@ -30,13 +30,13 @@ class CreateWaitSetBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CreateWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CreateWaitSetRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CreateWaitSetRequest')]
     #[Type(CreateWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CreateWaitSetBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CreateWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CreateWaitSetResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CreateWaitSetResponse')]
     #[Type(CreateWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

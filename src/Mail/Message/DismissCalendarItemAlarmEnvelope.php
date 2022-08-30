@@ -34,13 +34,13 @@ class DismissCalendarItemAlarmEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var DismissCalendarItemAlarmBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(DismissCalendarItemAlarmBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

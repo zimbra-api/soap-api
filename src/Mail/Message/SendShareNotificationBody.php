@@ -30,13 +30,13 @@ class SendShareNotificationBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SendShareNotificationRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SendShareNotificationRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SendShareNotificationRequest')]
     #[Type(SendShareNotificationRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SendShareNotificationBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SendShareNotificationResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SendShareNotificationResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SendShareNotificationResponse')]
     #[Type(SendShareNotificationResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

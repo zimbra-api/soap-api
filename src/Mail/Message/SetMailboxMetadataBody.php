@@ -30,13 +30,13 @@ class SetMailboxMetadataBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SetMailboxMetadataRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SetMailboxMetadataRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SetMailboxMetadataRequest')]
     #[Type(SetMailboxMetadataRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SetMailboxMetadataBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SetMailboxMetadataResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SetMailboxMetadataResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SetMailboxMetadataResponse')]
     #[Type(SetMailboxMetadataResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

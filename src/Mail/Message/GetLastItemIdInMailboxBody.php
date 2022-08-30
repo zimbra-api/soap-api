@@ -30,13 +30,13 @@ class GetLastItemIdInMailboxBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetLastItemIdInMailboxRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetLastItemIdInMailboxRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetLastItemIdInMailboxRequest')]
     #[Type(GetLastItemIdInMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetLastItemIdInMailboxBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetLastItemIdInMailboxResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetLastItemIdInMailboxResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetLastItemIdInMailboxResponse')]
     #[Type(GetLastItemIdInMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

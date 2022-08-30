@@ -30,13 +30,13 @@ class GetNoteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetNoteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetNoteRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetNoteRequest')]
     #[Type(GetNoteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetNoteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetNoteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetNoteResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetNoteResponse')]
     #[Type(GetNoteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

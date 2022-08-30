@@ -30,13 +30,13 @@ class ModifyProfileImageBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ModifyProfileImageRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ModifyProfileImageRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ModifyProfileImageRequest')]
     #[Type(ModifyProfileImageRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ModifyProfileImageBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ModifyProfileImageResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ModifyProfileImageResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ModifyProfileImageResponse')]
     #[Type(ModifyProfileImageResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

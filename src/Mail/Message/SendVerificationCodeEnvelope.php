@@ -34,13 +34,13 @@ class SendVerificationCodeEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\SendVerificationCodeBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var SendVerificationCodeBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(SendVerificationCodeBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

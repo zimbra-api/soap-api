@@ -30,13 +30,13 @@ class BeginTrackingIMAPBody extends SoapBody
      * @Type("Zimbra\Mail\Message\BeginTrackingIMAPRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var BeginTrackingIMAPRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('BeginTrackingIMAPRequest')]
     #[Type(BeginTrackingIMAPRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class BeginTrackingIMAPBody extends SoapBody
      * @Type("Zimbra\Mail\Message\BeginTrackingIMAPResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var BeginTrackingIMAPResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('BeginTrackingIMAPResponse')]
     #[Type(BeginTrackingIMAPResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -30,13 +30,13 @@ class ImportContactsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ImportContactsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ImportContactsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ImportContactsRequest')]
     #[Type(ImportContactsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ImportContactsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ImportContactsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ImportContactsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ImportContactsResponse')]
     #[Type(ImportContactsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

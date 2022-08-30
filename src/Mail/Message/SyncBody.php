@@ -30,13 +30,13 @@ class SyncBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SyncRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SyncRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SyncRequest')]
     #[Type(SyncRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SyncBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SyncResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SyncResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SyncResponse')]
     #[Type(SyncResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

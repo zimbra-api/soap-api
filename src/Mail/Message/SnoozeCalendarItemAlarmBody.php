@@ -30,13 +30,13 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SnoozeCalendarItemAlarmRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SnoozeCalendarItemAlarmRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SnoozeCalendarItemAlarmRequest')]
     #[Type(SnoozeCalendarItemAlarmRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SnoozeCalendarItemAlarmResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SnoozeCalendarItemAlarmResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SnoozeCalendarItemAlarmResponse')]
     #[Type(SnoozeCalendarItemAlarmResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

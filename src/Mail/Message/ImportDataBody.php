@@ -30,13 +30,13 @@ class ImportDataBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ImportDataRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ImportDataRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('ImportDataRequest')]
     #[Type(ImportDataRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class ImportDataBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ImportDataResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var ImportDataResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('ImportDataResponse')]
     #[Type(ImportDataResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

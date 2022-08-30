@@ -30,13 +30,13 @@ class GetContactBackupListBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetContactBackupListRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetContactBackupListRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetContactBackupListRequest')]
     #[Type(GetContactBackupListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetContactBackupListBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetContactBackupListResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetContactBackupListResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetContactBackupListResponse')]
     #[Type(GetContactBackupListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

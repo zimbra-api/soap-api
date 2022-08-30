@@ -34,13 +34,13 @@ class OpenIMAPFolderEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\OpenIMAPFolderBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var OpenIMAPFolderBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(OpenIMAPFolderBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

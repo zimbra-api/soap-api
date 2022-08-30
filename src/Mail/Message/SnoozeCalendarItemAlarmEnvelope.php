@@ -34,13 +34,13 @@ class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\SnoozeCalendarItemAlarmBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var SnoozeCalendarItemAlarmBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(SnoozeCalendarItemAlarmBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

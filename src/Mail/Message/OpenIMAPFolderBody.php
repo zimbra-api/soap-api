@@ -30,13 +30,13 @@ class OpenIMAPFolderBody extends SoapBody
      * @Type("Zimbra\Mail\Message\OpenIMAPFolderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var OpenIMAPFolderRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('OpenIMAPFolderRequest')]
     #[Type(OpenIMAPFolderRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class OpenIMAPFolderBody extends SoapBody
      * @Type("Zimbra\Mail\Message\OpenIMAPFolderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var OpenIMAPFolderResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('OpenIMAPFolderResponse')]
     #[Type(OpenIMAPFolderResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

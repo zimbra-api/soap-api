@@ -30,13 +30,13 @@ class GetTagBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetTagRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetTagRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetTagRequest')]
     #[Type(GetTagRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetTagBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetTagResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetTagResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetTagResponse')]
     #[Type(GetTagResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

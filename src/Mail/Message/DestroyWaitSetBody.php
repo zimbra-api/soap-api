@@ -30,13 +30,13 @@ class DestroyWaitSetBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DestroyWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DestroyWaitSetRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DestroyWaitSetRequest')]
     #[Type(DestroyWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DestroyWaitSetBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DestroyWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DestroyWaitSetResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DestroyWaitSetResponse')]
     #[Type(DestroyWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

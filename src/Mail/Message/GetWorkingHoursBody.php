@@ -30,13 +30,13 @@ class GetWorkingHoursBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetWorkingHoursRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetWorkingHoursRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetWorkingHoursRequest')]
     #[Type(GetWorkingHoursRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetWorkingHoursBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetWorkingHoursResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetWorkingHoursResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetWorkingHoursResponse')]
     #[Type(GetWorkingHoursResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

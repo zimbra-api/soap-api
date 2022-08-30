@@ -30,13 +30,13 @@ class GetSpellDictionariesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetSpellDictionariesRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetSpellDictionariesRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetSpellDictionariesRequest')]
     #[Type(GetSpellDictionariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetSpellDictionariesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetSpellDictionariesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetSpellDictionariesResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetSpellDictionariesResponse')]
     #[Type(GetSpellDictionariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

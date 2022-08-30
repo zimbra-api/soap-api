@@ -30,13 +30,13 @@ class AddAppointmentInviteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AddAppointmentInviteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var AddAppointmentInviteRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AddAppointmentInviteRequest')]
     #[Type(AddAppointmentInviteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AddAppointmentInviteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AddAppointmentInviteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var AddAppointmentInviteResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AddAppointmentInviteResponse')]
     #[Type(AddAppointmentInviteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

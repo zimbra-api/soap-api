@@ -30,13 +30,13 @@ class GetMsgBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetMsgRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetMsgRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetMsgRequest')]
     #[Type(GetMsgRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetMsgBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetMsgResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetMsgResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetMsgResponse')]
     #[Type(GetMsgResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

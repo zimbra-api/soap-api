@@ -34,13 +34,13 @@ class AnnounceOrganizerChangeEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\AnnounceOrganizerChangeBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var AnnounceOrganizerChangeBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(AnnounceOrganizerChangeBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

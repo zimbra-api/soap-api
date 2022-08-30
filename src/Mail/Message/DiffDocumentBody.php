@@ -30,13 +30,13 @@ class DiffDocumentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DiffDocumentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DiffDocumentRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DiffDocumentRequest')]
     #[Type(DiffDocumentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DiffDocumentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DiffDocumentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DiffDocumentResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DiffDocumentResponse')]
     #[Type(DiffDocumentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

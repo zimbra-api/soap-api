@@ -30,13 +30,13 @@ class DeclineCounterAppointmentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DeclineCounterAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DeclineCounterAppointmentRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('DeclineCounterAppointmentRequest')]
     #[Type(DeclineCounterAppointmentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class DeclineCounterAppointmentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\DeclineCounterAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var DeclineCounterAppointmentResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('DeclineCounterAppointmentResponse')]
     #[Type(DeclineCounterAppointmentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

@@ -34,13 +34,13 @@ class CreateAppointmentExceptionEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
-     * @var CreateAppointmentExceptionBody
+     * @var SoapBodyInterface
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName('Body')]
     #[Type(CreateAppointmentExceptionBody::class)]
     #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private $body;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor

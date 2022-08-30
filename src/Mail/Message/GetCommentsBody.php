@@ -30,13 +30,13 @@ class GetCommentsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetCommentsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetCommentsRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('GetCommentsRequest')]
     #[Type(GetCommentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class GetCommentsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetCommentsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var GetCommentsResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('GetCommentsResponse')]
     #[Type(GetCommentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

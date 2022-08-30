@@ -30,13 +30,13 @@ class AutoCompleteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AutoCompleteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var AutoCompleteRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('AutoCompleteRequest')]
     #[Type(AutoCompleteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class AutoCompleteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AutoCompleteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var AutoCompleteResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('AutoCompleteResponse')]
     #[Type(AutoCompleteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

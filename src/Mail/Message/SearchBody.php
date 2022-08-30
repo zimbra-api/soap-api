@@ -30,13 +30,13 @@ class SearchBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SearchRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SearchRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('SearchRequest')]
     #[Type(SearchRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class SearchBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SearchResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var SearchResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('SearchResponse')]
     #[Type(SearchResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor

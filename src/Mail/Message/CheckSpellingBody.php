@@ -30,13 +30,13 @@ class CheckSpellingBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CheckSpellingRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CheckSpellingRequest
+     * @var SoapRequestInterface
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName('CheckSpellingRequest')]
     #[Type(CheckSpellingRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $request;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -44,13 +44,13 @@ class CheckSpellingBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CheckSpellingResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      * 
-     * @var CheckSpellingResponse
+     * @var SoapResponseInterface
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName('CheckSpellingResponse')]
     #[Type(CheckSpellingResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $response;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor
