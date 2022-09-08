@@ -162,7 +162,7 @@ class Context
     #[SerializedName('authTokenControl')]
     #[Type(AuthTokenControl::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
-    private $authTokenControl;
+    private ?AuthTokenControl $authTokenControl;
 
     /**
      * @Accessor(getter="getFormat", setter="setFormat")
