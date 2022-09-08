@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * Session struct class
@@ -56,18 +56,6 @@ class Session
     private $id;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
-     * @var string
-     */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
-    #[XmlValue(cdata: false)]
-    private $value;
-
-    /**
      * Constructor
      * 
      * @param  string $id
@@ -76,33 +64,10 @@ class Session
      */
     public function __construct(string $id = '', ?string $type = NULL)
     {
-        $this->setValue($id)
-             ->setId($id);
+        $this->setId($id);
         if (NULL !== $type) {
             $this->setType($type);
         }
-    }
-
-    /**
-     * Get session id
-     *
-     * @return string
-     */
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-
-    /**
-     * Set session id
-     *
-     * @param  string $value
-     * @return self
-     */
-    public function setValue(string $value): self
-    {
-        $this->value = $value;
-        return $this;
     }
 
     /**

@@ -41,7 +41,7 @@ class AccountApiTest extends ZimbraTestCase
             <urn:authToken>$token</urn:authToken>
             <urn:lifetime>$lifetime</urn:lifetime>
             <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
-            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:session type="$type" id="$id" />
             <urn:refer>$refer</urn:refer>
             <urn:skin>$skin</urn:skin>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
@@ -106,7 +106,7 @@ EOT;
             <urn:authToken>$token</urn:authToken>
             <urn:lifetime>$lifetime</urn:lifetime>
             <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
-            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:session type="$type" id="$id" />
             <urn:refer>$refer</urn:refer>
             <urn:skin>$skin</urn:skin>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
@@ -171,7 +171,7 @@ EOT;
             <urn:authToken>$token</urn:authToken>
             <urn:lifetime>$lifetime</urn:lifetime>
             <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
-            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:session type="$type" id="$id" />
             <urn:refer>$refer</urn:refer>
             <urn:skin>$skin</urn:skin>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
@@ -236,7 +236,7 @@ EOT;
             <urn:authToken>$token</urn:authToken>
             <urn:lifetime>$lifetime</urn:lifetime>
             <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
-            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:session type="$type" id="$id" />
             <urn:refer>$refer</urn:refer>
             <urn:skin>$skin</urn:skin>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
@@ -301,7 +301,7 @@ EOT;
             <urn:authToken>$token</urn:authToken>
             <urn:lifetime>$lifetime</urn:lifetime>
             <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
-            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:session type="$type" id="$id" />
             <urn:refer>$refer</urn:refer>
             <urn:skin>$skin</urn:skin>
             <urn:csrfToken>$csrfToken</urn:csrfToken>

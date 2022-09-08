@@ -18,19 +18,16 @@ class SessionTest extends ZimbraTestCase
         $session = new Session($id, $type);
         $this->assertSame($type, $session->getType());
         $this->assertSame($id, $session->getId());
-        $this->assertSame($id, $session->getValue());
 
         $session = new Session();
         $session->setType($type)
-             ->setId($id)
-             ->setValue($id);
+             ->setId($id);
         $this->assertSame($type, $session->getType());
         $this->assertSame($id, $session->getId());
-        $this->assertSame($id, $session->getValue());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" id="$id">$id</result>
+<result type="$type" id="$id" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
         $this->assertEquals($session, $this->serializer->deserialize($xml, Session::class, 'xml'));
