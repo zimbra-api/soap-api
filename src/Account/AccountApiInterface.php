@@ -105,7 +105,7 @@ interface AccountApiInterface extends ApiInterface
     function authByAccountName(string $name, string $password): ?Message\AuthResponse;
 
     /**
-     * Authenticate by account name
+     * Authenticate by account id
      *
      * @param  string $id
      * @param  string $password
