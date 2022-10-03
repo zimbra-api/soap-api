@@ -231,7 +231,7 @@ interface AccountApiInterface extends ApiInterface
 
     /**
      * Delete a signature
-     * must specify either {name} or {id} attribute to <identity>
+     * must specify either {name} or {id} attribute to <signature>
      *
      * @param  NameId $signature
      * @return Message\DeleteSignatureResponse

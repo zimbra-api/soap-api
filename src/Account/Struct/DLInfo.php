@@ -141,7 +141,7 @@ class DLInfo extends ObjectInfo
         string $id = '',
         string $ref = '',
         string $name = '',
-        string $displayName = NULL,
+        ?string $displayName = NULL,
         ?bool $dynamic = NULL,
         ?string $via = NULL,
         ?bool $isOwner = NULL,
@@ -195,7 +195,7 @@ class DLInfo extends ObjectInfo
      *
      * @return string
      */
-    public function getDisplayName(): string
+    public function getDisplayName(): ?string
     {
         return $this->displayName;
     }
