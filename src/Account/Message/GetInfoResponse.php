@@ -198,8 +198,8 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Mailbox quota used in bytes.
-     * 
      * Returned only if the command successfully executes on the target user's home mail server
+     * 
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
      * @Type("int")
