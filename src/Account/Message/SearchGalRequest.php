@@ -63,6 +63,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * type of addresses to auto-complete on.
+     * - "account" for regular user accounts, aliases and distribution lists
+     * - "resource" for calendar resources
+     * - "group" for groups
+     * - "all" for combination of all types
+     * if omitted, defaults to "all"
      * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
@@ -78,7 +83,7 @@ class SearchGalRequest extends SoapRequest
     private ?GalSearchType $type;
 
     /**
-     * flag whether the <b>{exp}</b> flag is needed in the response for group entries.
+     * flag whether the <exp> flag is needed in the response for group entries.
      * Default is unset.
      * 
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
@@ -113,6 +118,9 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Specify if the "isMember" flag is needed in the response for group entries.
+     * - all: the isMember flag returned is set if the user is a direct or indirect member ofthe group, otherwise it is unset
+     * - directOnly: the isMember flag returned is set if the user is a direct member of the group, otherwise it is unset
+     * - none (default): The isMember flag is not returned
      * 
      * @Accessor(getter="getNeedIsMember", setter="setNeedIsMember")
      * @SerializedName("needIsMember")

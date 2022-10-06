@@ -26,7 +26,7 @@ use Zimbra\Common\Struct\SoapResponse;
 class SearchGalResponse extends SoapResponse
 {
     /**
-     * Name of attribute sorted on. If not present then sorted by the calendar resource name.
+     * Name of attribute sorted on.
      * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
@@ -42,7 +42,7 @@ class SearchGalResponse extends SoapResponse
     private $sortBy;
 
     /**
-     * The 0-based offset into the results list to return as the first result for this search operation.
+     * The 0-based offset into the results list returned as the first result for this search operation.
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
@@ -93,6 +93,10 @@ class SearchGalResponse extends SoapResponse
 
     /**
      * Valid values: and|or
+     * - Not present if the search key was not tokenized.
+     * - Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more
+     *   generic key, and it checks cached results instead of issuing another SOAP request to the server.
+     *   If search key was tokenized and expanded with AND or OR, this cannot be assumed.
      * 
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")

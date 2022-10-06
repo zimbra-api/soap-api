@@ -19,7 +19,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Sync GalAccount
  * If fullSync is set to false (or unset) the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync. 
  * If fullSync is set to true, then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
- * If reset attribute is set, then all the contacts will be populated again, regardless of the status since last sync. Reset needs to be done when there is a significant change in the configuration, such as filter, attribute map, or search base.
+ * If reset attribute is set, then all the contacts will be populated again, regardless of the status since last sync.
+ * Reset needs to be done when there is a significant change in the configuration, such as filter, attribute map, or search base.
  *
  * @package    Zimbra
  * @subpackage Admin
