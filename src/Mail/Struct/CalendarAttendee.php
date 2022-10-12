@@ -176,6 +176,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
+     * 
      * @Accessor(getter="getRsvp", setter="setRsvp")
      * @SerializedName("rsvp")
      * @Type("bool")

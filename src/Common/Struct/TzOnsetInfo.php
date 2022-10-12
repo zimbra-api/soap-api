@@ -138,38 +138,38 @@ class TzOnsetInfo
     /**
      * Constructor
      * 
-     * @param int $mon
+     * @param int $month
      * @param int $hour
-     * @param int $min
-     * @param int $sec
-     * @param int $mday
+     * @param int $minute
+     * @param int $second
+     * @param int $dayOfMonth
      * @param int $week
-     * @param int $wkday
+     * @param int $dayOfWeek
      * @return self
      */
     public function __construct(
-        int $mon = 0,
+        int $month = 0,
         int $hour = 0,
-        int $min = 0,
-        int $sec = 0,
-        ?int $mday = NULL,
+        int $minute = 0,
+        int $second = 0,
+        ?int $dayOfMonth = NULL,
         ?int $week = NULL,
-        ?int $wkday = NULL
+        ?int $dayOfWeek = NULL
     )
     {
-        $this->setMonth($mon)
+        $this->setMonth($month)
             ->setHour($hour)
-            ->setMinute($min)
-            ->setSecond($sec);
+            ->setMinute($minute)
+            ->setSecond($second);
 
-        if (is_int($mday) and in_array((int) $mday, range(1, 31))) {
-            $this->setDayOfMonth($mday);
+        if (is_int($dayOfMonth) and in_array((int) $dayOfMonth, range(1, 31))) {
+            $this->setDayOfMonth($dayOfMonth);
         }
         if (is_int($week) and in_array((int) $week, [-1, 1, 2, 3, 4])) {
             $this->setWeek($week);
         }
-        if (is_int($wkday) and in_array((int) $wkday, range(1, 7))) {
-            $this->setDayOfWeek((int) $wkday);
+        if (is_int($dayOfWeek) and in_array((int) $dayOfWeek, range(1, 7))) {
+            $this->setDayOfWeek((int) $dayOfWeek);
         }
     }
 

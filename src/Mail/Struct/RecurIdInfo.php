@@ -76,8 +76,8 @@ class RecurIdInfo implements RecurIdInfoInterface
 
     /**
      * Recurrence-id in UTC time zone; used in non-all-day appointments only
-     * 
      * Format: YYMMDDTHHMMSSZ
+     * 
      * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
      * @SerializedName("ridZ")
      * @Type("string")
