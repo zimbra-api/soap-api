@@ -29,7 +29,7 @@ use Zimbra\Common\Struct\{CreateWaitSetReq, SoapEnvelopeInterface, SoapRequest, 
 class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
 {
     /**
-     * Default interest types: comma-separated list.  Currently:
+     * Default interest types: comma-separated list. Currently:
      * f: folders
      * m: messages
      * c: contacts
@@ -39,6 +39,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * all: all types (equiv to "f,m,c,a,t,d")
      * 
      * This is used if types isn't specified for an account
+     * 
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
@@ -59,9 +60,9 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * - <add>, <remove> and <update> tags are IGNORED
      * - The requesting authtoken must be an admin token
      * AllAccounts WaitSets are *semi-persistent*, that is, even if the server restarts, it is OK to call
-     * <WaitSetRequest> passing in your previous sequence number.  The server will attempt to resynchronize the
-     * waitset using the sequence number you provide (the server's ability to do this is limited by the RedoLogs that
-     * are available)
+     * <WaitSetRequest> passing in your previous sequence number.
+     * The server will attempt to resynchronize the waitset using the sequence number you provide
+     * (the server's ability to do this is limited by the RedoLogs that are available)
      * 
      * @Accessor(getter="getAllAccounts", setter="setAllAccounts")
      * @SerializedName("allAccounts")

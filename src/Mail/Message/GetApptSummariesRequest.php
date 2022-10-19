@@ -58,7 +58,7 @@ class GetApptSummariesRequest extends SoapRequest
     private $endTime;
 
     /**
-     * Folder ID.  Optional folder to constrain requests to; otherwise, searches all folders but trash and spam
+     * Folder ID. Optional folder to constrain requests to; otherwise, searches all folders but trash and spam
      * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")

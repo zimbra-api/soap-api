@@ -89,7 +89,7 @@ class TagInfo
     private $rgb;
 
     /**
-     * Unread count.  Only present iff value > 0
+     * Unread count. Only present if value > 0
      * 
      * @Accessor(getter="getUnread", setter="setUnread")
      * @SerializedName("u")
@@ -105,7 +105,7 @@ class TagInfo
     private $unread;
 
     /**
-     * Item count.  Only present if value > 0
+     * Item count. Only present if value > 0
      * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("n")

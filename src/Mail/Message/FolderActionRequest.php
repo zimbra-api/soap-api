@@ -104,8 +104,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *
  * output of "grant" action includes the zimbra id the rights were granted on
  *
- * note that "delete", "empty", "rename", "move", "color", "update" can be used on search folders as well as standard 
- * folders
+ * note that "delete", "empty", "rename", "move", "color", "update" can be used on search folders as well as standard folders
  * 
  * @package    Zimbra
  * @subpackage Mail

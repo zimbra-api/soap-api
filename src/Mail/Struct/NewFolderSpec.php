@@ -43,7 +43,7 @@ class NewFolderSpec
 
     /**
      * Default type for the folder; used by web client to decide which view to use;
-     * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
+     * possible values are the same as <SearchRequest>'s {types}: conversation|message|contact|etc
      * 
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")

@@ -92,7 +92,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 
     /**
      * iCalendar PTST (Participation status)
-     * Valid values: <b>NE|AC|TE|DE|DG|CO|IN|WE|DF</b>
+     * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)

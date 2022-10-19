@@ -32,7 +32,7 @@ class CommonInstanceDataAttrs
 {
     /**
      * Your iCalendar PTST (Participation status)
-     * Valid values: <b>NE|AC|TE|DE|DG|CO|IN|WE|DF</b>
+     * Valid values: NE|AC|TE|DE|DG|CO|IN|WE|DF
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
@@ -67,9 +67,9 @@ class CommonInstanceDataAttrs
     private $recurIdZ;
 
     /**
-     * Offset from GMT in milliseconds for start time in the time zone of the instance; this
-     * is useful because the instance time zone may not be the same as the time zone of the requesting client; when
-     * rendering an all-day appointment, the client must shift the appointment by the difference between the instance
+     * Offset from GMT in milliseconds for start time in the time zone of the instance;
+     * this is useful because the instance time zone may not be the same as the time zone of the requesting client;
+     * when rendering an all-day appointment, the client must shift the appointment by the difference between the instance
      * time zone and its local time zone to determine the correct date to render the all-day block
      * 
      * @Accessor(getter="getTzOffset", setter="setTzOffset")
@@ -89,9 +89,8 @@ class CommonInstanceDataAttrs
      * Actual free-busy status: Free, Busy, busy-Tentative, busy-Unavailable (a.k.a. OutOfOffice)
      * While free-busy status is simply a property of an event that is set during creation/update, "actual" free-busy
      * status is the true free-busy state that depends on appt/invite free-busy, event scheduling status
-     * (confirmed vs. tentative vs. cancel), and more importantly, the attendee's participation status.  For example,
-     * actual free-busy is busy-Tentative for an event with Busy free-busy value until the attendee has acted on the
-     * invite.
+     * (confirmed vs. tentative vs. cancel), and more importantly, the attendee's participation status. For example,
+     * actual free-busy is busy-Tentative for an event with Busy free-busy value until the attendee has acted on the invite.
      * 
      * @Accessor(getter="getFreeBusyActual", setter="setFreeBusyActual")
      * @SerializedName("fba")
@@ -397,7 +396,7 @@ class CommonInstanceDataAttrs
     private $neverSent;
 
     /**
-     * Due date in milliseconds.  For tasks only
+     * Due date in milliseconds. For tasks only
      * 
      * @Accessor(getter="getTaskDueDate", setter="setTaskDueDate")
      * @SerializedName("dueDate")
@@ -413,7 +412,7 @@ class CommonInstanceDataAttrs
     private $taskDueDate;
 
     /**
-     * Similar to the "tzo" attribute but for "dueDate".  "tzoDue" can be different from
+     * Similar to the "tzo" attribute but for "dueDate". "tzoDue" can be different from
      * "tzo" if start date and due date lie on different sides of a daylight savings transition
      * 
      * @Accessor(getter="getTaskTzOffsetDue", setter="setTaskTzOffsetDue")
