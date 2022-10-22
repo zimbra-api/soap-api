@@ -24,7 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class AddheaderAction extends FilterAction
 {
     /**
-     * new header name
+     * New header name
      * 
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
@@ -40,7 +40,7 @@ class AddheaderAction extends FilterAction
     private $headerName;
 
     /**
-     * new header value
+     * New header value
      * 
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @SerializedName("headerValue")

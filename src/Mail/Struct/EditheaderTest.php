@@ -73,7 +73,7 @@ class EditheaderTest
     private $value;
 
     /**
-     * relational comparator - gt|ge|lt|le|eq|ne
+     * Relational comparator - gt|ge|lt|le|eq|ne
      * 
      * @Accessor(getter="getRelationalComparator", setter="setRelationalComparator")
      * @SerializedName("relationalComparator")
@@ -89,7 +89,7 @@ class EditheaderTest
     private ?RelationalComparator $relationalComparator;
 
     /**
-     * comparator - i;ascii-numeric|i;ascii-casemap|i;octet
+     * Comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * 
      * @Accessor(getter="getComparator", setter="setComparator")
      * @SerializedName("comparator")
@@ -105,7 +105,7 @@ class EditheaderTest
     private ?ComparisonComparator $comparator;
 
     /**
-     * name of the header to be compared
+     * Name of the header to be compared
      * 
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
@@ -121,7 +121,7 @@ class EditheaderTest
     private $headerName;
 
     /**
-     * value of the header to be compared
+     * Value of the header to be compared
      * 
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @Type("array<string>")

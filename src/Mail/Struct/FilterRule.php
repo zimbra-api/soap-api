@@ -40,7 +40,7 @@ class FilterRule
     private $name;
 
     /**
-     * Active flag.  Set by default.
+     * Active flag. Set by default.
      * 
      * @Accessor(getter="isActive", setter="setActive")
      * @SerializedName("active")
@@ -56,7 +56,7 @@ class FilterRule
     private $active;
 
     /**
-     * Filter Variables
+     * Filter variables
      * 
      * @Accessor(getter="getFilterVariables", setter="setFilterVariables")
      * @SerializedName("filterVariables")
@@ -104,7 +104,7 @@ class FilterRule
     private $actions;
 
     /**
-     * Nested Rule
+     * Nested rule
      * 
      * @Accessor(getter="getChild", setter="setChild")
      * @SerializedName("nestedRule")

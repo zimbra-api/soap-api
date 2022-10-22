@@ -61,7 +61,7 @@ class GetFreeBusyRequest extends SoapRequest
     private $endTime;
 
     /**
-     * <b>DEPRECATED</b>.  Comma-separated list of Zimbra IDs or emails.
+     * DEPRECATED. Comma-separated list of Zimbra IDs or emails.
      * Each value can be a Ziimbra ID or an email.
      * 
      * @Accessor(getter="getUid", setter="setUid")
@@ -94,7 +94,8 @@ class GetFreeBusyRequest extends SoapRequest
     private $id;
 
     /**
-     * Comma separated list of Emails
+     * Comma separated list of emails
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")

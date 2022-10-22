@@ -41,7 +41,7 @@ class SizeTest extends FilterTest
     private ?NumberComparison $numberComparison;
 
     /**
-     * size value.  Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
+     * Size value. Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")

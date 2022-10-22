@@ -16,14 +16,14 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetFolderRequest class
- * Get Folder
+ * Get folder
  * 
- * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder
- * element; if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
+ * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder element;
+ * if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
  * 
- * If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present, the path is
- * treated as relative to the folder that was specified by id/uuid.  {base-folder-id} is ignored if {base-folder-uuid}
- * is present.
+ * If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present,
+ * the path is treated as relative to the folder that was specified by id/uuid.
+ * {base-folder-id} is ignored if {base-folder-uuid} is present.
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -83,8 +83,8 @@ class GetFolderRequest extends SoapRequest
     private $viewConstraint;
 
     /**
-     * If "depth" is set to a non-negative number, we include that many levels of
-     * subfolders in the response.  (so if depth="1", we'll include only the folder and its direct subfolders)
+     * If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
+     * (so if depth="1", we'll include only the folder and its direct subfolders)
      * If depth is missing or negative, the entire folder hierarchy is returned
      * 
      * @Accessor(getter="getTreeDepth", setter="setTreeDepth")
@@ -101,9 +101,9 @@ class GetFolderRequest extends SoapRequest
     private $treeDepth;
 
     /**
-     * If  true, one level of mountpoints are traversed and the target folder's counts are
-     * applied to the local mountpoint.  if the root folder as referenced by <b>{base-folder-id}</b> and/or
-     * {fully-qualified-path} is a mountpoint, "tr" is regarded as being automatically set.
+     * If true, one level of mountpoints are traversed and the target folder's counts are applied to the local mountpoint.
+     * If the root folder as referenced by {base-folder-id} and/or {fully-qualified-path} is a mountpoint,
+     * "tr" is regarded as being automatically set.
      * Mountpoints under mountpoints are not themselves expanded.
      * 
      * @Accessor(getter="isTraverseMountpoints", setter="setTraverseMountpoints")

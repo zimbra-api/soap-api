@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SectionAttr, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetCustomMetadataRequest class
- * Get Custom metadata
+ * Get custom metadata
  * 
  * @package    Zimbra
  * @subpackage Mail

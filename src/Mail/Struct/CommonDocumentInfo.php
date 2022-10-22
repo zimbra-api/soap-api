@@ -169,8 +169,7 @@ class CommonDocumentInfo
     private $metadataVersion;
 
     /**
-     * The date the item's metadata and/or content was last modified in seconds since
-     * 1970-01-01 00:00:00 UTC.
+     * The date the item's metadata and/or content was last modified in seconds since 1970-01-01 00:00:00 UTC.
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")

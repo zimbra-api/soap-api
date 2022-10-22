@@ -40,9 +40,8 @@ class RedirectAction extends FilterAction
     private $address;
 
     /**
-     * If true, item's copy will be redirected,
-     * leaving the original in place.See https://tools.ietf.org/html/rfc3894
-     * "Sieve Extension: Copying Without Side Effects"
+     * If true, item's copy will be redirected, leaving the original in place.
+     * See https://tools.ietf.org/html/rfc3894 "Sieve Extension: Copying Without Side Effects"
      * 
      * @Accessor(getter="isCopy", setter="setCopy")
      * @SerializedName("copy")

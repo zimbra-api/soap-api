@@ -56,8 +56,8 @@ class ConversationInfo
     private $num;
 
     /**
-     * Total number of messages (including deleted messages).  Only included if value
-     * differs from {num-msgs}
+     * Total number of messages (including deleted messages).
+     * Only included if value differs from {num-msgs}
      * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("total")
@@ -89,7 +89,7 @@ class ConversationInfo
     private $flags;
 
     /**
-     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints. DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -121,7 +121,7 @@ class ConversationInfo
     private $tagNames;
 
     /**
-     * metadata and the subject as text
+     * Metadata and the subject as text
      * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")

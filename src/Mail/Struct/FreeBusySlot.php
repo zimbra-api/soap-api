@@ -57,7 +57,7 @@ class FreeBusySlot
     private $endTime;
 
     /**
-     * calendar event id
+     * Calendar event id
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("eventId")
@@ -89,7 +89,7 @@ class FreeBusySlot
     private $subject;
 
     /**
-     * location of meeting
+     * Location of meeting
      * 
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("location")
@@ -105,7 +105,7 @@ class FreeBusySlot
     private $location;
 
     /**
-     * returns a bool value whether this calendar event is a meeting or not.
+     * Returns a bool value whether this calendar event is a meeting or not.
      * 
      * @Accessor(getter="isMeeting", setter="setMeeting")
      * @SerializedName("isMeeting")
@@ -121,7 +121,7 @@ class FreeBusySlot
     private $isMeeting;
 
     /**
-     * returns a bool indicating whether it is continuous or not.
+     * Returns a bool indicating whether it is continuous or not.
      * 
      * @Accessor(getter="isRecurring", setter="setRecurring")
      * @SerializedName("isRecurring")
@@ -137,7 +137,7 @@ class FreeBusySlot
     private $isRecurring;
 
     /**
-     * returns a bool indicating whether there is any exception or not.
+     * Returns a bool indicating whether there is any exception or not.
      * 
      * @Accessor(getter="isException", setter="setException")
      * @SerializedName("isException")
@@ -153,7 +153,7 @@ class FreeBusySlot
     private $isException;
 
     /**
-     * returns a bool indicating whether any reminder has been set or not.
+     * Returns a bool indicating whether any reminder has been set or not.
      * 
      * @Accessor(getter="isReminderSet", setter="setReminderSet")
      * @SerializedName("isReminderSet")
@@ -169,7 +169,7 @@ class FreeBusySlot
     private $isReminderSet;
 
     /**
-     * returns a bool indicating whether this meeting is private or not.
+     * Returns a bool indicating whether this meeting is private or not.
      * 
      * @Accessor(getter="isPrivate", setter="setPrivate")
      * @SerializedName("isPrivate")
@@ -185,7 +185,7 @@ class FreeBusySlot
     private $isPrivate;
 
     /**
-     * returns a bool indicating hasPermission to view FreeBusy information
+     * Returns a bool indicating hasPermission to view FreeBusy information
      * 
      * @Accessor(getter="hasPermission", setter="setHasPermission")
      * @SerializedName("hasPermission")

@@ -24,7 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
 class RejectAction extends FilterAction
 {
     /**
-     * Content name
+     * Reject content
      * 
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")

@@ -58,7 +58,7 @@ class ConversationSpec
     private $inlineRule;
 
     /**
-     * Set to return defanged HTML content by default.  (default is unset)
+     * Set to return defanged HTML content by default. (default is unset)
      * 
      * @Accessor(getter="getWantHtml", setter="setWantHtml")
      * @SerializedName("html")
@@ -90,8 +90,7 @@ class ConversationSpec
     private $maxInlinedLength;
 
     /**
-     * Set to return group info (isGroup and exp flags) on <b>&lt;e></b> elements in the
-     * response (default is unset.)
+     * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
      * 
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
@@ -107,7 +106,7 @@ class ConversationSpec
     private $needCanExpand;
 
     /**
-     * Requested headers.  if <header>s are requested, any matching headers are
+     * Requested headers. If <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
      * 
      * @Accessor(getter="getHeaders", setter="setHeaders")

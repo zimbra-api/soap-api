@@ -14,8 +14,9 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetImportStatusRequest class
- * Returns current import status for all data sources.  Status values for a data source
- * are reinitialized when either (a) another import process is started or (b) when the server is restarted.
+ * Returns current import status for all data sources.
+ * Status values for a data source are reinitialized when either (a)
+ * another import process is startedor (b) when the server is restarted.
  * If import has not run yet, the success and error attributes are not specified in the response.
  * 
  * @package    Zimbra

@@ -24,8 +24,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class FreeBusyUserInfo
 {
     /**
-     * Account identifier (email or id)
-     * "id" is always account email; it is not zimbraId as the attribute name may suggest
+     * Account identifier (email or id) "id" is always account email;
+     * it is not zimbraId as the attribute name may suggest
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")

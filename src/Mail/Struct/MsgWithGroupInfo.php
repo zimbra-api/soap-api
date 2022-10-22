@@ -93,7 +93,7 @@ class MsgWithGroupInfo extends MessageCommon
     private $origId;
 
     /**
-     * Reply type - <b>r|w</b>
+     * Reply type - r|w
      * 
      * @Accessor(getter="getDraftReplyType", setter="setDraftReplyType")
      * @SerializedName("rt")

@@ -27,7 +27,7 @@ use Zimbra\Common\Struct\AttributeName;
 class MsgSpec
 {
     /**
-     * Message ID.  Can contain a subpart identifier (e.g. "775-778") to return a message
+     * Message ID. Can contain a subpart identifier (e.g. "775-778") to return a message
      * stored as a subpart of some other mail-item, specifically for Messages stored as part of Appointments
      * 
      * @Accessor(getter="getId", setter="setId")
@@ -44,9 +44,9 @@ class MsgSpec
     private $id;
 
     /**
-     * Supply a "part" and the retrieved data will be on the specified message/rfc822
-     * subpart. If the part does not exist or is not a message/rfc822 part, mail.NO_SUCH_PART MailServiceException
-     * will be thrown
+     * Supply a "part" and the retrieved data will be on the specified message/rfc822 subpart.
+     * If the part does not exist or is not a message/rfc822 part,
+     * mail.NO_SUCH_PART MailServiceException will be thrown
      * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
@@ -63,7 +63,7 @@ class MsgSpec
 
     /**
      * Set to return the raw message content rather than a parsed mime structure;
-     * (default is unset.  if message is too big or not ASCII, a content servlet URL is returned)
+     * (default is unset. If message is too big or not ASCII, a content servlet URL is returned)
      * 
      * @Accessor(getter="getRaw", setter="setRaw")
      * @SerializedName("raw")
@@ -96,8 +96,7 @@ class MsgSpec
     private $markRead;
 
     /**
-     * Use {max-inlined-length} to limit the length of the text inlined into body
-     * bcontent>.
+     * Use {max-inlined-length} to limit the length of the text inlined into body <content>.
      * Only applicable when <raw> is unset. Ignored when <raw> is set.
      * (Default is unset, meaning no limit)
      * 
@@ -116,7 +115,7 @@ class MsgSpec
 
     /**
      * If set, never inline raw <content> for messages, specify by <url> instead.
-     * Only applicable when <raw> is set.  <b>Ignored</b> when <raw> is unset.
+     * Only applicable when <raw> is set. Ignored when <raw> is unset.
      * (Default is unset - meaning inline content unless it is too big, in which case the <url> method will be used)
      * 
      * @Accessor(getter="getUseContentUrl", setter="setUseContentUrl")
@@ -133,7 +132,7 @@ class MsgSpec
     private $useContentUrl;
 
     /**
-     * Set to return defanged HTML content by default.  (default is unset.)
+     * Set to return defanged HTML content by default. (default is unset.)
      * 
      * @Accessor(getter="getWantHtml", setter="setWantHtml")
      * @SerializedName("html")
@@ -149,7 +148,7 @@ class MsgSpec
     private $wantHtml;
 
     /**
-     * Set to return IMAP UID.  (default is unset.)
+     * Set to return IMAP UID. (default is unset.)
      * 
      * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
      * @SerializedName("wantImapUid")
@@ -165,7 +164,7 @@ class MsgSpec
     private $wantImapUid;
 
     /**
-     * Set to return Modified Sequence.  (default is unset.)
+     * Set to return Modified Sequence. (default is unset.)
      * 
      * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
      * @SerializedName("wantModSeq")
@@ -198,9 +197,9 @@ class MsgSpec
     private $neuter;
 
     /**
-     * Recurrence ID in format YYYYMMDD[ThhmmssZ].  Used only when making GetMsg call
-     * to open an instance of a recurring appointment.  The value specified is the date/time data of the
-     * RECURRENCE-ID of the instance being requested.
+     * Recurrence ID in format YYYYMMDD[ThhmmssZ].
+     * Used only when making GetMsg call to open an instance of a recurring appointment.
+     * The value specified is the date/time data of the RECURRENCE-ID of the instance being requested.
      * 
      * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
      * @SerializedName("ridZ")
@@ -216,8 +215,7 @@ class MsgSpec
     private $recurIdZ;
 
     /**
-     * Set to return group info (isGroup and exp flags) on <e> elements in the
-     * response (default is unset.)
+     * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
      * 
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
@@ -254,7 +252,7 @@ class MsgSpec
     private ?MsgContent $wantContent;
 
     /**
-     * Requested headers.  if <header>s are requested, any matching headers are
+     * Requested headers. If <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
      * 
      * @Accessor(getter="getHeaders", setter="setHeaders")

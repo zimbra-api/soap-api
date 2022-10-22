@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * GetFolderSpec struct class
- * GetFolder input spec
+ * Get folder input spec
  *
  * @package    Zimbra
  * @subpackage Mail

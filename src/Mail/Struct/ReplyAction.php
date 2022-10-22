@@ -24,7 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 class ReplyAction extends FilterAction
 {
     /**
-     * Content name
+     * Reply content
      * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")

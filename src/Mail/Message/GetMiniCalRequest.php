@@ -17,8 +17,9 @@ use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 /**
  * GetMiniCalRequest class
  * Get information needed for Mini Calendar.
- * Date is returned if there is at least one appointment on that date.  The date computation uses the requesting
- * (authenticated) account's time zone, not the time zone of the account that owns the calendar folder.
+ * Date is returned if there is at least one appointment on that date.
+ * The date computation uses the requesting (authenticated) account's time zone,
+ * not the time zone of the account that owns the calendar folder.
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -75,8 +76,8 @@ class GetMiniCalRequest extends SoapRequest
     private $folders = [];
 
     /**
-     * Optional timezone specifier.  References an existing server-known timezone by ID or
-     * the full specification of a custom timezone
+     * Optional timezone specifier.
+     * References an existing server-known timezone by ID or the full specification of a custom timezone
      * 
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")

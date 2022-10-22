@@ -15,6 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetICalRequest class
+ * 
  * Retrieve the unparsed (but XML-encoded) iCalendar data for an Invite
  * This is intended for interfacing with 3rd party programs
  * If <id> attribute specified, gets the iCalendar representation for one invite
