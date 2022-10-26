@@ -39,12 +39,13 @@ use Zimbra\Common\Struct\{SimpleSearchHit, SoapResponse};
 class SearchResponse extends SoapResponse
 {
     /**
-     * What to sort by.  Default is "dateDesc"
+     * What to sort by. Default is "dateDesc"
      * Possible values:
      * none|dateAsc|dateDesc|subjAsc|subjDesc|nameAsc|nameDesc|rcptAsc|rcptDesc|attachAsc|attachDesc|
      * flagAsc|flagDesc|priorityAsc|priorityDesc|idAsc|idDesc|readAsc|readDesc
-     * If sort-by is "none" then queryInfos MUST NOT be used, and some searches are impossible (searches that require
-     * intersection of complex sub-ops). Server will throw an IllegalArgumentException if the search is invalid.
+     * If sort-by is "none" then queryInfos MUST NOT be used, and some searches are impossible
+     * (searches that require intersection of complex sub-ops).
+     * Server will throw an IllegalArgumentException if the search is invalid.
      * ADDITIONAL SORT MODES FOR TASKS: valid only if types="task" (and task alone):
      * taskDueAsc|taskDueDesc|taskStatusAsc|taskStatusDesc|taskPercCompletedAsc|taskPercCompletedDesc
      * 
@@ -223,7 +224,7 @@ class SearchResponse extends SoapResponse
     private $documentHits = [];
 
     /**
-     * Document search hits
+     * Wiki search hits
      * 
      * @Accessor(getter="getWikiHits", setter="setWikiHits")
      * @Type("array<Zimbra\Mail\Struct\WikiHitInfo>")
@@ -267,8 +268,8 @@ class SearchResponse extends SoapResponse
     /**
      * Used to return general status information about your search.
      * The <wildcard> element tells you about the status of wildcard expansions within your search.
-     * If expanded is set, then the wildcard was expanded and the matches are included in the search.  If expanded is
-     * unset then the wildcard was not specific enough and therefore no wildcard matches are included
+     * If expanded is set, then the wildcard was expanded and the matches are included in the search.
+     * If expanded is unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
      * 
      * @Accessor(getter="getQueryInfo", setter="setQueryInfo")

@@ -16,9 +16,9 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyContactRequest class
- * Modify Contact
- * When modifying tags, all specified tags are set and all others are unset.  If tn="{tag-names}" is NOT specified
- * then any existing tags will remain set.
+ * Modify contact
+ * When modifying tags, all specified tags are set and all others are unset.
+ * If tn="{tag-names}" is NOT specified then any existing tags will remain set.
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -29,8 +29,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class ModifyContactRequest extends SoapRequest
 {
     /**
-     * If set, all attrs and group members in the specified contact are replaced with
-     * specified attrs and group members, otherwise the attrs and group members are merged with the existing contact.
+     * If set, all attrs and group members in the specified contact are replaced with specified attrs and group members,
+     * otherwise the attrs and group members are merged with the existing contact.
      * Unset by default.
      * 
      * @Accessor(getter="getReplace", setter="setReplace")
@@ -64,7 +64,7 @@ class ModifyContactRequest extends SoapRequest
     private $verbose;
 
     /**
-     * Set to return IMAP UID.  (default is unset.)
+     * Set to return IMAP UID. (default is unset.)
      * 
      * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
      * @SerializedName("wantImapUid")
@@ -80,7 +80,7 @@ class ModifyContactRequest extends SoapRequest
     private $wantImapUid;
 
     /**
-     * Set to return Modified Sequence.  (default is unset.)
+     * Set to return Modified Sequence. (default is unset.)
      * 
      * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
      * @SerializedName("wantModSeq")

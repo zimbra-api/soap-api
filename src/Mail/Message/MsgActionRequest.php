@@ -17,8 +17,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * MsgActionRequest class
  * Perform an action on a message
- * For op="update", caller can specify any or all of: l="{folder}", name="{name}", color="{color}", tn="{tag-names}",
- * f="{flags}".
+ * For op="update", caller can specify any or all of:
+ * l="{folder}", name="{name}", color="{color}", tn="{tag-names}", f="{flags}".
  * For op="!spam", can optionally specify a destination folder
  * 
  * @package    Zimbra

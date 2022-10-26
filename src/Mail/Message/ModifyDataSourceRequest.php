@@ -15,10 +15,10 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyDataSourceRequest class
- * Changes attributes of the given data source.  Only the attributes specified in the
- * request are modified.  If the username, host or leaveOnServer settings are modified, the server wipes out saved
- * state for this data source.  As a result, any previously downloaded messages that are still stored on the remote
- * server will be downloaded again.
+ * Changes attributes of the given data source.
+ * Only the attributes specified in the request are modified.
+ * If the username, host or leaveOnServer settings are modified, the server wipes out saved state for this data source.
+ * As a result, any previously downloaded messages that are still stored on the remote server will be downloaded again.
  * 
  * @package    Zimbra
  * @subpackage Mail

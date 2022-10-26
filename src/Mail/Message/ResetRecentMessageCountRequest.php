@@ -14,7 +14,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ResetRecentMessageCountRequest class
- * Resets the mailbox's "recent message count" to 0.  A message is considered "recent" if:
+ * Resets the mailbox's "recent message count" to 0.
+ * A message is considered "recent" if:
  * - (a) it's not a draft or a sent message, and
  * - (b) it was added since the last write operation associated with any SOAP session.
  * 

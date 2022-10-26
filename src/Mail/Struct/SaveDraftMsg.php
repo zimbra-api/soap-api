@@ -105,7 +105,7 @@ class SaveDraftMsg extends Msg
     private $rgb;
 
     /**
-     * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")

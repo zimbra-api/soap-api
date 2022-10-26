@@ -15,8 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * RecordIMAPSessionRequest class
- * Record that an IMAP client has seen all the messages in this folder as they
- * are at this time.
+ * Record that an IMAP client has seen all the messages in this folder as they are at this time.
  * This is used to determine which messages are considered by IMAP to be RECENT.
  * This is achieved by invoking Mailbox::recordImapSession for the specified folder
  * 

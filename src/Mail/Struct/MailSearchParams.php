@@ -401,11 +401,12 @@ trait MailSearchParams
     private $fullConversation;
 
     /**
-     * By default, text without an operator searches the CONTENT field.  By setting the
-     * {default-field} value, you can control the default operator. Specify any of the text operators that are
-     * available in query.txt, e.g. 'content:' [the default] or 'subject:', etc.  The date operators
-     * (date, after, before) and the "item:" operator should not be specified as default fields because of quirks in
-     * the search grammar.
+     * By default, text without an operator searches the CONTENT field.
+     * By setting the {default-field} value, you can control the default operator.
+     * Specify any of the text operators that are available in query.txt,
+     * e.g. 'content:' [the default] or 'subject:', etc.
+     * The date operators (date, after, before) and the "item:" operator should not be specified
+     * as default fields because of quirks in the search grammar.
      * 
      * @Accessor(getter="getField", setter="setField")
      * @SerializedName("field")

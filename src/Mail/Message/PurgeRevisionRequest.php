@@ -27,7 +27,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class PurgeRevisionRequest extends SoapRequest
 {
     /**
-     * Specification or revision to purge
+     * Specification of revision to purge
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("revision")

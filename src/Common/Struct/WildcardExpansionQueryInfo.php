@@ -40,8 +40,8 @@ class WildcardExpansionQueryInfo
     private $str;
 
     /**
-     * If value is 1 (true), then the wildcard was expanded and the
-     * matches are included in the search.  If value is <b>0 (false)</b> then the wildcard was not specific enough and
+     * If value is 1 (true), then the wildcard was expanded and the matches are included in the search.
+     * If value is <b>0 (false)</b> then the wildcard was not specific enough and
      * therefore no wildcard matches are included (exact-match *is* included in results).
      * 
      * @Accessor(getter="getExpanded", setter="setExpanded")

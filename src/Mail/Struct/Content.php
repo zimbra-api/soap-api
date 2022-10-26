@@ -40,7 +40,7 @@ class Content
     private $attachUploadId;
 
     /**
-     * Inlined content data.  Ignored if "aid" is specified
+     * Inlined content data. Ignored if "aid" is specified
      * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")

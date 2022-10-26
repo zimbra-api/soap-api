@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyFilterRulesRequest class
- * Modify Filter rules
+ * Modify filter rules
  * 
  * @package    Zimbra
  * @subpackage Mail

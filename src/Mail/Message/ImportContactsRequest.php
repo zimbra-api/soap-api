@@ -60,7 +60,7 @@ class ImportContactsRequest extends SoapRequest
     private $folderId;
 
     /**
-     * The format of csv being imported.  when it's not defined, Zimbra format is assumed.
+     * The format of csv being imported. When it's not defined, Zimbra format is assumed.
      * The supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
      * 
      * @Accessor(getter="getCsvFormat", setter="setCsvFormat")

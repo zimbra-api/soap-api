@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, Type, XmlAttribute, XmlElement
-};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Struct\Id;
 
 /**
@@ -155,8 +153,8 @@ class DocumentSpec
     private $descEnabled;
 
     /**
-     * Flags - Any of the flags specified in soap.txt, with the addition of <b>"t"</b>, which
-     * specifies that the document is a note.
+     * Flags - Any of the flags specified in soap.txt, with the addition of "t",
+     * which specifies that the document is a note.
      * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")

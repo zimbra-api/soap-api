@@ -60,6 +60,7 @@ class InstanceDataInfo extends InstanceDataAttrs
 
     /**
      * Organizer
+     * 
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")

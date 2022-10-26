@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *   existing draft, set "id" attr on <m> element.
  * - Can refer to parts of existing draft in <attach> block
  * - Drafts default to the Drafts folder
- * - Setting folder/tags/flags/color occurs <b>after</b> the draft is created/updated, and if it fails the content
+ * - Setting folder/tags/flags/color occurs after the draft is created/updated, and if it fails the content
  *   WILL STILL BE SAVED
  * - Can optionally set autoSendTime to specify the time at which the draft should be automatically sent by the server
  * - The ID of the saved draft is returned in the "id" attribute of the response.
@@ -38,7 +38,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class SaveDraftRequest extends SoapRequest
 {
     /**
-     * Set to return IMAP UID.  (default is unset.)
+     * Set to return IMAP UID. (default is unset.)
      * 
      * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
      * @SerializedName("wantImapUid")
@@ -54,7 +54,7 @@ class SaveDraftRequest extends SoapRequest
     private $wantImapUid;
 
     /**
-     * Set to return Modified Sequence.  (default is unset.)
+     * Set to return Modified Sequence. (default is unset.)
      * 
      * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
      * @SerializedName("wantModSeq")

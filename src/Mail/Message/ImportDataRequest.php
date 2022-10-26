@@ -27,9 +27,10 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ImportDataRequest class
  * Triggers the specified data sources to kick off their import processes.
- * Data import runs asynchronously, so the response immediately returns.  Status of an import can be queried via
- * the <GetImportStatusRequest> message.  If the server receives an <ImportDataRequest> while
- * an import is already running for a given data source, the second request is ignored.
+ * Data import runs asynchronously, so the response immediately returns.
+ * Status of an import can be queried via the <GetImportStatusRequest> message.
+ * If the server receives an <ImportDataRequest> while an import is already running for a given data source,
+ * the second request is ignored.
  * 
  * @package    Zimbra
  * @subpackage Mail

@@ -16,8 +16,8 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * ModifyAppointmentRequest class
- * Modify an appointment, or if the appointment is a recurrence then modify the "default"
- * invites. That is, all instances that do not have exceptions.
+ * Modify an appointment, or if the appointment is a recurrence then modify the "default" invites.
+ * That is, all instances that do not have exceptions.
  * If the appointment has a <recur>, then the following caveats are worth mentioning:
  * If any of: START, DURATION, END or RECUR change, then all exceptions are implicitly canceled!
  * 
@@ -63,9 +63,10 @@ class ModifyAppointmentRequest extends CalItemRequestBase
 
     /**
      * Changed sequence of fetched version.
-     * Used for conflict detection. By setting this, the request indicates which version of the appointment it is
-     * attempting to modify.  If the appointment was updated on the server between the fetch and modify, an
-     * INVITE_OUT_OF_DATE exception will be thrown.
+     * Used for conflict detection.
+     * By setting this, the request indicates which version of the appointment it is attempting to modify.
+     * If the appointment was updated on the server between the fetch and modify,
+     * an INVITE_OUT_OF_DATE exception will be thrown.
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")

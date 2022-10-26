@@ -72,7 +72,7 @@ class RecoverAccountRequest extends SoapRequest
     #[SerializedName('channel')]
     #[Type('Enum<Zimbra\Common\Enum\Channel>')]
     #[XmlAttribute]
-    private $channel;
+    private ?Channel $channel;
 
     /**
      * Constructor

@@ -136,8 +136,8 @@ class NestedSearchConversation
     /**
      * Info block.  Used to return general status information about your search.
      * The <wildcard> element tells you about the status of wildcard expansions within your search.
-     * If expanded is set, then the wildcard was expanded and the matches are included in the search.  If expanded is
-     * unset then the wildcard was not specific enough and therefore no wildcard matches are included
+     * If expanded is set, then the wildcard was expanded and the matches are included in the search.
+     * If expanded is unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
      * 
      * @Accessor(getter="getQueryInfo", setter="setQueryInfo")
