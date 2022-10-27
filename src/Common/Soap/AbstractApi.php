@@ -160,12 +160,12 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
         }
 
         $requestMessage = $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT);
-        $this->getLogger()->debug('Soap request message', ['request' => $requestMessage]);
+        $this->getLogger()->debug('Soap request message: {request}', ['request' => $requestMessage]);
         $response = $this->getClient()->sendRequest($requestMessage);
 
         $soapResponse = NULL;
         $responseMessage = $response->getBody()->getContents();
-        $this->getLogger()->debug('Soap response message', ['response' => $responseMessage]);
+        $this->getLogger()->debug('Soap response message: {response}', ['response' => $responseMessage]);
         $responseEnvelope = $this->getSerializer()->deserialize(
             $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );

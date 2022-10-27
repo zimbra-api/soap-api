@@ -16,11 +16,12 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SetMailboxMetadataRequest class
- * Set Mailbox Metadata
+ * Set mailbox metadata
  * - Setting a mailbox metadata section but providing no key/value pairs will remove the section from mailbox metadata
  * - Empty value not allowed
- * - {metadata-section-key} must be no more than 36 characters long and must be in the format of
- *   {namespace}:{section-name}.  currently the only valid namespace is "zwc".
+ * - {metadata-section-key} must be no more than 36 characters long
+ *   and must be in the format of {namespace}:{section-name}.
+ *   currently the only valid namespace is "zwc".
  * 
  * @package    Zimbra
  * @subpackage Mail

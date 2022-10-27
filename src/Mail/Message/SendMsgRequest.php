@@ -27,15 +27,16 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * - Can optionally set identity-id to specify the identity being used to compose the message
  * - If noSave is set, a copy will not be saved to sent regardless of account/identity settings
  * - Can set priority high (!) or low (?) on sent message by specifying "f" attr on <m>
- * - The message to be sent can be fully specified under the <m> element or, to compose the message
- *      remotely remotely, upload it via FileUploadServlet, and submit it through our server using something like:
+ * - The message to be sent can be fully specified under the <m> element or,
+ *   to compose the message remotely remotely, upload it via FileUploadServlet,
+ *   and submit it through our server using something like:
  *      <code>
  *         <SendMsgRequest [suid="{send-uid}"] [needCalendarSentByFixup="0|1"]>
  *             <m aid="{uploaded-MIME-body-ID}" [origid="..." rt="r|w"]/>
  *         </SendMsgRequest>
  *      </code>
- * - If the message is saved to the sent folder then the ID of the message is returned.  Otherwise, no ID is
- *   returned -- just a <m> is returned.
+ * - If the message is saved to the sent folder then the ID of the message is returned.
+ *   Otherwise, no ID is returned -- just a <m> is returned.
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -62,8 +63,9 @@ class SendMsgRequest extends SoapRequest
     private MsgToSend $msg;
 
     /**
-     * If set then Add SENT-BY parameter to ORGANIZER and/or ATTENDEE properties in
-     * iCalendar part when sending message on behalf of another user.  Default is unset.
+     * If set then Add SENT-BY parameter to ORGANIZER and/or ATTENDEE properties
+     * in iCalendar part when sending message on behalf of another user.
+     * Default is unset.
      * 
      * @Accessor(getter="getNeedCalendarSentbyFixup", setter="setNeedCalendarSentbyFixup")
      * @SerializedName("needCalendarSentByFixup")

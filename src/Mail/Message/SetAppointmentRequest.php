@@ -16,12 +16,11 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SetAppointmentRequest class
- * Directly set status of an entire appointment.  This API is intended for mailbox
+ * Directly set status of an entire appointment. This API is intended for mailbox
  * Migration (ie migrating a mailbox onto this server) and is not used by normal mail clients.
  * Need to specify folder for appointment
  * Need way to add message WITHOUT processing it for calendar parts.
- * Need to generate and patch-in the iCalendar for the <inv> but w/o actually processing the
- * <inv> as a new request
+ * Need to generate and patch-in the iCalendar for the <inv> but w/o actually processing the <inv> as a new request
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -48,7 +47,7 @@ class SetAppointmentRequest extends SoapRequest
     private $flags;
 
     /**
-     * Tags (Deprecated - use <b>{tag-names}</b> instead)
+     * Tags (Deprecated - use {tag-names} instead)
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -175,11 +174,11 @@ class SetAppointmentRequest extends SoapRequest
     private $cancellations = [];
 
     /**
-     * List of replies received from attendees.  If SetAppointmenRequest doesn't contain
-     * a <replies> block, existing replies will be kept.  If <replies> element is provided with
-     * no <reply> elements inside, existing replies will be removed, replaced with an empty set.
-     * If <replies> contains one or more <reply> elements, existing replies are replaced with the
-     * ones provided.
+     * List of replies received from attendees.
+     * If SetAppointmenRequest doesn't contain a <replies> block, existing replies will be kept.
+     * If <replies> element is provided with no <reply> elements inside,
+     * existing replies will be removed, replaced with an empty set.
+     * If <replies> contains one or more <reply> elements, existing replies are replaced with the ones provided.
      * 
      * @Accessor(getter="getReplies", setter="setReplies")
      * @SerializedName("replies")

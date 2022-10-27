@@ -60,7 +60,7 @@ class SendInviteReplyRequest extends SoapRequest
     private $componentNum;
 
     /**
-     * Verb - <b>ACCEPT, DECLINE, TENTATIVE</b>, COMPLETED, DELEGATED
+     * Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED
      * (Completed/Delegated are NOT supported as of 9/12/2005)
      * 
      * @Accessor(getter="getVerb", setter="setVerb")
@@ -79,7 +79,7 @@ class SendInviteReplyRequest extends SoapRequest
     /**
      * Update organizer. true by default. if false then only make the update locally.
      * Note that earlier documentation implied incorrectly that if this was false it would be ignored and treated
-     * as being true if an <b>&lt;m></b> element is present.
+     * as being true if an <m> element is present.
      * Also take a note that, if RSVP setting in original invite is not present or FALSE then updateOrganizer will be treated as FALSE.
      * 
      * @Accessor(getter="getUpdateOrganizer", setter="setUpdateOrganizer")

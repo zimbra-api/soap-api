@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SetCustomMetadataRequest class
- * Set Custom Metadata
+ * Set custom metadata
  * Setting a custom metadata section but providing no key/value pairs will remove the sction from the item
  * 
  * @package    Zimbra

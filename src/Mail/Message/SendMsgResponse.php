@@ -28,8 +28,8 @@ class SendMsgResponse extends SoapResponse
     /**
      * Message Information about the saved copy of the sent message.
      * Note, "m" element will have no content if the message was not saved.
-     * Note, Full information will be provided if fetchSavedMsg was specified in the request, otherwise
-     * only the message id will be returned.
+     * Note, Full information will be provided if fetchSavedMsg was specified in the request,
+     * otherwise only the message id will be returned.
      * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
