@@ -15,9 +15,10 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * TestDataSourceRequest class
- * Tests the connection to the specified data source.  Does not modify the data source or
- * import data.  If the id is specified, uses an existing data source.  Any values specified in the request are used
- * in the test instead of the saved values.
+ * Tests the connection to the specified data source.
+ * Does not modify the data source or import data.
+ * If the id is specified, uses an existing data source.
+ * Any values specified in the request are used in the test instead of the saved values.
  * 
  * @package    Zimbra
  * @subpackage Mail

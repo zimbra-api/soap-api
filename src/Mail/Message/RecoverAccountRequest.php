@@ -90,9 +90,7 @@ class RecoverAccountRequest extends SoapRequest
     {
         $this->setEmail($email)
              ->setOp($op ?? new RecoverAccountOperation('getRecoveryAccount'));
-        if ($channel instanceof Channel) {
-            $this->setChannel($channel);
-        }
+        $this->channel = $channel;
     }
 
     /**

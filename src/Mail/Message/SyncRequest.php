@@ -66,8 +66,9 @@ class SyncRequest extends SoapRequest
     private $calendarCutoff;
 
     /**
-     * Earliest Message date.  If present, omit all Messages and conversations that
-     * are older than time (specified in seconds) "Note:value in seconds, unlike calCutoff which is in milliseconds"
+     * Earliest Message date.
+     * If present, omit all Messages and conversations that are older than time (specified in seconds)
+     * "Note:value in seconds, unlike calCutoff which is in milliseconds"
      * 
      * @Accessor(getter="getMsgCutoff", setter="setMsgCutoff")
      * @SerializedName("msgCutoff")
@@ -83,7 +84,8 @@ class SyncRequest extends SoapRequest
     private $msgCutoff;
 
     /**
-     * Root folder ID.  If present, we start sync there rather than at folder 11
+     * Root folder ID.
+     * If present, we start sync there rather than at folder 11
      * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")

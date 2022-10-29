@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SetRecoveryAccountRequest class
- * Set recover account request
+ * Set recovery account request
  * 
  * @package    Zimbra
  * @subpackage Mail
