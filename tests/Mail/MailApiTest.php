@@ -5575,6 +5575,77 @@ EOT;
         $this->assertInstanceOf(\Zimbra\Mail\Message\SearchActionResponse::class, $response);
     }
 
+    public function testSearchConv()
+    {
+        $id = $this->faker->uuid;
+        $conversationId = $this->faker->uuid;
+        $query = $this->faker->word;
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+
+        $queryOffset = $this->faker->randomNumber;
+        $totalSize = $this->faker->randomNumber;
+        $num = $this->faker->randomNumber;
+        $sortField = $this->faker->word;
+        $part = $this->faker->word;
+
+        $flags = $this->faker->word;
+        $tags = $this->faker->word;
+        $tagNames = $this->faker->word;
+
+        $size = $this->faker->randomNumber;
+        $folderId = $this->faker->uuid;
+        $autoSendTime = $this->faker->unixTime;
+
+        $string = $this->faker->word;
+        $numExpanded = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SearchConvResponse sortBy="dateDesc" offset="$queryOffset" more="true">
+            <urn:c id="$id" n="$num" total="$totalSize" f="$flags" t="$tags" tn="$tagNames">
+                <urn:m sf="$sortField" cm="true" id="$id">
+                    <urn:hp part="$part" />
+                </urn:m>
+                <urn:info>
+                    <urn:suggest>$string</urn:suggest>
+                    <urn:wildcard str="$string" expanded="true" numExpanded="$numExpanded" />
+                </urn:info>
+            </urn:c>
+            <urn:m sf="$sortField" cm="true" id="$id">
+                <urn:hp part="$part" />
+            </urn:m>
+            <urn:info>
+                <urn:suggest>$string</urn:suggest>
+                <urn:wildcard str="$string" expanded="true" numExpanded="$numExpanded" />
+            </urn:info>
+        </urn:SearchConvResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->searchConv($conversationId, $query);
+
+        $this->assertEquals($sortBy, $response->getSortBy());
+        $this->assertSame($queryOffset, $response->getQueryOffset());
+        $this->assertTrue($response->getQueryMore());
+
+        $msgHit = new \Zimbra\Mail\Struct\MessageHitInfo(
+            $id, $sortField, TRUE, [new \Zimbra\Mail\Struct\Part($part)]
+        );
+        $queryInfo = new \Zimbra\Mail\Struct\SearchQueryInfo(
+            [new \Zimbra\Mail\Struct\SuggestedQueryString($string)], [new \Zimbra\Common\Struct\WildcardExpansionQueryInfo($string, TRUE, $numExpanded)]
+        );
+        $conversation = new \Zimbra\Mail\Struct\NestedSearchConversation(
+            $id, $num, $totalSize, $flags, $tags, $tagNames, [$msgHit], $queryInfo
+        );
+
+        $this->assertEquals($conversation, $response->getConversation());
+        $this->assertEquals([$msgHit], $response->getMessages());
+        $this->assertEquals($queryInfo, $response->getQueryInfo());
+    }
+
     public function testSearch()
     {
         $id = $this->faker->uuid;

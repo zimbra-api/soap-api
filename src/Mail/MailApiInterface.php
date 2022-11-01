@@ -97,10 +97,11 @@ interface MailApiInterface extends AccountApiInterface
 {
     /**
      * Add an invite to an appointment.
-     * The invite corresponds to a VEVENT component.  Based on the UID specified (required), a new appointment is created
-     * in the default calendar if necessary.  If an appointment with the same UID exists, the appointment is updated with
-     * the new invite only if the invite is not outdated, according to the iCalendar sequencing rule (based on SEQUENCE,
-     * RECURRENCE-ID and DTSTAMP).
+     * The invite corresponds to a VEVENT component.
+     * Based on the UID specified (required), a new appointment is created in the default calendar if necessary.
+     * If an appointment with the same UID exists, the appointment is updated with the new invite only
+     * if the invite is not outdated, according to the iCalendar sequencing rule
+     * (based on SEQUENCE, RECURRENCE-ID and DTSTAMP).
      *
      * @param  ParticipationStatus $partStat
      * @param  Msg $msg
@@ -149,8 +150,9 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Applies one or more filter rules to messages specified by a comma-separated ID list,
-     * or returned by a search query.  One or the other can be specified, but not both.  Returns the list of ids of
-     * existing messages that were affected.
+     * or returned by a search query.
+     * One or the other can be specified, but not both.
+     * Returns the list of ids of existing messages that were affected.
      *
      * Note that redirect actions are ignored when applying filter rules to existing messages.
      *
@@ -165,8 +167,9 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Applies one or more filter rules to messages specified by a comma-separated ID list,
-     * or returned by a search query.  One or the other can be specified, but not both.  Returns the list of ids of
-     * existing messages that were affected.
+     * or returned by a search query.
+     * One or the other can be specified, but not both.
+     * Returns the list of ids of existing messages that were affected.
      *
      * Note that redirect actions are ignored when applying filter rules to existing messages.
      *
@@ -208,8 +211,8 @@ interface MailApiInterface extends AccountApiInterface
      * Resend a message
      * 
      * Supports (f)rom, (t)o, (c)c, (b)cc, (s)ender "type" on <e> elements
-     * (these get mapped to Resent-From, Resent-To, Resent-CC, Resent-Bcc, Resent-Sender headers, which are prepended to
-     * copy of existing message)
+     * (these get mapped to Resent-From, Resent-To, Resent-CC, Resent-Bcc, Resent-Sender headers,
+     * which are prepended to copy of existing message)
      * Aside from these prepended headers, message is reinjected verbatim
      *
      * @param  BounceMsgSpec $msg
@@ -231,8 +234,8 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Cancel appointment
-     * NOTE: If canceling an exception, the original instance (ie the one the exception was "excepting") WILL NOT be
-     * restored when you cancel this exception.
+     * NOTE: If canceling an exception, the original instance (ie the one the exception was "excepting")
+     * WILL NOT be restored when you cancel this exception.
      *
      * @param  string $id
      * @param  int $componentNum
@@ -254,7 +257,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CancelAppointmentResponse;
 
     /**
-     * Cancel Task request
+     * Cancel task request
      *
      * @param  string $id
      * @param  int $componentNum
@@ -289,8 +292,8 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Check conflicts in recurrence against list of users.
-     * Set {all} attribute to get all instances, even those without conflicts.  By default only instances that have
-     * conflicts are returned.
+     * Set {all} attribute to get all instances, even those without conflicts.
+     * By default only instances that have conflicts are returned.
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -313,8 +316,8 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Check spelling.
-     * Suggested words are listed in decreasing order of their match score.  The "available" attribute specifies whether
-     * the server-side spell checking interface is available or not.
+     * Suggested words are listed in decreasing order of their match score.
+     * The "available" attribute specifies whether the server-side spell checking interface is available or not.
      *
      * @param  string $dictionary
      * @param  string $ignoreList
@@ -338,7 +341,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CompleteTaskInstanceResponse;
 
     /**
-     * Contact Action
+     * Contact action
      *
      * @param  ContactActionSelector $action
      * @return Message\ContactActionResponse
@@ -346,7 +349,7 @@ interface MailApiInterface extends AccountApiInterface
     function contactAction(ContactActionSelector $action): ?Message\ContactActionResponse;
 
     /**
-     * Conv Action
+     * Conv action
      *
      * @param  ConvActionSelector $action
      * @return Message\ConvActionResponse
@@ -354,7 +357,8 @@ interface MailApiInterface extends AccountApiInterface
     function convAction(ConvActionSelector $action): ?Message\ConvActionResponse;
 
     /**
-     * Propose a new time/location.  Sent by meeting attendee to organizer.
+     * Propose a new time/location.
+     * Sent by meeting attendee to organizer.
      * The syntax is very similar to CreateAppointmentRequest.
      * Should include an <inv> element which encodes an iCalendar COUNTER object
      *
@@ -374,7 +378,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CounterAppointmentResponse;
 
     /**
-     * Create Appointment Exception.
+     * Create appointment exception.
      *
      * @param  string $id
      * @param  int $numComponents
@@ -402,8 +406,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CreateAppointmentExceptionResponse;
 
     /**
-     * This is the API to create a new Appointment, optionally  sending out meeting
-     * Invitations to other people.
+     * This is the API to create a new appointment, optionally sending out meeting invitations to other people.
      *
      * @param  Msg $msg
      * @param  bool $echo
@@ -439,8 +442,9 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CreateContactResponse;
 
     /**
-     * Creates a data source that imports mail items into the specified folder, for example
-     * via the POP3 or IMAP protocols.  Only one data source is allowed per request.
+     * Creates a data source that imports mail items into the specified folder,
+     * for example via the POP3 or IMAP protocols.
+     * Only one data source is allowed per request.
      *
      * @param  MailDataSource $dataSource
      * @return Message\CreateDataSourceResponse
@@ -488,7 +492,7 @@ interface MailApiInterface extends AccountApiInterface
     function createTag(?TagSpec $tag = NULL): ?Message\CreateTagResponse;
 
     /**
-     * Create Appointment Exception.
+     * Create task exception.
      *
      * @param  string $id
      * @param  int $numComponents
@@ -516,7 +520,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CreateTaskExceptionResponse;
 
     /**
-     * This is the API to create a new Task
+     * This is the API to create a new task
      *
      * @param  Msg $msg
      * @param  bool $echo
@@ -550,8 +554,9 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\CreateWaitSetResponse;
 
     /**
-     * Decline a change proposal from an attendee.  Sent by organizer to an attendee who has
-     * previously sent a COUNTER message.  The syntax of the request is very similar to CreateAppointmentRequest.
+     * Decline a change proposal from an attendee.
+     * Sent by organizer to an attendee who has previously sent a COUNTER message.
+     * The syntax of the request is very similar to CreateAppointmentRequest.
      *
      * @param  Msg $msg
      * @return Message\DeclineCounterAppointmentResponse
@@ -568,8 +573,9 @@ interface MailApiInterface extends AccountApiInterface
     function deleteDataSource(array $dataSources = []): ?Message\DeleteDataSourceResponse;
 
     /**
-     * Use this to close out the waitset.  Note that the server will automatically time out
-     * a wait set if there is no reference to it for (default of) 20 minutes.
+     * Use this to close out the waitset.
+     * Note that the server will automatically time out a wait set
+     * if there is no reference to it for (default of) 20 minutes.
      * WaitSet: scalable mechanism for listening for changes to one or more accounts
      *
      * @param  string $waitSetId
@@ -578,9 +584,9 @@ interface MailApiInterface extends AccountApiInterface
     function destroyWaitSet(string $waitSetId): ?Message\DestroyWaitSetResponse;
 
     /**
-     * Performs line by line diff of two revisions of a Document then returns a list of
-     * <chunk> containing the result.  Sections of text that are identical to both versions are indicated with
-     * disp="common".  For each conflict the chunk will show disp="first", disp="second" or both.
+     * Performs line by line diff of two revisions of a document then returns a list of <chunk> containing the result.
+     * Sections of text that are identical to both versions are indicated with disp="common".
+     * For each conflict the chunk will show disp="first", disp="second" or both.
      *
      * @param  DiffDocumentVersionSpec $doc
      * @return Message\DiffDocumentResponse
@@ -777,7 +783,8 @@ interface MailApiInterface extends AccountApiInterface
     function generateUUID(): ?Message\GenerateUUIDResponse;
 
     /**
-     * Get Appointment. Returns the metadata info for each Invite that makes up this appointment.
+     * Get appointment.
+     * Returns the metadata info for each invite that makes up this appointment.
      *
      * @param  bool $sync
      * @param  bool $includeContent
@@ -807,7 +814,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\GetApptSummariesResponse;
 
     /**
-     * Get Calendar item summaries
+     * Get calendar item summaries
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -903,8 +910,8 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\GetCustomMetadataResponse;
 
     /**
-     * Returns all data sources defined for the given mailbox.  For each data source,
-     * every attribute value is returned except password.
+     * Returns all data sources defined for the given mailbox.
+     * For each data source, every attribute value is returned except password.
      *
      * @return Message\GetDataSourcesResponse
      */
@@ -933,7 +940,7 @@ interface MailApiInterface extends AccountApiInterface
     function getFilterRules(): ?Message\GetFilterRulesResponse;
 
     /**
-     * Get Folder
+     * Get folder
      * 
      * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder
      * element; if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
@@ -1154,14 +1161,14 @@ interface MailApiInterface extends AccountApiInterface
     function getSystemRetentionPolicy(): ?Message\GetSystemRetentionPolicyResponse;
 
     /**
-     * Get information about Tags
+     * Get information about tags
      *
      * @return Message\GetTagResponse
      */
     function getTag(): ?Message\GetTagResponse;
 
     /**
-     * Get Task
+     * Get task
      * Similar to GetAppointmentRequest/GetAppointmentResponse
      *
      * @param  bool $sync
@@ -1313,7 +1320,7 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Returns {num} number of revisions starting from {version} of the requested document.
-     * {num} defaults to 1.  {version} defaults to the current version.
+     * {num} defaults to 1. {version} defaults to the current version.
      * Documents that have multiple revisions have the flag "/", which indicates that the document is versioned.
      *
      * @param  ListDocumentRevisionsSpec $doc
@@ -1699,6 +1706,78 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\SearchActionResponse;
 
     /**
+     * Search a conversation
+     *
+     * @param string $conversationId
+     * @param string $query
+     * @param bool $inDumpster
+     * @param string $searchTypes
+     * @param string $groupBy
+     * @param bool $quick
+     * @param SearchSortBy $sortBy
+     * @param bool $includeTagDeleted
+     * @param bool $includeTagMuted
+     * @param string $taskStatus
+     * @param int $calItemExpandStart
+     * @param int $calItemExpandEnd
+     * @param string $fetch
+     * @param bool $markRead
+     * @param int $maxInlinedLength
+     * @param bool $wantHtml
+     * @param bool $needCanExpand
+     * @param bool $neuterImages
+     * @param WantRecipsSetting $wantRecipients
+     * @param bool $prefetch
+     * @param string $resultMode
+     * @param bool $fullConversation
+     * @param string $field
+     * @param int $limit
+     * @param int $offset
+     * @param array $headers
+     * @param CalTZInfo $calTz
+     * @param string $locale
+     * @param CursorInfo $cursor
+     * @param MsgContent $wantContent
+     * @param bool $includeMemberOf
+     * @param bool $nestMessages
+     * @return Message\SearchConvResponse
+     */
+    function searchConv(
+        string $conversationId = '',
+        ?string $query = NULL,
+        ?bool $inDumpster = NULL,
+        ?string $searchTypes = NULL,
+        ?string $groupBy = NULL,
+        ?int $calItemExpandStart = NULL,
+        ?int $calItemExpandEnd = NULL,
+        ?bool $quick = NULL,
+        ?SearchSortBy $sortBy = NULL,
+        ?bool $includeTagDeleted = NULL,
+        ?bool $includeTagMuted = NULL,
+        ?string $taskStatus = NULL,
+        ?string $fetch = NULL,
+        ?bool $markRead = NULL,
+        ?int $maxInlinedLength = NULL,
+        ?bool $wantHtml = NULL,
+        ?bool $needCanExpand = NULL,
+        ?bool $neuterImages = NULL,
+        ?WantRecipsSetting $wantRecipients = NULL,
+        ?bool $prefetch = NULL,
+        ?string $resultMode = NULL,
+        ?bool $fullConversation = NULL,
+        ?string $field = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        array $headers = [],
+        ?CalTZInfo $calTz = NULL,
+        ?string $locale = NULL,
+        ?CursorInfo $cursor = NULL,
+        ?MsgContent $wantContent = NULL,
+        ?bool $includeMemberOf = NULL,
+        ?bool $nestMessages = NULL
+    ): ?Message\SearchConvResponse;
+
+    /**
      * Search
      * For a response, the order of the returned results represents the sorted order.
      * There is not a separate index attribute or element.
@@ -2025,8 +2104,9 @@ interface MailApiInterface extends AccountApiInterface
     function testDataSource(?MailDataSource $dataSource = NULL): ?Message\TestDataSourceResponse;
 
     /**
-     * Validate the verification code sent to a device. After successful validation the
-     * server sets the device email address as the value of zimbraCalendarReminderDeviceEmail account attribute.
+     * Validate the verification code sent to a device.
+     * After successful validation the server sets the device email address as
+     * the value of zimbraCalendarReminderDeviceEmail account attribute.
      *
      * @param  string $address
      * @param  string $verificationCode

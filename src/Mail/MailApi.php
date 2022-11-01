@@ -1433,6 +1433,80 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
+    function searchConv(
+        string $conversationId = '',
+        ?string $query = NULL,
+        ?bool $inDumpster = NULL,
+        ?string $searchTypes = NULL,
+        ?string $groupBy = NULL,
+        ?int $calItemExpandStart = NULL,
+        ?int $calItemExpandEnd = NULL,
+        ?bool $quick = NULL,
+        ?SearchSortBy $sortBy = NULL,
+        ?bool $includeTagDeleted = NULL,
+        ?bool $includeTagMuted = NULL,
+        ?string $taskStatus = NULL,
+        ?string $fetch = NULL,
+        ?bool $markRead = NULL,
+        ?int $maxInlinedLength = NULL,
+        ?bool $wantHtml = NULL,
+        ?bool $needCanExpand = NULL,
+        ?bool $neuterImages = NULL,
+        ?WantRecipsSetting $wantRecipients = NULL,
+        ?bool $prefetch = NULL,
+        ?string $resultMode = NULL,
+        ?bool $fullConversation = NULL,
+        ?string $field = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        array $headers = [],
+        ?CalTZInfo $calTz = NULL,
+        ?string $locale = NULL,
+        ?CursorInfo $cursor = NULL,
+        ?MsgContent $wantContent = NULL,
+        ?bool $includeMemberOf = NULL,
+        ?bool $nestMessages = NULL
+    ): ?Message\SearchConvResponse
+    {
+        return $this->invoke(new Message\SearchConvRequest(
+            $conversationId,
+            $query,
+            $inDumpster,
+            $searchTypes,
+            $groupBy,
+            $calItemExpandStart,
+            $calItemExpandEnd,
+            $quick,
+            $sortBy,
+            $includeTagDeleted,
+            $includeTagMuted,
+            $taskStatus,
+            $fetch,
+            $markRead,
+            $maxInlinedLength,
+            $wantHtml,
+            $needCanExpand,
+            $neuterImages,
+            $wantRecipients,
+            $prefetch,
+            $resultMode,
+            $fullConversation,
+            $field,
+            $limit,
+            $offset,
+            $headers,
+            $calTz,
+            $locale,
+            $cursor,
+            $wantContent,
+            $includeMemberOf,
+            $nestMessages
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function search(
         ?string $query = NULL,
         ?bool $inDumpster = NULL,
