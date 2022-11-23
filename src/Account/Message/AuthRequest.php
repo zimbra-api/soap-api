@@ -329,6 +329,22 @@ class AuthRequest extends SoapRequest
     private $tokenType;
 
     /**
+     * if true SameSite=Strict cookie will not be added in AuthToken
+     * 
+     * @Accessor(getter="getIgnoreSameSite", setter="setIgnoreSameSite")
+     * @SerializedName("ignoreSameSite")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
+     * @var bool
+     */
+    #[Accessor(getter: 'getIgnoreSameSite', setter: 'setIgnoreSameSite')]
+    #[SerializedName('ignoreSameSite')]
+    #[Type('bool')]
+    #[XmlAttribute]
+    private $ignoreSameSite;
+
+    /**
      * Constructor
      *
      * @param  AccountSelector $account
@@ -349,6 +365,7 @@ class AuthRequest extends SoapRequest
      * @param  string    $deviceId
      * @param  bool      $generateDeviceId
      * @param  string    $tokenType
+     * @param  bool      $ignoreSameSite
      * @return self
      */
     public function __construct(
@@ -369,7 +386,8 @@ class AuthRequest extends SoapRequest
         ?string $trustedDeviceToken = NULL,
         ?string $deviceId = NULL,
         ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL
+        ?string $tokenType = NULL,
+        ?bool $ignoreSameSite = NULL
     )
     {
         $this->setPrefs($prefs)
@@ -415,6 +433,9 @@ class AuthRequest extends SoapRequest
         }
         if(NULL !== $tokenType) {
             $this->setTokenType($tokenType);
+        }
+        if(NULL !== $ignoreSameSite) {
+            $this->setIgnoreSameSite($ignoreSameSite);
         }
     }
 
@@ -835,6 +856,28 @@ class AuthRequest extends SoapRequest
     public function setTokenType(string $tokenType): self
     {
         $this->tokenType = $tokenType;
+        return $this;
+    }
+
+    /**
+     * Get ignore same site
+     *
+     * @return bool
+     */
+    public function getIgnoreSameSite(): ?bool
+    {
+        return $this->ignoreSameSite;
+    }
+
+    /**
+     * Set ignore same site
+     *
+     * @param  bool $ignoreSameSite
+     * @return self
+     */
+    public function setIgnoreSameSite(bool $ignoreSameSite): self
+    {
+        $this->ignoreSameSite = $ignoreSameSite;
         return $this;
     }
 

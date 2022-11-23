@@ -67,7 +67,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?string $trustedDeviceToken = NULL,
         ?string $deviceId = NULL,
         ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL
+        ?string $tokenType = NULL,
+        ?bool $ignoreSameSite = NULL
     ): ?Message\AuthResponse
     {
         return $this->invoke(new Message\AuthRequest(
@@ -88,7 +89,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
             $trustedDeviceToken,
             $deviceId,
             $generateDeviceId,
-            $tokenType
+            $tokenType,
+            $ignoreSameSite
         ));
     }
 

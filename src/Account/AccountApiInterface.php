@@ -71,7 +71,8 @@ interface AccountApiInterface extends ApiInterface
      * @param  string    $trustedDeviceToken
      * @param  string    $deviceId
      * @param  bool      $generateDeviceId
-     * @param  string    $tokenType
+     * @param  bool      $generateDeviceId
+     * @param  string    $ignoreSameSite
      * @return Message\AuthResponse
      */
     function auth(
@@ -92,7 +93,8 @@ interface AccountApiInterface extends ApiInterface
         ?string $trustedDeviceToken = NULL,
         ?string $deviceId = NULL,
         ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL
+        ?string $tokenType = NULL,
+        ?bool $ignoreSameSite = NULL
     ): ?Message\AuthResponse;
 
     /**

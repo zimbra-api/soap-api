@@ -77,7 +77,8 @@ class AuthTest extends ZimbraTestCase
             $trustedToken,
             $deviceId,
             FALSE,
-            $tokenType
+            $tokenType,
+            FALSE
         );
 
         $this->assertSame($account, $request->getAccount());
@@ -98,6 +99,7 @@ class AuthTest extends ZimbraTestCase
         $this->assertSame($deviceId, $request->getDeviceId());
         $this->assertFalse($request->getGenerateDeviceId());
         $this->assertSame($tokenType, $request->getTokenType());
+        $this->assertFalse($request->getIgnoreSameSite());
 
         $req = new AuthRequest();
         $request->setAccount($account)
@@ -119,7 +121,8 @@ class AuthTest extends ZimbraTestCase
             ->setTrustedDeviceToken($trustedToken)
             ->setDeviceId($deviceId)
             ->setGenerateDeviceId(TRUE)
-            ->setTokenType($tokenType);
+            ->setTokenType($tokenType)
+            ->setIgnoreSameSite(TRUE);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($password, $request->getPassword());
         $this->assertSame($recoveryCode, $request->getRecoveryCode());
@@ -138,6 +141,7 @@ class AuthTest extends ZimbraTestCase
         $this->assertSame($deviceId, $request->getDeviceId());
         $this->assertTrue($request->getGenerateDeviceId());
         $this->assertSame($tokenType, $request->getTokenType());
+        $this->assertTrue($request->getIgnoreSameSite());
         $request->setPrefs([$pref])->setAttrs([$attr]);
 
         $response = new AuthResponse(
@@ -223,7 +227,7 @@ class AuthTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
-        <urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true" tokenType="$tokenType">
+        <urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true" tokenType="$tokenType" ignoreSameSite="true">
             <urn:account by="$by">$value</urn:account>
             <urn:password>$password</urn:password>
             <urn:recoveryCode>$recoveryCode</urn:recoveryCode>

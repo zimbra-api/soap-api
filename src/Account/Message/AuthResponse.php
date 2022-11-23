@@ -16,6 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AuthResponse class
+ * Response to account authentication request.
  * 
  * @package    Zimbra
  * @subpackage Account

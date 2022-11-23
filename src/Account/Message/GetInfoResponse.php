@@ -27,6 +27,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetInfoResponse class
+ * The response to a request for account information
  *
  * @package    Zimbra
  * @subpackage Account
