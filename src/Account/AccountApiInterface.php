@@ -61,8 +61,8 @@ interface AccountApiInterface extends ApiInterface
      * @param  AuthToken $authToken
      * @param  string    $jwtToken
      * @param  string    $virtualHost
-     * @param  array $prefs
-     * @param  array $attrs
+     * @param  array     $prefs
+     * @param  array     $attrs
      * @param  string    $requestedSkin
      * @param  bool      $persistAuthTokenCookie
      * @param  bool      $csrfSupported
@@ -72,7 +72,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  string    $deviceId
      * @param  bool      $generateDeviceId
      * @param  bool      $generateDeviceId
-     * @param  string    $ignoreSameSite
+     * @param  bool      $ignoreSameSite
      * @return Message\AuthResponse
      */
     function auth(
