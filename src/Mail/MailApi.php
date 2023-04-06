@@ -666,6 +666,18 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
+    public function getAppointmentIdsInRange(
+        int $startTime, int $endTime, string $folderId = ''
+    ): ?Message\GetAppointmentIdsInRangeResponse
+    {
+        return $this->invoke(new Message\GetAppointmentIdsInRangeRequest(
+            $startTime, $endTime, $folderId
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getApptSummaries(
         int $startTime, int $endTime, ?string $folderId = NULL
     ): ?Message\GetApptSummariesResponse

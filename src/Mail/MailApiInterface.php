@@ -831,6 +831,18 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\GetAppointmentResponse;
 
     /**
+     * Get appointment ids for given range 
+     *
+     * @param  int $startTime
+     * @param  int $endTime
+     * @param  string $folderId
+     * @return Message\GetAppointmentIdsInRangeResponse
+     */
+    function getAppointmentIdsInRange(
+        int $startTime, int $endTime, string $folderId = ''
+    ): ?Message\GetAppointmentIdsInRangeResponse;
+
+    /**
      * Get appointment summaries
      *
      * @param  int $startTime
