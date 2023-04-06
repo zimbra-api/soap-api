@@ -651,6 +651,35 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\ExportContactsResponse;
 
     /**
+     * File Shared With Me.
+     * This is an internal API, cannot be invoked directly
+     *
+     * @param  string $action
+     * @param  string $fileName
+     * @param  int $ownerFileId
+     * @param  string $fileUUID
+     * @param  string $fileOwnerName
+     * @param  string $rights
+     * @param  string $contentType
+     * @param  int $size
+     * @param  string $ownerAccountId
+     * @param  int $date
+     * @return Message\FileSharedWithMeResponse
+     */
+    function fileSharedWithMe(
+        string $action = '',
+        string $fileName = '',
+        int $ownerFileId = 0,
+        string $fileUUID = '',
+        string $fileOwnerName = '',
+        string $rights = '',
+        string $contentType = '',
+        int $size = 0,
+        string $ownerAccountId = '',
+        int $date = 0
+    ): ?Message\FileSharedWithMeResponse;
+
+    /**
      * Perform an action on a folder
      * 
      * Actions:

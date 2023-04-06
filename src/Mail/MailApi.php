@@ -586,6 +586,27 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
+    public function fileSharedWithMe(
+        string $action = '',
+        string $fileName = '',
+        int $ownerFileId = 0,
+        string $fileUUID = '',
+        string $fileOwnerName = '',
+        string $rights = '',
+        string $contentType = '',
+        int $size = 0,
+        string $ownerAccountId = '',
+        int $date = 0
+    ): ?Message\FileSharedWithMeResponse
+    {
+        return $this->invoke(new Message\FileSharedWithMeRequest(
+            $action, $fileName, $ownerFileId, $fileUUID, $fileOwnerName, $rights, $contentType, $size, $ownerAccountId, $date
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function folderAction(FolderActionSelector $action): ?Message\FolderActionResponse
     {
         return $this->invoke(new Message\FolderActionRequest(

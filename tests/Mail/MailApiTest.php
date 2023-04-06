@@ -1518,6 +1518,26 @@ EOT;
         $this->assertSame($content, $response->getContent());
     }
 
+    public function testFileSharedWithMe()
+    {
+        $status = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:FileSharedWithMeResponse>
+            <urn:status>$status</urn:status>
+        </urn:FileSharedWithMeResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->fileSharedWithMe();
+        $this->assertEquals($status, $response->getStatus());
+    }
+
     public function testFolderAction()
     {
         $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ContactActionOp::values())->getValue();
