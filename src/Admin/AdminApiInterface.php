@@ -2066,6 +2066,14 @@ interface AdminApiInterface extends ApiInterface
     function resetAllLoggers(): ?Message\ResetAllLoggersResponse;
 
     /**
+     * Reset account password
+     * 
+     * @param AccountSelector $account
+     * @return Message\ResetAccountPasswordResponse
+     */
+    function resetAccountPassword(AccountSelector $account): ?Message\ResetAccountPasswordResponse;
+
+    /**
      * Revoke a right from a target that was previously granted to an individual or group grantee.
      * 
      * @param EffectiveRightsTargetSelector $target

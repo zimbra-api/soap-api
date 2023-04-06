@@ -5724,6 +5724,24 @@ EOT;
         $this->assertInstanceOf(\Zimbra\Admin\Message\ResetAllLoggersResponse::class, $response);
     }
 
+    public function testResetAccountPassword()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ResetAccountPasswordResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->resetAccountPassword(
+            new \Zimbra\Common\Struct\AccountSelector()
+        );
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ResetAccountPasswordResponse::class, $response);
+    }
+
     public function testRevokeRight()
     {
         $xml = <<<EOT

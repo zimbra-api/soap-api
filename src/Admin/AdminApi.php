@@ -1958,6 +1958,14 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
+    public function resetAccountPassword(AccountSelector $account): ?Message\ResetAccountPasswordResponse
+    {
+        return $this->invoke(new Message\ResetAccountPasswordRequest($account));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function revokeRight(
         EffectiveRightsTargetSelector $target,
         GranteeSelector $grantee,
