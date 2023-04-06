@@ -182,7 +182,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Set bool
+     * Set includeDelegates
      *
      * @param  bool $includeDelegates
      * @return self
