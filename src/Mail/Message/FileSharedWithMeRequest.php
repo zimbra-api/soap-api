@@ -229,7 +229,7 @@ class FileSharedWithMeRequest extends SoapRequest
     /**
      * Get action
      *
-     * @return bool
+     * @return string
      */
     public function getAction(): string
     {
