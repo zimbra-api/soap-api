@@ -2,7 +2,11 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\VolumeInfo;
+use Zimbra\Admin\Struct\VolumeExternalInfo;
+use Zimbra\Admin\Struct\VolumeExternalOpenIOInfo;
 use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -25,8 +29,25 @@ class VolumeInfoTest extends ZimbraTestCase
         $storeType = mt_rand(1, 2);
         $storeManagerClass = $this->faker->word;
 
-        $volume = new VolumeInfo(
-            $id, $name, $rootPath, $type, FALSE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE, TRUE, $storeType, $storeManagerClass
+        $storageType = $this->faker->word;
+        $volumePrefix = $this->faker->word;
+        $globalBucketConfigId = $this->faker->word;
+        $useInFrequentAccessThreshold = $this->faker->randomNumber;
+        $url = $this->faker->word;
+        $account = $this->faker->word;
+        $nameSpace = $this->faker->word;
+        $proxyPort = $this->faker->randomNumber;
+        $accountPort = $this->faker->randomNumber;
+
+        $s3 = new VolumeExternalInfo(
+            $storageType, $volumePrefix, $globalBucketConfigId, TRUE, $useInFrequentAccessThreshold, TRUE
+        );
+        $openio = new VolumeExternalOpenIOInfo(
+            $storageType, $url, $account, $nameSpace, $proxyPort, $accountPort
+        );
+
+        $volume = new StubVolumeInfo(
+            $id, $name, $rootPath, $type, FALSE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE, TRUE, $storeType, $storeManagerClass, $s3, $openio
         );
         $this->assertSame($id, $volume->getId());
         $this->assertSame($type, $volume->getType());
@@ -42,8 +63,10 @@ class VolumeInfoTest extends ZimbraTestCase
         $this->assertTrue($volume->getCurrent());
         $this->assertSame($storeType, $volume->getStoreType());
         $this->assertSame($storeManagerClass, $volume->getStoreManagerClass());
+        $this->assertSame($s3, $volume->getVolumeExternalInfo());
+        $this->assertSame($openio, $volume->getVolumeExternalOpenIOInfo());
 
-        $volume = new VolumeInfo();
+        $volume = new StubVolumeInfo();
         $volume->setId($id)
                ->setType($type)
                ->setCompressionThreshold($threshold)
@@ -57,7 +80,9 @@ class VolumeInfoTest extends ZimbraTestCase
                ->setIsCurrent(FALSE)
                ->setCurrent(FALSE)
                ->setStoreType($storeType)
-               ->setStoreManagerClass($storeManagerClass);
+               ->setStoreManagerClass($storeManagerClass)
+               ->setVolumeExternalInfo($s3)
+               ->setVolumeExternalOpenIOInfo($openio);
         $this->assertSame($id, $volume->getId());
         $this->assertSame($type, $volume->getType());
         $this->assertSame($threshold, $volume->getCompressionThreshold());
@@ -72,12 +97,25 @@ class VolumeInfoTest extends ZimbraTestCase
         $this->assertFalse($volume->getCurrent());
         $this->assertSame($storeType, $volume->getStoreType());
         $this->assertSame($storeManagerClass, $volume->getStoreManagerClass());
+        $this->assertSame($s3, $volume->getVolumeExternalInfo());
+        $this->assertSame($openio, $volume->getVolumeExternalOpenIOInfo());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" current="false" storeType="$storeType" storeManagerClass="$storeManagerClass" />
+<result xmlns:urn="urn:zimbraAdmin" id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" current="false" storeType="$storeType" storeManagerClass="$storeManagerClass">
+    <urn:volumeExternalInfo storageType="$storageType" volumePrefix="$volumePrefix" globalBucketConfigId="$globalBucketConfigId" useInFrequentAccess="true" useInFrequentAccessThreshold="$useInFrequentAccessThreshold" useIntelligentTiering="true" />
+    <urn:volumeExternalOpenIOInfo storageType="$storageType" url="$url" account="$account" namespace="$nameSpace" proxyPort="$proxyPort" accountPort="$accountPort" />
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
-        $this->assertEquals($volume, $this->serializer->deserialize($xml, VolumeInfo::class, 'xml'));
+        $this->assertEquals($volume, $this->serializer->deserialize($xml, StubVolumeInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
+class StubVolumeInfo extends VolumeInfo
+{
 }

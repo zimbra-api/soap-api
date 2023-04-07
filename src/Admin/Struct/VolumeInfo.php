@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\VolumeType;
 
 /**
@@ -250,6 +250,38 @@ class VolumeInfo
     private $storeManagerClass;
 
     /**
+     * Volume external information for S3
+     * 
+     * @Accessor(getter="getVolumeExternalInfo", setter="setVolumeExternalInfo")
+     * @SerializedName("volumeExternalInfo")
+     * @Type("Zimbra\Admin\Struct\VolumeExternalInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var VolumeExternalInfo
+     */
+    #[Accessor(getter: 'getVolumeExternalInfo', setter: 'setVolumeExternalInfo')]
+    #[SerializedName('volumeExternalInfo')]
+    #[Type(VolumeExternalInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    private $volumeExternalInfo;
+
+    /**
+     * Volume external information for OpenIO
+     * 
+     * @Accessor(getter="getVolumeExternalOpenIOInfo", setter="setVolumeExternalOpenIOInfo")
+     * @SerializedName("volumeExternalOpenIOInfo")
+     * @Type("Zimbra\Admin\Struct\VolumeExternalOpenIOInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var VolumeExternalOpenIOInfo
+     */
+    #[Accessor(getter: 'getVolumeExternalOpenIOInfo', setter: 'setVolumeExternalOpenIOInfo')]
+    #[SerializedName('volumeExternalOpenIOInfo')]
+    #[Type(VolumeExternalOpenIOInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    private $volumeExternalOpenIOInfo;
+
+    /**
      * Constructor
      * 
      * @param int    $id
@@ -266,6 +298,8 @@ class VolumeInfo
      * @param bool   $current
      * @param int    $storeType
      * @param string $storeManagerClass
+     * @param VolumeExternalInfo $volumeExternalInfo
+     * @param VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo
      * @return self
      */
     public function __construct(
@@ -282,7 +316,9 @@ class VolumeInfo
         ?bool $isCurrent = NULL,
         ?bool $current = NULL,
         ?int $storeType = NULL,
-        ?string $storeManagerClass = NULL
+        ?string $storeManagerClass = NULL,
+        ?VolumeExternalInfo $volumeExternalInfo = NULL,
+        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = NULL
     )
     {
         if (NULL !== $id) {
@@ -326,6 +362,12 @@ class VolumeInfo
         }
         if (NULL !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
+        }
+        if ($volumeExternalInfo instanceof VolumeExternalInfo) {
+            $this->setVolumeExternalInfo($volumeExternalInfo);
+        }
+        if ($volumeExternalOpenIOInfo instanceof VolumeExternalOpenIOInfo) {
+            $this->setVolumeExternalOpenIOInfo($volumeExternalOpenIOInfo);
         }
     }
 
@@ -635,6 +677,50 @@ class VolumeInfo
     public function setStoreManagerClass(string $storeManagerClass): self
     {
         $this->storeManagerClass = $storeManagerClass;
+        return $this;
+    }
+
+    /**
+     * Get volumeExternalInfo
+     *
+     * @return VolumeExternalInfo
+     */
+    public function getVolumeExternalInfo(): ?VolumeExternalInfo
+    {
+        return $this->volumeExternalInfo;
+    }
+
+    /**
+     * Set volumeExternalInfo
+     *
+     * @param  VolumeExternalInfo $volumeExternalInfo
+     * @return self
+     */
+    public function setVolumeExternalInfo(VolumeExternalInfo $volumeExternalInfo): self
+    {
+        $this->volumeExternalInfo = $volumeExternalInfo;
+        return $this;
+    }
+
+    /**
+     * Get volumeExternalOpenIOInfo
+     *
+     * @return VolumeExternalOpenIOInfo
+     */
+    public function getVolumeExternalOpenIOInfo(): ?VolumeExternalOpenIOInfo
+    {
+        return $this->volumeExternalOpenIOInfo;
+    }
+
+    /**
+     * Set volumeExternalOpenIOInfo
+     *
+     * @param  VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo
+     * @return self
+     */
+    public function setVolumeExternalOpenIOInfo(VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo): self
+    {
+        $this->volumeExternalOpenIOInfo = $volumeExternalOpenIOInfo;
         return $this;
     }
 }
