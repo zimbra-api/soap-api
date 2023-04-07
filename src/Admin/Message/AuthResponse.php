@@ -74,17 +74,35 @@ class AuthResponse extends SoapResponse
     private $lifetime;
 
     /**
+     * Two Factor Auth Required
+     * 
+     * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
+     * @SerializedName("twoFactorAuthRequired")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var bool
+     */
+    #[Accessor(getter: 'getTwoFactorAuthRequired', setter: 'setTwoFactorAuthRequired')]
+    #[SerializedName('twoFactorAuthRequired')]
+    #[Type('bool')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    private $twoFactorAuthRequired;
+
+    /**
      * Constructor
      *
      * @param string $authToken
      * @param string $csrfToken
      * @param int    $lifetime
+     * @param bool   $twoFactorAuthRequired
      * @return self
      */
     public function __construct(
         ?string $authToken = NULL,
         ?string $csrfToken = NULL,
-        ?int $lifetime = NULL
+        ?int $lifetime = NULL,
+        ?bool $twoFactorAuthRequired = NULL
     )
     {
         if (NULL !== $authToken) {
@@ -95,6 +113,9 @@ class AuthResponse extends SoapResponse
         }
         if (NULL !== $lifetime) {
             $this->setLifetime($lifetime);
+        }
+        if (NULL !== $twoFactorAuthRequired) {
+            $this->setTwoFactorAuthRequired($twoFactorAuthRequired);
         }
     }
 
@@ -161,6 +182,28 @@ class AuthResponse extends SoapResponse
     public function setLifetime(int $lifetime): self
     {
         $this->lifetime = $lifetime;
+        return $this;
+    }
+
+    /**
+     * Get twoFactorAuthRequired
+     *
+     * @return bool
+     */
+    public function getTwoFactorAuthRequired(): ?bool
+    {
+        return $this->twoFactorAuthRequired;
+    }
+
+    /**
+     * Set twoFactorAuthRequired
+     *
+     * @param  bool $twoFactorAuthRequired
+     * @return self
+     */
+    public function setTwoFactorAuthRequired(bool $twoFactorAuthRequired): self
+    {
+            $this->twoFactorAuthRequired = $twoFactorAuthRequired;
         return $this;
     }
 }

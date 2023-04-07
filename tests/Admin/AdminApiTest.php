@@ -251,6 +251,7 @@ EOT;
             <urn:authToken>$authToken</urn:authToken>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
             <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>
@@ -261,6 +262,7 @@ EOT;
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($csrfToken, $response->getCsrfToken());
         $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertTrue($response->getTwoFactorAuthRequired());
     }
 
     public function testAuthByToken()
@@ -277,6 +279,7 @@ EOT;
             <urn:authToken>$authToken</urn:authToken>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
             <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>
@@ -287,6 +290,7 @@ EOT;
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($csrfToken, $response->getCsrfToken());
         $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertTrue($response->getTwoFactorAuthRequired());
     }
 
     public function testAutoCompleteGal()

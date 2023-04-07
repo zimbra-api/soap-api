@@ -68,19 +68,23 @@ class AuthResponseTest extends ZimbraTestCase
         $response = new AuthResponse(
             $authToken,
             $csrfToken,
-            $lifetime
+            $lifetime,
+            FALSE
         );
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($csrfToken, $response->getCsrfToken());
         $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertFalse($response->getTwoFactorAuthRequired());
 
         $response = new AuthResponse();
         $response->setAuthToken($authToken)
             ->setCsrfToken($csrfToken)
-            ->setLifetime($lifetime);
+            ->setLifetime($lifetime)
+            ->setTwoFactorAuthRequired(TRUE);
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($lifetime, $response->getLifetime());
         $this->assertSame($csrfToken, $response->getCsrfToken());
+        $this->assertTrue($response->getTwoFactorAuthRequired());
 
         $body = new AuthBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -113,6 +117,7 @@ class AuthResponseTest extends ZimbraTestCase
             <urn:authToken>$authToken</urn:authToken>
             <urn:csrfToken>$csrfToken</urn:csrfToken>
             <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>
