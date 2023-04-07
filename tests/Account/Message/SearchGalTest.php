@@ -33,6 +33,7 @@ class SearchGalTest extends ZimbraTestCase
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
         $locale = $this->faker->word;
+        $query = $this->faker->word;
         $galAccountId = $this->faker->uuid;
         $ref = $this->faker->word;
         $name = $this->faker->word;
@@ -77,7 +78,7 @@ class SearchGalTest extends ZimbraTestCase
         $searchFilter = new EntrySearchFilterInfo($conds);
 
         $request = new SearchGalRequest(
-            $cursor, $searchFilter, $ref, $name, $searchType, FALSE, FALSE, $needIsMember, FALSE, $galAccountId, FALSE, $sortBy, $limit, $offset, $locale
+            $cursor, $searchFilter, $ref, $name, $searchType, FALSE, FALSE, $needIsMember, FALSE, $galAccountId, FALSE, $sortBy, $limit, $offset, $locale, $query
         );
         $this->assertSame($cursor, $request->getCursor());
         $this->assertSame($searchFilter, $request->getSearchFilter());
@@ -94,6 +95,7 @@ class SearchGalTest extends ZimbraTestCase
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
         $this->assertSame($locale, $request->getLocale());
+        $this->assertSame($query, $request->getQuery());
 
         $request = new SearchGalRequest();
         $request->setCursor($cursor)
@@ -110,7 +112,8 @@ class SearchGalTest extends ZimbraTestCase
             ->setSortBy($sortBy)
             ->setLimit($limit)
             ->setOffset($offset)
-            ->setLocale($locale);
+            ->setLocale($locale)
+            ->setQuery($query);
         $this->assertSame($cursor, $request->getCursor());
         $this->assertSame($searchFilter, $request->getSearchFilter());
         $this->assertSame($ref, $request->getRef());
@@ -126,6 +129,7 @@ class SearchGalTest extends ZimbraTestCase
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
         $this->assertSame($locale, $request->getLocale());
+        $this->assertSame($query, $request->getQuery());
 
         $metadata = new AccountCustomMetadata($section);
         $contactAttr = new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
@@ -179,6 +183,7 @@ class SearchGalTest extends ZimbraTestCase
         <urn:SearchGalRequest ref="$ref" name="$name" type="all" needExp="true" needIsOwner="true" needIsMember="all" needSMIMECerts="true" galAcctId="$galAccountId" quick="true" sortBy="$sortBy" limit="$limit" offset="$offset">
             <urn:locale>$locale</urn:locale>
             <urn:cursor id="$id" sortVal="$sortVal" endSortVal="$endSortVal" includeOffset="true" />
+            <urn:query>$query</urn:query>
             <urn:searchFilter>
                 <urn:conds not="true" or="false">
                     <urn:conds not="false" or="true">

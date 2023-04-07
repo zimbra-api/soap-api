@@ -269,6 +269,22 @@ class SearchGalRequest extends SoapRequest
     private ?CursorInfo $cursor;
 
     /**
+     * query string
+     * 
+     * @Accessor(getter="getQuery", setter="setQuery")
+     * @SerializedName("query")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
+     */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName('query')]
+    #[Type('string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    private $query;
+
+    /**
      * Search Filter
      * 
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
@@ -302,6 +318,7 @@ class SearchGalRequest extends SoapRequest
      * @param  int $limit
      * @param  int $offset
      * @param  string $locale
+     * @param  string $query
      * @return self
      */
     public function __construct(
@@ -319,7 +336,8 @@ class SearchGalRequest extends SoapRequest
         ?string $sortBy = NULL,
         ?int $limit = NULL,
         ?int $offset = NULL,
-        ?string $locale = NULL
+        ?string $locale = NULL,
+        ?string $query = NULL
     )
     {
         $this->cursor = $cursor;
@@ -358,6 +376,9 @@ class SearchGalRequest extends SoapRequest
         }
         if (NULL !== $locale) {
             $this->setLocale($locale);
+        }
+        if (NULL !== $query) {
+            $this->setQuery($query);
         }
     }
 
@@ -688,6 +709,28 @@ class SearchGalRequest extends SoapRequest
     public function setLocale(string $locale): self
     {
         $this->locale = $locale;
+        return $this;
+    }
+
+    /**
+     * Get query
+     *
+     * @return string
+     */
+    public function getQuery(): ?string
+    {
+        return $this->query;
+    }
+
+    /**
+     * Set query
+     *
+     * @param  string $query
+     * @return self
+     */
+    public function setQuery(string $query): self
+    {
+        $this->query = $query;
         return $this;
     }
 
