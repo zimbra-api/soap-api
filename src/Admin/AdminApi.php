@@ -2136,9 +2136,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function setPassword(string $id, string $newPassword): ?Message\SetPasswordResponse
+    public function setPassword(
+        string $id, string $newPassword, ?bool $dryRun = NULL
+    ): ?Message\SetPasswordResponse
     {
-        return $this->invoke(new Message\SetPasswordRequest($id, $newPassword));
+        return $this->invoke(new Message\SetPasswordRequest($id, $newPassword, $dryRun));
     }
 
     /**

@@ -20,15 +20,18 @@ class SetPasswordTest extends ZimbraTestCase
         $message = $this->faker->word;
 
         $request = new SetPasswordRequest(
-            $id, $newPassword
+            $id, $newPassword, FALSE
         );
         $this->assertSame($id, $request->getId());
         $this->assertSame($newPassword, $request->getNewPassword());
+        $this->assertFalse($request->isDryRun());
         $request = new SetPasswordRequest();
         $request->setId($id)
-            ->setNewPassword($newPassword);
+            ->setNewPassword($newPassword)
+            ->setDryRun(TRUE);
         $this->assertSame($id, $request->getId());
         $this->assertSame($newPassword, $request->getNewPassword());
+        $this->assertTrue($request->isDryRun());
 
         $response = new SetPasswordResponse($message);
         $this->assertSame($message, $response->getMessage());
@@ -56,7 +59,7 @@ class SetPasswordTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:SetPasswordRequest id="$id" newPassword="$newPassword" />
+        <urn:SetPasswordRequest id="$id" newPassword="$newPassword" dryRun="true" />
         <urn:SetPasswordResponse>
             <urn:message>$message</urn:message>
         </urn:SetPasswordResponse>

@@ -58,16 +58,38 @@ class SetPasswordRequest extends SoapRequest
     private $newPassword;
 
     /**
+     * dry run
+     * 
+     * @Accessor(getter="isDryRun", setter="setDryRun")
+     * @SerializedName("dryRun")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
+     * @var bool
+     */
+    #[Accessor(getter: 'isDryRun', setter: 'setDryRun')]
+    #[SerializedName('dryRun')]
+    #[Type('bool')]
+    #[XmlAttribute]
+    private $dryRun;
+
+    /**
      * Constructor
      * 
      * @param string $id
      * @param string $newPassword
+     * @param bool $dryRun
      * @return self
      */
-    public function __construct(string $id = '', string $newPassword = '')
+    public function __construct(
+        string $id = '', string $newPassword = '', ?bool $dryRun = FALSE
+    )
     {
         $this->setId($id)
              ->setNewPassword($newPassword);
+        if (NULL !== $dryRun) {
+            $this->setDryRun($dryRun);
+        }
     }
 
     /**
@@ -111,6 +133,28 @@ class SetPasswordRequest extends SoapRequest
     public function setNewPassword(string $newPassword): self
     {
         $this->newPassword = $newPassword;
+        return $this;
+    }
+
+    /**
+     * Get dryRun
+     *
+     * @return bool
+     */
+    public function isDryRun(): ?bool
+    {
+        return $this->dryRun;
+    }
+
+    /**
+     * Set dryRun
+     *
+     * @param  bool $dryRun
+     * @return self
+     */
+    public function setDryRun(bool $dryRun): self
+    {
+        $this->dryRun = $dryRun;
         return $this;
     }
 

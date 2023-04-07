@@ -2244,9 +2244,12 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param string $id
      * @param string $newPassword
+     * @param bool $dryRun
      * @return Message\SetPasswordResponse
      */
-    function setPassword(string $id, string $newPassword): ?Message\SetPasswordResponse;
+    function setPassword(
+        string $id, string $newPassword, ?bool $dryRun = NULL
+    ): ?Message\SetPasswordResponse;
 
     /**
      * Set server offline
