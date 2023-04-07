@@ -1766,7 +1766,7 @@ EOT;
         $this->assertEquals($task, $response->getTaskItem());
     }
 
-    public function testgetAppointmentIdsInRange()
+    public function testGetAppointmentIdsInRange()
     {
         $id = $this->faker->uuid;
         $date = $this->faker->randomNumber;
@@ -1786,6 +1786,29 @@ EOT;
         $response = $api->getAppointmentIdsInRange(0, 0);
         $apptData = new \Zimbra\Mail\Struct\AppointmentIdAndDate($id, $date);
         $this->assertEquals([$apptData], $response->getAppointmentData());
+    }
+
+    public function testGetAppointmentIdsSince()
+    {
+        $mid = $this->faker->randomNumber;
+        $did = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:GetAppointmentIdsSinceResponse>
+            <urn:mids>$mid</urn:mids>
+            <urn:dids>$did</urn:dids>
+        </urn:GetAppointmentIdsSinceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->getAppointmentIdsSince(0);
+        $this->assertSame([$mid], $response->getMids());
+        $this->assertSame([$did], $response->getDids());
     }
 
     public function testGetApptSummaries()

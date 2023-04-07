@@ -843,6 +843,17 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\GetAppointmentIdsInRangeResponse;
 
     /**
+     * Get appointment ids since given id
+     *
+     * @param  int $lastSync
+     * @param  string $folderId
+     * @return Message\GetAppointmentIdsInRangeResponse
+     */
+    function getAppointmentIdsSince(
+        int $lastSync, string $folderId = ''
+    ): ?Message\GetAppointmentIdsSinceResponse;
+
+    /**
      * Get appointment summaries
      *
      * @param  int $startTime

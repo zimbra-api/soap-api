@@ -678,6 +678,18 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
+    public function getAppointmentIdsSince(
+        int $lastSync, string $folderId = ''
+    ): ?Message\GetAppointmentIdsSinceResponse
+    {
+        return $this->invoke(new Message\GetAppointmentIdsSinceRequest(
+            $lastSync, $folderId
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getApptSummaries(
         int $startTime, int $endTime, ?string $folderId = NULL
     ): ?Message\GetApptSummariesResponse
