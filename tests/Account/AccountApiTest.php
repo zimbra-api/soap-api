@@ -1523,18 +1523,26 @@ EOT;
 
     public function testResetPassword()
     {
+        $name = $this->faker->word;
+        $value = $this->faker->word;
+        $attr = new \Zimbra\Account\Struct\Attr($name, $value, TRUE);
+
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
-        <urn:ResetPasswordResponse />
+        <urn:ResetPasswordResponse>
+            <urn:attrs>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+        </urn:ResetPasswordResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->resetPassword($this->faker->word);
-        $this->assertInstanceOf(\Zimbra\Account\Message\ResetPasswordResponse::class, $response);
+        $this->assertEquals([$attr], $response->getAttrs());
     }
 
     public function testRevokeOAuthConsumer()

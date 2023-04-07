@@ -8,7 +8,9 @@ use Zimbra\Account\Message\{
     ResetPasswordRequest,
     ResetPasswordResponse
 };
+use Zimbra\Account\Struct\Attr;
 use Zimbra\Tests\ZimbraTestCase;
+
 /**
  * Testcase class for ResetPassword.
  */
@@ -17,6 +19,8 @@ class ResetPasswordTest extends ZimbraTestCase
     public function testResetPassword()
     {
         $password = $this->faker->word;
+        $name = $this->faker->word;
+        $value = $this->faker->word;
 
         $request = new ResetPasswordRequest($password);
         $this->assertSame($password, $request->getPassword());
@@ -24,7 +28,12 @@ class ResetPasswordTest extends ZimbraTestCase
         $request->setPassword($password);
         $this->assertSame($password, $request->getPassword());
 
+        $attr = new Attr($name, $value, TRUE);
+        $response = new ResetPasswordResponse([$attr]);
+        $this->assertSame([$attr], $response->getAttrs());
         $response = new ResetPasswordResponse();
+        $response->setAttrs([$attr]);
+        $this->assertSame([$attr], $response->getAttrs());
 
         $body = new ResetPasswordBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -49,7 +58,11 @@ class ResetPasswordTest extends ZimbraTestCase
         <urn:ResetPasswordRequest>
             <urn:password>$password</urn:password>
         </urn:ResetPasswordRequest>
-        <urn:ResetPasswordResponse />
+        <urn:ResetPasswordResponse>
+            <urn:attrs>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+        </urn:ResetPasswordResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
