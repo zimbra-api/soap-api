@@ -1207,20 +1207,22 @@ EOT;
         $fbits = $this->faker->randomNumber;
         $name = $this->faker->word;
         $rootPath = $this->faker->word;
+        $storeType = mt_rand(1, 2);
+        $storeManagerClass = $this->faker->word;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateVolumeResponse>
-            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" />
+            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" current="false" storeType="$storeType" storeManagerClass="$storeManagerClass" />
         </urn:CreateVolumeResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
 
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, FALSE
+            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, FALSE, FALSE, $storeType, $storeManagerClass
         );
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->createVolume($volume);
@@ -2715,13 +2717,15 @@ EOT;
         $fbits = $this->faker->randomNumber;
         $name = $this->faker->word;
         $rootPath = $this->faker->word;
+        $storeType = mt_rand(1, 2);
+        $storeManagerClass = $this->faker->word;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAllVolumesResponse>
-            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" />
+            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" current="false" storeType="$storeType" storeManagerClass="$storeManagerClass" />
         </urn:GetAllVolumesResponse>
     </soap:Body>
 </soap:Envelope>
@@ -2730,7 +2734,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getAllVolumes();
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, FALSE
+            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, FALSE, FALSE, $storeType, $storeManagerClass
         );
         $this->assertEquals([$volume], $response->getVolumes());
     }
@@ -4594,13 +4598,15 @@ EOT;
         $fbits = $this->faker->randomNumber;
         $name = $this->faker->word;
         $rootPath = $this->faker->word;
+        $storeType = mt_rand(1, 2);
+        $storeManagerClass = $this->faker->word;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetVolumeResponse>
-            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="true" />
+            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="true" current="true" storeType="$storeType" storeManagerClass="$storeManagerClass" />
         </urn:GetVolumeResponse>
     </soap:Body>
 </soap:Envelope>
@@ -4609,7 +4615,7 @@ EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->getVolume($id);
         $volume = new \Zimbra\Admin\Struct\VolumeInfo(
-            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE
+            $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE, TRUE, $storeType, $storeManagerClass
         );
         $this->assertEquals($volume, $response->getVolume());
     }

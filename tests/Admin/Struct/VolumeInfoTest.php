@@ -22,9 +22,11 @@ class VolumeInfoTest extends ZimbraTestCase
         $fbits = mt_rand(0, 10);
         $name = $this->faker->word;
         $rootPath = $this->faker->word;
+        $storeType = mt_rand(1, 2);
+        $storeManagerClass = $this->faker->word;
 
         $volume = new VolumeInfo(
-            $id, $name, $rootPath, $type, FALSE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE
+            $id, $name, $rootPath, $type, FALSE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE, TRUE, $storeType, $storeManagerClass
         );
         $this->assertSame($id, $volume->getId());
         $this->assertSame($type, $volume->getType());
@@ -36,7 +38,10 @@ class VolumeInfoTest extends ZimbraTestCase
         $this->assertSame($name, $volume->getName());
         $this->assertSame($rootPath, $volume->getRootPath());
         $this->assertFalse($volume->getCompressBlobs());
-        $this->assertTrue($volume->isCurrent());
+        $this->assertTrue($volume->getIsCurrent());
+        $this->assertTrue($volume->getCurrent());
+        $this->assertSame($storeType, $volume->getStoreType());
+        $this->assertSame($storeManagerClass, $volume->getStoreManagerClass());
 
         $volume = new VolumeInfo();
         $volume->setId($id)
@@ -49,7 +54,10 @@ class VolumeInfoTest extends ZimbraTestCase
                ->setName($name)
                ->setrootPath($rootPath)
                ->setCompressBlobs(TRUE)
-               ->setCurrent(FALSE);
+               ->setIsCurrent(FALSE)
+               ->setCurrent(FALSE)
+               ->setStoreType($storeType)
+               ->setStoreManagerClass($storeManagerClass);
         $this->assertSame($id, $volume->getId());
         $this->assertSame($type, $volume->getType());
         $this->assertSame($threshold, $volume->getCompressionThreshold());
@@ -60,11 +68,14 @@ class VolumeInfoTest extends ZimbraTestCase
         $this->assertSame($name, $volume->getName());
         $this->assertSame($rootPath, $volume->getRootPath());
         $this->assertTrue($volume->getCompressBlobs());
-        $this->assertFalse($volume->isCurrent());
+        $this->assertFalse($volume->getIsCurrent());
+        $this->assertFalse($volume->getCurrent());
+        $this->assertSame($storeType, $volume->getStoreType());
+        $this->assertSame($storeManagerClass, $volume->getStoreManagerClass());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" />
+<result id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" current="false" storeType="$storeType" storeManagerClass="$storeManagerClass" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
         $this->assertEquals($volume, $this->serializer->deserialize($xml, VolumeInfo::class, 'xml'));

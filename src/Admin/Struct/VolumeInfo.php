@@ -188,18 +188,66 @@ class VolumeInfo
     /**
      * Set if the volume is current.
      * 
-     * @Accessor(getter="isCurrent", setter="setCurrent")
+     * @Accessor(getter="getIsCurrent", setter="setIsCurrent")
      * @SerializedName("isCurrent")
      * @Type("bool")
      * @XmlAttribute
      * 
      * @var bool
      */
-    #[Accessor(getter: 'isCurrent', setter: 'setCurrent')]
+    #[Accessor(getter: 'getIsCurrent', setter: 'setIsCurrent')]
     #[SerializedName('isCurrent')]
     #[Type('bool')]
     #[XmlAttribute]
+    private $isCurrent;
+
+    /**
+     * Set if the volume is current.
+     * 
+     * @Accessor(getter="getCurrent", setter="setCurrent")
+     * @SerializedName("current")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
+     * @var bool
+     */
+    #[Accessor(getter: 'getCurrent', setter: 'setCurrent')]
+    #[SerializedName('current')]
+    #[Type('bool')]
+    #[XmlAttribute]
     private $current;
+
+    /**
+     * Set to 1 for internal volumes and 2 for external volumes
+     * 
+     * @Accessor(getter="getStoreType", setter="setStoreType")
+     * @SerializedName("storeType")
+     * @Type("int")
+     * @XmlAttribute
+     * 
+     * @var int
+     */
+    #[Accessor(getter: 'getStoreType', setter: 'setStoreType')]
+    #[SerializedName('storeType')]
+    #[Type('int')]
+    #[XmlAttribute]
+    private $storeType;
+
+    /**
+     * Store Manager Class
+     * 
+     * @Accessor(getter="getStoreManagerClass", setter="setStoreManagerClass")
+     * @SerializedName("storeManagerClass")
+     * @Type("string")
+     * @XmlAttribute
+     * 
+     * @var string
+     */
+    #[Accessor(getter: 'getStoreManagerClass', setter: 'setStoreManagerClass')]
+    #[SerializedName('storeManagerClass')]
+    #[Type('string')]
+    #[XmlAttribute]
+    private $storeManagerClass;
 
     /**
      * Constructor
@@ -214,7 +262,10 @@ class VolumeInfo
      * @param int    $mbits
      * @param int    $fgbits
      * @param int    $fbits
+     * @param bool   $isCurrent
      * @param bool   $current
+     * @param int    $storeType
+     * @param string $storeManagerClass
      * @return self
      */
     public function __construct(
@@ -228,7 +279,10 @@ class VolumeInfo
         ?int $mbits = NULL,
         ?int $fgbits = NULL,
         ?int $fbits = NULL,
-        ?bool $current = NULL
+        ?bool $isCurrent = NULL,
+        ?bool $current = NULL,
+        ?int $storeType = NULL,
+        ?string $storeManagerClass = NULL
     )
     {
         if (NULL !== $id) {
@@ -261,8 +315,17 @@ class VolumeInfo
         if (NULL !== $fbits) {
             $this->setFbits($fbits);
         }
+        if (NULL !== $isCurrent) {
+            $this->setIsCurrent($isCurrent);
+        }
         if (NULL !== $current) {
             $this->setCurrent($current);
+        }
+        if (NULL !== $storeType) {
+            $this->setStoreType($storeType);
+        }
+        if (NULL !== $storeManagerClass) {
+            $this->setStoreManagerClass($storeManagerClass);
         }
     }
 
@@ -491,7 +554,7 @@ class VolumeInfo
      *
      * @return bool
      */
-    public function isCurrent(): ?bool
+    public function getCurrent(): ?bool
     {
         return $this->current;
     }
@@ -505,6 +568,73 @@ class VolumeInfo
     public function setCurrent(bool $current): self
     {
         $this->current = $current;
+        return $this;
+    }
+
+
+    /**
+     * Get is current
+     *
+     * @return bool
+     */
+    public function getIsCurrent(): ?bool
+    {
+        return $this->isCurrent;
+    }
+
+    /**
+     * Set the isCurrent
+     *
+     * @param  bool $isCurrent
+     * @return self
+     */
+    public function setIsCurrent(bool $isCurrent): self
+    {
+        $this->isCurrent = $isCurrent;
+        return $this;
+    }
+
+    /**
+     * Get the storeType
+     *
+     * @return int
+     */
+    public function getStoreType(): ?int
+    {
+        return $this->storeType;
+    }
+
+    /**
+     * Set the storeType
+     *
+     * @param  int $storeType
+     * @return self
+     */
+    public function setStoreType(int $storeType): self
+    {
+        $this->storeType = $storeType;
+        return $this;
+    }
+
+    /**
+     * Set the storeManagerClass
+     *
+     * @return string
+     */
+    public function getStoreManagerClass(): ?string
+    {
+        return $this->storeManagerClass;
+    }
+
+    /**
+     * Set the storeManagerClass
+     *
+     * @param  string $storeManagerClass
+     * @return self
+     */
+    public function setStoreManagerClass(string $storeManagerClass): self
+    {
+        $this->storeManagerClass = $storeManagerClass;
         return $this;
     }
 }
