@@ -972,6 +972,7 @@ EOT;
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:GetInfoResponse attSizeLimit="$attachmentSizeLimit" docSizeLimit="$documentSizeLimit">
+            <urn:isSpellCheckAvailable>true</urn:isSpellCheckAvailable>
             <urn:version>$version</urn:version>
             <urn:id>$accountId</urn:id>
             <urn:profileImageId>$profileImageId</urn:profileImageId>
@@ -1094,6 +1095,7 @@ EOT;
         $response = $api->getInfo();
         $this->assertSame($attachmentSizeLimit, $response->getAttachmentSizeLimit());
         $this->assertSame($documentSizeLimit, $response->getDocumentSizeLimit());
+        $this->assertTrue($response->getSpellCheckAvailable());
         $this->assertSame($version, $response->getVersion());
         $this->assertSame($accountId, $response->getAccountId());
         $this->assertSame($profileImageId, $response->getProfileImageId());

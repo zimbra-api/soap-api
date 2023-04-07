@@ -70,6 +70,22 @@ class GetInfoResponse extends SoapResponse
     private $documentSizeLimit;
 
     /**
+     * returns true if the spell check is available on the server
+     * 
+     * @Accessor(getter="getSpellCheckAvailable", setter="setSpellCheckAvailable")
+     * @SerializedName("isSpellCheckAvailable")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var bool
+     */
+    #[Accessor(getter: 'getSpellCheckAvailable', setter: 'setSpellCheckAvailable')]
+    #[SerializedName('isSpellCheckAvailable')]
+    #[Type('bool')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    private $spellCheckAvailable;
+
+    /**
      * Server version: <major>[.<minor>[.<maintenance>]][build] <release> <date>[<type>]
      * 
      * @Accessor(getter="getVersion", setter="setVersion")
@@ -546,6 +562,7 @@ class GetInfoResponse extends SoapResponse
      *
      * @param int $attachmentSizeLimit
      * @param int $documentSizeLimit
+     * @param bool $spellCheckAvailable
      * @param string $version
      * @param string $accountId
      * @param int $profileImageId
@@ -579,6 +596,7 @@ class GetInfoResponse extends SoapResponse
     public function __construct(
         ?int $attachmentSizeLimit = NULL,
         ?int $documentSizeLimit = NULL,
+        ?bool $spellCheckAvailable = NULL,
         ?string $version = NULL,
         ?string $accountId = NULL,
         ?int $profileImageId = NULL,
@@ -615,6 +633,9 @@ class GetInfoResponse extends SoapResponse
         }
         if (NULL !== $documentSizeLimit) {
             $this->setDocumentSizeLimit($documentSizeLimit);
+        }
+        if (NULL !== $spellCheckAvailable) {
+            $this->setSpellCheckAvailable($spellCheckAvailable);
         }
         if (NULL !== $version) {
             $this->setVersion($version);
@@ -722,6 +743,28 @@ class GetInfoResponse extends SoapResponse
     public function setDocumentSizeLimit(int $documentSizeLimit): self
     {
         $this->documentSizeLimit = $documentSizeLimit;
+        return $this;
+    }
+
+    /**
+     * Get the spellCheckAvailable.
+     *
+     * @return bool
+     */
+    public function getSpellCheckAvailable(): ?bool
+    {
+        return $this->spellCheckAvailable;
+    }
+
+    /**
+     * Set the spellCheckAvailable.
+     *
+     * @param  bool $spellCheckAvailable
+     * @return self
+     */
+    public function setSpellCheckAvailable(bool $spellCheckAvailable): self
+    {
+        $this->spellCheckAvailable = $spellCheckAvailable;
         return $this;
     }
 

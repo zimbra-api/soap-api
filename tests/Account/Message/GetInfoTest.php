@@ -201,10 +201,11 @@ class GetInfoTest extends ZimbraTestCase
         ]);
 
         $response = new GetInfoResponse(
-            $attachmentSizeLimit, $documentSizeLimit, $version, $accountId, $profileImageId, $accountName, $crumb, $lifetime, FALSE, $restUrl, $quotaUsed, $previousSessionTime, $lastWriteAccessTime, $recentMessageCount, $cos, [$pref], [$attr], [$zimlet], [$prop], [$identity], [$signature], $dataSources, [$childAccount], [$rightsInfo], $soapURL, $publicURL, $changePasswordURL, $adminURL, $boshURL, FALSE
+            $attachmentSizeLimit, $documentSizeLimit, FALSE, $version, $accountId, $profileImageId, $accountName, $crumb, $lifetime, FALSE, $restUrl, $quotaUsed, $previousSessionTime, $lastWriteAccessTime, $recentMessageCount, $cos, [$pref], [$attr], [$zimlet], [$prop], [$identity], [$signature], $dataSources, [$childAccount], [$rightsInfo], $soapURL, $publicURL, $changePasswordURL, $adminURL, $boshURL, FALSE
         );
         $this->assertSame($attachmentSizeLimit, $response->getAttachmentSizeLimit());
         $this->assertSame($documentSizeLimit, $response->getDocumentSizeLimit());
+        $this->assertFalse($response->getSpellCheckAvailable());
         $this->assertSame($version, $response->getVersion());
         $this->assertSame($accountId, $response->getAccountId());
         $this->assertSame($profileImageId, $response->getProfileImageId());
@@ -237,6 +238,7 @@ class GetInfoTest extends ZimbraTestCase
         $response = new GetInfoResponse();
         $response->setAttachmentSizeLimit($attachmentSizeLimit)
             ->setDocumentSizeLimit($documentSizeLimit)
+            ->setSpellCheckAvailable(TRUE)
             ->setVersion($version)
             ->setAccountId($accountId)
             ->setProfileImageId($profileImageId)
@@ -276,6 +278,7 @@ class GetInfoTest extends ZimbraTestCase
             ->setIsTrackingIMAP(TRUE);
         $this->assertSame($attachmentSizeLimit, $response->getAttachmentSizeLimit());
         $this->assertSame($documentSizeLimit, $response->getDocumentSizeLimit());
+        $this->assertTrue($response->getSpellCheckAvailable());
         $this->assertSame($version, $response->getVersion());
         $this->assertSame($accountId, $response->getAccountId());
         $this->assertSame($profileImageId, $response->getProfileImageId());
@@ -305,7 +308,7 @@ class GetInfoTest extends ZimbraTestCase
         $this->assertSame($boshURL, $response->getBoshURL());
         $this->assertTrue($response->getIsTrackingIMAP());
         $response = new GetInfoResponse(
-            $attachmentSizeLimit, $documentSizeLimit, $version, $accountId, $profileImageId, $accountName, $crumb, $lifetime, TRUE, $restUrl, $quotaUsed, $previousSessionTime, $lastWriteAccessTime, $recentMessageCount, $cos, [$pref], [$attr], [$zimlet], [$prop], [$identity], [$signature], $dataSources, [$childAccount], [$rightsInfo], $soapURL, $publicURL, $changePasswordURL, $adminURL, $boshURL, TRUE
+            $attachmentSizeLimit, $documentSizeLimit, TRUE, $version, $accountId, $profileImageId, $accountName, $crumb, $lifetime, TRUE, $restUrl, $quotaUsed, $previousSessionTime, $lastWriteAccessTime, $recentMessageCount, $cos, [$pref], [$attr], [$zimlet], [$prop], [$identity], [$signature], $dataSources, [$childAccount], [$rightsInfo], $soapURL, $publicURL, $changePasswordURL, $adminURL, $boshURL, TRUE
         );
 
         $body = new GetInfoBody($request, $response);
@@ -329,6 +332,7 @@ class GetInfoTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetInfoRequest sections="$sections" rights="$rights" />
         <urn:GetInfoResponse attSizeLimit="$attachmentSizeLimit" docSizeLimit="$documentSizeLimit">
+            <urn:isSpellCheckAvailable>true</urn:isSpellCheckAvailable>
             <urn:version>$version</urn:version>
             <urn:id>$accountId</urn:id>
             <urn:profileImageId>$profileImageId</urn:profileImageId>
