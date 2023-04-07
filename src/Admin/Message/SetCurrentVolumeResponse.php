@@ -10,6 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Admin\Struct\StoreManagerRuntimeSwitchResult;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -23,4 +25,52 @@ use Zimbra\Common\Struct\SoapResponse;
  */
 class SetCurrentVolumeResponse extends SoapResponse
 {
+    /**
+     * The runtime switch result
+     * 
+     * @Accessor(getter="getRuntimeSwitchResult", setter="setRuntimeSwitchResult")
+     * @SerializedName("storeManagerRuntimeSwitchResult")
+     * @Type("Zimbra\Admin\Struct\StoreManagerRuntimeSwitchResult")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var StoreManagerRuntimeSwitchResult
+     */
+    #[Accessor(getter: 'getRuntimeSwitchResult', setter: 'setRuntimeSwitchResult')]
+    #[SerializedName('storeManagerRuntimeSwitchResult')]
+    #[Type(StoreManagerRuntimeSwitchResult::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    private ?StoreManagerRuntimeSwitchResult $runtimeSwitchResult;
+
+    /**
+     * Constructor
+     *
+     * @param StoreManagerRuntimeSwitchResult $runtimeSwitchResult
+     * @return self
+     */
+    public function __construct(?StoreManagerRuntimeSwitchResult $runtimeSwitchResult = NULL)
+    {
+        $this->runtimeSwitchResult = $runtimeSwitchResult;
+    }
+
+    /**
+     * Get the runtimeSwitchResult.
+     *
+     * @return StoreManagerRuntimeSwitchResult
+     */
+    public function getRuntimeSwitchResult(): ?StoreManagerRuntimeSwitchResult
+    {
+        return $this->runtimeSwitchResult;
+    }
+
+    /**
+     * Set the runtimeSwitchResult.
+     *
+     * @param  StoreManagerRuntimeSwitchResult $runtimeSwitchResult
+     * @return self
+     */
+    public function setRuntimeSwitchResult(StoreManagerRuntimeSwitchResult $runtimeSwitchResult): self
+    {
+        $this->runtimeSwitchResult = $runtimeSwitchResult;
+        return $this;
+    }
 }

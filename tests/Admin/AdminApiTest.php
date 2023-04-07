@@ -6076,18 +6076,25 @@ EOT;
 
     public function testSetCurrentVolume()
     {
+        $message = $this->faker->word;
+        $result = new \Zimbra\Admin\Struct\StoreManagerRuntimeSwitchResult(
+            \Zimbra\Common\Enum\RuntimeSwitchStatus::SUCCESS(), $message
+        );
+
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:SetCurrentVolumeResponse />
+        <urn:SetCurrentVolumeResponse>
+            <urn:storeManagerRuntimeSwitchResult status="SUCCESS" message="$message" />
+        </urn:SetCurrentVolumeResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->setCurrentVolume();
-        $this->assertInstanceOf(\Zimbra\Admin\Message\SetCurrentVolumeResponse::class, $response);
+        $this->assertEquals($result, $response->getRuntimeSwitchResult());
     }
 
     public function testSetLocalServerOnline()

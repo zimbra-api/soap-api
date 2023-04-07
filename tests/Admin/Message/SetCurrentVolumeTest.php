@@ -6,6 +6,8 @@ use Zimbra\Admin\Message\SetCurrentVolumeBody;
 use Zimbra\Admin\Message\SetCurrentVolumeEnvelope;
 use Zimbra\Admin\Message\SetCurrentVolumeRequest;
 use Zimbra\Admin\Message\SetCurrentVolumeResponse;
+use Zimbra\Admin\Struct\StoreManagerRuntimeSwitchResult;
+use Zimbra\Common\Enum\RuntimeSwitchStatus;
 use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -18,6 +20,8 @@ class SetCurrentVolumeTest extends ZimbraTestCase
     {
         $id = $this->faker->randomNumber;
         $type = VolumeType::PRIMARY()->getValue();
+        $status = RuntimeSwitchStatus::SUCCESS()->getValue();
+        $message = $this->faker->word;
 
         $request = new SetCurrentVolumeRequest($id, $type);
         $this->assertSame($id, $request->getId());
@@ -29,7 +33,12 @@ class SetCurrentVolumeTest extends ZimbraTestCase
         $this->assertSame($id, $request->getId());
         $this->assertSame($type, $request->getType());
 
+        $result = new StoreManagerRuntimeSwitchResult(RuntimeSwitchStatus::SUCCESS(), $message);
+        $response = new SetCurrentVolumeResponse($result);
+        $this->assertSame($result, $response->getRuntimeSwitchResult());
         $response = new SetCurrentVolumeResponse();
+        $response->setRuntimeSwitchResult($result);
+        $this->assertSame($result, $response->getRuntimeSwitchResult());
 
         $body = new SetCurrentVolumeBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -51,7 +60,9 @@ class SetCurrentVolumeTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:SetCurrentVolumeRequest id="$id" type="$type" />
-        <urn:SetCurrentVolumeResponse />
+        <urn:SetCurrentVolumeResponse>
+            <urn:storeManagerRuntimeSwitchResult status="$status" message="$message" />
+        </urn:SetCurrentVolumeResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
