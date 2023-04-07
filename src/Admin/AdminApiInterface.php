@@ -875,11 +875,12 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  AccountSelector $account
      * @param  bool $applyCos
+     * @param  bool $effectiveQuota
      * @param  string $attrs
      * @return Message\GetAccountResponse
      */
     function getAccount(
-        AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL
+        AccountSelector $account, ?bool $applyCos = NULL, ?bool $effectiveQuota = NULL, ?string $attrs = NULL
     ): ?Message\GetAccountResponse;
 
     /**

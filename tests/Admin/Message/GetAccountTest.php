@@ -26,17 +26,20 @@ class GetAccountTest extends ZimbraTestCase
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
-        $request = new GetAccountRequest($account, FALSE, $attrs);
+        $request = new GetAccountRequest($account, FALSE, FALSE, $attrs);
         $this->assertSame($account, $request->getAccount());
         $this->assertFalse($request->isApplyCos());
+        $this->assertFalse($request->isEffectiveQuota());
         $this->assertSame($attrs, $request->getAttrs());
         $request = new GetAccountRequest(new AccountSelector());
         $request->setAccount($account)
             ->setApplyCos(TRUE)
+            ->setEffectiveQuota(TRUE)
             ->setAttrs($attr1)
             ->addAttrs($attr2, $attr3);
         $this->assertSame($account, $request->getAccount());
         $this->assertTrue($request->isApplyCos());
+        $this->assertTrue($request->isEffectiveQuota());
         $this->assertSame($attrs, $request->getAttrs());
 
         $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
@@ -69,7 +72,7 @@ class GetAccountTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:GetAccountRequest applyCos="true" attrs="$attrs">
+        <urn:GetAccountRequest applyCos="true" effectiveQuota="true" attrs="$attrs">
             <urn:account by="name">$value</urn:account>
         </urn:GetAccountRequest>
         <urn:GetAccountResponse>

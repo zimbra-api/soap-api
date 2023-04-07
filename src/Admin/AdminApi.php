@@ -840,11 +840,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAccount(
-        AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL
+        AccountSelector $account, ?bool $applyCos = NULL, ?bool $effectiveQuota = NULL, ?string $attrs = NULL
     ): ?Message\GetAccountResponse
     {
         return $this->invoke(new Message\GetAccountRequest(
-            $account, $applyCos, $attrs
+            $account, $applyCos, $effectiveQuota, $attrs
         ));
     }
 

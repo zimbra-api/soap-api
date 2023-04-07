@@ -50,6 +50,24 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     private $applyCos;
 
     /**
+     * Flag whether or not to get effective value (minimum of zimbraMailQuota and zimbraMailDomainQuota)
+     * 1 (true) zimbraMailQuota attribute will contain effective value
+     * 0 (false) [default] zimbraMailQuota attribute will contain actual ldap value set
+     * 
+     * @Accessor(getter="isEffectiveQuota", setter="setEffectiveQuota")
+     * @SerializedName("effectiveQuota")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
+     * @var bool
+     */
+    #[Accessor(getter: 'isEffectiveQuota', setter: 'setEffectiveQuota')]
+    #[SerializedName('effectiveQuota')]
+    #[Type('bool')]
+    #[XmlAttribute]
+    private $effectiveQuota;
+
+    /**
      * Account
      * 
      * @Accessor(getter="getAccount", setter="setAccount")
@@ -70,16 +88,20 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * 
      * @param  AccountSelector $account
      * @param  bool $applyCos
+     * @param  bool $effectiveQuota
      * @param  string $attrs
      * @return self
      */
     public function __construct(
-        AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL
+        AccountSelector $account, ?bool $applyCos = NULL, ?bool $effectiveQuota = NULL, ?string $attrs = NULL
     )
     {
         $this->setAccount($account);
         if (NULL !== $applyCos) {
             $this->setApplyCos($applyCos);
+        }
+        if (NULL !== $effectiveQuota) {
+            $this->setEffectiveQuota($effectiveQuota);
         }
         if (NULL !== $attrs) {
             $this->setAttrs($attrs);
@@ -105,6 +127,28 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     public function setApplyCos(bool $applyCos): self
     {
         $this->applyCos = $applyCos;
+        return $this;
+    }
+
+    /**
+     * Get effectiveQuota
+     *
+     * @return bool
+     */
+    public function isEffectiveQuota(): ?bool
+    {
+        return $this->effectiveQuota;
+    }
+
+    /**
+     * Set effectiveQuota
+     *
+     * @param  bool $effectiveQuota
+     * @return self
+     */
+    public function setEffectiveQuota(bool $effectiveQuota): self
+    {
+        $this->effectiveQuota = $effectiveQuota;
         return $this;
     }
 
