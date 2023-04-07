@@ -154,7 +154,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     /**
      * Set the url
      *
-     * @param  string $volumePrefix
+     * @param  string $url
      * @return self
      */
     public function setUrl(string $url): self
