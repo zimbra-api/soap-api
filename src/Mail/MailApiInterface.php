@@ -986,6 +986,14 @@ interface MailApiInterface extends AccountApiInterface
     function getDataSourceUsage(): ?Message\GetDataSourceUsageResponse;
 
     /**
+     * Get the download URL of shared document
+     *
+     * @param  ItemSpec $item
+     * @return Message\GetDocumentShareURLResponse
+     */
+    function getDocumentShareURL(ItemSpec $item): ?Message\GetDocumentShareURLResponse;
+
+    /**
      * Returns the effective permissions of the specified folder
      *
      * @param  FolderSpec $folder

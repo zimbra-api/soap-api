@@ -807,6 +807,14 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
+    public function getDocumentShareURL(ItemSpec $item): ?Message\GetDocumentShareURLResponse
+    {
+        return $this->invoke(new Message\GetDocumentShareURLRequest($item));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getEffectiveFolderPerms(FolderSpec $folder): ?Message\GetEffectiveFolderPermsResponse
     {
         return $this->invoke(new Message\GetEffectiveFolderPermsRequest($folder));
