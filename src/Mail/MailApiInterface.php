@@ -47,6 +47,7 @@ use Zimbra\Mail\Struct\{
     ConversationSpec,
     DtTimeInfo,
     DiffDocumentVersionSpec,
+    DocumentActionSelector,
     DocumentSpec,
     ExpandedRecurrenceCancel,
     ExpandedRecurrenceComponent,
@@ -600,6 +601,14 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\DismissCalendarItemAlarmResponse
      */
     function dismissCalendarItemAlarm(array $alarms = []): ?Message\DismissCalendarItemAlarmResponse;
+
+    /**
+     * Document action
+     *
+     * @param  DocumentActionSelector $action
+     * @return Message\DocumentActionResponse
+     */
+    function documentAction(DocumentActionSelector $action): ?Message\DocumentActionResponse;
 
     /**
      * Empty dumpster

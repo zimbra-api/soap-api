@@ -1437,6 +1437,37 @@ EOT;
         $this->assertEquals([$task], $response->getTaskUpdatedAlarms());
     }
 
+    public function documentAction()
+    {
+        $id = $this->faker->uuid;
+        $operation = $this->faker->randomElement(DocumentActionOp::values())->getValue();
+
+        $zimbraId = $this->faker->uuid;
+        $displayName = $this->faker->name;
+        $accessKey = $this->faker->word;
+        $nonExistentIds = $this->faker->uuid;
+        $newlyCreatedIds = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:DocumentActionResponse>
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
+        </urn:DocumentActionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->documentAction(\Zimbra\Mail\Struct\DocumentActionSelector($operation, $id));
+
+        $action = new DocumentActionResult(
+            $id, $operation, $nonExistentIds, $newlyCreatedIds, $zimbraId, $displayName, $accessKey
+        );
+        $this->assertEquals($action, $response->getAction());
+    }
+
     public function testEmptyDumpster()
     {
         $xml = <<<EOT

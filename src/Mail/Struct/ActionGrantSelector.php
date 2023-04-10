@@ -139,6 +139,7 @@ class ActionGrantSelector
 
     /**
      * Constructor
+     * 
      * @param string $rights
      * @param GranteeType $grantType
      * @param string $zimbraId

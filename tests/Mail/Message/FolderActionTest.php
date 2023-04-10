@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\Enum\{ActionGrantRight, ContactActionOp, GranteeType, Type};
+use Zimbra\Common\Enum\{ActionGrantRight, FolderActionOp, GranteeType, Type};
 
 use Zimbra\Mail\Struct\ActionGrantSelector;
 use Zimbra\Mail\Struct\FolderActionResult;
@@ -24,7 +24,7 @@ class FolderActionTest extends ZimbraTestCase
 {
     public function testFolderAction()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(FolderActionOp::values())->getValue();
         $ids = $this->faker->uuid;
 
         $id = $this->faker->uuid;
