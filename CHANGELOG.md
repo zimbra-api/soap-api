@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.1.0 - 2023-04-10
+[Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.8...2.1.0)
+
+* Add resetAccountPassword to admin api
+* Add fileSharedWithMe to mail api
+* Add getAppointmentIdsInRange to mail api
+* Add getAppointmentIdsSince to mail api
+* Add isSpellCheckAvailable element to GetInfoResponse
+* Add attrs element to ResetPasswordResponse
+* Add query element to searchGal account api
+* Add twoFactorAuthRequired element to AuthResponse admin api
+* Add current, storeType, storeManagerClass attributes to VolumeInfo
+* Add VolumeExternalInfo, VolumeExternalOpenIOInfo elements to VolumeInfo
+* Add effectiveQuota attribute to GetAccountRequest admin api
+* Add storeManagerRuntimeSwitchResult element to SetCurrentVolumeResponse admin api
+* Add dryRun attribute to SetPasswordRequest admin api
+* Add documentAction to mail api
+* Add getDocumentShareURL to mail api
+* Change getModifiedItemsIDs mail api
+* Add action,type attributes to DocumentSpec
+
 ## 2.0.8 - 2022-11-24
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.7...2.0.8)
 
