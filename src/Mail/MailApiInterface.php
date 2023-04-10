@@ -1145,11 +1145,11 @@ interface MailApiInterface extends AccountApiInterface
     /**
      * Returns the IDs of all items modified since a given change number
      *
-     * @param  int $folderId
+     * @param  string $folderId
      * @param  int $modSeq
      * @return Message\GetModifiedItemsIDsResponse
      */
-    function getModifiedItemsIDs(int $folderId, int $modSeq): ?Message\GetModifiedItemsIDsResponse;
+    function getModifiedItemsIDs(string $folderId, int $modSeq): ?Message\GetModifiedItemsIDsResponse;
 
     /**
      * Get message metadata

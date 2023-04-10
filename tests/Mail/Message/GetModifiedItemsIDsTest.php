@@ -16,10 +16,11 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
 {
     public function testGetModifiedItemsIDs()
     {
-        $folderId = $this->faker->randomNumber;
+        $folderId = (string) $this->faker->randomNumber;
         $modSeq = $this->faker->unixTime;
-        $id1 = $this->faker->unique->randomNumber;
-        $id2 = $this->faker->unique->randomNumber;
+        $mid = $this->faker->unique->randomNumber;
+        $did = $this->faker->unique->randomNumber;
+        $id = $this->faker->unique->randomNumber;
 
         $request = new GetModifiedItemsIDsRequest($folderId, $modSeq);
         $this->assertSame($folderId, $request->getFolderId());
@@ -30,11 +31,17 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
         $this->assertSame($folderId, $request->getFolderId());
         $this->assertSame($modSeq, $request->getModSeq());
 
-        $response = new GetModifiedItemsIDsResponse([$id1, $id2]);
-        $this->assertSame([$id1, $id2], $response->getIds());
+        $response = new GetModifiedItemsIDsResponse([$mid], [$did], [$id]);
+        $this->assertSame([$mid], $response->getMids());
+        $this->assertSame([$did], $response->getDids());
+        $this->assertSame([$id], $response->getIds());
         $response = new GetModifiedItemsIDsResponse();
-        $response->setIds([$id1, $id2]);
-        $this->assertSame([$id1, $id2], $response->getIds());
+        $response->setMids([$mid])
+            ->setDids([$did])
+            ->setIds([$id]);
+        $this->assertSame([$mid], $response->getMids());
+        $this->assertSame([$did], $response->getDids());
+        $this->assertSame([$id], $response->getIds());
 
         $body = new GetModifiedItemsIDsBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -57,8 +64,9 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetModifiedItemsIDsRequest l="$folderId" ms="$modSeq" />
         <urn:GetModifiedItemsIDsResponse>
-            <urn:ids>$id1</urn:ids>
-            <urn:ids>$id2</urn:ids>
+            <urn:mids>$mid</urn:mids>
+            <urn:dids>$did</urn:dids>
+            <urn:ids>$id</urn:ids>
         </urn:GetModifiedItemsIDsResponse>
     </soap:Body>
 </soap:Envelope>

@@ -952,7 +952,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getModifiedItemsIDs(int $folderId, int $modSeq): ?Message\GetModifiedItemsIDsResponse
+    public function getModifiedItemsIDs(string $folderId, int $modSeq): ?Message\GetModifiedItemsIDsResponse
     {
         return $this->invoke(new Message\GetModifiedItemsIDsRequest($folderId, $modSeq));
     }

@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Mail\Struct\MiniCalError;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -25,6 +24,34 @@ use Zimbra\Common\Struct\SoapResponse;
  */
 class GetModifiedItemsIDsResponse extends SoapResponse
 {
+    /**
+     * IDs of modified items
+     * 
+     * @Accessor(getter="getMids", setter="setMids")
+     * @Type("array<int>")
+     * @XmlList(inline=true, entry="mids", namespace="urn:zimbraMail")
+     * 
+     * @var array
+     */
+    #[Accessor(getter: 'getMids', setter: 'setMids')]
+    #[Type('array<int>')]
+    #[XmlList(inline: true, entry: 'mids', namespace: 'urn:zimbraMail')]
+    private $mids = [];
+
+    /**
+     * IDs of deleted items
+     * 
+     * @Accessor(getter="getDids", setter="setDids")
+     * @Type("array<int>")
+     * @XmlList(inline=true, entry="dids", namespace="urn:zimbraMail")
+     * 
+     * @var array
+     */
+    #[Accessor(getter: 'getDids', setter: 'setDids')]
+    #[Type('array<int>')]
+    #[XmlList(inline: true, entry: 'dids', namespace: 'urn:zimbraMail')]
+    private $dids = [];
+
     /**
      * IDs of modified items
      * 
@@ -42,12 +69,62 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     /**
      * Constructor
      *
+     * @param  array $mids
+     * @param  array $dids
      * @param  array $ids
      * @return self
      */
-    public function __construct(array $ids = [])
+    public function __construct(array $mids = [], array $dids = [], array $ids = [])
     {
-        $this->setIds($ids);
+        $this->setMids($mids)
+             ->setDids($dids)
+             ->setIds($ids);
+    }
+
+    /**
+     * Set mids
+     *
+     * @param  array $mids
+     * @return self
+     */
+    public function setMids(array $mids): self
+    {
+        $mids = array_map(static fn ($id) => (int) $id, $mids);
+        $this->mids = array_unique($mids);
+        return $this;
+    }
+
+    /**
+     * Get mids
+     *
+     * @return array
+     */
+    public function getMids(): array
+    {
+        return $this->mids;
+    }
+
+    /**
+     * Set dids
+     *
+     * @param  array $dids
+     * @return self
+     */
+    public function setDids(array $dids): self
+    {
+        $dids = array_map(static fn ($id) => (int) $id, $dids);
+        $this->dids = array_unique($dids);
+        return $this;
+    }
+
+    /**
+     * Get dids
+     *
+     * @return array
+     */
+    public function getDids(): array
+    {
+        return $this->dids;
     }
 
     /**

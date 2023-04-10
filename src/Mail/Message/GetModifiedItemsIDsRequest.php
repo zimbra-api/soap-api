@@ -30,14 +30,14 @@ class GetModifiedItemsIDsRequest extends SoapRequest
      * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
-     * @Type("int")
+     * @Type("string")
      * @XmlAttribute
      * 
-     * @var int
+     * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
     #[SerializedName('l')]
-    #[Type('int')]
+    #[Type('string')]
     #[XmlAttribute]
     private $folderId;
 
@@ -60,11 +60,11 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     /**
      * Constructor
      *
-     * @param  int $folderId
+     * @param  string $folderId
      * @param  int $modSeq
      * @return self
      */
-    public function __construct(int $folderId = 0, int $modSeq = 0)
+    public function __construct(string $folderId = '', int $modSeq = 0)
     {
         $this->setFolderId($folderId)
              ->setModSeq($modSeq);
@@ -73,9 +73,9 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     /**
      * Get folderId
      *
-     * @return int
+     * @return string
      */
-    public function getFolderId(): int
+    public function getFolderId(): string
     {
         return $this->folderId;
     }
@@ -83,10 +83,10 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     /**
      * Set folderId
      *
-     * @param  int $folderId
+     * @param  string $folderId
      * @return self
      */
-    public function setFolderId(int $folderId): self
+    public function setFolderId(string $folderId): self
     {
         $this->folderId = $folderId;
         return $this;
