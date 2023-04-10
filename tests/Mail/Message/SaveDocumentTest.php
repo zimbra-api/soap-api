@@ -2,6 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
+use Zimbra\Common\Enum\NewFileCreationTypes;
 use Zimbra\Common\Struct\Id;
 
 use Zimbra\Mail\Message\SaveDocumentEnvelope;
@@ -31,13 +32,15 @@ class SaveDocumentTest extends ZimbraTestCase
         $version = $this->faker->randomNumber;
         $content = $this->faker->word;
         $flags = $this->faker->word;
+        $action = $this->faker->word;
+        $type = NewFileCreationTypes::DOCUMENT();
         $part = $this->faker->uuid;
 
         $upload = new Id($id);
         $messagePart = new MessagePartSpec($part, $id);
         $docRevision = new IdVersion($id, $version);
         $doc = new DocumentSpec(
-            $name, $contentType, $description, $folderId, $id, $version, $content, TRUE, $flags, $upload, $messagePart, $docRevision
+            $name, $contentType, $description, $folderId, $id, $version, $content, TRUE, $flags, $action, $type, $upload, $messagePart, $docRevision
         );
 
         $request = new SaveDocumentRequest($doc);
@@ -75,7 +78,7 @@ class SaveDocumentTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:SaveDocumentRequest>
-            <urn:doc name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags">
+            <urn:doc name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags" action="$action" type="document">
                 <urn:upload id="$id" />
                 <urn:m part="$part" id="$id" />
                 <urn:doc id="$id" ver="$version" />

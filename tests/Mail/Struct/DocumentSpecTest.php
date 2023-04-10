@@ -4,6 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
+use Zimbra\Common\Enum\NewFileCreationTypes;
 use Zimbra\Common\Struct\Id;
 
 use Zimbra\Mail\Struct\DocumentSpec;
@@ -27,6 +28,8 @@ class DocumentSpecTest extends ZimbraTestCase
         $version = mt_rand(1, 100);
         $content = $this->faker->word;
         $flags = $this->faker->word;
+        $action = $this->faker->word;
+        $type = NewFileCreationTypes::DOCUMENT();
         $part = $this->faker->uuid;
 
         $upload = new Id($id);
@@ -34,7 +37,7 @@ class DocumentSpecTest extends ZimbraTestCase
         $docRevision = new IdVersion($id, $version);
 
         $doc = new StubDocumentSpec(
-            $name, $contentType, $description, $folderId, $id, $version, $content, FALSE, $flags, $upload, $messagePart, $docRevision
+            $name, $contentType, $description, $folderId, $id, $version, $content, FALSE, $flags, $action, $type, $upload, $messagePart, $docRevision
         );
         $this->assertSame($name, $doc->getName());
         $this->assertSame($contentType, $doc->getContentType());
@@ -45,6 +48,8 @@ class DocumentSpecTest extends ZimbraTestCase
         $this->assertSame($content, $doc->getContent());
         $this->assertFalse($doc->getDescEnabled());
         $this->assertSame($flags, $doc->getFlags());
+        $this->assertSame($action, $doc->getAction());
+        $this->assertSame($type, $doc->getType());
         $this->assertSame($upload, $doc->getUpload());
         $this->assertSame($messagePart, $doc->getMessagePart());
         $this->assertSame($docRevision, $doc->getDocRevision());
@@ -59,6 +64,8 @@ class DocumentSpecTest extends ZimbraTestCase
             ->setContent($content)
             ->setDescEnabled(TRUE)
             ->setFlags($flags)
+            ->setAction($action)
+            ->setType($type)
             ->setUpload($upload)
             ->setMessagePart($messagePart)
             ->setDocRevision($docRevision);
@@ -71,13 +78,15 @@ class DocumentSpecTest extends ZimbraTestCase
         $this->assertSame($content, $doc->getContent());
         $this->assertTrue($doc->getDescEnabled());
         $this->assertSame($flags, $doc->getFlags());
+        $this->assertSame($action, $doc->getAction());
+        $this->assertSame($type, $doc->getType());
         $this->assertSame($upload, $doc->getUpload());
         $this->assertSame($messagePart, $doc->getMessagePart());
         $this->assertSame($docRevision, $doc->getDocRevision());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags" xmlns:urn="urn:zimbraMail">
+<result name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags" action="$action" type="document" xmlns:urn="urn:zimbraMail">
     <urn:upload id="$id" />
     <urn:m part="$part" id="$id" />
     <urn:doc id="$id" ver="$version" />

@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Enum\NewFileCreationTypes;
 use Zimbra\Common\Struct\Id;
 
 /**
@@ -170,6 +171,38 @@ class DocumentSpec
     private $flags;
 
     /**
+     * Action on the Document
+     * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("string")
+     * @XmlAttribute
+     * 
+     * @var string
+     */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName('action')]
+    #[Type('string')]
+    #[XmlAttribute]
+    private $action;
+
+    /**
+     * Type of document that can be created
+     * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\NewFileCreationTypes>")
+     * @XmlAttribute
+     * 
+     * @var NewFileCreationTypes
+     */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName('type')]
+    #[Type('Enum<Zimbra\Common\Enum\NewFileCreationTypes>')]
+    #[XmlAttribute]
+    private ?NewFileCreationTypes $type;
+
+    /**
      * Upload specification
      * 
      * @Accessor(getter="getUpload", setter="setUpload")
@@ -229,6 +262,8 @@ class DocumentSpec
      * @param  string $content
      * @param  bool $descEnabled
      * @param  string $flags
+     * @param  string $action
+     * @param  NewFileCreationTypes $type
      * @param  Id $upload
      * @param  MessagePartSpec $messagePart
      * @param  IdVersion $docRevision
@@ -244,6 +279,8 @@ class DocumentSpec
         ?string $content = NULL,
         ?bool $descEnabled = NULL,
         ?string $flags = NULL,
+        ?string $action = NULL,
+        ?NewFileCreationTypes $type = NULL,
         ?Id $upload = NULL,
         ?MessagePartSpec $messagePart = NULL,
         ?IdVersion $docRevision = NULL
@@ -252,6 +289,7 @@ class DocumentSpec
         $this->upload = $upload;
         $this->messagePart = $messagePart;
         $this->docRevision = $docRevision;
+        $this->type = $type;
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -278,6 +316,9 @@ class DocumentSpec
         }
         if (NULL !== $flags) {
             $this->setFlags($flags);
+        }
+        if (NULL !== $action) {
+            $this->setAction($action);
         }
     }
 
@@ -476,6 +517,50 @@ class DocumentSpec
     public function setFlags(string $flags): self
     {
         $this->flags = $flags;
+        return $this;
+    }
+
+    /**
+     * Get action
+     *
+     * @return string
+     */
+    public function getAction(): ?string
+    {
+        return $this->action;
+    }
+
+    /**
+     * Set action
+     *
+     * @param  string $action
+     * @return self
+     */
+    public function setAction(string $action): self
+    {
+        $this->action = $action;
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return NewFileCreationTypes
+     */
+    public function getType(): ?NewFileCreationTypes
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set type enum
+     *
+     * @param  NewFileCreationTypes $type
+     * @return self
+     */
+    public function setType(NewFileCreationTypes $type): self
+    {
+        $this->type = $type;
         return $this;
     }
 
