@@ -30,11 +30,6 @@ class CompactIndexRequest extends SoapRequest
     /**
      * Mailbox by account id selector
      * 
-     * @Accessor(getter="getMbox", setter="setMbox")
-     * @SerializedName("mbox")
-     * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Mailbox
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]
@@ -47,11 +42,6 @@ class CompactIndexRequest extends SoapRequest
      * Action to perform
      * start: start compact indexing
      * status: show compact indexing status
-     * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")
-     * @XmlAttribute
      * 
      * @var Action
      */

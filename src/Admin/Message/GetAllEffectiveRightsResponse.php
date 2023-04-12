@@ -28,11 +28,6 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     /**
      * Grantee information
      * 
-     * @Accessor(getter="getGrantee", setter="setGrantee")
-     * @SerializedName("grantee")
-     * @Type("Zimbra\Admin\Struct\GranteeInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GranteeInfo
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -43,10 +38,6 @@ class GetAllEffectiveRightsResponse extends SoapResponse
 
     /**
      * Effective rights targets
-     * 
-     * @Accessor(getter="getTargets", setter="setTargets")
-     * @Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")
-     * @XmlList(inline=true, entry="target", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -98,7 +89,9 @@ class GetAllEffectiveRightsResponse extends SoapResponse
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = array_filter($targets, static fn ($target) => $target instanceof EffectiveRightsTarget);
+        $this->targets = array_filter(
+            $targets, static fn ($target) => $target instanceof EffectiveRightsTarget
+        );
         return $this;
     }
 

@@ -32,11 +32,6 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     /**
      * Target type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
-     * @XmlAttribute
-     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -47,11 +42,6 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * ID
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -64,11 +54,6 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     /**
      * name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -79,11 +64,6 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * Attrs
-     * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -105,7 +85,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
         ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
     )
     {
-        $this->setType($type ?? new TargetType('account'))
+        $this->setType($type ?? TargetType::ACCOUNT)
              ->setAttrs($attrs);
         if (NULL !== $id) {
             $this->setId($id);

@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetZimletStatusBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetZimletStatusRequest")
-     * @Type("Zimbra\Admin\Message\GetZimletStatusRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetZimletStatusBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetZimletStatusResponse")
-     * @Type("Zimbra\Admin\Message\GetZimletStatusResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetZimletStatusBody extends SoapBody
      * @param GetZimletStatusResponse $response
      * @return self
      */
-    public function __construct(?GetZimletStatusRequest $request = NULL, ?GetZimletStatusResponse $response = NULL)
+    public function __construct(
+        ?GetZimletStatusRequest $request = NULL, ?GetZimletStatusResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

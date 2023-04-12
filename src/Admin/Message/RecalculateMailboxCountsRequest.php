@@ -30,11 +30,6 @@ class RecalculateMailboxCountsRequest extends SoapRequest
     /**
      * Mailbox by account id selector
      * 
-     * @Accessor(getter="getMbox", setter="setMbox")
-     * @SerializedName("mbox")
-     * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Mailbox
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]

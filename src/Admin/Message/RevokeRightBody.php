@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RevokeRightBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RevokeRightRequest")
-     * @Type("Zimbra\Admin\Message\RevokeRightRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class RevokeRightBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RevokeRightResponse")
-     * @Type("Zimbra\Admin\Message\RevokeRightResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class RevokeRightBody extends SoapBody
      * @param RevokeRightResponse $response
      * @return self
      */
-    public function __construct(?RevokeRightRequest $request = NULL, ?RevokeRightResponse $response = NULL)
+    public function __construct(
+        ?RevokeRightRequest $request = NULL, ?RevokeRightResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

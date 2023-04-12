@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetDataSourcesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetDataSourcesRequest")
-     * @Type("Zimbra\Admin\Message\GetDataSourcesRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetDataSourcesBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetDataSourcesResponse")
-     * @Type("Zimbra\Admin\Message\GetDataSourcesResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetDataSourcesBody extends SoapBody
      * @param GetDataSourcesResponse $response
      * @return self
      */
-    public function __construct(?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL)
+    public function __construct(
+        ?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

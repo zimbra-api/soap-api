@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetFilterRulesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetFilterRulesRequest")
-     * @Type("Zimbra\Admin\Message\GetFilterRulesRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetFilterRulesBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetFilterRulesResponse")
-     * @Type("Zimbra\Admin\Message\GetFilterRulesResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetFilterRulesBody extends SoapBody
      * @param GetFilterRulesResponse $response
      * @return self
      */
-    public function __construct(?GetFilterRulesRequest $request = NULL, ?GetFilterRulesResponse $response = NULL)
+    public function __construct(
+        ?GetFilterRulesRequest $request = NULL, ?GetFilterRulesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

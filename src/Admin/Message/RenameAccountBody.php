@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RenameAccountBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RenameAccountRequest")
-     * @Type("Zimbra\Admin\Message\RenameAccountRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class RenameAccountBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RenameAccountResponse")
-     * @Type("Zimbra\Admin\Message\RenameAccountResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class RenameAccountBody extends SoapBody
      * @param RenameAccountResponse $response
      * @return self
      */
-    public function __construct(?RenameAccountRequest $request = NULL, ?RenameAccountResponse $response = NULL)
+    public function __construct(
+        ?RenameAccountRequest $request = NULL, ?RenameAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

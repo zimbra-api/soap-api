@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllConfigBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetAllConfigRequest")
-     * @Type("Zimbra\Admin\Message\GetAllConfigRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetAllConfigBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetAllConfigResponse")
-     * @Type("Zimbra\Admin\Message\GetAllConfigResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetAllConfigBody extends SoapBody
      * @param GetAllConfigResponse $response
      * @return self
      */
-    public function __construct(?GetAllConfigRequest $request = NULL, ?GetAllConfigResponse $response = NULL)
+    public function __construct(
+        ?GetAllConfigRequest $request = NULL, ?GetAllConfigResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

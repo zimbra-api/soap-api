@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAccountInfoBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetAccountInfoRequest")
-     * @Type("Zimbra\Admin\Message\GetAccountInfoRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetAccountInfoBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetAccountInfoResponse")
-     * @Type("Zimbra\Admin\Message\GetAccountInfoResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetAccountInfoBody extends SoapBody
      * @param GetAccountInfoResponse $response
      * @return self
      */
-    public function __construct(?GetAccountInfoRequest $request = NULL, ?GetAccountInfoResponse $response = NULL)
+    public function __construct(
+        ?GetAccountInfoRequest $request = NULL, ?GetAccountInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

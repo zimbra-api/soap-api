@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RunUnitTestsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RunUnitTestsRequest")
-     * @Type("Zimbra\Admin\Message\RunUnitTestsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class RunUnitTestsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RunUnitTestsResponse")
-     * @Type("Zimbra\Admin\Message\RunUnitTestsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class RunUnitTestsBody extends SoapBody
      * @param RunUnitTestsResponse $response
      * @return self
      */
-    public function __construct(?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL)
+    public function __construct(
+        ?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

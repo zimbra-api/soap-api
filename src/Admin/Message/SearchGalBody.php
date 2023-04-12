@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SearchGalBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SearchGalRequest")
-     * @Type("Zimbra\Admin\Message\SearchGalRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class SearchGalBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SearchGalResponse")
-     * @Type("Zimbra\Admin\Message\SearchGalResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class SearchGalBody extends SoapBody
      * @param SearchGalResponse $response
      * @return self
      */
-    public function __construct(?SearchGalRequest $request = NULL, ?SearchGalResponse $response = NULL)
+    public function __construct(
+        ?SearchGalRequest $request = NULL, ?SearchGalResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

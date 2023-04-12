@@ -28,11 +28,6 @@ class GetServiceStatusResponse extends SoapResponse
     /**
      * TimeZone information
      * 
-     * @Accessor(getter="getTimezone", setter="setTimezone")
-     * @SerializedName("timezone")
-     * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var TimeZoneInfo
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
@@ -43,10 +38,6 @@ class GetServiceStatusResponse extends SoapResponse
 
     /**
      * Service status information
-     * 
-     * @Accessor(getter="getServiceStatuses", setter="setServiceStatuses")
-     * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
-     * @XmlList(inline=true, entry="status", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

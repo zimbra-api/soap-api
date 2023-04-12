@@ -28,41 +28,27 @@ class CheckGalConfigResponse extends SoapResponse
     /**
      * Code
      * 
-     * @Accessor(getter="getCode", setter="setCode")
-     * @SerializedName("code")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCode', setter: 'setCode')]
     #[SerializedName('code')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
      * Message
-     * 
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("message")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
     #[SerializedName('message')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**
      * Information for GAL contacts
-     * 
-     * @Accessor(getter="getGalContacts", setter="setGalContacts")
-     * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -144,7 +130,9 @@ class CheckGalConfigResponse extends SoapResponse
      */
     public function setGalContacts(array $contacts): self
     {
-        $this->galContacts = array_filter($contacts, static fn ($contact) => $contact instanceof GalContactInfo);
+        $this->galContacts = array_filter(
+            $contacts, static fn ($contact) => $contact instanceof GalContactInfo
+        );
         return $this;
     }
 

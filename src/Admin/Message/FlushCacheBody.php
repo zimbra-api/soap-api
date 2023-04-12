@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class FlushCacheBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("FlushCacheRequest")
-     * @Type("Zimbra\Admin\Message\FlushCacheRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class FlushCacheBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("FlushCacheResponse")
-     * @Type("Zimbra\Admin\Message\FlushCacheResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class FlushCacheBody extends SoapBody
      * @param FlushCacheResponse $response
      * @return self
      */
-    public function __construct(?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL)
+    public function __construct(
+        ?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

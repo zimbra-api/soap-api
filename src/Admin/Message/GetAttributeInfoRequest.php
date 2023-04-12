@@ -31,11 +31,6 @@ class GetAttributeInfoRequest extends SoapRequest
     /**
      * Comma separated list of attributes to return
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attrs")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -50,11 +45,6 @@ class GetAttributeInfoRequest extends SoapRequest
      *    account,alias,distributionList,cos,globalConfig,domain,server,mimeEntry,zimletEntry,
      *    calendarResource,identity,dataSource,pop3DataSource,imapDataSource,rssDataSource,
      *    liveDataSource,galDataSource,signature,xmppComponent,aclTarget,oauth2DataSource
-     * 
-     * @Accessor(getter="getEntryTypes", setter="setEntryTypes")
-     * @SerializedName("entryTypes")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

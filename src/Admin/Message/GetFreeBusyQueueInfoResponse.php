@@ -28,10 +28,6 @@ class GetFreeBusyQueueInfoResponse extends SoapResponse
     /**
      * Information on Free/Busy providers
      * 
-     * @Accessor(getter="getProviders", setter="setProviders")
-     * @Type("array<Zimbra\Admin\Struct\FreeBusyQueueProvider>")
-     * @XmlList(inline=true, entry="provider", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getProviders', setter: 'setProviders')]

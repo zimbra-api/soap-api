@@ -29,10 +29,6 @@ class GetCurrentVolumesResponse extends SoapResponse
      * Current volume information.
      * Entry for secondary message type (2) is optional
      * 
-     * @Accessor(getter="getVolumes", setter="setVolumes")
-     * @Type("array<Zimbra\Admin\Struct\CurrentVolumeInfo>")
-     * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]

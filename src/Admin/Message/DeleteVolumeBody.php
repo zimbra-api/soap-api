@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteVolumeBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DeleteVolumeRequest")
-     * @Type("Zimbra\Admin\Message\DeleteVolumeRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class DeleteVolumeBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DeleteVolumeResponse")
-     * @Type("Zimbra\Admin\Message\DeleteVolumeResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class DeleteVolumeBody extends SoapBody
      * @param DeleteVolumeResponse $response
      * @return self
      */
-    public function __construct(?DeleteVolumeRequest $request = NULL, ?DeleteVolumeResponse $response = NULL)
+    public function __construct(
+        ?DeleteVolumeRequest $request = NULL, ?DeleteVolumeResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

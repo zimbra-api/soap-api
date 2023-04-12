@@ -32,11 +32,6 @@ class AutoProvTaskControlRequest extends SoapRequest
     /**
      * Action to perform - one of start|status|stop
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskAction>")
-     * @XmlAttribute
-     * 
      * @var AutoProvTaskAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
@@ -53,7 +48,7 @@ class AutoProvTaskControlRequest extends SoapRequest
      */
     public function __construct(?AutoProvTaskAction $action = NULL)
     {
-        $this->setAction($action ?? new AutoProvTaskAction('status'));
+        $this->setAction($action ?? AutoProvTaskAction::STATUS);
     }
 
     /**

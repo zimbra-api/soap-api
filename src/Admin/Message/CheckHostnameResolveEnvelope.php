@@ -29,10 +29,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 class CheckHostnameResolveEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Admin\Message\CheckHostnameResolveBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * Soap body
      * 
      * @var SoapBodyInterface
      */

@@ -28,10 +28,6 @@ class GetAllCalendarResourcesResponse extends SoapResponse
     /**
      * Information on calendar resources
      * 
-     * @Accessor(getter="getCalendarResourceList", setter="setCalendarResourceList")
-     * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
-     * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCalendarResourceList', setter: 'setCalendarResourceList')]

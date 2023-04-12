@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetQuotaUsageBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetQuotaUsageRequest")
-     * @Type("Zimbra\Admin\Message\GetQuotaUsageRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetQuotaUsageBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetQuotaUsageResponse")
-     * @Type("Zimbra\Admin\Message\GetQuotaUsageResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetQuotaUsageBody extends SoapBody
      * @param GetQuotaUsageResponse $response
      * @return self
      */
-    public function __construct(?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL)
+    public function __construct(
+        ?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

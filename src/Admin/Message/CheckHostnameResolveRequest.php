@@ -28,11 +28,6 @@ class CheckHostnameResolveRequest extends SoapRequest
     /**
      * Hostname
      * 
-     * @Accessor(getter="getHostname", setter="setHostname")
-     * @SerializedName("hostname")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getHostname', setter: 'setHostname')]

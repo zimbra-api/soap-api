@@ -29,11 +29,6 @@ class ResetAccountPasswordRequest extends SoapRequest
     /**
      * Use to select account
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

@@ -30,11 +30,6 @@ class AdminCreateWaitSetRequest extends SoapRequest
     /**
      * Default interest types: comma-separated list
      * 
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -46,11 +41,6 @@ class AdminCreateWaitSetRequest extends SoapRequest
     /**
      * All accounts
      * 
-     * @Accessor(getter="getAllAccounts", setter="setAllAccounts")
-     * @SerializedName("allAccounts")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllAccounts', setter: 'setAllAccounts')]
@@ -61,12 +51,6 @@ class AdminCreateWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to add
-     * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("add")
-     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -162,7 +146,9 @@ class AdminCreateWaitSetRequest extends SoapRequest
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
+        $this->accounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+        );
         return $this;
     }
 

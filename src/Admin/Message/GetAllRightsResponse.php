@@ -28,10 +28,6 @@ class GetAllRightsResponse extends SoapResponse
     /**
      * Information for rights
      * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @Type("array<Zimbra\Admin\Struct\RightInfo>")
-     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]

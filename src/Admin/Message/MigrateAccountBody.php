@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class MigrateAccountBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("MigrateAccountRequest")
-     * @Type("Zimbra\Admin\Message\MigrateAccountRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class MigrateAccountBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("MigrateAccountResponse")
-     * @Type("Zimbra\Admin\Message\MigrateAccountResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class MigrateAccountBody extends SoapBody
      * @param MigrateAccountResponse $response
      * @return self
      */
-    public function __construct(?MigrateAccountRequest $request = NULL, ?MigrateAccountResponse $response = NULL)
+    public function __construct(
+        ?MigrateAccountRequest $request = NULL, ?MigrateAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

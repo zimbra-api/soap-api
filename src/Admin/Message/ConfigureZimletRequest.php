@@ -29,11 +29,6 @@ class ConfigureZimletRequest extends SoapRequest
     /**
      * Content
      * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AttachmentIdAttrib
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]

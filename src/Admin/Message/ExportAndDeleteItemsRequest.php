@@ -31,11 +31,6 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     /**
      * Path for export dir
      * 
-     * @Accessor(getter="getExportDir", setter="setExportDir")
-     * @SerializedName("exportDir")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getExportDir', setter: 'setExportDir')]
@@ -47,11 +42,6 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     /**
      * Export filename prefix
      * 
-     * @Accessor(getter="getExportFilenamePrefix", setter="setExportFilenamePrefix")
-     * @SerializedName("exportFilenamePrefix")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getExportFilenamePrefix', setter: 'setExportFilenamePrefix')]
@@ -62,11 +52,6 @@ class ExportAndDeleteItemsRequest extends SoapRequest
 
     /**
      * Export filename prefix
-     * 
-     * @Accessor(getter="getMailbox", setter="setMailbox")
-     * @SerializedName("mbox")
-     * @Type("Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var Mailbox
      */

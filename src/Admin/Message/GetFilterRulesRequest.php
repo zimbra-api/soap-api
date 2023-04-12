@@ -30,11 +30,6 @@ class GetFilterRulesRequest extends SoapRequest
     /**
      * Type can be either before or after
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
-     * @XmlAttribute
-     * 
      * @var AdminFilterType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -45,11 +40,6 @@ class GetFilterRulesRequest extends SoapRequest
 
     /**
      * Account
-     * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */
@@ -62,11 +52,6 @@ class GetFilterRulesRequest extends SoapRequest
     /**
      * Domain
      * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -77,10 +62,6 @@ class GetFilterRulesRequest extends SoapRequest
 
     /**
      * COS
-     * @Accessor(getter="getCos", setter="setCos")
-     * @SerializedName("cos")
-     * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var CosSelector
      */
@@ -92,11 +73,6 @@ class GetFilterRulesRequest extends SoapRequest
 
     /**
      * Server
-     * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var ServerSelector
      */
@@ -124,7 +100,7 @@ class GetFilterRulesRequest extends SoapRequest
         ?ServerSelector $server = NULL
     )
     {
-        $this->setType($type ?? new AdminFilterType('before'));
+        $this->setType($type ?? AdminFilterType::BEFORE);
         $this->account = $account;
         $this->domain = $domain;
         $this->cos = $cos;

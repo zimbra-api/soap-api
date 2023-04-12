@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DelegateAuthBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DelegateAuthRequest")
-     * @Type("Zimbra\Admin\Message\DelegateAuthRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class DelegateAuthBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DelegateAuthResponse")
-     * @Type("Zimbra\Admin\Message\DelegateAuthResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class DelegateAuthBody extends SoapBody
      * @param DelegateAuthResponse $response
      * @return self
      */
-    public function __construct(?DelegateAuthRequest $request = NULL, ?DelegateAuthResponse $response = NULL)
+    public function __construct(
+        ?DelegateAuthRequest $request = NULL, ?DelegateAuthResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

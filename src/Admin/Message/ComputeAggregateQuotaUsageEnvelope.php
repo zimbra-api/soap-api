@@ -29,10 +29,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 class ComputeAggregateQuotaUsageEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * Soap body
      * 
      * @var SoapBodyInterface
      */
@@ -49,7 +46,9 @@ class ComputeAggregateQuotaUsageEnvelope extends SoapEnvelope
      * @param SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?ComputeAggregateQuotaUsageBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?ComputeAggregateQuotaUsageBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

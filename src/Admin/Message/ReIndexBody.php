@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ReIndexBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ReIndexRequest")
-     * @Type("Zimbra\Admin\Message\ReIndexRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class ReIndexBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ReIndexResponse")
-     * @Type("Zimbra\Admin\Message\ReIndexResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class ReIndexBody extends SoapBody
      * @param ReIndexResponse $response
      * @return self
      */
-    public function __construct(?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL)
+    public function __construct(
+        ?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

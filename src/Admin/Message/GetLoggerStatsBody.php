@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetLoggerStatsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetLoggerStatsRequest")
-     * @Type("Zimbra\Admin\Message\GetLoggerStatsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetLoggerStatsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetLoggerStatsResponse")
-     * @Type("Zimbra\Admin\Message\GetLoggerStatsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetLoggerStatsBody extends SoapBody
      * @param GetLoggerStatsResponse $response
      * @return self
      */
-    public function __construct(?GetLoggerStatsRequest $request = NULL, ?GetLoggerStatsResponse $response = NULL)
+    public function __construct(
+        ?GetLoggerStatsRequest $request = NULL, ?GetLoggerStatsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

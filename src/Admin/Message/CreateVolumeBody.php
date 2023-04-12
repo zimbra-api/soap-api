@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateVolumeBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateVolumeRequest")
-     * @Type("Zimbra\Admin\Message\CreateVolumeRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class CreateVolumeBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateVolumeResponse")
-     * @Type("Zimbra\Admin\Message\CreateVolumeResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class CreateVolumeBody extends SoapBody
      * @param CreateVolumeResponse $response
      * @return self
      */
-    public function __construct(?CreateVolumeRequest $request = NULL, ?CreateVolumeResponse $response = NULL)
+    public function __construct(
+        ?CreateVolumeRequest $request = NULL, ?CreateVolumeResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

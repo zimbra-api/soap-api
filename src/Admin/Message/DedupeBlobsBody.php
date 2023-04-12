@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DedupeBlobsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DedupeBlobsRequest")
-     * @Type("Zimbra\Admin\Message\DedupeBlobsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class DedupeBlobsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DedupeBlobsResponse")
-     * @Type("Zimbra\Admin\Message\DedupeBlobsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class DedupeBlobsBody extends SoapBody
      * @param DedupeBlobsResponse $response
      * @return self
      */
-    public function __construct(?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL)
+    public function __construct(
+        ?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

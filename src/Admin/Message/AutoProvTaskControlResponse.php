@@ -28,11 +28,6 @@ class AutoProvTaskControlResponse extends SoapResponse
     /**
      * Auth token
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskStatus>")
-     * @XmlAttribute
-     * 
      * @var AutoProvTaskStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]

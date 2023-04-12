@@ -28,10 +28,6 @@ class GetAllFreeBusyProvidersResponse extends SoapResponse
     /**
      * Information on Free/Busy providers
      * 
-     * @Accessor(getter="getProviders", setter="setProviders")
-     * @Type("array<Zimbra\Admin\Struct\FreeBusyProviderInfo>")
-     * @XmlList(inline=true, entry="provider", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getProviders', setter: 'setProviders')]
@@ -58,7 +54,9 @@ class GetAllFreeBusyProvidersResponse extends SoapResponse
      */
     public function setProviders(array $providers): self
     {
-        $this->providers = array_filter($providers, static fn ($provider) => $provider instanceof FreeBusyProviderInfo);
+        $this->providers = array_filter(
+            $providers, static fn ($provider) => $provider instanceof FreeBusyProviderInfo
+        );
         return $this;
     }
 

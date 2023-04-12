@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class QueryWaitSetBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("QueryWaitSetRequest")
-     * @Type("Zimbra\Admin\Message\QueryWaitSetRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class QueryWaitSetBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("QueryWaitSetResponse")
-     * @Type("Zimbra\Admin\Message\QueryWaitSetResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class QueryWaitSetBody extends SoapBody
      * @param QueryWaitSetResponse $response
      * @return self
      */
-    public function __construct(?QueryWaitSetRequest $request = NULL, ?QueryWaitSetResponse $response = NULL)
+    public function __construct(
+        ?QueryWaitSetRequest $request = NULL, ?QueryWaitSetResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

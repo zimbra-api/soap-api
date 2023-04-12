@@ -32,11 +32,6 @@ class GetServerNIfsRequest extends SoapRequest
     /**
      * specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\IpType>")
-     * @XmlAttribute
-     * 
      * @var IpType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -47,11 +42,6 @@ class GetServerNIfsRequest extends SoapRequest
 
     /**
      * Server
-     * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var Server
      */

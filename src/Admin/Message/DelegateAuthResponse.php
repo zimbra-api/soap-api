@@ -27,33 +27,23 @@ class DelegateAuthResponse extends SoapResponse
     /**
      * Auth token
      * 
-     * @Accessor(getter="getAuthToken", setter="setAuthToken")
-     * @SerializedName("authToken")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
     #[SerializedName('authToken')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
     /**
      * Life time for the authorization
-     * 
-     * @Accessor(getter="getLifetime", setter="setLifetime")
-     * @SerializedName("lifetime")
-     * @Type("int")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var int
      */
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
     #[SerializedName('lifetime')]
     #[Type('int')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $lifetime;
 
     /**

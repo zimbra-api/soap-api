@@ -28,11 +28,6 @@ class CheckPasswordStrengthRequest extends SoapRequest
     /**
      * Zimbra ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,11 +38,6 @@ class CheckPasswordStrengthRequest extends SoapRequest
 
     /**
      * Password
-     * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

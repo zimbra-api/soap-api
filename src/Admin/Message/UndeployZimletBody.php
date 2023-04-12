@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class UndeployZimletBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("UndeployZimletRequest")
-     * @Type("Zimbra\Admin\Message\UndeployZimletRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class UndeployZimletBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("UndeployZimletResponse")
-     * @Type("Zimbra\Admin\Message\UndeployZimletResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class UndeployZimletBody extends SoapBody
      * @param UndeployZimletResponse $response
      * @return self
      */
-    public function __construct(?UndeployZimletRequest $request = NULL, ?UndeployZimletResponse $response = NULL)
+    public function __construct(
+        ?UndeployZimletRequest $request = NULL, ?UndeployZimletResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

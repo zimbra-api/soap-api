@@ -29,11 +29,6 @@ class GetDistributionListResponse extends SoapResponse
      * 1 (true) if more mailboxes left to return
      * Only present if the list of members is given
      * 
-     * @Accessor(getter="isMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isMore', setter: 'setMore')]
@@ -46,11 +41,6 @@ class GetDistributionListResponse extends SoapResponse
      * Total number of members (not affected by limit/total)
      * Only present if the list of members is given
      * 
-     * @Accessor(getter="getTotal", setter="setTotal")
-     * @SerializedName("total")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTotal', setter: 'setTotal')]
@@ -61,11 +51,6 @@ class GetDistributionListResponse extends SoapResponse
 
     /**
      * Information about distribution list
-     * 
-     * @Accessor(getter="getDl", setter="setDl")
-     * @SerializedName("dl")
-     * @Type("Zimbra\Admin\Struct\DistributionListInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var DLInfo
      */

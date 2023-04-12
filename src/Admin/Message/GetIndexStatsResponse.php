@@ -28,11 +28,6 @@ class GetIndexStatsResponse extends SoapResponse
     /**
      * Statistics about mailboxes
      * 
-     * @Accessor(getter="getStats", setter="setStats")
-     * @SerializedName("stats")
-     * @Type("Zimbra\Admin\Struct\IndexStats")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var IndexStats
      */
     #[Accessor(getter: 'getStats', setter: 'setStats')]

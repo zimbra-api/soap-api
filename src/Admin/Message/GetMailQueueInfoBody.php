@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetMailQueueInfoBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetMailQueueInfoRequest")
-     * @Type("Zimbra\Admin\Message\GetMailQueueInfoRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetMailQueueInfoBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetMailQueueInfoResponse")
-     * @Type("Zimbra\Admin\Message\GetMailQueueInfoResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetMailQueueInfoBody extends SoapBody
      * @param GetMailQueueInfoResponse $response
      * @return self
      */
-    public function __construct(?GetMailQueueInfoRequest $request = NULL, ?GetMailQueueInfoResponse $response = NULL)
+    public function __construct(
+        ?GetMailQueueInfoRequest $request = NULL, ?GetMailQueueInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -29,11 +29,6 @@ class SetCurrentVolumeRequest extends SoapRequest
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class SetCurrentVolumeRequest extends SoapRequest
 
     /**
      * Volume type: 1 (primary message), 2 (secondary message) or 10 (index)
-     * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

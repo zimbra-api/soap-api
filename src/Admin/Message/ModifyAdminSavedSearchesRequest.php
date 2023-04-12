@@ -32,10 +32,6 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
     /**
      * Search information
      * 
-     * @Accessor(getter="getSearches", setter="setSearches")
-     * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSearches', setter: 'setSearches')]
@@ -74,7 +70,9 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = array_filter($searches, static fn ($search) => $search instanceof NamedValue);
+        $this->searches = array_filter(
+            $searches, static fn ($search) => $search instanceof NamedValue
+        );
         return $this;
     }
 

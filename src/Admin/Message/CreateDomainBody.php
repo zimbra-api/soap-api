@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateDomainBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateDomainRequest")
-     * @Type("Zimbra\Admin\Message\CreateDomainRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class CreateDomainBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateDomainResponse")
-     * @Type("Zimbra\Admin\Message\CreateDomainResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class CreateDomainBody extends SoapBody
      * @param CreateDomainResponse $response
      * @return self
      */
-    public function __construct(?CreateDomainRequest $request = NULL, ?CreateDomainResponse $response = NULL)
+    public function __construct(
+        ?CreateDomainRequest $request = NULL, ?CreateDomainResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

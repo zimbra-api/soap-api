@@ -31,11 +31,6 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     /**
      * The maximum number of accounts to return (0 is default and means all)
      * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -46,11 +41,6 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * The starting offset (0, 25 etc)
-     * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -63,11 +53,6 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     /**
      * Flag whether to sort in ascending order 1 (true) is the default
      * 
-     * @Accessor(getter="isSortAscending", setter="setSortAscending")
-     * @SerializedName("sortAscending")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isSortAscending', setter: 'setSortAscending')]
@@ -78,11 +63,6 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * Distribution List
-     * 
-     * @Accessor(getter="getDl", setter="setDl")
-     * @SerializedName("dl")
-     * @Type("Zimbra\Admin\Struct\DistributionListSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var DistributionList
      */

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Admin\Struct\LoggerInfo as Logger;
+use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -27,10 +27,6 @@ class AddAccountLoggerResponse extends SoapResponse
 {
     /**
      * Information on loggers
-     * 
-     * @Accessor(getter="getLoggers", setter="setLoggers")
-     * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
-     * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -58,7 +54,7 @@ class AddAccountLoggerResponse extends SoapResponse
      */
     public function setLoggers(array $loggers): self
     {
-        $this->loggers = array_filter($loggers, static fn ($logger) => $logger instanceof Logger);
+        $this->loggers = array_filter($loggers, static fn ($logger) => $logger instanceof LoggerInfo);
         return $this;
     }
 

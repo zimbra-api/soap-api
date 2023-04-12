@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetShareInfoBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetShareInfoRequest")
-     * @Type("Zimbra\Admin\Message\GetShareInfoRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetShareInfoBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetShareInfoResponse")
-     * @Type("Zimbra\Admin\Message\GetShareInfoResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetShareInfoBody extends SoapBody
      * @param GetShareInfoResponse $response
      * @return self
      */
-    public function __construct(?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL)
+    public function __construct(
+        ?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PushFreeBusyBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PushFreeBusyRequest")
-     * @Type("Zimbra\Admin\Message\PushFreeBusyRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class PushFreeBusyBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PushFreeBusyResponse")
-     * @Type("Zimbra\Admin\Message\PushFreeBusyResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class PushFreeBusyBody extends SoapBody
      * @param PushFreeBusyResponse $response
      * @return self
      */
-    public function __construct(?PushFreeBusyRequest $request = NULL, ?PushFreeBusyResponse $response = NULL)
+    public function __construct(
+        ?PushFreeBusyRequest $request = NULL, ?PushFreeBusyResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

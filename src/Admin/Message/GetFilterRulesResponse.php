@@ -30,11 +30,6 @@ class GetFilterRulesResponse extends SoapResponse
     /**
      * Type can be either before or after
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
-     * @XmlAttribute
-     * 
      * @var AdminFilterType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -45,11 +40,6 @@ class GetFilterRulesResponse extends SoapResponse
 
     /**
      * Account
-     * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */
@@ -62,11 +52,6 @@ class GetFilterRulesResponse extends SoapResponse
     /**
      * Domain
      * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -78,10 +63,6 @@ class GetFilterRulesResponse extends SoapResponse
     /**
      * COS
      * 
-     * @Accessor(getter="getCos", setter="setCos")
-     * @SerializedName("cos")
-     * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
@@ -93,11 +74,6 @@ class GetFilterRulesResponse extends SoapResponse
     /**
      * Server
      * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ServerSelector
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
@@ -108,12 +84,6 @@ class GetFilterRulesResponse extends SoapResponse
 
     /**
      * Filter rules
-     * 
-     * @Accessor(getter="getFilterRules", setter="setFilterRules")
-     * @SerializedName("filterRules")
-     * @Type("array<Zimbra\Mail\Struct\FilterRule>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
      * 
      * @var array
      */

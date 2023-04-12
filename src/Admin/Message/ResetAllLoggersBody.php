@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ResetAllLoggersBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ResetAllLoggersRequest")
-     * @Type("Zimbra\Admin\Message\ResetAllLoggersRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class ResetAllLoggersBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ResetAllLoggersResponse")
-     * @Type("Zimbra\Admin\Message\ResetAllLoggersResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class ResetAllLoggersBody extends SoapBody
      * @param ResetAllLoggersResponse $response
      * @return self
      */
-    public function __construct(?ResetAllLoggersRequest $request = NULL, ?ResetAllLoggersResponse $response = NULL)
+    public function __construct(
+        ?ResetAllLoggersRequest $request = NULL, ?ResetAllLoggersResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

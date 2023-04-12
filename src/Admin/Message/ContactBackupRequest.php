@@ -30,12 +30,6 @@ class ContactBackupRequest extends SoapRequest
     /**
      * List of servers
      * 
-     * @Accessor(getter="getServers", setter="setServers")
-     * @SerializedName("servers")
-     * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getServers', setter: 'setServers')]
@@ -47,11 +41,6 @@ class ContactBackupRequest extends SoapRequest
 
     /**
      * op can be either start or stop
-     * 
-     * @Accessor(getter="getOp", setter="setOp")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")
-     * @XmlAttribute
      * 
      * @var ContactBackupOp
      */
@@ -71,7 +60,7 @@ class ContactBackupRequest extends SoapRequest
     public function __construct(array $servers = [], ?ContactBackupOp $op = NULL)
     {
         $this->setServers($servers)
-             ->setOp($op ?? new ContactBackupOp('start'));
+             ->setOp($op ?? ContactBackupOp::START);
     }
 
     /**
@@ -92,7 +81,9 @@ class ContactBackupRequest extends SoapRequest
      */
     public function setServers(array $servers): self
     {
-        $this->servers = array_filter($servers, static fn ($server) => $server instanceof ServerSelector);
+        $this->servers = array_filter(
+            $servers, static fn ($server) => $server instanceof ServerSelector
+        );
         return $this;
     }
 

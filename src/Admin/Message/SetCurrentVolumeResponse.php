@@ -28,11 +28,6 @@ class SetCurrentVolumeResponse extends SoapResponse
     /**
      * The runtime switch result
      * 
-     * @Accessor(getter="getRuntimeSwitchResult", setter="setRuntimeSwitchResult")
-     * @SerializedName("storeManagerRuntimeSwitchResult")
-     * @Type("Zimbra\Admin\Struct\StoreManagerRuntimeSwitchResult")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var StoreManagerRuntimeSwitchResult
      */
     #[Accessor(getter: 'getRuntimeSwitchResult', setter: 'setRuntimeSwitchResult')]

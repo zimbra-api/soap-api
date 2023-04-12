@@ -28,11 +28,6 @@ class ChangePrimaryEmailResponse extends SoapResponse
     /**
      * Information about account after rename
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Admin\Struct\AccountInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Account
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

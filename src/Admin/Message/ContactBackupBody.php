@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ContactBackupBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ContactBackupRequest")
-     * @Type("Zimbra\Admin\Message\ContactBackupRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class ContactBackupBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ContactBackupResponse")
-     * @Type("Zimbra\Admin\Message\ContactBackupResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class ContactBackupBody extends SoapBody
      * @param ContactBackupResponse $response
      * @return self
      */
-    public function __construct(?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL)
+    public function __construct(
+        ?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

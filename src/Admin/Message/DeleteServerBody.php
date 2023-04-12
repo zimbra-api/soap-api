@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteServerBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DeleteServerRequest")
-     * @Type("Zimbra\Admin\Message\DeleteServerRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class DeleteServerBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DeleteServerResponse")
-     * @Type("Zimbra\Admin\Message\DeleteServerResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class DeleteServerBody extends SoapBody
      * @param DeleteServerResponse $response
      * @return self
      */
-    public function __construct(?DeleteServerRequest $request = NULL, ?DeleteServerResponse $response = NULL)
+    public function __construct(
+        ?DeleteServerRequest $request = NULL, ?DeleteServerResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

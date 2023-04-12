@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetIndexStatsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetIndexStatsRequest")
-     * @Type("Zimbra\Admin\Message\GetIndexStatsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetIndexStatsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetIndexStatsResponse")
-     * @Type("Zimbra\Admin\Message\GetIndexStatsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetIndexStatsBody extends SoapBody
      * @param GetIndexStatsResponse $response
      * @return self
      */
-    public function __construct(?GetIndexStatsRequest $request = NULL, ?GetIndexStatsResponse $response = NULL)
+    public function __construct(
+        ?GetIndexStatsRequest $request = NULL, ?GetIndexStatsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -28,10 +28,6 @@ class CheckBlobConsistencyResponse extends SoapResponse
     /**
      * Mailboxes
      * 
-     * @Accessor(getter="getMailboxes", setter="setMailboxes")
-     * @Type("array<Zimbra\Admin\Struct\MailboxBlobConsistency>")
-     * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMailboxes', setter: 'setMailboxes')]
@@ -58,7 +54,9 @@ class CheckBlobConsistencyResponse extends SoapResponse
      */
     public function setMailboxes(array $mailboxes): self
     {
-        $this->mailboxes = array_filter($mailboxes, static fn ($mailbox) => $mailbox instanceof MailboxBlobConsistency);
+        $this->mailboxes = array_filter(
+            $mailboxes, static fn ($mailbox) => $mailbox instanceof MailboxBlobConsistency
+        );
         return $this;
     }
 

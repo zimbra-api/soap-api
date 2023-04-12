@@ -29,11 +29,6 @@ class AutoProvAccountRequest extends SoapRequest
     /**
      * The domain
      * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -44,11 +39,6 @@ class AutoProvAccountRequest extends SoapRequest
 
     /**
      * The principal
-     * 
-     * @Accessor(getter="getPrincipal", setter="setPrincipal")
-     * @SerializedName("principal")
-     * @Type("Zimbra\Admin\Struct\PrincipalSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var PrincipalSelector
      */
@@ -61,17 +51,12 @@ class AutoProvAccountRequest extends SoapRequest
     /**
      * Password
      * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
     #[SerializedName('password')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $password;
 
     /**

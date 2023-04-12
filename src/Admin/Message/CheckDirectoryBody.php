@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckDirectoryBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CheckDirectoryRequest")
-     * @Type("Zimbra\Admin\Message\CheckDirectoryRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class CheckDirectoryBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CheckDirectoryResponse")
-     * @Type("Zimbra\Admin\Message\CheckDirectoryResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class CheckDirectoryBody extends SoapBody
      * @param CheckDirectoryResponse $response
      * @return self
      */
-    public function __construct(?CheckDirectoryRequest $request = NULL, ?CheckDirectoryResponse $response = NULL)
+    public function __construct(
+        ?CheckDirectoryRequest $request = NULL, ?CheckDirectoryResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -28,11 +28,6 @@ class RunUnitTestsResponse extends SoapResponse
     /**
      * Information about test results
      * 
-     * @Accessor(getter="getResults", setter="setResults")
-     * @SerializedName("results")
-     * @Type("Zimbra\Admin\Struct\TestResultInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var TestResultInfo
      */
     #[Accessor(getter: 'getResults', setter: 'setResults')]
@@ -44,11 +39,6 @@ class RunUnitTestsResponse extends SoapResponse
     /**
      * Number of executed tests
      * 
-     * @Accessor(getter="getNumExecuted", setter="setNumExecuted")
-     * @SerializedName("numExecuted")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getNumExecuted', setter: 'setNumExecuted')]
@@ -59,11 +49,6 @@ class RunUnitTestsResponse extends SoapResponse
 
     /**
      * Number of failed tests
-     * 
-     * @Accessor(getter="getNumFailed", setter="setNumFailed")
-     * @SerializedName("numFailed")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

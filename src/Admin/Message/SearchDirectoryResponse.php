@@ -30,11 +30,6 @@ class SearchDirectoryResponse extends SoapResponse
     /**
      * number of counts
      * 
-     * @Accessor(getter="getNum", setter="setNum")
-     * @SerializedName("num")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]
@@ -45,11 +40,6 @@ class SearchDirectoryResponse extends SoapResponse
 
     /**
      * 1 (true) if more accounts left to return
-     * 
-     * @Accessor(getter="isMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -62,11 +52,6 @@ class SearchDirectoryResponse extends SoapResponse
     /**
      * Total number of accounts that matched search (not affected by limit/searchTotal)
      * 
-     * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
-     * @SerializedName("searchTotal")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
@@ -78,10 +63,6 @@ class SearchDirectoryResponse extends SoapResponse
     /**
      * Information on calendar resources
      * 
-     * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
-     * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
-     * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCalendarResources', setter: 'setCalendarResources')]
@@ -91,10 +72,6 @@ class SearchDirectoryResponse extends SoapResponse
 
     /**
      * Information on distribution lists
-     * 
-     * @Accessor(getter="getDistributionLists", setter="setDistributionLists")
-     * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
-     * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -106,10 +83,6 @@ class SearchDirectoryResponse extends SoapResponse
     /**
      * Information on aliases
      * 
-     * @Accessor(getter="getAliases", setter="setAliases")
-     * @Type("array<Zimbra\Admin\Struct\AliasInfo>")
-     * @XmlList(inline=true, entry="alias", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAliases', setter: 'setAliases')]
@@ -119,10 +92,6 @@ class SearchDirectoryResponse extends SoapResponse
 
     /**
      * Information on accounts
-     * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
-     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -134,10 +103,6 @@ class SearchDirectoryResponse extends SoapResponse
     /**
      * Information on domains
      * 
-     * @Accessor(getter="getDomains", setter="setDomains")
-     * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
-     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDomains', setter: 'setDomains')]
@@ -147,10 +112,6 @@ class SearchDirectoryResponse extends SoapResponse
 
     /**
      * Information on Classes of Service (COS)
-     * 
-     * @Accessor(getter="getCOSes", setter="setCOSes")
-     * @Type("array<Zimbra\Admin\Struct\CosInfo>")
-     * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SetPasswordBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SetPasswordRequest")
-     * @Type("Zimbra\Admin\Message\SetPasswordRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class SetPasswordBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SetPasswordResponse")
-     * @Type("Zimbra\Admin\Message\SetPasswordResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class SetPasswordBody extends SoapBody
      * @param SetPasswordResponse $response
      * @return self
      */
-    public function __construct(?SetPasswordRequest $request = NULL, ?SetPasswordResponse $response = NULL)
+    public function __construct(
+        ?SetPasswordRequest $request = NULL, ?SetPasswordResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

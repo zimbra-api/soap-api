@@ -29,10 +29,6 @@ class CheckDirectoryRequest extends SoapRequest
     /**
      * Directories
      * 
-     * @Accessor(getter="getPaths", setter="setPaths")
-     * @Type("array<Zimbra\Admin\Struct\CheckDirSelector>")
-     * @XmlList(inline=true, entry="directory", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getPaths', setter: 'setPaths')]

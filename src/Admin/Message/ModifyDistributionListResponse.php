@@ -28,11 +28,6 @@ class ModifyDistributionListResponse extends SoapResponse
     /**
      * Information about distribution list
      * 
-     * @Accessor(getter="getDl", setter="setDl")
-     * @SerializedName("dl")
-     * @Type("Zimbra\Admin\Struct\DistributionListInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DLInfo
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]

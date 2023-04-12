@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DumpSessionsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DumpSessionsRequest")
-     * @Type("Zimbra\Admin\Message\DumpSessionsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class DumpSessionsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DumpSessionsResponse")
-     * @Type("Zimbra\Admin\Message\DumpSessionsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class DumpSessionsBody extends SoapBody
      * @param DumpSessionsResponse $response
      * @return self
      */
-    public function __construct(?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL)
+    public function __construct(
+        ?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

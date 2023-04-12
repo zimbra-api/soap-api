@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyCosBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ModifyCosRequest")
-     * @Type("Zimbra\Admin\Message\ModifyCosRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class ModifyCosBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ModifyCosResponse")
-     * @Type("Zimbra\Admin\Message\ModifyCosResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class ModifyCosBody extends SoapBody
      * @param ModifyCosResponse $response
      * @return self
      */
-    public function __construct(?ModifyCosRequest $request = NULL, ?ModifyCosResponse $response = NULL)
+    public function __construct(
+        ?ModifyCosRequest $request = NULL, ?ModifyCosResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

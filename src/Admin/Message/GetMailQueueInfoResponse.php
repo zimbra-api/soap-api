@@ -28,11 +28,6 @@ class GetMailQueueInfoResponse extends SoapResponse
     /**
      * Information on queues organised by server
      * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerQueues")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Server
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]

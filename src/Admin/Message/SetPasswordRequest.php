@@ -28,11 +28,6 @@ class SetPasswordRequest extends SoapRequest
     /**
      * Zimbra ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class SetPasswordRequest extends SoapRequest
     /**
      * New password
      * 
-     * @Accessor(getter="getNewPassword", setter="setNewPassword")
-     * @SerializedName("newPassword")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getNewPassword', setter: 'setNewPassword')]
@@ -58,12 +48,7 @@ class SetPasswordRequest extends SoapRequest
     private $newPassword;
 
     /**
-     * dry run
-     * 
-     * @Accessor(getter="isDryRun", setter="setDryRun")
-     * @SerializedName("dryRun")
-     * @Type("bool")
-     * @XmlAttribute
+     * is dry run
      * 
      * @var bool
      */

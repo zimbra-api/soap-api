@@ -29,11 +29,6 @@ class DedupeBlobsResponse extends SoapResponse
     /**
      * Status - one of started|running|idle|stopped
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\DedupStatus>")
-     * @XmlAttribute
-     * 
      * @var DedupStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
@@ -43,10 +38,7 @@ class DedupeBlobsResponse extends SoapResponse
     private ?DedupStatus $status;
 
     /**
-     * @Accessor(getter="getTotalSize", setter="setTotalSize")
-     * @SerializedName("totalSize")
-     * @Type("int")
-     * @XmlAttribute
+     * Total size
      * 
      * @var int
      */
@@ -57,10 +49,7 @@ class DedupeBlobsResponse extends SoapResponse
     private $totalSize;
 
     /**
-     * @Accessor(getter="getTotalCount", setter="setTotalCount")
-     * @SerializedName("totalCount")
-     * @Type("int")
-     * @XmlAttribute
+     * Total count
      * 
      * @var int
      */
@@ -73,10 +62,6 @@ class DedupeBlobsResponse extends SoapResponse
     /**
      * volume blobs progress
      * 
-     * @Accessor(getter="getVolumeBlobsProgress", setter="setVolumeBlobsProgress")
-     * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
-     * @XmlList(inline=true, entry="volumeBlobsProgress", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getVolumeBlobsProgress', setter: 'setVolumeBlobsProgress')]
@@ -86,10 +71,6 @@ class DedupeBlobsResponse extends SoapResponse
 
     /**
      * blob digests progress
-     * 
-     * @Accessor(getter="getBlobDigestsProgress", setter="setBlobDigestsProgress")
-     * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
-     * @XmlList(inline=true, entry="blobDigestsProgress", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

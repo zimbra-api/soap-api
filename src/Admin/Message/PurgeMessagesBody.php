@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PurgeMessagesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PurgeMessagesRequest")
-     * @Type("Zimbra\Admin\Message\PurgeMessagesRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class PurgeMessagesBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PurgeMessagesResponse")
-     * @Type("Zimbra\Admin\Message\PurgeMessagesResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class PurgeMessagesBody extends SoapBody
      * @param PurgeMessagesResponse $response
      * @return self
      */
-    public function __construct(?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL)
+    public function __construct(
+        ?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

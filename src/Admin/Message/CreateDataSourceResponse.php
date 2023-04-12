@@ -28,11 +28,6 @@ class CreateDataSourceResponse extends SoapResponse
     /**
      * Details of created data source
      * 
-     * @Accessor(getter="getDataSource", setter="setDataSource")
-     * @SerializedName("dataSource")
-     * @Type("Zimbra\Admin\Struct\DataSourceInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DataSourceInfo
      */
     #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]

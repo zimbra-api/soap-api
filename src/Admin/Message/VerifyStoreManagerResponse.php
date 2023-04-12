@@ -27,11 +27,6 @@ class VerifyStoreManagerResponse extends SoapResponse
     /**
      * Store manager class
      * 
-     * @Accessor(getter="getStoreManagerClass", setter="setStoreManagerClass")
-     * @SerializedName("storeManagerClass")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getStoreManagerClass', setter: 'setStoreManagerClass')]
@@ -42,11 +37,6 @@ class VerifyStoreManagerResponse extends SoapResponse
 
     /**
      * Incoming time
-     * 
-     * @Accessor(getter="getIncomingTime", setter="setIncomingTime")
-     * @SerializedName("incomingTime")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -59,11 +49,6 @@ class VerifyStoreManagerResponse extends SoapResponse
     /**
      * Stage time
      * 
-     * @Accessor(getter="getStageTime", setter="setStageTime")
-     * @SerializedName("stageTime")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStageTime', setter: 'setStageTime')]
@@ -74,11 +59,6 @@ class VerifyStoreManagerResponse extends SoapResponse
 
     /**
      * Link time
-     * 
-     * @Accessor(getter="getLinkTime", setter="setLinkTime")
-     * @SerializedName("linkTime")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -91,11 +71,6 @@ class VerifyStoreManagerResponse extends SoapResponse
     /**
      * Fetch time
      * 
-     * @Accessor(getter="getFetchTime", setter="setFetchTime")
-     * @SerializedName("fetchTime")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getFetchTime', setter: 'setFetchTime')]
@@ -106,11 +81,6 @@ class VerifyStoreManagerResponse extends SoapResponse
 
     /**
      * Delete time
-     * 
-     * @Accessor(getter="getDeleteTime", setter="setDeleteTime")
-     * @SerializedName("deleteTime")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

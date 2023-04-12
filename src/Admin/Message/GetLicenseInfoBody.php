@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetLicenseInfoBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetLicenseInfoRequest")
-     * @Type("Zimbra\Admin\Message\GetLicenseInfoRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetLicenseInfoBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetLicenseInfoResponse")
-     * @Type("Zimbra\Admin\Message\GetLicenseInfoResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetLicenseInfoBody extends SoapBody
      * @param GetLicenseInfoResponse $response
      * @return self
      */
-    public function __construct(?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL)
+    public function __construct(
+        ?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

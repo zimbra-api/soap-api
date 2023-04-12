@@ -28,11 +28,6 @@ class DeleteDistributionListRequest extends SoapRequest
     /**
      * Zimbra ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,11 +38,6 @@ class DeleteDistributionListRequest extends SoapRequest
 
     /**
      * If true, cascade delete the hab-groups else return error
-     * 
-     * @Accessor(getter="isCascadeDelete", setter="setCascadeDelete")
-     * @SerializedName("cascadeDelete")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

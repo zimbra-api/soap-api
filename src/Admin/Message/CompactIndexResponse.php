@@ -28,11 +28,6 @@ class CompactIndexResponse extends SoapResponse
     /**
      * Status - one of started|running|idle
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\CompactIndexStatus>")
-     * @XmlAttribute
-     * 
      * @var Status
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]

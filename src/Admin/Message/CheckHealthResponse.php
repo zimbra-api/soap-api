@@ -27,11 +27,6 @@ class CheckHealthResponse extends SoapResponse
     /**
      * Flags whether healthy or not
      * 
-     * @Accessor(getter="isHealthy", setter="setHealthy")
-     * @SerializedName("healthy")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isHealthy', setter: 'setHealthy')]

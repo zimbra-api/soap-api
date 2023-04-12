@@ -27,11 +27,6 @@ class AdminCreateWaitSetResponse extends SoapResponse
     /**
      * WaitSet ID
      * 
-     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
-     * @SerializedName("waitSet")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -43,11 +38,6 @@ class AdminCreateWaitSetResponse extends SoapResponse
     /**
      * Default interest types: comma-separated list
      * 
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -57,12 +47,7 @@ class AdminCreateWaitSetResponse extends SoapResponse
     private $defaultInterests;
 
     /**
-     * sequence
-     * 
-     * @Accessor(getter="getSequence", setter="setSequence")
-     * @SerializedName("seq")
-     * @Type("int")
-     * @XmlAttribute
+     * Sequence
      * 
      * @var int
      */
@@ -74,10 +59,6 @@ class AdminCreateWaitSetResponse extends SoapResponse
 
     /**
      * Error information
-     * 
-     * @Accessor(getter="getErrors", setter="setErrors")
-     * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlList(inline=true, entry="error", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

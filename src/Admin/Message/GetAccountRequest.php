@@ -36,11 +36,6 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * 1 (true) [default] COS rules apply and unset attrs on an account will get their value from the COS
      * 0 (false) only attributes directly set on the account will be returned
      * 
-     * @Accessor(getter="isApplyCos", setter="setApplyCos")
-     * @SerializedName("applyCos")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isApplyCos', setter: 'setApplyCos')]
@@ -54,11 +49,6 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * 1 (true) zimbraMailQuota attribute will contain effective value
      * 0 (false) [default] zimbraMailQuota attribute will contain actual ldap value set
      * 
-     * @Accessor(getter="isEffectiveQuota", setter="setEffectiveQuota")
-     * @SerializedName("effectiveQuota")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isEffectiveQuota', setter: 'setEffectiveQuota')]
@@ -69,11 +59,6 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Account
-     * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */

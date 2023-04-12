@@ -30,11 +30,6 @@ class ReIndexRequest extends SoapRequest
     /**
      * Specify reindexing to perform
      * 
-     * @Accessor(getter="getMbox", setter="setMbox")
-     * @SerializedName("mbox")
-     * @Type("Zimbra\Admin\Struct\ReindexMailboxInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Mbox
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]
@@ -48,11 +43,6 @@ class ReIndexRequest extends SoapRequest
      * start: start compact indexing
      * status: show compact indexing status
      * cancel: cancel reindexing 
-     * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Enum<Zimbra\Common\Enum\ReIndexAction>")
-     * @XmlAttribute
      * 
      * @var Action
      */

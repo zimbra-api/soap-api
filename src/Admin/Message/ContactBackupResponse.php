@@ -29,12 +29,6 @@ class ContactBackupResponse extends SoapResponse
     /**
      * List of mailbox ids
      * 
-     * @Accessor(getter="getServers", setter="setServers")
-     * @SerializedName("servers")
-     * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getServers', setter: 'setServers')]
@@ -73,7 +67,9 @@ class ContactBackupResponse extends SoapResponse
      */
     public function setServers(array $servers): self
     {
-        $this->servers = array_filter($servers, static fn ($server) => $server instanceof ContactBackupServer);
+        $this->servers = array_filter(
+            $servers, static fn ($server) => $server instanceof ContactBackupServer
+        );
         return $this;
     }
 }

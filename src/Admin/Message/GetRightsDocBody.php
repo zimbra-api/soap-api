@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetRightsDocBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetRightsDocRequest")
-     * @Type("Zimbra\Admin\Message\GetRightsDocRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetRightsDocBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetRightsDocResponse")
-     * @Type("Zimbra\Admin\Message\GetRightsDocResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */
@@ -59,7 +53,9 @@ class GetRightsDocBody extends SoapBody
      * @param GetRightsDocResponse $response
      * @return self
      */
-    public function __construct(?GetRightsDocRequest $request = NULL, ?GetRightsDocResponse $response = NULL)
+    public function __construct(
+        ?GetRightsDocRequest $request = NULL, ?GetRightsDocResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
