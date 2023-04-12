@@ -17,7 +17,7 @@
         "php-http/discovery": "^1.0",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0",
-        "psr/log": "^1.0"
+        "psr/log": "^3.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.0",
