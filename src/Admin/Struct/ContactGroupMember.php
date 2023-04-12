@@ -23,14 +23,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
  */
 class ContactGroupMember
 {
-
     /**
      * Member type
-     * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -43,11 +37,6 @@ class ContactGroupMember
     /**
      * Member value
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("value")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -58,11 +47,6 @@ class ContactGroupMember
 
     /**
      * Contact information for dereferenced member.
-     * 
-     * @Accessor(getter="getContact", setter="setContact")
-     * @SerializedName("cn")
-     * @Type("Zimbra\Admin\Struct\ContactInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var ContactInfo
      */

@@ -26,11 +26,6 @@ class PackageRightsInfo
     /**
      * Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,10 +36,6 @@ class PackageRightsInfo
 
     /**
      * Command cmds information
-     * 
-     * @Accessor(getter="getCmds", setter="setCmds")
-     * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
-     * @XmlList(inline=true, entry="cmd", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

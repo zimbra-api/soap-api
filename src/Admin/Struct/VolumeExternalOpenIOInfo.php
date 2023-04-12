@@ -26,11 +26,6 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     /**
      * Specifies the standard HTTP URL for OpenIO
      * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -41,11 +36,6 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
 
     /**
      * Specifies OpenIO account name
-     * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     /**
      * Specifies OpenIO namespace
      * 
-     * @Accessor(getter="getNameSpace", setter="setNameSpace")
-     * @SerializedName("namespace")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getNameSpace', setter: 'setNameSpace')]
@@ -74,11 +59,6 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     /**
      * Specifies OpenIO proxy port
      * 
-     * @Accessor(getter="getProxyPort", setter="setProxyPort")
-     * @SerializedName("proxyPort")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getProxyPort', setter: 'setProxyPort')]
@@ -89,11 +69,6 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
 
     /**
      * Specifies OpenIO account port
-     * 
-     * @Accessor(getter="getAccountPort", setter="setAccountPort")
-     * @SerializedName("accountPort")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

@@ -26,11 +26,6 @@ class StatsInfo
     /**
      * Stat name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,11 +36,6 @@ class StatsInfo
 
     /**
      * Stats values
-     * 
-     * @Accessor(getter="getValues", setter="setValues")
-     * @SerializedName("values")
-     * @Type("Zimbra\Admin\Struct\StatsValues")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var StatsValues
      */

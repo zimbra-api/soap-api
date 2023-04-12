@@ -26,26 +26,16 @@ class ServerMailQueueDetails
     /**
      * Mail queue details
      * 
-     * @Accessor(getter="getQueue", setter="setQueue")
-     * @SerializedName("queue")
-     * @Type("Zimbra\Admin\Struct\MailQueueDetails")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var MailQueueDetails
      */
     #[Accessor(getter: 'getQueue', setter: 'setQueue')]
     #[SerializedName('queue')]
     #[Type(MailQueueDetails::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $queue;
+    private MailQueueDetails $queue;
 
     /**
      * MTA Server
-     * 
-     * @Accessor(getter="getServerName", setter="setServerName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

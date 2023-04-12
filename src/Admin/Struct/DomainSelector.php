@@ -27,11 +27,6 @@ class DomainSelector
     /**
      * Select the meaning of {acct-selector-key}
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\DomainBy>")
-     * @XmlAttribute
-     * 
      * @var DomainBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -42,10 +37,6 @@ class DomainSelector
 
     /**
      * The key used to identify the domain
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */
@@ -63,7 +54,7 @@ class DomainSelector
      */
     public function __construct(?DomainBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? new DomainBy('name'));
+        $this->setBy($by ?? DomainBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

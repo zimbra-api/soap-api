@@ -26,11 +26,6 @@ class CosCountInfo
     /**
      * Class Of Service (COS) name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,11 +36,6 @@ class CosCountInfo
 
     /**
      * Class Of Service (COS) ID
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,10 +49,6 @@ class CosCountInfo
      * Account count.
      * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, 
      * nor does it include any calendar resources.
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("int")
-     * @XmlValue(cdata=false)
      * 
      * @var int
      */

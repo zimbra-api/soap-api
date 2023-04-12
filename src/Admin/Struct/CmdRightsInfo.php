@@ -27,11 +27,6 @@ class CmdRightsInfo
     /**
      * Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,12 +37,6 @@ class CmdRightsInfo
 
     /**
      * Rights
-     * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("rights")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="right", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -60,12 +49,6 @@ class CmdRightsInfo
 
     /**
      * Notes
-     * 
-     * @Accessor(getter="getNotes", setter="setNotes")
-     * @SerializedName("desc")
-     * @Type("array<string>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="note", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

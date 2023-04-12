@@ -26,11 +26,6 @@ class AccountInfo extends AdminObjectInfo
     /**
      * Is external
      * 
-     * @Accessor(getter="getIsExternal", setter="setIsExternal")
-     * @SerializedName("isExternal")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getIsExternal', setter: 'setIsExternal')]

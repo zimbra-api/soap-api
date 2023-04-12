@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class ZimletInfo extends AdminObjectInfo
 {
     /**
-     * @Accessor(getter="getHasKeyword", setter="setHasKeyword")
-     * @SerializedName("hasKeyword")
-     * @Type("string")
-     * @XmlAttribute
+     * Has keyword
      * 
      * @var string
      */

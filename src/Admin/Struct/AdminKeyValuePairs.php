@@ -29,9 +29,6 @@ class AdminKeyValuePairs implements KeyValuePairs
     /**
      * Key value pairs
      * 
-     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
-     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

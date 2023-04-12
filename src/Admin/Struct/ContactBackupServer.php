@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\ContactBackupStatus;
 class ContactBackupServer
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -39,10 +36,7 @@ class ContactBackupServer
     private $name;
 
     /**
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\ContactBackupStatus>")
-     * @XmlAttribute
+     * Backup status
      * 
      * @var ContactBackupStatus
      */
@@ -62,7 +56,7 @@ class ContactBackupServer
     public function __construct(string $name = '', ?ContactBackupStatus $status = NULL)
     {
         $this->setName($name)
-             ->setStatus($status ?? new ContactBackupStatus('stopped'));
+             ->setStatus($status ?? ContactBackupStatus::STOPPED);
     }
 
     /**

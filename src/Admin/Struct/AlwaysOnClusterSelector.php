@@ -27,11 +27,6 @@ class AlwaysOnClusterSelector
     /**
      * Selects the meaning of alwaysOnCluster-key
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>")
-     * @XmlAttribute
-     * 
      * @var AlwaysOnClusterBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -42,10 +37,6 @@ class AlwaysOnClusterSelector
 
     /**
      * Key for choosing alwaysOnCluster
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */
@@ -65,7 +56,7 @@ class AlwaysOnClusterSelector
         ?AlwaysOnClusterBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setBy($by ?? new AlwaysOnClusterBy('id'));
+        $this->setBy($by ?? AlwaysOnClusterBy::ID);
         if (NULL !== $value) {
             $this->setValue($value);
         }

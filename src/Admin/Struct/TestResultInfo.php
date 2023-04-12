@@ -26,10 +26,6 @@ class TestResultInfo
     /**
      * Information for completed tests
      * 
-     * @Accessor(getter="getCompletedTests", setter="setCompletedTests")
-     * @Type("array<Zimbra\Admin\Struct\CompletedTestInfo>")
-     * @XmlList(inline=true, entry="completed", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCompletedTests', setter: 'setCompletedTests')]
@@ -39,10 +35,6 @@ class TestResultInfo
 
     /**
      * Information for failed tests
-     * 
-     * @Accessor(getter="getFailedTests", setter="setFailedTests")
-     * @Type("array<Zimbra\Admin\Struct\FailedTestInfo>")
-     * @XmlList(inline=true, entry="failure", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

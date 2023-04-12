@@ -27,11 +27,6 @@ class ReindexMailboxInfo
     /**
      * Account ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class ReindexMailboxInfo
      * Comma separated list of types.
      * Legal values are: conversation|message|contact|appointment|task|note|wiki|document
      * 
-     * @Accessor(getter="getTypes", setter="setTypes")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
@@ -59,11 +49,6 @@ class ReindexMailboxInfo
 
     /**
      * Comma separated list of IDs to re-index
-     * 
-     * @Accessor(getter="getIds", setter="setIds")
-     * @SerializedName("ids")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -135,7 +120,7 @@ class ReindexMailboxInfo
     public function setTypes(string $types): self
     {
         $types = array_map(static fn ($type) => trim($type), explode(',', $types));
-        $types = array_filter($types, static fn ($type) => ReindexType::isValid($type));
+        $types = array_filter($types, static fn ($type) => ReindexType::tryFrom($type));
         $this->types = implode(',', array_unique($types));
         return $this;
     }

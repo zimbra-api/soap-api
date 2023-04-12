@@ -27,26 +27,16 @@ class StoreManagerRuntimeSwitchResult
     /**
      * Status
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>")
-     * @XmlAttribute
-     * 
      * @var RuntimeSwitchStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>')]
     #[XmlAttribute]
-    private $status;
+    private RuntimeSwitchStatus $status;
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
-     * 
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("message")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -65,7 +55,7 @@ class StoreManagerRuntimeSwitchResult
      */
     public function __construct(?RuntimeSwitchStatus $status = NULL, ?string $message = NULL)
     {
-        $this->setStatus($status ?? new RuntimeSwitchStatus('SUCCESS'));
+        $this->setStatus($status ?? RuntimeSwitchStatus::SUCCESS);
         if (NULL !== $message) {
             $this->setMessage($message);
         }

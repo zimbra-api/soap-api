@@ -27,11 +27,6 @@ class LocaleInfo implements LocaleInterface
     /**
      * Locale ID.  e.g. "en_US"
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,11 +38,6 @@ class LocaleInfo implements LocaleInterface
     /**
      * Locale name - the name in the locale itself.  e.g. "English (United States)"
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -58,11 +48,6 @@ class LocaleInfo implements LocaleInterface
 
     /**
      * Locale name in the user's locale.  e.g. "English (United States)"
-     * 
-     * @Accessor(getter="getLocalName", setter="setLocalName")
-     * @SerializedName("localName")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

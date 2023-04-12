@@ -24,9 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 trait AdminAttrsImplTrait
 {
     /**
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * Attributes
      * 
      * @var array
      */
@@ -48,7 +46,7 @@ trait AdminAttrsImplTrait
     }
 
     /**
-     * Set attribute sequence
+     * Set attributes
      *
      * @param array $attrs
      * @return self
@@ -60,7 +58,7 @@ trait AdminAttrsImplTrait
     }
 
     /**
-     * Get attribute sequence
+     * Get attributes
      *
      * @return array
      */

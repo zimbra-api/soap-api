@@ -26,11 +26,6 @@ class MailboxWithMailboxId
     /**
      * Mailbox ID
      * 
-     * @Accessor(getter="getMbxid", setter="setMbxid")
-     * @SerializedName("mbxid")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMbxid', setter: 'setMbxid')]
@@ -42,11 +37,6 @@ class MailboxWithMailboxId
     /**
      * Account ID
      * 
-     * @Accessor(getter="getAccountId", setter="setAccountId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
@@ -57,11 +47,6 @@ class MailboxWithMailboxId
 
     /**
      * Size in bytes
-     * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

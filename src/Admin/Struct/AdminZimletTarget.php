@@ -27,10 +27,6 @@ class AdminZimletTarget implements ZimletTarget
     /**
      * Zimlet target
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

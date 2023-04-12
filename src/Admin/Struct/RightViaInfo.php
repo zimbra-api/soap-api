@@ -26,26 +26,16 @@ class RightViaInfo
     /**
      * Target
      * 
-     * @Accessor(getter="getTarget", setter="setTarget")
-     * @SerializedName("target")
-     * @Type("Zimbra\Admin\Struct\TargetWithType")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var TargetWithType
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
     #[SerializedName('target')]
     #[Type(TargetWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $target;
+    private TargetWithType $target;
 
     /**
      * Target
-     * 
-     * @Accessor(getter="getGrantee", setter="setGrantee")
-     * @SerializedName("grantee")
-     * @Type("Zimbra\Admin\Struct\GranteeWithType")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var GranteeWithType
      */
@@ -53,15 +43,10 @@ class RightViaInfo
     #[SerializedName('grantee')]
     #[Type(GranteeWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $grantee;
+    private GranteeWithType $grantee;
 
     /**
      * Target
-     * 
-     * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("right")
-     * @Type("Zimbra\Admin\Struct\CheckedRight")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var CheckedRight
      */
@@ -69,7 +54,7 @@ class RightViaInfo
     #[SerializedName('right')]
     #[Type(CheckedRight::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $right;
+    private CheckedRight $right;
 
     /**
      * Constructor

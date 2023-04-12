@@ -26,11 +26,6 @@ class TimeAttr
     /**
      * Time
      * 
-     * @Accessor(getter="getTime", setter="setTime")
-     * @SerializedName("time")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTime', setter: 'setTime')]

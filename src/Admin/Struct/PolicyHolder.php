@@ -25,11 +25,6 @@ use Zimbra\Mail\Struct\Policy;
 class PolicyHolder
 {
     /**
-     * @Accessor(getter="getPolicy", setter="setPolicy")
-     * @SerializedName("policy")
-     * @Type("Zimbra\Mail\Struct\Policy")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Policy
      */
     #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]

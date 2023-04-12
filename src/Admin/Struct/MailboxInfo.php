@@ -26,11 +26,6 @@ class MailboxInfo
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class MailboxInfo
 
     /**
      * Group ID
-     * 
-     * @Accessor(getter="getGroupId", setter="setGroupId")
-     * @SerializedName("groupId")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class MailboxInfo
     /**
      * Account ID
      * 
-     * @Accessor(getter="getAccountId", setter="setAccountId")
-     * @SerializedName("accountId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
@@ -73,11 +58,6 @@ class MailboxInfo
 
     /**
      * Index volume ID
-     * 
-     * @Accessor(getter="getIndexVolumeId", setter="setIndexVolumeId")
-     * @SerializedName("indexVolumeId")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -90,11 +70,6 @@ class MailboxInfo
     /**
      * Item ID checkpoint
      * 
-     * @Accessor(getter="getItemIdCheckPoint", setter="setItemIdCheckPoint")
-     * @SerializedName("itemIdCheckPoint")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getItemIdCheckPoint', setter: 'setItemIdCheckPoint')]
@@ -105,11 +80,6 @@ class MailboxInfo
 
     /**
      * Contact count
-     * 
-     * @Accessor(getter="getContactCount", setter="setContactCount")
-     * @SerializedName("contactCount")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -122,11 +92,6 @@ class MailboxInfo
     /**
      * Size checkpoint
      * 
-     * @Accessor(getter="getSizeCheckPoint", setter="setSizeCheckPoint")
-     * @SerializedName("sizeCheckPoint")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSizeCheckPoint', setter: 'setSizeCheckPoint')]
@@ -137,11 +102,6 @@ class MailboxInfo
 
     /**
      * Change checkpoint
-     * 
-     * @Accessor(getter="getChangeCheckPoint", setter="setChangeCheckPoint")
-     * @SerializedName("changeCheckPoint")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -154,11 +114,6 @@ class MailboxInfo
     /**
      * Tracking Sync
      * 
-     * @Accessor(getter="getTrackingSync", setter="setTrackingSync")
-     * @SerializedName("trackingSync")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTrackingSync', setter: 'setTrackingSync')]
@@ -169,11 +124,6 @@ class MailboxInfo
 
     /**
      * Tracking IMAP
-     * 
-     * @Accessor(getter="isTrackingImap", setter="setTrackingImap")
-     * @SerializedName("trackingImap")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -186,11 +136,6 @@ class MailboxInfo
     /**
      * Last Backup At
      * 
-     * @Accessor(getter="getLastBackupAt", setter="setLastBackupAt")
-     * @SerializedName("lastBackupAt")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLastBackupAt', setter: 'setLastBackupAt')]
@@ -202,11 +147,6 @@ class MailboxInfo
     /**
      * Last SOAP access
      * 
-     * @Accessor(getter="getLastSoapAccess", setter="setLastSoapAccess")
-     * @SerializedName("lastSoapAccess")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLastSoapAccess', setter: 'setLastSoapAccess')]
@@ -217,11 +157,6 @@ class MailboxInfo
 
     /**
      * New Messages
-     * 
-     * @Accessor(getter="getNewMessages", setter="setNewMessages")
-     * @SerializedName("newMessages")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

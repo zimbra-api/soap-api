@@ -25,11 +25,6 @@ use Zimbra\Common\Enum\{QueueAction, QueueActionBy};
 class MailQueueAction
 {
     /**
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("Zimbra\Admin\Struct\QueueQuery")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var QueueQuery
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
@@ -39,32 +34,22 @@ class MailQueueAction
     private $query;
 
     /**
-     * @Accessor(getter="getOp", setter="setOp")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\QueueAction>")
-     * @XmlAttribute
-     * 
      * @var QueueAction
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
     #[SerializedName('op')]
     #[Type('Enum<Zimbra\Common\Enum\QueueAction>')]
     #[XmlAttribute]
-    private $op;
+    private QueueAction $op;
 
     /**
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\QueueActionBy>")
-     * @XmlAttribute
-     * 
      * @var QueueActionBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\QueueActionBy>')]
     #[XmlAttribute]
-    private $by;
+    private QueueActionBy $by;
 
     /**
      * Constructor
@@ -79,8 +64,8 @@ class MailQueueAction
     )
     {
         $this->setQuery($query)
-             ->setOp($op ?? new QueueAction('hold'))
-             ->setBy($by ?? new QueueActionBy('query'));
+             ->setOp($op ?? QueueAction::HOLD)
+             ->setBy($by ?? QueueActionBy::QUERY);
     }
 
     /**

@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class HostName
 {
     /**
-     * @Accessor(getter="getHostName", setter="setHostName")
-     * @SerializedName("hn")
-     * @Type("string")
-     * @XmlAttribute
+     * Host name
      * 
      * @var string
      */

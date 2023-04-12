@@ -27,11 +27,6 @@ class WaitSetInfo
     /**
      * WaitSet ID
      * 
-     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -42,11 +37,6 @@ class WaitSetInfo
 
     /**
      * WaitSet owner account ID
-     * 
-     * @Accessor(getter="getOwner", setter="setOwner")
-     * @SerializedName("owner")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class WaitSetInfo
      * Default interest types: comma-separated list.
      * all: all types (equiv to "f,m,c,a,t,d") 
      * 
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -76,11 +61,6 @@ class WaitSetInfo
     /**
      * Last access date
      * 
-     * @Accessor(getter="getLastAccessDate", setter="setLastAccessDate")
-     * @SerializedName("ld")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLastAccessDate', setter: 'setLastAccessDate')]
@@ -91,12 +71,6 @@ class WaitSetInfo
 
     /**
      * Error information
-     * 
-     * @Accessor(getter="getErrors", setter="setErrors")
-     * @SerializedName("errors")
-     * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="error", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -110,11 +84,6 @@ class WaitSetInfo
     /**
      * Comma separated list of account IDs
      * 
-     * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
-     * @SerializedName("ready")
-     * @Type("Zimbra\Admin\Struct\AccountsAttrib")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AccountsAttrib
      */
     #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
@@ -125,11 +94,6 @@ class WaitSetInfo
 
     /**
      * CB sequence number
-     * 
-     * @Accessor(getter="getCbSeqNo", setter="setCbSeqNo")
-     * @SerializedName("cbSeqNo")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -142,11 +106,6 @@ class WaitSetInfo
     /**
      * Current sequence number
      * 
-     * @Accessor(getter="getCurrentSeqNo", setter="setCurrentSeqNo")
-     * @SerializedName("currentSeqNo")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCurrentSeqNo', setter: 'setCurrentSeqNo')]
@@ -157,11 +116,6 @@ class WaitSetInfo
 
     /**
      * Next sequence number
-     * 
-     * @Accessor(getter="getNextSeqNo", setter="setNextSeqNo")
-     * @SerializedName("nextSeqNo")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -174,12 +128,6 @@ class WaitSetInfo
     /**
      * Buffered commit information
      * 
-     * @Accessor(getter="getBufferedCommits", setter="setBufferedCommits")
-     * @SerializedName("buffered")
-     * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="commit", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getBufferedCommits', setter: 'setBufferedCommits')]
@@ -191,10 +139,6 @@ class WaitSetInfo
 
     /**
      * Session information
-     * 
-     * @Accessor(getter="getSessions", setter="setSessions")
-     * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
-     * @XmlList(inline=true, entry="session", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

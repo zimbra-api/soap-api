@@ -27,11 +27,6 @@ class FreeBusyQueueProvider
     /**
      * Provider name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,10 +37,6 @@ class FreeBusyQueueProvider
 
     /**
      * Information on accounts
-     * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

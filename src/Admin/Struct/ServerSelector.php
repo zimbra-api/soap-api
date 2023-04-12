@@ -27,25 +27,16 @@ class ServerSelector
     /**
      * Selects the meaning of {server-key}
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\ServerBy>")
-     * @XmlAttribute
-     * 
      * @var ServerBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\ServerBy>')]
     #[XmlAttribute]
-    private $by;
+    private ServerBy $by;
 
     /**
      * Key for choosing server
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */
@@ -63,7 +54,7 @@ class ServerSelector
      */
     public function __construct(?ServerBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? new ServerBy('name'));
+        $this->setBy($by ?? ServerBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -27,11 +27,6 @@ class ZimletDeploymentStatus
     /**
      * Server name
      * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
@@ -43,25 +38,16 @@ class ZimletDeploymentStatus
     /**
      * Status - valid values succeeded|failed|pending
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")
-     * @XmlAttribute
      * @var ZimletDeployStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletDeployStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ZimletDeployStatus $status;
 
     /**
      * Error message
-     * 
-     * @Accessor(getter="getError", setter="setError")
-     * @SerializedName("error")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -84,7 +70,7 @@ class ZimletDeploymentStatus
     )
     {
         $this->setServer($server)
-             ->setStatus($status ?? new ZimletDeployStatus('succeeded'));
+             ->setStatus($status ?? ZimletDeployStatus::SUCCEEDED);
         if (NULL !== $error) {
             $this->setError($error);
         }

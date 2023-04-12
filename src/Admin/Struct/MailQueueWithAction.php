@@ -26,26 +26,16 @@ class MailQueueWithAction
     /**
      * Action
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Admin\Struct\MailQueueAction")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var MailQueueAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
     #[Type(MailQueueAction::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $action;
+    private MailQueueAction $action;
 
     /**
      * Queue name
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

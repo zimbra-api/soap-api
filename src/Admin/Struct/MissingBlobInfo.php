@@ -26,11 +26,6 @@ class MissingBlobInfo
     /**
      * id
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class MissingBlobInfo
 
     /**
      * revision
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class MissingBlobInfo
     /**
      * Data size
      * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
@@ -73,11 +58,6 @@ class MissingBlobInfo
 
     /**
      * volume id
-     * 
-     * @Accessor(getter="getVolumeId", setter="setVolumeId")
-     * @SerializedName("volumeId")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -90,11 +70,6 @@ class MissingBlobInfo
     /**
      * Blob path
      * 
-     * @Accessor(getter="getBlobPath", setter="setBlobPath")
-     * @SerializedName("blobPath")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getBlobPath', setter: 'setBlobPath')]
@@ -106,11 +81,6 @@ class MissingBlobInfo
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
      * 
-     * @Accessor(getter="getExternal", setter="setExternal")
-     * @SerializedName("external")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getExternal', setter: 'setExternal')]
@@ -121,11 +91,6 @@ class MissingBlobInfo
 
     /**
      * version
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("version")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

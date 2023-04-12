@@ -28,11 +28,6 @@ class RightsAttrs
     /**
      * All flag
      * 
-     * @Accessor(getter="getAll", setter="setAll")
-     * @SerializedName("all")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAll', setter: 'setAll')]

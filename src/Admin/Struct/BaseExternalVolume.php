@@ -26,11 +26,6 @@ abstract class BaseExternalVolume
     /**
      * Set to 1 for Internal and 2 for External.
      * 
-     * @Accessor(getter="getStorageType", setter="setStorageType")
-     * @SerializedName("storageType")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getStorageType', setter: 'setStorageType')]

@@ -26,11 +26,6 @@ class DomainAggregateQuotaInfo
     /**
      * Domain name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,11 +37,6 @@ class DomainAggregateQuotaInfo
     /**
      * Domain id
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -57,11 +47,6 @@ class DomainAggregateQuotaInfo
 
     /**
      * Quota used on server
-     * 
-     * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
-     * @SerializedName("used")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

@@ -27,25 +27,16 @@ class UcServiceSelector
     /**
      * Selects the meaning of {ucservice-key}
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\UcServiceBy>")
-     * @XmlAttribute
-     * 
      * @var UcServiceBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\UcServiceBy>')]
     #[XmlAttribute]
-    private $by;
+    private UcServiceBy $by;
 
     /**
      * Key for choosing ucservice
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */
@@ -63,7 +54,7 @@ class UcServiceSelector
      */
     public function __construct(?UcServiceBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? new UcServiceBy('id'));
+        $this->setBy($by ?? UcServiceBy::ID);
         if (NULL !== $value) {
             $this->setValue($value);
         }

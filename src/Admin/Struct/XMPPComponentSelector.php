@@ -27,25 +27,16 @@ class XMPPComponentSelector
     /**
      * Select the meaning of {xmpp-comp-selector-key}
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\XmppComponentBy>")
-     * @XmlAttribute
-     * 
      * @var XmppComponentBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\XmppComponentBy>')]
     #[XmlAttribute]
-    private $by;
+    private XmppComponentBy $by;
 
     /**
      * The key used to identify the XMPP component
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */
@@ -63,7 +54,7 @@ class XMPPComponentSelector
      */
     public function __construct(?XmppComponentBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? new XmppComponentBy('id'));
+        $this->setBy($by ?? XmppComponentBy::ID);
         if (NULL !== $value) {
             $this->setValue($value);
         }

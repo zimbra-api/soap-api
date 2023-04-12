@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class ValueAttrib
 {
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("value")
-     * @Type("string")
-     * @XmlAttribute
+     * Value
      * 
      * @var string
      */

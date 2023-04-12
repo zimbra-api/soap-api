@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\ZimletProperty;
 class AdminZimletProperty implements ZimletProperty
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -39,9 +36,7 @@ class AdminZimletProperty implements ZimletProperty
     private $name;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */

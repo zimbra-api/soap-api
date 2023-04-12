@@ -26,11 +26,6 @@ class UnexpectedBlobInfo
     /**
      * Volume ID
      * 
-     * @Accessor(getter="getVolumeId", setter="setVolumeId")
-     * @SerializedName("volumeId")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
@@ -41,11 +36,6 @@ class UnexpectedBlobInfo
 
     /**
      * Path
-     * 
-     * @Accessor(getter="getPath", setter="setPath")
-     * @SerializedName("path")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class UnexpectedBlobInfo
     /**
      * File size
      * 
-     * @Accessor(getter="getFileSize", setter="setFileSize")
-     * @SerializedName("fileSize")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
@@ -73,11 +58,6 @@ class UnexpectedBlobInfo
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
-     * 
-     * @Accessor(getter="getExternal", setter="setExternal")
-     * @SerializedName("external")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

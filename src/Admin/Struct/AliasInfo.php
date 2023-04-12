@@ -27,11 +27,6 @@ class AliasInfo extends AdminObjectInfo
     /**
      * Target name
      * 
-     * @Accessor(getter="getTargetName", setter="setTargetName")
-     * @SerializedName("targetName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTargetName', setter: 'setTargetName')]
@@ -43,18 +38,13 @@ class AliasInfo extends AdminObjectInfo
     /**
      * Target type
      * 
-     * @Accessor(getter="getTargetType", setter="setTargetType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
-     * @XmlAttribute
-     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $targetType;
+    private ?TargetType $targetType;
 
     /**
      * Constructor
@@ -76,9 +66,7 @@ class AliasInfo extends AdminObjectInfo
     {
         parent::__construct($name, $id, $attrs);
         $this->setTargetName($targetName);
-        if ($targetType instanceof TargetType) {
-            $this->setTargetType($targetType);
-        }
+        $this->targetType = $targetType;
     }
 
     /**

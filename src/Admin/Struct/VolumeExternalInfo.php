@@ -26,11 +26,6 @@ class VolumeExternalInfo extends BaseExternalVolume
     /**
      * Prefix for bucket location e.g. server1_primary
      * 
-     * @Accessor(getter="getVolumePrefix", setter="setVolumePrefix")
-     * @SerializedName("volumePrefix")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getVolumePrefix', setter: 'setVolumePrefix')]
@@ -41,11 +36,6 @@ class VolumeExternalInfo extends BaseExternalVolume
 
     /**
      * Specifies global bucket configuration Id
-     * 
-     * @Accessor(getter="getGlobalBucketConfigurationId", setter="setGlobalBucketConfigurationId")
-     * @SerializedName("globalBucketConfigId")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class VolumeExternalInfo extends BaseExternalVolume
     /**
      * Specifies frequent access enabled or not
      * 
-     * @Accessor(getter="isUseInFrequentAccess", setter="setUseInFrequentAccess")
-     * @SerializedName("useInFrequentAccess")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isUseInFrequentAccess', setter: 'setUseInFrequentAccess')]
@@ -74,11 +59,6 @@ class VolumeExternalInfo extends BaseExternalVolume
     /**
      * Specifies threshold value of useInFrequentAccess
      * 
-     * @Accessor(getter="getUseInFrequentAccessThreshold", setter="setUseInFrequentAccessThreshold")
-     * @SerializedName("useInFrequentAccessThreshold")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getUseInFrequentAccessThreshold', setter: 'setUseInFrequentAccessThreshold')]
@@ -89,11 +69,6 @@ class VolumeExternalInfo extends BaseExternalVolume
 
     /**
      * Specifies intelligent tiering enabled or not
-     * 
-     * @Accessor(getter="isUseIntelligentTiering", setter="setUseIntelligentTiering")
-     * @SerializedName("useIntelligentTiering")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

@@ -26,11 +26,6 @@ class ZimletStatusCos
     /**
      * Class Of Service (COS) name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,10 +36,6 @@ class ZimletStatusCos
 
     /**
      * Information on zimlet status
-     * 
-     * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
-     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

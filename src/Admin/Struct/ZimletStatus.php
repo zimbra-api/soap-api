@@ -27,11 +27,6 @@ class ZimletStatus
     /**
      * Zimlet name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -43,26 +38,16 @@ class ZimletStatus
     /**
      * Status
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
-     * @XmlAttribute
-     * 
      * @var ZimletStatusSetting
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletStatusSetting>')]
     #[XmlAttribute]
-    private $status;
+    private ZimletStatusSetting $status;
 
     /**
      * Extension
-     * 
-     * @Accessor(getter="getExtension", setter="setExtension")
-     * @SerializedName("extension")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -74,11 +59,6 @@ class ZimletStatus
 
     /**
      * Priority
-     * 
-     * @Accessor(getter="getPriority", setter="setPriority")
-     * @SerializedName("priority")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -105,7 +85,7 @@ class ZimletStatus
     )
     {
         $this->setName($name)
-             ->setStatus($status ?? new ZimletStatusSetting('enabled'))
+             ->setStatus($status ?? ZimletStatusSetting::ENABLED)
              ->setExtension($extension);
         if (NULL !== $priority) {
             $this->setPriority($priority);

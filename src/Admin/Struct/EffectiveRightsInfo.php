@@ -26,10 +26,6 @@ class EffectiveRightsInfo
     /**
      * Rights
      * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @Type("array<Zimbra\Admin\Struct\RightWithName>")
-     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
@@ -39,11 +35,6 @@ class EffectiveRightsInfo
 
     /**
      * All attributes that can be set
-     * 
-     * @Accessor(getter="getSetAttrs", setter="setSetAttrs")
-     * @SerializedName("setAttrs")
-     * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var EffectiveAttrsInfo
      */
@@ -55,11 +46,6 @@ class EffectiveRightsInfo
 
     /**
      * All attributes that can be got
-     * 
-     * @Accessor(getter="getGetAttrs", setter="setGetAttrs")
-     * @SerializedName("getAttrs")
-     * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var EffectiveAttrsInfo
      */

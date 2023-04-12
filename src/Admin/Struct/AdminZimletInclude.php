@@ -27,10 +27,6 @@ class AdminZimletInclude implements ZimletInclude
     /**
      * Included script
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
