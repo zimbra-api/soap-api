@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * InviteChange enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class InviteChange extends Enum
+enum InviteChange: string
 {
     /**
      * Constant for value 'subject'
      * @return string 'subject'
      */
-    protected const SUBJECT = 'subject';
+    case SUBJECT = 'subject';
 
     /**
      * Constant for value 'location'
      * @return string 'location'
      */
-    protected const LOCATION = 'location';
+    case LOCATION = 'location';
 
     /**
      * Constant for value 'time'
      * @return string 'time'
      */
-    protected const TIME = 'time';
+    case TIME = 'time';
 
     /**
      * Constant for value 'recurrence'
      * @return string 'recurrence'
      */
-    protected const RECURRENCE = 'recurrence';
+    case RECURRENCE = 'recurrence';
 }

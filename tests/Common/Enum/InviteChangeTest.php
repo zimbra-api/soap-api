@@ -18,8 +18,9 @@ class InviteChangeTest extends TestCase
             'TIME'       => 'time',
             'RECURRENCE' => 'recurrence',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(InviteChange::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(InviteChange::from($value)->name, $name);
+            $this->assertSame(InviteChange::from($value)->value, $value);
         }
     }
 }

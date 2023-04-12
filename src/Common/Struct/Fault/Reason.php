@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 class Reason
 {
     /**
-     * @Accessor(getter="getText", setter="setText")
-     * @SerializedName("Text")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="http://www.w3.org/2003/05/soap-envelope")
+     * Text
      * 
      * @var string
      */

@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckRightsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CheckRightsRequest")
-     * @Type("Zimbra\Account\Message\CheckRightsRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class CheckRightsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CheckRightsResponse")
-     * @Type("Zimbra\Account\Message\CheckRightsResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */

@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyZimletPrefsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ModifyZimletPrefsRequest")
-     * @Type("Zimbra\Account\Message\ModifyZimletPrefsRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class ModifyZimletPrefsBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ModifyZimletPrefsResponse")
-     * @Type("Zimbra\Account\Message\ModifyZimletPrefsResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */

@@ -21,23 +21,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RuntimeSwitchStatus extends Enum
+enum RuntimeSwitchStatus: string
 {
     /**
      * Constant for value 'SUCCESS'
      * @return string 'SUCCESS'
      */
-    protected const SUCCESS = 'SUCCESS';
+    case SUCCESS = 'SUCCESS';
 
     /**
      * Constant for value 'FAIL'
      * @return string 'FAIL'
      */
-    protected const FAIL = 'FAIL';
+    case FAIL = 'FAIL';
 
     /**
      * Constant for value 'NO_OPERATION'
      * @return string 'NO_OPERATION'
      */
-    protected const NO_OPERATION = 'NO_OPERATION';
+    case NO_OPERATION = 'NO_OPERATION';
 }

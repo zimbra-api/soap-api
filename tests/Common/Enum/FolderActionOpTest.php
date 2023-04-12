@@ -36,8 +36,9 @@ class FolderActionOpTest extends TestCase
             'DISABLE_ACTIVE_SYNC'     => 'disableactivesync',
             'NOT_DISABLE_ACTIVE_SYNC' => '!disableactivesync',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(FolderActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(FolderActionOp::from($value)->name, $name);
+            $this->assertSame(FolderActionOp::from($value)->value, $value);
         }
     }
 }

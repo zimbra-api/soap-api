@@ -26,11 +26,6 @@ class DLInfo extends ObjectInfo
     /**
      * ldap dn of the DL.
      * 
-     * @Accessor(getter="getRef", setter="setRef")
-     * @SerializedName("ref")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRef', setter: 'setRef')]
@@ -42,11 +37,6 @@ class DLInfo extends ObjectInfo
     /**
      * Display name of group
      * 
-     * @Accessor(getter="getDisplayName", setter="setDisplayName")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -57,11 +47,6 @@ class DLInfo extends ObjectInfo
 
     /**
      * Flags whether the group is dynamic or not
-     * 
-     * @Accessor(getter="isDynamic", setter="setDynamic")
-     * @SerializedName("dynamic")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -76,11 +61,6 @@ class DLInfo extends ObjectInfo
      * Present if the account is a member of the returned list because they are either a
      * direct or indirect member of another list that is a member of the returned list.
      * 
-     * @Accessor(getter="getVia", setter="setVia")
-     * @SerializedName("via")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getVia', setter: 'setVia')]
@@ -93,11 +73,6 @@ class DLInfo extends ObjectInfo
      * Flags whether user is the owner of the group.
      * Only returned if ownerOf on the request is 1 (true)
      * 
-     * @Accessor(getter="isOwner", setter="setIsOwner")
-     * @SerializedName("isOwner")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
@@ -109,11 +84,6 @@ class DLInfo extends ObjectInfo
     /**
      * Flags whether user is a member of the group.
      * Only returned if memberOf on the request is 1 (true)
-     * 
-     * @Accessor(getter="isMember", setter="setIsMember")
-     * @SerializedName("isMember")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

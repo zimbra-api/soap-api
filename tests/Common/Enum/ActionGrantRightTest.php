@@ -23,8 +23,9 @@ class ActionGrantRightTest extends TestCase
             'VIEW_FREEBUSY'    => 'f',
             'CREATE_SUBFOLDER' => 'c',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ActionGrantRight::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ActionGrantRight::from($value)->name, $name);
+            $this->assertSame(ActionGrantRight::from($value)->value, $value);
         }
     }
 }

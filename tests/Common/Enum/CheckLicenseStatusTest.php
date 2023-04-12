@@ -14,11 +14,12 @@ class CheckLicenseStatusTest extends TestCase
     {
         $values = [
             'OK' => 'ok',
-            'NO'  => 'no',
-            'IN_GRACE_PERIOD'  => 'inGracePeriod',
+            'NO' => 'no',
+            'IN_GRACE_PERIOD' => 'inGracePeriod',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(CheckLicenseStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(CheckLicenseStatus::from($value)->name, $name);
+            $this->assertSame(CheckLicenseStatus::from($value)->value, $value);
         }
     }
 }

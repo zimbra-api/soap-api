@@ -27,10 +27,6 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     /**
      * Global zimlet configuration property
      * 
-     * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
-     * @Type("array<Zimbra\Account\Struct\AccountZimletProperty>")
-     * @XmlList(inline=true, entry="property", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]

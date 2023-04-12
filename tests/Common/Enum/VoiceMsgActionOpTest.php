@@ -19,8 +19,9 @@ class VoiceMsgActionOpTest extends TestCase
             'IS_EMPTY' => 'empty',
             'DELETE'   => 'delete',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(VoiceMsgActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(VoiceMsgActionOp::from($value)->value, $value);
+            $this->assertSame(VoiceMsgActionOp::from($value)->name, $name);
         }
     }
 }

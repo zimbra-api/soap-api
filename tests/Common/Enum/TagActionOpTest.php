@@ -20,8 +20,9 @@ class TagActionOpTest extends TestCase
             'UPDATE'    => 'update',
             'RETENTION' => 'retentionpolicy',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(TagActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(TagActionOp::from($value)->name, $name);
+            $this->assertSame(TagActionOp::from($value)->value, $value);
         }
     }
 }

@@ -26,11 +26,6 @@ class VersionInfo
     /**
      * Full version string
      * 
-     * @Accessor(getter="getFullVersion", setter="setFullVersion")
-     * @SerializedName("version")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFullVersion', setter: 'setFullVersion')]
@@ -41,11 +36,6 @@ class VersionInfo
 
     /**
      * Release string
-     * 
-     * @Accessor(getter="getRelease", setter="setRelease")
-     * @SerializedName("release")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class VersionInfo
     /**
      * Build date in format: YYYYMMDD-hhmm
      * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("buildDate")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
@@ -73,11 +58,6 @@ class VersionInfo
 
     /**
      * Build host name
-     * 
-     * @Accessor(getter="getHost", setter="setHost")
-     * @SerializedName("host")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

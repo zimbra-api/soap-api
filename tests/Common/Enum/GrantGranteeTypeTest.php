@@ -22,8 +22,9 @@ class GrantGranteeTypeTest extends TestCase
             'GUEST' => 'guest',
             'KEY'   => 'key',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(GrantGranteeType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(GrantGranteeType::from($value)->name, $name);
+            $this->assertSame(GrantGranteeType::from($value)->value, $value);
         }
     }
 }

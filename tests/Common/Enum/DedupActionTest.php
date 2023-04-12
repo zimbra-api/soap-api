@@ -18,8 +18,9 @@ class DedupActionTest extends TestCase
             'STOP'   => 'stop',
             'RESET'  => 'reset',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DedupAction::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DedupAction::from($value)->name, $name);
+            $this->assertSame(DedupAction::from($value)->value, $value);
         }
     }
 }

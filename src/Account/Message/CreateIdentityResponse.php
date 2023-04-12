@@ -28,11 +28,6 @@ class CreateIdentityResponse extends SoapResponse
     /**
      * Information about created identity
      * 
-     * @Accessor(getter="getIdentity", setter="setIdentity")
-     * @SerializedName("identity")
-     * @Type("Zimbra\Account\Struct\Identity")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var Identity
      */
     #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]

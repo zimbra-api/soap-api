@@ -22,8 +22,9 @@ class MsgActionOpTest extends TestCase
             'SPAM'   => 'spam',
             'TRASH'  => 'trash',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(MsgActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(MsgActionOp::from($value)->name, $name);
+            $this->assertSame(MsgActionOp::from($value)->value, $value);
         }
     }
 }

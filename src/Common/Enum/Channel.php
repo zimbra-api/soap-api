@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Channel enum class
  *
@@ -21,11 +19,11 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Channel extends Enum
+enum Channel: string
 {
     /**
      * Constant for value 'email'
      * @return string 'email'
      */
-    protected const EMAIL = 'email';
+    case EMAIL = 'email';
 }

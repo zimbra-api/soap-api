@@ -17,8 +17,9 @@ class AutoProvTaskActionTest extends TestCase
             'STATUS' => 'status',
             'STOP'   => 'stop',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AutoProvTaskAction::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AutoProvTaskAction::from($value)->name, $name);
+            $this->assertSame(AutoProvTaskAction::from($value)->value, $value);
         }
     }
 }

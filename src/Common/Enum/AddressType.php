@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AddressType enum class
  *
@@ -21,53 +19,53 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AddressType extends Enum
+enum AddressType: string
 {
     /**
      * Constant for value FROM
      * @return string 'f'
      */
-    protected const FRO = 'f';
+    case FROM = 'f';
 
     /**
      * Constant for value TO
      * @return string 't'
      */
-    protected const TO = 't';
+    case TO = 't';
 
     /**
      * Constant for value CC
      * @return string 'c'
      */
-    protected const CC = 'c';
+    case CC = 'c';
 
     /**
      * Constant for value BCC
      * @return string 'b'
      */
-    protected const BCC = 'b';
+    case BCC = 'b';
 
     /**
      * Constant for value REPLY_TO
      * @return string 'r'
      */
-    protected const REPLY_TO = 'r';
+    case REPLY_TO = 'r';
 
     /**
      * Constant for value SENDER
      * @return string 's'
      */
-    protected const SENDER = 's';
+    case SENDER = 's';
 
     /**
      * Constant for value NOTIFICATION
      * @return string 'n'
      */
-    protected const NOTIFICATION = 'n';
+    case NOTIFICATION = 'n';
 
     /**
      * Constant for value RESENT_FROM
      * @return string 'rf'
      */
-    protected const RESENT_FROM = 'rf';
+    case RESENT_FROM = 'rf';
 }

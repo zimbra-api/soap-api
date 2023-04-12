@@ -122,9 +122,6 @@ final class SerializerFactory
         if (NULL !== self::$cacheDir) {
             self::$builder->setCacheDir(self::$cacheDir);
         }
-        if (PHP_VERSION_ID >= 80000) {
-            self::$builder->setMetadataDriverFactory(new AttributeDriverFactory());
-        }
 
         return self::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
             if (!empty(self::$serializerHandlers)) {
@@ -134,6 +131,7 @@ final class SerializerFactory
                 }
             }
         })
+        ->setMetadataDriverFactory(new AttributeDriverFactory())
         ->setObjectConstructor(new ObjectConstructor())
         ->build();
     }

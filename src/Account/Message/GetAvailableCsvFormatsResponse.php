@@ -27,10 +27,6 @@ class GetAvailableCsvFormatsResponse extends SoapResponse
     /**
      * Information about csvFormats
      * 
-     * @Accessor(getter="getCsvFormats", setter="setCsvFormats")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="csv", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCsvFormats', setter: 'setCsvFormats')]

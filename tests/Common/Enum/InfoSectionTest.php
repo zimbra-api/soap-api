@@ -23,8 +23,9 @@ class InfoSectionTest extends TestCase
             'DSRCS'   => 'dsrcs',
             'CHILDREN'   => 'children',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(InfoSection::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(InfoSection::from($value)->name, $name);
+            $this->assertSame(InfoSection::from($value)->value, $value);
         }
     }
 }

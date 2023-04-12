@@ -16,8 +16,9 @@ class TransparencyTest extends TestCase
             'OPAQUE'      => 'O',
             'TRANSPARENT' => 'T',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(Transparency::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(Transparency::from($value)->value, $value);
+            $this->assertSame(Transparency::from($value)->name, $name);
         }
     }
 }

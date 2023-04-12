@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class ChangeInfo
 {
     /**
-     * @Accessor(getter="getChangeId", setter="setChangeId")
-     * @SerializedName("token")
-     * @Type("string")
-     * @XmlAttribute
+     * Change id
      * 
      * @var string
      */
@@ -38,10 +35,7 @@ class ChangeInfo
     private $changeId;
 
     /**
-     * @Accessor(getter="getChangeType", setter="setChangeType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
+     * Change type
      * 
      * @var string
      */

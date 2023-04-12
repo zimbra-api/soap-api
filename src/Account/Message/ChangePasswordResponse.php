@@ -27,10 +27,6 @@ class ChangePasswordResponse extends SoapResponse
     /**
      * New authToken, as old authToken is invalidated on password change.
      * 
-     * @Accessor(getter="getAuthToken", setter="setAuthToken")
-     * @SerializedName("authToken")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -42,11 +38,6 @@ class ChangePasswordResponse extends SoapResponse
 
     /**
      * Life time associated with {new-auth-token}
-     * 
-     * @Accessor(getter="getLifetime", setter="setLifetime")
-     * @SerializedName("lifetime")
-     * @Type("int")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var int
      */

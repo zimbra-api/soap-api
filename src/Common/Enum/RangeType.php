@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RangeType enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RangeType extends Enum
+enum RangeType: int
 {
     /**
      * Constant for value 'NONE'
      * @return int 1
      */
-    protected const NONE = 1;
+    case NONE = 1;
 
     /**
      * Constant for value 'THISANDFUTURE'
      * @return int 2
      */
-    protected const THISANDFUTURE = 2;
+    case THISANDFUTURE = 2;
 
     /**
      * Constant for value THISANDPRIOR
      * @return int 3
      */
-    protected const THISANDPRIOR = 3;
+    case THISANDPRIOR = 3;
 }

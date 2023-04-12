@@ -17,8 +17,9 @@ class DistributionListSubscribeStatusTest extends TestCase
             'UNSUBSCRIBED' => 'unsubscribed',
             'AWAITING_APPROVAL' => 'awaiting_approval',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DistributionListSubscribeStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DistributionListSubscribeStatus::from($value)->name, $name);
+            $this->assertSame(DistributionListSubscribeStatus::from($value)->value, $value);
         }
     }
 }

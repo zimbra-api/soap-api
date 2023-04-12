@@ -28,11 +28,6 @@ class AccountZimletContext implements ZimletContextInterface
     /**
      * Zimlet Base URL
      * 
-     * @Accessor(getter="getZimletBaseUrl", setter="setZimletBaseUrl")
-     * @SerializedName("baseUrl")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getZimletBaseUrl', setter: 'setZimletBaseUrl')]
@@ -42,12 +37,7 @@ class AccountZimletContext implements ZimletContextInterface
     private $zimletBaseUrl;
 
     /**
-     * Zimlet Priority
-     * 
-     * @Accessor(getter="getZimletPriority", setter="setZimletPriority")
-     * @SerializedName("priority")
-     * @Type("int")
-     * @XmlAttribute
+     * Zimlet priority
      * 
      * @var int
      */
@@ -59,12 +49,7 @@ class AccountZimletContext implements ZimletContextInterface
 
     /**
      * Zimlet presence
-     * 
      * Valid values: mandatory | enabled | disabled
-     * @Accessor(getter="getZimletPresence", setter="setZimletPresence")
-     * @SerializedName("presence")
-     * @Type("Enum<Zimbra\Common\Enum\ZimletPresence>")
-     * @XmlAttribute
      * 
      * @var ZimletPresence
      */
@@ -89,7 +74,7 @@ class AccountZimletContext implements ZimletContextInterface
     )
     {
         $this->setZimletBaseUrl($baseUrl)
-             ->setZimletPresence($presence ?? new ZimletPresence('enabled'));
+             ->setZimletPresence($presence ?? ZimletPresence::ENABLED);
         if (NULL !== $priority) {
             $this->setZimletPriority($priority);
         }

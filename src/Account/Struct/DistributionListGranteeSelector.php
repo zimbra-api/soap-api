@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\{DistributionListGranteeBy, GranteeType};
 class DistributionListGranteeSelector
 {
     /**
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
-     * @XmlAttribute
+     * Type
      * 
      * @var GranteeType
      */
@@ -39,10 +36,7 @@ class DistributionListGranteeSelector
     private GranteeType $type;
 
     /**
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\DistributionListGranteeBy>")
-     * @XmlAttribute
+     * Grantee by
      * 
      * @var DistributionListGranteeBy
      */
@@ -53,9 +47,7 @@ class DistributionListGranteeSelector
     private DistributionListGranteeBy $by;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */
@@ -76,8 +68,8 @@ class DistributionListGranteeSelector
         ?GranteeType $type = NULL, ?DistributionListGranteeBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setType($type ?? new GranteeType('all'))
-             ->setBy($by ?? new DistributionListGranteeBy('name'));
+        $this->setType($type ?? new GranteeType::ALL)
+             ->setBy($by ?? new DistributionListGranteeBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -17,8 +17,9 @@ class XmppComponentByTest extends TestCase
             'NAME'             => 'name',
             'SERVICE_HOSTNAME' => 'serviceHostname',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(XmppComponentBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(XmppComponentBy::from($value)->value, $value);
+            $this->assertSame(XmppComponentBy::from($value)->name, $name);
         }
     }
 }

@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\AuthTokenControl;
 class Context
 {
     /**
-     * @Accessor(getter="getHopCount", setter="setHopCount")
-     * @SerializedName("hops")
-     * @Type("int")
-     * @XmlAttribute
+     * Hop count
      * 
      * @var int
      */
@@ -39,10 +36,7 @@ class Context
     private $hopCount;
 
     /**
-     * @Accessor(getter="getAuthToken", setter="setAuthToken")
-     * @SerializedName("authToken")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * Auth token
      * 
      * @var string
      */
@@ -53,10 +47,7 @@ class Context
     private $authToken;
 
     /**
-     * @Accessor(getter="getSession", setter="setSession")
-     * @SerializedName("session")
-     * @Type("Zimbra\Common\Struct\Header\SessionInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * Session
      * 
      * @var SessionInfo
      */
@@ -67,10 +58,7 @@ class Context
     private ?SessionInfo $session;
 
     /**
-     * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
-     * @SerializedName("sessionId")
-     * @Type("Zimbra\Common\Struct\Header\SessionInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * Legacy session id
      * 
      * @var SessionInfo
      */
@@ -81,10 +69,7 @@ class Context
     private ?SessionInfo $legacySessionId;
 
     /**
-     * @Accessor(getter="getNoSession", setter="setNoSession")
-     * @SerializedName("nosession")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * No session
      * 
      * @var string
      */
@@ -95,10 +80,7 @@ class Context
     private $noSession;
 
     /**
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\Header\AccountInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * Account info
      * 
      * @var AccountInfo
      */
@@ -109,10 +91,7 @@ class Context
     private ?AccountInfo $account;
 
     /**
-     * @Accessor(getter="getChange", setter="setChange")
-     * @SerializedName("change")
-     * @Type("Zimbra\Common\Struct\Header\ChangeInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * Change info
      * 
      * @var ChangeInfo
      */
@@ -123,10 +102,7 @@ class Context
     private ?ChangeInfo $change;
 
     /**
-     * @Accessor(getter="getTargetServer", setter="setTargetServer")
-     * @SerializedName("targetServer")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * Target server
      * 
      * @var string
      */
@@ -137,10 +113,7 @@ class Context
     private $targetServer;
 
     /**
-     * @Accessor(getter="getUserAgent", setter="setUserAgent")
-     * @SerializedName("userAgent")
-     * @Type("Zimbra\Common\Struct\Header\UserAgentInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * User agent
      * 
      * @var UserAgentInfo
      */
@@ -151,10 +124,7 @@ class Context
     private ?UserAgentInfo $userAgent;
 
     /**
-     * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
-     * @SerializedName("authTokenControl")
-     * @Type("Zimbra\Common\Struct\AuthTokenControl")
-     * @XmlElement(namespace="urn:zimbra")
+     * Auth token control
      * 
      * @var AuthTokenControl
      */
@@ -165,10 +135,7 @@ class Context
     private ?AuthTokenControl $authTokenControl;
 
     /**
-     * @Accessor(getter="getFormat", setter="setFormat")
-     * @SerializedName("format")
-     * @Type("Zimbra\Common\Struct\Header\FormatInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * Format info
      * 
      * @var FormatInfo
      */
@@ -179,10 +146,7 @@ class Context
     private ?FormatInfo $format;
 
     /**
-     * @Accessor(getter="getNotify", setter="setNotify")
-     * @SerializedName("notify")
-     * @Type("Zimbra\Common\Struct\Header\NotifyInfo")
-     * @XmlElement(namespace="urn:zimbra")
+     * Notify info
      * 
      * @var NotifyInfo
      */
@@ -193,10 +157,7 @@ class Context
     private ?NotifyInfo $notify;
 
     /**
-     * @Accessor(getter="getNoNotify", setter="setNoNotify")
-     * @SerializedName("nonotify")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * No notify
      * 
      * @var string
      */
@@ -207,10 +168,7 @@ class Context
     private $noNotify;
 
     /**
-     * @Accessor(getter="getNoQualify", setter="setNoQualify")
-     * @SerializedName("noqualify")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * No qualify
      * 
      * @var string
      */
@@ -221,10 +179,7 @@ class Context
     private $noQualify;
 
     /**
-     * @Accessor(getter="getVia", setter="setVia")
-     * @SerializedName("via")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * Via
      * 
      * @var string
      */
@@ -235,10 +190,7 @@ class Context
     private $via;
 
     /**
-     * @Accessor(getter="getSoapRequestId", setter="setSoapRequestId")
-     * @SerializedName("soapId")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * Soap request id
      * 
      * @var string
      */
@@ -249,10 +201,7 @@ class Context
     private $soapRequestId;
 
     /**
-     * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
-     * @SerializedName("csrfToken")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * Csrf token
      * 
      * @var string
      */

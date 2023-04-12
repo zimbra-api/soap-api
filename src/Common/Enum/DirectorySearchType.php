@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DirectorySearchType enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DirectorySearchType extends Enum
+enum DirectorySearchType: string
 {
     /**
      * Constant for value 'accounts'
      * @return string 'accounts'
      */
-    protected const ACCOUNTS = 'accounts';
+    case ACCOUNTS = 'accounts';
 
     /**
      * Constant for value 'distributionlists'
      * @return string 'distributionlists'
      */
-    protected const DISTRIBUTION_LISTS = 'distributionlists';
+    case DISTRIBUTION_LISTS = 'distributionlists';
 
     /**
      * Constant for value 'aliases'
      * @return string 'aliases'
      */
-    protected const ALIASES = 'aliases';
+    case ALIASES = 'aliases';
 
     /**
      * Constant for value 'resources'
      * @return string 'resources'
      */
-    protected const RESOURCES = 'resources';
+    case RESOURCES = 'resources';
 
     /**
      * Constant for value 'domains'
      * @return string 'domains'
      */
-    protected const DOMAINS = 'domains';
+    case DOMAINS = 'domains';
 
     /**
      * Constant for value 'coses'
      * @return string 'coses'
      */
-    protected const COSES = 'coses';
+    case COSES = 'coses';
 }

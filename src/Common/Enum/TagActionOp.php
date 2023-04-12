@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * TagAction enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class TagActionOp extends Enum
+enum TagActionOp: string
 {
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    case READ = 'read';
 
     /**
      * Constant for value 'rename'
      * @return string 'rename'
      */
-    protected const RENAME = 'rename';
+    case RENAME = 'rename';
 
     /**
      * Constant for value 'color'
      * @return string 'color'
      */
-    protected const COLOR = 'color';
+    case COLOR = 'color';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    case DELETE = 'delete';
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    protected const UPDATE = 'update';
+    case UPDATE = 'update';
 
     /**
      * Constant for value 'retentionpolicy'
      * @return string 'retentionpolicy'
      */
-    protected const RETENTION = 'retentionpolicy';
+    case RETENTION = 'retentionpolicy';
 }

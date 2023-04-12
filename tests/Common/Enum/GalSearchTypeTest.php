@@ -18,8 +18,9 @@ class GalSearchTypeTest extends TestCase
             'RESOURCE' => 'resource',
             'GROUP'    => 'group',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(GalSearchType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(GalSearchType::from($value)->name, $name);
+            $this->assertSame(GalSearchType::from($value)->value, $value);
         }
     }
 }

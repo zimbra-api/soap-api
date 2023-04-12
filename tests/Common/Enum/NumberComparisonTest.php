@@ -16,8 +16,9 @@ class NumberComparisonTest extends TestCase
             'OVER' => 'over',
             'UNDER'  => 'under',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(NumberComparison::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(NumberComparison::from($value)->name, $name);
+            $this->assertSame(NumberComparison::from($value)->value, $value);
         }
     }
 }

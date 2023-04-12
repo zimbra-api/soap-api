@@ -21,23 +21,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2023-present by Nguyen Van Nguyen.
  */
-class NewFileCreationTypes extends Enum
+enum NewFileCreationTypes: string
 {
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    protected const DOCUMENT = 'document';
+    case DOCUMENT = 'document';
 
     /**
      * Constant for value 'presentation'
      * @return string 'presentation'
      */
-    protected const PRESENTATION = 'presentation';
+    case PRESENTATION = 'presentation';
 
     /**
      * Constant for value 'spreadsheet'
      * @return string 'spreadsheet'
      */
-    protected const SPREADSHEET = 'spreadsheet';
+    case SPREADSHEET = 'spreadsheet';
 }

@@ -17,8 +17,9 @@ class ZimletExcludeTypeTest extends TestCase
             'MAIL'      => 'mail',
             'NONE'      => 'none',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ZimletExcludeType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ZimletExcludeType::from($value)->value, $value);
+            $this->assertSame(ZimletExcludeType::from($value)->name, $name);
         }
     }
 }

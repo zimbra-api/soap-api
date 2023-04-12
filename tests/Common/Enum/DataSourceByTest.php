@@ -16,8 +16,9 @@ class DataSourceByTest extends TestCase
             'ID'   => 'id',
             'NAME' => 'name',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DataSourceBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DataSourceBy::from($value)->name, $name);
+            $this->assertSame(DataSourceBy::from($value)->value, $value);
         }
     }
 }

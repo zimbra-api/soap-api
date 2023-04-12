@@ -18,8 +18,9 @@ class ConnectionTypeTest extends TestCase
             'TLS' => 'tls',
             'TLS_IF_AVAILABLE' => 'tls_if_available',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ConnectionType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ConnectionType::from($value)->name, $name);
+            $this->assertSame(ConnectionType::from($value)->value, $value);
         }
     }
 }

@@ -26,13 +26,7 @@ use Zimbra\Common\Struct\SoapResponse;
 class ResetPasswordResponse extends SoapResponse
 {
     /**
-     * Attrs
-     * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attrs")
-     * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
+     * Attributes
      * 
      * @var array
      */

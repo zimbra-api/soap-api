@@ -26,11 +26,6 @@ class SectionAttr
     /**
      * Metadata section key
      * 
-     * @Accessor(getter="getSection", setter="setSection")
-     * @SerializedName("section")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSection', setter: 'setSection')]

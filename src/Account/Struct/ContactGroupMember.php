@@ -26,11 +26,6 @@ class ContactGroupMember
     /**
      * Contact group member type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -42,11 +37,6 @@ class ContactGroupMember
     /**
      * Contact group member value
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("value")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -56,12 +46,7 @@ class ContactGroupMember
     private $value;
 
     /**
-     * Contact
-     * 
-     * @Accessor(getter="getContact", setter="setContact")
-     * @SerializedName("cn")
-     * @Type("Zimbra\Account\Struct\ContactInfo")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * Contact info
      * 
      * @var ContactInfo
      */

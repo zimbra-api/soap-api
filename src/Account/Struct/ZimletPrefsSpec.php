@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\ZimletStatus;
 class ZimletPrefsSpec
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -39,10 +36,7 @@ class ZimletPrefsSpec
     private $name;
 
     /**
-     * @Accessor(getter="getPresence", setter="setPresence")
-     * @SerializedName("presence")
-     * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
-     * @XmlAttribute
+     * Presence
      * 
      * @var ZimletStatus
      */
@@ -64,7 +58,7 @@ class ZimletPrefsSpec
     )
     {
         $this->setName($name)
-             ->setPresence($presence ?? new ZimletStatus('enabled'));
+             ->setPresence($presence ?? ZimletStatus::ENABLED);
     }
 
     /**

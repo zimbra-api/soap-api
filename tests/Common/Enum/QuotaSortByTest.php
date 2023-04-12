@@ -17,8 +17,9 @@ class QuotaSortByTest extends TestCase
             'TOTAL_USED'   => 'totalUsed',
             'QUOTA_LIMIT'  => 'quotaLimit',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(QuotaSortBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(QuotaSortBy::from($value)->name, $name);
+            $this->assertSame(QuotaSortBy::from($value)->value, $value);
         }
     }
 }

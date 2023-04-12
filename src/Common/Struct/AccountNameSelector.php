@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\AccountBy;
 class AccountNameSelector
 {
     /**
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
-     * @XmlAttribute
+     * Account by
      * 
      * @var AccountBy
      */
@@ -39,10 +36,7 @@ class AccountNameSelector
     private $by;
 
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Account name
      * 
      * @var string
      */
@@ -53,9 +47,7 @@ class AccountNameSelector
     private $name;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */
@@ -76,7 +68,7 @@ class AccountNameSelector
         ?AccountBy $by = NULL, ?string $name = NULL, ?string $value = NULL
     )
     {
-        $this->setBy($by ?? new AccountBy('name'));
+        $this->setBy($by ?? AccountBy::NAME);
         if (NULL !== $name) {
             $this->setName($name);
         }

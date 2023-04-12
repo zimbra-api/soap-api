@@ -20,8 +20,9 @@ class CountComparisonTest extends TestCase
             'EQUAL'         => 'eq',
             'NOT_EQUAL'     => 'ne',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(CountComparison::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(CountComparison::from($value)->name, $name);
+            $this->assertSame(CountComparison::from($value)->value, $value);
         }
     }
 }

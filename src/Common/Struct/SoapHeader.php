@@ -21,18 +21,12 @@ use Zimbra\Common\Struct\Header\Context;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
 #[XmlNamespace(uri: 'urn:zimbra', prefix: 'zm')]
 class SoapHeader implements SoapHeaderInterface
 {
     /**
      * Soap header context
-     * 
-     * @Accessor(getter="getContext", setter="setContext")
-     * @SerializedName("context")
-     * @Type("Zimbra\Common\Struct\Header\Context")
-     * @XmlElement(namespace="urn:zimbra")
      * 
      * @var Context
      */

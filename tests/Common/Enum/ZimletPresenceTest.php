@@ -17,8 +17,9 @@ class ZimletPresenceTest extends TestCase
             'ENABLED'  => 'enabled',
             'DISABLED' => 'disabled',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ZimletPresence::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ZimletPresence::from($value)->value, $value);
+            $this->assertSame(ZimletPresence::from($value)->name, $name);
         }
     }
 }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ComparisonComparator enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ComparisonComparator extends Enum
+enum ComparisonComparator: string
 {
     /**
      * Constant for value 'i;ascii-numeric'
      * @return string 'i;ascii-numeric'
      */
-    protected const ASCII_NUMERIC = 'i;ascii-numeric';
+    case ASCII_NUMERIC = 'i;ascii-numeric';
 
     /**
      * Constant for value 'i;ascii-casemap'
      * @return string 'i;ascii-casemap'
      */
-    protected const ASCII_CASEMAP = 'i;ascii-casemap';
+    case ASCII_CASEMAP = 'i;ascii-casemap';
 
     /**
      * Constant for value 'i;octet'
      * @return string 'i;octet'
      */
-    protected const OCTET = 'i;octet';
+    case OCTET = 'i;octet';
 }

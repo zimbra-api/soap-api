@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class Pref
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -38,9 +35,7 @@ class Pref
     private $name;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */
@@ -50,10 +45,7 @@ class Pref
     private $value;
 
     /**
-     * @Accessor(getter="getModified", setter="setModified")
-     * @SerializedName("modified")
-     * @Type("int")
-     * @XmlAttribute
+     * Modified
      * 
      * @var int
      */

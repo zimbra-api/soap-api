@@ -18,8 +18,9 @@ class FreeBusyStatusTest extends TestCase
             'TENTATIVE'     => 'T',
             'OUT_OF_OFFICE' => 'O',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(FreeBusyStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(FreeBusyStatus::from($value)->name, $name);
+            $this->assertSame(FreeBusyStatus::from($value)->value, $value);
         }
     }
 }

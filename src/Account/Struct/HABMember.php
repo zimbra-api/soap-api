@@ -26,11 +26,6 @@ abstract class HABMember
     /**
      * HAB Member name - an email address (user@domain)
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -40,12 +35,7 @@ abstract class HABMember
     private $name;
 
     /**
-     * seniorityIndex of the HAB group member
-     * 
-     * @Accessor(getter="getSeniorityIndex", setter="setSeniorityIndex")
-     * @SerializedName("seniorityIndex")
-     * @Type("int")
-     * @XmlAttribute
+     * Seniority index of the HAB group member
      * 
      * @var int
      */

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ZimletPresence enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ZimletPresence extends Enum
+enum ZimletPresence: string
 {
     /**
      * Constant for value 'mandatory'
      * @return string 'mandatory'
      */
-    protected const MANDATORY = 'mandatory';
+    case MANDATORY = 'mandatory';
 
     /**
      * Constant for value 'enabled'
      * @return string 'enabled'
      */
-    protected const ENABLED = 'enabled';
+    case ENABLED = 'enabled';
 
     /**
      * Constant for value 'disabled'
      * @return string 'disabled'
      */
-    protected const DISABLED = 'disabled';
+    case DISABLED = 'disabled';
 }

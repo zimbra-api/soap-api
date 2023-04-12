@@ -13,11 +13,12 @@ class AdminFilterTypeTest extends TestCase
     public function testAdminFilterType()
     {
         $values = [
-            'BEFORE'   => 'before',
-            'AFTER' => 'after',
+            'BEFORE' => 'before',
+            'AFTER'  => 'after',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AdminFilterType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AdminFilterType::from($value)->name, $name);
+            $this->assertSame(AdminFilterType::from($value)->value, $value);
         }
     }
 }

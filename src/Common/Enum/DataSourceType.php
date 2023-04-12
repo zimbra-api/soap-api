@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DataSourceType enum class
  *
@@ -21,95 +19,95 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DataSourceType extends Enum
+enum DataSourceType: string
 {
     /**
      * Constant for value 'pop3'
      * @return string 'pop3'
      */
-    protected const POP3 = 'pop3';
+    case POP3 = 'pop3';
 
     /**
      * Constant for value 'imap'
      * @return string 'imap'
      */
-    protected const IMAP = 'imap';
+    case IMAP = 'imap';
 
     /**
      * Constant for value 'caldav'
      * @return string 'caldav'
      */
-    protected const CALDAV = 'caldav';
+    case CALDAV = 'caldav';
 
     /**
      * Constant for value 'contacts'
      * @return string 'contacts'
      */
-    protected const CONTACTS = 'contacts';
+    case CONTACTS = 'contacts';
 
     /**
      * Constant for value 'yab'
      * @return string 'yab'
      */
-    protected const YAB = 'yab';
+    case YAB = 'yab';
 
     /**
      * Constant for value 'rss'
      * @return string 'rss'
      */
-    protected const RSS = 'rss';
+    case RSS = 'rss';
 
     /**
      * Constant for value 'cal'
      * @return string 'cal'
      */
-    protected const CAL = 'cal';
+    case CAL = 'cal';
 
     /**
      * Constant for value 'gal'
      * @return string 'gal'
      */
-    protected const GAL = 'gal';
+    case GAL = 'gal';
 
     /**
      * Constant for value 'xsync'
      * @return string 'xsync'
      */
-    protected const XSYNC = 'xsync';
+    case XSYNC = 'xsync';
 
     /**
      * Constant for value 'tagmap'
      * @return string 'tagmap'
      */
-    protected const TAGMAP = 'tagmap';
+    case TAGMAP = 'tagmap';
 
     /**
      * Constant for value 'unknown'
      * @return string 'unknown'
      */
-    protected const UNKNOWN = 'unknown';
+    case UNKNOWN = 'unknown';
 
     /**
      * Constant for value 'oauth2contact'
      * @return string 'oauth2contact'
      */
-    protected const OAUTH2CONTACT = 'oauth2contact';
+    case OAUTH2CONTACT = 'oauth2contact';
 
     /**
      * Constant for value 'oauth2calendar'
      * @return string 'oauth2calendar'
      */
-    protected const OAUTH2CALENDAR = 'oauth2calendar';
+    case OAUTH2CALENDAR = 'oauth2calendar';
 
     /**
      * Constant for value 'oauth2caldav'
      * @return string 'oauth2caldav'
      */
-    protected const OAUTH2CALDAV = 'oauth2caldav';
+    case OAUTH2CALDAV = 'oauth2caldav';
 
     /**
      * Constant for value 'oauth2noop'
      * @return string 'oauth2noop'
      */
-    protected const OAUTH2NOOP = 'oauth2noop';
+    case OAUTH2NOOP = 'oauth2noop';
 }

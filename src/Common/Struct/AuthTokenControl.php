@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class AuthTokenControl
 {
     /**
-     * @Accessor(getter="getVoidOnExpired", setter="setVoidOnExpired")
-     * @SerializedName("voidOnExpired")
-     * @Type("bool")
-     * @XmlAttribute
+     * Void on expired
      * 
      * @var bool
      */

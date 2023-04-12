@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DocumentPermission enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DocumentPermission extends Enum
+enum DocumentPermission: string
 {
     /**
      * Constant for value 'r'
      * @return string 'r'
      */
-    protected const READ = 'r';
+    case READ = 'r';
 
     /**
      * Constant for value 'w'
      * @return string 'w'
      */
-    protected const WRITE = 'w';
+    case WRITE = 'w';
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    protected const DELETE = 'd';
+    case DELETE = 'd';
 }

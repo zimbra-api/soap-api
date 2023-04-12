@@ -31,11 +31,6 @@ class CreateIdentityRequest extends SoapRequest
     /**
      * Details of the new identity to create
      * 
-     * @Accessor(getter="getIdentity", setter="setIdentity")
-     * @SerializedName("identity")
-     * @Type("Zimbra\Account\Struct\Identity")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var Identity
      */
     #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]

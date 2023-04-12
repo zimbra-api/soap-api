@@ -20,8 +20,9 @@ class ValueComparisonTest extends TestCase
             'EQUAL'         => 'eq',
             'NOT_EQUAL'     => 'ne',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ValueComparison::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ValueComparison::from($value)->value, $value);
+            $this->assertSame(ValueComparison::from($value)->name, $name);
         }
     }
 }

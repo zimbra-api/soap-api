@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * InviteType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class InviteType extends Enum
+enum InviteType: string
 {
     /**
      * Constant for value 'appt'
      * @return string 'appt'
      */
-    protected const APPOINTMENT = 'appt';
+    case APPOINTMENT = 'appt';
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    protected const TASK = 'task';
+    case TASK = 'task';
 }

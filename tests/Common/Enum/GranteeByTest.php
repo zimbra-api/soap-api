@@ -16,8 +16,9 @@ class GranteeByTest extends TestCase
             'ID'   => 'id',
             'NAME' => 'name',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(GranteeBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(GranteeBy::from($value)->name, $name);
+            $this->assertSame(GranteeBy::from($value)->value, $value);
         }
     }
 }

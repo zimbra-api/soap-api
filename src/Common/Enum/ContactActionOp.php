@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ContactActionOp enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ContactActionOp extends Enum
+enum ContactActionOp: string
 {
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    protected const MOVE = 'move';
+    case MOVE = 'move';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    case DELETE = 'delete';
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    protected const FLAG = 'flag';
+    case FLAG = 'flag';
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    protected const TRASH = 'trash';
+    case TRASH = 'trash';
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    protected const TAG = 'tag';
+    case TAG = 'tag';
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    protected const UPDATE = 'update';
+    case UPDATE = 'update';
 }

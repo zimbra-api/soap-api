@@ -16,8 +16,9 @@ class RankingActionOpTest extends TestCase
             'RESET'  => 'reset',
             'DELETE' => 'delete',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(RankingActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(RankingActionOp::from($value)->name, $name);
+            $this->assertSame(RankingActionOp::from($value)->value, $value);
         }
     }
 }

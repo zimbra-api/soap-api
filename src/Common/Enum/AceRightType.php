@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AceRightType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AceRightType extends Enum
+enum AceRightType: string
 {
     /**
      * Constant for value 'viewFreeBusy'
      * @return string 'viewFreeBusy'
      */
-    protected const VIEW_FREE_BUSY = 'viewFreeBusy';
+    case VIEW_FREE_BUSY = 'viewFreeBusy';
 
     /**
      * Constant for value 'invite'
      * @return string 'invite'
      */
-    protected const INVITE = 'invite';
+    case INVITE = 'invite';
 }

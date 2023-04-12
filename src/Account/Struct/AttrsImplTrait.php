@@ -24,9 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 trait AttrsImplTrait
 {
     /**
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
+     * Attributes
      * 
      * @var array
      */

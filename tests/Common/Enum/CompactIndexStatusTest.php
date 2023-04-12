@@ -17,8 +17,9 @@ class CompactIndexStatusTest extends TestCase
             'RUNNING' => 'running',
             'IDLE' => 'idle',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(CompactIndexStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(CompactIndexStatus::from($value)->name, $name);
+            $this->assertSame(CompactIndexStatus::from($value)->value, $value);
         }
     }
 }

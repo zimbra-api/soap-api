@@ -16,8 +16,9 @@ class AuthSchemeTest extends TestCase
             'BASIC' => 'basic',
             'FORM'  => 'form',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AuthScheme::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AuthScheme::from($value)->name, $name);
+            $this->assertSame(AuthScheme::from($value)->value, $value);
         }
     }
 }

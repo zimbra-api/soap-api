@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * MemberType enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MemberType extends Enum
+enum MemberType: string
 {
     /**
      * Constant for value 'contact'
      * @return string 'C'
      */
-    protected const CONTACT = 'C';
+    case CONTACT = 'C';
 
     /**
      * Constant for value 'GAL entry'
      * @return string 'deny'
      */
-    protected const GAL_ENTRY = 'G';
+    case GAL_ENTRY = 'G';
 
     /**
      * Constant for value 'inlined member'
      * @return string 'I'
      */
-    protected const INLINED_MEMBER = 'I';
+    case INLINED_MEMBER = 'I';
 }

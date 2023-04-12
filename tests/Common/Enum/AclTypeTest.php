@@ -16,8 +16,9 @@ class AclTypeTest extends TestCase
             'GRANT' => 'grant',
             'DENY'  => 'deny',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AclType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AclType::from($value)->name, $name);
+            $this->assertSame(AclType::from($value)->value, $value);
         }
     }
 }

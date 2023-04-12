@@ -16,8 +16,9 @@ class DistributionListSubscribeOpTest extends TestCase
             'SUBSCRIBE'   => 'subscribe',
             'UNSUBSCRIBE' => 'unsubscribe',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DistributionListSubscribeOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DistributionListSubscribeOp::from($value)->name, $name);
+            $this->assertSame(DistributionListSubscribeOp::from($value)->value, $value);
         }
     }
 }

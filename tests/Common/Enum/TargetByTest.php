@@ -16,8 +16,9 @@ class TargetByTest extends TestCase
             'ID'   => 'id',
             'NAME' => 'name',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(TargetBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(TargetBy::from($value)->name, $name);
+            $this->assertSame(TargetBy::from($value)->value, $value);
         }
     }
 }

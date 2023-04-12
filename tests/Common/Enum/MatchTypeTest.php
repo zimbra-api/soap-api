@@ -19,8 +19,9 @@ class MatchTypeTest extends TestCase
             'COUNT'  => 'count',
             'VALUE'  => 'value',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(MatchType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(MatchType::from($value)->name, $name);
+            $this->assertSame(MatchType::from($value)->value, $value);
         }
     }
 }

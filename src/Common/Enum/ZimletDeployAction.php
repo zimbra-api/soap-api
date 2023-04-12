@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ZimletDeployAction enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ZimletDeployAction extends Enum
+enum ZimletDeployAction: string
 {
     /**
      * Constant for value 'deployAll'
      * @return string 'deployAll'
      */
-    protected const DEPLOY_ALL = 'deployAll';
+    case DEPLOY_ALL = 'deployAll';
 
     /**
      * Constant for value 'deployLocal'
      * @return string 'deployLocal'
      */
-    protected const DEPLOY_LOCAL = 'deployLocal';
+    case DEPLOY_LOCAL = 'deployLocal';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    case STATUS = 'status';
 }

@@ -16,8 +16,9 @@ class VersionCheckActionTest extends TestCase
             'CHECK'  => 'check',
             'STATUS' => 'status',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(VersionCheckAction::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(VersionCheckAction::from($value)->value, $value);
+            $this->assertSame(VersionCheckAction::from($value)->name, $name);
         }
     }
 }

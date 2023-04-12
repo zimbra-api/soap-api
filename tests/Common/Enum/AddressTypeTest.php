@@ -13,7 +13,7 @@ class AddressTypeTest extends TestCase
     public function testAddressType()
     {
         $values = [
-            'FRO'          => 'f',
+            'FROM'         => 'f',
             'TO'           => 't',
             'CC'           => 'c',
             'BCC'          => 'b',
@@ -22,8 +22,9 @@ class AddressTypeTest extends TestCase
             'NOTIFICATION' => 'n',
             'RESENT_FROM'  => 'rf',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AddressType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AddressType::from($value)->name, $name);
+            $this->assertSame(AddressType::from($value)->value, $value);
         }
     }
 }

@@ -34,8 +34,9 @@ class EntryTypeTest extends TestCase
             'XMPP_COMPONENT'    => 'xmppComponent',
             'ACL_TARGET'        => 'aclTarget',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(EntryType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(EntryType::from($value)->name, $name);
+            $this->assertSame(EntryType::from($value)->value, $value);
         }
     }
 }

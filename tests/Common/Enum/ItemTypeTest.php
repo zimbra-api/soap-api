@@ -23,8 +23,9 @@ class ItemTypeTest extends TestCase
             'TASK'         => 'task',
             'WIKI'         => 'wiki',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ItemType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ItemType::from($value)->name, $name);
+            $this->assertSame(ItemType::from($value)->value, $value);
         }
     }
 }

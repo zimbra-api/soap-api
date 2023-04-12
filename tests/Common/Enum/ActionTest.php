@@ -20,8 +20,9 @@ class ActionTest extends TestCase
             'STATUS' => 'status',
             'STOP'   => 'stop',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(Action::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(Action::from($value)->name, $name);
+            $this->assertSame(Action::from($value)->value, $value);
         }
     }
 }

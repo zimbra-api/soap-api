@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * VoiceMsgActionOp enum class
  *
@@ -21,35 +19,35 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class VoiceMsgActionOp extends Enum
+enum VoiceMsgActionOp: string
 {
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    protected const MOVE = 'move';
+    case MOVE = 'move';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    case READ = 'read';
 
     /**
      * Constant for value '!read'
      * @return string '!read'
      */
-    protected const NOT_READ = '!read';
+    case NOT_READ = '!read';
 
     /**
      * Constant for value 'empty'
      * @return string 'empty'
      */
-    protected const IS_EMPTY = 'empty';
+    case IS_EMPTY = 'empty';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    case DELETE = 'delete';
 }

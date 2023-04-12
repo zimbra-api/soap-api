@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class RevokeOAuthConsumerRequest extends SoapRequest
 {
     /**
-     * @Accessor(getter="getAccessToken", setter="setAccessToken")
-     * @SerializedName("accessToken")
-     * @Type("string")
-     * @XmlAttribute
+     * Access token
      * 
      * @var string
      */

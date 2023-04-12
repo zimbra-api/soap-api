@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class GranteeChooser
 {
     /**
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
+     * Type
      * 
      * @var string
      */
@@ -38,10 +35,7 @@ class GranteeChooser
     private $type;
 
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
+     * Id
      * 
      * @var string
      */
@@ -52,10 +46,7 @@ class GranteeChooser
     private $id;
 
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */

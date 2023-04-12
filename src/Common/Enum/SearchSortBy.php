@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * SearchSortBy enum class
  *
@@ -21,167 +19,167 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SearchSortBy extends Enum
+enum SearchSortBy: string
 {
     /**
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    protected const DATE_DESC = 'dateDesc';
+    case DATE_DESC = 'dateDesc';
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    protected const DATE_ASC = 'dateAsc';
+    case DATE_ASC = 'dateAsc';
 
     /**
      * Constant for value 'idDesc'
      * @return string 'idDesc'
      */
-    protected const ID_DESC = 'idDesc';
+    case ID_DESC = 'idDesc';
 
     /**
      * Constant for value 'idAsc'
      * @return string 'idAsc'
      */
-    protected const ID_ASC = 'idAsc';
+    case ID_ASC = 'idAsc';
 
     /**
      * Constant for value 'subjDesc'
      * @return string 'subjDesc'
      */
-    protected const SUBJ_DESC = 'subjDesc';
+    case SUBJ_DESC = 'subjDesc';
 
     /**
      * Constant for value 'subjAsc'
      * @return string 'subjAsc'
      */
-    protected const SUBJ_ASC = 'subjAsc';
+    case SUBJ_ASC = 'subjAsc';
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    protected const NAME_DESC = 'nameDesc';
+    case NAME_DESC = 'nameDesc';
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    protected const NAME_ASC = 'nameAsc';
+    case NAME_ASC = 'nameAsc';
 
     /**
      * Constant for value 'durDesc'
      * @return string 'durDesc'
      */
-    protected const DUR_DESC = 'durDesc';
+    case DUR_DESC = 'durDesc';
 
     /**
      * Constant for value 'durAsc'
      * @return string 'durAsc'
      */
-    protected const DUR_ASC = 'durAsc';
+    case DUR_ASC = 'durAsc';
 
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    protected const NONE = 'none';
+    case NONE = 'none';
 
     /**
      * Constant for value 'taskDueAsc'
      * @return string 'taskDueAsc'
      */
-    protected const TASK_DUE_ASC = 'taskDueAsc';
+    case TASK_DUE_ASC = 'taskDueAsc';
 
     /**
      * Constant for value 'taskDueDesc'
      * @return string 'taskDueDesc'
      */
-    protected const TASK_DUE_DESC = 'taskDueDesc';
+    case TASK_DUE_DESC = 'taskDueDesc';
 
     /**
      * Constant for value 'taskStatusAsc'
      * @return string 'taskStatusAsc'
      */
-    protected const TASK_STATUS_ASC = 'taskStatusAsc';
+    case TASK_STATUS_ASC = 'taskStatusAsc';
 
     /**
      * Constant for value 'taskStatusDesc'
      * @return string 'taskStatusDesc'
      */
-    protected const TASK_STATUS_DESC = 'taskStatusDesc';
+    case TASK_STATUS_DESC = 'taskStatusDesc';
 
     /**
      * Constant for value 'taskPercCompletedAsc'
      * @return string 'taskPercCompletedAsc'
      */
-    protected const TASK_PERC_COMPLETED_ASC = 'taskPercCompletedAsc';
+    case TASK_PERC_COMPLETED_ASC = 'taskPercCompletedAsc';
 
     /**
      * Constant for value 'taskPercCompletedDesc'
      * @return string 'taskPercCompletedDesc'
      */
-    protected const TASK_PERC_COMPLETED_DESC = 'taskPercCompletedDesc';
+    case TASK_PERC_COMPLETED_DESC = 'taskPercCompletedDesc';
 
     /**
      * Constant for value 'rcptAsc'
      * @return string 'rcptAsc'
      */
-    protected const RCPT_ASC = 'rcptAsc';
+    case RCPT_ASC = 'rcptAsc';
 
     /**
      * Constant for value 'rcptDesc'
      * @return string 'rcptDesc'
      */
-    protected const RCPT_DESC = 'rcptDesc';
+    case RCPT_DESC = 'rcptDesc';
 
     /**
      * Constant for value 'readAsc'
      * @return string 'readAsc'
      */
-    protected const READ_ASC = 'readAsc';
+    case READ_ASC = 'readAsc';
 
     /**
      * Constant for value 'readDesc'
      * @return string 'readDesc'
      */
-    protected const READ_DESC = 'readDesc';
+    case READ_DESC = 'readDesc';
 
     /**
      * Constant for value 'calTzAsc'
      * @return string 'calTzAsc'
      */
-    protected const CAL_TZ_ASC = 'calTzAsc';
+    case CAL_TZ_ASC = 'calTzAsc';
 
     /**
      * Constant for value 'calTzDesc'
      * @return string 'calTzDesc'
      */
-    protected const CAL_TZ_DESC = 'calTzDesc';
+    case CAL_TZ_DESC = 'calTzDesc';
 
     /**
      * Constant for value 'flagAsc'
      * @return string 'flagAsc'
      */
-    protected const FLAG_ASC = 'flagAsc';
+    case FLAG_ASC = 'flagAsc';
 
     /**
      * Constant for value 'flagDesc'
      * @return string 'flagDesc'
      */
-    protected const FLAG_DESC = 'flagDesc';
+    case FLAG_DESC = 'flagDesc';
 
     /**
      * Constant for value 'priorityAsc'
      * @return string 'priorityAsc'
      */
-    protected const PRIORITY_ASC = 'priorityAsc';
+    case PRIORITY_ASC = 'priorityAsc';
 
     /**
      * Constant for value 'priorityDesc'
      * @return string 'priorityDesc'
      */
-    protected const PRIORITY_DESC = 'priorityDesc';
+    case PRIORITY_DESC = 'priorityDesc';
 }

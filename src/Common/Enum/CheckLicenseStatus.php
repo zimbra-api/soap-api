@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CheckLicenseStatus enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CheckLicenseStatus extends Enum
+enum CheckLicenseStatus: string
 {
     /**
      * Constant for value 'ok'
      * @return string 'ok'
      */
-    protected const OK = 'ok';
+    case OK = 'ok';
 
     /**
      * Constant for value 'no'
      * @return string 'no'
      */
-    protected const NO = 'no';
+    case NO = 'no';
 
     /**
      * Constant for value 'inGracePeriod'
      * @return string 'inGracePeriod'
      */
-    protected const IN_GRACE_PERIOD = 'inGracePeriod';
+    case IN_GRACE_PERIOD = 'inGracePeriod';
 }

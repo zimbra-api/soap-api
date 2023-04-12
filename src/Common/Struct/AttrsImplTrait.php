@@ -23,9 +23,7 @@ use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 trait AttrsImplTrait
 {
     /**
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline=true, entry="a")
+     * Attributes
      * 
      * @var array
      */
@@ -35,7 +33,7 @@ trait AttrsImplTrait
     protected $attrs = [];
 
     /**
-     * Add an attr
+     * Add an attribute
      *
      * @param  KeyValuePair $attr
      * @return self
@@ -47,7 +45,7 @@ trait AttrsImplTrait
     }
 
     /**
-     * Set attribute sequence
+     * Set attributes
      *
      * @param array $attrs
      * @return self
@@ -59,7 +57,7 @@ trait AttrsImplTrait
     }
 
     /**
-     * Get attribute sequence
+     * Get attributes
      *
      * @return array
      */

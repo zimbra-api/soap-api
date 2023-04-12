@@ -28,8 +28,6 @@ abstract class SoapRequest implements SoapRequestInterface
     /**
      * Soap envelope
      * 
-     * @Exclude
-     * 
      * @var SoapEnvelopeInterface
      */
     #[Exclude]

@@ -26,10 +26,11 @@ class CountObjectsTypeTest extends TestCase
             'DOMAIN_ON_UCSERVICE'        => 'domainOnUCService',
             'INTERNAL_USER_ACCOUNT'      => 'internalUserAccount',
             'INTERNAL_ARCHIVING_ACCOUNT' => 'internalArchivingAccount',
-            'INTERNAL_USER_ACCOUNT_X' => 'internalUserAccountX',
+            'INTERNAL_USER_ACCOUNT_X'    => 'internalUserAccountX',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(CountObjectsType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(CountObjectsType::from($value)->name, $name);
+            $this->assertSame(CountObjectsType::from($value)->value, $value);
         }
     }
 }

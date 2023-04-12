@@ -27,8 +27,9 @@ class ViewTypeTest extends TestCase
             'TASK'                 => 'task',
             'CHAT'                 => 'chat',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ViewType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ViewType::from($value)->value, $value);
+            $this->assertSame(ViewType::from($value)->name, $name);
         }
     }
 }

@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\GranteeType;
 class AccountACEInfo
 {
     /**
-     * @Accessor(getter="getGranteeType", setter="setGranteeType")
-     * @SerializedName("gt")
-     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
-     * @XmlAttribute
+     * Grantee type
      * 
      * @var GranteeType
      */
@@ -39,10 +36,7 @@ class AccountACEInfo
     private GranteeType $granteeType;
 
     /**
-     * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("right")
-     * @Type("string")
-     * @XmlAttribute
+     * Right
      * 
      * @var string
      */
@@ -53,10 +47,7 @@ class AccountACEInfo
     private $right;
 
     /**
-     * @Accessor(getter="getZimbraId", setter="setZimbraId")
-     * @SerializedName("zid")
-     * @Type("string")
-     * @XmlAttribute
+     * Zimbra id
      * 
      * @var string
      */
@@ -67,10 +58,7 @@ class AccountACEInfo
     private $zimbraId;
 
     /**
-     * @Accessor(getter="getDisplayName", setter="setDisplayName")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
+     * Display name
      * 
      * @var string
      */
@@ -81,10 +69,7 @@ class AccountACEInfo
     private $displayName;
 
     /**
-     * @Accessor(getter="getAccessKey", setter="setAccessKey")
-     * @SerializedName("key")
-     * @Type("string")
-     * @XmlAttribute
+     * Access key
      * 
      * @var string
      */
@@ -95,10 +80,7 @@ class AccountACEInfo
     private $accessKey;
 
     /**
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("pw")
-     * @Type("string")
-     * @XmlAttribute
+     * Password
      * 
      * @var string
      */
@@ -109,10 +91,7 @@ class AccountACEInfo
     private $password;
 
     /**
-     * @Accessor(getter="getDeny", setter="setDeny")
-     * @SerializedName("deny")
-     * @Type("bool")
-     * @XmlAttribute
+     * Deny
      * 
      * @var bool
      */
@@ -123,10 +102,7 @@ class AccountACEInfo
     private $deny;
 
     /**
-     * @Accessor(getter="getCheckGranteeType", setter="setCheckGranteeType")
-     * @SerializedName("chkgt")
-     * @Type("bool")
-     * @XmlAttribute
+     * Check grantee type
      * 
      * @var bool
      */
@@ -160,7 +136,7 @@ class AccountACEInfo
         ?bool $checkGranteeType = NULL
     )
     {
-        $this->setGranteeType($granteeType ?? new GranteeType('all'))
+        $this->setGranteeType($granteeType ?? GranteeType::ALL)
              ->setRight($right);
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);

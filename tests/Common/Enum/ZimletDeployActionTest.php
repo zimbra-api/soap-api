@@ -17,8 +17,9 @@ class ZimletDeployActionTest extends TestCase
             'DEPLOY_LOCAL' => 'deployLocal',
             'STATUS' => 'status',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ZimletDeployAction::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ZimletDeployAction::from($value)->value, $value);
+            $this->assertSame(ZimletDeployAction::from($value)->name, $name);
         }
     }
 }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * MemberOfSelector enum class
  *
@@ -21,21 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MemberOfSelector extends Enum
+enum MemberOfSelector: string
 {
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
+
     /**
      * Constant for value 'directOnly'
      * @return string 'directOnly'
      */
-    protected const DIRECT_ONLY = 'directOnly';
+    case DIRECT_ONLY = 'directOnly';
+
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    protected const NONE = 'none';
+    case NONE = 'none';
 }

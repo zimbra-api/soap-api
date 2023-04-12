@@ -23,8 +23,9 @@ class ParticipationStatusTest extends TestCase
             'WAITING'      => 'WE',
             'DEFERRED'     => 'DF',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ParticipationStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ParticipationStatus::from($value)->name, $name);
+            $this->assertSame(ParticipationStatus::from($value)->value, $value);
         }
     }
 }

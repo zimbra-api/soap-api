@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * GalMode enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GalMode extends Enum
+enum GalMode: string
 {
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    protected const BOTH = 'both';
+    case BOTH = 'both';
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    protected const LDAP = 'ldap';
+    case LDAP = 'ldap';
 
     /**
      * Constant for value 'zimbra'
      * @return string 'zimbra'
      */
-    protected const ZIMBRA = 'zimbra';
+    case ZIMBRA = 'zimbra';
 }

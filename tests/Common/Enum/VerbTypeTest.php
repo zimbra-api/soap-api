@@ -17,8 +17,9 @@ class VerbTypeTest extends TestCase
             'DECLINE'   => 'DECLINE',
             'TENTATIVE' => 'TENTATIVE',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(VerbType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(VerbType::from($value)->value, $value);
+            $this->assertSame(VerbType::from($value)->name, $name);
         }
     }
 }

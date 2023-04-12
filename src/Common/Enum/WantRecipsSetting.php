@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * WantRecipsSetting enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class WantRecipsSetting extends Enum
+enum WantRecipsSetting: string
 {
     /**
      * Constant for value '0'
      * @return string '0'
      */
-    protected const PUT_SENDERS = '0';
+    case PUT_SENDERS = '0';
 
     /**
      * Constant for value '1'
      * @return string '1'
      */
-    protected const PUT_RECIPIENTS = '1';
+    case PUT_RECIPIENTS = '1';
 
     /**
      * Constant for value '2'
      * @return string '2'
      */
-    protected const PUT_BOTH = '2';
+    case PUT_BOTH = '2';
 }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AuthScheme enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AuthScheme extends Enum
+enum AuthScheme: string
 {
     /**
      * Constant for value 'basic'
      * @return string 'basic'
      */
-    protected const BASIC = 'basic';
+    case BASIC = 'basic';
 
     /**
      * Constant for value 'form'
      * @return string 'form'
      */
-    protected const FORM = 'form';
+    case FORM = 'form';
 }

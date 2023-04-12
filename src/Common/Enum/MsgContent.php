@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * MsgContent enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MsgContent extends Enum
+enum MsgContent: string
 {
     /**
      * Constant for value 'full'
      * @return string 'full'
      */
-    protected const FULL = 'full';
+    case FULL = 'full';
 
     /**
      * Constant for value 'original'
      * @return string 'original'
      */
-    protected const ORIGINAL = 'original';
+    case ORIGINAL = 'original';
 
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    protected const BOTH = 'both';
+    case BOTH = 'both';
 }

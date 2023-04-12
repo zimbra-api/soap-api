@@ -20,8 +20,9 @@ class RelationalComparatorTest extends TestCase
             'EQUAL'         => 'eq',
             'NOT_EQUAL'     => 'ne',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(RelationalComparator::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(RelationalComparator::from($value)->name, $name);
+            $this->assertSame(RelationalComparator::from($value)->value, $value);
         }
     }
 }

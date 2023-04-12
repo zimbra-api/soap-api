@@ -19,23 +19,35 @@ namespace Zimbra\Common\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DomainBy extends NameIdBy
+enum DomainBy: string
 {
+    /**
+     * Constant for value 'id'
+     * @return string 'id'
+     */
+    case ID = 'id';
+
+    /**
+     * Constant for value 'name'
+     * @return string 'name'
+     */
+    case NAME = 'name';
+
     /**
      * Constant for value 'virtualHostname'
      * @return string 'virtualHostname'
      */
-    protected const VIRTUAL_HOSTNAME = 'virtualHostname';
+    case VIRTUAL_HOSTNAME = 'virtualHostname';
 
     /**
      * Constant for value 'krb5Realm'
      * @return string 'krb5Realm'
      */
-    protected const KRB5_REALM = 'krb5Realm';
+    case KRB5_REALM = 'krb5Realm';
 
     /**
      * Constant for value 'foreignName'
      * @return string 'foreignName'
      */
-    protected const FOREIGN_NAME = 'foreignName';
+    case FOREIGN_NAME = 'foreignName';
 }

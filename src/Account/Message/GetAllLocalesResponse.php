@@ -28,10 +28,6 @@ class GetAllLocalesResponse extends SoapResponse
     /**
      * Information about locales
      * 
-     * @Accessor(getter="getLocales", setter="setLocales")
-     * @Type("array<Zimbra\Account\Struct\LocaleInfo>")
-     * @XmlList(inline=true, entry="locale", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getLocales', setter: 'setLocales')]

@@ -18,8 +18,9 @@ class RightTypeTest extends TestCase
             'SET_ATTRS'   => 'setAttrs',
             'COMBO'   => 'combo',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(RightType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(RightType::from($value)->name, $name);
+            $this->assertSame(RightType::from($value)->value, $value);
         }
     }
 }

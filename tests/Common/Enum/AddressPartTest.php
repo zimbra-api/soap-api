@@ -13,12 +13,13 @@ class AddressPartTest extends TestCase
     public function testAddressPart()
     {
         $values = [
-            'ALL'     => 'all',
+            'ALL'       => 'all',
             'LOCALPART' => 'localpart',
-            'DOMAIN'     => 'domain',
+            'DOMAIN'    => 'domain',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AddressPart::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AddressPart::from($value)->name, $name);
+            $this->assertSame(AddressPart::from($value)->value, $value);
         }
     }
 }

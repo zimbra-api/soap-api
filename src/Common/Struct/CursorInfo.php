@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class CursorInfo
 {
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
+     * Id
      * 
      * @var string
      */
@@ -38,10 +35,7 @@ class CursorInfo
     private $id;
 
     /**
-     * @Accessor(getter="getSortVal", setter="setSortVal")
-     * @SerializedName("sortVal")
-     * @Type("string")
-     * @XmlAttribute
+     * Sort val
      * 
      * @var string
      */
@@ -52,10 +46,7 @@ class CursorInfo
     private $sortVal;
 
     /**
-     * @Accessor(getter="getEndSortVal", setter="setEndSortVal")
-     * @SerializedName("endSortVal")
-     * @Type("string")
-     * @XmlAttribute
+     * End sort val
      * 
      * @var string
      */
@@ -66,10 +57,7 @@ class CursorInfo
     private $endSortVal;
 
     /**
-     * @Accessor(getter="getIncludeOffset", setter="setIncludeOffset")
-     * @SerializedName("includeOffset")
-     * @Type("bool")
-     * @XmlAttribute
+     * Include offset
      * 
      * @var bool
      */

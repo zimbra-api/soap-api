@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class UserAgentInfo
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -38,10 +35,7 @@ class UserAgentInfo
     private $name;
 
     /**
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("version")
-     * @Type("string")
-     * @XmlAttribute
+     * Version
      * 
      * @var string
      */

@@ -16,8 +16,9 @@ class CosByTest extends TestCase
             'ID'   => 'id',
             'NAME' => 'name',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(CosBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(CosBy::from($value)->name, $name);
+            $this->assertSame(CosBy::from($value)->value, $value);
         }
     }
 }

@@ -17,8 +17,9 @@ class SessionTypeTest extends TestCase
             'IMAP'  => 'imap',
             'ADMIN' => 'admin',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(SessionType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(SessionType::from($value)->name, $name);
+            $this->assertSame(SessionType::from($value)->value, $value);
         }
     }
 }

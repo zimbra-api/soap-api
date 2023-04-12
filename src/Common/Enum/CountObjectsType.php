@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CountObjectsType enum class
  *
@@ -21,89 +19,89 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CountObjectsType extends Enum
+enum CountObjectsType: string
 {
     /**
      * Constant for value 'userAccount'
      * @return string 'userAccount'
      */
-    protected const USER_ACCOUNT = 'userAccount';
+    case USER_ACCOUNT = 'userAccount';
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    protected const ACCOUNT = 'account';
+    case ACCOUNT = 'account';
 
     /**
      * Constant for value 'alias'
      * @return string 'alias'
      */
-    protected const ALIAS = 'alias';
+    case ALIAS = 'alias';
 
     /**
      * Constant for value 'dl'
      * @return string 'dl'
      */
-    protected const DL = 'dl';
+    case DL = 'dl';
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    protected const DOMAIN = 'domain';
+    case DOMAIN = 'domain';
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    protected const COS = 'cos';
+    case COS = 'cos';
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    protected const SERVER = 'server';
+    case SERVER = 'server';
 
     /**
      * Constant for value 'calresource'
      * @return string 'calresource'
      */
-    protected const CALRESOURCE = 'calresource';
+    case CALRESOURCE = 'calresource';
 
     /**
      * Constant for value 'accountOnUCService'
      * @return string 'accountOnUCService'
      */
-    protected const ACCOUNT_ON_UCSERVICE = 'accountOnUCService';
+    case ACCOUNT_ON_UCSERVICE = 'accountOnUCService';
 
     /**
      * Constant for value 'cosOnUCService'
      * @return string 'cosOnUCService'
      */
-    protected const COS_ON_UCSERVICE = 'cosOnUCService';
+    case COS_ON_UCSERVICE = 'cosOnUCService';
 
     /**
      * Constant for value 'domainOnUCService'
      * @return string 'domainOnUCService'
      */
-    protected const DOMAIN_ON_UCSERVICE = 'domainOnUCService';
+    case DOMAIN_ON_UCSERVICE = 'domainOnUCService';
 
     /**
      * Constant for value 'internalUserAccount'
      * @return string 'internalUserAccount'
      */
-    protected const INTERNAL_USER_ACCOUNT = 'internalUserAccount';
+    case INTERNAL_USER_ACCOUNT = 'internalUserAccount';
 
     /**
      * Constant for value 'internalArchivingAccount'
      * @return string 'internalArchivingAccount'
      */
-    protected const INTERNAL_ARCHIVING_ACCOUNT = 'internalArchivingAccount';
+    case INTERNAL_ARCHIVING_ACCOUNT = 'internalArchivingAccount';
 
     /**
      * Constant for value 'internalUserAccountX'
      * @return string 'internalUserAccountX'
      */
-    protected const INTERNAL_USER_ACCOUNT_X = 'internalUserAccountX';
+    case INTERNAL_USER_ACCOUNT_X = 'internalUserAccountX';
 }

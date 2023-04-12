@@ -16,8 +16,9 @@ class ReplyTypeTest extends TestCase
             'REPLIED'   => 'r',
             'FORWARDED' => 'w',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ReplyType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ReplyType::from($value)->name, $name);
+            $this->assertSame(ReplyType::from($value)->value, $value);
         }
     }
 }

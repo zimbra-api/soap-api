@@ -17,8 +17,9 @@ class RemoteFolderAccessTest extends TestCase
             'INSERT' => 'i',
             'READ'   => 'r',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(RemoteFolderAccess::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(RemoteFolderAccess::from($value)->name, $name);
+            $this->assertSame(RemoteFolderAccess::from($value)->value, $value);
         }
     }
 }

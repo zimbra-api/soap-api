@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class Attr
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -38,9 +35,7 @@ class Attr
     private $name;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */
@@ -50,10 +45,7 @@ class Attr
     private $value;
 
     /**
-     * @Accessor(getter="getPermDenied", setter="setPermDenied")
-     * @SerializedName("pd")
-     * @Type("bool")
-     * @XmlAttribute
+     * Perm denied
      * 
      * @var bool
      */

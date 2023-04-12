@@ -16,8 +16,9 @@ class AceRightTypeTest extends TestCase
             'VIEW_FREE_BUSY' => 'viewFreeBusy',
             'INVITE'         => 'invite',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AceRightType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AceRightType::from($value)->name, $name);
+            $this->assertSame(AceRightType::from($value)->value, $value);
         }
     }
 }

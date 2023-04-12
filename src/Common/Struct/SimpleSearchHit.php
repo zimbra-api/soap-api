@@ -26,11 +26,6 @@ class SimpleSearchHit implements SearchHit
     /**
      * Id
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class SimpleSearchHit implements SearchHit
 
     /**
      * Sort field value
-     * 
-     * @Accessor(getter="getSortField", setter="setSortField")
-     * @SerializedName("sf")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

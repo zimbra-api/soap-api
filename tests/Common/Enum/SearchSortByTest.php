@@ -35,8 +35,9 @@ class SearchSortByTest extends TestCase
             'READ_ASC' => 'readAsc',
             'READ_DESC' => 'readDesc',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(SearchSortBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(SearchSortBy::from($value)->name, $name);
+            $this->assertSame(SearchSortBy::from($value)->value, $value);
         }
     }
 }

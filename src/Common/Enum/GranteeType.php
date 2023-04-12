@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * GranteeType enum class
  *
@@ -21,65 +19,65 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GranteeType extends Enum
+enum GranteeType: string
 {
     /**
      * Constant for value 'usr'
      * @return string 'usr'
      */
-    protected const USR = 'usr';
+    case USR = 'usr';
 
     /**
      * Constant for value 'grp'
      * @return string 'grp'
      */
-    protected const GRP = 'grp';
+    case GRP = 'grp';
 
     /**
      * Constant for value 'egp'
      * @return string 'egp'
      */
-    protected const EGP = 'egp';
+    case EGP = 'egp';
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 
     /**
      * Constant for value 'dom'
      * @return string 'dom'
      */
-    protected const DOM = 'dom';
+    case DOM = 'dom';
 
     /**
      * Constant for value 'edom'
      * @return string 'edom'
      */
-    protected const EDOM = 'edom';
+    case EDOM = 'edom';
 
     /**
      * Constant for value 'gst'
      * @return string 'gst'
      */
-    protected const GST = 'gst';
+    case GST = 'gst';
 
     /**
      * Constant for value 'key'
      * @return string 'key'
      */
-    protected const KEY = 'key';
+    case KEY = 'key';
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    protected const PUB = 'pub';
+    case PUB = 'pub';
 
     /**
      * Constant for value 'email'
      * @return string 'email'
      */
-    protected const EMAIL = 'email';
+    case EMAIL = 'email';
 }

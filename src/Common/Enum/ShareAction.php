@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ShareAction enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ShareAction extends Enum
+enum ShareAction: string
 {
     /**
      * Constant for value 'edit'
      * @return string 'edit'
      */
-    protected const EDIT = 'edit';
+    case EDIT = 'edit';
 
     /**
      * Constant for value 'revoke'
      * @return string 'revoke'
      */
-    protected const REVOKE = 'revoke';
+    case REVOKE = 'revoke';
 
     /**
      * Constant for value 'expire'
      * @return string 'expire'
      */
-    protected const EXPIRE = 'expire';
+    case EXPIRE = 'expire';
 }

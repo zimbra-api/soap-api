@@ -26,11 +26,6 @@ class WildcardExpansionQueryInfo
     /**
      * Wildcard expansion string
      * 
-     * @Accessor(getter="getStr", setter="setStr")
-     * @SerializedName("str")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getStr', setter: 'setStr')]
@@ -44,11 +39,6 @@ class WildcardExpansionQueryInfo
      * If value is <b>0 (false)</b> then the wildcard was not specific enough and
      * therefore no wildcard matches are included (exact-match *is* included in results).
      * 
-     * @Accessor(getter="getExpanded", setter="setExpanded")
-     * @SerializedName("expanded")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getExpanded', setter: 'setExpanded')]
@@ -59,11 +49,6 @@ class WildcardExpansionQueryInfo
 
     /**
      * Number expanded
-     * 
-     * @Accessor(getter="getNumExpanded", setter="setNumExpanded")
-     * @SerializedName("numExpanded")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

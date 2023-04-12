@@ -29,11 +29,6 @@ class GetShareInfoRequest extends SoapRequest
      * Flags that have been proxied to this server because the specified "owner account" is
      * homed here.  Do not proxy in this case. (Used internally by ZCS)
      * 
-     * @Accessor(getter="getInternal", setter="setInternal")
-     * @SerializedName("internal")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getInternal', setter: 'setInternal')]
@@ -47,11 +42,6 @@ class GetShareInfoRequest extends SoapRequest
      * - 0: if shares owned by the requested account should not be included in the response
      * - 1: (default) include shares owned by the requested account 
      * 
-     * @Accessor(getter="getIncludeSelf", setter="setIncludeSelf")
-     * @SerializedName("includeSelf")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getIncludeSelf', setter: 'setIncludeSelf')]
@@ -63,11 +53,6 @@ class GetShareInfoRequest extends SoapRequest
     /**
      * Filter by the specified grantee type
      * 
-     * @Accessor(getter="getGrantee", setter="setGrantee")
-     * @SerializedName("grantee")
-     * @Type("Zimbra\Common\Struct\GranteeChooser")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var GranteeChooser
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -78,11 +63,6 @@ class GetShareInfoRequest extends SoapRequest
 
     /**
      * Specifies the owner of the share
-     * 
-     * @Accessor(getter="getOwner", setter="setOwner")
-     * @SerializedName("owner")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var AccountSelector
      */

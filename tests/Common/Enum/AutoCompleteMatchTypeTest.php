@@ -14,11 +14,12 @@ class AutoCompleteMatchTypeTest extends TestCase
     {
         $values = [
             'GAL' => 'gal',
-            'CONTACT'  => 'contact',
-            'RANKING_TABLE'  => 'rankingTable',
+            'CONTACT' => 'contact',
+            'RANKING_TABLE' => 'rankingTable',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AutoCompleteMatchType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AutoCompleteMatchType::from($value)->name, $name);
+            $this->assertSame(AutoCompleteMatchType::from($value)->value, $value);
         }
     }
 }

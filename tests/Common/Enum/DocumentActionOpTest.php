@@ -18,8 +18,9 @@ class DocumentActionOpTest extends TestCase
             'GRANT'     => 'grant',
             'NOT_GRANT' => '!grant',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DocumentActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DocumentActionOp::from($value)->name, $name);
+            $this->assertSame(DocumentActionOp::from($value)->value, $value);
         }
     }
 }

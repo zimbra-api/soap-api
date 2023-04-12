@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ContentType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ContentType extends Enum
+enum ContentType: string
 {
     /**
      * Constant for value 'text/plain'
      * @return string 'text/plain'
      */
-    protected const TEXT_PLAIN = 'text/plain';
+    case TEXT_PLAIN = 'text/plain';
 
     /**
      * Constant for value 'text/html'
      * @return string 'text/html'
      */
-    protected const TEXT_HTML = 'text/html';
+    case TEXT_HTML = 'text/html';
 }

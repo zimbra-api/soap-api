@@ -16,8 +16,9 @@ class ZimletStatusTest extends TestCase
             'ENABLED'  => 'enabled',
             'DISABLED' => 'disabled',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ZimletStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ZimletStatus::from($value)->value, $value);
+            $this->assertSame(ZimletStatus::from($value)->name, $name);
         }
     }
 }

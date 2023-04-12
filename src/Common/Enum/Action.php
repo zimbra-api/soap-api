@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Action enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Action extends Enum
+enum Action: string
 {
     /**
      * Constant for value 'edit'
      * @return string 'edit'
      */
-    protected const EDIT = 'edit';
+    case EDIT = 'edit';
 
     /**
      * Constant for value 'revoke'
      * @return string 'revoke'
      */
-    protected const REVOKE = 'revoke';
+    case REVOKE = 'revoke';
 
     /**
      * Constant for value 'expire'
      * @return string 'expire'
      */
-    protected const EXPIRE = 'expire';
+    case EXPIRE = 'expire';
 
     /**
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    case START = 'start';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    case STATUS = 'status';
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    protected const STOP = 'stop';
+    case STOP = 'stop';
 }

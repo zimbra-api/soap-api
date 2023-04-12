@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AlarmRelated enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AlarmRelated extends Enum
+enum AlarmRelated: string
 {
     /**
      * Constant for value 'START'
      * @return string 'START'
      */
-    protected const START = 'START';
+    case START = 'START';
 
     /**
      * Constant for value 'END'
      * @return string 'END'
      */
-    protected const END = 'END';
+    case END = 'END';
 }

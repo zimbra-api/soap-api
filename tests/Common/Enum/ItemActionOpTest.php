@@ -28,8 +28,9 @@ class ItemActionOpTest extends TestCase
             'LOCK'            => 'lock',
             'UNLOCK'          => 'unlock',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ItemActionOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ItemActionOp::from($value)->name, $name);
+            $this->assertSame(ItemActionOp::from($value)->value, $value);
         }
     }
 }

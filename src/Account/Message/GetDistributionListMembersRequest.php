@@ -28,11 +28,6 @@ class GetDistributionListMembersRequest extends SoapRequest
     /**
      * The number of members to return (0 is default and means all)
      * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]

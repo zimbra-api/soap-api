@@ -28,12 +28,6 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     /**
      * Modifications for WhiteList
      * 
-     * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
-     * @SerializedName("whiteList")
-     * @Type("array<Zimbra\Common\Struct\OpValue>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="addr", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getWhiteListEntries', setter: 'setWhiteListEntries')]
@@ -45,12 +39,6 @@ class ModifyWhiteBlackListRequest extends SoapRequest
 
     /**
      * Modifications for BlackList
-     * 
-     * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
-     * @SerializedName("blackList")
-     * @Type("array<Zimbra\Common\Struct\OpValue>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="addr", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

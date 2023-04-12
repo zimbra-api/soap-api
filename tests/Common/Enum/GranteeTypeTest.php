@@ -24,8 +24,9 @@ class GranteeTypeTest extends TestCase
             'PUB'   => 'pub',
             'EMAIL' => 'email',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(GranteeType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(GranteeType::from($value)->name, $name);
+            $this->assertSame(GranteeType::from($value)->value, $value);
         }
     }
 }

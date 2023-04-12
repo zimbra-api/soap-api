@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Type enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Type extends Enum
+enum Type: string
 {
     /**
      * Constant for value 'user'
      * @return string 'user'
      */
-    protected const USER = 'user';
+    case USER = 'user';
 
     /**
      * Constant for value 'system'
      * @return string 'system'
      */
-    protected const SYSTEM = 'system';
+    case SYSTEM = 'system';
 }

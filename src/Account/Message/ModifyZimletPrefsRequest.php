@@ -29,10 +29,6 @@ class ModifyZimletPrefsRequest extends SoapRequest
     /**
      * Zimlet Preference Specifications
      * 
-     * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")
-     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]

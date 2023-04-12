@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * EnumTargetType enum class
  *
@@ -21,83 +19,83 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class TargetType extends Enum
+enum TargetType: string
 {
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    protected const ACCOUNT = 'account';
+    case ACCOUNT = 'account';
 
     /**
      * Constant for value 'calresource'
      * @return string 'calresource'
      */
-    protected const CALRESOURCE = 'calresource';
+    case CALRESOURCE = 'calresource';
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    protected const COS = 'cos';
+    case COS = 'cos';
 
     /**
      * Constant for value 'dl'
      * @return string 'dl'
      */
-    protected const DL = 'dl';
+    case DL = 'dl';
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    protected const GROUP = 'group';
+    case GROUP = 'group';
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    protected const DOMAIN = 'domain';
+    case DOMAIN = 'domain';
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    protected const SERVER = 'server';
+    case SERVER = 'server';
 
     /**
      * Constant for value 'alwaysoncluster'
      * @return string 'alwaysoncluster'
      */
-    protected const ALWAYSONCLUSTER = 'alwaysoncluster';
+    case ALWAYSONCLUSTER = 'alwaysoncluster';
 
     /**
      * Constant for value 'ucservice'
      * @return string 'ucservice'
      */
-    protected const UCSERVICE = 'ucservice';
+    case UCSERVICE = 'ucservice';
 
     /**
      * Constant for value 'xmppcomponent'
      * @return string 'xmppcomponent'
      */
-    protected const XMPPCOMPONENT = 'xmppcomponent';
+    case XMPPCOMPONENT = 'xmppcomponent';
 
     /**
      * Constant for value 'zimlet'
      * @return string 'zimlet'
      */
-    protected const ZIMLET = 'zimlet';
+    case ZIMLET = 'zimlet';
 
     /**
      * Constant for value 'config'
      * @return string 'config'
      */
-    protected const CONFIG = 'config';
+    case CONFIG = 'config';
 
     /**
      * Constant for value 'global'
      * @return string 'global'
      */
-    protected const GLOBALTYPE = 'global';
+    case GLOBALTYPE = 'global';
 }

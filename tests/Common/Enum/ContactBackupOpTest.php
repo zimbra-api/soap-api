@@ -13,11 +13,12 @@ class ContactBackupOpTest extends TestCase
     public function testContactBackupOp()
     {
         $values = [
-            'START'   => 'start',
-            'STOP' => 'stop',
+            'START' => 'start',
+            'STOP'  => 'stop',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ContactBackupOp::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ContactBackupOp::from($value)->name, $name);
+            $this->assertSame(ContactBackupOp::from($value)->value, $value);
         }
     }
 }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AutoCompleteMatchType enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AutoCompleteMatchType extends Enum
+enum AutoCompleteMatchType: string
 {
     /**
      * Constant for value 'gal'
      * @return string 'gal'
      */
-    protected const GAL = 'gal';
+    case GAL = 'gal';
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    protected const CONTACT = 'contact';
+    case CONTACT = 'contact';
 
     /**
      * Constant for value 'rankingTable'
      * @return string 'rankingTable'
      */
-    protected const RANKING_TABLE = 'rankingTable';
+    case RANKING_TABLE = 'rankingTable';
 }

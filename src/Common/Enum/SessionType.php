@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * SessionType enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SessionType extends Enum
+enum SessionType: string
 {
     /**
      * Constant for value 'soap'
      * @return string 'soap'
      */
-    protected const SOAP = 'soap';
+    case SOAP = 'soap';
 
     /**
      * Constant for value 'imap'
      * @return string 'imap'
      */
-    protected const IMAP = 'imap';
+    case IMAP = 'imap';
 
     /**
      * Constant for value 'admin'
      * @return string 'admin'
      */
-    protected const ADMIN = 'admin';
+    case ADMIN = 'admin';
 }

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ZeroOrOne enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ZeroOrOne extends Enum
+enum ZeroOrOne: string
 {
     /**
      * Constant for value '0'
      * @return string '0'
      */
-    protected const ZERO = '0';
+    case ZERO = '0';
 
     /**
      * Constant for value '1'
      * @return string '1'
      */
-    protected const ONE = '1';
+    case ONE = '1';
 }

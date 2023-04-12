@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ReplyType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ReplyType extends Enum
+enum ReplyType: string
 {
     /**
      * Constant for value 'REPLIED'
      * @return string 'r'
      */
-    protected const REPLIED = 'r';
+    case REPLIED = 'r';
 
     /**
      * Constant for value 'FORWARDED'
      * @return string 'w'
      */
-    protected const FORWARDED = 'w';
+    case FORWARDED = 'w';
 }

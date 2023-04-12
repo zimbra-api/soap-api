@@ -26,10 +26,7 @@ use Zimbra\Common\Struct\SearchFilterCondition;
 class EntrySearchFilterSingleCond implements SearchFilterCondition
 {
     /**
-     * @Accessor(getter="getAttr", setter="setAttr")
-     * @SerializedName("attr")
-     * @Type("string")
-     * @XmlAttribute
+     * Attribute
      * 
      * @var string
      */
@@ -40,10 +37,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private $attr;
 
     /**
-     * @Accessor(getter="getOp", setter="setOp")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\ConditionOperator>")
-     * @XmlAttribute
+     * Condition operator
      * 
      * @var ConditionOperator
      */
@@ -54,10 +48,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private ConditionOperator $op;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("value")
-     * @Type("string")
-     * @XmlAttribute
+     * Value
      * 
      * @var string
      */
@@ -68,10 +59,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private $value;
 
     /**
-     * @Accessor(getter="isNot", setter="setNot")
-     * @SerializedName("not")
-     * @Type("bool")
-     * @XmlAttribute
+     * is not
      * 
      * @var bool
      */
@@ -98,7 +86,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     )
     {
         $this->setAttr($attr)
-             ->setOp($op ?? new ConditionOperator('eq'))
+             ->setOp($op ?? ConditionOperator::EQUAL)
              ->setValue($value);
         if (NULL !== $not) {
             $this->setNot($not);

@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * OnError enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class OnError extends Enum
+enum OnError: string
 {
     /**
      * Constant for value 'continue'
      * @return string 'continue'
      */
-    protected const CONTINUE = 'continue';
+    case CONTINUE = 'continue';
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    protected const STOP = 'stop';
+    case STOP = 'stop';
 }

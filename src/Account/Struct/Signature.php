@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class Signature
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
+     * Name
      * 
      * @var string
      */
@@ -38,10 +35,7 @@ class Signature
     private $name;
 
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
+     * Id
      * 
      * @var string
      */
@@ -52,10 +46,7 @@ class Signature
     private $id;
 
     /**
-     * @Accessor(getter="getCid", setter="setCid")
-     * @SerializedName("cid")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * Content Id
      * 
      * @var string
      */
@@ -67,10 +58,6 @@ class Signature
 
     /**
      * Content of the signature
-     * 
-     * @Accessor(getter="getContents", setter="setContents")
-     * @Type("array<Zimbra\Account\Struct\SignatureContent>")
-     * @XmlList(inline=true, entry="content", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

@@ -13,12 +13,13 @@ class ContactBackupStatusTest extends TestCase
     public function testContactBackupStatus()
     {
         $values = [
-            'STARTED'   => 'started',
-            'ERROR' => 'error',
+            'STARTED' => 'started',
+            'ERROR'   => 'error',
             'STOPPED' => 'stopped',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ContactBackupStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ContactBackupStatus::from($value)->name, $name);
+            $this->assertSame(ContactBackupStatus::from($value)->value, $value);
         }
     }
 }

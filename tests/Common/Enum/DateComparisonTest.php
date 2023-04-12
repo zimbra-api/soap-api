@@ -16,8 +16,9 @@ class DateComparisonTest extends TestCase
             'BEFORE' => 'before',
             'AFTER'  => 'after',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DateComparison::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DateComparison::from($value)->name, $name);
+            $this->assertSame(DateComparison::from($value)->value, $value);
         }
     }
 }

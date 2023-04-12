@@ -19,8 +19,9 @@ class DomainByTest extends TestCase
             'KRB5_REALM'       => 'krb5Realm',
             'FOREIGN_NAME'     => 'foreignName',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DomainBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DomainBy::from($value)->name, $name);
+            $this->assertSame(DomainBy::from($value)->value, $value);
         }
     }
 }

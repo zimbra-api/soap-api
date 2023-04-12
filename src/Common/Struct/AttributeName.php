@@ -24,10 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class AttributeName
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("n")
-     * @Type("string")
-     * @XmlAttribute
+     * Attribute name
      * 
      * @var string
      */

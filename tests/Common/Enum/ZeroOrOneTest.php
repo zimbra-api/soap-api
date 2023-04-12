@@ -16,8 +16,9 @@ class ZeroOrOneTest extends TestCase
             'ZERO' => '0',
             'ONE'  => '1',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ZeroOrOne::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ZeroOrOne::from($value)->value, $value);
+            $this->assertSame(ZeroOrOne::from($value)->name, $name);
         }
     }
 }

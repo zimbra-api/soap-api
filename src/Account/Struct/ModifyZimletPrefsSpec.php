@@ -27,11 +27,6 @@ class ModifyZimletPrefsSpec
     /**
      * Zimlet name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -43,11 +38,6 @@ class ModifyZimletPrefsSpec
     /**
      * Zimlet presence setting
      * Valid values : "enabled" | "disabled"
-     * 
-     * @Accessor(getter="getPresence", setter="setPresence")
-     * @SerializedName("presence")
-     * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
-     * @XmlAttribute
      * 
      * @var ZimletStatus
      */
@@ -67,7 +57,7 @@ class ModifyZimletPrefsSpec
     public function __construct(string $name = '', ?ZimletStatus $presence = NULL)
     {
         $this->setName($name)
-             ->setPresence($presence ?? new ZimletStatus('enabled'));
+             ->setPresence($presence ?? ZimletStatus::ENABLED);
     }
 
     /**

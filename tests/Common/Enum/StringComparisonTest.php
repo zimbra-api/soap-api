@@ -17,8 +17,9 @@ class StringComparisonTest extends TestCase
             'CONTAINS' => 'contains',
             'MATCHES'  => 'matches',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(StringComparison::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(StringComparison::from($value)->name, $name);
+            $this->assertSame(StringComparison::from($value)->value, $value);
         }
     }
 }

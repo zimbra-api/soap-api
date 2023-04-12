@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * CacheType enum class
  *
@@ -21,53 +19,53 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CacheType extends Enum
+enum CacheType: string
 {
     /**
      * Constant for value 'skin'
      * @return string 'skin'
      */
-    protected const ALL = 'all';
+    case ALL = 'all';
 
     /**
      * Constant for value 'skin'
      * @return string 'skin'
      */
-    protected const SKIN = 'skin';
+    case SKIN = 'skin';
 
     /**
      * Constant for value 'locale'
      * @return string 'locale'
      */
-    protected const LOCALE = 'locale';
+    case LOCALE = 'locale';
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    protected const ACCOUNT = 'account';
+    case ACCOUNT = 'account';
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    protected const COS = 'cos';
+    case COS = 'cos';
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    protected const DOMAIN = 'domain';
+    case DOMAIN = 'domain';
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    protected const SERVER = 'server';
+    case SERVER = 'server';
 
     /**
      * Constant for value 'zimlet'
      * @return string 'zimlet'
      */
-    protected const ZIMLET = 'zimlet';
+    case ZIMLET = 'zimlet';
 }

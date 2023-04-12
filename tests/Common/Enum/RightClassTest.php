@@ -17,8 +17,9 @@ class RightClassTest extends TestCase
             'USER'  => 'USER',
             'ALL'   => 'ALL',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(RightClass::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(RightClass::from($value)->name, $name);
+            $this->assertSame(RightClass::from($value)->value, $value);
         }
     }
 }

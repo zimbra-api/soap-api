@@ -28,10 +28,6 @@ class DiscoverRightsResponse extends SoapResponse
     /**
      * Information about targets for rights
      * 
-     * @Accessor(getter="getDiscoveredRights", setter="setDiscoveredRights")
-     * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
-     * @XmlList(inline=true, entry="targets", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDiscoveredRights', setter: 'setDiscoveredRights')]

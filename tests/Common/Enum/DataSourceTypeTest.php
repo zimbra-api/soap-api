@@ -24,8 +24,9 @@ class DataSourceTypeTest extends TestCase
             'XSYNC'    => 'xsync',
             'TAGMAP'   => 'tagmap',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(DataSourceType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(DataSourceType::from($value)->name, $name);
+            $this->assertSame(DataSourceType::from($value)->value, $value);
         }
     }
 }

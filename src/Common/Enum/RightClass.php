@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RightClass enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RightClass extends Enum
+enum RightClass: string
 {
     /**
      * Constant for value 'ADMIN'
      * @return string 'ADMIN'
      */
-    protected const ADMIN = 'ADMIN';
+    case ADMIN = 'ADMIN';
 
     /**
      * Constant for value 'USER'
      * @return string 'USER'
      */
-    protected const USER = 'USER';
+    case USER = 'USER';
 
     /**
      * Constant for value 'ALL'
      * @return string 'ALL'
      */
-    protected const ALL = 'ALL';
+    case ALL = 'ALL';
 }

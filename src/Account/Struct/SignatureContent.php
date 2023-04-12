@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\ContentType;
 class SignatureContent
 {
     /**
-     * @Accessor(getter="getContentType", setter="setContentType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\ContentType>")
-     * @XmlAttribute
+     * Content type
      * 
      * @var ContentType
      */
@@ -39,9 +36,7 @@ class SignatureContent
     private ?ContentType $type;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */

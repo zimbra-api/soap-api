@@ -18,8 +18,9 @@ class MdsConnectionTypeTest extends TestCase
             'TLS'              => 'tls',
             'TLS_IS_AVAILABLE' => 'tls_is_available',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(MdsConnectionType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(MdsConnectionType::from($value)->name, $name);
+            $this->assertSame(MdsConnectionType::from($value)->value, $value);
         }
     }
 }

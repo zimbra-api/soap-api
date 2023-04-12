@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * Frequency enum class
  *
@@ -21,47 +19,47 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Frequency extends Enum
+enum Frequency: string
 {
     /**
      * Constant for value 'SEC'
      * @return string 'SEC'
      */
-    protected const SECOND = 'SEC';
+    case SECOND = 'SEC';
 
     /**
      * Constant for value 'MIN'
      * @return string 'MIN'
      */
-    protected const MINUTE = 'MIN';
+    case MINUTE = 'MIN';
 
     /**
      * Constant for value 'HOU'
      * @return string 'HOU'
      */
-    protected const HOUR = 'HOU';
+    case HOUR = 'HOU';
 
     /**
      * Constant for value 'DAI'
      * @return string 'DAI'
      */
-    protected const DAY = 'DAI';
+    case DAY = 'DAI';
 
     /**
      * Constant for value 'WEE'
      * @return string 'WEE'
      */
-    protected const WEEK = 'WEE';
+    case WEEK = 'WEE';
 
     /**
      * Constant for value 'MON'
      * @return string 'MON'
      */
-    protected const MONTH = 'MON';
+    case MONTH = 'MON';
 
     /**
      * Constant for value 'YEA'
      * @return string 'YEA'
      */
-    protected const YEAR = 'YEA';
+    case YEAR = 'YEA';
 }

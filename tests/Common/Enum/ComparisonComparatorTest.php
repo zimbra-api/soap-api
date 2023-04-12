@@ -17,8 +17,9 @@ class ComparisonComparatorTest extends TestCase
             'ASCII_CASEMAP' => 'i;ascii-casemap',
             'OCTET'         => 'i;octet',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ComparisonComparator::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ComparisonComparator::from($value)->name, $name);
+            $this->assertSame(ComparisonComparator::from($value)->value, $value);
         }
     }
 }

@@ -27,11 +27,6 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Account name - an email address (user@domain)
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -46,10 +41,6 @@ class GetAccountInfoResponse extends SoapResponse
      * zimbraMailHost: the server on which this user's mail resides
      * displayName: display name for the account
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -59,11 +50,6 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * URL to talk to for soap service for this account.
-     * 
-     * @Accessor(getter="getSoapURL", setter="setSoapURL")
-     * @SerializedName("soapURL")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -75,11 +61,6 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * Base public URL for the requested account
-     * 
-     * @Accessor(getter="getPublicURL", setter="setPublicURL")
-     * @SerializedName("publicURL")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -93,11 +74,6 @@ class GetAccountInfoResponse extends SoapResponse
      * URL to talk to in order to change a password.
      * Not returned if not configured via domain attribute zimbraChangePasswordURL
      * 
-     * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
-     * @SerializedName("changePasswordURL")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getChangePasswordURL', setter: 'setChangePasswordURL')]
@@ -109,11 +85,6 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Zimbra Community URL to load in Community tab.
      * 
-     * @Accessor(getter="getCommunityURL", setter="setCommunityURL")
-     * @SerializedName("communityURL")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCommunityURL', setter: 'setCommunityURL')]
@@ -123,12 +94,7 @@ class GetAccountInfoResponse extends SoapResponse
     private $communityURL;
 
     /**
-     * base URL for accessing the admin console
-     * 
-     * @Accessor(getter="getAdminURL", setter="setAdminURL")
-     * @SerializedName("adminURL")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * Base URL for accessing the admin console
      * 
      * @var string
      */
@@ -141,11 +107,6 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Proxy URL for accessing XMPP over BOSH.
      * Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
-     * 
-     * @Accessor(getter="getBoshURL", setter="setBoshURL")
-     * @SerializedName("boshURL")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */

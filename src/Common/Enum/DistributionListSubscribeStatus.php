@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DistributionListSubscribeStatus enum class
  *
@@ -21,23 +19,23 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DistributionListSubscribeStatus extends Enum
+enum DistributionListSubscribeStatus: string
 {
     /**
      * Constant for value 'subscribe'
      * @return string 'subscribed'
      */
-    protected const SUBSCRIBED = 'subscribed';
+    case SUBSCRIBED = 'subscribed';
 
     /**
      * Constant for value 'unsubscribed'
      * @return string 'unsubscribed'
      */
-    protected const UNSUBSCRIBED = 'unsubscribed';
+    case UNSUBSCRIBED = 'unsubscribed';
 
     /**
      * Constant for value 'awaiting_approval'
      * @return string 'awaiting_approval'
      */
-    protected const AWAITING_APPROVAL = 'awaiting_approval';
+    case AWAITING_APPROVAL = 'awaiting_approval';
 }

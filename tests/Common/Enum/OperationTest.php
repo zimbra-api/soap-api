@@ -27,8 +27,9 @@ class OperationTest extends TestCase
             'ACCEPT_SUBS_REQ' => 'acceptSubsReq',
             'REJECT_SUBS_REQ' => 'rejectSubsReq',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(Operation::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(Operation::from($value)->name, $name);
+            $this->assertSame(Operation::from($value)->value, $value);
         }
     }
 }

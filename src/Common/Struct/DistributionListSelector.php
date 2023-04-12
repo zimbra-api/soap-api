@@ -25,10 +25,7 @@ use Zimbra\Common\Enum\DistributionListBy;
 class DistributionListSelector
 {
     /**
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\DistributionListBy>")
-     * @XmlAttribute
+     * Distribution list by
      * 
      * @var DistributionListBy
      */
@@ -39,9 +36,7 @@ class DistributionListSelector
     private $by;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * Value
      * 
      * @var string
      */
@@ -59,7 +54,7 @@ class DistributionListSelector
      */
     public function __construct(?DistributionListBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? new DistributionListBy('name'));
+        $this->setBy($by ?? DistributionListBy::NAME);
         if (NULL !== $value) {
             $this->setValue($value);
         }

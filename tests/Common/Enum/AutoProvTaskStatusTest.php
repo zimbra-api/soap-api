@@ -13,13 +13,14 @@ class AutoProvTaskStatusTest extends TestCase
     public function testAutoProvTaskStatus()
     {
         $values = [
-            'STARTED'  => 'started',
+            'STARTED' => 'started',
             'RUNNING' => 'running',
-            'IDLE'   => 'idle',
-            'STOPPED'   => 'stopped',
+            'IDLE'    => 'idle',
+            'STOPPED' => 'stopped',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(AutoProvTaskStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(AutoProvTaskStatus::from($value)->name, $name);
+            $this->assertSame(AutoProvTaskStatus::from($value)->value, $value);
         }
     }
 }

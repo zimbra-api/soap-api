@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * DedupStatus enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class DedupStatus extends Enum
+enum DedupStatus: string
 {
     /**
      * Constant for value 'running'
      * @return string 'running'
      */
-    protected const RUNNING = 'running';
+    case RUNNING = 'running';
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    protected const STOPPED = 'stopped';
+    case STOPPED = 'stopped';
 }

@@ -16,8 +16,9 @@ class ContentTypeTest extends TestCase
             'TEXT_PLAIN' => 'text/plain',
             'TEXT_HTML'  => 'text/html',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(ContentType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(ContentType::from($value)->name, $name);
+            $this->assertSame(ContentType::from($value)->value, $value);
         }
     }
 }

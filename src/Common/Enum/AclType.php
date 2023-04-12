@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AclType enum class
  *
@@ -21,17 +19,17 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AclType extends Enum
+enum AclType: string
 {
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    protected const GRANT = 'grant';
+    case GRANT = 'grant';
 
     /**
      * Constant for value 'deny'
      * @return string 'deny'
      */
-    protected const DENY = 'deny';
+    case DENY = 'deny';
 }

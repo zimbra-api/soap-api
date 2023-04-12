@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RestoreResolve enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RestoreResolve extends Enum
+enum RestoreResolve: string
 {
     /**
      * Constant for value 'ignore'
      * @return string 'ignore'
      */
-    protected const IGNORE = 'ignore';
+    case IGNORE = 'ignore';
 
     /**
      * Constant for value 'modify'
      * @return string 'modify'
      */
-    protected const MODIFY = 'modify';
+    case MODIFY = 'modify';
 
     /**
      * Constant for value 'replace'
      * @return string 'replace'
      */
-    protected const REPLACE = 'replace';
+    case REPLACE = 'replace';
 
     /**
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    protected const RESET = 'reset';
+    case RESET = 'reset';
 }

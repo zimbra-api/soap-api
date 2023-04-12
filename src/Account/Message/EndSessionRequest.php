@@ -28,13 +28,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class EndSessionRequest extends SoapRequest
 {
     /**
-     * flag whether the {exp} flag is needed in the response for group entries.
+     * Flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
-     * 
-     * @Accessor(getter="isLogOff", setter="setLogOff")
-     * @SerializedName("logoff")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -45,12 +40,7 @@ class EndSessionRequest extends SoapRequest
     private $logoff;
 
     /**
-     * flag to clear all web sessions of the user default is 0 (false)
-     * 
-     * @Accessor(getter="isClearAllSoapSessions", setter="setClearAllSoapSessions")
-     * @SerializedName("all")
-     * @Type("bool")
-     * @XmlAttribute
+     * Flag to clear all web sessions of the user default is 0 (false)
      * 
      * @var bool
      */
@@ -61,12 +51,7 @@ class EndSessionRequest extends SoapRequest
     private $clearAllSoapSessions;
 
     /**
-     * flag to decide current session will be cleared or not default is 0 (false)
-     * 
-     * @Accessor(getter="isExcludeCurrentSession", setter="setExcludeCurrentSession")
-     * @SerializedName("excludeCurrent")
-     * @Type("bool")
-     * @XmlAttribute
+     * Flag to decide current session will be cleared or not default is 0 (false)
      * 
      * @var bool
      */
@@ -77,12 +62,7 @@ class EndSessionRequest extends SoapRequest
     private $excludeCurrentSession;
 
     /**
-     * end session for given session id
-     * 
-     * @Accessor(getter="getSessionId", setter="setSessionId")
-     * @SerializedName("sessionId")
-     * @Type("string")
-     * @XmlAttribute
+     * End session for given session id
      * 
      * @var string
      */

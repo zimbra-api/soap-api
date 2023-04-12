@@ -16,8 +16,9 @@ class UcServiceByTest extends TestCase
             'ID'   => 'id',
             'NAME' => 'name',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(UcServiceBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(UcServiceBy::from($value)->value, $value);
+            $this->assertSame(UcServiceBy::from($value)->name, $name);
         }
     }
 }

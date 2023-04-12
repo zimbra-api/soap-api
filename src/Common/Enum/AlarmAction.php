@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * AlarmAction enum class
  *
@@ -21,41 +19,41 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AlarmAction extends Enum
+enum AlarmAction: string
 {
     /**
      * Constant for value 'DISPLAY'
      * @return string 'DISPLAY'
      */
-    protected const DISPLAY = 'DISPLAY';
+    case DISPLAY = 'DISPLAY';
 
     /**
      * Constant for value 'AUDIO'
      * @return string 'AUDIO'
      */
-    protected const AUDIO = 'AUDIO';
+    case AUDIO = 'AUDIO';
 
     /**
      * Constant for value 'EMAIL'
      * @return string 'EMAIL'
      */
-    protected const EMAIL = 'EMAIL';
+    case EMAIL = 'EMAIL';
 
     /**
      * Constant for value 'PROCEDURE'
      * @return string 'PROCEDURE'
      */
-    protected const PROCEDURE = 'PROCEDURE';
+    case PROCEDURE = 'PROCEDURE';
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_IM'
      * @return string 'X_YAHOO_CALENDAR_ACTION_IM'
      */
-    protected const YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
+    case YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      * @return string 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      */
-    protected const YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
+    case YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
 }

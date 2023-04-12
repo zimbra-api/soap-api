@@ -17,8 +17,9 @@ class BrowseByTest extends TestCase
             'ATTACHMENTS' => 'attachments',
             'OBJECTS'     => 'objects',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(BrowseBy::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(BrowseBy::from($value)->name, $name);
+            $this->assertSame(BrowseBy::from($value)->value, $value);
         }
     }
 }

@@ -16,8 +16,9 @@ class InviteTypeTest extends TestCase
             'APPOINTMENT' => 'appt',
             'TASK'        => 'task',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(InviteType::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(InviteType::from($value)->name, $name);
+            $this->assertSame(InviteType::from($value)->value, $value);
         }
     }
 }

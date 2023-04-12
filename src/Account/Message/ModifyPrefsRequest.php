@@ -33,10 +33,6 @@ class ModifyPrefsRequest extends SoapRequest
     /**
      * Specify the preferences to be modified
      * 
-     * @Accessor(getter="getPrefs", setter="setPrefs")
-     * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlList(inline=true, entry="pref", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]

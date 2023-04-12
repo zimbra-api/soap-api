@@ -23,10 +23,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 trait AttributeSelectorTrait
 {
     /**
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attrs")
-     * @Type("string")
-     * @XmlAttribute
+     * Attributes
      * 
      * @var string
      */

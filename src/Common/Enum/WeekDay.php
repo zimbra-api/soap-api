@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * WeekDay enum class
  *
@@ -21,47 +19,47 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class WeekDay extends Enum
+enum WeekDay: string
 {
     /**
      * Constant for value 'SU'
      * @return string 'SU'
      */
-    protected const SUNDAY = 'SU';
+    case SUNDAY = 'SU';
 
     /**
      * Constant for value 'MO'
      * @return string 'MO'
      */
-    protected const MONDAY = 'MO';
+    case MONDAY = 'MO';
 
     /**
      * Constant for value 'TU'
      * @return string 'TU'
      */
-    protected const TUESDAY = 'TU';
+    case TUESDAY = 'TU';
 
     /**
      * Constant for value 'WE'
      * @return string 'WE'
      */
-    protected const WEDNESDAY = 'WE';
+    case WEDNESDAY = 'WE';
 
     /**
      * Constant for value 'TH'
      * @return string 'TH'
      */
-    protected const THURSDAY = 'TH';
+    case THURSDAY = 'TH';
 
     /**
      * Constant for value 'FR'
      * @return string 'FR'
      */
-    protected const FRIDAY = 'FR';
+    case FRIDAY = 'FR';
 
     /**
      * Constant for value 'SA'
      * @return string 'SA'
      */
-    protected const SATURDAY = 'SA';
+    case SATURDAY = 'SA';
 }

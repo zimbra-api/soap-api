@@ -28,11 +28,6 @@ class ChangePasswordRequest extends SoapRequest
     /**
      * Details of the account
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
@@ -43,11 +38,6 @@ class ChangePasswordRequest extends SoapRequest
 
     /**
      * Old password
-     * 
-     * @Accessor(getter="getOldPassword", setter="setOldPassword")
-     * @SerializedName("oldPassword")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class ChangePasswordRequest extends SoapRequest
     /**
      * New password to assign
      * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -74,12 +59,7 @@ class ChangePasswordRequest extends SoapRequest
     private $password;
 
     /**
-     * specified virtual-host is used to determine the domain of the account name
-     * 
-     * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
-     * @SerializedName("virtualHost")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * Specified virtual-host is used to determine the domain of the account name
      * 
      * @var string
      */
@@ -90,10 +70,7 @@ class ChangePasswordRequest extends SoapRequest
     private $virtualHost;
 
     /**
-     * @Accessor(getter="isDryRun", setter="setDryRun")
-     * @SerializedName("dryRun")
-     * @Type("bool")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * is dry run
      * 
      * @var bool
      */

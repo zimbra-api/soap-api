@@ -27,10 +27,6 @@ class AccountZimletIncludeCSS implements ZimletIncludeCSS
     /**
      * Included Cascading Style Sheet (CSS)
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

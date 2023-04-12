@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * ConnectionType enum class
  *
@@ -21,29 +19,29 @@ use MyCLabs\Enum\Enum;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ConnectionType extends Enum
+enum ConnectionType: string
 {
     /**
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    protected const CLEAR_TEXT = 'cleartext';
+    case CLEARTEXT = 'cleartext';
 
     /**
      * Constant for value 'ssl'
      * @return string 'ssl'
      */
-    protected const SSL = 'ssl';
+    case SSL = 'ssl';
 
     /**
      * Constant for value 'tls'
      * @return string 'tls'
      */
-    protected const TLS = 'tls';
+    case TLS = 'tls';
 
     /**
      * Constant for value 'tls_if_available'
      * @return string 'tls_if_available'
      */
-    protected const TLS_IF_AVAILABLE = 'tls_if_available';
+    case TLS_IF_AVAILABLE = 'tls_if_available';
 }
