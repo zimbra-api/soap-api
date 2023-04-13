@@ -31,11 +31,6 @@ class ConvActionSelector extends ActionSelector
      * identified based on where the messages in this conversation already reside. If a conversation contains messages
      * belonging of multiple accounts / data sources then it would not be affected by this operation.
      * 
-     * @Accessor(getter="getAcctRelativePath", setter="setAcctRelativePath")
-     * @SerializedName("acctRelPath")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAcctRelativePath', setter: 'setAcctRelativePath')]

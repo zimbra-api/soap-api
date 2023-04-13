@@ -26,11 +26,6 @@ class AppointmentIdAndDate
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class AppointmentIdAndDate
 
     /**
      * Date
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

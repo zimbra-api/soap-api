@@ -29,11 +29,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Message ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * IMAP UID
-     * 
-     * @Accessor(getter="getImapUid", setter="setImapUid")
-     * @SerializedName("i4uid")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -61,11 +51,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * X-Zimbra-Calendar-Intended-For header
      * 
-     * @Accessor(getter="getCalendarIntendedFor", setter="setCalendarIntendedFor")
-     * @SerializedName("cif")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCalendarIntendedFor', setter: 'setCalendarIntendedFor')]
@@ -76,11 +61,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Message id of the message being replied to/forwarded (outbound messages only)
-     * 
-     * @Accessor(getter="getOrigId", setter="setOrigId")
-     * @SerializedName("origid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -93,11 +73,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Reply type - r|w: (r)eplied or for(w)arded.
      * 
-     * @Accessor(getter="getDraftReplyType", setter="setDraftReplyType")
-     * @SerializedName("rt")
-     * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
-     * @XmlAttribute
-     * 
      * @var ReplyType
      */
     #[Accessor(getter: 'getDraftReplyType', setter: 'setDraftReplyType')]
@@ -109,11 +84,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * If set, this specifies the identity being used to compose the message
      * 
-     * @Accessor(getter="getIdentityId", setter="setIdentityId")
-     * @SerializedName("idnt")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getIdentityId', setter: 'setIdentityId')]
@@ -124,11 +94,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Draft account ID
-     * 
-     * @Accessor(getter="getDraftAccountId", setter="setDraftAccountId")
-     * @SerializedName("forAcct")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -142,11 +107,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * Can optionally set this to specify the time at which the draft should be
      * automatically sent by the server
      * 
-     * @Accessor(getter="getDraftAutoSendTime", setter="setDraftAutoSendTime")
-     * @SerializedName("autoSendTime")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getDraftAutoSendTime', setter: 'setDraftAutoSendTime')]
@@ -157,11 +117,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Date header
-     * 
-     * @Accessor(getter="getSentDate", setter="setSentDate")
-     * @SerializedName("sd")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -174,11 +129,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Resent date
      * 
-     * @Accessor(getter="getResentDate", setter="setResentDate")
-     * @SerializedName("rd")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getResentDate', setter: 'setResentDate')]
@@ -189,11 +139,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Part
-     * 
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -206,11 +151,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
      * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFragment', setter: 'setFragment')]
@@ -222,10 +162,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Email addresses
      * 
-     * @Accessor(getter="getEmails", setter="setEmails")
-     * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
@@ -235,11 +171,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Subject
-     * 
-     * @Accessor(getter="getSubject", setter="setSubject")
-     * @SerializedName("su")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -252,11 +183,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Message ID
      * 
-     * @Accessor(getter="getMessageIdHeader", setter="setMessageIdHeader")
-     * @SerializedName("mid")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getMessageIdHeader', setter: 'setMessageIdHeader')]
@@ -267,11 +193,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Message-ID header for message being replied to
-     * 
-     * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
-     * @SerializedName("irt")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -284,11 +205,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Parsed out iCalendar invite
      * 
-     * @Accessor(getter="getInvite", setter="setInvite")
-     * @SerializedName("inv")
-     * @Type("Zimbra\Mail\Struct\InviteInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var InviteInfoInterface
      */
     #[Accessor(getter: 'getInvite', setter: 'setInvite')]
@@ -300,10 +216,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Headers
      * 
-     * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
@@ -313,10 +225,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Part infomations
-     * 
-     * @Accessor(getter="getPartInfos", setter="setPartInfos")
-     * @Type("array<Zimbra\Mail\Struct\PartInfo>")
-     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -328,10 +236,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Share notifications
      * 
-     * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
-     * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
-     * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getShareNotifications', setter: 'setShareNotifications')]
@@ -341,10 +245,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * DL subscription notifications
-     * 
-     * @Accessor(getter="getDlSubs", setter="setDlSubs")
-     * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
-     * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
      * 
      * @var array
      */

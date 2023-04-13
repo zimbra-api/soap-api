@@ -27,11 +27,6 @@ class FreeBusySlot
     /**
      * GMT Start time for slot in milliseconds
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -42,11 +37,6 @@ class FreeBusySlot
 
     /**
      * GMT End time for slot in milliseconds
-     * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -59,11 +49,6 @@ class FreeBusySlot
     /**
      * Calendar event id
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("eventId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -74,11 +59,6 @@ class FreeBusySlot
 
     /**
      * Appointment subject
-     * 
-     * @Accessor(getter="getSubject", setter="setSubject")
-     * @SerializedName("subject")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -91,11 +71,6 @@ class FreeBusySlot
     /**
      * Location of meeting
      * 
-     * @Accessor(getter="getLocation", setter="setLocation")
-     * @SerializedName("location")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLocation', setter: 'setLocation')]
@@ -106,11 +81,6 @@ class FreeBusySlot
 
     /**
      * Returns a bool value whether this calendar event is a meeting or not.
-     * 
-     * @Accessor(getter="isMeeting", setter="setMeeting")
-     * @SerializedName("isMeeting")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -123,11 +93,6 @@ class FreeBusySlot
     /**
      * Returns a bool indicating whether it is continuous or not.
      * 
-     * @Accessor(getter="isRecurring", setter="setRecurring")
-     * @SerializedName("isRecurring")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isRecurring', setter: 'setRecurring')]
@@ -138,11 +103,6 @@ class FreeBusySlot
 
     /**
      * Returns a bool indicating whether there is any exception or not.
-     * 
-     * @Accessor(getter="isException", setter="setException")
-     * @SerializedName("isException")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -155,11 +115,6 @@ class FreeBusySlot
     /**
      * Returns a bool indicating whether any reminder has been set or not.
      * 
-     * @Accessor(getter="isReminderSet", setter="setReminderSet")
-     * @SerializedName("isReminderSet")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isReminderSet', setter: 'setReminderSet')]
@@ -171,11 +126,6 @@ class FreeBusySlot
     /**
      * Returns a bool indicating whether this meeting is private or not.
      * 
-     * @Accessor(getter="isPrivate", setter="setPrivate")
-     * @SerializedName("isPrivate")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isPrivate', setter: 'setPrivate')]
@@ -186,11 +136,6 @@ class FreeBusySlot
 
     /**
      * Returns a bool indicating hasPermission to view FreeBusy information
-     * 
-     * @Accessor(getter="hasPermission", setter="setHasPermission")
-     * @SerializedName("hasPermission")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

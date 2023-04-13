@@ -28,11 +28,6 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     /**
      * TZID
      * 
-     * @Accessor(getter="getTimezone", setter="setTimezone")
-     * @SerializedName("tz")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
@@ -43,10 +38,6 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
 
     /**
      * Information on start date/time and end date/time or duration
-     * 
-     * @Accessor(getter="getDtVals", setter="setDtVals")
-     * @Type("array<Zimbra\Mail\Struct\DtVal>")
-     * @XmlList(inline=true, entry="dtval", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -112,7 +103,9 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      */
     public function setDtVals(array $dtVals): self
     {
-        $this->dtVals = array_filter($dtVals, static fn ($dtVal) => $dtVal instanceof DtValInterface);
+        $this->dtVals = array_filter(
+            $dtVals, static fn ($dtVal) => $dtVal instanceof DtValInterface
+        );
         return $this;
     }
 

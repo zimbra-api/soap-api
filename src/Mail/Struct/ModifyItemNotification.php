@@ -26,11 +26,6 @@ class ModifyItemNotification extends ModifyNotification
     /**
      * Modified IMAP message
      * 
-     * @Accessor(getter="getMessageInfo", setter="setMessageInfo")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ImapMessageInfo
      */
     #[Accessor(getter: 'getMessageInfo', setter: 'setMessageInfo')]

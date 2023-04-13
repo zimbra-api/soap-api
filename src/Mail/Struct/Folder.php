@@ -28,11 +28,6 @@ class Folder
     /**
      * The folder id
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,11 +38,6 @@ class Folder
 
     /**
      * Item's UUID - a globally unique identifier
-     * 
-     * @Accessor(getter="getUuid", setter="setUuid")
-     * @SerializedName("uuid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class Folder
      * Name of folder; max length 128; whitespace is trimmed by server;
      * Cannot contain ':', '"', '/', or any character below 0x20
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -76,11 +61,6 @@ class Folder
 
     /**
      * Absolute Folder path
-     * 
-     * @Accessor(getter="getAbsoluteFolderPath", setter="setAbsoluteFolderPath")
-     * @SerializedName("absFolderPath")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -93,11 +73,6 @@ class Folder
     /**
      * ID of parent folder (absent for root folder)
      * 
-     * @Accessor(getter="getParentId", setter="setParentId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]
@@ -108,11 +83,6 @@ class Folder
 
     /**
      * UUID of parent folder (absent for root folder)
-     * 
-     * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
-     * @SerializedName("luuid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -127,11 +97,6 @@ class Folder
      * does not (i)nherit rights from parent, is a s(y)nc folder with external data source,
      * sync is turned on(~), folder does n(o)t allow inferiors / children
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -142,11 +107,6 @@ class Folder
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -159,11 +119,6 @@ class Folder
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
      * 
-     * @Accessor(getter="getRgb", setter="setRgb")
-     * @SerializedName("rgb")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
@@ -174,11 +129,6 @@ class Folder
 
     /**
      * Number of unread messages in folder
-     * 
-     * @Accessor(getter="getUnreadCount", setter="setUnreadCount")
-     * @SerializedName("u")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -191,11 +141,6 @@ class Folder
     /**
      * Number of unread messages with this tag, including those with the IMAP \\Deleted flag set
      * 
-     * @Accessor(getter="getImapUnreadCount", setter="setImapUnreadCount")
-     * @SerializedName("i4u")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getImapUnreadCount', setter: 'setImapUnreadCount')]
@@ -206,11 +151,6 @@ class Folder
 
     /**
      * Default type for the folder; used by web client to decide which view to use.
-     * 
-     * @Accessor(getter="getView", setter="setView")
-     * @SerializedName("view")
-     * @Type("Enum<Zimbra\Common\Enum\ViewType>")
-     * @XmlAttribute
      * 
      * @var ViewType
      */
@@ -223,11 +163,6 @@ class Folder
     /**
      * Revision
      * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
@@ -238,11 +173,6 @@ class Folder
 
     /**
      * Modified sequence
-     * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -255,11 +185,6 @@ class Folder
     /**
      * Modified date in seconds
      * 
-     * @Accessor(getter="getChangeDate", setter="setChangeDate")
-     * @SerializedName("md")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
@@ -270,11 +195,6 @@ class Folder
 
     /**
      * Number of non-subfolder items in folder
-     * 
-     * @Accessor(getter="getItemCount", setter="setItemCount")
-     * @SerializedName("n")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -287,11 +207,6 @@ class Folder
     /**
      * Number of non-subfolder items in folder, including those with the IMAP \\Deleted flag set
      * 
-     * @Accessor(getter="getImapItemCount", setter="setImapItemCount")
-     * @SerializedName("i4n")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getImapItemCount', setter: 'setImapItemCount')]
@@ -302,11 +217,6 @@ class Folder
 
     /**
      * Total size of all of non-subfolder items in folder
-     * 
-     * @Accessor(getter="getTotalSize", setter="setTotalSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -319,11 +229,6 @@ class Folder
     /**
      * Imap modified sequence
      * 
-     * @Accessor(getter="getImapModifiedSequence", setter="setImapModifiedSequence")
-     * @SerializedName("i4ms")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getImapModifiedSequence', setter: 'setImapModifiedSequence')]
@@ -334,11 +239,6 @@ class Folder
 
     /**
      * IMAP UIDNEXT
-     * 
-     * @Accessor(getter="getImapUidNext", setter="setImapUidNext")
-     * @SerializedName("i4next")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -351,11 +251,6 @@ class Folder
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
      * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -367,11 +262,6 @@ class Folder
     /**
      * Active sync status
      * 
-     * @Accessor(getter="isActiveSyncDisabled", setter="setActiveSyncDisabled")
-     * @SerializedName("activesyncdisabled")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isActiveSyncDisabled', setter: 'setActiveSyncDisabled')]
@@ -382,11 +272,6 @@ class Folder
 
     /**
      * Number of days for which web client would sync folder data for offline use
-     * 
-     * @Accessor(getter="getWebOfflineSyncDays", setter="setWebOfflineSyncDays")
-     * @SerializedName("webOfflineSyncDays")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -400,11 +285,6 @@ class Folder
      * For remote folders, the access rights the authenticated user has on the folder -
      * will contain the calculated (c)reate folder permission if the user has both (i)nsert and (r)ead access on the folder
      * 
-     * @Accessor(getter="getPerm", setter="setPerm")
-     * @SerializedName("perm")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPerm', setter: 'setPerm')]
@@ -415,11 +295,6 @@ class Folder
 
     /**
      * Recursive
-     * 
-     * @Accessor(getter="getRecursive", setter="setRecursive")
-     * @SerializedName("recursive")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -432,11 +307,6 @@ class Folder
     /**
      * URL to the folder in the REST interface for rest-enabled apps (such as notebook)
      * 
-     * @Accessor(getter="getRestUrl", setter="setRestUrl")
-     * @SerializedName("rest")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRestUrl', setter: 'setRestUrl')]
@@ -447,11 +317,6 @@ class Folder
 
     /**
      * Whether this folder can be deleted
-     * 
-     * @Accessor(getter="isDeletable", setter="setDeletable")
-     * @SerializedName("deletable")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -464,10 +329,6 @@ class Folder
     /**
      * Custom metadata
      * 
-     * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
@@ -477,11 +338,6 @@ class Folder
 
     /**
      * ACL for sharing
-     * 
-     * @Accessor(getter="getAcl", setter="setAcl")
-     * @SerializedName("acl")
-     * @Type("Zimbra\Mail\Struct\Acl")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Acl
      */
@@ -494,10 +350,6 @@ class Folder
     /**
      * Sub folders
      * 
-     * @Accessor(getter="getSubfolders", setter="setSubfolders")
-     * @Type("array<Zimbra\Mail\Struct\Folder>")
-     * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSubfolders', setter: 'setSubfolders')]
@@ -507,10 +359,6 @@ class Folder
 
     /**
      * Mount points
-     * 
-     * @Accessor(getter="getMountpoints", setter="setMountpoints")
-     * @Type("array<Zimbra\Mail\Struct\Mountpoint>")
-     * @XmlList(inline=true, entry="link", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -522,10 +370,6 @@ class Folder
     /**
      * Search folders
      * 
-     * @Accessor(getter="getSearchFolders", setter="setSearchFolders")
-     * @Type("array<Zimbra\Mail\Struct\SearchFolder>")
-     * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSearchFolders', setter: 'setSearchFolders')]
@@ -535,11 +379,6 @@ class Folder
 
     /**
      * Retention policy
-     * 
-     * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
-     * @SerializedName("retentionPolicy")
-     * @Type("Zimbra\Mail\Struct\RetentionPolicy")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RetentionPolicy
      */

@@ -27,11 +27,6 @@ class CalReply extends RecurIdInfo
     /**
      * Address of attendee who replied
      * 
-     * @Accessor(getter="getAttendee", setter="setAttendee")
-     * @SerializedName("at")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAttendee', setter: 'setAttendee')]
@@ -42,11 +37,6 @@ class CalReply extends RecurIdInfo
 
     /**
      * SENT-BY
-     * 
-     * @Accessor(getter="getSentBy", setter="setSentBy")
-     * @SerializedName("sentBy")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -63,11 +53,6 @@ class CalReply extends RecurIdInfo
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * 
-     * @Accessor(getter="getPartStat", setter="setPartStat")
-     * @SerializedName("ptst")
-     * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
-     * @XmlAttribute
-     * 
      * @var ParticipationStatus
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
@@ -79,11 +64,6 @@ class CalReply extends RecurIdInfo
     /**
      * Sequence
      * 
-     * @Accessor(getter="getSequence", setter="setSequence")
-     * @SerializedName("seq")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
@@ -94,11 +74,6 @@ class CalReply extends RecurIdInfo
 
     /**
      * Timestamp of reply
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

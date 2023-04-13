@@ -26,11 +26,6 @@ class FilterRule
     /**
      * Rule name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,11 +36,6 @@ class FilterRule
 
     /**
      * Active flag. Set by default.
-     * 
-     * @Accessor(getter="isActive", setter="setActive")
-     * @SerializedName("active")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -58,11 +48,6 @@ class FilterRule
     /**
      * Filter variables
      * 
-     * @Accessor(getter="getFilterVariables", setter="setFilterVariables")
-     * @SerializedName("filterVariables")
-     * @Type("Zimbra\Mail\Struct\FilterVariables")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var FilterVariables
      */
     #[Accessor(getter: 'getFilterVariables', setter: 'setFilterVariables')]
@@ -73,11 +58,6 @@ class FilterRule
 
     /**
      * Filter tests
-     * 
-     * @Accessor(getter="getFilterTests", setter="setFilterTests")
-     * @SerializedName("filterTests")
-     * @Type("Zimbra\Mail\Struct\FilterTests")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var FilterTests
      */
@@ -90,11 +70,6 @@ class FilterRule
     /**
      * Filter actions
      * 
-     * @Accessor(getter="getActions", setter="setActions")
-     * @Type("Zimbra\Mail\Struct\FilterActions")
-     * @SerializedName("filterActions")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var FilterActions
      */
     #[Accessor(getter: 'getActions', setter: 'setActions')]
@@ -105,11 +80,6 @@ class FilterRule
 
     /**
      * Nested rule
-     * 
-     * @Accessor(getter="getChild", setter="setChild")
-     * @SerializedName("nestedRule")
-     * @Type("Zimbra\Mail\Struct\NestedRule")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var NestedRule
      */

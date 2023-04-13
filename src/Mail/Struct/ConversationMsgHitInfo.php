@@ -27,11 +27,6 @@ class ConversationMsgHitInfo
     /**
      * Conversation ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,11 +37,6 @@ class ConversationMsgHitInfo
 
     /**
      * Size
-     * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -59,11 +49,6 @@ class ConversationMsgHitInfo
     /**
      * Folder ID
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -74,11 +59,6 @@ class ConversationMsgHitInfo
 
     /**
      * flags
-     * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -92,11 +72,6 @@ class ConversationMsgHitInfo
      * Can optionally set autoSendTime to specify the time at which the draft should be
      * automatically sent by the server
      * 
-     * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
-     * @SerializedName("autoSendTime")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
@@ -107,11 +82,6 @@ class ConversationMsgHitInfo
 
     /**
      * date
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

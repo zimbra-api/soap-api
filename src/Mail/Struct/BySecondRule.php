@@ -28,11 +28,6 @@ class BySecondRule implements BySecondRuleInterface
     /**
      * Comma separated list of seconds where second is a number between 0 and 59
      * 
-     * @Accessor(getter="getList", setter="setList")
-     * @SerializedName("seclist")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]

@@ -27,11 +27,6 @@ class InstanceRecurIdInfo
     /**
      * Range - THISANDFUTURE|THISANDPRIOR
      * 
-     * @Accessor(getter="getRange", setter="setRange")
-     * @SerializedName("range")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRange', setter: 'setRange')]
@@ -57,11 +52,6 @@ class InstanceRecurIdInfo
      *         20050612  June 12, 2005
      *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
      * 
-     * @Accessor(getter="getDateTime", setter="setDateTime")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
@@ -72,11 +62,6 @@ class InstanceRecurIdInfo
 
     /**
      * Java timezone identifier
-     * 
-     * @Accessor(getter="getTimezone", setter="setTimezone")
-     * @SerializedName("tz")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

@@ -26,11 +26,6 @@ class CurrentDayOfWeekTest extends FilterTest
     /**
      * Comma separated day of week indices
      * 
-     * @Accessor(getter="getValues", setter="setValues")
-     * @SerializedName("value")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValues', setter: 'setValues')]

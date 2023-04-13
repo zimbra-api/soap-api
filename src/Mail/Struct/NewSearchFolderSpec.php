@@ -28,11 +28,6 @@ class NewSearchFolderSpec
     /**
      * Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -43,11 +38,6 @@ class NewSearchFolderSpec
 
     /**
      * query
-     * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class NewSearchFolderSpec
     /**
      * Search types
      * 
-     * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
@@ -75,11 +60,6 @@ class NewSearchFolderSpec
 
     /**
      * Sort by
-     * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
-     * @XmlAttribute
      * 
      * @var SearchSortBy
      */
@@ -92,11 +72,6 @@ class NewSearchFolderSpec
     /**
      * Flags
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -107,11 +82,6 @@ class NewSearchFolderSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -124,11 +94,6 @@ class NewSearchFolderSpec
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
      * 
-     * @Accessor(getter="getRgb", setter="setRgb")
-     * @SerializedName("rgb")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
@@ -139,11 +104,6 @@ class NewSearchFolderSpec
 
     /**
      * Parent folder ID
-     * 
-     * @Accessor(getter="getParentFolderId", setter="setParentFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

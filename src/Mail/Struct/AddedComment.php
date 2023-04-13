@@ -26,11 +26,6 @@ class AddedComment
     /**
      * Item ID of parent
      * 
-     * @Accessor(getter="getParentId", setter="setParentId")
-     * @SerializedName("parentId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]
@@ -41,11 +36,6 @@ class AddedComment
 
     /**
      * Comment text
-     * 
-     * @Accessor(getter="getText", setter="setText")
-     * @SerializedName("text")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

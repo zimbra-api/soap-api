@@ -26,11 +26,6 @@ class TagAction extends FilterAction
     /**
      * Tag name
      * 
-     * @Accessor(getter="getTag", setter="setTag")
-     * @SerializedName("tagName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTag', setter: 'setTag')]

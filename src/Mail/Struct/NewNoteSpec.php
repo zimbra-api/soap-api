@@ -27,11 +27,6 @@ class NewNoteSpec
     /**
      * Parent Folder ID
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -42,11 +37,6 @@ class NewNoteSpec
 
     /**
      * Content
-     * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class NewNoteSpec
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -74,11 +59,6 @@ class NewNoteSpec
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
-     * 
-     * @Accessor(getter="getBounds", setter="setBounds")
-     * @SerializedName("pos")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

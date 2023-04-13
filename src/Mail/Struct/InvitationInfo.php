@@ -27,11 +27,6 @@ class InvitationInfo extends InviteComponent
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,11 +37,6 @@ class InvitationInfo extends InviteComponent
 
     /**
      * Content-Type
-     * 
-     * @Accessor(getter="getContentType", setter="setContentType")
-     * @SerializedName("ct")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class InvitationInfo extends InviteComponent
     /**
      * Content-Id
      * 
-     * @Accessor(getter="getContentId", setter="setContentId")
-     * @SerializedName("ci")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getContentId', setter: 'setContentId')]
@@ -74,11 +59,6 @@ class InvitationInfo extends InviteComponent
 
     /**
      * RAW RFC822 MESSAGE (XML-encoded) MUST CONTAIN A text/calendar PART
-     * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("Zimbra\Mail\Struct\RawInvite")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RawInvite
      */
@@ -91,11 +71,6 @@ class InvitationInfo extends InviteComponent
     /**
      * Invite component
      * 
-     * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
-     * @SerializedName("comp")
-     * @Type("Zimbra\Mail\Struct\InviteComponent")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var InviteComponent
      */
     #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
@@ -107,10 +82,6 @@ class InvitationInfo extends InviteComponent
     /**
      * Timezones
      * 
-     * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -121,10 +92,6 @@ class InvitationInfo extends InviteComponent
     /**
      * Meeting notes parts
      * 
-     * @Accessor(getter="getMimeParts", setter="setMimeParts")
-     * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
-     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
@@ -134,11 +101,6 @@ class InvitationInfo extends InviteComponent
 
     /**
      * Attachments
-     * 
-     * @Accessor(getter="getAttachments", setter="setAttachments")
-     * @SerializedName("attach")
-     * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var AttachmentsInfo
      */
@@ -292,7 +254,9 @@ class InvitationInfo extends InviteComponent
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter(
+            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+        );
         return $this;
     }
 
@@ -326,7 +290,9 @@ class InvitationInfo extends InviteComponent
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = array_filter($mimeParts, static fn ($mimePart) => $mimePart instanceof MimePartInfo);
+        $this->mimeParts = array_filter(
+            $mimeParts, static fn ($mimePart) => $mimePart instanceof MimePartInfo
+        );
         return $this;
     }
 

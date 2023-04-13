@@ -27,11 +27,6 @@ class DocumentActionGrant extends ActionGrantSelector
     /**
      * (Optional) Time when this grant expires in milliseconds since the Epoch
      * 
-     * @Accessor(getter="getExpiry", setter="setExpiry")
-     * @SerializedName("expiry")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getExpiry', setter: 'setExpiry')]

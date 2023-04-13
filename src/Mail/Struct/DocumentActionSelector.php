@@ -26,11 +26,6 @@ class DocumentActionSelector extends ActionSelector
     /**
      * Zimbra ID of the grant to revoke (Used for "!grant" operation)
      * 
-     * @Accessor(getter="getZimbraId", setter="setZimbraId")
-     * @SerializedName("zid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -41,11 +36,6 @@ class DocumentActionSelector extends ActionSelector
 
     /**
      * Used for "grant" operation
-     * 
-     * @Accessor(getter="getGrant", setter="setGrant")
-     * @SerializedName("grant")
-     * @Type("Zimbra\Mail\Struct\DocumentActionGrant")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DocumentActionGrant
      */

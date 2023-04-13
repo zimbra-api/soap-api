@@ -28,11 +28,6 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     /**
      * Absolute trigger information
      * 
-     * @Accessor(getter="getAbsolute", setter="setAbsolute")
-     * @SerializedName("abs")
-     * @Type("Zimbra\Mail\Struct\DateAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DateAttrInterface
      */
     #[Accessor(getter: 'getAbsolute', setter: 'setAbsolute')]
@@ -43,11 +38,6 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
 
     /**
      * Relative trigger information
-     * 
-     * @Accessor(getter="getRelative", setter="setRelative")
-     * @SerializedName("rel")
-     * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DurationInfoInterface
      */

@@ -28,11 +28,6 @@ class AutoCompleteMatch
     /**
      * Comma-separated email addresses in case of group
      * 
-     * @Accessor(getter="getEmail", setter="setEmail")
-     * @SerializedName("email")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getEmail', setter: 'setEmail')]
@@ -43,11 +38,6 @@ class AutoCompleteMatch
 
     /**
      * Match type - gal|contact|rankingTable
-     * 
-     * @Accessor(getter="getMatchType", setter="setMatchType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\AutoCompleteMatchType>")
-     * @XmlAttribute
      * 
      * @var MatchType
      */
@@ -60,11 +50,6 @@ class AutoCompleteMatch
     /**
      * Ranking
      * 
-     * @Accessor(getter="getRanking", setter="setRanking")
-     * @SerializedName("ranking")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRanking', setter: 'setRanking')]
@@ -75,11 +60,6 @@ class AutoCompleteMatch
 
     /**
      * Set if the entry is a group
-     * 
-     * @Accessor(getter="getGroup", setter="setGroup")
-     * @SerializedName("isGroup")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -93,11 +73,6 @@ class AutoCompleteMatch
      * Set if the user has the right to expand group members.  Returned only if
      * needExp is set in the request and only on group entries (isGroup is set).
      * 
-     * @Accessor(getter="getCanExpandGroupMembers", setter="setCanExpandGroupMembers")
-     * @SerializedName("exp")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
@@ -108,11 +83,6 @@ class AutoCompleteMatch
 
     /**
      * Id
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -125,11 +95,6 @@ class AutoCompleteMatch
     /**
      * Folder ID
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -140,11 +105,6 @@ class AutoCompleteMatch
 
     /**
      * String that should be displayed by the client
-     * 
-     * @Accessor(getter="getDisplayName", setter="setDisplayName")
-     * @SerializedName("display")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -157,11 +117,6 @@ class AutoCompleteMatch
     /**
      * First Name
      * 
-     * @Accessor(getter="getFirstName", setter="setFirstName")
-     * @SerializedName("first")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFirstName', setter: 'setFirstName')]
@@ -172,11 +127,6 @@ class AutoCompleteMatch
 
     /**
      * Middle Name
-     * 
-     * @Accessor(getter="getMiddleName", setter="setMiddleName")
-     * @SerializedName("middle")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -189,11 +139,6 @@ class AutoCompleteMatch
     /**
      * Last Name
      * 
-     * @Accessor(getter="getLastName", setter="setLastName")
-     * @SerializedName("last")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLastName', setter: 'setLastName')]
@@ -204,11 +149,6 @@ class AutoCompleteMatch
 
     /**
      * Full Name
-     * 
-     * @Accessor(getter="getFullName", setter="setFullName")
-     * @SerializedName("full")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -221,11 +161,6 @@ class AutoCompleteMatch
     /**
      * Nick Name
      * 
-     * @Accessor(getter="getNickname", setter="setNickname")
-     * @SerializedName("nick")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getNickname', setter: 'setNickname')]
@@ -237,11 +172,6 @@ class AutoCompleteMatch
     /**
      * Company Name
      * 
-     * @Accessor(getter="getCompany", setter="setCompany")
-     * @SerializedName("company")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCompany', setter: 'setCompany')]
@@ -252,11 +182,6 @@ class AutoCompleteMatch
 
     /**
      * FileAs
-     * 
-     * @Accessor(getter="getFileAs", setter="setFileAs")
-     * @SerializedName("fileas")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

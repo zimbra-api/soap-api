@@ -26,11 +26,6 @@ class ExpandedRecurrenceInstance
     /**
      * Start time in milliseconds
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -41,11 +36,6 @@ class ExpandedRecurrenceInstance
 
     /**
      * Duration in milliseconds
-     * 
-     * @Accessor(getter="getDuration", setter="setDuration")
-     * @SerializedName("dur")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class ExpandedRecurrenceInstance
     /**
      * Set if the instance is for an all day appointment
      * 
-     * @Accessor(getter="getAllDay", setter="setAllDay")
-     * @SerializedName("allDay")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
@@ -74,11 +59,6 @@ class ExpandedRecurrenceInstance
     /**
      * GMT offset of start time in milliseconds; returned only when allDay is set
      * 
-     * @Accessor(getter="getTzOffset", setter="setTzOffset")
-     * @SerializedName("tzo")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
@@ -89,11 +69,6 @@ class ExpandedRecurrenceInstance
 
     /**
      * Recurrence ID string in UTC timezone
-     * 
-     * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
-     * @SerializedName("ridZ")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

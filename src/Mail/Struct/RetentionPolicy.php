@@ -26,12 +26,6 @@ class RetentionPolicy
     /**
      * "Keep" retention policies
      * 
-     * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
-     * @SerializedName("keep")
-     * @Type("array<Zimbra\Mail\Struct\Policy>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getKeepPolicy', setter: 'setKeepPolicy')]
@@ -43,12 +37,6 @@ class RetentionPolicy
 
     /**
      * "Purge" retention policies
-     * 
-     * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
-     * @SerializedName("purge")
-     * @Type("array<Zimbra\Mail\Struct\Policy>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -90,7 +78,9 @@ class RetentionPolicy
      */
     public function setKeepPolicy(array $policies): self
     {
-        $this->keep = array_filter($policies, static fn ($policy) => $policy instanceof Policy);
+        $this->keep = array_filter(
+            $policies, static fn ($policy) => $policy instanceof Policy
+        );
         return $this;
     }
 
@@ -112,7 +102,9 @@ class RetentionPolicy
      */
     public function setPurgePolicy(array $policies): self
     {
-        $this->purge = array_filter($policies, static fn ($policy) => $policy instanceof Policy);
+        $this->purge = array_filter(
+            $policies, static fn ($policy) => $policy instanceof Policy
+        );
         return $this;
     }
 }

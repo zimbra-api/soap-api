@@ -26,11 +26,6 @@ class RFCCompliantNotifyAction extends FilterAction
     /**
      * Notify Tag ":from"
      * 
-     * @Accessor(getter="getFrom", setter="setFrom")
-     * @SerializedName("from")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFrom', setter: 'setFrom')]
@@ -41,11 +36,6 @@ class RFCCompliantNotifyAction extends FilterAction
 
     /**
      * Notify Tag ":importance"
-     * 
-     * @Accessor(getter="getImportance", setter="setImportance")
-     * @SerializedName("importance")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class RFCCompliantNotifyAction extends FilterAction
     /**
      * Notify Tag ":options"
      * 
-     * @Accessor(getter="getOptions", setter="setOptions")
-     * @SerializedName("options")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOptions', setter: 'setOptions')]
@@ -74,11 +59,6 @@ class RFCCompliantNotifyAction extends FilterAction
     /**
      * Notify Tag ":message"
      * 
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("message")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
@@ -89,11 +69,6 @@ class RFCCompliantNotifyAction extends FilterAction
 
     /**
      * Notify Parameter "method"
-     * 
-     * @Accessor(getter="getMethod", setter="setMethod")
-     * @SerializedName("method")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */

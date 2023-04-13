@@ -27,11 +27,6 @@ class SearchFolder extends Folder
     /**
      * Query
      * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
@@ -42,11 +37,6 @@ class SearchFolder extends Folder
 
     /**
      * Sort by
-     * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
-     * @XmlAttribute
      * 
      * @var SearchSortBy
      */
@@ -59,11 +49,6 @@ class SearchFolder extends Folder
     /**
      * Comma-separated list.  Legal values in list are:
      * appointment|chat|contact|conversation|document|message|tag|task|wiki
-     * 
-     * @Accessor(getter="getTypes", setter="setTypes")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -165,7 +150,7 @@ class SearchFolder extends Folder
     {
         $validTypes = [];
         foreach (explode(',', $types) as $type) {
-            if (ItemType::isValid($type) && !in_array($type, $validTypes)) {
+            if (ItemType::tryFrom($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }

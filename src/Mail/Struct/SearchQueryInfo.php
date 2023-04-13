@@ -27,10 +27,6 @@ class SearchQueryInfo
     /**
      * Suggest query info
      * 
-     * @Accessor(getter="getSuggests", setter="setSuggests")
-     * @Type("array<Zimbra\Mail\Struct\SuggestedQueryString>")
-     * @XmlList(inline=true, entry="suggest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSuggests', setter: 'setSuggests')]
@@ -40,10 +36,6 @@ class SearchQueryInfo
 
     /**
      * Wildcard query info
-     * 
-     * @Accessor(getter="getWildcards", setter="setWildcards")
-     * @Type("array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>")
-     * @XmlList(inline=true, entry="wildcard", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -73,7 +65,9 @@ class SearchQueryInfo
      */
     public function setSuggests(array $suggests): self
     {
-        $this->suggests = array_filter($suggests, static fn($suggest) => $suggest instanceof SuggestedQueryString);
+        $this->suggests = array_filter(
+            $suggests, static fn($suggest) => $suggest instanceof SuggestedQueryString
+        );
         return $this;
     }
 
@@ -95,7 +89,9 @@ class SearchQueryInfo
      */
     public function setWildcards(array $wildcards): self
     {
-        $this->wildcards = array_filter($wildcards, static fn($wildcard) => $wildcard instanceof WildcardExpansionQueryInfo);
+        $this->wildcards = array_filter(
+            $wildcards, static fn($wildcard) => $wildcard instanceof WildcardExpansionQueryInfo
+        );
         return $this;
     }
 

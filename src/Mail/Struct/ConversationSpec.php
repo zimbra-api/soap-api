@@ -27,11 +27,6 @@ class ConversationSpec
     /**
      * Conversation ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class ConversationSpec
      * if value is "1" or "all" the full expanded message structure is inlined for the
      * first (or for all) messages in the conversation.
      * 
-     * @Accessor(getter="getInlineRule", setter="setInlineRule")
-     * @SerializedName("fetch")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getInlineRule', setter: 'setInlineRule')]
@@ -59,11 +49,6 @@ class ConversationSpec
 
     /**
      * Set to return defanged HTML content by default. (default is unset)
-     * 
-     * @Accessor(getter="getWantHtml", setter="setWantHtml")
-     * @SerializedName("html")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -76,11 +61,6 @@ class ConversationSpec
     /**
      * Maximum inlined length
      * 
-     * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
-     * @SerializedName("max")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
@@ -91,11 +71,6 @@ class ConversationSpec
 
     /**
      * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
-     * 
-     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
-     * @SerializedName("needExp")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -108,10 +83,6 @@ class ConversationSpec
     /**
      * Requested headers. If <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
-     * 
-     * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -254,7 +225,9 @@ class ConversationSpec
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn ($header) => $header instanceof AttributeName);
+        $this->headers = array_filter(
+            $headers, static fn ($header) => $header instanceof AttributeName
+        );
         return $this;
     }
 

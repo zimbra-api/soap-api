@@ -28,11 +28,6 @@ class FreeBusyUserStatus
     /**
      * Email address for a user who has a conflict with the instance
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -43,11 +38,6 @@ class FreeBusyUserStatus
 
     /**
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
-     * 
-     * @Accessor(getter="getFreebusyStatus", setter="setFreebusyStatus")
-     * @SerializedName("fb")
-     * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
-     * @XmlAttribute
      * 
      * @var FreeBusyStatus
      */
@@ -67,7 +57,7 @@ class FreeBusyUserStatus
     public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = NULL)
     {
         $this->setName($name)
-             ->setFreebusyStatus($freebusyStatus ?? new FreeBusyStatus('F'));
+             ->setFreebusyStatus($freebusyStatus ?? FreeBusyStatus::FREE);
     }
 
     /**

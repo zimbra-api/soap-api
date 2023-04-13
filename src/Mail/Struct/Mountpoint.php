@@ -26,11 +26,6 @@ class Mountpoint extends Folder
     /**
      * Primary email address of the owner of the linked-to resource
      * 
-     * @Accessor(getter="getOwnerEmail", setter="setOwnerEmail")
-     * @SerializedName("owner")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
@@ -41,11 +36,6 @@ class Mountpoint extends Folder
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
-     * 
-     * @Accessor(getter="getOwnerAccountId", setter="setOwnerAccountId")
-     * @SerializedName("zid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class Mountpoint extends Folder
     /**
      * Item ID of the linked-to resource in the remote mailbox
      * 
-     * @Accessor(getter="getRemoteFolderId", setter="setRemoteFolderId")
-     * @SerializedName("rid")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRemoteFolderId', setter: 'setRemoteFolderId')]
@@ -73,11 +58,6 @@ class Mountpoint extends Folder
 
     /**
      * UUID of the linked-to resource in the remote mailbox
-     * 
-     * @Accessor(getter="getRemoteUuid", setter="setRemoteUuid")
-     * @SerializedName("ruuid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -90,11 +70,6 @@ class Mountpoint extends Folder
     /**
      * The name presently used for the item by the owner
      * 
-     * @Accessor(getter="getRemoteFolderName", setter="setRemoteFolderName")
-     * @SerializedName("oname")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRemoteFolderName', setter: 'setRemoteFolderName')]
@@ -106,11 +81,6 @@ class Mountpoint extends Folder
     /**
      * If set, client should display reminders for shared appointments/tasks
      * 
-     * @Accessor(getter="getReminderEnabled", setter="setReminderEnabled")
-     * @SerializedName("reminder")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
@@ -121,11 +91,6 @@ class Mountpoint extends Folder
 
     /**
      * If "tr" is true in the request, broken is set if this is a broken link
-     * 
-     * @Accessor(getter="getBroken", setter="setBroken")
-     * @SerializedName("broken")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

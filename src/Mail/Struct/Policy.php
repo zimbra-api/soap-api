@@ -27,11 +27,6 @@ class Policy
     /**
      * Retention policy type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\Type>")
-     * @XmlAttribute
-     * 
      * @var EnumType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -42,11 +37,6 @@ class Policy
 
     /**
      * The id
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class Policy
     /**
      * The name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -74,11 +59,6 @@ class Policy
 
     /**
      * The duration
-     * 
-     * @Accessor(getter="getLifetime", setter="setLifetime")
-     * @SerializedName("lifetime")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -115,12 +95,14 @@ class Policy
 
     public static function newUserPolicy(?string $lifetime = NULL): Policy
     {
-        return new self(new EnumType('user'), NULL, NULL, $lifetime);
+        return new self(EnumType::USER, NULL, NULL, $lifetime);
     }
 
-    public static function newSystemPolicy(?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL): Policy
+    public static function newSystemPolicy(
+        ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL
+    ): Policy
     {
-        return new self(new EnumType('system'), $id, $name, $lifetime);
+        return new self(EnumType::SYSTEM, $id, $name, $lifetime);
     }
 
     /**

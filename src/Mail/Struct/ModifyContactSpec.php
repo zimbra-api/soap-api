@@ -26,11 +26,6 @@ class ModifyContactSpec
     /**
      * ID - specified when modifying a contact
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class ModifyContactSpec
 
     /**
      * Comma-separated list of tag names
-     * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,10 +48,6 @@ class ModifyContactSpec
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Mail\Struct\ModifyContactAttr>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -72,10 +58,6 @@ class ModifyContactSpec
     /**
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
-     * 
-     * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
-     * @Type("array<Zimbra\Mail\Struct\ModifyContactGroupMember>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -172,7 +154,9 @@ class ModifyContactSpec
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ModifyContactAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof ModifyContactAttr
+        );
         return $this;
     }
 
@@ -206,7 +190,9 @@ class ModifyContactSpec
      */
     public function setContactGroupMembers(array $members): self
     {
-        $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof ModifyContactGroupMember);
+        $this->contactGroupMembers = array_filter(
+            $members, static fn ($member) => $member instanceof ModifyContactGroupMember
+        );
         return $this;
     }
 

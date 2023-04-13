@@ -26,11 +26,6 @@ class LinkInfo
     /**
      * Shared item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class LinkInfo
 
     /**
      * Item's UUID - a globally unique identifier
-     * 
-     * @Accessor(getter="getUuid", setter="setUuid")
-     * @SerializedName("uuid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class LinkInfo
     /**
      * Item name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -74,11 +59,6 @@ class LinkInfo
     /**
      * Item type
      * 
-     * @Accessor(getter="getDefaultView", setter="setDefaultView")
-     * @SerializedName("view")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
@@ -89,11 +69,6 @@ class LinkInfo
 
     /**
      * Permissions granted
-     * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("perm")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

@@ -27,10 +27,6 @@ class SyncFolder extends Folder
     /**
      * list of item ids in the folder
      * 
-     * @Accessor(getter="getTagItemIds", setter="setTagItemIds")
-     * @Type("array<Zimbra\Mail\Struct\TagIdsAttr>")
-     * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTagItemIds', setter: 'setTagItemIds')]
@@ -40,10 +36,6 @@ class SyncFolder extends Folder
 
     /**
      * list of item ids in the folder
-     * 
-     * @Accessor(getter="getConvItemIds", setter="setConvItemIds")
-     * @Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")
-     * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -55,10 +47,6 @@ class SyncFolder extends Folder
     /**
      * list of item ids in the folder
      * 
-     * @Accessor(getter="getChatItemIds", setter="setChatItemIds")
-     * @Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")
-     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getChatItemIds', setter: 'setChatItemIds')]
@@ -68,10 +56,6 @@ class SyncFolder extends Folder
 
     /**
      * list of item ids in the folder
-     * 
-     * @Accessor(getter="getMsgItemIds", setter="setMsgItemIds")
-     * @Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -83,10 +67,6 @@ class SyncFolder extends Folder
     /**
      * list of item ids in the folder
      * 
-     * @Accessor(getter="getContactItemIds", setter="setContactItemIds")
-     * @Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getContactItemIds', setter: 'setContactItemIds')]
@@ -96,10 +76,6 @@ class SyncFolder extends Folder
 
     /**
      * list of item ids in the folder
-     * 
-     * @Accessor(getter="getApptItemIds", setter="setApptItemIds")
-     * @Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")
-     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -111,10 +87,6 @@ class SyncFolder extends Folder
     /**
      * list of item ids in the folder
      * 
-     * @Accessor(getter="getTaskItemIds", setter="setTaskItemIds")
-     * @Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")
-     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTaskItemIds', setter: 'setTaskItemIds')]
@@ -124,10 +96,6 @@ class SyncFolder extends Folder
 
     /**
      * list of item ids in the folder
-     * 
-     * @Accessor(getter="getNoteItemIds", setter="setNoteItemIds")
-     * @Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")
-     * @XmlList(inline=true, entry="notes", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -139,10 +107,6 @@ class SyncFolder extends Folder
     /**
      * list of item ids in the folder
      * 
-     * @Accessor(getter="getWikiItemIds", setter="setWikiItemIds")
-     * @Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")
-     * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getWikiItemIds', setter: 'setWikiItemIds')]
@@ -152,10 +116,6 @@ class SyncFolder extends Folder
 
     /**
      * list of item ids in the folder
-     * 
-     * @Accessor(getter="getDocItemIds", setter="setDocItemIds")
-     * @Type("array<Zimbra\Mail\Struct\DocIdsAttr>")
-     * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
      * 
      * @var array
      */

@@ -26,11 +26,6 @@ class CommonDocumentInfo
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class CommonDocumentInfo
 
     /**
      * Item's UUID - a globally unique identifier
-     * 
-     * @Accessor(getter="getUuid", setter="setUuid")
-     * @SerializedName("uuid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class CommonDocumentInfo
     /**
      * Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -73,11 +58,6 @@ class CommonDocumentInfo
 
     /**
      * Size
-     * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -91,11 +71,6 @@ class CommonDocumentInfo
      * Date the item's content was last modified in milliseconds since 1970-01-01 00:00:00 UTC.
      * For immutable objects (e.g. received messages), this will be the same as the date the item was created.
      * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
@@ -106,11 +81,6 @@ class CommonDocumentInfo
 
     /**
      * Folder ID
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -123,11 +93,6 @@ class CommonDocumentInfo
     /**
      * Folder UUID
      * 
-     * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
-     * @SerializedName("luuid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
@@ -138,11 +103,6 @@ class CommonDocumentInfo
 
     /**
      * Modified sequence
-     * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -155,11 +115,6 @@ class CommonDocumentInfo
     /**
      * Metadata version
      * 
-     * @Accessor(getter="getMetadataVersion", setter="setMetadataVersion")
-     * @SerializedName("mdver")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMetadataVersion', setter: 'setMetadataVersion')]
@@ -170,11 +125,6 @@ class CommonDocumentInfo
 
     /**
      * The date the item's metadata and/or content was last modified in seconds since 1970-01-01 00:00:00 UTC.
-     * 
-     * @Accessor(getter="getChangeDate", setter="setChangeDate")
-     * @SerializedName("md")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -187,11 +137,6 @@ class CommonDocumentInfo
     /**
      * Revision
      * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
@@ -202,11 +147,6 @@ class CommonDocumentInfo
 
     /**
      * Flags
-     * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -219,11 +159,6 @@ class CommonDocumentInfo
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
-     * @Accessor(getter="getTags", setter="setTags")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
@@ -234,11 +169,6 @@ class CommonDocumentInfo
 
     /**
      * Comma-separated list of tag names
-     * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -251,11 +181,6 @@ class CommonDocumentInfo
     /**
      * Optional description
      * 
-     * @Accessor(getter="getDescription", setter="setDescription")
-     * @SerializedName("desc")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
@@ -266,11 +191,6 @@ class CommonDocumentInfo
 
     /**
      * Content type
-     * 
-     * @Accessor(getter="getContentType", setter="setContentType")
-     * @SerializedName("ct")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -283,11 +203,6 @@ class CommonDocumentInfo
     /**
      * Flags whether description is enabled or not
      * 
-     * @Accessor(getter="getDescEnabled", setter="setDescEnabled")
-     * @SerializedName("descEnabled")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getDescEnabled', setter: 'setDescEnabled')]
@@ -298,11 +213,6 @@ class CommonDocumentInfo
 
     /**
      * Version
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -315,11 +225,6 @@ class CommonDocumentInfo
     /**
      * Last edited by
      * 
-     * @Accessor(getter="getLastEditedBy", setter="setLastEditedBy")
-     * @SerializedName("leb")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLastEditedBy', setter: 'setLastEditedBy')]
@@ -330,11 +235,6 @@ class CommonDocumentInfo
 
     /**
      * Revision creator
-     * 
-     * @Accessor(getter="getCreator", setter="setCreator")
-     * @SerializedName("cr")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -347,11 +247,6 @@ class CommonDocumentInfo
     /**
      * Revision creation date in milliseconds since 1970-01-01 00:00:00 UTC.
      * 
-     * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
-     * @SerializedName("cd")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getCreatedDate', setter: 'setCreatedDate')]
@@ -363,10 +258,6 @@ class CommonDocumentInfo
     /**
      * Custom metadata information
      * 
-     * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
@@ -376,11 +267,6 @@ class CommonDocumentInfo
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -392,11 +278,6 @@ class CommonDocumentInfo
 
     /**
      * ACL for sharing
-     * 
-     * @Accessor(getter="getAcl", setter="setAcl")
-     * @SerializedName("acl")
-     * @Type("Zimbra\Mail\Struct\Acl")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Acl
      */

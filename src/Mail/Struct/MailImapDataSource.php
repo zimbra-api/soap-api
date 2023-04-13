@@ -27,11 +27,6 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     /**
      * oauthToken for data source
      * 
-     * @Accessor(getter="getOAuthToken", setter="setOAuthToken")
-     * @SerializedName("oauthToken")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOAuthToken', setter: 'setOAuthToken')]
@@ -42,11 +37,6 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
 
     /**
      * client Id for refreshing data source oauth token
-     * 
-     * @Accessor(getter="getClientId", setter="setClientId")
-     * @SerializedName("clientId")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     /**
      * client secret for refreshing data source oauth token
      * 
-     * @Accessor(getter="getClientSecret", setter="setClientSecret")
-     * @SerializedName("clientSecret")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getClientSecret', setter: 'setClientSecret')]
@@ -74,11 +59,6 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
 
     /**
      * bool field for client to denote if it wants to test the data source before creating
-     * 
-     * @Accessor(getter="isTest", setter="setTest")
-     * @SerializedName("test")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

@@ -27,11 +27,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     /**
      * Organizer
      * 
-     * @Accessor(getter="getOrganizer", setter="setOrganizer")
-     * @SerializedName("or")
-     * @Type("Zimbra\Mail\Struct\CalOrganizer")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CalOrganizer
      */
     #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
@@ -43,10 +38,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     /**
      * Categories
      * 
-     * @Accessor(getter="getCategories", setter="setCategories")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCategories', setter: 'setCategories')]
@@ -56,11 +47,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * Information for iCalendar GEO property
-     * 
-     * @Accessor(getter="getGeo", setter="setGeo")
-     * @SerializedName("geo")
-     * @Type("Zimbra\Mail\Struct\GeoInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var GeoInfo
      */
@@ -73,11 +59,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
      * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFragment', setter: 'setFragment')]
@@ -89,10 +70,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     /**
      * Instances
      * 
-     * @Accessor(getter="getInstances", setter="setInstances")
-     * @Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")
-     * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]
@@ -102,11 +79,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * Alarm information
-     * 
-     * @Accessor(getter="getAlarmData", setter="setAlarmData")
-     * @SerializedName("alarmData")
-     * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var AlarmDataInfo
      */
@@ -296,7 +268,9 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      */
     public function setCategories(array $categories): self
     {
-        $this->categories = array_unique(array_map(static fn ($category) => trim($category), $categories));
+        $this->categories = array_unique(
+            array_map(static fn ($category) => trim($category), $categories)
+        );
         return $this;
     }
 
@@ -352,7 +326,9 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      */
     public function setInstances(array $instances): self
     {
-        $this->instances = array_filter($instances, static fn ($inst) => $inst instanceof LegacyInstanceDataInfo);
+        $this->instances = array_filter(
+            $instances, static fn ($inst) => $inst instanceof LegacyInstanceDataInfo
+        );
         return $this;
     }
 

@@ -27,11 +27,6 @@ class EditheaderTest
     /**
      * matchType - is|contains|matches|count|value
      * 
-     * @Accessor(getter="getMatchType", setter="setMatchType")
-     * @SerializedName("matchType")
-     * @Type("Enum<Zimbra\Common\Enum\MatchType>")
-     * @XmlAttribute
-     * 
      * @var MatchType
      */
     #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
@@ -42,11 +37,6 @@ class EditheaderTest
 
     /**
      * if true count comparison will be done
-     * 
-     * @Accessor(getter="getCount", setter="setCount")
-     * @SerializedName("countComparator")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -59,11 +49,6 @@ class EditheaderTest
     /**
      * if true count comparison will be done
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("valueComparator")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -74,11 +59,6 @@ class EditheaderTest
 
     /**
      * Relational comparator - gt|ge|lt|le|eq|ne
-     * 
-     * @Accessor(getter="getRelationalComparator", setter="setRelationalComparator")
-     * @SerializedName("relationalComparator")
-     * @Type("Enum<Zimbra\Common\Enum\RelationalComparator>")
-     * @XmlAttribute
      * 
      * @var RelationalComparator
      */
@@ -91,11 +71,6 @@ class EditheaderTest
     /**
      * Comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * 
-     * @Accessor(getter="getComparator", setter="setComparator")
-     * @SerializedName("comparator")
-     * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
-     * @XmlAttribute
-     * 
      * @var ComparisonComparator
      */
     #[Accessor(getter: 'getComparator', setter: 'setComparator')]
@@ -107,11 +82,6 @@ class EditheaderTest
     /**
      * Name of the header to be compared
      * 
-     * @Accessor(getter="getHeaderName", setter="setHeaderName")
-     * @SerializedName("headerName")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getHeaderName', setter: 'setHeaderName')]
@@ -122,10 +92,6 @@ class EditheaderTest
 
     /**
      * Value of the header to be compared
-     * 
-     * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="headerValue", namespace="urn:zimbraMail")
      * 
      * @var array
      */

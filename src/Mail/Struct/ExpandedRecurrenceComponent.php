@@ -27,11 +27,6 @@ class ExpandedRecurrenceComponent
     /**
      * Recurrence ID
      * 
-     * @Accessor(getter="getExceptionId", setter="setExceptionId")
-     * @SerializedName("exceptId")
-     * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var InstanceRecurIdInfo
      */
     #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
@@ -42,11 +37,6 @@ class ExpandedRecurrenceComponent
 
     /**
      * DTSTART time in milliseconds since the Epoch
-     * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -59,11 +49,6 @@ class ExpandedRecurrenceComponent
     /**
      * DTEND time in milliseconds since the Epoch
      * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
@@ -75,11 +60,6 @@ class ExpandedRecurrenceComponent
     /**
      * Duration
      * 
-     * @Accessor(getter="getDuration", setter="setDuration")
-     * @SerializedName("dur")
-     * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DurationInfo
      */
     #[Accessor(getter: 'getDuration', setter: 'setDuration')]
@@ -90,11 +70,6 @@ class ExpandedRecurrenceComponent
 
     /**
      * RRULE/RDATE/EXDATE information
-     * 
-     * @Accessor(getter="getRecurrence", setter="setRecurrence")
-     * @SerializedName("recur")
-     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RecurrenceInfo
      */

@@ -29,11 +29,6 @@ class InstanceDataInfo extends InstanceDataAttrs
     /**
      * Start time
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -44,11 +39,6 @@ class InstanceDataInfo extends InstanceDataAttrs
 
     /**
      * Set if is an exception
-     * 
-     * @Accessor(getter="getIsException", setter="setIsException")
-     * @SerializedName("ex")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -61,11 +51,6 @@ class InstanceDataInfo extends InstanceDataAttrs
     /**
      * Organizer
      * 
-     * @Accessor(getter="getOrganizer", setter="setOrganizer")
-     * @SerializedName("or")
-     * @Type("Zimbra\Mail\Struct\CalOrganizer")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CalOrganizer
      */
     #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
@@ -77,10 +62,6 @@ class InstanceDataInfo extends InstanceDataAttrs
     /**
      * Categories
      * 
-     * @Accessor(getter="getCategories", setter="setCategories")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCategories', setter: 'setCategories')]
@@ -90,11 +71,6 @@ class InstanceDataInfo extends InstanceDataAttrs
 
     /**
      * Information for iCalendar GEO property
-     * 
-     * @Accessor(getter="getGeo", setter="setGeo")
-     * @SerializedName("geo")
-     * @Type("Zimbra\Mail\Struct\GeoInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var GeoInfo
      */
@@ -106,11 +82,6 @@ class InstanceDataInfo extends InstanceDataAttrs
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */

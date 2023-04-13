@@ -29,11 +29,6 @@ class RankingActionSpec
      * reset: resets the contact ranking table for the account
      * delete: delete the ranking information for the email address
      * 
-     * @Accessor(getter="getOperation", setter="setOperation")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\RankingActionOp>")
-     * @XmlAttribute
-     * 
      * @var RankingActionOp
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
@@ -44,11 +39,6 @@ class RankingActionSpec
 
     /**
      * Email
-     * 
-     * @Accessor(getter="getEmail", setter="setEmail")
-     * @SerializedName("email")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -70,7 +60,7 @@ class RankingActionSpec
         ?string $email = NULL
     )
     {
-        $this->setOperation($operation ?? new RankingActionOp('reset'));
+        $this->setOperation($operation ?? RankingActionOp::RESET);
         if (NULL !== $email) {
             $this->setEmail($email);
         }

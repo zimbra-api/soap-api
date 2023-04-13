@@ -28,11 +28,6 @@ class MsgToSend extends Msg
     /**
      * Saved draft ID
      * 
-     * @Accessor(getter="getDraftId", setter="setDraftId")
-     * @SerializedName("did")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDraftId', setter: 'setDraftId')]
@@ -44,11 +39,6 @@ class MsgToSend extends Msg
     /**
      * If set, message gets constructed based on the "did" (id of the draft).
      * 
-     * @Accessor(getter="getSendFromDraft", setter="setSendFromDraft")
-     * @SerializedName("sfd")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSendFromDraft', setter: 'setSendFromDraft')]
@@ -59,11 +49,6 @@ class MsgToSend extends Msg
 
     /**
      * Id of the data source in case SMTP settings of that data source must be used for sending the message.
-     * 
-     * @Accessor(getter="getDataSourceId", setter="setDataSourceId")
-     * @SerializedName("dsId")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

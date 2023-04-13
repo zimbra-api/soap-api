@@ -27,11 +27,6 @@ class FilterTests
     /**
      * Condition - allof|anyof
      * 
-     * @Accessor(getter="getCondition", setter="setCondition")
-     * @SerializedName("condition")
-     * @Type("Enum<Zimbra\Common\Enum\FilterCondition>")
-     * @XmlAttribute
-     * 
      * @var FilterCondition
      */
     #[Accessor(getter: 'getCondition', setter: 'setCondition')]
@@ -43,10 +38,6 @@ class FilterTests
     /**
      * Address book filter tests
      * 
-     * @Accessor(getter="getAddressBookTests", setter="setAddressBookTests")
-     * @Type("array<Zimbra\Mail\Struct\AddressBookTest>")
-     * @XmlList(inline=true, entry="addressBookTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAddressBookTests', setter: 'setAddressBookTests')]
@@ -56,10 +47,6 @@ class FilterTests
 
     /**
      * Address filter tests
-     * 
-     * @Accessor(getter="getAddressTests", setter="setAddressTests")
-     * @Type("array<Zimbra\Mail\Struct\AddressTest>")
-     * @XmlList(inline=true, entry="addressTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -71,10 +58,6 @@ class FilterTests
     /**
      * Envelope filter tests
      * 
-     * @Accessor(getter="getEnvelopeTests", setter="setEnvelopeTests")
-     * @Type("array<Zimbra\Mail\Struct\EnvelopeTest>")
-     * @XmlList(inline=true, entry="envelopeTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getEnvelopeTests', setter: 'setEnvelopeTests')]
@@ -85,9 +68,6 @@ class FilterTests
     /**
      * Attachment filter tests
      * 
-     * @Accessor(getter="getAttachmentTests", setter="setAttachmentTests")
-     * @Type("array<Zimbra\Mail\Struct\AttachmentTest>")
-     * @XmlList(inline=true, entry="attachmentTest", namespace="urn:zimbraMail")
      * @var array
      */
     #[Accessor(getter: 'getAttachmentTests', setter: 'setAttachmentTests')]
@@ -97,10 +77,6 @@ class FilterTests
 
     /**
      * Body filter tests
-     * 
-     * @Accessor(getter="getBodyTests", setter="setBodyTests")
-     * @Type("array<Zimbra\Mail\Struct\BodyTest>")
-     * @XmlList(inline=true, entry="bodyTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -112,10 +88,6 @@ class FilterTests
     /**
      * Bulk filter tests
      * 
-     * @Accessor(getter="getBulkTests", setter="setBulkTests")
-     * @Type("array<Zimbra\Mail\Struct\BulkTest>")
-     * @XmlList(inline=true, entry="bulkTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getBulkTests', setter: 'setBulkTests')]
@@ -125,10 +97,6 @@ class FilterTests
 
     /**
      * Contact ranking filter tests
-     * 
-     * @Accessor(getter="getContactRankingTests", setter="setContactRankingTests")
-     * @Type("array<Zimbra\Mail\Struct\ContactRankingTest>")
-     * @XmlList(inline=true, entry="contactRankingTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -140,10 +108,6 @@ class FilterTests
     /**
      * Conversation filter tests
      * 
-     * @Accessor(getter="getConversationTests", setter="setConversationTests")
-     * @Type("array<Zimbra\Mail\Struct\ConversationTest>")
-     * @XmlList(inline=true, entry="conversationTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getConversationTests', setter: 'setConversationTests')]
@@ -153,10 +117,6 @@ class FilterTests
 
     /**
      * Current day of week filter tests
-     * 
-     * @Accessor(getter="getCurrentDayOfWeekTests", setter="setCurrentDayOfWeekTests")
-     * @Type("array<Zimbra\Mail\Struct\CurrentDayOfWeekTest>")
-     * @XmlList(inline=true, entry="currentDayOfWeekTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -168,10 +128,6 @@ class FilterTests
     /**
      * Current time filter tests
      * 
-     * @Accessor(getter="getCurrentTimeTests", setter="setCurrentTimeTests")
-     * @Type("array<Zimbra\Mail\Struct\CurrentTimeTest>")
-     * @XmlList(inline=true, entry="currentTimeTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCurrentTimeTests', setter: 'setCurrentTimeTests')]
@@ -181,10 +137,6 @@ class FilterTests
 
     /**
      * Date filter tests
-     * 
-     * @Accessor(getter="getDateTests", setter="setDateTests")
-     * @Type("array<Zimbra\Mail\Struct\DateTest>")
-     * @XmlList(inline=true, entry="dateTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -196,10 +148,6 @@ class FilterTests
     /**
      * Facebook filter tests
      * 
-     * @Accessor(getter="getFacebookTests", setter="setFacebookTests")
-     * @Type("array<Zimbra\Mail\Struct\FacebookTest>")
-     * @XmlList(inline=true, entry="facebookTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getFacebookTests', setter: 'setFacebookTests')]
@@ -209,10 +157,6 @@ class FilterTests
 
     /**
      * Flagged filter tests
-     * 
-     * @Accessor(getter="getFlaggedTests", setter="setFlaggedTests")
-     * @Type("array<Zimbra\Mail\Struct\FlaggedTest>")
-     * @XmlList(inline=true, entry="flaggedTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -224,10 +168,6 @@ class FilterTests
     /**
      * Header exists filter tests
      * 
-     * @Accessor(getter="getHeaderExistsTests", setter="setHeaderExistsTests")
-     * @Type("array<Zimbra\Mail\Struct\HeaderExistsTest>")
-     * @XmlList(inline=true, entry="headerExistsTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getHeaderExistsTests', setter: 'setHeaderExistsTests')]
@@ -237,10 +177,6 @@ class FilterTests
 
     /**
      * Header filter tests
-     * 
-     * @Accessor(getter="getHeaderTests", setter="setHeaderTests")
-     * @Type("array<Zimbra\Mail\Struct\HeaderTest>")
-     * @XmlList(inline=true, entry="headerTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -252,10 +188,6 @@ class FilterTests
     /**
      * Importance filter tests
      * 
-     * @Accessor(getter="getImportanceTests", setter="setImportanceTests")
-     * @Type("array<Zimbra\Mail\Struct\ImportanceTest>")
-     * @XmlList(inline=true, entry="importanceTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getImportanceTests', setter: 'setImportanceTests')]
@@ -265,10 +197,6 @@ class FilterTests
 
     /**
      * Invite filter tests
-     * 
-     * @Accessor(getter="getInviteTests", setter="setInviteTests")
-     * @Type("array<Zimbra\Mail\Struct\InviteTest>")
-     * @XmlList(inline=true, entry="inviteTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -280,10 +208,6 @@ class FilterTests
     /**
      * LinkedIn filter tests
      * 
-     * @Accessor(getter="getLinkedInTests", setter="setLinkedInTests")
-     * @Type("array<Zimbra\Mail\Struct\LinkedInTest>")
-     * @XmlList(inline=true, entry="linkedinTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getLinkedInTests', setter: 'setLinkedInTests')]
@@ -293,10 +217,6 @@ class FilterTests
 
     /**
      * List filter tests
-     * 
-     * @Accessor(getter="getListTests", setter="setListTests")
-     * @Type("array<Zimbra\Mail\Struct\ListTest>")
-     * @XmlList(inline=true, entry="listTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -308,10 +228,6 @@ class FilterTests
     /**
      * Me filter tests
      * 
-     * @Accessor(getter="getMeTests", setter="setMeTests")
-     * @Type("array<Zimbra\Mail\Struct\MeTest>")
-     * @XmlList(inline=true, entry="meTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMeTests', setter: 'setMeTests')]
@@ -321,10 +237,6 @@ class FilterTests
 
     /**
      * Mime header filter tests
-     * 
-     * @Accessor(getter="getMimeHeaderTests", setter="setMimeHeaderTests")
-     * @Type("array<Zimbra\Mail\Struct\MimeHeaderTest>")
-     * @XmlList(inline=true, entry="mimeHeaderTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -336,10 +248,6 @@ class FilterTests
     /**
      * Size filter tests
      * 
-     * @Accessor(getter="getSizeTests", setter="setSizeTests")
-     * @Type("array<Zimbra\Mail\Struct\SizeTest>")
-     * @XmlList(inline=true, entry="sizeTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSizeTests', setter: 'setSizeTests')]
@@ -349,10 +257,6 @@ class FilterTests
 
     /**
      * Socialcast filter tests
-     * 
-     * @Accessor(getter="getSocialcastTests", setter="setSocialcastTests")
-     * @Type("array<Zimbra\Mail\Struct\SocialcastTest>")
-     * @XmlList(inline=true, entry="socialcastTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -364,10 +268,6 @@ class FilterTests
     /**
      * True filter tests
      * 
-     * @Accessor(getter="getTrueTests", setter="setTrueTests")
-     * @Type("array<Zimbra\Mail\Struct\TrueTest>")
-     * @XmlList(inline=true, entry="trueTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTrueTests', setter: 'setTrueTests')]
@@ -377,10 +277,6 @@ class FilterTests
 
     /**
      * Twitter filter tests
-     * 
-     * @Accessor(getter="getTwitterTests", setter="setTwitterTests")
-     * @Type("array<Zimbra\Mail\Struct\TwitterTest>")
-     * @XmlList(inline=true, entry="twitterTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -392,10 +288,6 @@ class FilterTests
     /**
      * Community requests filter tests
      * 
-     * @Accessor(getter="getCommunityRequestsTests", setter="setCommunityRequestsTests")
-     * @Type("array<Zimbra\Mail\Struct\CommunityRequestsTest>")
-     * @XmlList(inline=true, entry="communityRequestsTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCommunityRequestsTests', setter: 'setCommunityRequestsTests')]
@@ -406,10 +298,6 @@ class FilterTests
     /**
      * Community content filter tests
      * 
-     * @Accessor(getter="getCommunityContentTests", setter="setCommunityContentTests")
-     * @Type("array<Zimbra\Mail\Struct\CommunityContentTest>")
-     * @XmlList(inline=true, entry="communityContentTest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCommunityContentTests', setter: 'setCommunityContentTests')]
@@ -419,10 +307,6 @@ class FilterTests
 
     /**
      * Community connections filter tests
-     * 
-     * @Accessor(getter="getCommunityConnectionsTests", setter="setCommunityConnectionsTests")
-     * @Type("array<Zimbra\Mail\Struct\CommunityConnectionsTest>")
-     * @XmlList(inline=true, entry="communityConnectionsTest", namespace="urn:zimbraMail")
      * 
      * @var array
      */

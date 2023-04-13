@@ -28,11 +28,6 @@ class CreateCalendarItemResponse extends SoapResponse
     /**
      * Appointment ID
      * 
-     * @Accessor(getter="getCalItemId", setter="setCalItemId")
-     * @SerializedName("calItemId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
@@ -43,11 +38,6 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Appointment ID (deprecated)
-     * 
-     * @Accessor(getter="getDeprecatedApptId", setter="setDeprecatedApptId")
-     * @SerializedName("apptId")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class CreateCalendarItemResponse extends SoapResponse
     /**
      * Invite Message ID
      * 
-     * @Accessor(getter="getCalInvId", setter="setCalInvId")
-     * @SerializedName("invId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCalInvId', setter: 'setCalInvId')]
@@ -75,11 +60,6 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Change sequence
-     * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -92,11 +72,6 @@ class CreateCalendarItemResponse extends SoapResponse
     /**
      * Revision
      * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
@@ -108,11 +83,6 @@ class CreateCalendarItemResponse extends SoapResponse
     /**
      * Message information
      * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Id
      */
     #[Accessor(getter: 'getMsg', setter: 'setMsg')]
@@ -123,11 +93,6 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Included if "echo" was set in the request
-     * 
-     * @Accessor(getter="getEcho", setter="setEcho")
-     * @SerializedName("echo")
-     * @Type("Zimbra\Mail\Struct\CalEcho")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var CalEcho
      */

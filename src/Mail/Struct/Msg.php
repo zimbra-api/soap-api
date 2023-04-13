@@ -28,11 +28,6 @@ class Msg
     /**
      * Uploaded MIME body ID
      * 
-     * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
-     * @SerializedName("aid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
@@ -43,11 +38,6 @@ class Msg
 
     /**
      * Original ID
-     * 
-     * @Accessor(getter="getOrigId", setter="setOrigId")
-     * @SerializedName("origid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class Msg
     /**
      * Reply type - r|w.  (r)eplied or for(w)arded.
      * 
-     * @Accessor(getter="getReplyType", setter="setReplyType")
-     * @SerializedName("rt")
-     * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
-     * @XmlAttribute
-     * 
      * @var ReplyType
      */
     #[Accessor(getter: 'getReplyType', setter: 'setReplyType')]
@@ -75,11 +60,6 @@ class Msg
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
-     * 
-     * @Accessor(getter="getIdentityId", setter="setIdentityId")
-     * @SerializedName("idnt")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -92,11 +72,6 @@ class Msg
     /**
      * Subject
      * 
-     * @Accessor(getter="getSubject", setter="setSubject")
-     * @SerializedName("su")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSubject', setter: 'setSubject')]
@@ -108,10 +83,6 @@ class Msg
     /**
      * Headers
      * 
-     * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @Type("array<Zimbra\Mail\Struct\Header>")
-     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
@@ -121,11 +92,6 @@ class Msg
 
     /**
      * Message-ID header for message being replied to
-     * 
-     * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
-     * @SerializedName("irt")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -138,11 +104,6 @@ class Msg
     /**
      * Folder ID
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -153,11 +114,6 @@ class Msg
 
     /**
      * Flags
-     * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -170,11 +126,6 @@ class Msg
     /**
      * Content
      * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]
@@ -185,11 +136,6 @@ class Msg
 
     /**
      * Mime part information
-     * 
-     * @Accessor(getter="getMimePart", setter="setMimePart")
-     * @SerializedName("mp")
-     * @Type("Zimbra\Mail\Struct\MimePartInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var MimePartInfo
      */
@@ -202,11 +148,6 @@ class Msg
     /**
      * Attachments information
      * 
-     * @Accessor(getter="getAttachments", setter="setAttachments")
-     * @SerializedName("attach")
-     * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var AttachmentsInfo
      */
     #[Accessor(getter: 'getAttachments', setter: 'setAttachments')]
@@ -217,11 +158,6 @@ class Msg
 
     /**
      * Invite information
-     * 
-     * @Accessor(getter="getInvite", setter="setInvite")
-     * @SerializedName("inv")
-     * @Type("Zimbra\Mail\Struct\InvitationInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var InvitationInfo
      */
@@ -234,10 +170,6 @@ class Msg
     /**
      * Email address information
      * 
-     * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
-     * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
-     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getEmailAddresses', setter: 'setEmailAddresses')]
@@ -248,10 +180,6 @@ class Msg
     /**
      * Timezones
      * 
-     * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -261,11 +189,6 @@ class Msg
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */

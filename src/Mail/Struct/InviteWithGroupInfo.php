@@ -28,11 +28,6 @@ class InviteWithGroupInfo
     /**
      * Invite type - appt|task
      * 
-     * @Accessor(getter="getCalItemType", setter="setCalItemType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\InviteType>")
-     * @XmlAttribute
-     * 
      * @var InviteType
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
@@ -44,10 +39,6 @@ class InviteWithGroupInfo
     /**
      * Timezones
      * 
-     * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -58,10 +49,6 @@ class InviteWithGroupInfo
     /**
      * Invite components
      * 
-     * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @Type("array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>")
-     * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
@@ -71,12 +58,6 @@ class InviteWithGroupInfo
 
     /**
      * Replies
-     * 
-     * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
-     * @SerializedName("replies")
-     * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -103,7 +84,7 @@ class InviteWithGroupInfo
         array $calendarReplies = []
     )
     {
-        $this->setCalItemType($calItemType ?? new InviteType('appt'))
+        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT)
              ->setTimezones($timezones)
              ->setInviteComponents($inviteComponents)
              ->setCalendarReplies($calendarReplies);
@@ -139,7 +120,9 @@ class InviteWithGroupInfo
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter(
+            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+        );
         return $this;
     }
 
@@ -183,7 +166,9 @@ class InviteWithGroupInfo
      */
     public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = array_filter($components, static fn ($component) => $component instanceof InviteComponentWithGroupInfo);
+        $this->inviteComponents = array_filter(
+            $components, static fn ($component) => $component instanceof InviteComponentWithGroupInfo
+        );
         return $this;
     }
 
@@ -207,7 +192,9 @@ class InviteWithGroupInfo
      */
     public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = array_filter($replies, static fn ($reply) => $reply instanceof CalendarReply);
+        $this->calendarReplies = array_filter(
+            $replies, static fn ($reply) => $reply instanceof CalendarReply
+        );
         return $this;
     }
 

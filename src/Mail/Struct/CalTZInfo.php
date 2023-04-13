@@ -30,11 +30,6 @@ class CalTZInfo implements CalTZInfoInterface
      * If this is the only detail present then this should be an existing server-known timezone's ID
      * Otherwise, it must be present, although it will be ignored by the server
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -46,11 +41,6 @@ class CalTZInfo implements CalTZInfoInterface
     /**
      * Standard Time's offset in minutes from UTC; local = UTC + offset
      * 
-     * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
-     * @SerializedName("stdoff")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTzStdOffset', setter: 'setTzStdOffset')]
@@ -61,11 +51,6 @@ class CalTZInfo implements CalTZInfoInterface
 
     /**
      * Daylight Saving Time's offset in minutes from UTC; present only if DST is used
-     * 
-     * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
-     * @SerializedName("dayoff")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -79,11 +64,6 @@ class CalTZInfo implements CalTZInfoInterface
      * Time/rule for transitioning from daylight time to standard time.
      * Either specify week/wkday combo, or mday.
      * 
-     * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
-     * @SerializedName("standard")
-     * @Type("Zimbra\Common\Struct\TzOnsetInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var TzOnsetInfo
      */
     #[Accessor(getter: 'getStandardTzOnset', setter: 'setStandardTzOnset')]
@@ -94,11 +74,6 @@ class CalTZInfo implements CalTZInfoInterface
 
     /**
      * Time/rule for transitioning from standard time to daylight time
-     * 
-     * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
-     * @SerializedName("daylight")
-     * @Type("Zimbra\Common\Struct\TzOnsetInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var TzOnsetInfo
      */
@@ -111,11 +86,6 @@ class CalTZInfo implements CalTZInfoInterface
     /**
      * Standard Time component's timezone name
      * 
-     * @Accessor(getter="getStandardTZName", setter="setStandardTZName")
-     * @SerializedName("stdname")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getStandardTZName', setter: 'setStandardTZName')]
@@ -126,11 +96,6 @@ class CalTZInfo implements CalTZInfoInterface
 
     /**
      * Daylight Saving Time component's timezone name
-     * 
-     * @Accessor(getter="getDaylightTZName", setter="setDaylightTZName")
-     * @SerializedName("dayname")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

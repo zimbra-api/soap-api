@@ -26,11 +26,6 @@ class ModifyTagNotification extends ModifyNotification
     /**
      * ID of modified tag
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class ModifyTagNotification extends ModifyNotification
 
     /**
      * Name of modified tag
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */

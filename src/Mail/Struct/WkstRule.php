@@ -29,11 +29,6 @@ class WkstRule implements WkstRuleInterface
     /**
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
      * 
-     * @Accessor(getter="getDay", setter="setDay")
-     * @SerializedName("day")
-     * @Type("Enum<Zimbra\Common\Enum\WeekDay>")
-     * @XmlAttribute
-     * 
      * @var WeekDay
      */
     #[Accessor(getter: 'getDay', setter: 'setDay')]
@@ -50,7 +45,7 @@ class WkstRule implements WkstRuleInterface
      */
     public function __construct(?WeekDay $day = NULL)
     {
-        $this->setDay($day ?? new WeekDay('SU'));
+        $this->setDay($day ?? WeekDay::SUNDAY);
     }
 
     /**
@@ -58,7 +53,7 @@ class WkstRule implements WkstRuleInterface
      *
      * @return WeekDay
      */
-    public function getDay(): ?WeekDay
+    public function getDay(): WeekDay
     {
         return $this->day;
     }

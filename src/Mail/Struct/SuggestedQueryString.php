@@ -26,10 +26,6 @@ class SuggestedQueryString
     /**
      * Suggested query string
      * 
-     * @Accessor(getter="getSuggestedQueryString", setter="setSuggestedQueryString")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSuggestedQueryString', setter: 'setSuggestedQueryString')]

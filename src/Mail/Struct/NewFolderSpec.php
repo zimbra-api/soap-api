@@ -28,11 +28,6 @@ class NewFolderSpec
     /**
      * If parentFolderId is unset, name is the full path of the new folder; otherwise, name may not contain the folder separator '/'
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -45,11 +40,6 @@ class NewFolderSpec
      * Default type for the folder; used by web client to decide which view to use;
      * possible values are the same as <SearchRequest>'s {types}: conversation|message|contact|etc
      * 
-     * @Accessor(getter="getDefaultView", setter="setDefaultView")
-     * @SerializedName("view")
-     * @Type("Enum<Zimbra\Common\Enum\ViewType>")
-     * @XmlAttribute
-     * 
      * @var ViewType
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
@@ -60,11 +50,6 @@ class NewFolderSpec
 
     /**
      * Flags
-     * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -77,11 +62,6 @@ class NewFolderSpec
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -92,11 +72,6 @@ class NewFolderSpec
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
-     * @Accessor(getter="getRgb", setter="setRgb")
-     * @SerializedName("rgb")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -109,11 +84,6 @@ class NewFolderSpec
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
      * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -124,11 +94,6 @@ class NewFolderSpec
 
     /**
      * Parent folder ID
-     * 
-     * @Accessor(getter="getParentFolderId", setter="setParentFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -141,11 +106,6 @@ class NewFolderSpec
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
      * 
-     * @Accessor(getter="getFetchIfExists", setter="setFetchIfExists")
-     * @SerializedName("fie")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getFetchIfExists', setter: 'setFetchIfExists')]
@@ -157,11 +117,6 @@ class NewFolderSpec
     /**
      * If set (default) then if "url" is set, synchronize folder content on folder creation
      * 
-     * @Accessor(getter="getSyncToUrl", setter="setSyncToUrl")
-     * @SerializedName("sync")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSyncToUrl', setter: 'setSyncToUrl')]
@@ -172,12 +127,6 @@ class NewFolderSpec
 
     /**
      * Grant specification
-     * 
-     * @Accessor(getter="getGrants", setter="setGrants")
-     * @SerializedName("acl")
-     * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="grant", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -446,7 +395,9 @@ class NewFolderSpec
      */
     public function setGrants(array $grants): self
     {
-        $this->grants = array_filter($grants, static fn ($grant) => $grant instanceof ActionGrantSelector);
+        $this->grants = array_filter(
+            $grants, static fn ($grant) => $grant instanceof ActionGrantSelector
+        );
         return $this;
     }
 

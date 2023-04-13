@@ -27,11 +27,6 @@ class NewContactAttr
     /**
      * Attribute name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("n")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,11 +37,6 @@ class NewContactAttr
 
     /**
      * Upload ID
-     * 
-     * @Accessor(getter="getAttachId", setter="setAttachId")
-     * @SerializedName("aid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class NewContactAttr
     /**
      * Item ID.  Used in combination with subpart-name
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -74,11 +59,6 @@ class NewContactAttr
 
     /**
      * Subpart Name
-     * 
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -93,10 +73,6 @@ class NewContactAttr
      * 
      * Date related attributes like "birthday" and "anniversary" SHOULD use "yyyy-MM-dd" format or,
      * if the year isn't specified "--MM-dd" format
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

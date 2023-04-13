@@ -26,11 +26,6 @@ class MessageSummary extends MessageCommon
     /**
      * Message ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class MessageSummary extends MessageCommon
 
     /**
      * Auto send time
-     * 
-     * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
-     * @SerializedName("autoSendTime")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,10 +48,6 @@ class MessageSummary extends MessageCommon
     /**
      * Email address information
      * 
-     * @Accessor(getter="getEmails", setter="setEmails")
-     * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
@@ -72,10 +58,7 @@ class MessageSummary extends MessageCommon
     /**
      * Subject
      * 
-     * @Accessor(getter="getSubject", setter="setSubject")
-     * @SerializedName("su")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * @var string
      */
     #[Accessor(getter: 'getSubject', setter: 'setSubject')]
     #[SerializedName('su')]
@@ -86,10 +69,7 @@ class MessageSummary extends MessageCommon
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
      * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * @var string
      */
     #[Accessor(getter: 'getFragment', setter: 'setFragment')]
     #[SerializedName('fr')]
@@ -99,11 +79,6 @@ class MessageSummary extends MessageCommon
 
     /**
      * Invite information
-     * 
-     * @Accessor(getter="getInvite", setter="setInvite")
-     * @SerializedName("inv")
-     * @Type("Zimbra\Mail\Struct\InviteInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var InviteInfo
      */
@@ -199,7 +174,9 @@ class MessageSummary extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = array_filter($emails, static fn ($email) => $email instanceof EmailInfo);
+        $this->emails = array_filter(
+            $emails, static fn ($email) => $email instanceof EmailInfo
+        );
         return $this;
     }
 

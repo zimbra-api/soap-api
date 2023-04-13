@@ -26,11 +26,6 @@ class IdVersionName
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,11 +37,6 @@ class IdVersionName
     /**
      * Version
      * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
@@ -57,11 +47,6 @@ class IdVersionName
 
     /**
      * The name
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

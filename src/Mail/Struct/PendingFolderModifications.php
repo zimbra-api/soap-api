@@ -26,11 +26,6 @@ class PendingFolderModifications
     /**
      * ID of signaled folder
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -42,10 +37,6 @@ class PendingFolderModifications
     /**
      * list of created items
      * 
-     * @Accessor(getter="getCreated", setter="setCreated")
-     * @Type("array<Zimbra\Mail\Struct\CreateItemNotification>")
-     * @XmlList(inline=true, entry="created", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCreated', setter: 'setCreated')]
@@ -55,10 +46,6 @@ class PendingFolderModifications
 
     /**
      * list of deleted items
-     * 
-     * @Accessor(getter="getDeleted", setter="setDeleted")
-     * @Type("array<Zimbra\Mail\Struct\DeleteItemNotification>")
-     * @XmlList(inline=true, entry="deleted", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -70,10 +57,6 @@ class PendingFolderModifications
     /**
      * list of modified messages
      * 
-     * @Accessor(getter="getModifiedMsgs", setter="setModifiedMsgs")
-     * @Type("array<Zimbra\Mail\Struct\ModifyItemNotification>")
-     * @XmlList(inline=true, entry="modMsgs", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getModifiedMsgs', setter: 'setModifiedMsgs')]
@@ -84,10 +67,6 @@ class PendingFolderModifications
     /**
      * list of modified tags
      * 
-     * @Accessor(getter="getModifiedTags", setter="setModifiedTags")
-     * @Type("array<Zimbra\Mail\Struct\ModifyTagNotification>")
-     * @XmlList(inline=true, entry="modTags", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getModifiedTags', setter: 'setModifiedTags')]
@@ -97,10 +76,6 @@ class PendingFolderModifications
 
     /**
      * list of renamed folders
-     * 
-     * @Accessor(getter="getRenamedFolders", setter="setRenamedFolders")
-     * @Type("array<Zimbra\Mail\Struct\RenameFolderNotification>")
-     * @XmlList(inline=true, entry="modFolders", namespace="urn:zimbraMail")
      * 
      * @var array
      */

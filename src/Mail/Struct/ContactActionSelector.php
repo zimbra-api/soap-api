@@ -27,10 +27,6 @@ class ContactActionSelector extends ActionSelector
     /**
      * New contact attributes
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
-     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]

@@ -30,11 +30,6 @@ class MsgSpec
      * Message ID. Can contain a subpart identifier (e.g. "775-778") to return a message
      * stored as a subpart of some other mail-item, specifically for Messages stored as part of Appointments
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -48,11 +43,6 @@ class MsgSpec
      * If the part does not exist or is not a message/rfc822 part,
      * mail.NO_SUCH_PART MailServiceException will be thrown
      * 
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
@@ -65,11 +55,6 @@ class MsgSpec
      * Set to return the raw message content rather than a parsed mime structure;
      * (default is unset. If message is too big or not ASCII, a content servlet URL is returned)
      * 
-     * @Accessor(getter="getRaw", setter="setRaw")
-     * @SerializedName("raw")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getRaw', setter: 'setRaw')]
@@ -81,11 +66,6 @@ class MsgSpec
     /**
      * Set to mark the message as read, unset to leave the read status unchanged.
      * By default, the read status is left unchanged.
-     * 
-     * @Accessor(getter="getMarkRead", setter="setMarkRead")
-     * @SerializedName("read")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -100,11 +80,6 @@ class MsgSpec
      * Only applicable when <raw> is unset. Ignored when <raw> is set.
      * (Default is unset, meaning no limit)
      * 
-     * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
-     * @SerializedName("max")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
@@ -118,11 +93,6 @@ class MsgSpec
      * Only applicable when <raw> is set. Ignored when <raw> is unset.
      * (Default is unset - meaning inline content unless it is too big, in which case the <url> method will be used)
      * 
-     * @Accessor(getter="getUseContentUrl", setter="setUseContentUrl")
-     * @SerializedName("useContentUrl")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getUseContentUrl', setter: 'setUseContentUrl')]
@@ -133,11 +103,6 @@ class MsgSpec
 
     /**
      * Set to return defanged HTML content by default. (default is unset.)
-     * 
-     * @Accessor(getter="getWantHtml", setter="setWantHtml")
-     * @SerializedName("html")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -150,11 +115,6 @@ class MsgSpec
     /**
      * Set to return IMAP UID. (default is unset.)
      * 
-     * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
-     * @SerializedName("wantImapUid")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
@@ -165,11 +125,6 @@ class MsgSpec
 
     /**
      * Set to return Modified Sequence. (default is unset.)
-     * 
-     * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
-     * @SerializedName("wantModSeq")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -182,11 +137,6 @@ class MsgSpec
     /**
      * Set to "neuter" <IMG> tags returned in HTML content; this involves
      * switching the <src> attribute to <dfsrc> so that images don't display by default (default is set.)
-     * 
-     * @Accessor(getter="getNeuter", setter="setNeuter")
-     * @SerializedName("neuter")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -201,11 +151,6 @@ class MsgSpec
      * Used only when making GetMsg call to open an instance of a recurring appointment.
      * The value specified is the date/time data of the RECURRENCE-ID of the instance being requested.
      * 
-     * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
-     * @SerializedName("ridZ")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
@@ -216,11 +161,6 @@ class MsgSpec
 
     /**
      * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
-     * 
-     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
-     * @SerializedName("needExp")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -238,11 +178,6 @@ class MsgSpec
      * Only applicable when <raw> is unset.
      * Note: Quoted text identification is a best effort. It is not supported by any RFCs
      * 
-     * @Accessor(getter="getWantContent", setter="setWantContent")
-     * @SerializedName("wantContent")
-     * @Type("Enum<Zimbra\Common\Enum\MsgContent>")
-     * @XmlAttribute
-     * 
      * @var MsgContent
      */
     #[Accessor(getter: 'getWantContent', setter: 'setWantContent')]
@@ -254,10 +189,6 @@ class MsgSpec
     /**
      * Requested headers. If <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
-     * 
-     * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -636,7 +567,9 @@ class MsgSpec
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn ($header) => $header instanceof AttributeName);
+        $this->headers = array_filter(
+            $headers, static fn ($header) => $header instanceof AttributeName
+        );
         return $this;
     }
 

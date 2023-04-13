@@ -26,11 +26,6 @@ class DeleteheaderAction extends FilterAction
     /**
      * if true start from last
      * 
-     * @Accessor(getter="getLast", setter="setLast")
-     * @SerializedName("last")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getLast', setter: 'setLast')]
@@ -42,11 +37,6 @@ class DeleteheaderAction extends FilterAction
     /**
      * offset
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -57,11 +47,6 @@ class DeleteheaderAction extends FilterAction
 
     /**
      * tests
-     * 
-     * @Accessor(getter="getTest", setter="setTest")
-     * @SerializedName("test")
-     * @Type("Zimbra\Mail\Struct\EditheaderTest")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var EditheaderTest
      */

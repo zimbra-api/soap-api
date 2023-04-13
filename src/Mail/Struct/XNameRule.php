@@ -28,11 +28,6 @@ class XNameRule implements XNameRuleInterface
     /**
      * XNAME Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -43,11 +38,6 @@ class XNameRule implements XNameRuleInterface
 
     /**
      * XNAME value
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("value")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

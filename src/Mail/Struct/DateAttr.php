@@ -28,11 +28,6 @@ class DateAttr implements DateAttrInterface
     /**
      * Date in format : YYYYMMDDThhmmssZ
      * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]

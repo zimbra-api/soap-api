@@ -28,11 +28,6 @@ class MailDataSource implements DataSource
     /**
      * Unique ID for data source
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,11 +38,6 @@ class MailDataSource implements DataSource
 
     /**
      * Name for data source
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class MailDataSource implements DataSource
     /**
      * Folder ID for data source
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -76,11 +61,6 @@ class MailDataSource implements DataSource
     /**
      * Flag whether or not the data source is enabled
      * 
-     * @Accessor(getter="isEnabled", setter="setEnabled")
-     * @SerializedName("isEnabled")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isEnabled', setter: 'setEnabled')]
@@ -91,11 +71,6 @@ class MailDataSource implements DataSource
 
     /**
      * indicates that this datasource is used for one way (incoming) import versus two-way sync
-     * 
-     * @Accessor(getter="isImportOnly", setter="setImportOnly")
-     * @SerializedName("importOnly")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -109,11 +84,6 @@ class MailDataSource implements DataSource
      * Name of server
      * e.g. "imap.myisp.com"
      * 
-     * @Accessor(getter="getHost", setter="setHost")
-     * @SerializedName("host")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getHost', setter: 'setHost')]
@@ -125,11 +95,6 @@ class MailDataSource implements DataSource
     /**
      * Port number of server
      * e.g. "143"
-     * 
-     * @Accessor(getter="getPort", setter="setPort")
-     * @SerializedName("port")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -143,11 +108,6 @@ class MailDataSource implements DataSource
      * Which security layer to use for connection (cleartext, ssl, tls, or tls if available).
      * If not set on data source, fallback to the id on global config.
      * 
-     * @Accessor(getter="getConnectionType", setter="setConnectionType")
-     * @SerializedName("connectionType")
-     * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
-     * @XmlAttribute
-     * 
      * @var ConnectionType
      */
     #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
@@ -158,11 +118,6 @@ class MailDataSource implements DataSource
 
     /**
      * Login string on data-source-server, for example a user name
-     * 
-     * @Accessor(getter="getUsername", setter="setUsername")
-     * @SerializedName("username")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -175,11 +130,6 @@ class MailDataSource implements DataSource
     /**
      * Login password for data source
      * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -189,12 +139,7 @@ class MailDataSource implements DataSource
     private $password;
 
     /**
-     * Polling interval.  For instance "10m"
-     * 
-     * @Accessor(getter="getPollingInterval", setter="setPollingInterval")
-     * @SerializedName("pollingInterval")
-     * @Type("string")
-     * @XmlAttribute
+     * Polling interval. For instance "10m"
      * 
      * @var string
      */
@@ -207,11 +152,6 @@ class MailDataSource implements DataSource
     /**
      * Email address for the data-source
      * 
-     * @Accessor(getter="getEmailAddress", setter="setEmailAddress")
-     * @SerializedName("emailAddress")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getEmailAddress', setter: 'setEmailAddress')]
@@ -222,11 +162,6 @@ class MailDataSource implements DataSource
 
     /**
      * Whether sending outbound mail using external SMTP server is enabled in this data source.
-     * 
-     * @Accessor(getter="isSmtpEnabled", setter="setSmtpEnabled")
-     * @SerializedName("smtpEnabled")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -239,11 +174,6 @@ class MailDataSource implements DataSource
     /**
      * Name of SMTP server. e.g. "smtp.myisp.com"
      * 
-     * @Accessor(getter="getSmtpHost", setter="setSmtpHost")
-     * @SerializedName("smtpHost")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSmtpHost', setter: 'setSmtpHost')]
@@ -254,11 +184,6 @@ class MailDataSource implements DataSource
 
     /**
      * Port number of SMTP server. e.g. "465"
-     * 
-     * @Accessor(getter="getSmtpPort", setter="setSmtpPort")
-     * @SerializedName("smtpPort")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -271,11 +196,6 @@ class MailDataSource implements DataSource
     /**
      * Which security layer to use for connecting to SMTP host associated with this data source.
      * 
-     * @Accessor(getter="getSmtpConnectionType", setter="setSmtpConnectionType")
-     * @SerializedName("smtpConnectionType")
-     * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
-     * @XmlAttribute
-     * 
      * @var ConnectionType
      */
     #[Accessor(getter: 'getSmtpConnectionType', setter: 'setSmtpConnectionType')]
@@ -286,11 +206,6 @@ class MailDataSource implements DataSource
 
     /**
      * Whether SMTP server associated with this data source requires authentication.
-     * 
-     * @Accessor(getter="isSmtpAuthRequired", setter="setSmtpAuthRequired")
-     * @SerializedName("smtpAuthRequired")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -303,11 +218,6 @@ class MailDataSource implements DataSource
     /**
      * Login username for SMTP server
      * 
-     * @Accessor(getter="getSmtpUsername", setter="setSmtpUsername")
-     * @SerializedName("smtpUsername")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSmtpUsername', setter: 'setSmtpUsername')]
@@ -318,11 +228,6 @@ class MailDataSource implements DataSource
 
     /**
      * Login password for SMTP server
-     * 
-     * @Accessor(getter="getSmtpPassword", setter="setSmtpPassword")
-     * @SerializedName("smtpPassword")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -337,11 +242,6 @@ class MailDataSource implements DataSource
      * or not to use the email address of the data source for the from address and the designated signature/replyTo
      * of the data source for the outgoing message.
      * 
-     * @Accessor(getter="isUseAddressForForwardReply", setter="setUseAddressForForwardReply")
-     * @SerializedName("useAddressForForwardReply")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isUseAddressForForwardReply', setter: 'setUseAddressForForwardReply')]
@@ -352,11 +252,6 @@ class MailDataSource implements DataSource
 
     /**
      * ID for default signature
-     * 
-     * @Accessor(getter="getDefaultSignature", setter="setDefaultSignature")
-     * @SerializedName("defaultSignature")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -369,11 +264,6 @@ class MailDataSource implements DataSource
     /**
      * Forward / Reply Signature ID for data source
      * 
-     * @Accessor(getter="getForwardReplySignature", setter="setForwardReplySignature")
-     * @SerializedName("forwardReplySignature")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getForwardReplySignature', setter: 'setForwardReplySignature')]
@@ -384,11 +274,6 @@ class MailDataSource implements DataSource
 
     /**
      * Personal part of email address to put in the from header
-     * 
-     * @Accessor(getter="getFromDisplay", setter="setFromDisplay")
-     * @SerializedName("fromDisplay")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -401,11 +286,6 @@ class MailDataSource implements DataSource
     /**
      * Email address to put in the reply-to header
      * 
-     * @Accessor(getter="getReplyToAddress", setter="setReplyToAddress")
-     * @SerializedName("replyToAddress")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getReplyToAddress', setter: 'setReplyToAddress')]
@@ -416,11 +296,6 @@ class MailDataSource implements DataSource
 
     /**
      * Personal part of Email address to put in the reply-to header
-     * 
-     * @Accessor(getter="getReplyToDisplay", setter="setReplyToDisplay")
-     * @SerializedName("replyToDisplay")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -433,11 +308,6 @@ class MailDataSource implements DataSource
     /**
      * Data import class used bt this data source
      * 
-     * @Accessor(getter="getImportClass", setter="setImportClass")
-     * @SerializedName("importClass")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getImportClass', setter: 'setImportClass')]
@@ -448,11 +318,6 @@ class MailDataSource implements DataSource
 
     /**
      * Failing Since
-     * 
-     * @Accessor(getter="getFailingSince", setter="setFailingSince")
-     * @SerializedName("failingSince")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -465,11 +330,6 @@ class MailDataSource implements DataSource
     /**
      * Last Error
      * 
-     * @Accessor(getter="getLastError", setter="setLastError")
-     * @SerializedName("lastError")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLastError', setter: 'setLastError')]
@@ -480,11 +340,6 @@ class MailDataSource implements DataSource
 
     /**
      * refresh token for refreshing data source oauth token
-     * 
-     * @Accessor(getter="getRefreshToken", setter="setRefreshToken")
-     * @SerializedName("refreshToken")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -497,11 +352,6 @@ class MailDataSource implements DataSource
     /**
      * refreshTokenUrl for refreshing data source oauth token
      * 
-     * @Accessor(getter="getRefreshTokenUrl", setter="setRefreshTokenUrl")
-     * @SerializedName("refreshTokenUrl")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRefreshTokenUrl', setter: 'setRefreshTokenUrl')]
@@ -512,10 +362,6 @@ class MailDataSource implements DataSource
 
     /**
      * Properties for the data source
-     * 
-     * @Accessor(getter="getAttributes", setter="setAttributes")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      * 
      * @var array
      */

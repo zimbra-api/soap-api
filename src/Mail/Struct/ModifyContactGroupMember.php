@@ -28,11 +28,6 @@ class ModifyContactGroupMember extends NewContactGroupMember
     /**
      * Operation - +|-|reset
      * 
-     * @Accessor(getter="getOperation", setter="setOperation")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>")
-     * @XmlAttribute
-     * 
      * @var ModifyGroupMemberOperation
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]

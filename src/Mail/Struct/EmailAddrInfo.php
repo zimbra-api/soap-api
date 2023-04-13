@@ -28,11 +28,6 @@ class EmailAddrInfo
     /**
      * Email address
      * 
-     * @Accessor(getter="getAddress", setter="setAddress")
-     * @SerializedName("a")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -45,11 +40,6 @@ class EmailAddrInfo
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
      * (s)ender, read-receipt (n)otification, (rf) resent-from
      * 
-     * @Accessor(getter="getAddressType", setter="setAddressType")
-     * @SerializedName("t")
-     * @Type("Enum<Zimbra\Common\Enum\AddressType>")
-     * @XmlAttribute
-     * 
      * @var AddressType
      */
     #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
@@ -60,11 +50,6 @@ class EmailAddrInfo
 
     /**
      * The comment/name part of an address
-     * 
-     * @Accessor(getter="getPersonal", setter="setPersonal")
-     * @SerializedName("p")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

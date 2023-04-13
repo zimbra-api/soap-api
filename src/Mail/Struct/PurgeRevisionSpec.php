@@ -26,11 +26,6 @@ class PurgeRevisionSpec
     /**
      * Item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class PurgeRevisionSpec
 
     /**
      * Revision
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class PurgeRevisionSpec
     /**
      * When set, the server will purge all the old revisions inclusive of the revision
      * specified in the request.
-     * 
-     * @Accessor(getter="getIncludeOlderRevisions", setter="setIncludeOlderRevisions")
-     * @SerializedName("includeOlderRevisions")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

@@ -26,11 +26,6 @@ class FilterAction
     /**
      * Index - specifies a guaranteed order for the action elements
      * 
-     * @Accessor(getter="getIndex", setter="setIndex")
-     * @SerializedName("index")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getIndex', setter: 'setIndex')]

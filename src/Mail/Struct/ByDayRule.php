@@ -28,10 +28,6 @@ class ByDayRule implements ByDayRuleInterface
     /**
      * By day weekday rule specification
      * 
-     * @Accessor(getter="getDays", setter="setDays")
-     * @Type("array<Zimbra\Mail\Struct\WkDay>")
-     * @XmlList(inline=true, entry="wkday", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDays', setter: 'setDays')]

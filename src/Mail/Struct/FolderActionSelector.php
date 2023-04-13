@@ -32,11 +32,6 @@ class FolderActionSelector extends ActionSelector
      * For op=empty - hard-delete all items in the folder (and all the folder's
      * subfolders if "recursive" is set)
      * 
-     * @Accessor(getter="getRecursive", setter="setRecursive")
-     * @SerializedName("recursive")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getRecursive', setter: 'setRecursive')]
@@ -47,11 +42,6 @@ class FolderActionSelector extends ActionSelector
 
     /**
      * Target URL
-     * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -64,11 +54,6 @@ class FolderActionSelector extends ActionSelector
     /**
      * For fb operation - set the excludeFreeBusy bool for this folder (must specify for fb operation)
      * 
-     * @Accessor(getter="getExcludeFreebusy", setter="setExcludeFreebusy")
-     * @SerializedName("excludeFreeBusy")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getExcludeFreebusy', setter: 'setExcludeFreebusy')]
@@ -79,11 +64,6 @@ class FolderActionSelector extends ActionSelector
 
     /**
      * Grantee Zimbra ID
-     * 
-     * @Accessor(getter="getZimbraId", setter="setZimbraId")
-     * @SerializedName("zid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -96,11 +76,6 @@ class FolderActionSelector extends ActionSelector
     /**
      * Grantee type
      * 
-     * @Accessor(getter="getGrantType", setter="setGrantType")
-     * @SerializedName("gt")
-     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
-     * @XmlAttribute
-     * 
      * @var GranteeType
      */
     #[Accessor(getter: 'getGrantType', setter: 'setGrantType')]
@@ -111,11 +86,6 @@ class FolderActionSelector extends ActionSelector
 
     /**
      * User with op=update to change folder's default view (usefor for migration)
-     * 
-     * @Accessor(getter="getView", setter="setView")
-     * @SerializedName("view")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -128,11 +98,6 @@ class FolderActionSelector extends ActionSelector
     /**
      * Grant
      * 
-     * @Accessor(getter="getGrant", setter="setGrant")
-     * @SerializedName("grant")
-     * @Type("Zimbra\Mail\Struct\ActionGrantSelector")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ActionGrantSelector
      */
     #[Accessor(getter: 'getGrant', setter: 'setGrant')]
@@ -143,12 +108,6 @@ class FolderActionSelector extends ActionSelector
 
     /**
      * List of grants used with op=grant and op=!grant
-     * 
-     * @Accessor(getter="getGrants", setter="setGrants")
-     * @SerializedName("acl")
-     * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="grant", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -162,11 +121,6 @@ class FolderActionSelector extends ActionSelector
     /**
      * Retention policy
      * 
-     * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
-     * @SerializedName("retentionPolicy")
-     * @Type("Zimbra\Mail\Struct\RetentionPolicy")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var RetentionPolicy
      */
     #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
@@ -177,11 +131,6 @@ class FolderActionSelector extends ActionSelector
 
     /**
      * Number of days for which web client would sync folder data for offline use
-     * 
-     * @Accessor(getter="getNumDays", setter="setNumDays")
-     * @SerializedName("numDays")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

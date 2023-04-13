@@ -26,11 +26,6 @@ class SharedReminderMount
     /**
      * Mountpoint ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class SharedReminderMount
 
     /**
      * Set to enable (or unset to disable) reminders for shared appointments/tasks
-     * 
-     * @Accessor(getter="getShowReminders", setter="setShowReminders")
-     * @SerializedName("reminder")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
