@@ -217,7 +217,9 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setMembers(array $members)
     {
-        $this->members = array_unique(array_map(static fn ($member) => trim($member), $members));
+        $this->members = array_unique(
+            array_map(static fn ($member) => trim($member), $members)
+        );
         return $this;
     }
 
@@ -239,7 +241,9 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setOwners(array $owners)
     {
-        $this->owners = array_filter($owners, static fn ($owner) => $owner instanceof DistributionListGranteeInfo);
+        $this->owners = array_filter(
+            $owners, static fn ($owner) => $owner instanceof DistributionListGranteeInfo
+        );
         return $this;
     }
 
@@ -261,7 +265,9 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setRights(array $rights)
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof DistributionListRightInfo);
+        $this->rights = array_filter(
+            $rights, static fn ($right) => $right instanceof DistributionListRightInfo
+        );
         return $this;
     }
 }

@@ -126,7 +126,9 @@ abstract class ObjectInfo
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrList = array_filter($attrs, static fn ($attr) => $attr instanceof KeyValuePair);
+        $this->attrList = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof KeyValuePair
+        );
         return $this;
     }
 

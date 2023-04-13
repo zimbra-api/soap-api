@@ -64,7 +64,9 @@ trait AttrsImplTrait
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof Attr
+        );
         return $this;
     }
 

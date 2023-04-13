@@ -902,7 +902,9 @@ class AccountDataSource implements DataSource
      */
     public function setAttributes(array $attributes): self
     {
-        $this->attributes = array_unique(array_map(static fn ($attribute) => trim($attribute), $attributes));
+        $this->attributes = array_unique(
+            array_map(static fn ($attribute) => trim($attribute), $attributes)
+        );
         return $this;
     }
 
