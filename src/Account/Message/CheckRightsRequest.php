@@ -67,7 +67,9 @@ class CheckRightsRequest extends SoapRequest
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = array_filter($targets, static fn ($target) => $target instanceof CheckRightsTargetSpec);
+        $this->targets = array_filter(
+            $targets, static fn ($target) => $target instanceof CheckRightsTargetSpec
+        );
         return $this;
     }
 

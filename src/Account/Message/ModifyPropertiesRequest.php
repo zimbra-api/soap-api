@@ -67,7 +67,9 @@ class ModifyPropertiesRequest extends SoapRequest
      */
     public function setProps(array $props): self
     {
-        $this->props = array_filter($props, static fn ($prop) => $prop instanceof Prop);
+        $this->props = array_filter(
+            $props, static fn ($prop) => $prop instanceof Prop
+        );
         return $this;
     }
 

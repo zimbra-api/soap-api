@@ -308,7 +308,9 @@ class SyncGalResponse extends SoapResponse
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = array_filter($contacts, static fn ($contact) => $contact instanceof ContactInfo);
+        $this->contacts = array_filter(
+            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+        );
         return $this;
     }
 
@@ -330,7 +332,9 @@ class SyncGalResponse extends SoapResponse
      */
     public function setDeleted(array $contacts): self
     {
-        $this->deleted = array_filter($contacts, static fn ($contact) => $contact instanceof Id);
+        $this->deleted = array_filter(
+            $contacts, static fn ($contact) => $contact instanceof Id
+        );
         return $this;
     }
 }

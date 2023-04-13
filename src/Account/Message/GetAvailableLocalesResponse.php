@@ -54,7 +54,9 @@ class GetAvailableLocalesResponse extends SoapResponse
      */
     public function setLocales(array $locales): self
     {
-        $this->locales = array_filter($locales, static fn ($locale) => $locale instanceof LocaleInfo);
+        $this->locales = array_filter(
+            $locales, static fn ($locale) => $locale instanceof LocaleInfo
+        );
         return $this;
     }
 

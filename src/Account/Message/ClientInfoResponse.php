@@ -54,7 +54,9 @@ class ClientInfoResponse extends SoapResponse
      */
     public function setAttrList(array $attrList): self
     {
-        $this->attrList = array_filter($attrList, static fn ($attr) => $attr instanceof Attr);
+        $this->attrList = array_filter(
+            $attrList, static fn ($attr) => $attr instanceof Attr
+        );
         return $this;
     }
 

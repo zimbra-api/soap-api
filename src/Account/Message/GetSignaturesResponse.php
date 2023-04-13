@@ -54,7 +54,9 @@ class GetSignaturesResponse extends SoapResponse
      */
     public function setSignatures(array $signatures): self
     {
-        $this->signatures = array_filter($signatures, static fn ($signature) => $signature instanceof Signature);
+        $this->signatures = array_filter(
+            $signatures, static fn ($signature) => $signature instanceof Signature
+        );
         return $this;
     }
 

@@ -44,7 +44,9 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
      * @param  SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?GetAvailableCsvFormatsBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?GetAvailableCsvFormatsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

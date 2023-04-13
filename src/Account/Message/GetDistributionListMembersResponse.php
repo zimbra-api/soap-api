@@ -158,7 +158,9 @@ class GetDistributionListMembersResponse extends SoapResponse
      */
     public function setDlMembers(array $members): self
     {
-        $this->dlMembers = array_unique(array_map(static fn ($member) => trim($member), $members));
+        $this->dlMembers = array_unique(
+            array_map(static fn ($member) => trim($member), $members)
+        );
         return $this;
     }
 
@@ -170,7 +172,9 @@ class GetDistributionListMembersResponse extends SoapResponse
      */
     public function setHABGroupMembers(array $members): self
     {
-        $this->habGroupMembers = array_filter($members, static fn ($member) => $member instanceof HABGroupMember);
+        $this->habGroupMembers = array_filter(
+            $members, static fn ($member) => $member instanceof HABGroupMember
+        );
         return $this;
     }
 

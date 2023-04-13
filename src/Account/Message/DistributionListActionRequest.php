@@ -61,7 +61,9 @@ class DistributionListActionRequest extends SoapRequest
      * @param DistributionListAction $action
      * @return self
      */
-    public function __construct(DistributionListSelector $dl, DistributionListAction $action)
+    public function __construct(
+        DistributionListSelector $dl, DistributionListAction $action
+    )
     {
         $this->setDl($dl)
              ->setAction($action);

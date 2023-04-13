@@ -53,7 +53,9 @@ class GetAvailableCsvFormatsResponse extends SoapResponse
      */
     public function setCsvFormats(array $formats): self
     {
-        $this->csvFormats = array_filter($formats, static fn ($format) => $format instanceof NamedElement);
+        $this->csvFormats = array_filter(
+            $formats, static fn ($format) => $format instanceof NamedElement
+        );
         return $this;
     }
 

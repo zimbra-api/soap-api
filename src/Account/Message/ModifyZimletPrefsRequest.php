@@ -67,7 +67,9 @@ class ModifyZimletPrefsRequest extends SoapRequest
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof ModifyZimletPrefsSpec);
+        $this->zimlets = array_filter(
+            $zimlets, static fn ($zimlet) => $zimlet instanceof ModifyZimletPrefsSpec
+        );
         return $this;
     }
 

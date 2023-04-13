@@ -53,7 +53,9 @@ class GetShareInfoResponse extends SoapResponse
      */
     public function setShares(array $shares): self
     {
-        $this->shares = array_filter($shares, static fn ($share) => $share instanceof ShareInfo);
+        $this->shares = array_filter(
+            $shares, static fn ($share) => $share instanceof ShareInfo
+        );
         return $this;
     }
 

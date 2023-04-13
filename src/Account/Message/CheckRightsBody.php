@@ -53,7 +53,9 @@ class CheckRightsBody extends SoapBody
      * @param  CheckRightsResponse $response
      * @return self
      */
-    public function __construct(?CheckRightsRequest $request = NULL, ?CheckRightsResponse $response = NULL)
+    public function __construct(
+        ?CheckRightsRequest $request = NULL, ?CheckRightsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
