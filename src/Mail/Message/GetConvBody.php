@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetConvBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetConvRequest")
-     * @Type("Zimbra\Mail\Message\GetConvRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetConvBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetConvResponse")
-     * @Type("Zimbra\Mail\Message\GetConvResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */

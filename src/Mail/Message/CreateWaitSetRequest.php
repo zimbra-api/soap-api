@@ -40,11 +40,6 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * 
      * This is used if types isn't specified for an account
      * 
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -64,11 +59,6 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * The server will attempt to resynchronize the waitset using the sequence number you provide
      * (the server's ability to do this is limited by the RedoLogs that are available)
      * 
-     * @Accessor(getter="getAllAccounts", setter="setAllAccounts")
-     * @SerializedName("allAccounts")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllAccounts', setter: 'setAllAccounts')]
@@ -79,12 +69,6 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
 
     /**
      * Waitsets to add
-     * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("add")
-     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="a", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -134,7 +118,9 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
+        $this->accounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+        );
         return $this;
     }
 
@@ -166,7 +152,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      */
     public function setDefaultInterests(string $defaultInterests): self
     {
-        $types = array_filter(explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type));
+        $types = array_filter(explode(',', $defaultInterests), static fn ($type) => InterestType::tryFrom($type));
         $this->defaultInterests = implode(',', array_unique($types));
         return $this;
     }

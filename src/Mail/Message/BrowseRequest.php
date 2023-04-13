@@ -29,11 +29,6 @@ class BrowseRequest extends SoapRequest
     /**
      * Browse by setting - domains|attachments|objects
      * 
-     * @Accessor(getter="getBrowseBy", setter="setBrowseBy")
-     * @SerializedName("browseBy")
-     * @Type("Enum<Zimbra\Common\Enum\BrowseBy>")
-     * @XmlAttribute
-     * 
      * @var BrowseBy
      */
     #[Accessor(getter: 'getBrowseBy', setter: 'setBrowseBy')]
@@ -45,11 +40,6 @@ class BrowseRequest extends SoapRequest
     /**
      * Regex string.  Return only those results which match the specified regular expression
      * 
-     * @Accessor(getter="getRegex", setter="setRegex")
-     * @SerializedName("regex")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRegex', setter: 'setRegex')]
@@ -60,11 +50,6 @@ class BrowseRequest extends SoapRequest
 
     /**
      * Return only a maximum number of entries as requested
-     * 
-     * @Accessor(getter="getMax", setter="setMax")
-     * @SerializedName("maxToReturn")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -86,7 +71,7 @@ class BrowseRequest extends SoapRequest
         ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
     )
     {
-        $this->setBrowseBy($browseBy ?? new BrowseBy('domains'));
+        $this->setBrowseBy($browseBy ?? BrowseBy::DOMAINS);
         if (NULL !== $regex) {
             $this->setRegex($regex);
         }

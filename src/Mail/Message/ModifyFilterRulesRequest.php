@@ -29,12 +29,6 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Filter rules
      * 
-     * @Accessor(getter="getFilterRules", setter="setFilterRules")
-     * @SerializedName("filterRules")
-     * @Type("array<Zimbra\Mail\Struct\FilterRule>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
@@ -75,7 +69,9 @@ class ModifyFilterRulesRequest extends SoapRequest
      */
     public function setFilterRules(array $rules): self
     {
-        $this->filterRules = array_filter($rules, static fn ($rule) => $rule instanceof FilterRule);
+        $this->filterRules = array_filter(
+            $rules, static fn ($rule) => $rule instanceof FilterRule
+        );
         return $this;
     }
 

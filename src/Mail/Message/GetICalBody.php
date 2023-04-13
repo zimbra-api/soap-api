@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetICalBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetICalRequest")
-     * @Type("Zimbra\Mail\Message\GetICalRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Soap request
      * 
      * @var SoapRequestInterface
      */
@@ -39,10 +36,7 @@ class GetICalBody extends SoapBody
     private ?SoapRequestInterface $request = NULL;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetICalResponse")
-     * @Type("Zimbra\Mail\Message\GetICalResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Soap response
      * 
      * @var SoapResponseInterface
      */

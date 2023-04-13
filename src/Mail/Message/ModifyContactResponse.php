@@ -28,11 +28,6 @@ class ModifyContactResponse extends SoapResponse
     /**
      * Information about modified contact
      * 
-     * @Accessor(getter="getContact", setter="setContact")
-     * @SerializedName("cn")
-     * @Type("Zimbra\Mail\Struct\ContactInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ContactInfo
      */
     #[Accessor(getter: 'getContact', setter: 'setContact')]

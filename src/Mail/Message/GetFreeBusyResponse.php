@@ -28,10 +28,6 @@ class GetFreeBusyResponse extends SoapResponse
     /**
      * Freebusy information for users
      * 
-     * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyUserInfo>")
-     * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
@@ -58,7 +54,9 @@ class GetFreeBusyResponse extends SoapResponse
      */
     public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = array_filter($users, static fn ($usr) => $usr instanceof FreeBusyUserInfo);
+        $this->freebusyUsers = array_filter(
+            $users, static fn ($usr) => $usr instanceof FreeBusyUserInfo
+        );
         return $this;
     }
 

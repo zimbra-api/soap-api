@@ -29,11 +29,6 @@ class GetMsgMetadataRequest extends SoapRequest
     /**
      * Messages selector
      * 
-     * @Accessor(getter="getMsgIds", setter="setMsgIds")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var IdsAttr
      */
     #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]

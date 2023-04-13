@@ -38,10 +38,6 @@ class GetDataSourcesResponse extends SoapResponse
     /**
      * Imap data sources
      * 
-     * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailImapDataSource>")
-     * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
@@ -51,10 +47,6 @@ class GetDataSourcesResponse extends SoapResponse
 
     /**
      * Pop3 data sources
-     * 
-     * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailPop3DataSource>")
-     * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -66,10 +58,6 @@ class GetDataSourcesResponse extends SoapResponse
     /**
      * Caldav data sources
      * 
-     * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailCaldavDataSource>")
-     * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
@@ -79,10 +67,6 @@ class GetDataSourcesResponse extends SoapResponse
 
     /**
      * Yab data sources
-     * 
-     * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailYabDataSource>")
-     * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -94,10 +78,6 @@ class GetDataSourcesResponse extends SoapResponse
     /**
      * Rss data sources
      * 
-     * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailRssDataSource>")
-     * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
@@ -107,10 +87,6 @@ class GetDataSourcesResponse extends SoapResponse
 
     /**
      * Gal data sources
-     * 
-     * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailGalDataSource>")
-     * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -122,10 +98,6 @@ class GetDataSourcesResponse extends SoapResponse
     /**
      * Cal data sources
      * 
-     * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailCalDataSource>")
-     * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
@@ -135,10 +107,6 @@ class GetDataSourcesResponse extends SoapResponse
 
     /**
      * Unknown data sources
-     * 
-     * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
-     * @Type("array<Zimbra\Mail\Struct\MailUnknownDataSource>")
-     * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
      * 
      * @var array
      */

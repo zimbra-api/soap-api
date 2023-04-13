@@ -30,11 +30,6 @@ class DocumentActionRequest extends SoapRequest
      * Document action selector
      * Document specific operations : watch|!watch|grant|!grant
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\DocumentActionSelector")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DocumentActionSelector
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]

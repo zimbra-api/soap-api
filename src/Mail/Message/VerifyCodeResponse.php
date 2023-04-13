@@ -27,11 +27,6 @@ class VerifyCodeResponse extends SoapResponse
     /**
      * Flags whether verification was successful
      * 
-     * @Accessor(getter="getSuccess", setter="setSuccess")
-     * @SerializedName("success")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]

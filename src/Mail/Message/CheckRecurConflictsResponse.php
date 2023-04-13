@@ -28,10 +28,6 @@ class CheckRecurConflictsResponse extends SoapResponse
     /**
      * Information on conflicting instances
      * 
-     * @Accessor(getter="getInstances", setter="setInstances")
-     * @Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")
-     * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]
@@ -58,7 +54,9 @@ class CheckRecurConflictsResponse extends SoapResponse
      */
     public function setInstances(array $instances): self
     {
-        $this->instances = array_filter($instances, static fn ($instance) => $instance instanceof ConflictRecurrenceInstance);
+        $this->instances = array_filter(
+            $instances, static fn ($instance) => $instance instanceof ConflictRecurrenceInstance
+        );
         return $this;
     }
 

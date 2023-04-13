@@ -27,11 +27,6 @@ class RecordIMAPSessionResponse extends SoapResponse
     /**
      * ID of last item created in mailbox
      * 
-     * @Accessor(getter="getLastItemId", setter="setLastItemId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLastItemId', setter: 'setLastItemId')]
@@ -42,11 +37,6 @@ class RecordIMAPSessionResponse extends SoapResponse
 
     /**
      * UUID of the affected Folder
-     * 
-     * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
-     * @SerializedName("luuid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

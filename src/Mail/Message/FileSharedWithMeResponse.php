@@ -27,11 +27,6 @@ class FileSharedWithMeResponse extends SoapResponse
     /**
      * status
      * 
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]

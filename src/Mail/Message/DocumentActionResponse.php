@@ -28,11 +28,6 @@ class DocumentActionResponse extends SoapResponse
     /**
      * Details of action
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\DocumentActionResult")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DocumentActionResult
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]

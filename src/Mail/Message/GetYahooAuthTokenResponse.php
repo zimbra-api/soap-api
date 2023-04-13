@@ -27,11 +27,6 @@ class GetYahooAuthTokenResponse extends SoapResponse
     /**
      * Failed
      * 
-     * @Accessor(getter="getFailed", setter="setFailed")
-     * @SerializedName("failed")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getFailed', setter: 'setFailed')]

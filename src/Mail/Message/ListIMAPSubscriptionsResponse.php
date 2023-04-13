@@ -27,10 +27,6 @@ class ListIMAPSubscriptionsResponse extends SoapResponse
     /**
      * list of folder paths subscribed via IMAP
      * 
-     * @Accessor(getter="getSubscriptions", setter="setSubscriptions")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="sub", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSubscriptions', setter: 'setSubscriptions')]

@@ -28,11 +28,6 @@ class GetNoteRequest extends SoapRequest
     /**
      * Specification for note
      * 
-     * @Accessor(getter="getNote", setter="setNote")
-     * @SerializedName("note")
-     * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Id
      */
     #[Accessor(getter: 'getNote', setter: 'setNote')]

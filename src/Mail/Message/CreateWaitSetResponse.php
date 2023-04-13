@@ -28,11 +28,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     /**
      * WaitSet ID
      * 
-     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
-     * @SerializedName("waitSet")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -53,11 +48,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * 
      * This is used if types isn't specified for an account
      * 
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -69,11 +59,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     /**
      * Sequence
      * 
-     * @Accessor(getter="getSequence", setter="setSequence")
-     * @SerializedName("seq")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
@@ -84,10 +69,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
 
     /**
      * Error information
-     * 
-     * @Accessor(getter="getErrors", setter="setErrors")
-     * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -164,7 +145,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      */
     public function setDefaultInterests(string $defaultInterests): self
     {
-        $types = array_filter(explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type));
+        $types = array_filter(explode(',', $defaultInterests), static fn ($type) => InterestType::tryFrom($type));
         $this->defaultInterests = implode(',', array_unique($types));
         return $this;
     }
@@ -177,7 +158,9 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      */
     public function setErrors(array $errors = []): self
     {
-        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
+        $this->errors = array_filter(
+            $errors, static fn ($error) => $error instanceof IdAndType
+        );
         return $this;
     }
 

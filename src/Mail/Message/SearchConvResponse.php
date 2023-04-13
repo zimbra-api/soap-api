@@ -41,11 +41,6 @@ class SearchConvResponse extends SoapResponse
      * ADDITIONAL SORT MODES FOR TASKS: valid only if types="task" (and task alone):
      * taskDueAsc|taskDueDesc|taskStatusAsc|taskStatusDesc|taskPercCompletedAsc|taskPercCompletedDesc
      * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
-     * @XmlAttribute
-     * 
      * @var SearchSortBy
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
@@ -58,11 +53,6 @@ class SearchConvResponse extends SoapResponse
      * Offset - an int specifying the 0-based offset into the results list returned as
      * the first result for this search operation.
      * 
-     * @Accessor(getter="getQueryOffset", setter="setQueryOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getQueryOffset', setter: 'setQueryOffset')]
@@ -73,11 +63,6 @@ class SearchConvResponse extends SoapResponse
 
     /**
      * Set if there are more search results remaining.
-     * 
-     * @Accessor(getter="getQueryMore", setter="setQueryMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -90,11 +75,6 @@ class SearchConvResponse extends SoapResponse
     /**
      * Nested Search Conversation (Only returned if request had "nest" attribute set)
      * 
-     * @Accessor(getter="getConversation", setter="setConversation")
-     * @SerializedName("c")
-     * @Type("Zimbra\Mail\Struct\NestedSearchConversation")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var NestedSearchConversation
      */
     #[Accessor(getter: 'getConversation', setter: 'setConversation')]
@@ -105,10 +85,6 @@ class SearchConvResponse extends SoapResponse
 
     /**
      * Message search hits
-     * 
-     * @Accessor(getter="getMessages", setter="setMessages")
-     * @Type("array<Zimbra\Mail\Struct\MessageHitInfo>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -123,11 +99,6 @@ class SearchConvResponse extends SoapResponse
      * If expanded is set, then the wildcard was expanded and the matches are included in the search.
      * If expanded is unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
-     * 
-     * @Accessor(getter="getQueryInfo", setter="setQueryInfo")
-     * @SerializedName("info")
-     * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SearchQueryInfo
      */
@@ -265,7 +236,9 @@ class SearchConvResponse extends SoapResponse
      */
     public function setMessages(array $messages): self
     {
-        $this->messages = array_filter($messages, static fn($message) => $message instanceof MessageHitInfo);
+        $this->messages = array_filter(
+            $messages, static fn($message) => $message instanceof MessageHitInfo
+        );
         return $this;
     }
 

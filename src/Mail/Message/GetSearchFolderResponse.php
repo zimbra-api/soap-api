@@ -28,10 +28,6 @@ class GetSearchFolderResponse extends SoapResponse
     /**
      * Search folder information
      * 
-     * @Accessor(getter="getSearchFolders", setter="setSearchFolders")
-     * @Type("array<Zimbra\Mail\Struct\SearchFolder>")
-     * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSearchFolders', setter: 'setSearchFolders')]
@@ -58,7 +54,9 @@ class GetSearchFolderResponse extends SoapResponse
      */
     public function setSearchFolders(array $folders): self
     {
-        $this->searchFolders = array_filter($folders, static fn ($folder) => $folder instanceof SearchFolder);
+        $this->searchFolders = array_filter(
+            $folders, static fn ($folder) => $folder instanceof SearchFolder
+        );
         return $this;
     }
 

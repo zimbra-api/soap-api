@@ -28,11 +28,6 @@ class GetAppointmentIdsSinceRequest extends SoapRequest
     /**
      * last synced appointment id
      * 
-     * @Accessor(getter="getLastSync", setter="setLastSync")
-     * @SerializedName("lastSync")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLastSync', setter: 'setLastSync')]
@@ -43,11 +38,6 @@ class GetAppointmentIdsSinceRequest extends SoapRequest
 
     /**
      * Folder ID.
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

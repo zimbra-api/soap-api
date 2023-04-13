@@ -28,11 +28,6 @@ class GetCustomMetadataResponse extends SoapResponse
     /**
      * Item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,11 +38,6 @@ class GetCustomMetadataResponse extends SoapResponse
 
     /**
      * Custom metadata
-     * 
-     * @Accessor(getter="getMetadata", setter="setMetadata")
-     * @SerializedName("meta")
-     * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var MailCustomMetadata
      */

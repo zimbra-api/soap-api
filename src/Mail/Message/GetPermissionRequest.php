@@ -32,10 +32,6 @@ class GetPermissionRequest extends SoapRequest
     /**
      * Specification of rights
      * 
-     * @Accessor(getter="getAces", setter="setAces")
-     * @Type("array<Zimbra\Mail\Struct\Right>")
-     * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]
@@ -74,7 +70,9 @@ class GetPermissionRequest extends SoapRequest
      */
     public function setAces(array $aces): self
     {
-        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof Right);
+        $this->aces = array_filter(
+            $aces, static fn ($ace) => $ace instanceof Right
+        );
         return $this;
     }
 

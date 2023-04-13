@@ -29,11 +29,6 @@ class GetMsgRequest extends SoapRequest
     /**
      * Message specification
      * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MsgSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MsgSpec
      */
     #[Accessor(getter: 'getMsg', setter: 'setMsg')]

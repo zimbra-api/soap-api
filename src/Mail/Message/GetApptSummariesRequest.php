@@ -28,11 +28,6 @@ class GetApptSummariesRequest extends SoapRequest
     /**
      * Range start in milliseconds since the epoch GMT
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -44,11 +39,6 @@ class GetApptSummariesRequest extends SoapRequest
     /**
      * Range end in milliseconds since the epoch GMT
      * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
@@ -59,11 +49,6 @@ class GetApptSummariesRequest extends SoapRequest
 
     /**
      * Folder ID. Optional folder to constrain requests to; otherwise, searches all folders but trash and spam
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

@@ -28,10 +28,6 @@ class IMAPCopyResponse extends SoapResponse
     /**
      * new items
      * 
-     * @Accessor(getter="getItems", setter="setItems")
-     * @Type("array<Zimbra\Mail\Struct\IMAPItemInfo>")
-     * @XmlList(inline=true, entry="item", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getItems', setter: 'setItems')]
@@ -58,7 +54,9 @@ class IMAPCopyResponse extends SoapResponse
      */
     public function setItems(array $items): self
     {
-        $this->items = array_filter($items, static fn ($item) => $item instanceof IMAPItemInfo);
+        $this->items = array_filter(
+            $items, static fn ($item) => $item instanceof IMAPItemInfo
+        );
         return $this;
     }
 

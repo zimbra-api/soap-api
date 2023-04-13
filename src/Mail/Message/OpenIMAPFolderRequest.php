@@ -28,11 +28,6 @@ class OpenIMAPFolderRequest extends SoapRequest
     /**
      * The ID of the folder to open
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -44,11 +39,6 @@ class OpenIMAPFolderRequest extends SoapRequest
     /**
      * The maximum number of results to return
      * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -59,11 +49,6 @@ class OpenIMAPFolderRequest extends SoapRequest
 
     /**
      * Cursor specifying the last item on the previous results page
-     * 
-     * @Accessor(getter="getCursor", setter="setCursor")
-     * @SerializedName("cursor")
-     * @Type("Zimbra\Mail\Struct\ImapCursorInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ImapCursorInfo
      */

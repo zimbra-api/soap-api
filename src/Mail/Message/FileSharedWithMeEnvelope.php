@@ -21,18 +21,13 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: 'urn')]
 #[XmlRoot(name: 'soap:Envelope')]
 class FileSharedWithMeEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Mail\Message\FileSharedWithMeBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * Soap body
      * 
      * @var SoapBodyInterface
      */
@@ -49,7 +44,9 @@ class FileSharedWithMeEnvelope extends SoapEnvelope
      * @param  SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?FileSharedWithMeBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?FileSharedWithMeBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

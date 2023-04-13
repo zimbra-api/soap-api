@@ -36,11 +36,6 @@ class GetFolderRequest extends SoapRequest
     /**
      * If set we include all visible subfolders of the specified folder.
      * 
-     * @Accessor(getter="isVisible", setter="setVisible")
-     * @SerializedName("visible")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isVisible', setter: 'setVisible')]
@@ -51,11 +46,6 @@ class GetFolderRequest extends SoapRequest
 
     /**
      * If set then grantee names are supplied in the "d" attribute in <grant>.
-     * 
-     * @Accessor(getter="isNeedGranteeName", setter="setNeedGranteeName")
-     * @SerializedName("needGranteeName")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -69,11 +59,6 @@ class GetFolderRequest extends SoapRequest
      * If "view" is set then only the folders with matching view will be returned.
      * Otherwise folders with any default views will be returned.
      * 
-     * @Accessor(getter="getViewConstraint", setter="setViewConstraint")
-     * @SerializedName("view")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getViewConstraint', setter: 'setViewConstraint')]
@@ -86,11 +71,6 @@ class GetFolderRequest extends SoapRequest
      * If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
      * (so if depth="1", we'll include only the folder and its direct subfolders)
      * If depth is missing or negative, the entire folder hierarchy is returned
-     * 
-     * @Accessor(getter="getTreeDepth", setter="setTreeDepth")
-     * @SerializedName("depth")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -106,11 +86,6 @@ class GetFolderRequest extends SoapRequest
      * "tr" is regarded as being automatically set.
      * Mountpoints under mountpoints are not themselves expanded.
      * 
-     * @Accessor(getter="isTraverseMountpoints", setter="setTraverseMountpoints")
-     * @SerializedName("tr")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isTraverseMountpoints', setter: 'setTraverseMountpoints')]
@@ -121,11 +96,6 @@ class GetFolderRequest extends SoapRequest
 
     /**
      * Folder specification
-     * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("folder")
-     * @Type("Zimbra\Mail\Struct\GetFolderSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var GetFolderSpec
      */

@@ -27,11 +27,6 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class RankingActionRequest extends SoapRequest
 {
     /**
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\RankingActionSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var RankingActionSpec
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]

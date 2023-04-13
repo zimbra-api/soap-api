@@ -27,10 +27,6 @@ class GetDocumentShareURLResponse extends SoapResponse
     /**
      * url
      * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @Type("string")
-     * @XmlValue
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]

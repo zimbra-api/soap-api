@@ -41,11 +41,6 @@ class SearchRequest extends SoapRequest implements SearchParameters
      * Sending this warm-up request too early (e.g. login time) will be in vain in most cases because
      * the index data is evicted from the cache due to inactivity timeout by the time you actually send a search request.
      * 
-     * @Accessor(getter="getWarmup", setter="setWarmup")
-     * @SerializedName("warmup")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getWarmup', setter: 'setWarmup')]

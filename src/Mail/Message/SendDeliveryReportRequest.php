@@ -28,11 +28,6 @@ class SendDeliveryReportRequest extends SoapRequest
     /**
      * Message ID
      * 
-     * @Accessor(getter="getMessageId", setter="setMessageId")
-     * @SerializedName("mid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]

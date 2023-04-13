@@ -28,10 +28,6 @@ class GetMsgMetadataResponse extends SoapResponse
     /**
      * Chat message metadata
      * 
-     * @Accessor(getter="getChatMessages", setter="setChatMessages")
-     * @Type("array<Zimbra\Mail\Struct\ChatSummary>")
-     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getChatMessages', setter: 'setChatMessages')]
@@ -41,10 +37,6 @@ class GetMsgMetadataResponse extends SoapResponse
 
     /**
      * Message metadata
-     * 
-     * @Accessor(getter="getMsgMessages", setter="setMsgMessages")
-     * @Type("array<Zimbra\Mail\Struct\MessageSummary>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -74,7 +66,9 @@ class GetMsgMetadataResponse extends SoapResponse
      */
     public function setChatMessages(array $messages): self
     {
-        $this->chatMessages = array_filter($messages, static fn ($msg) => $msg instanceof ChatSummary);
+        $this->chatMessages = array_filter(
+            $messages, static fn ($msg) => $msg instanceof ChatSummary
+        );
         return $this;
     }
 
@@ -96,7 +90,9 @@ class GetMsgMetadataResponse extends SoapResponse
      */
     public function setMsgMessages(array $messages): self
     {
-        $this->msgMessages = array_filter($messages, static fn ($msg) => $msg instanceof MessageSummary);
+        $this->msgMessages = array_filter(
+            $messages, static fn ($msg) => $msg instanceof MessageSummary
+        );
         return $this;
     }
 

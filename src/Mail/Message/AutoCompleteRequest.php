@@ -29,11 +29,6 @@ class AutoCompleteRequest extends SoapRequest
     /**
      * Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -45,11 +40,6 @@ class AutoCompleteRequest extends SoapRequest
     /**
      * type of addresses to auto-complete on
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("t")
-     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
-     * @XmlAttribute
-     * Enum<Zimbra\Common\Enum\GalSearchType>
      * @var GalSearchType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -60,11 +50,6 @@ class AutoCompleteRequest extends SoapRequest
 
     /**
      * Set if the "exp" flag is needed in the response for group entries.  Default is unset.
-     * 
-     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
-     * @SerializedName("needExp")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -77,11 +62,6 @@ class AutoCompleteRequest extends SoapRequest
     /**
      * Comma separated list of folder IDs
      * 
-     * @Accessor(getter="getFolderList", setter="setFolderList")
-     * @SerializedName("folders")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderList', setter: 'setFolderList')]
@@ -92,11 +72,6 @@ class AutoCompleteRequest extends SoapRequest
 
     /**
      * Flag whether to include Global Address Book (GAL)
-     * 
-     * @Accessor(getter="getIncludeGal", setter="setIncludeGal")
-     * @SerializedName("includeGal")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

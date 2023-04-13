@@ -28,10 +28,6 @@ class BrowseResponse extends SoapResponse
     /**
      * Browse data
      * 
-     * @Accessor(getter="getBrowseDatas", setter="setBrowseDatas")
-     * @Type("array<Zimbra\Mail\Struct\BrowseData>")
-     * @XmlList(inline=true, entry="bd", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getBrowseDatas', setter: 'setBrowseDatas')]
@@ -58,7 +54,9 @@ class BrowseResponse extends SoapResponse
      */
     public function setBrowseDatas(array $datas): self
     {
-        $this->browseDatas = array_filter($datas, static fn ($data) => $data instanceof BrowseData);
+        $this->browseDatas = array_filter(
+            $datas, static fn ($data) => $data instanceof BrowseData
+        );
         return $this;
     }
 

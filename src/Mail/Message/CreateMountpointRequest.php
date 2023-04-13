@@ -29,11 +29,6 @@ class CreateMountpointRequest extends SoapRequest
     /**
      * New mountpoint specification
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("link")
-     * @Type("Zimbra\Mail\Struct\NewMountpointSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var NewMountpointSpec
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]

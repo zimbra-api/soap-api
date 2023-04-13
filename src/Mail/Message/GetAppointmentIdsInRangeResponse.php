@@ -28,10 +28,6 @@ class GetAppointmentIdsInRangeResponse extends SoapResponse
     /**
      * Appointment data
      * 
-     * @Accessor(getter="getAppointmentData", setter="setAppointmentData")
-     * @Type("array<Zimbra\Mail\Struct\AppointmentIdAndDate>")
-     * @XmlList(inline=true, entry="apptData", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAppointmentData', setter: 'setAppointmentData')]

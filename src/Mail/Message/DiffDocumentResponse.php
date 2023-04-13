@@ -28,10 +28,6 @@ class DiffDocumentResponse extends SoapResponse
     /**
      * Difference information in chunks
      * 
-     * @Accessor(getter="getChunks", setter="setChunks")
-     * @Type("array<Zimbra\Mail\Struct\DispositionAndText>")
-     * @XmlList(inline=true, entry="chunk", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getChunks', setter: 'setChunks')]
@@ -58,7 +54,9 @@ class DiffDocumentResponse extends SoapResponse
      */
     public function setChunks(array $chunks): self
     {
-        $this->chunks = array_filter($chunks, static fn ($chunk) => $chunk instanceof DispositionAndText);
+        $this->chunks = array_filter(
+            $chunks, static fn ($chunk) => $chunk instanceof DispositionAndText
+        );
         return $this;
     }
 

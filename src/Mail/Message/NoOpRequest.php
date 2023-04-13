@@ -51,11 +51,6 @@ class NoOpRequest extends SoapRequest
     /**
      * Wait setting
      * 
-     * @Accessor(getter="getWait", setter="setWait")
-     * @SerializedName("wait")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getWait', setter: 'setWait')]
@@ -68,11 +63,6 @@ class NoOpRequest extends SoapRequest
      * If "wait" is set, the caller can use this setting to determine whether notifications
      * on delegate sessions will cause the operation to return.  If "delegate" is unset, delegate mailbox
      * notifications will be ignored.  "delegate" is set by default.
-     * 
-     * @Accessor(getter="getIncludeDelegates", setter="setIncludeDelegates")
-     * @SerializedName("delegate")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -87,11 +77,6 @@ class NoOpRequest extends SoapRequest
      * waiting-NoOp on the server at a time, it will complete (with waitDisallowed set) any existing limited hanging
      * NoOpRequests when a new request comes in.
      * 
-     * @Accessor(getter="getEnforceLimit", setter="setEnforceLimit")
-     * @SerializedName("limitToOneBlocked")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getEnforceLimit', setter: 'setEnforceLimit')]
@@ -105,11 +90,6 @@ class NoOpRequest extends SoapRequest
      * something about the particular underlying network.
      * The server may or may not honor this request (depending on server configured max/min values: see LocalConfig
      * variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
-     * 
-     * @Accessor(getter="getTimeout", setter="setTimeout")
-     * @SerializedName("timeout")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

@@ -28,10 +28,6 @@ class GetPermissionResponse extends SoapResponse
     /**
      * Account ACE information
      * 
-     * @Accessor(getter="getAces", setter="setAces")
-     * @Type("array<Zimbra\Mail\Struct\AccountACEinfo>")
-     * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]
@@ -58,7 +54,9 @@ class GetPermissionResponse extends SoapResponse
      */
     public function setAces(array $aces): self
     {
-        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEinfo);
+        $this->aces = array_filter(
+            $aces, static fn ($ace) => $ace instanceof AccountACEinfo
+        );
         return $this;
     }
 

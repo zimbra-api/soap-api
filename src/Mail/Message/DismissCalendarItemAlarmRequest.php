@@ -29,10 +29,6 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     /**
      * Details of appt alarms to dismiss
      * 
-     * @Accessor(getter="getApptAlarms", setter="setApptAlarms")
-     * @Type("array<Zimbra\Mail\Struct\DismissAppointmentAlarm>")
-     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getApptAlarms', setter: 'setApptAlarms')]
@@ -42,10 +38,6 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
 
     /**
      * Details of task alarms to dismiss
-     * 
-     * @Accessor(getter="getTaskAlarms", setter="setTaskAlarms")
-     * @Type("array<Zimbra\Mail\Struct\DismissTaskAlarm>")
-     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      * 
      * @var array
      */

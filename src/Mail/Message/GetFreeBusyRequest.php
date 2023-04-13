@@ -31,11 +31,6 @@ class GetFreeBusyRequest extends SoapRequest
     /**
      * Range start in milliseconds
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -46,11 +41,6 @@ class GetFreeBusyRequest extends SoapRequest
 
     /**
      * Range end in milliseconds
-     * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -64,11 +54,6 @@ class GetFreeBusyRequest extends SoapRequest
      * DEPRECATED. Comma-separated list of Zimbra IDs or emails.
      * Each value can be a Ziimbra ID or an email.
      * 
-     * @Accessor(getter="getUid", setter="setUid")
-     * @SerializedName("uid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
@@ -79,11 +64,6 @@ class GetFreeBusyRequest extends SoapRequest
 
     /**
      * Comma separated list of Zimbra IDs
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -96,11 +76,6 @@ class GetFreeBusyRequest extends SoapRequest
     /**
      * Comma separated list of emails
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -112,11 +87,6 @@ class GetFreeBusyRequest extends SoapRequest
     /**
      * UID of appointment to exclude from free/busy search
      * 
-     * @Accessor(getter="getExcludeUid", setter="setExcludeUid")
-     * @SerializedName("excludeUid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getExcludeUid', setter: 'setExcludeUid')]
@@ -127,10 +97,6 @@ class GetFreeBusyRequest extends SoapRequest
 
     /**
      * To view free/busy for a single folders in particular accounts, use these.
-     * 
-     * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
-     * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -330,7 +296,9 @@ class GetFreeBusyRequest extends SoapRequest
      */
     public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = array_filter($users, static fn ($usr) => $usr instanceof FreeBusyUserSpec);
+        $this->freebusyUsers = array_filter(
+            $users, static fn ($usr) => $usr instanceof FreeBusyUserSpec
+        );
         return $this;
     }
 

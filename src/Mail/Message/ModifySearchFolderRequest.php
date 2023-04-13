@@ -29,11 +29,6 @@ class ModifySearchFolderRequest extends SoapRequest
     /**
      * Specification of Search folder modifications
      * 
-     * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
-     * @SerializedName("search")
-     * @Type("Zimbra\Mail\Struct\ModifySearchFolderSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ModifySearchFolderSpec
      */
     #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]

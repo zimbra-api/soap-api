@@ -30,11 +30,6 @@ class RecordIMAPSessionRequest extends SoapRequest
     /**
      * The ID of the folder to record
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]

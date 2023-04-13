@@ -28,11 +28,6 @@ class SendVerificationCodeRequest extends SoapRequest
     /**
      * Device email address
      * 
-     * @Accessor(getter="getAddress", setter="setAddress")
-     * @SerializedName("a")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]

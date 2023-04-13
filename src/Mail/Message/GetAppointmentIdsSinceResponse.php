@@ -27,10 +27,6 @@ class GetAppointmentIdsSinceResponse extends SoapResponse
     /**
      * Appointment data
      * 
-     * @Accessor(getter="getMids", setter="setMids")
-     * @Type("array<int>")
-     * @XmlList(inline=true, entry="mids", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMids', setter: 'setMids')]
@@ -40,10 +36,6 @@ class GetAppointmentIdsSinceResponse extends SoapResponse
 
     /**
      * Appointment data
-     * 
-     * @Accessor(getter="getDids", setter="setDids")
-     * @Type("array<int>")
-     * @XmlList(inline=true, entry="dids", namespace="urn:zimbraMail")
      * 
      * @var array
      */

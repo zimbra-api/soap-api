@@ -28,11 +28,6 @@ class ApplyFilterRulesResponse extends SoapResponse
     /**
      * Comma-separated list of message IDs that were affected
      * 
-     * @Accessor(getter="getMsgIds", setter="setMsgIds")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var IdsAttr
      */
     #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]

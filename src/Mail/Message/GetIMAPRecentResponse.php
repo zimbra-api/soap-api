@@ -28,11 +28,6 @@ class GetIMAPRecentResponse extends SoapResponse
     /**
      * Number of recent items
      * 
-     * @Accessor(getter="getNum", setter="setNum")
-     * @SerializedName("n")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]

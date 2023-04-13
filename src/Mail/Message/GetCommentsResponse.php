@@ -28,10 +28,6 @@ class GetCommentsResponse extends SoapResponse
     /**
      * Users
      * 
-     * @Accessor(getter="getUsers", setter="setUsers")
-     * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
-     * @XmlList(inline=true, entry="user", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getUsers', setter: 'setUsers')]
@@ -41,10 +37,6 @@ class GetCommentsResponse extends SoapResponse
 
     /**
      * Comment information
-     * 
-     * @Accessor(getter="getComments", setter="setComments")
-     * @Type("array<Zimbra\Mail\Struct\CommentInfo>")
-     * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -77,7 +69,9 @@ class GetCommentsResponse extends SoapResponse
      */
     public function setUsers(array $entries): self
     {
-        $this->users = array_filter($entries, static fn ($entry) => $entry instanceof IdEmailName);
+        $this->users = array_filter(
+            $entries, static fn ($entry) => $entry instanceof IdEmailName
+        );
         return $this;
     }
 
@@ -99,7 +93,9 @@ class GetCommentsResponse extends SoapResponse
      */
     public function setComments(array $entries): self
     {
-        $this->comments = array_filter($entries, static fn ($entry) => $entry instanceof CommentInfo);
+        $this->comments = array_filter(
+            $entries, static fn ($entry) => $entry instanceof CommentInfo
+        );
         return $this;
     }
 

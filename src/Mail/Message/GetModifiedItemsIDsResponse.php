@@ -27,10 +27,6 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     /**
      * IDs of modified items
      * 
-     * @Accessor(getter="getMids", setter="setMids")
-     * @Type("array<int>")
-     * @XmlList(inline=true, entry="mids", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMids', setter: 'setMids')]
@@ -41,10 +37,6 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     /**
      * IDs of deleted items
      * 
-     * @Accessor(getter="getDids", setter="setDids")
-     * @Type("array<int>")
-     * @XmlList(inline=true, entry="dids", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDids', setter: 'setDids')]
@@ -54,10 +46,6 @@ class GetModifiedItemsIDsResponse extends SoapResponse
 
     /**
      * IDs of modified items
-     * 
-     * @Accessor(getter="getIds", setter="setIds")
-     * @Type("array<int>")
-     * @XmlList(inline=true, entry="ids", namespace="urn:zimbraMail")
      * 
      * @var array
      */

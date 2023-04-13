@@ -28,11 +28,6 @@ class CheckPermissionResponse extends SoapResponse
     /**
      * Set if the authed user has ALL the rights for each <right> element.
      * 
-     * @Accessor(getter="getAllow", setter="setAllow")
-     * @SerializedName("allow")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllow', setter: 'setAllow')]
@@ -43,10 +38,6 @@ class CheckPermissionResponse extends SoapResponse
 
     /**
      * Individual right information
-     * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @Type("array<Zimbra\Mail\Struct\RightPermission>")
-     * @XmlList(inline=true, entry="right", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -101,7 +92,9 @@ class CheckPermissionResponse extends SoapResponse
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightPermission);
+        $this->rights = array_filter(
+            $rights, static fn ($right) => $right instanceof RightPermission
+        );
         return $this;
     }
 

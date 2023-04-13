@@ -29,11 +29,6 @@ class FileSharedWithMeRequest extends SoapRequest
     /**
      * Action - Create, Edit, Revoke
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
@@ -44,11 +39,6 @@ class FileSharedWithMeRequest extends SoapRequest
 
     /**
      * Name of the file which is to be shared
-     * 
-     * @Accessor(getter="getFileName", setter="setFileName")
-     * @SerializedName("filename")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class FileSharedWithMeRequest extends SoapRequest
     /**
      * Owner File ID
      * 
-     * @Accessor(getter="getOwnerFileId", setter="setOwnerFileId")
-     * @SerializedName("itemId")
-     * @Type("int")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOwnerFileId', setter: 'setOwnerFileId')]
@@ -76,11 +61,6 @@ class FileSharedWithMeRequest extends SoapRequest
 
     /**
      * Owner File UUID
-     * 
-     * @Accessor(getter="getFileUUID", setter="setFileUUID")
-     * @SerializedName("ruuid")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -93,11 +73,6 @@ class FileSharedWithMeRequest extends SoapRequest
     /**
      * File Owner Name
      * 
-     * @Accessor(getter="getFileOwnerName", setter="setFileOwnerName")
-     * @SerializedName("owner")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFileOwnerName', setter: 'setFileOwnerName')]
@@ -108,11 +83,6 @@ class FileSharedWithMeRequest extends SoapRequest
 
     /**
      * Permission provided to the file
-     * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("perm")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -125,11 +95,6 @@ class FileSharedWithMeRequest extends SoapRequest
     /**
      * Content type of the file
      * 
-     * @Accessor(getter="getContentType", setter="setContentType")
-     * @SerializedName("ct")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -140,11 +105,6 @@ class FileSharedWithMeRequest extends SoapRequest
 
     /**
      * Actual file size
-     * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var int
      */
@@ -157,11 +117,6 @@ class FileSharedWithMeRequest extends SoapRequest
     /**
      * Remote account owner ID
      * 
-     * @Accessor(getter="getOwnerAccountId", setter="setOwnerAccountId")
-     * @SerializedName("rid")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
@@ -172,11 +127,6 @@ class FileSharedWithMeRequest extends SoapRequest
 
     /**
      * Actual file modified date
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var int
      */

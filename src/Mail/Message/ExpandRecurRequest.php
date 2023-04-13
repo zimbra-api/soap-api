@@ -35,11 +35,6 @@ class ExpandRecurRequest extends SoapRequest
     /**
      * Start time in milliseconds
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -50,11 +45,6 @@ class ExpandRecurRequest extends SoapRequest
 
     /**
      * End time in milliseconds
-     * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -67,10 +57,6 @@ class ExpandRecurRequest extends SoapRequest
     /**
      * Timezone definitions
      * 
-     * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -80,10 +66,6 @@ class ExpandRecurRequest extends SoapRequest
 
     /**
      * Specifications for series, modified instances and canceled instances
-     * 
-     * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
-     * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -95,10 +77,6 @@ class ExpandRecurRequest extends SoapRequest
     /**
      * Specifications for series, modified instances and canceled instances
      * 
-     * @Accessor(getter="getExceptComponents", setter="setExceptComponents")
-     * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
-     * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getExceptComponents', setter: 'setExceptComponents')]
@@ -108,10 +86,6 @@ class ExpandRecurRequest extends SoapRequest
 
     /**
      * Specifications for series, modified instances and canceled instances
-     * 
-     * @Accessor(getter="getCancelComponents", setter="setCancelComponents")
-     * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
-     * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -206,7 +180,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter(
+            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+        );
         return $this;
     }
 
@@ -264,7 +240,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function getComponents(): array
     {
-        return array_merge($this->cancelComponents, $this->inviteComponents, $this->exceptComponents);
+        return array_merge(
+            $this->cancelComponents, $this->inviteComponents, $this->exceptComponents
+        );
     }
 
     /**
@@ -275,7 +253,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setCancelComponents(array $components): self
     {
-        $this->cancelComponents = array_filter($components, static fn ($cancel) => $cancel instanceof ExpandedRecurrenceCancel);
+        $this->cancelComponents = array_filter(
+            $components, static fn ($cancel) => $cancel instanceof ExpandedRecurrenceCancel
+        );
         return $this;
     }
 
@@ -297,7 +277,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = array_filter($components, static fn ($comp) => $comp instanceof ExpandedRecurrenceInvite);
+        $this->inviteComponents = array_filter(
+            $components, static fn ($comp) => $comp instanceof ExpandedRecurrenceInvite
+        );
         return $this;
     }
 
@@ -319,7 +301,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setExceptComponents(array $components): self
     {
-        $this->exceptComponents = array_filter($components, static fn ($except) => $except instanceof ExpandedRecurrenceException);
+        $this->exceptComponents = array_filter(
+            $components, static fn ($except) => $except instanceof ExpandedRecurrenceException
+        );
         return $this;
     }
 

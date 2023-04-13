@@ -29,11 +29,6 @@ class ConvActionRequest extends SoapRequest
     /**
      * Conversation action selector
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\ConvActionSelector")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ConvActionSelector
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]

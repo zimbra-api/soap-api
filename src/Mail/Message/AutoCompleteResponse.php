@@ -28,11 +28,6 @@ class AutoCompleteResponse extends SoapResponse
     /**
      * Flag whether can be cached
      * 
-     * @Accessor(getter="getCanBeCached", setter="setCanBeCached")
-     * @SerializedName("canBeCached")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getCanBeCached', setter: 'setCanBeCached')]
@@ -43,10 +38,6 @@ class AutoCompleteResponse extends SoapResponse
 
     /**
      * Matches
-     * 
-     * @Accessor(getter="getMatches", setter="setMatches")
-     * @Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")
-     * @XmlList(inline=true, entry="match", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -81,7 +72,9 @@ class AutoCompleteResponse extends SoapResponse
      */
     public function setMatches(array $matches): self
     {
-        $this->matches = array_filter($matches, static fn ($match) => $match instanceof AutoCompleteMatch);
+        $this->matches = array_filter(
+            $matches, static fn ($match) => $match instanceof AutoCompleteMatch
+        );
         return $this;
     }
 

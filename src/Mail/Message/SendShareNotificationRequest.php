@@ -33,11 +33,6 @@ class SendShareNotificationRequest extends SoapRequest
     /**
      * Item ID
      * 
-     * @Accessor(getter="getItem", setter="setItem")
-     * @SerializedName("item")
-     * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Id
      */
     #[Accessor(getter: 'getItem', setter: 'setItem')]
@@ -48,10 +43,6 @@ class SendShareNotificationRequest extends SoapRequest
 
     /**
      * Email addresses
-     * 
-     * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
-     * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
-     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -64,11 +55,6 @@ class SendShareNotificationRequest extends SoapRequest
      * Set to "revoke" if it is a grant revoke notification. It is set to "expire"
      * by the system to send notification for a grant expiry.
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Enum<Zimbra\Common\Enum\ShareAction>")
-     * @XmlAttribute
-     * 
      * @var ShareAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
@@ -79,11 +65,6 @@ class SendShareNotificationRequest extends SoapRequest
 
     /**
      * Notes
-     * 
-     * @Accessor(getter="getNotes", setter="setNotes")
-     * @SerializedName("notes")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -156,7 +137,9 @@ class SendShareNotificationRequest extends SoapRequest
      */
     public function setEmailAddresses(array $addresses): self
     {
-        $this->emailAddresses = array_filter($addresses, static fn($address) => $address instanceof EmailAddrInfo);
+        $this->emailAddresses = array_filter(
+            $addresses, static fn($address) => $address instanceof EmailAddrInfo
+        );
         return $this;
     }
 
