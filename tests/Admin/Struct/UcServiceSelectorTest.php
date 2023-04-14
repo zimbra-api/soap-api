@@ -14,14 +14,14 @@ class UcServiceSelectorTest extends ZimbraTestCase
     public function testUcServiceSelector()
     {
         $value = $this->faker->word;
-        $ucs = new UcServiceSelector(UcServiceBy::ID(), $value);
-        $this->assertEquals(UcServiceBy::ID(), $ucs->getBy());
+        $ucs = new UcServiceSelector(UcServiceBy::ID, $value);
+        $this->assertEquals(UcServiceBy::ID, $ucs->getBy());
         $this->assertSame($value, $ucs->getValue());
 
         $ucs = new UcServiceSelector();
-        $ucs->setBy(UcServiceBy::NAME())
+        $ucs->setBy(UcServiceBy::NAME)
             ->setValue($value);
-        $this->assertEquals(UcServiceBy::NAME(), $ucs->getBy());
+        $this->assertEquals(UcServiceBy::NAME, $ucs->getBy());
         $this->assertSame($value, $ucs->getValue());
 
         $xml = <<<EOT

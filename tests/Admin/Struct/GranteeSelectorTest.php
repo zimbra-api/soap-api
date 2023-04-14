@@ -18,28 +18,28 @@ class GranteeSelectorTest extends ZimbraTestCase
         $secret = $this->faker->word;
 
         $grantee = new GranteeSelector(
-            $value, GranteeType::ALL(), GranteeBy::NAME(), $secret, FALSE
+            $value, GranteeType::ALL, GranteeBy::NAME, $secret, FALSE
         );
-        $this->assertEquals(GranteeType::ALL(), $grantee->getType());
-        $this->assertEquals(GranteeBy::NAME(), $grantee->getBy());
+        $this->assertEquals(GranteeType::ALL, $grantee->getType());
+        $this->assertEquals(GranteeBy::NAME, $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
         $this->assertSame($secret, $grantee->getSecret());
         $this->assertFalse($grantee->getAll());
 
         $grantee = new GranteeSelector();
         $grantee->setValue($value)
-                ->setType(GranteeType::USR())
-                ->setBy(GranteeBy::ID())
+                ->setType(GranteeType::USR)
+                ->setBy(GranteeBy::ID)
                 ->setSecret($secret)
                 ->setAll(TRUE);
-        $this->assertEquals(GranteeType::USR(), $grantee->getType());
-        $this->assertEquals(GranteeBy::ID(), $grantee->getBy());
+        $this->assertEquals(GranteeType::USR, $grantee->getType());
+        $this->assertEquals(GranteeBy::ID, $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
         $this->assertSame($secret, $grantee->getSecret());
         $this->assertTrue($grantee->getAll());
 
-        $type = GranteeType::USR()->getValue();
-        $by = GranteeBy::ID()->getValue();
+        $type = GranteeType::USR->value;
+        $by = GranteeBy::ID->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" by="$by" secret="$secret" all="true">$value</result>

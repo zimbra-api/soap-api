@@ -12,18 +12,18 @@ class MailboxInfoTest extends ZimbraTestCase
 {
     public function testMailboxInfo()
     {
-        $id = mt_rand(1, 100);
-        $groupId = mt_rand(1, 100);
+        $id = $this->faker->randomNumber;
+        $groupId = $this->faker->randomNumber;
         $accountId = $this->faker->uuid;
-        $indexVolumeId = mt_rand(1, 100);
-        $itemIdCheckPoint = mt_rand(1, 100);
-        $contactCount = mt_rand(1, 100);
-        $sizeCheckPoint = mt_rand(1, 100);
-        $changeCheckPoint = mt_rand(1, 100);
-        $trackingSync = mt_rand(1, 100);
-        $lastBackupAt = mt_rand(1, 100);
-        $lastSoapAccess = mt_rand(1, 100);
-        $newMessages = mt_rand(1, 100);
+        $indexVolumeId = $this->faker->randomNumber;
+        $itemIdCheckPoint = $this->faker->randomNumber;
+        $contactCount = $this->faker->randomNumber;
+        $sizeCheckPoint = $this->faker->randomNumber;
+        $changeCheckPoint = $this->faker->randomNumber;
+        $trackingSync = $this->faker->randomNumber;
+        $lastBackupAt = $this->faker->randomNumber;
+        $lastSoapAccess = $this->faker->randomNumber;
+        $newMessages = $this->faker->randomNumber;
 
         $mbox = new MailboxInfo(
             $id, $groupId, $accountId, $indexVolumeId, $itemIdCheckPoint,

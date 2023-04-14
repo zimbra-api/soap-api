@@ -27,23 +27,23 @@ class MailQueueActionTest extends ZimbraTestCase
         $attr = new ValueAttrib($value);
         $field = new QueueQueryField($name, [$attr]);
         $query = new QueueQuery([$field], $limit, $offset);
-        $action = new StubMailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID());
+        $action = new StubMailQueueAction($query, QueueAction::REQUEUE, QueueActionBy::ID);
 
         $this->assertSame($query, $action->getQuery());
-        $this->assertEquals(QueueAction::REQUEUE(), $action->getOp());
-        $this->assertEquals(QueueActionBy::ID(), $action->getBy());
+        $this->assertEquals(QueueAction::REQUEUE, $action->getOp());
+        $this->assertEquals(QueueActionBy::ID, $action->getBy());
 
         $action = new StubMailQueueAction(new QueueQuery());
         $action->setQuery($query)
-               ->setOp(QueueAction::HOLD())
-               ->setBy(QueueActionBy::QUERY());
+               ->setOp(QueueAction::HOLD)
+               ->setBy(QueueActionBy::QUERY);
 
         $this->assertSame($query, $action->getQuery());
-        $this->assertEquals(QueueAction::HOLD(), $action->getOp());
-        $this->assertEquals(QueueActionBy::QUERY(), $action->getBy());
+        $this->assertEquals(QueueAction::HOLD, $action->getOp());
+        $this->assertEquals(QueueActionBy::QUERY, $action->getBy());
 
-        $op = QueueAction::HOLD()->getValue();
-        $by = QueueActionBy::QUERY()->getValue();
+        $op = QueueAction::HOLD->value;
+        $by = QueueActionBy::QUERY->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result op="$op" by="$by" xmlns:urn="urn:zimbraAdmin">
@@ -59,9 +59,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubMailQueueAction extends MailQueueAction
 {

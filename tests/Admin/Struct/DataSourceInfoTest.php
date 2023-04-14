@@ -20,20 +20,20 @@ class DataSourceInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $ds = new StubDataSourceInfo($name, $id, DataSourceType::IMAP());
+        $ds = new StubDataSourceInfo($name, $id, DataSourceType::IMAP);
         $this->assertSame($name, $ds->getName());
         $this->assertSame($id, $ds->getId());
-        $this->assertEquals(DataSourceType::IMAP(), $ds->getType());
+        $this->assertEquals(DataSourceType::IMAP, $ds->getType());
 
         $attr = new Attr($key, $value);
         $ds = new StubDataSourceInfo();
         $ds->setName($name)
            ->setId($id)
-           ->setType(DataSourceType::POP3())
+           ->setType(DataSourceType::POP3)
            ->addAttr($attr);
         $this->assertSame($name, $ds->getName());
         $this->assertSame($id, $ds->getId());
-        $this->assertEquals(DataSourceType::POP3(), $ds->getType());
+        $this->assertEquals(DataSourceType::POP3, $ds->getType());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -46,9 +46,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubDataSourceInfo extends DataSourceInfo
 {

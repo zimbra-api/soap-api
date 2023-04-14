@@ -17,21 +17,21 @@ class AdminZimletContextTest extends ZimbraTestCase
         $priority = mt_rand(1, 10);
 
         $zimletContext = new AdminZimletContext(
-            $baseUrl, ZimletPresence::MANDATORY(), $priority
+            $baseUrl, ZimletPresence::MANDATORY, $priority
         );
         $this->assertSame($baseUrl, $zimletContext->getZimletBaseUrl());
-        $this->assertEquals(ZimletPresence::MANDATORY(), $zimletContext->getZimletPresence());
+        $this->assertEquals(ZimletPresence::MANDATORY, $zimletContext->getZimletPresence());
         $this->assertSame($priority, $zimletContext->getZimletPriority());
 
         $zimletContext = new AdminZimletContext();
         $zimletContext->setZimletBaseUrl($baseUrl)
-            ->setZimletPresence(ZimletPresence::ENABLED())
+            ->setZimletPresence(ZimletPresence::ENABLED)
             ->setZimletPriority($priority);
         $this->assertSame($baseUrl, $zimletContext->getZimletBaseUrl());
-        $this->assertEquals(ZimletPresence::ENABLED(), $zimletContext->getZimletPresence());
+        $this->assertEquals(ZimletPresence::ENABLED, $zimletContext->getZimletPresence());
         $this->assertSame($priority, $zimletContext->getZimletPriority());
 
-        $presence = ZimletPresence::ENABLED()->getValue();
+        $presence = ZimletPresence::ENABLED->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result baseUrl="$baseUrl" priority="$priority" presence="$presence" />

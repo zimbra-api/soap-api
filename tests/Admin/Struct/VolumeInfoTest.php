@@ -18,7 +18,7 @@ class VolumeInfoTest extends ZimbraTestCase
     public function testVolumeInfo()
     {
         $id = mt_rand(0, 10);
-        $type = $this->faker->randomElement(VolumeType::toArray());
+        $type = $this->faker->randomElement(VolumeType::cases());
         $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);
@@ -112,9 +112,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubVolumeInfo extends VolumeInfo
 {

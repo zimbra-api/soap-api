@@ -14,14 +14,14 @@ class XMPPComponentSelectorTest extends ZimbraTestCase
     public function testXMPPComponentSelector()
     {
         $value = $this->faker->word;
-        $xmpp = new XMPPComponentSelector(XmppBy::ID(), $value);
-        $this->assertEquals(XmppBy::ID(), $xmpp->getBy());
+        $xmpp = new XMPPComponentSelector(XmppBy::ID, $value);
+        $this->assertEquals(XmppBy::ID, $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
         $xmpp = new XMPPComponentSelector();
-        $xmpp->setBy(XmppBy::NAME())
+        $xmpp->setBy(XmppBy::NAME)
              ->setValue($value);
-        $this->assertEquals(XmppBy::NAME(), $xmpp->getBy());
+        $this->assertEquals(XmppBy::NAME, $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
         $xml = <<<EOT

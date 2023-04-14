@@ -15,17 +15,17 @@ class PrincipalSelectorTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
 
-        $pri = new PrincipalSelector(PrincipalBy::DN(), $value);
-        $this->assertEquals(PrincipalBy::DN(), $pri->getBy());
+        $pri = new PrincipalSelector(PrincipalBy::DN, $value);
+        $this->assertEquals(PrincipalBy::DN, $pri->getBy());
         $this->assertSame($value, $pri->getValue());
 
         $pri = new PrincipalSelector();
-        $pri->setBy(PrincipalBy::NAME())
+        $pri->setBy(PrincipalBy::NAME)
             ->setValue($value);
-        $this->assertEquals(PrincipalBy::NAME(), $pri->getBy());
+        $this->assertEquals(PrincipalBy::NAME, $pri->getBy());
         $this->assertSame($value, $pri->getValue());
 
-        $by = PrincipalBy::NAME()->getValue();
+        $by = PrincipalBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result by="$by">$value</result>

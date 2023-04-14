@@ -19,11 +19,11 @@ class CacheSelectorTest extends ZimbraTestCase
     {
         $value1 = $this->faker->word;
         $value2 = $this->faker->word;
-        $enums = $this->faker->randomElements(CacheType::toArray(), mt_rand(1, count(CacheType::toArray())));
+        $enums = $this->faker->randomElements(CacheType::cases(), mt_rand(1, count(CacheType::cases())));
         $types = implode(',', $enums);
 
-        $entry1 = new CacheEntrySelector(CacheEntryBy::NAME(), $value1);
-        $entry2 = new CacheEntrySelector(CacheEntryBy::NAME(), $value2);
+        $entry1 = new CacheEntrySelector(CacheEntryBy::NAME, $value1);
+        $entry2 = new CacheEntrySelector(CacheEntryBy::NAME, $value2);
 
         $cache = new StubCacheSelector($types, FALSE, FALSE, [$entry1]);
         $this->assertSame($types, $cache->getTypes());
@@ -54,9 +54,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubCacheSelector extends CacheSelector
 {

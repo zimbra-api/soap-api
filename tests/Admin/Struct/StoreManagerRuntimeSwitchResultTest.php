@@ -15,17 +15,17 @@ class StoreManagerRuntimeSwitchResultTest extends ZimbraTestCase
     {
         $message = $this->faker->word;
 
-        $result = new StoreManagerRuntimeSwitchResult(RuntimeSwitchStatus::NO_OPERATION(), $message);
-        $this->assertEquals(RuntimeSwitchStatus::NO_OPERATION(), $result->getStatus());
+        $result = new StoreManagerRuntimeSwitchResult(RuntimeSwitchStatus::NO_OPERATION, $message);
+        $this->assertEquals(RuntimeSwitchStatus::NO_OPERATION, $result->getStatus());
         $this->assertSame($message, $result->getMessage());
 
         $result = new StoreManagerRuntimeSwitchResult();
-        $result->setStatus(RuntimeSwitchStatus::SUCCESS())
+        $result->setStatus(RuntimeSwitchStatus::SUCCESS)
             ->setMessage($message);
-        $this->assertEquals(RuntimeSwitchStatus::SUCCESS(), $result->getStatus());
+        $this->assertEquals(RuntimeSwitchStatus::SUCCESS, $result->getStatus());
         $this->assertSame($message, $result->getMessage());
 
-        $status = RuntimeSwitchStatus::SUCCESS()->getValue();
+        $status = RuntimeSwitchStatus::SUCCESS->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result status="$status" message="$message" />

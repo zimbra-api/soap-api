@@ -21,13 +21,13 @@ class AliasInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $targetName = $this->faker->word;
-        $targetType = TargetType::ACCOUNT();
+        $targetType = TargetType::ACCOUNT;
 
         $alias = new StubAliasInfo($name, $id, $targetName, $targetType);
         $this->assertSame($targetName, $alias->getTargetName());
         $this->assertSame($targetType, $alias->getTargetType());
 
-        $alias = new StubAliasInfo($name, $id, '', TargetType::ACCOUNT(), [new Attr($key, $value)]);
+        $alias = new StubAliasInfo($name, $id, '', TargetType::ACCOUNT, [new Attr($key, $value)]);
         $alias->setTargetName($targetName)
             ->setTargetType($targetType);
         $this->assertSame($targetName, $alias->getTargetName());
@@ -44,9 +44,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubAliasInfo extends AliasInfo
 {

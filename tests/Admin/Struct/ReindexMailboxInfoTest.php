@@ -15,7 +15,7 @@ class ReindexMailboxInfoTest extends ZimbraTestCase
     {
         $id = $this->faker->word;
         $ids = $this->faker->word;
-        $enums = $this->faker->randomElements(ReindexType::toArray(), mt_rand(1, count(ReindexType::toArray())));
+        $enums = $this->faker->randomElements(ReindexType::cases(), mt_rand(1, count(ReindexType::cases())));
         $types = implode(',', $enums);
 
         $mbox = new ReindexMailboxInfo($id, $types, $ids);

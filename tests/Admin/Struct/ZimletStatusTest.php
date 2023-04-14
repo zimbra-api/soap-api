@@ -16,19 +16,19 @@ class ZimletStatusTest extends ZimbraTestCase
         $name = $this->faker->name;
         $priority = mt_rand(1, 100);
 
-        $zimlet = new ZimletStatus($name, ZimletStatusSetting::DISABLED(), FALSE, $priority);
+        $zimlet = new ZimletStatus($name, ZimletStatusSetting::DISABLED, FALSE, $priority);
         $this->assertSame($name, $zimlet->getName());
-        $this->assertEquals(ZimletStatusSetting::DISABLED(), $zimlet->getStatus());
+        $this->assertEquals(ZimletStatusSetting::DISABLED, $zimlet->getStatus());
         $this->assertFalse($zimlet->getExtension());
         $this->assertSame($priority, $zimlet->getPriority());
 
         $zimlet = new ZimletStatus();
         $zimlet->setName($name)
-            ->setStatus(ZimletStatusSetting::ENABLED())
+            ->setStatus(ZimletStatusSetting::ENABLED)
             ->setExtension(TRUE)
             ->setPriority($priority);
         $this->assertSame($name, $zimlet->getName());
-        $this->assertEquals(ZimletStatusSetting::ENABLED(), $zimlet->getStatus());
+        $this->assertEquals(ZimletStatusSetting::ENABLED, $zimlet->getStatus());
         $this->assertTrue($zimlet->getExtension());
         $this->assertSame($priority, $zimlet->getPriority());
 

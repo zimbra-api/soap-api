@@ -17,21 +17,21 @@ class ServiceStatusTest extends ZimbraTestCase
         $service = $this->faker->word;
         $time = time();
 
-        $status = new ServiceStatus($server, $service, $time, ZeroOrOne::ZERO());
+        $status = new ServiceStatus($server, $service, $time, ZeroOrOne::ZERO);
         $this->assertSame($server, $status->getServer());
         $this->assertSame($service, $status->getService());
         $this->assertSame($time, $status->getTime());
-        $this->assertEquals(ZeroOrOne::ZERO(), $status->getStatus());
+        $this->assertEquals(ZeroOrOne::ZERO, $status->getStatus());
 
         $status = new ServiceStatus();
         $status->setServer($server)
            ->setService($service)
            ->setTime($time)
-           ->setStatus(ZeroOrOne::ONE());
+           ->setStatus(ZeroOrOne::ONE);
         $this->assertSame($server, $status->getServer());
         $this->assertSame($service, $status->getService());
         $this->assertSame($time, $status->getTime());
-        $this->assertEquals(ZeroOrOne::ONE(), $status->getStatus());
+        $this->assertEquals(ZeroOrOne::ONE, $status->getStatus());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

@@ -15,17 +15,17 @@ class ZimletDeploymentStatusTest extends ZimbraTestCase
     {
         $server = $this->faker->word;
         $error = $this->faker->word;
-        $progress = new ZimletDeploymentStatus($server, ZimletDeployStatus::SUCCEEDED(), $error);
+        $progress = new ZimletDeploymentStatus($server, ZimletDeployStatus::SUCCEEDED, $error);
         $this->assertSame($server, $progress->getServer());
-        $this->assertEquals(ZimletDeployStatus::SUCCEEDED(), $progress->getStatus());
+        $this->assertEquals(ZimletDeployStatus::SUCCEEDED, $progress->getStatus());
         $this->assertSame($error, $progress->getError());
 
         $progress = new ZimletDeploymentStatus();
         $progress->setServer($server)
-            ->setStatus(ZimletDeployStatus::SUCCEEDED())
+            ->setStatus(ZimletDeployStatus::SUCCEEDED)
             ->setError($error);
         $this->assertSame($server, $progress->getServer());
-        $this->assertEquals(ZimletDeployStatus::SUCCEEDED(), $progress->getStatus());
+        $this->assertEquals(ZimletDeployStatus::SUCCEEDED, $progress->getStatus());
         $this->assertSame($error, $progress->getError());
 
         $xml = <<<EOT

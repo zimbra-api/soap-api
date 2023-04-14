@@ -22,7 +22,7 @@ class DistributionListInfoTest extends ZimbraTestCase
         $member2 = $this->faker->email;
 
         $owner = new GranteeInfo(
-            $id, $name, GranteeType::USR()
+            $id, $name, GranteeType::USR
         );
 
         $dl = new StubDistributionListInfo($name, $id, [$member1], [], [$owner], FALSE);
@@ -54,9 +54,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubDistributionListInfo extends DistributionListInfo
 {

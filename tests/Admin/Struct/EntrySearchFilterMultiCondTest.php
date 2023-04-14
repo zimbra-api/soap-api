@@ -18,8 +18,8 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $attr = $this->faker->word;
         $value = $this->faker->word;
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQUAL(), $value, TRUE);
-        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GREATER_EQUAL(), $value, FALSE);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQUAL, $value, TRUE);
+        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GREATER_EQUAL, $value, FALSE);
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
 
         $conds = new StubEntrySearchFilterMultiCond(FALSE, TRUE, [$cond, $multiConds]);
@@ -42,8 +42,8 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $this->assertSame([$multiConds], $conds->getCompoundConditions());
         $this->assertSame([$cond, $singleCond], $conds->getSingleConditions());
 
-        $ge = CondOp::GREATER_EQUAL()->getValue();
-        $eq = CondOp::EQUAL()->getValue();
+        $ge = CondOp::GREATER_EQUAL->value;
+        $eq = CondOp::EQUAL->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result not="true" or="false" xmlns:urn="urn:zimbraAdmin">
@@ -65,9 +65,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubEntrySearchFilterMultiCond extends EntrySearchFilterMultiCond
 {

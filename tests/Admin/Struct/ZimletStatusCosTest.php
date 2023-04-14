@@ -19,7 +19,7 @@ class ZimletStatusCosTest extends ZimbraTestCase
         $name = $this->faker->name;
         $priority = mt_rand(1, 100);
 
-        $zimlet = new ZimletStatus($name, ZimletStatusSetting::ENABLED(), TRUE, $priority);
+        $zimlet = new ZimletStatus($name, ZimletStatusSetting::ENABLED, TRUE, $priority);
 
         $cos = new StubZimletStatusCos($name, [$zimlet]);
         $this->assertSame($name, $cos->getName());
@@ -42,9 +42,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubZimletStatusCos extends ZimletStatusCos
 {

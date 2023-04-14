@@ -20,7 +20,7 @@ class ComboRightsTest extends ZimbraTestCase
         $targetType = $this->faker->word;
 
         $right = new ComboRightInfo(
-            $name, RightType::PRESET(), $targetType
+            $name, RightType::PRESET, $targetType
         );
 
         $rights = new StubComboRights([$right]);
@@ -30,7 +30,7 @@ class ComboRightsTest extends ZimbraTestCase
         $this->assertSame([$right, $right], $rights->getComboRights());
         $rights->setComboRights([$right]);
 
-        $type = RightType::PRESET()->getValue();
+        $type = RightType::PRESET->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result xmlns:urn="urn:zimbraAdmin">
@@ -42,9 +42,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubComboRights extends ComboRights
 {

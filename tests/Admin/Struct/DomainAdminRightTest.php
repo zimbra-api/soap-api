@@ -21,19 +21,19 @@ class DomainAdminRightTest extends ZimbraTestCase
 
         $r = new RightWithName($name);
 
-        $right = new StubDomainAdminRight($name, RightType::PRESET(), $desc, [$r]);
+        $right = new StubDomainAdminRight($name, RightType::PRESET, $desc, [$r]);
         $this->assertSame($name, $right->getName());
-        $this->assertEquals(RightType::PRESET(), $right->getType());
+        $this->assertEquals(RightType::PRESET, $right->getType());
         $this->assertSame($desc, $right->getDesc());
         $this->assertSame([$r], $right->getRights());
 
         $right = new StubDomainAdminRight();
         $right->setName($name)
-            ->setType(RightType::PRESET())
+            ->setType(RightType::PRESET)
             ->setDesc($desc)
             ->setRights([$r]);
         $this->assertSame($name, $right->getName());
-        $this->assertEquals(RightType::PRESET(), $right->getType());
+        $this->assertEquals(RightType::PRESET, $right->getType());
         $this->assertSame($desc, $right->getDesc());
         $this->assertSame([$r], $right->getRights());
 
@@ -51,9 +51,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 class StubDomainAdminRight extends DomainAdminRight
 {
