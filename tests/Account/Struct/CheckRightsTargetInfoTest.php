@@ -25,28 +25,28 @@ class CheckRightsTargetInfoTest extends ZimbraTestCase
         $rightInfo2 = new CheckRightsRightInfo($right2, FALSE);
 
         $target = new MockCheckRightsTargetInfo(
-            TargetType::DOMAIN(), TargetBy::ID(), $key, FALSE, [$rightInfo1]
+            TargetType::DOMAIN, TargetBy::ID, $key, FALSE, [$rightInfo1]
         );
-        $this->assertEquals(TargetType::DOMAIN(), $target->getTargetType());
-        $this->assertEquals(TargetBy::ID(), $target->getTargetBy());
+        $this->assertEquals(TargetType::DOMAIN, $target->getTargetType());
+        $this->assertEquals(TargetBy::ID, $target->getTargetBy());
         $this->assertSame($key, $target->getTargetKey());
         $this->assertFalse($target->getAllow());
         $this->assertSame([$rightInfo1], $target->getRights());
 
-        $target->setTargetType(TargetType::ACCOUNT())
-               ->setTargetBy(TargetBy::NAME())
+        $target->setTargetType(TargetType::ACCOUNT)
+               ->setTargetBy(TargetBy::NAME)
                ->setTargetKey($key)
                ->setAllow(TRUE)
                ->setRights([$rightInfo1, $rightInfo2]);
 
-        $this->assertEquals(TargetType::ACCOUNT(), $target->getTargetType());
-        $this->assertEquals(TargetBy::NAME(), $target->getTargetBy());
+        $this->assertEquals(TargetType::ACCOUNT, $target->getTargetType());
+        $this->assertEquals(TargetBy::NAME, $target->getTargetBy());
         $this->assertSame($key, $target->getTargetKey());
         $this->assertTrue($target->getAllow());
         $this->assertSame([$rightInfo1, $rightInfo2], $target->getRights());
 
-        $type = TargetType::ACCOUNT()->getValue();
-        $by = TargetBy::NAME()->getValue();
+        $type = TargetType::ACCOUNT->value;
+        $by = TargetBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" by="$by" key="$key" allow="true" xmlns:urn="urn:zimbraAccount">
@@ -59,9 +59,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
 class MockCheckRightsTargetInfo extends CheckRightsTargetInfo
 {

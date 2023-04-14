@@ -20,7 +20,7 @@ class DiscoverRightsTest extends ZimbraTestCase
 {
     public function testDiscoverRights()
     {
-        $type = TargetType::ACCOUNT();
+        $type = TargetType::ACCOUNT;
         $id = $this->faker->uuid;
         $name = $this->faker->email;
         $displayName = $this->faker->name;

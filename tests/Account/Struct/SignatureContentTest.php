@@ -15,17 +15,17 @@ class SignatureContentTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
 
-        $content = new SignatureContent($value, ContentType::TEXT_PLAIN());
+        $content = new SignatureContent($value, ContentType::TEXT_PLAIN);
         $this->assertSame($value, $content->getValue());
-        $this->assertEquals(ContentType::TEXT_PLAIN(), $content->getContentType());
+        $this->assertEquals(ContentType::TEXT_PLAIN, $content->getContentType());
 
         $content = new SignatureContent();
         $content->setValue($value)
-            ->setContentType(ContentType::TEXT_HTML());
+            ->setContentType(ContentType::TEXT_HTML);
         $this->assertSame($value, $content->getValue());
-        $this->assertEquals(ContentType::TEXT_HTML(), $content->getContentType());
+        $this->assertEquals(ContentType::TEXT_HTML, $content->getContentType());
 
-        $type = ContentType::TEXT_HTML()->getValue();
+        $type = ContentType::TEXT_HTML->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type">$value</result>

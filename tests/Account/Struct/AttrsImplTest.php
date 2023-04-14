@@ -35,9 +35,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
 class StubAttrsImpl extends AttrsImpl
 {

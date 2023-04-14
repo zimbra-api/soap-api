@@ -39,7 +39,7 @@ class GetShareInfoTest extends ZimbraTestCase
         $mountpointId = $this->faker->uuid;
 
         $grantee = new GranteeChooser($type, $id, $name);
-        $owner = new AccountSelector(AccountBy::NAME(), $value);
+        $owner = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new GetShareInfoRequest($grantee, $owner, FALSE, FALSE);
         $this->assertSame($grantee, $request->getGrantee());

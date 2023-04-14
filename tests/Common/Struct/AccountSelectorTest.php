@@ -14,14 +14,14 @@ class AccountSelectorTest extends ZimbraTestCase
     public function testAccountSelector()
     {
         $value = $this->faker->word;
-        $acc = new AccountSelector(AccountBy::ID(), $value);
-        $this->assertEquals(AccountBy::ID(), $acc->getBy());
+        $acc = new AccountSelector(AccountBy::ID, $value);
+        $this->assertEquals(AccountBy::ID, $acc->getBy());
         $this->assertSame($value, $acc->getValue());
 
         $acc = new AccountSelector();
-        $acc->setBy(AccountBy::NAME())
+        $acc->setBy(AccountBy::NAME)
             ->setValue($value);
-        $this->assertEquals(AccountBy::NAME(), $acc->getBy());
+        $this->assertEquals(AccountBy::NAME, $acc->getBy());
         $this->assertSame($value, $acc->getValue());
 
         $xml = <<<EOT

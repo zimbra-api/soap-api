@@ -21,10 +21,10 @@ class SubscribeDistributionListTest extends ZimbraTestCase
     public function testSubscribeDistributionList()
     {
         $value = $this->faker->word;
-        $op = SubscribeOp::SUBSCRIBE();
-        $status = SubscribeStatus::SUBSCRIBED();
+        $op = SubscribeOp::SUBSCRIBE;
+        $status = SubscribeStatus::SUBSCRIBED;
 
-        $dl = new DistributionListSelector(DLBy::NAME(), $value);
+        $dl = new DistributionListSelector(DLBy::NAME, $value);
 
         $request = new SubscribeDistributionListRequest($dl, $op);
         $this->assertSame($dl, $request->getDl());

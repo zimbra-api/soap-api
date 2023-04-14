@@ -14,12 +14,12 @@ class DistributionListSelectorTest extends ZimbraTestCase
     public function testDistributionListSelector()
     {
         $value = $this->faker->word;
-        $dl = new DistributionListSelector(DLBy::ID(), $value);
-        $this->assertEquals(DLBy::ID(), $dl->getBy());
+        $dl = new DistributionListSelector(DLBy::ID, $value);
+        $this->assertEquals(DLBy::ID, $dl->getBy());
         $this->assertSame($value, $dl->getValue());
 
-        $dl->setBy(DLBy::NAME());
-        $this->assertEquals(DLBy::NAME(), $dl->getBy());
+        $dl->setBy(DLBy::NAME;
+        $this->assertEquals(DLBy::NAME, $dl->getBy());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

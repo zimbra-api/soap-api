@@ -17,7 +17,7 @@ class DiscoverRightsInfoTest extends ZimbraTestCase
 {
     public function testDiscoverRightsInfo()
     {
-        $type = TargetType::ACCOUNT();
+        $type = TargetType::ACCOUNT;
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $displayName = $this->faker->word;
@@ -49,9 +49,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
 class MockDiscoverRightsInfo extends DiscoverRightsInfo
 {

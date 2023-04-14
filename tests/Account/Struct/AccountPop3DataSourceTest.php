@@ -20,7 +20,7 @@ class AccountPop3DataSourceTest extends ZimbraTestCase
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = mt_rand(1, 100);
-        $connectionType = ConnectionType::CLEAR_TEXT();
+        $connectionType = ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->text;
         $pollingInterval = $this->faker->word;
@@ -61,9 +61,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
 class MockAccountPop3DataSource extends AccountPop3DataSource
 {

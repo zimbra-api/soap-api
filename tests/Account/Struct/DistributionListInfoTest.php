@@ -26,7 +26,7 @@ class DistributionListInfoTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $owner = new DistributionListGranteeInfo(
-            GranteeType::USR(), $id, $name
+            GranteeType::USR, $id, $name
         );
         $right = new DistributionListRightInfo(
             $name, [$owner]
@@ -75,9 +75,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
 class MockDistributionListInfo extends DistributionListInfo
 {

@@ -60,12 +60,12 @@ class GetInfoTest extends ZimbraTestCase
         $name = $this->faker->name;
         $value = $this->faker->word;
         $modified = $this->faker->randomNumber;
-        $sections = implode(',', $this->faker->randomElements(InfoSection::values(), 2));
+        $sections = implode(',', $this->faker->randomElements(InfoSection::cases(), 2));
         $rights = implode(',', [$this->faker->unique->word, $this->faker->unique->word]);
         $zimletName = $this->faker->word;
         $cid = $this->faker->uuid;
 
-        $type = TargetType::ACCOUNT();
+        $type = TargetType::ACCOUNT;
         $displayName = $this->faker->word;
         $addr = $this->faker->word;
         $right = $this->faker->word;
@@ -102,7 +102,7 @@ class GetInfoTest extends ZimbraTestCase
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = $this->faker->randomNumber;
-        $connectionType = ConnectionType::CLEAR_TEXT();
+        $connectionType = ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->word;
         $pollingInterval = $this->faker->word;
@@ -140,10 +140,10 @@ class GetInfoTest extends ZimbraTestCase
         $prop = new Prop($zimletName, $name, $value);
         $childAccount = new ChildAccount($id, $name, TRUE, TRUE, [$attr]);
         $identity = new Identity($name, $id, [$attr]);
-        $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML())]);
+        $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML)]);
 
         $zimletContext = new AccountZimletContext(
-            $baseUrl, ZimletPresence::ENABLED(), $priority
+            $baseUrl, ZimletPresence::ENABLED, $priority
         );
         $zimletDesc = new AccountZimletDesc(
             $name, $version, $description, $extension, $target, $label

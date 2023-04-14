@@ -35,13 +35,13 @@ class DistributionListActionTest extends ZimbraTestCase
         $value = $this->faker->word;
         $member = $this->faker->word;
 
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE(), $value, TRUE);
-        $owner = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::NAME(), $value);
-        $grantee = new DistributionListGranteeSelector(GranteeType::USR(), DLGranteeBy::NAME(), $value);
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::SUBSCRIBE, $value, TRUE);
+        $owner = new DistributionListGranteeSelector(GranteeType::USR, DLGranteeBy::NAME, $value);
+        $grantee = new DistributionListGranteeSelector(GranteeType::USR, DLGranteeBy::NAME, $value);
         $right = new DistributionListRightSpec($name, [$grantee]);
         $attr = new KeyValuePair($name, $value);
 
-        $dl = new DistributionListSelector(DLBy::NAME(), $value);
+        $dl = new DistributionListSelector(DLBy::NAME, $value);
         $action = new DistributionListAction(
             Operation::MODIFY(), $name, $subsReq, [$member], [$owner], [$right], [$attr]
         );

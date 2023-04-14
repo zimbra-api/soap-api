@@ -15,15 +15,15 @@ class ModifyZimletPrefsSpecTest extends ZimbraTestCase
     {
         $name = $this->faker->name;
 
-        $zimlet = new ModifyZimletPrefsSpec($name, ZimletStatus::DISABLED());
+        $zimlet = new ModifyZimletPrefsSpec($name, ZimletStatus::DISABLED);
         $this->assertSame($name, $zimlet->getName());
-        $this->assertEquals(ZimletStatus::DISABLED(), $zimlet->getPresence());
+        $this->assertEquals(ZimletStatus::DISABLED, $zimlet->getPresence());
 
         $zimlet = new ModifyZimletPrefsSpec();
         $zimlet->setName($name)
-               ->setPresence(ZimletStatus::ENABLED());
+               ->setPresence(ZimletStatus::ENABLED);
         $this->assertSame($name, $zimlet->getName());
-        $this->assertEquals(ZimletStatus::ENABLED(), $zimlet->getPresence());
+        $this->assertEquals(ZimletStatus::ENABLED, $zimlet->getPresence());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

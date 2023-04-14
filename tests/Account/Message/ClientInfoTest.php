@@ -22,7 +22,7 @@ class ClientInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
         $attr = new Attr($key, $value);
 
         $request = new ClientInfoRequest($domain);

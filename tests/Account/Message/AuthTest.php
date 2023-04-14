@@ -48,10 +48,10 @@ class AuthTest extends ZimbraTestCase
         $trustLifetime = $this->faker->randomNumber;
 
         $computeValue = hash_hmac(
-            'sha1', $value . '|' . AccountBy::NAME() . '|' . $time . '|' . $time, $value
+            'sha1', $value . '|' . AccountBy::NAME->value . '|' . $time . '|' . $time, $value
         );
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
         $preauth = new PreAuth($account, $value ,$time, $time);
         $authToken = new AuthToken($value, TRUE, $lifetime);
         $session = new Session($id, $type);
@@ -222,7 +222,7 @@ class AuthTest extends ZimbraTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $by = AccountBy::NAME()->getValue();
+        $by = AccountBy::NAME->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">

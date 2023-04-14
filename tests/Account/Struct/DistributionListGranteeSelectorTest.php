@@ -15,21 +15,21 @@ class DistributionListGranteeSelectorTest extends ZimbraTestCase
     public function testDistributionListGranteeSelector()
     {
         $value = $this->faker->word;
-        $grantee = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::ID(), $value);
-        $this->assertEquals(GranteeType::ALL(), $grantee->getType());
-        $this->assertEquals(DLGranteeBy::ID(), $grantee->getBy());
+        $grantee = new DistributionListGranteeSelector(GranteeType::ALL, DLGranteeBy::ID, $value);
+        $this->assertEquals(GranteeType::ALL, $grantee->getType());
+        $this->assertEquals(DLGranteeBy::ID, $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
 
         $grantee = new DistributionListGranteeSelector();
-        $grantee->setType(GranteeType::USR())
-                ->setBy(DLGranteeBy::NAME())
+        $grantee->setType(GranteeType::USR)
+                ->setBy(DLGranteeBy::NAME)
                 ->setValue($value);
-        $this->assertEquals(GranteeType::USR(), $grantee->getType());
-        $this->assertEquals(DLGranteeBy::NAME(), $grantee->getBy());
+        $this->assertEquals(GranteeType::USR, $grantee->getType());
+        $this->assertEquals(DLGranteeBy::NAME, $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
 
-        $type = GranteeType::USR()->getValue();
-        $by = DLGranteeBy::NAME()->getValue();
+        $type = GranteeType::USR->value;
+        $by = DLGranteeBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result type="$type" by="$by">$value</result>

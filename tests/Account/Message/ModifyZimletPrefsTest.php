@@ -19,7 +19,7 @@ class ModifyZimletPrefsTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
 
-        $zimlet = new ModifyZimletPrefsSpec($name, ZimletStatus::ENABLED());
+        $zimlet = new ModifyZimletPrefsSpec($name, ZimletStatus::ENABLED);
 
         $request = new ModifyZimletPrefsRequest([$zimlet]);
         $this->assertSame([$zimlet], $request->getZimlets());

@@ -40,7 +40,7 @@ class EnvelopeTest extends ZimbraTestCase
 
         $session = new SessionInfo(TRUE, $id, $sequence, $value);
         $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID(), $value, TRUE);
+        $account = new AccountInfo(AccountBy::ID, $value, TRUE);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
@@ -75,8 +75,8 @@ class EnvelopeTest extends ZimbraTestCase
         $this->assertSame($header, $envelope->getHeader());
         $this->assertSame($body, $envelope->getBody());
 
-        $byId = AccountBy::ID()->getValue();
-        $requestFormat = RequestFormat::XML()->getValue();
+        $byId = AccountBy::ID->value;
+        $requestFormat = RequestFormat::XML->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
     <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
@@ -109,18 +109,9 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="soap:Envelope")
- */
 #[XmlRoot(name: 'soap:Envelope')]
 class FooEnvelope extends SoapEnvelope
 {
-    /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Tests\Common\Struct\FooBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName(name: 'Body')]
     #[Type(name: FooBody::class)]

@@ -418,7 +418,7 @@ EOT;
         $response = $api->checkRights();
         $rightInfo = new \Zimbra\Account\Struct\CheckRightsRightInfo($right, TRUE);
         $targetInfo = new \Zimbra\Account\Struct\CheckRightsTargetInfo(
-            \Zimbra\Common\Enum\TargetType::ACCOUNT(), \Zimbra\Common\Enum\TargetBy::NAME(), $key, TRUE, [$rightInfo]
+            \Zimbra\Common\Enum\TargetType::ACCOUNT, \Zimbra\Common\Enum\TargetBy::NAME, $key, TRUE, [$rightInfo]
         );
         $this->assertEquals([$targetInfo], $response->getTargets());
     }
@@ -558,7 +558,7 @@ EOT;
 
     public function testDiscoverRights()
     {
-        $type = \Zimbra\Common\Enum\TargetType::ACCOUNT();
+        $type = \Zimbra\Common\Enum\TargetType::ACCOUNT;
         $id = $this->faker->uuid;
         $name = $this->faker->email;
         $displayName = $this->faker->text;
@@ -861,7 +861,7 @@ EOT;
         $response = $api->getDistributionList(new \Zimbra\Common\Struct\DistributionListSelector());
 
         $owner = new \Zimbra\Account\Struct\DistributionListGranteeInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), $id, $name
+            \Zimbra\Common\Enum\GranteeType::USR, $id, $name
         );
         $right = new \Zimbra\Account\Struct\DistributionListRightInfo(
             $name, [$owner]
@@ -908,7 +908,7 @@ EOT;
         $zimletName = $this->faker->word;
         $cid = $this->faker->uuid;
 
-        $type = \Zimbra\Common\Enum\TargetType::ACCOUNT();
+        $type = \Zimbra\Common\Enum\TargetType::ACCOUNT;
         $displayName = $this->faker->word;
         $addr = $this->faker->word;
         $right = $this->faker->word;
@@ -945,7 +945,7 @@ EOT;
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = $this->faker->randomNumber;
-        $connectionType = \Zimbra\Common\Enum\ConnectionType::CLEAR_TEXT();
+        $connectionType = \Zimbra\Common\Enum\ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->word;
         $pollingInterval = $this->faker->word;
@@ -1122,7 +1122,7 @@ EOT;
         $childAccount = new \Zimbra\Account\Struct\ChildAccount($id, $name, TRUE, TRUE, [$attr]);
         $identity = new \Zimbra\Account\Struct\Identity($name, $id, [$attr]);
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, [
-            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML())
+            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML
         ]);
         $rightsInfo = new \Zimbra\Account\Struct\DiscoverRightsInfo($right, [
             new \Zimbra\Account\Struct\DiscoverRightsTarget($type, $id, $name, $displayName, [
@@ -1131,7 +1131,7 @@ EOT;
         ]);
 
         $zimletContext = new \Zimbra\Account\Struct\AccountZimletContext(
-            $baseUrl, \Zimbra\Common\Enum\ZimletPresence::ENABLED(), $priority
+            $baseUrl, \Zimbra\Common\Enum\ZimletPresence::ENABLED, $priority
         );
         $zimletDesc = new \Zimbra\Account\Struct\AccountZimletDesc(
             $name, $version, $description, $extension, $target, $label
@@ -1267,7 +1267,7 @@ EOT;
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getRights();
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            \Zimbra\Common\Enum\GranteeType::USR, \Zimbra\Common\Enum\AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
     }
@@ -1335,7 +1335,7 @@ EOT;
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getSignatures();
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, [
-            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML())
+            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML
         ]);
         $this->assertEquals([$signature], $response->getSignatures());
     }
@@ -1416,7 +1416,7 @@ EOT;
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->grantRights();
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            \Zimbra\Common\Enum\GranteeType::USR, \Zimbra\Common\Enum\AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
     }
@@ -1582,7 +1582,7 @@ EOT;
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->revokeRights();
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            \Zimbra\Common\Enum\GranteeType::USR, \Zimbra\Common\Enum\AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
     }
@@ -1699,9 +1699,9 @@ EOT;
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->subscribeDistributionList(
             new \Zimbra\Common\Struct\DistributionListSelector(),
-            \Zimbra\Common\Enum\DistributionListSubscribeOp::SUBSCRIBE()
+            \Zimbra\Common\Enum\DistributionListSubscribeOp::SUBSCRIBE
         );
-        $this->assertEquals(\Zimbra\Common\Enum\DistributionListSubscribeStatus::SUBSCRIBED(), $response->getStatus());
+        $this->assertEquals(\Zimbra\Common\Enum\DistributionListSubscribeStatus::SUBSCRIBED, $response->getStatus());
     }
 
     public function testSyncGal()

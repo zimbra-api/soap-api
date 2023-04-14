@@ -70,18 +70,9 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="soap:Envelope")
- */
 #[XmlRoot(name: 'soap:Envelope')]
 class FaultEnvelope extends SoapEnvelope
 {
-    /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Tests\Common\Struct\FaultBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName(name: 'Body')]
     #[Type(name: FaultBody::class)]
