@@ -33,7 +33,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $type;
+    private TargetType $type;
 
     /**
      * ID

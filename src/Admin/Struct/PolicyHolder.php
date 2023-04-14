@@ -31,7 +31,7 @@ class PolicyHolder
     #[SerializedName('policy')]
     #[Type(Policy::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $policy;
+    private ?Policy $policy;
 
     /**
      * Constructor
@@ -41,9 +41,7 @@ class PolicyHolder
      */
     public function __construct(?Policy $policy = NULL)
     {
-        if ($policy instanceof Policy) {
-            $this->setPolicy($policy);
-        }
+        $this->policy = $policy;
     }
 
     /**

@@ -55,7 +55,7 @@ class DataSourceInfo extends AdminAttrsImpl
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\DataSourceType>')]
     #[XmlAttribute]
-    private $type;
+    private DataSourceType $type;
 
     /**
      * Constructor

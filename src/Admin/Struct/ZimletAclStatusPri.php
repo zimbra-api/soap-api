@@ -44,7 +44,7 @@ class ZimletAclStatusPri
     #[SerializedName('acl')]
     #[Type(ZimletAcl::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $acl;
+    private ?ZimletAcl $acl;
 
     /**
      * Status - valid values for value attribute - enabled|disabled
@@ -55,7 +55,7 @@ class ZimletAclStatusPri
     #[SerializedName('status')]
     #[Type(ValueAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $status;
+    private ?ValueAttrib $status;
 
     /**
      * Priority
@@ -66,7 +66,7 @@ class ZimletAclStatusPri
     #[SerializedName('priority')]
     #[Type(IntegerValueAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $priority;
+    private ?IntegerValueAttrib $priority;
 
     /**
      * Constructor
@@ -85,15 +85,9 @@ class ZimletAclStatusPri
     )
     {
         $this->setName($name);
-        if ($acl instanceof ZimletAcl) {
-            $this->setAcl($acl);
-        }
-        if ($status instanceof ValueAttrib) {
-            $this->setStatus($status);
-        }
-        if ($priority instanceof IntegerValueAttrib) {
-            $this->setPriority($priority);
-        }
+        $this->acl = $acl;
+        $this->status = $status;
+        $this->priority = $priority;
     }
 
     /**
@@ -158,7 +152,7 @@ class ZimletAclStatusPri
      */
     public function setStatus(ValueAttrib $status): self
     {
-        if (ZimletStatus::isValid($status->getValue())) {
+        if (ZimletStatus::tryFrom($status->getValue())) {
             $this->status = $status;
         }
         return $this;

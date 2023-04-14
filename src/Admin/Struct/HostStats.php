@@ -43,7 +43,7 @@ class HostStats
     #[SerializedName('stats')]
     #[Type(StatsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $stats;
+    private ?StatsInfo $stats;
 
     /**
      * Constructor
@@ -55,9 +55,7 @@ class HostStats
     public function __construct(string $hostName = '', ?StatsInfo $stats = NULL)
     {
         $this->setHostName($hostName);
-        if ($stats instanceof StatsInfo) {
-            $this->setStats($stats);
-        }
+        $this->stats = $stats;
     }
 
     /**

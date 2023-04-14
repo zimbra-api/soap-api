@@ -54,7 +54,9 @@ class GetAggregateQuotaUsageOnServerResponse extends SoapResponse
      */
     public function setDomainQuotas(array $quotas): self
     {
-        $this->domainQuotas = array_filter($quotas, static fn ($quota) => $quota instanceof DomainAggregateQuotaInfo);
+        $this->domainQuotas = array_filter(
+            $quotas, static fn ($quota) => $quota instanceof DomainAggregateQuotaInfo
+        );
         return $this;
     }
 

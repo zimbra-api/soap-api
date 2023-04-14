@@ -54,7 +54,7 @@ class ContactGroupMember
     #[SerializedName('cn')]
     #[Type(ContactInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $contact;
+    private ?ContactInfo $contact;
 
     /**
      * Constructor
@@ -70,9 +70,7 @@ class ContactGroupMember
     {
         $this->setType($type)
              ->setValue($value);
-        if ($contact instanceof ContactInfo) {
-            $this->setContact($contact);
-        }
+        $this->contact = $contact;
     }
 
     /**

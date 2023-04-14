@@ -32,7 +32,7 @@ class TzFixupRule
     #[SerializedName('match')]
     #[Type(TzFixupRuleMatch::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $match;
+    private ?TzFixupRuleMatch $match;
 
     /**
      * Need either "touch" or "replace" but not both 
@@ -43,7 +43,7 @@ class TzFixupRule
     #[SerializedName('touch')]
     #[Type(SimpleElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $touch;
+    private ?SimpleElement $touch;
 
     /**
      * Replace any matching timezone with this timezone. Need either "touch" or "replace" but not both.
@@ -54,7 +54,7 @@ class TzFixupRule
     #[SerializedName('replace')]
     #[Type(TzReplaceInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $replace;
+    private ?TzReplaceInfo $replace;
 
     /**
      * Constructor
@@ -70,15 +70,9 @@ class TzFixupRule
         ?TzReplaceInfo $replace = NULL
     )
     {
-        if ($match instanceof TzFixupRuleMatch) {
-            $this->setMatch($match);
-        }
-        if ($touch instanceof SimpleElement) {
-            $this->setTouch($touch);
-        }
-        if ($replace instanceof TzReplaceInfo) {
-            $this->setReplace($replace);
-        }
+        $this->match = $match;
+        $this->touch = $touch;
+        $this->replace = $replace;
     }
 
     /**

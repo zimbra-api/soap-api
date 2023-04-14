@@ -54,7 +54,9 @@ class GetAllZimletsResponse extends SoapResponse
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof ZimletInfo);
+        $this->zimlets = array_filter(
+            $zimlets, static fn ($zimlet) => $zimlet instanceof ZimletInfo
+        );
         return $this;
     }
 

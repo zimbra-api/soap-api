@@ -68,7 +68,9 @@ class GetDistributionListResponse extends SoapResponse
      * @param int $total
      * @return self
      */
-    public function __construct(?DLInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL)
+    public function __construct(
+        ?DLInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL
+    )
     {
         $this->dl = $dl;
         if (NULL !== $more) {

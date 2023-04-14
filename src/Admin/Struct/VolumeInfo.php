@@ -188,7 +188,7 @@ class VolumeInfo
     #[SerializedName('volumeExternalInfo')]
     #[Type(VolumeExternalInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $volumeExternalInfo;
+    private ?VolumeExternalInfo $volumeExternalInfo;
 
     /**
      * Volume external information for OpenIO
@@ -199,7 +199,7 @@ class VolumeInfo
     #[SerializedName('volumeExternalOpenIOInfo')]
     #[Type(VolumeExternalOpenIOInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $volumeExternalOpenIOInfo;
+    private ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo;
 
     /**
      * Constructor
@@ -283,12 +283,8 @@ class VolumeInfo
         if (NULL !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
         }
-        if ($volumeExternalInfo instanceof VolumeExternalInfo) {
-            $this->setVolumeExternalInfo($volumeExternalInfo);
-        }
-        if ($volumeExternalOpenIOInfo instanceof VolumeExternalOpenIOInfo) {
-            $this->setVolumeExternalOpenIOInfo($volumeExternalOpenIOInfo);
-        }
+        $this->volumeExternalInfo = $volumeExternalInfo;
+        $this->volumeExternalOpenIOInfo = $volumeExternalOpenIOInfo;
     }
 
     /**

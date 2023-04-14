@@ -127,7 +127,9 @@ class GetQuotaUsageResponse extends SoapResponse
      */
     public function setAccountQuotas(array $quotas): self
     {
-        $this->accountQuotas = array_filter($quotas, static fn ($quota) => $quota instanceof AccountQuotaInfo);
+        $this->accountQuotas = array_filter(
+            $quotas, static fn ($quota) => $quota instanceof AccountQuotaInfo
+        );
         return $this;
     }
 

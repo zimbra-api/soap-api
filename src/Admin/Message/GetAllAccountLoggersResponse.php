@@ -54,7 +54,9 @@ class GetAllAccountLoggersResponse extends SoapResponse
      */
     public function setLoggers(array $loggers): self
     {
-        $this->loggers = array_filter($loggers, static fn ($logger) => $logger instanceof AccountLoggerInfo);
+        $this->loggers = array_filter(
+            $loggers, static fn ($logger) => $logger instanceof AccountLoggerInfo
+        );
         return $this;
     }
 

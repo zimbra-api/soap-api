@@ -97,7 +97,7 @@ class SessionForWaitSet
     #[SerializedName('WaitSetSession')]
     #[Type(WaitSetSessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $waitSetSession;
+    private ?WaitSetSessionInfo $waitSetSession;
 
     /**
      * Constructor
@@ -135,9 +135,7 @@ class SessionForWaitSet
         if (NULL !== $acctIdError) {
             $this->setAcctIdError($acctIdError);
         }
-        if ($waitSetSession instanceof WaitSetSessionInfo) {
-            $this->setWaitSetSession($waitSetSession);
-        }
+        $this->waitSetSession = $waitSetSession;
     }
 
     /**

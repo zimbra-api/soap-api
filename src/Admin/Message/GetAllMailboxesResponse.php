@@ -124,7 +124,9 @@ class GetAllMailboxesResponse extends SoapResponse
      */
     public function setMboxes(array $mboxes): self
     {
-        $this->mboxes = array_filter($mboxes, static fn ($mbox) => $mbox instanceof MailboxInfo);
+        $this->mboxes = array_filter(
+            $mboxes, static fn ($mbox) => $mbox instanceof MailboxInfo
+        );
         return $this;
     }
 

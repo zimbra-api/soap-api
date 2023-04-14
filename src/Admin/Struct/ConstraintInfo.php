@@ -138,7 +138,9 @@ class ConstraintInfo
      */
     public function setValues(array $values): self
     {
-        $this->values = array_unique(array_map(static fn ($value) => trim($value), $values));
+        $this->values = array_unique(
+            array_map(static fn ($value) => trim($value), $values)
+        );
         return $this;
     }
 

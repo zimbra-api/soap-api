@@ -43,7 +43,7 @@ class EffectiveAttrInfo
     #[SerializedName('constraint')]
     #[Type(ConstraintInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $constraint;
+    private ?ConstraintInfo $constraint;
 
     /**
      * Inherited default value(or values if the attribute is multi-valued)
@@ -71,9 +71,7 @@ class EffectiveAttrInfo
     {
         $this->setName($name)
              ->setValues($values);
-        if ($constraint instanceof ConstraintInfo) {
-            $this->setConstraint($constraint);
-        }
+        $this->constraint = $constraint;
     }
 
     /**
@@ -138,7 +136,9 @@ class EffectiveAttrInfo
      */
     public function setValues(array $values): self
     {
-        $this->values = array_unique(array_map(static fn ($value) => trim($value), $values));
+        $this->values = array_unique(
+            array_map(static fn ($value) => trim($value), $values)
+        );
         return $this;
     }
 }

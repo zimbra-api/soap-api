@@ -128,7 +128,9 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = array_filter($entries, static fn ($entry) => $entry instanceof AutoProvDirectoryEntry);
+        $this->entries = array_filter(
+            $entries, static fn ($entry) => $entry instanceof AutoProvDirectoryEntry
+        );
         return $this;
     }
 

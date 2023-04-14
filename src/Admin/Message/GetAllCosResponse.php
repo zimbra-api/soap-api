@@ -54,7 +54,9 @@ class GetAllCosResponse extends SoapResponse
      */
     public function setCosList(array $cosList): self
     {
-        $this->cosList = array_filter($cosList, static fn ($cos) => $cos instanceof CosInfo);
+        $this->cosList = array_filter(
+            $cosList, static fn ($cos) => $cos instanceof CosInfo
+        );
         return $this;
     }
 

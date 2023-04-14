@@ -240,7 +240,9 @@ class GetFilterRulesResponse extends SoapResponse
      */
     public function setFilterRules(array $rules): self
     {
-        $this->rules = array_filter($rules, static fn ($rule) => $rule instanceof FilterRule);
+        $this->rules = array_filter(
+            $rules, static fn ($rule) => $rule instanceof FilterRule
+        );
         return $this;
     }
 

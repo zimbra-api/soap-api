@@ -71,7 +71,9 @@ class SyncGalAccountRequest extends SoapRequest
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof SyncGalAccountSpec);
+        $this->accounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof SyncGalAccountSpec
+        );
         return $this;
     }
 

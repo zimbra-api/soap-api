@@ -54,7 +54,9 @@ class GetServerStatsResponse extends SoapResponse
      */
     public function setStats(array $stats): self
     {
-        $this->stats = array_filter($stats, static fn ($stat) => $stat instanceof Stat);
+        $this->stats = array_filter(
+            $stats, static fn ($stat) => $stat instanceof Stat
+        );
         return $this;
     }
 

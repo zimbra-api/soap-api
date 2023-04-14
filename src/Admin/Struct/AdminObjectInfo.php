@@ -124,7 +124,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrList = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
+        $this->attrList = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof Attr
+        );
         return $this;
     }
 

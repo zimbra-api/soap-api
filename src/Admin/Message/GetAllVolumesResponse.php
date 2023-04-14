@@ -54,7 +54,9 @@ class GetAllVolumesResponse extends SoapResponse
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = array_filter($volumes, static fn ($volume) => $volume instanceof VolumeInfo);
+        $this->volumes = array_filter(
+            $volumes, static fn ($volume) => $volume instanceof VolumeInfo
+        );
         return $this;
     }
 

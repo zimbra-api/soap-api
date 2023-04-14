@@ -95,7 +95,9 @@ class CheckDomainMXRecordResponse extends SoapResponse
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
+        $this->entries = array_unique(
+            array_map(static fn ($entry) => trim($entry), $entries)
+        );
         return $this;
     }
 

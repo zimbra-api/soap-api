@@ -54,7 +54,9 @@ class GetFreeBusyQueueInfoResponse extends SoapResponse
      */
     public function setProviders(array $providers): self
     {
-        $this->providers = array_filter($providers, static fn ($provider) => $provider instanceof FreeBusyQueueProvider);
+        $this->providers = array_filter(
+            $providers, static fn ($provider) => $provider instanceof FreeBusyQueueProvider
+        );
         return $this;
     }
 

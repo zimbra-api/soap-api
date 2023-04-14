@@ -53,7 +53,9 @@ class CopyCosBody extends SoapBody
      * @param CopyCosResponse $response
      * @return self
      */
-    public function __construct(?CopyCosRequest $request = NULL, ?CopyCosResponse $response = NULL)
+    public function __construct(
+        ?CopyCosRequest $request = NULL, ?CopyCosResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

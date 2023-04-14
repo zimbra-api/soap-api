@@ -33,7 +33,7 @@ class CacheEntrySelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\CacheEntryBy>')]
     #[XmlAttribute]
-    private $by;
+    private CacheEntryBy $by;
 
     /**
      * The key used to identify the cache entry

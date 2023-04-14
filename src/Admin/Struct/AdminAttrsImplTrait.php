@@ -53,7 +53,9 @@ trait AdminAttrsImplTrait
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof Attr
+        );
         return $this;
     }
 
@@ -62,7 +64,7 @@ trait AdminAttrsImplTrait
      *
      * @return array
      */
-    public function getAttrs(): ?array
+    public function getAttrs(): array
     {
         return $this->attrs;
     }

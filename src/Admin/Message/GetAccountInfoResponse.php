@@ -151,7 +151,9 @@ class GetAccountInfoResponse extends SoapResponse
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrList = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
+        $this->attrList = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof Attr
+        );
         return $this;
     }
 
@@ -195,7 +197,9 @@ class GetAccountInfoResponse extends SoapResponse
      */
     public function setSoapURLList(array $soapURLList): self
     {
-        $this->soapURLList = array_unique(array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList));
+        $this->soapURLList = array_unique(
+            array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList)
+        );
         return $this;
     }
 

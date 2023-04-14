@@ -32,7 +32,7 @@ class StatsSpec
     #[SerializedName('values')]
     #[Type(StatsValueWrapper::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $values;
+    private StatsValueWrapper $values;
 
     /**
      * Name

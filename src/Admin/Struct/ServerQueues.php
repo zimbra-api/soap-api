@@ -87,7 +87,9 @@ class ServerQueues
      */
     public function setQueues(array $queues): self
     {
-        $this->queues = array_filter($queues, static fn ($queue) => $queue instanceof MailQueueCount);
+        $this->queues = array_filter(
+            $queues, static fn ($queue) => $queue instanceof MailQueueCount
+        );
         return $this;
     }
 

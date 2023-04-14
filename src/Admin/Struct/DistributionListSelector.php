@@ -33,7 +33,7 @@ class DistributionListSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\DistributionListBy>')]
     #[XmlAttribute]
-    private $by;
+    private DistributionListBy $by;
 
     /**
      * Value

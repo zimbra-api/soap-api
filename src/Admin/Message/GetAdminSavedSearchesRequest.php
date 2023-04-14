@@ -67,7 +67,9 @@ class GetAdminSavedSearchesRequest extends SoapRequest
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = array_filter($searches, static fn ($search) => $search instanceof NamedElement);
+        $this->searches = array_filter(
+            $searches, static fn ($search) => $search instanceof NamedElement
+        );
         return $this;
     }
 

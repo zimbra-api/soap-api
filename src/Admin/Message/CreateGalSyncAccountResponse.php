@@ -45,9 +45,6 @@ class CreateGalSyncAccountResponse extends SoapResponse
     public function __construct(?AccountInfo $account = NULL)
     {
         $this->account = $account;
-        if ($account instanceof AccountInfo) {
-            $this->setAccount($account);
-        }
     }
 
     /**

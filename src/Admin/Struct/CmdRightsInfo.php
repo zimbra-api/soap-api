@@ -67,7 +67,9 @@ class CmdRightsInfo
      * @param array  $notes
      * @return self
      */
-    public function __construct(?string $name = NULL, array $rights = [], array $notes = [])
+    public function __construct(
+        ?string $name = NULL, array $rights = [], array $notes = []
+    )
     {
         if (NULL !== $name) {
             $this->setName($name);
@@ -116,7 +118,9 @@ class CmdRightsInfo
      */
     public function setNotes(array $notes)
     {
-        $this->notes = array_unique(array_map(static fn ($note) => trim($note), $notes));
+        $this->notes = array_unique(
+            array_map(static fn ($note) => trim($note), $notes)
+        );
         return $this;
     }
 
@@ -150,7 +154,9 @@ class CmdRightsInfo
      */
     public function setRights(array $rights)
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof NamedElement);
+        $this->rights = array_filter(
+            $rights, static fn ($right) => $right instanceof NamedElement
+        );
         return $this;
     }
 

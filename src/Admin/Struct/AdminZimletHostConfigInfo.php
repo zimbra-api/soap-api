@@ -105,7 +105,9 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      */
     public function setZimletProperties(array $properties): self
     {
-        $this->properties = array_filter($properties, static fn ($prop) => $prop instanceof AdminZimletProperty);
+        $this->properties = array_filter(
+            $properties, static fn ($prop) => $prop instanceof AdminZimletProperty
+        );
         return $this;
     }
 

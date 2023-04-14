@@ -407,7 +407,9 @@ class AdminWaitSetRequest extends SoapRequest
      */
     public function setRemoveAccounts(array $accounts): self
     {
-        $this->removeAccounts = array_filter($accounts, static fn ($account) => $account instanceof Id);
+        $this->removeAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof Id
+        );
         return $this;
     }
 

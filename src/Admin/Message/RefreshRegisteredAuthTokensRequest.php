@@ -69,7 +69,9 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
      */
     public function setTokens(array $tokens): self
     {
-        $this->tokens = array_unique(array_map(static fn ($token) => trim($token), $tokens));
+        $this->tokens = array_unique(
+            array_map(static fn ($token) => trim($token), $tokens)
+        );
         return $this;
     }
 

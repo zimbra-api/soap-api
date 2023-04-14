@@ -88,7 +88,7 @@ class RightInfo
     #[SerializedName('attrs')]
     #[Type(RightsAttrs::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $attrs;
+    private ?RightsAttrs $attrs;
 
     /**
      * Rights
@@ -99,7 +99,7 @@ class RightInfo
     #[SerializedName('rights')]
     #[Type(ComboRights::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $rights;
+    private ?ComboRights $rights;
 
     /**
      * Constructor
@@ -127,14 +127,10 @@ class RightInfo
              ->setType($type ?? RightType::PRESET)
              ->setRightClass($rightClass ?? RightClass::ALL)
              ->setDesc($desc);
+        $this->attrs = $attrs;
+        $this->rights = $rights;
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);
-        }
-        if ($attrs instanceof RightsAttrs) {
-            $this->setAttrs($attrs);
-        }
-        if ($rights instanceof ComboRights) {
-            $this->setRights($rights);
         }
     }
 

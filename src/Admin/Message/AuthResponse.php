@@ -183,7 +183,7 @@ class AuthResponse extends SoapResponse
      */
     public function setTwoFactorAuthRequired(bool $twoFactorAuthRequired): self
     {
-            $this->twoFactorAuthRequired = $twoFactorAuthRequired;
+        $this->twoFactorAuthRequired = $twoFactorAuthRequired;
         return $this;
     }
 }

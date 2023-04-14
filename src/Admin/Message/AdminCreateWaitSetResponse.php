@@ -162,7 +162,9 @@ class AdminCreateWaitSetResponse extends SoapResponse
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
+        $this->errors = array_filter(
+            $errors, static fn ($error) => $error instanceof IdAndType
+        );
         return $this;
     }
 

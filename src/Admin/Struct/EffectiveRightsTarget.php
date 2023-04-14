@@ -33,7 +33,7 @@ class EffectiveRightsTarget
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $type;
+    private TargetType $type;
 
     /**
      * Effective rights
@@ -44,7 +44,7 @@ class EffectiveRightsTarget
     #[SerializedName('all')]
     #[Type(EffectiveRightsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $all;
+    private ?EffectiveRightsInfo $all;
 
     /**
      * In domains
@@ -85,9 +85,7 @@ class EffectiveRightsTarget
         $this->setType($type ?? TargetType::ACCOUNT)
              ->setInDomainLists($inDomainLists)
              ->setEntriesLists($entriesLists);
-        if ($all instanceof EffectiveRightsInfo) {
-            $this->setAll($all);
-        }
+        $this->all = $all;
     }
 
     /**
@@ -152,7 +150,9 @@ class EffectiveRightsTarget
      */
     public function setInDomainLists(array $lists): self
     {
-        $this->inDomainLists = array_filter($lists, static fn ($item) => $item instanceof InDomainInfo);
+        $this->inDomainLists = array_filter(
+            $lists, static fn ($item) => $item instanceof InDomainInfo
+        );
         return $this;
     }
 
@@ -186,7 +186,9 @@ class EffectiveRightsTarget
      */
     public function setEntriesLists(array $lists): self
     {
-        $this->entriesLists = array_filter($lists, static fn ($item) => $item instanceof RightsEntriesInfo);
+        $this->entriesLists = array_filter(
+            $lists, static fn ($item) => $item instanceof RightsEntriesInfo
+        );
         return $this;
     }
 

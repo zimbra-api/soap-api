@@ -53,7 +53,9 @@ class CompactIndexBody extends SoapBody
      * @param CompactIndexResponse $response
      * @return self
      */
-    public function __construct(?CompactIndexRequest $request = NULL, ?CompactIndexResponse $response = NULL)
+    public function __construct(
+        ?CompactIndexRequest $request = NULL, ?CompactIndexResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

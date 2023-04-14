@@ -66,7 +66,7 @@ class ExchangeAuthSpec
     #[SerializedName('scheme')]
     #[Type('Enum<Zimbra\Common\Enum\AuthScheme>')]
     #[XmlAttribute]
-    private $scheme;
+    private AuthScheme $scheme;
 
     /**
      * Auth type

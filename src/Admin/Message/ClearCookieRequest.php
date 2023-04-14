@@ -67,7 +67,9 @@ class ClearCookieRequest extends SoapRequest
      */
     public function setCookies(array $cookies): self
     {
-        $this->cookies = array_filter($cookies, static fn ($cookie) => $cookie instanceof CookieSpec);
+        $this->cookies = array_filter(
+            $cookies, static fn ($cookie) => $cookie instanceof CookieSpec
+        );
         return $this;
     }
 

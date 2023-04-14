@@ -33,7 +33,7 @@ class PrincipalSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>')]
     #[XmlAttribute]
-    private $by;
+    private AutoProvPrincipalBy $by;
 
     /**
      * The key used to identify the principal

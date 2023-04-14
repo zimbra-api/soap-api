@@ -100,7 +100,9 @@ class SyncGalAccountSpec
      */
     public function setDataSources(array $dataSources): self
     {
-        $this->dataSources = array_filter($dataSources, static fn ($source) => $source instanceof DataSource);
+        $this->dataSources = array_filter(
+            $dataSources, static fn ($source) => $source instanceof DataSource
+        );
         return $this;
     }
 

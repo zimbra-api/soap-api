@@ -181,7 +181,9 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ConstraintAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof ConstraintAttr
+        );
         return $this;
     }
 

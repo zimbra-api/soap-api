@@ -80,7 +80,9 @@ class GetRightsDocResponse extends SoapResponse
      */
     public function setPackages(array $pkgs): self
     {
-        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof PackageRightsInfo);
+        $this->pkgs = array_filter(
+            $pkgs, static fn ($pkg) => $pkg instanceof PackageRightsInfo
+        );
         return $this;
     }
 
@@ -124,7 +126,9 @@ class GetRightsDocResponse extends SoapResponse
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof DomainAdminRight);
+        $this->rights = array_filter(
+            $rights, static fn ($right) => $right instanceof DomainAdminRight
+        );
         return $this;
     }
 

@@ -67,7 +67,9 @@ class CheckDirectoryRequest extends SoapRequest
      */
     public function setPaths(array $paths): self
     {
-        $this->paths = array_filter($paths, static fn ($path) => $path instanceof CheckDirSelector);
+        $this->paths = array_filter(
+            $paths, static fn ($path) => $path instanceof CheckDirSelector
+        );
         return $this;
     }
 
