@@ -69,7 +69,9 @@ class GetApptSummariesResponse extends SoapResponse
      */
     public function setApptEntries(array $entries): self
     {
-        $this->apptEntries = array_filter($entries, static fn ($entry) => $entry instanceof LegacyAppointmentData);
+        $this->apptEntries = array_filter(
+            $entries, static fn ($entry) => $entry instanceof LegacyAppointmentData
+        );
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GetApptSummariesResponse extends SoapResponse
      */
     public function setTaskEntries(array $entries): self
     {
-        $this->taskEntries = array_filter($entries, static fn ($entry) => $entry instanceof LegacyTaskData);
+        $this->taskEntries = array_filter(
+            $entries, static fn ($entry) => $entry instanceof LegacyTaskData
+        );
         return $this;
     }
 

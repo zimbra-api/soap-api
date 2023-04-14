@@ -90,7 +90,9 @@ class BounceMsgSpec
      */
     public function setEmailAddresses(array $addresses): self
     {
-        $this->emailAddresses = array_filter($addresses, static fn ($address) => $address instanceof EmailAddrInfo);
+        $this->emailAddresses = array_filter(
+            $addresses, static fn ($address) => $address instanceof EmailAddrInfo
+        );
         return $this;
     }
 

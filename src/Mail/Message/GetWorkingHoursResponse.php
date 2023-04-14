@@ -54,7 +54,9 @@ class GetWorkingHoursResponse extends SoapResponse
      */
     public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = array_filter($users, static fn ($usr) => $usr instanceof FreeBusyUserInfo);
+        $this->freebusyUsers = array_filter(
+            $users, static fn ($usr) => $usr instanceof FreeBusyUserInfo
+        );
         return $this;
     }
 

@@ -42,7 +42,9 @@ class AddressBookTest extends FilterTest
      * @param string $header
      * @return self
      */
-    public function __construct(?int $index = NULL, ?bool $negative = NULL, ?string $header = NULL)
+    public function __construct(
+        ?int $index = NULL, ?bool $negative = NULL, ?string $header = NULL
+    )
     {
         parent::__construct($index, $negative);
         if (NULL !== $header) {

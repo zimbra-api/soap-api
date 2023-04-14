@@ -418,10 +418,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setComments(array $comments): self
     {
-        $this->comments = [];
-        foreach ($comments as $comment) {
-            $this->addComment($comment);
-        }
+        $this->comments = array_unique($comments);
         return $this;
     }
 
@@ -458,10 +455,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = [];
-        foreach ($contacts as $contact) {
-            $this->addContact($contact);
-        }
+        $this->contacts = array_unique($contacts);
         return $this;
     }
 

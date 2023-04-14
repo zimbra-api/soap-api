@@ -129,7 +129,9 @@ class AccountWithModifications
      */
     public function setPendingFolderModifications(array $mods): self
     {
-        $this->mods = array_filter($mods, static fn ($mod) => $mod instanceof PendingFolderModifications);
+        $this->mods = array_filter(
+            $mods, static fn ($mod) => $mod instanceof PendingFolderModifications
+        );
         return $this;
     }
 

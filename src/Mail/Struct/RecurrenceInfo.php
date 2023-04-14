@@ -134,7 +134,9 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setRules(array $rules): self
     {
         $this->add = $this->exclude = $this->except = $this->cancel = $this->dates = $this->simple = [];
-        $rules = array_filter($rules, static fn ($rule) => $rule instanceof RecurRuleBaseInterface);
+        $rules = array_filter(
+            $rules, static fn ($rule) => $rule instanceof RecurRuleBaseInterface
+        );
         array_walk($rules, fn ($rule) => $this->addRule($rule));
         return $this;
     }

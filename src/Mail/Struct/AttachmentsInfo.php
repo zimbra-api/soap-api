@@ -155,7 +155,9 @@ class AttachmentsInfo
      */
     public function getAttachments(): array
     {
-        return array_merge($this->mpAttachments, $this->msgAttachments, $this->cnAttachments, $this->docAttachments);
+        return array_merge(
+            $this->mpAttachments, $this->msgAttachments, $this->cnAttachments, $this->docAttachments
+        );
     }
 
     /**

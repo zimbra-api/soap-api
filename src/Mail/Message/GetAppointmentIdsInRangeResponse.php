@@ -57,7 +57,7 @@ class GetAppointmentIdsInRangeResponse extends SoapResponse
     public function setAppointmentData(array $appointmentData): self
     {
         $this->appointmentData = array_filter(
-            $appointmentData, static fn ($match) => $match instanceof AppointmentIdAndDate
+            $appointmentData, static fn ($apptData) => $apptData instanceof AppointmentIdAndDate
         );
         return $this;
     }

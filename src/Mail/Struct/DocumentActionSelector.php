@@ -43,7 +43,7 @@ class DocumentActionSelector extends ActionSelector
     #[SerializedName('grant')]
     #[Type('Zimbra\Mail\Struct\DocumentActionGrant')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private $grant;
+    private ?DocumentActionGrant $grant;
 
     /**
      * Constructor
@@ -101,9 +101,7 @@ class DocumentActionSelector extends ActionSelector
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if ($grant instanceof DocumentActionGrant) {
-            $this->setGrant($grant);
-        }
+        $this->grant = $grant;
     }
 
     /**

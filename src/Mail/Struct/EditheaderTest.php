@@ -287,10 +287,7 @@ class EditheaderTest
      */
     public function setHeaderValue(array $headerValue)
     {
-        $this->headerValue = [];
-        foreach ($headerValue as $value) {
-            $this->addHeaderValue($value);
-        }
+        $this->headerValue = array_unique($headerValue);
         return $this;
     }
 

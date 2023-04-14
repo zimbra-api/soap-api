@@ -286,10 +286,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      */
     public function setCategories(array $categories)
     {
-        $this->categories = [];
-        foreach ($categories as $category) {
-            $this->addCategory($category);
-        }
+        $this->categories = array_unique($categories);
         return $this;
     }
 

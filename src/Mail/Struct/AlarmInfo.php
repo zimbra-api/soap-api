@@ -313,7 +313,9 @@ class AlarmInfo implements AlarmInfoInterface
      */
     public function setAttendees(array $attendees): self
     {
-        $this->attendees = array_filter($attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface);
+        $this->attendees = array_filter(
+            $attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface
+        );
         return $this;
     }
 
@@ -347,7 +349,9 @@ class AlarmInfo implements AlarmInfoInterface
      */
     public function setXProps(array $xProps): self
     {
-        $this->xProps = array_filter($xProps, static fn ($xProp) => $xProp instanceof XPropInterface);
+        $this->xProps = array_filter(
+            $xProps, static fn ($xProp) => $xProp instanceof XPropInterface
+        );
         return $this;
     }
 

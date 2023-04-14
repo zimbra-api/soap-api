@@ -84,10 +84,7 @@ class InviteTest extends FilterTest
      */
     public function setMethods(array $methods)
     {
-        $this->methods = [];
-        foreach ($methods as $method) {
-            $this->addMethod($method);
-        }
+        $this->methods = array_unique($methods);
         return $this;
     }
 }

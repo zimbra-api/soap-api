@@ -161,7 +161,7 @@ class Grant
     {
         $validRights = [];
         foreach (explode(',', $perm) as $right) {
-            if (ActionGrantRight::isValid($right) && !in_array($right, $validRights)) {
+            if (ActionGrantRight::tryFrom($right) && !in_array($right, $validRights)) {
                 $validRights[] = $right;
             }
         }

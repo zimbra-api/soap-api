@@ -54,7 +54,9 @@ class FileIntoAction extends FilterAction
      * @param bool $copy
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $folder = NULL, ?bool $copy = NULL)
+    public function __construct(
+        ?int $index = NULL, ?string $folder = NULL, ?bool $copy = NULL
+    )
     {
     	parent::__construct($index);
         if (NULL !== $folder) {

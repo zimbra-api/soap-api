@@ -54,7 +54,9 @@ class GetTagResponse extends SoapResponse
      */
     public function setTags(array $tags): self
     {
-        $this->tags = array_filter($tags, static fn ($tag) => $tag instanceof TagInfo);
+        $this->tags = array_filter(
+            $tags, static fn ($tag) => $tag instanceof TagInfo
+        );
         return $this;
     }
 

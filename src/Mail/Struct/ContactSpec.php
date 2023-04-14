@@ -267,7 +267,9 @@ class ContactSpec implements SpecifyContact
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NewContactAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof NewContactAttr
+        );
         return $this;
     }
 

@@ -347,7 +347,9 @@ class ConversationInfo
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = array_filter($metadatas, static fn ($metadata) => $metadata instanceof MailCustomMetadata);
+        $this->metadatas = array_filter(
+            $metadatas, static fn ($metadata) => $metadata instanceof MailCustomMetadata
+        );
         return $this;
     }
 
@@ -369,7 +371,9 @@ class ConversationInfo
      */
     public function setChatMessages(array $messages): self
     {
-        $this->chatMessages = array_filter($messages, static fn ($msg) => $msg instanceof ChatMessageInfo);
+        $this->chatMessages = array_filter(
+            $messages, static fn ($msg) => $msg instanceof ChatMessageInfo
+        );
         return $this;
     }
 
@@ -391,7 +395,9 @@ class ConversationInfo
      */
     public function setMessages(array $messages): self
     {
-        $this->messages = array_filter($messages, static fn ($msg) => $msg instanceof MessageInfo);
+        $this->messages = array_filter(
+            $messages, static fn ($msg) => $msg instanceof MessageInfo
+        );
         return $this;
     }
 

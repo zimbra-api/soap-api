@@ -392,7 +392,9 @@ class Msg
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn ($header) => $header instanceof Header);
+        $this->headers = array_filter(
+            $headers, static fn ($header) => $header instanceof Header
+        );
         return $this;
     }
 
@@ -580,7 +582,9 @@ class Msg
      */
     public function setEmailAddresses(array $addresses): self
     {
-        $this->emailAddresses = array_filter($addresses, static fn ($address) => $address instanceof EmailAddrInfo);
+        $this->emailAddresses = array_filter(
+            $addresses, static fn ($address) => $address instanceof EmailAddrInfo
+        );
         return $this;
     }
 
@@ -614,7 +618,9 @@ class Msg
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter(
+            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+        );
         return $this;
     }
 

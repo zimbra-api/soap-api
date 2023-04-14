@@ -771,7 +771,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn($header) => $header instanceof KeyValuePair);
+        $this->headers = array_filter(
+            $headers, static fn($header) => $header instanceof KeyValuePair
+        );
         return $this;
     }
 
@@ -793,7 +795,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     public function setPartInfos(array $partInfos): self
     {
-        $this->partInfos = array_filter($partInfos, static fn($partInfo) => $partInfo instanceof PartInfo);
+        $this->partInfos = array_filter(
+            $partInfos, static fn($partInfo) => $partInfo instanceof PartInfo
+        );
         return $this;
     }
 
@@ -815,7 +819,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     public function setShareNotifications(array $notifications): self
     {
-        $this->shareNotifications = array_filter($notifications, static fn($shr) => $shr instanceof ShareNotification);
+        $this->shareNotifications = array_filter(
+            $notifications, static fn($shr) => $shr instanceof ShareNotification
+        );
         return $this;
     }
 
@@ -837,7 +843,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     public function setDlSubs(array $dlSubs): self
     {
-        $this->dlSubs = array_filter($dlSubs, static fn($dlSub) => $dlSub instanceof DLSubscriptionNotification);
+        $this->dlSubs = array_filter(
+            $dlSubs, static fn($dlSub) => $dlSub instanceof DLSubscriptionNotification
+        );
         return $this;
     }
 
@@ -853,7 +861,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     public function setEmailInterfaces(array $emails): self
     {
-        $this->emails = array_filter($emails, static fn($email) => $email instanceof EmailInfoInterface);
+        $this->emails = array_filter(
+            $emails, static fn($email) => $email instanceof EmailInfoInterface
+        );
         return $this;
     }
 

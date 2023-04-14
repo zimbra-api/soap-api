@@ -76,7 +76,9 @@ class GetDataSourceUsageResponse extends SoapResponse
      */
     public function setUsages(array $usages): self
     {
-        $this->usages = array_filter($usages, static fn ($usage) => $usage instanceof DataSourceUsage);
+        $this->usages = array_filter(
+            $usages, static fn ($usage) => $usage instanceof DataSourceUsage
+        );
         return $this;
     }
 
