@@ -28,29 +28,29 @@ class AddGalSyncDataSourceTest extends ZimbraTestCase
         $folder = $this->faker->word;
 
         $attr = new Attr($key, $value);
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
         $request = new AddGalSyncDataSourceRequest(
-            $account, $name, $domain, GalMode::BOTH(), $folder, [$attr]
+            $account, $name, $domain, GalMode::BOTH, $folder, [$attr]
         );
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($name, $request->getName());
         $this->assertSame($domain, $request->getDomain());
-        $this->assertEquals(GalMode::BOTH(), $request->getType());
+        $this->assertEquals(GalMode::BOTH, $request->getType());
         $this->assertSame($folder, $request->getFolder());
 
         $request = new AddGalSyncDataSourceRequest(
-            new AccountSelector(), '', '', GalMode::BOTH()
+            new AccountSelector(), '', '', GalMode::BOTH
         );
         $request->setAccount($account)
             ->setName($name)
             ->setDomain($domain)
-            ->setType(GalMode::ZIMBRA())
+            ->setType(GalMode::ZIMBRA)
             ->setFolder($folder)
             ->setAttrs([$attr]);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($name, $request->getName());
         $this->assertSame($domain, $request->getDomain());
-        $this->assertEquals(GalMode::ZIMBRA(), $request->getType());
+        $this->assertEquals(GalMode::ZIMBRA, $request->getType());
         $this->assertSame($folder, $request->getFolder());
 
         $account = new AccountInfo($name, $id, TRUE, [$attr]);
@@ -79,8 +79,8 @@ class AddGalSyncDataSourceTest extends ZimbraTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $by = AccountBy::NAME()->getValue();
-        $type = GalMode::ZIMBRA()->getValue();
+        $by = AccountBy::NAME->value;
+        $type = GalMode::ZIMBRA->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">

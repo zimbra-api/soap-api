@@ -46,14 +46,14 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         $expandAttrs = [GetEffectiveRightsRequest::EXPAND_SET_ATTRS, GetEffectiveRightsRequest::EXPAND_GET_ATTRS];
 
         $granteeSelector = new GranteeSelector(
-            $value, GranteeType::ALL(), GranteeBy::NAME(), $secret, TRUE
+            $value, GranteeType::ALL, GranteeBy::NAME, $secret, TRUE
         );
         $targetSelector = new EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $value
+            TargetType::ACCOUNT, TargetBy::NAME, $value
         );
 
         $granteeInfo = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
 
         $right = new RightWithName($name);
@@ -68,7 +68,7 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         $inDomains = new InDomainInfo($rights, [$domain]);
         $entries = new RightsEntriesInfo($rights, [$entry]);
 
-        $targetInfo = new EffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT(), $id, $name, [$right]);
+        $targetInfo = new EffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT, $id, $name, [$right]);
 
         $request = new GetEffectiveRightsRequest($targetSelector, $granteeSelector, TRUE, TRUE);
         $this->assertSame(

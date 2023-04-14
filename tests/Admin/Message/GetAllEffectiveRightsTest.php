@@ -43,10 +43,10 @@ class GetAllEffectiveRightsTest extends ZimbraTestCase
         $max = $this->faker->word;
 
         $granteeSelector = new GranteeSelector(
-            $value, GranteeType::ALL(), GranteeBy::NAME(), $secret, TRUE
+            $value, GranteeType::ALL, GranteeBy::NAME, $secret, TRUE
         );
         $granteeInfo = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
 
         $right = new RightWithName($name);
@@ -61,7 +61,7 @@ class GetAllEffectiveRightsTest extends ZimbraTestCase
         $inDomains = new InDomainInfo($rights, [$domain]);
         $entries = new RightsEntriesInfo($rights, [$entry]);
 
-        $target = new EffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
+        $target = new EffectiveRightsTarget(TargetType::ACCOUNT, $rights, [$inDomains], [$entries]);
 
         $expandAttrs = [GetAllEffectiveRightsRequest::EXPAND_SET_ATTRS, GetAllEffectiveRightsRequest::EXPAND_GET_ATTRS];
         $request = new GetAllEffectiveRightsRequest($granteeSelector, TRUE, TRUE);

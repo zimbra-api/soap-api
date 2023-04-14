@@ -35,10 +35,10 @@ class RevokeRightTest extends ZimbraTestCase
         $secret = $this->faker->word;
 
         $target = new EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $value
+            TargetType::ACCOUNT, TargetBy::NAME, $value
         );
         $grantee = new GranteeSelector(
-            $value, GranteeType::USR(), GranteeBy::ID(), $secret, TRUE
+            $value, GranteeType::USR, GranteeBy::ID, $secret, TRUE
         );
         $right = new RightModifierInfo($value, TRUE, TRUE, TRUE, TRUE);
         $request = new RevokeRightRequest($target, $grantee, $right, [new Attr($key, $value)]);
@@ -47,10 +47,10 @@ class RevokeRightTest extends ZimbraTestCase
         $this->assertSame($right, $request->getRight());
         $request = new RevokeRightRequest(
             new EffectiveRightsTargetSelector(
-                TargetType::DOMAIN(), TargetBy::ID(), ''
+                TargetType::DOMAIN, TargetBy::ID, ''
             ),
             new GranteeSelector(
-                '', GranteeType::ALL(), GranteeBy::NAME(), '', FALSE
+                '', GranteeType::ALL, GranteeBy::NAME, '', FALSE
             ),
             new RightModifierInfo()
         );

@@ -34,7 +34,7 @@ class RenameDistributionListTest extends ZimbraTestCase
         $this->assertSame($name, $request->getNewName());
 
         $owner = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
         $dl = new DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
         $response = new RenameDistributionListResponse($dl);

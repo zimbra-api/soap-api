@@ -23,7 +23,7 @@ class GetDataSourcesTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $attr = new Attr($key, $value);
-        $dataSource = new DataSourceInfo($name, $id, DataSourceType::POP3(), [$attr]);
+        $dataSource = new DataSourceInfo($name, $id, DataSourceType::POP3, [$attr]);
 
         $request = new GetDataSourcesRequest($id);
         $this->assertSame($id, $request->getId());

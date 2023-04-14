@@ -35,10 +35,10 @@ class CheckRightTest extends ZimbraTestCase
         $secret = $this->faker->word;
 
         $target = new EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), $value
+            TargetType::ACCOUNT, TargetBy::NAME, $value
         );
         $grantee = new GranteeSelector(
-            $value, GranteeType::USR(), GranteeBy::ID(), $secret, TRUE
+            $value, GranteeType::USR, GranteeBy::ID, $secret, TRUE
         );
         $right = new CheckedRight($value);
         $request = new CheckRightRequest($target, $grantee, $right, [new Attr($key, $value)]);
@@ -47,10 +47,10 @@ class CheckRightTest extends ZimbraTestCase
         $this->assertSame($right, $request->getRight());
         $request = new CheckRightRequest(
             new EffectiveRightsTargetSelector(
-                TargetType::DOMAIN(), TargetBy::ID(), ''
+                TargetType::DOMAIN, TargetBy::ID, ''
             ),
             new GranteeSelector(
-                '', GranteeType::ALL(), GranteeBy::NAME(), '', FALSE
+                '', GranteeType::ALL, GranteeBy::NAME, '', FALSE
             ),
             new CheckedRight(''),
             [new Attr($key, $value)]

@@ -25,8 +25,8 @@ class CountObjectsTest extends ZimbraTestCase
         $num = $this->faker->randomNumber;
         $type = $this->faker->word;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $ucs = new UcServiceSelector(UcServiceBy::NAME(), $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
+        $ucs = new UcServiceSelector(UcServiceBy::NAME, $value);
 
         $request = new CountObjectsRequest(
             CountObjectsType::USER_ACCOUNT(), [$domain], $ucs, FALSE

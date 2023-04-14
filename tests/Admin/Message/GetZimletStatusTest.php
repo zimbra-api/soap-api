@@ -24,7 +24,7 @@ class GetZimletStatusTest extends ZimbraTestCase
         $name = $this->faker->name;
         $priority = $this->faker->randomNumber;
 
-        $zimlet = new ZimletStatus($name, ZimletStatusSetting::ENABLED(), TRUE, $priority);
+        $zimlet = new ZimletStatus($name, ZimletStatusSetting::ENABLED, TRUE, $priority);
         $zimlets = new ZimletStatusParent([$zimlet]);
         $cos = new ZimletStatusCos($name, [$zimlet]);
 

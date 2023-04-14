@@ -18,7 +18,7 @@ class GetVolumeTest extends ZimbraTestCase
     public function testGetVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(VolumeType::toArray());
+        $type = $this->faker->randomElement(VolumeType::cases());
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;

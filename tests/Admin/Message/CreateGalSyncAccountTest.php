@@ -29,20 +29,20 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         $password = $this->faker->uuid;
         $folder = $this->faker->word;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new CreateGalSyncAccountRequest(
             $account,
             $name,
             $domain,
             $mailHost,
-            GalMode::BOTH(),
+            GalMode::BOTH,
             $password,
             $folder
         );
         $this->assertSame($name, $request->getName());
         $this->assertSame($domain, $request->getDomain());
-        $this->assertEquals(GalMode::BOTH(), $request->getType());
+        $this->assertEquals(GalMode::BOTH, $request->getType());
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($mailHost, $request->getMailHost());
         $this->assertSame($password, $request->getPassword());
@@ -53,7 +53,7 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         );
         $request->setName($name)
             ->setDomain($domain)
-            ->setType(GalMode::LDAP())
+            ->setType(GalMode::LDAP)
             ->setAccount($account)
             ->setMailHost($mailHost)
             ->setPassword($password)
@@ -61,7 +61,7 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($name, $request->getName());
         $this->assertSame($domain, $request->getDomain());
-        $this->assertEquals(GalMode::LDAP(), $request->getType());
+        $this->assertEquals(GalMode::LDAP, $request->getType());
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($mailHost, $request->getMailHost());
         $this->assertSame($password, $request->getPassword());

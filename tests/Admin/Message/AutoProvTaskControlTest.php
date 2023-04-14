@@ -15,18 +15,18 @@ class AutoProvTaskControlTest extends ZimbraTestCase
     public function testAutoProvTaskControl()
     {
         $request = new AutoProvTaskControlRequest(
-            AutoProvTaskAction::STOP()
+            AutoProvTaskAction::STOP
         );
-        $this->assertEquals(AutoProvTaskAction::STOP(), $request->getAction());
-        $request->setAction(AutoProvTaskAction::START());
-        $this->assertEquals(AutoProvTaskAction::START(), $request->getAction());
+        $this->assertEquals(AutoProvTaskAction::STOP, $request->getAction());
+        $request->setAction(AutoProvTaskAction::START);
+        $this->assertEquals(AutoProvTaskAction::START, $request->getAction());
 
         $response = new AutoProvTaskControlResponse(
-            AutoProvTaskStatus::RUNNING()
+            AutoProvTaskStatus::RUNNING
         );
-        $this->assertEquals(AutoProvTaskStatus::RUNNING(), $response->getStatus());
-        $response->setStatus(AutoProvTaskStatus::STARTED());
-        $this->assertEquals(AutoProvTaskStatus::STARTED(), $response->getStatus());
+        $this->assertEquals(AutoProvTaskStatus::RUNNING, $response->getStatus());
+        $response->setStatus(AutoProvTaskStatus::STARTED);
+        $this->assertEquals(AutoProvTaskStatus::STARTED, $response->getStatus());
 
         $body = new AutoProvTaskControlBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -45,8 +45,8 @@ class AutoProvTaskControlTest extends ZimbraTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $action = AutoProvTaskAction::START()->getValue();
-        $status = AutoProvTaskStatus::STARTED()->getValue();
+        $action = AutoProvTaskAction::START->value;
+        $status = AutoProvTaskStatus::STARTED->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">

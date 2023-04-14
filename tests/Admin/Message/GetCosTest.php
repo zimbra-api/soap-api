@@ -25,7 +25,7 @@ class GetCosTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $cos = new CosSelector(CosBy::NAME(), $value);
+        $cos = new CosSelector(CosBy::NAME, $value);
         $request = new GetCosRequest($cos, $attrs);
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($attrs, $request->getAttrs());

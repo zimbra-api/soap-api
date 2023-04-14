@@ -22,31 +22,31 @@ class ReIndexTest extends ZimbraTestCase
     {
         $id = $this->faker->word;
         $ids = $this->faker->word;
-        $enums = $this->faker->randomElements(ReindexType::toArray(), mt_rand(1, count(ReindexType::toArray())));
+        $enums = $this->faker->randomElements(ReindexType::cases(), mt_rand(1, count(ReindexType::cases())));
         $types = implode(',', $enums);
         $numSucceeded = $this->faker->randomNumber;
         $numFailed = $this->faker->randomNumber;
         $numRemaining = $this->faker->randomNumber;
 
         $mbox = new ReindexMailboxInfo($id, $types, $ids);
-        $request = new ReIndexRequest($mbox, ReIndexAction::STATUS());
+        $request = new ReIndexRequest($mbox, ReIndexAction::STATUS);
         $this->assertSame($mbox, $request->getMbox());
-        $this->assertEquals(ReIndexAction::STATUS(), $request->getAction());
+        $this->assertEquals(ReIndexAction::STATUS, $request->getAction());
         $request = new ReIndexRequest(new ReindexMailboxInfo());
         $request->setMbox($mbox)
-            ->setAction(ReIndexAction::START());
+            ->setAction(ReIndexAction::START);
         $this->assertSame($mbox, $request->getMbox());
-        $this->assertEquals(ReIndexAction::START(), $request->getAction());
+        $this->assertEquals(ReIndexAction::START, $request->getAction());
 
         $progress = new ReindexProgressInfo($numSucceeded, $numFailed, $numRemaining);
-        $response = new ReIndexResponse(ReIndexStatus::STARTED(), $progress);
+        $response = new ReIndexResponse(ReIndexStatus::STARTED, $progress);
         $this->assertSame($progress, $response->getProgress());
-        $this->assertEquals(ReIndexStatus::STARTED(), $response->getStatus());
+        $this->assertEquals(ReIndexStatus::STARTED, $response->getStatus());
         $response = new ReIndexResponse();
         $response->setProgress($progress)
-            ->setStatus(ReIndexStatus::RUNNING());
+            ->setStatus(ReIndexStatus::RUNNING);
         $this->assertSame($progress, $response->getProgress());
-        $this->assertEquals(ReIndexStatus::RUNNING(), $response->getStatus());
+        $this->assertEquals(ReIndexStatus::RUNNING, $response->getStatus());
 
         $body = new ReIndexBody($request, $response);
         $this->assertSame($request, $body->getRequest());

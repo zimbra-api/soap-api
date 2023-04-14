@@ -11,7 +11,6 @@ use Zimbra\Admin\Struct\DistributionListMembershipInfo;
 use Zimbra\Admin\Struct\DistributionListSelector;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Common\Enum\DistributionListBy as DLBy;
-use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -29,7 +28,7 @@ class GetDistributionListMembershipTest extends ZimbraTestCase
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
 
-        $dlSel = new DistributionListSelector(DLBy::NAME(), $value);
+        $dlSel = new DistributionListSelector(DLBy::NAME, $value);
         $dlmInfo = new DistributionListMembershipInfo($id, $name, $via);
 
         $request = new GetDistributionListMembershipRequest($dlSel, $limit, $offset);

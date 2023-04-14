@@ -24,11 +24,11 @@ class CheckExchangeAuthTest extends ZimbraTestCase
         $code = $this->faker->word;
         $message = $this->faker->word;
 
-        $auth = new ExchangeAuthSpec($url, $user, $pass, AuthScheme::FORM(), $type);
+        $auth = new ExchangeAuthSpec($url, $user, $pass, AuthScheme::FORM, $type);
         $request = new CheckExchangeAuthRequest($auth);
         $this->assertSame($auth, $request->getAuth());
         $request = new CheckExchangeAuthRequest(
-            new ExchangeAuthSpec('', '', '', AuthScheme::BASIC(), '')
+            new ExchangeAuthSpec('', '', '', AuthScheme::BASIC, '')
         );
         $request->setAuth($auth);
         $this->assertSame($auth, $request->getAuth());

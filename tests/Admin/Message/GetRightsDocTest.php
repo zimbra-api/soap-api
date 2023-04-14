@@ -40,7 +40,7 @@ class GetRightsDocTest extends ZimbraTestCase
         $request->setPkgs([$pkg]);
 
         $package = new PackageRightsInfo($name, [new CmdRightsInfo($name, [new NamedElement($name)], [$note])]);
-        $right = new DomainAdminRight($name, RightType::PRESET(), $desc, [new RightWithName($name)]);
+        $right = new DomainAdminRight($name, RightType::PRESET, $desc, [new RightWithName($name)]);
         $response = new GetRightsDocResponse([$package], [$notUsed], [$right]);
         $this->assertSame([$package], $response->getPackages());
         $this->assertSame([$notUsed], $response->getNotUsed());

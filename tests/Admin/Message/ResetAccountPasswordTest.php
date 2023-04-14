@@ -18,11 +18,11 @@ class ResetAccountPasswordTest extends ZimbraTestCase
     public function testResetAccountPassword()
     {
         $value = $this->faker->word;
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new ResetAccountPasswordRequest($account);
         $this->assertSame($account, $request->getAccount());
-        $request = new ResetAccountPasswordRequest(new AccountSelector(AccountBy::NAME(), $value));
+        $request = new ResetAccountPasswordRequest(new AccountSelector(AccountBy::NAME, $value));
         $request->setAccount($account);
         $this->assertSame($account, $request->getAccount());
 

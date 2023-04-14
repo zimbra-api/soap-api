@@ -24,7 +24,7 @@ class GetAccountMembershipTest extends ZimbraTestCase
 
         $dl = new DLInfo($via, $name, $id, TRUE, [new Attr($key, $value)]);
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new GetAccountMembershipRequest($account);
         $this->assertSame($account, $request->getAccount());

@@ -19,12 +19,12 @@ class DeleteGalSyncAccountTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new DeleteGalSyncAccountRequest($account);
         $this->assertSame($account, $request->getAccount());
         $request = new DeleteGalSyncAccountRequest(
-            new AccountSelector(AccountBy::NAME(), '')
+            new AccountSelector(AccountBy::NAME, '')
         );
         $request->setAccount($account);
         $this->assertSame($account, $request->getAccount());

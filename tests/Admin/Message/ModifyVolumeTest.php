@@ -18,7 +18,7 @@ class ModifyVolumeTest extends ZimbraTestCase
     public function testModifyVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(VolumeType::toArray());
+        $type = $this->faker->randomElement(VolumeType::cases());
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;

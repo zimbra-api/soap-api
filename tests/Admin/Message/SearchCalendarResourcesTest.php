@@ -33,8 +33,8 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
         $offset = $this->faker->randomNumber;
         $searchTotal = $this->faker->randomNumber;
 
-        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQUAL(), $value, TRUE);
-        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GREATER_EQUAL(), $value, FALSE);
+        $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQUAL, $value, TRUE);
+        $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GREATER_EQUAL, $value, FALSE);
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
         $conds = new EntrySearchFilterMultiCond(TRUE, FALSE, [$cond, $multiConds]);
         $searchFilter = new EntrySearchFilterInfo($conds);

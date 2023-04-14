@@ -35,7 +35,7 @@ class SearchAccountsTest extends ZimbraTestCase
         $value= $this->faker->word;
         $member = $this->faker->word;
         $targetName = $this->faker->word;
-        $targetType = TargetType::ACCOUNT();
+        $targetType = TargetType::ACCOUNT;
 
         $query = $this->faker->word;
         $limit = $this->faker->randomNumber;
@@ -81,7 +81,7 @@ class SearchAccountsTest extends ZimbraTestCase
 
         $calResource = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
         $dl = new DistributionListInfo(
-            $name, $id, [$member], [new Attr($key, $value)], [new GranteeInfo($id, $name, GranteeType::ALL())], TRUE
+            $name, $id, [$member], [new Attr($key, $value)], [new GranteeInfo($id, $name, GranteeType::ALL)], TRUE
         );
         $alias = new AliasInfo($name, $id, $targetName, $targetType, [new Attr($key, $value)]);
         $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);

@@ -23,8 +23,8 @@ class RemoveAccountLoggerTest extends ZimbraTestCase
         $category = $this->faker->word;
         $value = $this->faker->word;
 
-        $logger = new LoggerInfo($category, LoggingLevel::INFO());
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $logger = new LoggerInfo($category, LoggingLevel::INFO);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new RemoveAccountLoggerRequest($logger, $account, $id);
         $this->assertSame($logger, $request->getLogger());

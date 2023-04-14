@@ -32,9 +32,9 @@ class GetDistributionListTest extends ZimbraTestCase
         $total = $this->faker->randomNumber;
 
         $owner = new GranteeInfo(
-            $id, $name, GranteeType::ALL()
+            $id, $name, GranteeType::ALL
         );
-        $dlSel = new DistributionListSelector(DLBy::NAME(), $value);
+        $dlSel = new DistributionListSelector(DLBy::NAME, $value);
         $dlInfo = new DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
 
         $request = new GetDistributionListRequest($dlSel, $limit, $offset, FALSE, $attrs);

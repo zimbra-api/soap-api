@@ -25,15 +25,15 @@ class AddAccountLoggerTest extends ZimbraTestCase
         $category1 = $this->faker->unique->word;
         $category2 = $this->faker->unique->word;
 
-        $logger = new LoggerInfo($category, LoggingLevel::INFO());
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $logger = new LoggerInfo($category, LoggingLevel::INFO);
+        $account = new AccountSelector(AccountBy::NAME, $value);
 
         $request = new AddAccountLoggerRequest($logger, $account, $id);
         $this->assertSame($logger, $request->getLogger());
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($id, $request->getId());
 
-        $request = new AddAccountLoggerRequest(new LoggerInfo($category, LoggingLevel::ERROR()));
+        $request = new AddAccountLoggerRequest(new LoggerInfo($category, LoggingLevel::ERROR));
         $request->setLogger($logger)
             ->setAccount($account)
             ->setId($id);
@@ -41,8 +41,8 @@ class AddAccountLoggerTest extends ZimbraTestCase
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($id, $request->getId());
 
-        $logger1 = new LoggerInfo($category1, LoggingLevel::INFO());
-        $logger2 = new LoggerInfo($category2, LoggingLevel::ERROR());
+        $logger1 = new LoggerInfo($category1, LoggingLevel::INFO);
+        $logger2 = new LoggerInfo($category2, LoggingLevel::ERROR);
         $response = new AddAccountLoggerResponse([$logger1]);
         $this->assertSame([$logger1], $response->getLoggers());
         $response = new AddAccountLoggerResponse();

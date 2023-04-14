@@ -19,8 +19,8 @@ class SetCurrentVolumeTest extends ZimbraTestCase
     public function testSetCurrentVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = VolumeType::PRIMARY()->getValue();
-        $status = RuntimeSwitchStatus::SUCCESS()->getValue();
+        $type = VolumeType::PRIMARY->value;
+        $status = RuntimeSwitchStatus::SUCCESS->value;
         $message = $this->faker->word;
 
         $request = new SetCurrentVolumeRequest($id, $type);
@@ -33,7 +33,7 @@ class SetCurrentVolumeTest extends ZimbraTestCase
         $this->assertSame($id, $request->getId());
         $this->assertSame($type, $request->getType());
 
-        $result = new StoreManagerRuntimeSwitchResult(RuntimeSwitchStatus::SUCCESS(), $message);
+        $result = new StoreManagerRuntimeSwitchResult(RuntimeSwitchStatus::SUCCESS, $message);
         $response = new SetCurrentVolumeResponse($result);
         $this->assertSame($result, $response->getRuntimeSwitchResult());
         $response = new SetCurrentVolumeResponse();

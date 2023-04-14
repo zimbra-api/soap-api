@@ -21,20 +21,20 @@ class CompactIndexTest extends ZimbraTestCase
         $id = $this->faker->uuid;
 
         $mbox = new MailboxByAccountIdSelector($id);
-        $request = new CompactIndexRequest($mbox, CompactIndexAction::STATUS());
+        $request = new CompactIndexRequest($mbox, CompactIndexAction::STATUS);
         $this->assertEquals($mbox, $request->getMbox());
-        $this->assertEquals(CompactIndexAction::STATUS(), $request->getAction());
+        $this->assertEquals(CompactIndexAction::STATUS, $request->getAction());
         $request = new CompactIndexRequest(new MailboxByAccountIdSelector(''));
         $request->setMbox($mbox)
-            ->setAction(CompactIndexAction::START());
+            ->setAction(CompactIndexAction::START);
         $this->assertEquals($mbox, $request->getMbox());
-        $this->assertEquals(CompactIndexAction::START(), $request->getAction());
+        $this->assertEquals(CompactIndexAction::START, $request->getAction());
 
-        $response = new CompactIndexResponse(CompactIndexStatus::STARTED());
-        $this->assertEquals(CompactIndexStatus::STARTED(), $response->getStatus());
-        $response = new CompactIndexResponse(CompactIndexStatus::STARTED());
-        $response->setStatus(CompactIndexStatus::RUNNING());
-        $this->assertEquals(CompactIndexStatus::RUNNING(), $response->getStatus());
+        $response = new CompactIndexResponse(CompactIndexStatus::STARTED);
+        $this->assertEquals(CompactIndexStatus::STARTED, $response->getStatus());
+        $response = new CompactIndexResponse(CompactIndexStatus::STARTED);
+        $response->setStatus(CompactIndexStatus::RUNNING);
+        $this->assertEquals(CompactIndexStatus::RUNNING, $response->getStatus());
 
         $body = new CompactIndexBody($request, $response);
         $this->assertSame($request, $body->getRequest());

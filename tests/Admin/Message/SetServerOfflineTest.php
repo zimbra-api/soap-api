@@ -22,7 +22,7 @@ class SetServerOfflineTest extends ZimbraTestCase
         $value = $this->faker->word;
         $attrs = $this->faker->word;
 
-        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
 
         $request = new SetServerOfflineRequest($server, $attrs);
         $this->assertSame($server, $request->getServer());

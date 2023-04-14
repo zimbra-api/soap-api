@@ -27,7 +27,7 @@ class GetServerTest extends ZimbraTestCase
         $value = $this->faker->word;
         $attrs = $this->faker->word;
 
-        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
         $request = new GetServerRequest($server, FALSE, $attrs);
         $this->assertSame($server, $request->getServer());
         $this->assertFalse($request->isApplyConfig());

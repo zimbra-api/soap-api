@@ -20,10 +20,10 @@ class FlushCacheTest extends ZimbraTestCase
     public function testFlushCache()
     {
         $value = $this->faker->word;
-        $enums = $this->faker->randomElements(CacheType::toArray(), mt_rand(1, count(CacheType::toArray())));
+        $enums = $this->faker->randomElements(CacheType::cases(), mt_rand(1, count(CacheType::cases())));
         $types = implode(',', $enums);
 
-        $entry = new CacheEntrySelector(CacheEntryBy::ID(), $value);
+        $entry = new CacheEntrySelector(CacheEntryBy::ID, $value);
         $cache = new CacheSelector($types, TRUE, TRUE, [$entry]);
 
         $request = new FlushCacheRequest($cache);

@@ -24,8 +24,8 @@ class ModifySystemRetentionPolicyTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $lifetime = $this->faker->word;
 
-        $cos = new CosSelector(CosBy::NAME(), $value);
-        $policy = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
+        $cos = new CosSelector(CosBy::NAME, $value);
+        $policy = new Policy(Type::SYSTEM, $id, $name, $lifetime);
 
         $request = new ModifySystemRetentionPolicyRequest($policy, $cos);
         $this->assertSame($cos, $request->getCos());

@@ -28,8 +28,8 @@ class GetAllAccountsTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value= $this->faker->word;
 
-        $server = new ServerSelector(ServerBy::NAME(), $value);
-        $domain = new DomainSelector(DomainBy::NAME(), $value);
+        $server = new ServerSelector(ServerBy::NAME, $value);
+        $domain = new DomainSelector(DomainBy::NAME, $value);
         $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
 
         $request = new GetAllAccountsRequest($server, $domain);

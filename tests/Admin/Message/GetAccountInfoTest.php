@@ -25,7 +25,7 @@ class GetAccountInfoTest extends ZimbraTestCase
         $adminSoapURL = $this->faker->word;
         $publicMailURL = $this->faker->word;
 
-        $account = new AccountSelector(AccountBy::NAME(), $value);
+        $account = new AccountSelector(AccountBy::NAME, $value);
         $attr = new Attr($key, $value);
         $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, TRUE)]);
 

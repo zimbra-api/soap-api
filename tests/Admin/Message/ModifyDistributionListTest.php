@@ -33,7 +33,7 @@ class ModifyDistributionListTest extends ZimbraTestCase
         $this->assertSame($id, $request->getId());
 
         $dl = new DistributionListInfo(
-            $name, $id, [$member], [new Attr($key, $value)], [new GranteeInfo($id, $name, GranteeType::USR())], TRUE
+            $name, $id, [$member], [new Attr($key, $value)], [new GranteeInfo($id, $name, GranteeType::USR)], TRUE
         );
         $response = new ModifyDistributionListResponse($dl);
         $this->assertSame($dl, $response->getDl());

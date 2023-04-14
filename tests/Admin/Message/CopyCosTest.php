@@ -25,7 +25,7 @@ class CopyCosTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $cos = new CosSelector(CosBy::NAME(), $value);
+        $cos = new CosSelector(CosBy::NAME, $value);
         $request = new CopyCosRequest($cos, $newName);
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($newName, $request->getNewName());

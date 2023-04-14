@@ -24,7 +24,7 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
         $code = $this->faker->word;
         $message = $this->faker->word;
 
-        $domain = new DomainSelector(DomainBy::NAME(), $name);
+        $domain = new DomainSelector(DomainBy::NAME, $name);
         $request = new CheckDomainMXRecordRequest(
             $domain
         );
