@@ -17,15 +17,15 @@ class DateTestTest extends ZimbraTestCase
         $date = time();
 
         $test = new DateTest(
-            $index, TRUE, DateComparison::AFTER(), $date
+            $index, TRUE, DateComparison::AFTER, $date
         );
-        $this->assertEquals(DateComparison::AFTER(), $test->getDateComparison());
+        $this->assertEquals(DateComparison::AFTER, $test->getDateComparison());
         $this->assertSame($date, $test->getDate());
 
         $test = new DateTest($index, TRUE);
-        $test->setDateComparison(DateComparison::BEFORE())
+        $test->setDateComparison(DateComparison::BEFORE)
             ->setDate($date);
-        $this->assertEquals(DateComparison::BEFORE(), $test->getDateComparison());
+        $this->assertEquals(DateComparison::BEFORE, $test->getDateComparison());
         $this->assertSame($date, $test->getDate());
 
         $xml = <<<EOT

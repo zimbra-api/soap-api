@@ -15,15 +15,15 @@ class AccountACEinfoTest extends ZimbraTestCase
     public function testAccountACEinfo()
     {
         $zimbraId = $this->faker->uuid;
-        $right = AceRightType::VIEW_FREE_BUSY()->getValue();
+        $right = AceRightType::VIEW_FREE_BUSY->value;
         $displayName = $this->faker->word;
         $accessKey = $this->faker->word;
         $password = $this->faker->sha256;
 
         $ace = new AccountACEinfo(
-            GranteeType::ALL(), $right, $zimbraId, $displayName, $accessKey, $password, FALSE
+            GranteeType::ALL, $right, $zimbraId, $displayName, $accessKey, $password, FALSE
         );
-        $this->assertEquals(GranteeType::ALL(), $ace->getGranteeType());
+        $this->assertEquals(GranteeType::ALL, $ace->getGranteeType());
         $this->assertEquals($right, $ace->getRight());
         $this->assertSame($zimbraId, $ace->getZimbraId());
         $this->assertSame($displayName, $ace->getDisplayName());
@@ -32,7 +32,7 @@ class AccountACEinfoTest extends ZimbraTestCase
         $this->assertFalse($ace->getDeny());
 
         $ace = new AccountACEinfo();
-        $ace->setGranteeType(GranteeType::USR())
+        $ace->setGranteeType(GranteeType::USR)
             ->setRight($right)
             ->setZimbraId($zimbraId)
             ->setDisplayName($displayName)
@@ -40,7 +40,7 @@ class AccountACEinfoTest extends ZimbraTestCase
             ->setPassword($password)
             ->setDeny(TRUE);
 
-        $this->assertEquals(GranteeType::USR(), $ace->getGranteeType());
+        $this->assertEquals(GranteeType::USR, $ace->getGranteeType());
         $this->assertEquals($right, $ace->getRight());
         $this->assertSame($zimbraId, $ace->getZimbraId());
         $this->assertSame($displayName, $ace->getDisplayName());

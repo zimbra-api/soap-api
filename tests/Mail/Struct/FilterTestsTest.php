@@ -61,10 +61,10 @@ class FilterTestsTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $addressTest = new AddressTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET
         );
         $envelopeTest = new EnvelopeTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET
         );
         $attachmentTest = new AttachmentTest(
             $index, TRUE
@@ -85,10 +85,10 @@ class FilterTestsTest extends ZimbraTestCase
             $index, TRUE, $value
         );
         $currentTimeTest = new CurrentTimeTest(
-            $index, TRUE, DateComparison::BEFORE(), $time
+            $index, TRUE, DateComparison::BEFORE, $time
         );
         $dateTest = new DateTest(
-            $index, TRUE, DateComparison::BEFORE(), $date
+            $index, TRUE, DateComparison::BEFORE, $date
         );
         $facebookTest = new FacebookTest(
             $index, TRUE
@@ -100,10 +100,10 @@ class FilterTestsTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $headerTest = new HeaderTest(
-            $index, TRUE, $header, StringComparison::IS(), ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, StringComparison::IS, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
         $inviteTest = new InviteTest(
             $index, TRUE, [$method]
@@ -118,10 +118,10 @@ class FilterTestsTest extends ZimbraTestCase
             $index, TRUE, $header
         );
         $mimeHeaderTest = new MimeHeaderTest(
-            $index, TRUE, $header, StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, StringComparison::IS, $value, TRUE
         );
         $sizeTest = new SizeTest(
-            $index, TRUE, NumberComparison::OVER(), $size
+            $index, TRUE, NumberComparison::OVER, $size
         );
         $socialcastTest = new SocialcastTest(
             $index, TRUE
@@ -143,7 +143,7 @@ class FilterTestsTest extends ZimbraTestCase
         );
 
         $tests = new StubFilterTests(
-            FilterCondition::ALL_OF(), [
+            FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -174,7 +174,7 @@ class FilterTestsTest extends ZimbraTestCase
                 $communityConnectionsTest,
             ]
         );
-        $this->assertEquals(FilterCondition::ALL_OF(), $tests->getCondition());
+        $this->assertEquals(FilterCondition::ALL_OF, $tests->getCondition());
         $this->assertEquals([
             $addressBookTest,
             $addressTest,
@@ -205,8 +205,8 @@ class FilterTestsTest extends ZimbraTestCase
             $communityContentTest,
             $communityConnectionsTest,
         ], array_values($tests->getTests()));
-        $tests = new StubFilterTests(FilterCondition::ANY_OF());
-        $tests->setCondition(FilterCondition::ALL_OF())
+        $tests = new StubFilterTests(FilterCondition::ANY_OF);
+        $tests->setCondition(FilterCondition::ALL_OF)
             ->setTests([
                 $addressBookTest,
                 $addressTest,
@@ -237,7 +237,7 @@ class FilterTestsTest extends ZimbraTestCase
             ->addTest($communityRequestsTest)
             ->addTest($communityContentTest)
             ->addTest($communityConnectionsTest);
-        $this->assertEquals(FilterCondition::ALL_OF(), $tests->getCondition());
+        $this->assertEquals(FilterCondition::ALL_OF, $tests->getCondition());
         $this->assertEquals([
             $addressBookTest,
             $addressTest,
@@ -309,9 +309,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubFilterTests extends FilterTests
 {

@@ -18,31 +18,31 @@ class HeaderTestTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $test = new HeaderTest(
-            $index, TRUE, $headers, StringComparison::IS(), ValueComparison::NOT_EQUAL(), CountComparison::NOT_EQUAL(), ComparisonComparator::OCTET(), $value, FALSE
+            $index, TRUE, $headers, StringComparison::IS, ValueComparison::NOT_EQUAL, CountComparison::NOT_EQUAL, ComparisonComparator::OCTET, $value, FALSE
         );
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertEquals(StringComparison::IS(), $test->getStringComparison());
+        $this->assertEquals(StringComparison::IS, $test->getStringComparison());
         $this->assertFalse($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
-        $this->assertEquals(ValueComparison::NOT_EQUAL(), $test->getValueComparison());
-        $this->assertEquals(CountComparison::NOT_EQUAL(), $test->getCountComparison());
-        $this->assertEquals(ComparisonComparator::OCTET(), $test->getValueComparisonComparator());
+        $this->assertEquals(ValueComparison::NOT_EQUAL, $test->getValueComparison());
+        $this->assertEquals(CountComparison::NOT_EQUAL, $test->getCountComparison());
+        $this->assertEquals(ComparisonComparator::OCTET, $test->getValueComparisonComparator());
 
         $test = new HeaderTest($index, TRUE);
         $test->setHeaders($headers)
-            ->setStringComparison(StringComparison::CONTAINS())
+            ->setStringComparison(StringComparison::CONTAINS)
             ->setCaseSensitive(TRUE)
             ->setValue($value)
-            ->setValueComparison(ValueComparison::EQUAL())
-            ->setCountComparison(CountComparison::EQUAL())
-            ->setValueComparisonComparator(ComparisonComparator::ASCII_NUMERIC());
+            ->setValueComparison(ValueComparison::EQUAL)
+            ->setCountComparison(CountComparison::EQUAL)
+            ->setValueComparisonComparator(ComparisonComparator::ASCII_NUMERIC);
         $this->assertSame($headers, $test->getHeaders());
-        $this->assertEquals(StringComparison::CONTAINS(), $test->getStringComparison());
+        $this->assertEquals(StringComparison::CONTAINS, $test->getStringComparison());
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
-        $this->assertEquals(ValueComparison::EQUAL(), $test->getValueComparison());
-        $this->assertEquals(CountComparison::EQUAL(), $test->getCountComparison());
-        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC(), $test->getValueComparisonComparator());
+        $this->assertEquals(ValueComparison::EQUAL, $test->getValueComparison());
+        $this->assertEquals(CountComparison::EQUAL, $test->getCountComparison());
+        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC, $test->getValueComparisonComparator());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

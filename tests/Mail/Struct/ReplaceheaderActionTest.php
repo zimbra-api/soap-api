@@ -24,7 +24,7 @@ class ReplaceheaderActionTest extends ZimbraTestCase
         $newValue = $this->faker->word;
 
         $test = new EditheaderTest(
-            MatchType::CONTAINS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::ASCII_NUMERIC(), $headerName, [$headerValue]
+            MatchType::CONTAINS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::ASCII_NUMERIC, $headerName, [$headerValue]
         );
 
         $action = new StubReplaceheaderAction($index, TRUE, $offset, $test, $newName, $newValue);
@@ -53,9 +53,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubReplaceheaderAction extends ReplaceheaderAction
 {

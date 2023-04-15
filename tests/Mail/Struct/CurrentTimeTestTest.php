@@ -17,15 +17,15 @@ class CurrentTimeTestTest extends ZimbraTestCase
         $time = $this->faker->word;
 
         $test = new CurrentTimeTest(
-            $index, TRUE, DateComparison::AFTER(), $time
+            $index, TRUE, DateComparison::AFTER, $time
         );
-        $this->assertEquals(DateComparison::AFTER(), $test->getDateComparison());
+        $this->assertEquals(DateComparison::AFTER, $test->getDateComparison());
         $this->assertSame($time, $test->getTime());
 
         $test = new CurrentTimeTest($index, TRUE);
-        $test->setDateComparison(DateComparison::BEFORE())
+        $test->setDateComparison(DateComparison::BEFORE)
             ->setTime($time);
-        $this->assertEquals(DateComparison::BEFORE(), $test->getDateComparison());
+        $this->assertEquals(DateComparison::BEFORE, $test->getDateComparison());
         $this->assertSame($time, $test->getTime());
 
         $xml = <<<EOT

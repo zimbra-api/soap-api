@@ -14,7 +14,7 @@ class EmailAddrInfoTest extends ZimbraTestCase
     public function testEmailAddrInfo()
     {
         $address = $this->faker->email;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
         $personal = $this->faker->word;
 
         $email = new EmailAddrInfo($address, $addressType, $personal);

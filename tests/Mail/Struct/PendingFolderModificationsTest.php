@@ -39,7 +39,9 @@ class PendingFolderModificationsTest extends ZimbraTestCase
         $modTag = new ModifyTagNotification($id, $name, $changeBitmask);
         $modFolder = new RenameFolderNotification($folderId, $path, $changeBitmask);
 
-        $mods = new StubPendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
+        $mods = new StubPendingFolderModifications(
+            $folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]
+        );
         $this->assertSame($folderId, $mods->getFolderId());
         $this->assertSame([$created], $mods->getCreated());
         $this->assertSame([$deleted], $mods->getDeleted());
@@ -67,7 +69,9 @@ class PendingFolderModificationsTest extends ZimbraTestCase
         $this->assertSame([$modTag, $modTag], $mods->getModifiedTags());
         $this->assertSame([$modFolder, $modFolder], $mods->getRenamedFolders());
 
-        $mods = new StubPendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
+        $mods = new StubPendingFolderModifications(
+            $folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]
+        );
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -87,13 +91,12 @@ class PendingFolderModificationsTest extends ZimbraTestCase
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mods, 'xml'));
-        $this->assertEquals($mods, $this->serializer->deserialize($xml, StubPendingFolderModifications::class, 'xml'));
+        $this->assertEquals(
+            $mods, $this->serializer->deserialize($xml, StubPendingFolderModifications::class, 'xml')
+        );
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubPendingFolderModifications extends PendingFolderModifications
 {

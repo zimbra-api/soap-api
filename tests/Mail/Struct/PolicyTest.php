@@ -17,18 +17,18 @@ class PolicyTest extends ZimbraTestCase
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
 
-        $policy = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
-        $this->assertEquals(Type::SYSTEM(), $policy->getType());
+        $policy = new Policy(Type::SYSTEM, $id, $name, $lifetime);
+        $this->assertEquals(Type::SYSTEM, $policy->getType());
         $this->assertSame($id, $policy->getId());
         $this->assertSame($name, $policy->getName());
         $this->assertSame($lifetime, $policy->getLifetime());
 
         $policy = new Policy();
-        $policy->setType(Type::USER())
+        $policy->setType(Type::USER)
                ->setId($id)
                ->setName($name)
                ->setLifetime($lifetime);
-        $this->assertEquals(Type::USER(), $policy->getType());
+        $this->assertEquals(Type::USER, $policy->getType());
         $this->assertSame($id, $policy->getId());
         $this->assertSame($name, $policy->getName());
         $this->assertSame($lifetime, $policy->getLifetime());

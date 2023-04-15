@@ -13,7 +13,7 @@ class BulkActionTest extends ZimbraTestCase
 {
     public function testBulkAction()
     {
-        $op = BulkOperation::MOVE();
+        $op = BulkOperation::MOVE;
         $folder = $this->faker->uuid;
 
         $action = new BulkAction(

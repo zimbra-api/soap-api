@@ -2,8 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Common\Enum\Frequency;
-
 use Zimbra\Mail\Struct\AddRecurrenceInfo;
 use Zimbra\Mail\Struct\RecurrenceInfo;
 use Zimbra\Common\Struct\AddRecurrenceInfoInterface;

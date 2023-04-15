@@ -35,7 +35,7 @@ class ExpandedRecurrenceExceptionTest extends ZimbraTestCase
 
         $exceptionId = new InstanceRecurIdInfo($range, $dateTime, $timezone);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
-        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
 
         $except = new StubExpandedRecurrenceException($exceptionId, $startTime, $endTime, $duration, $recurrence);
         $this->assertTrue($except instanceof ExpandedRecurrenceComponent);
@@ -55,9 +55,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubExpandedRecurrenceException extends ExpandedRecurrenceException
 {

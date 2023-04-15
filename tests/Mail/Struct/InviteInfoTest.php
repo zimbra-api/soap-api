@@ -19,7 +19,7 @@ class InviteInfoTest extends ZimbraTestCase
 {
     public function testInviteInfo()
     {
-        $calItemType = InviteType::TASK();
+        $calItemType = InviteType::TASK;
         $id = $this->faker->word;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
@@ -71,9 +71,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubInviteInfo extends InviteInfo
 {

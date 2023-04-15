@@ -39,7 +39,7 @@ class FolderTest extends ZimbraTestCase
         $rgb = $this->faker->hexcolor;
         $unreadCount = $this->faker->randomNumber;
         $imapUnreadCount = $this->faker->randomNumber;
-        $view = ViewType::CONVERSATION();
+        $view = ViewType::CONVERSATION;
         $revision = $this->faker->randomNumber;
         $modifiedSequence = $this->faker->randomNumber;
         $changeDate = $this->faker->unixTime;
@@ -50,7 +50,7 @@ class FolderTest extends ZimbraTestCase
         $imapUidNext = $this->faker->randomNumber;
         $url = $this->faker->word;
         $webOfflineSyncDays = $this->faker->randomNumber;
-        $perm = implode(',', [RemoteFolderAccess::CREATE(), RemoteFolderAccess::READ()]);
+        $perm = implode(',', [RemoteFolderAccess::CREATE, RemoteFolderAccess::READ]);
         $restUrl = $this->faker->word;
         $lifetime = $this->faker->word;
         $section = $this->faker->word;
@@ -60,8 +60,8 @@ class FolderTest extends ZimbraTestCase
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
-        $granteeType = GrantGranteeType::USR();
+        $grantRight = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
+        $granteeType = GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
         $granteeName = $this->faker->name;
@@ -75,8 +75,8 @@ class FolderTest extends ZimbraTestCase
             )]
         );
         $retentionPolicy = new RetentionPolicy(
-            [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-            [new Policy(Type::USER(), $id, $name, $lifetime)]
+            [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+            [new Policy(Type::USER, $id, $name, $lifetime)]
         );
         $subFolder = new Folder($id, $uuid);
         $mountpoint = new Mountpoint($id, $uuid);
@@ -247,9 +247,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubFolder extends Folder
 {

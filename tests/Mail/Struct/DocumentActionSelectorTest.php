@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\Enum\{ActionGrantRight, DocumentActionOp, GranteeType, Type};
+use Zimbra\Common\Enum\{ActionGrantRight, DocumentActionOp, GranteeType};
 
 use Zimbra\Mail\Struct\DocumentActionSelector;
 use Zimbra\Mail\Struct\DocumentActionGrant;
@@ -20,13 +20,13 @@ class DocumentActionSelectorTest extends ZimbraTestCase
 {
     public function testDocumentActionSelector()
     {
-        $operation = $this->faker->randomElement(DocumentActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(DocumentActionOp::cases())->getValue();
         $ids = $this->faker->uuid;
 
         $zimbraId = $this->faker->uuid;
-        $grantType = GranteeType::USR();
+        $grantType = GranteeType::USR;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
         $expiry = $this->faker->randomNumber;
         $displayName = $this->faker->name;
         $args = $this->faker->word;
@@ -61,9 +61,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubDocumentActionSelector extends DocumentActionSelector
 {

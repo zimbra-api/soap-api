@@ -26,7 +26,7 @@ class CalendarAttendeeTest extends ZimbraTestCase
         $language = $this->faker->word;
         $cuType = $this->faker->word;
         $role = $this->faker->word;
-        $partStat = PartStat::ACCEPT();
+        $partStat = PartStat::ACCEPT;
         $member = $this->faker->word;
         $delegatedTo = $this->faker->email;
         $delegatedFrom = $this->faker->word;
@@ -84,9 +84,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubCalendarAttendee extends CalendarAttendee
 {

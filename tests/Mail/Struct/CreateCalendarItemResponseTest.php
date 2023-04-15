@@ -43,8 +43,8 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::TO();
-        $calItemType = InviteType::TASK();
+        $addressType = AddressType::TO;
+        $calItemType = InviteType::TASK;
 
         $key = $this->faker->word;
         $value = $this->faker->word;
@@ -131,9 +131,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubCreateCalendarItemResponse extends CreateCalendarItemResponse
 {

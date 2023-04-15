@@ -20,7 +20,7 @@ class EnvelopeTestTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $test = new EnvelopeTest(
-            $index, TRUE, $header, AddressPart::DOMAIN(), StringComparison::CONTAINS(), TRUE, $value, ValueComparison::EQUAL(), CountComparison::EQUAL(), ComparisonComparator::ASCII_NUMERIC()
+            $index, TRUE, $header, AddressPart::DOMAIN, StringComparison::CONTAINS, TRUE, $value, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::ASCII_NUMERIC
         );
         $this->assertTrue($test instanceof AddressTest);
 

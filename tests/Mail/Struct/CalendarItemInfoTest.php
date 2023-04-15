@@ -72,7 +72,7 @@ class CalendarItemInfoTest extends ZimbraTestCase
         $date = $this->faker->unixTime;
         $attendee = $this->faker->email;
         $sentBy = $this->faker->email;
-        $partStat = ParticipationStatus::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT;
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
 
@@ -187,9 +187,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubCalendarItemInfo extends CalendarItemInfo
 {

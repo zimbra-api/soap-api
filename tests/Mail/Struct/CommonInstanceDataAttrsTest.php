@@ -13,21 +13,21 @@ class CommonInstanceDataAttrsTest extends ZimbraTestCase
 {
     public function testCommonInstanceDataAttrs()
     {
-        $partStat = ParticipationStatus::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT;
         $recurIdZ = $this->faker->uuid;
         $tzOffset = $this->faker->randomNumber;
-        $freeBusyActual = FreeBusyStatus::FREE();
+        $freeBusyActual = FreeBusyStatus::FREE;
         $taskPercentComplete = $this->faker->word;
         $priority = $this->faker->word;
-        $freeBusyIntended = FreeBusyStatus::BUSY();
-        $transparency = Transparency::TRANSPARENT();
+        $freeBusyIntended = FreeBusyStatus::BUSY;
+        $transparency = Transparency::TRANSPARENT;
         $name = $this->faker->word;
         $location = $this->faker->word;
         $invId = $this->faker->uuid;
         $recurIdZ = $this->faker->uuid;
         $componentNum = $this->faker->randomNumber;
-        $status = InviteStatus::CONFIRMED();
-        $calClass = InviteClass::PUB();
+        $status = InviteStatus::CONFIRMED;
+        $calClass = InviteClass::PUB;
         $taskDueDate = $this->faker->randomNumber;
         $taskTzOffsetDue = $this->faker->randomNumber;
  

@@ -15,7 +15,7 @@ class NewMountpointSpecTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $folderId = $this->faker->uuid;
-        $defaultView = ViewType::CONVERSATION();
+        $defaultView = ViewType::CONVERSATION;
         $flags = $this->faker->word;
         $color = $this->faker->numberBetween(0, 127);
         $rgb = $this->faker->hexcolor;

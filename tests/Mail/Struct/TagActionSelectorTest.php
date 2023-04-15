@@ -19,14 +19,14 @@ class TagActionSelectorTest extends ZimbraTestCase
 {
     public function testTagActionSelector()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->getValue();
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
 
         $retentionPolicy = new RetentionPolicy(
-            [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-            [new Policy(Type::USER(), $id, $name, $lifetime)]
+            [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+            [new Policy(Type::USER, $id, $name, $lifetime)]
         );
 
         $action = new StubTagActionSelector(
@@ -55,9 +55,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubTagActionSelector extends TagActionSelector
 {

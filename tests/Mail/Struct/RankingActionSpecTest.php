@@ -13,7 +13,7 @@ class RankingActionSpecTest extends ZimbraTestCase
 {
     public function testRankingActionSpec()
     {
-        $operation = RankingActionOp::RESET();
+        $operation = RankingActionOp::RESET;
         $email = $this->faker->email;
 
         $action = new RankingActionSpec(

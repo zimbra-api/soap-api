@@ -16,7 +16,7 @@ class EmailInfoTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
 
         $email = new EmailInfo($address, $display, $personal, $addressType, FALSE, FALSE);
         $this->assertSame($address, $email->getAddress());

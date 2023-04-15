@@ -36,7 +36,7 @@ class CalendarItemRecurTest extends ZimbraTestCase
         $dtStart = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $dtEnd = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
-        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
 
         $cal = new StubCalendarItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);
         $this->assertSame($exceptionId, $cal->getExceptionId());
@@ -74,9 +74,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubCalendarItemRecur extends CalendarItemRecur
 {

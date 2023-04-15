@@ -16,7 +16,7 @@ class ContactActionSelectorTest extends ZimbraTestCase
 {
     public function testContactActionSelector()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->value;
         $ids = $this->faker->uuid;
         $name = $this->faker->word;
         $attachId = $this->faker->uuid;
@@ -50,9 +50,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubContactActionSelector extends ContactActionSelector
 {

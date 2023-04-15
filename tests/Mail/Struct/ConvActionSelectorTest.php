@@ -15,7 +15,7 @@ class ConvActionSelectorTest extends ZimbraTestCase
 {
     public function testConvActionSelector()
     {
-        $operation = $this->faker->randomElement(ConvActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ConvActionOp::cases())->getValue();
         $ids = $this->faker->uuid;
         $acctRelativePath = $this->faker->word;
 
@@ -38,9 +38,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubConvActionSelector extends ConvActionSelector
 {

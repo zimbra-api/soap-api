@@ -16,7 +16,7 @@ class ByDayRuleTest extends ZimbraTestCase
 {
     public function testByDayRule()
     {
-        $day = WeekDay::SUNDAY();
+        $day = WeekDay::SUNDAY;
         $ordWk = $this->faker->numberBetween(1, 53);
         $wkday = new WkDay($day, $ordWk);
 
@@ -40,9 +40,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubByDayRule extends ByDayRule
 {

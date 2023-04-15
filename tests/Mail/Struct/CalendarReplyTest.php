@@ -17,7 +17,7 @@ class CalendarReplyTest extends ZimbraTestCase
         $date = $this->faker->unixTime;
         $attendee = $this->faker->email;
         $sentBy = $this->faker->email;
-        $partStat = ParticipationStatus::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT;
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
 

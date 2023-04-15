@@ -22,7 +22,7 @@ class DeleteheaderActionTest extends ZimbraTestCase
         $headerValue = $this->faker->word;
 
         $test = new EditheaderTest(
-            MatchType::CONTAINS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::ASCII_NUMERIC(), $headerName, [$headerValue]
+            MatchType::CONTAINS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::ASCII_NUMERIC, $headerName, [$headerValue]
         );
 
         $action = new StubDeleteheaderAction($index, FALSE, $offset, $test);
@@ -52,9 +52,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubDeleteheaderAction extends DeleteheaderAction
 {

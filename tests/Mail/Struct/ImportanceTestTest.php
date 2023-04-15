@@ -16,13 +16,13 @@ class ImportanceTestTest extends ZimbraTestCase
         $index = mt_rand(1, 99);
 
         $test = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
-        $this->assertEquals(Importance::HIGH(), $test->getImportance());
+        $this->assertEquals(Importance::HIGH, $test->getImportance());
 
         $test = new ImportanceTest($index, TRUE);
-        $test->setImportance(Importance::HIGH());
-        $this->assertEquals(Importance::HIGH(), $test->getImportance());
+        $test->setImportance(Importance::HIGH);
+        $this->assertEquals(Importance::HIGH, $test->getImportance());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

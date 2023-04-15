@@ -33,7 +33,7 @@ class CalItemRequestBaseTest extends ZimbraTestCase
         $tzDayOffset = $this->faker->randomNumber;
 
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -56,7 +56,7 @@ class CalItemRequestBaseTest extends ZimbraTestCase
             new MimePartInfo($contentType, $content, $contentId),
             new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO, $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)],
             $fragment
         );
@@ -103,9 +103,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class CalItemRequest extends CalItemRequestBase
 {

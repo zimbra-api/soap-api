@@ -29,11 +29,3 @@ EOT;
         $this->assertEquals($hit, $this->serializer->deserialize($xml, NoteHitInfo::class, 'xml'));
     }
 }
-
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
-#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
-class StubNoteHitInfo extends NoteHitInfo
-{
-}

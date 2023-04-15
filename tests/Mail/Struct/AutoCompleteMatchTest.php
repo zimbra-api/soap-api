@@ -14,7 +14,7 @@ class AutoCompleteMatchTest extends ZimbraTestCase
     public function testAutoCompleteMatch()
     {
         $email = $this->faker->email;
-        $matchType = MatchType::GAL();
+        $matchType = MatchType::GAL;
         $ranking = $this->faker->randomNumber;
         $id = $this->faker->uuid;
         $folder = $this->faker->word;

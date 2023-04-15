@@ -19,7 +19,7 @@ class MPInviteInfoTest extends ZimbraTestCase
 {
     public function testMPInviteInfo()
     {
-        $calItemType = InviteType::TASK();
+        $calItemType = InviteType::TASK;
         $id = $this->faker->word;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
@@ -73,9 +73,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubMPInviteInfo extends MPInviteInfo
 {

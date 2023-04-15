@@ -22,7 +22,7 @@ class ExceptionRuleInfoTest extends ZimbraTestCase
         $recurrenceId = $this->faker->date;
         $timezone = $this->faker->timezone;
         $recurIdZ = $this->faker->date;
-        $frequency = Frequency::HOUR();
+        $frequency = Frequency::HOUR;
 
         $add = new RecurrenceInfo([new SimpleRepeatingRule($frequency)]);
         $exclude = new RecurrenceInfo([new SimpleRepeatingRule($frequency)]);
@@ -60,9 +60,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubExceptionRuleInfo extends ExceptionRuleInfo
 {

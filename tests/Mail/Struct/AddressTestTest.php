@@ -19,34 +19,34 @@ class AddressTestTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $test = new AddressTest(
-            $index, TRUE, $header, AddressPart::ALL(), StringComparison::IS(), FALSE, $value, ValueComparison::NOT_EQUAL(), CountComparison::NOT_EQUAL(), ComparisonComparator::OCTET()
+            $index, TRUE, $header, AddressPart::ALL, StringComparison::IS, FALSE, $value, ValueComparison::NOT_EQUAL, CountComparison::NOT_EQUAL, ComparisonComparator::OCTET
         );
         $this->assertSame($header, $test->getHeader());
-        $this->assertEquals(AddressPart::ALL(), $test->getPart());
-        $this->assertEquals(StringComparison::IS(), $test->getStringComparison());
+        $this->assertEquals(AddressPart::ALL, $test->getPart());
+        $this->assertEquals(StringComparison::IS, $test->getStringComparison());
         $this->assertFalse($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
-        $this->assertEquals(ValueComparison::NOT_EQUAL(), $test->getValueComparison());
-        $this->assertEquals(CountComparison::NOT_EQUAL(), $test->getCountComparison());
-        $this->assertEquals(ComparisonComparator::OCTET(), $test->getValueComparisonComparator());
+        $this->assertEquals(ValueComparison::NOT_EQUAL, $test->getValueComparison());
+        $this->assertEquals(CountComparison::NOT_EQUAL, $test->getCountComparison());
+        $this->assertEquals(ComparisonComparator::OCTET, $test->getValueComparisonComparator());
 
         $test = new AddressTest($index, TRUE);
         $test->setHeader($header)
-            ->setPart(AddressPart::DOMAIN())
-            ->setStringComparison(StringComparison::CONTAINS())
+            ->setPart(AddressPart::DOMAIN)
+            ->setStringComparison(StringComparison::CONTAINS)
             ->setCaseSensitive(TRUE)
             ->setValue($value)
-            ->setValueComparison(ValueComparison::EQUAL())
-            ->setCountComparison(CountComparison::EQUAL())
-            ->setValueComparisonComparator(ComparisonComparator::ASCII_NUMERIC());
+            ->setValueComparison(ValueComparison::EQUAL)
+            ->setCountComparison(CountComparison::EQUAL)
+            ->setValueComparisonComparator(ComparisonComparator::ASCII_NUMERIC);
         $this->assertSame($header, $test->getHeader());
-        $this->assertEquals(AddressPart::DOMAIN(), $test->getPart());
-        $this->assertEquals(StringComparison::CONTAINS(), $test->getStringComparison());
+        $this->assertEquals(AddressPart::DOMAIN, $test->getPart());
+        $this->assertEquals(StringComparison::CONTAINS, $test->getStringComparison());
         $this->assertTrue($test->isCaseSensitive());
         $this->assertSame($value, $test->getValue());
-        $this->assertEquals(ValueComparison::EQUAL(), $test->getValueComparison());
-        $this->assertEquals(CountComparison::EQUAL(), $test->getCountComparison());
-        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC(), $test->getValueComparisonComparator());
+        $this->assertEquals(ValueComparison::EQUAL, $test->getValueComparison());
+        $this->assertEquals(CountComparison::EQUAL, $test->getCountComparison());
+        $this->assertEquals(ComparisonComparator::ASCII_NUMERIC, $test->getValueComparisonComparator());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

@@ -25,7 +25,7 @@ class AlarmInfoTest extends ZimbraTestCase
 {
     public function testAlarmInfo()
     {
-        $action = AlarmAction::DISPLAY();
+        $action = AlarmAction::DISPLAY;
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
@@ -43,7 +43,7 @@ class AlarmInfoTest extends ZimbraTestCase
         $address = $this->faker->email;
         $displayName = $this->faker->name;
         $role = $this->faker->word;
-        $partStat = PartStat::ACCEPT();
+        $partStat = PartStat::ACCEPT;
 
         $trigger = new AlarmTriggerInfo(
             new DateAttr($date), new DurationInfo($weeks, $days, $hours, $minutes, $seconds)
@@ -108,9 +108,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubAlarmInfo extends AlarmInfo
 {

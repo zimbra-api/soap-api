@@ -16,14 +16,14 @@ class LogActionTest extends ZimbraTestCase
         $index = mt_rand(1, 99);
         $content = $this->faker->word;
 
-        $action = new LogAction($index, LoggingLevel::ERROR(), $content);
-        $this->assertEquals(LoggingLevel::ERROR(), $action->getLevel());
+        $action = new LogAction($index, LoggingLevel::ERROR, $content);
+        $this->assertEquals(LoggingLevel::ERROR, $action->getLevel());
         $this->assertSame($content, $action->getContent());
 
         $action = new LogAction($index);
-        $action->setLevel(LoggingLevel::INFO())
+        $action->setLevel(LoggingLevel::INFO)
             ->setContent($content);
-        $this->assertEquals(LoggingLevel::INFO(), $action->getLevel());
+        $this->assertEquals(LoggingLevel::INFO, $action->getLevel());
         $this->assertSame($content, $action->getContent());
 
         $xml = <<<EOT

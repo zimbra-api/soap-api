@@ -13,12 +13,12 @@ class WkstRuleTest extends ZimbraTestCase
 {
     public function testWkstRule()
     {
-        $day = WeekDay::SUNDAY();
+        $day = WeekDay::SUNDAY;
 
         $wkst = new WkstRule($day);
         $this->assertSame($day, $wkst->getDay());
 
-        $wkst = new WkstRule(WeekDay::SUNDAY());
+        $wkst = new WkstRule(WeekDay::SUNDAY);
         $wkst->setDay($day);
         $this->assertSame($day, $wkst->getDay());
 

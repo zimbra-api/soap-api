@@ -24,9 +24,9 @@ class InviteComponentCommonTest extends ZimbraTestCase
         $location = $this->faker->word;
         $percentComplete = $this->faker->word;
         $completed = $this->faker->word;
-        $freeBusyActual = FreeBusyStatus::FREE();
-        $freeBusy = FreeBusyStatus::BUSY();
-        $transparency = Transparency::OPAQUE();
+        $freeBusyActual = FreeBusyStatus::FREE;
+        $freeBusy = FreeBusyStatus::BUSY;
+        $transparency = Transparency::OPAQUE;
         $xUid = $this->faker->uuid;
         $uid = $this->faker->uuid;
         $sequence = $this->faker->randomNumber;
@@ -34,11 +34,11 @@ class InviteComponentCommonTest extends ZimbraTestCase
         $calItemId = $this->faker->uuid;
         $deprecatedApptId = $this->faker->uuid;
         $calItemFolder = $this->faker->word;
-        $status = InviteStatus::CONFIRMED();
-        $calClass = InviteClass::PUB();
+        $status = InviteStatus::CONFIRMED;
+        $calClass = InviteClass::PUB;
         $url = $this->faker->url;
         $recurIdZ = $this->faker->word;
-        $changes = implode(',', $this->faker->randomElements(InviteChange::values(), 2));
+        $changes = implode(',', $this->faker->randomElements(InviteChange::case(), 2));
 
         $inv = new InviteComponentCommon(
             $method,

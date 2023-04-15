@@ -28,8 +28,8 @@ class RecurrenceInfoTest extends ZimbraTestCase
         $timezone = $this->faker->timezone;
         $recurIdZ = $this->faker->date;
 
-        $add = new AddRecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
-        $exclude = new ExcludeRecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
+        $add = new AddRecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
+        $exclude = new ExcludeRecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR)]);
         $except = new ExceptionRuleInfo();
         $except->setRecurrenceRangeType($recurrenceRangeType)
             ->setRecurrenceId($recurrenceId)
@@ -37,7 +37,7 @@ class RecurrenceInfoTest extends ZimbraTestCase
             ->setRecurIdZ($recurIdZ);
         $cancel = new CancelRuleInfo($recurrenceRangeType, $recurrenceId, $timezone, $recurIdZ);
         $dates = new SingleDates($timezone);
-        $simple = new SimpleRepeatingRule(Frequency::HOUR());
+        $simple = new SimpleRepeatingRule(Frequency::HOUR);
         $rules = [
             $add,
             $exclude,
@@ -83,9 +83,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubRecurrenceInfo extends RecurrenceInfo
 {

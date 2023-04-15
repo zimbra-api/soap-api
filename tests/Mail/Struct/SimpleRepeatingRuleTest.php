@@ -35,13 +35,13 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
 {
     public function testSimpleRepeatingRule()
     {
-        $frequency = Frequency::HOUR();
+        $frequency = Frequency::HOUR;
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
         $num = $this->faker->unique()->numberBetween(1, 100);
         $ival = $this->faker->unique()->numberBetween(1, 100);
-        $day = WeekDay::SUNDAY();
+        $day = WeekDay::SUNDA;
         $ordWk = $this->faker->unique()->numberBetween(1, 53);
         $seclist = implode(',', [
             $this->faker->unique()->numberBetween(0, 59),
@@ -174,9 +174,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubSimpleRepeatingRule extends SimpleRepeatingRule
 {

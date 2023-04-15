@@ -35,7 +35,7 @@ class ModifyContactSpecTest extends ZimbraTestCase
             $name, $operation, $attachId, $id, $part, $value
         );
         $member = new ModifyContactGroupMember(
-            ModifyGroupMemberOperation::ADD(), MemberType::CONTACT(), $value
+            ModifyGroupMemberOperation::ADD, MemberType::CONTACT, $value
         );
 
         $contact = new StubModifyContactSpec(
@@ -74,9 +74,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubModifyContactSpec extends ModifyContactSpec
 {

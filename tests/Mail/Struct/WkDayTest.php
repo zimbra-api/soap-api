@@ -13,14 +13,14 @@ class WkDayTest extends ZimbraTestCase
 {
     public function testWkDay()
     {
-        $day = WeekDay::SUNDAY();
+        $day = WeekDay::SUNDAY;
         $ordWk = $this->faker->numberBetween(1, 53);
 
         $wkday = new WkDay($day, $ordWk);
         $this->assertSame($day, $wkday->getDay());
         $this->assertSame($ordWk, $wkday->getOrdWk());
 
-        $wkday = new WkDay(WeekDay::SUNDAY());
+        $wkday = new WkDay(WeekDay::SUNDAY);
         $wkday->setDay($day)
             ->setOrdWk($ordWk);
         $this->assertSame($day, $wkday->getDay());

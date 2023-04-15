@@ -74,15 +74,15 @@ class FilterActionsTest extends ZimbraTestCase
         $actionStop = new StopAction($index);
         $actionReject = new RejectAction($index, $content);
         $actionEreject = new ErejectAction($index, $content);
-        $actionLog = new LogAction($index, LoggingLevel::INFO(), $content);
+        $actionLog = new LogAction($index, LoggingLevel::INFO, $content);
         $actionAddheader = new AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new DeleteheaderAction(
             $index, TRUE, $offset
-            , new EditheaderTest(MatchType::IS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new EditheaderTest(MatchType::IS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new ReplaceheaderAction(
             $index, TRUE, $offset,
-            new EditheaderTest(MatchType::IS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new EditheaderTest(MatchType::IS, TRUE, TRUE, RelationalComparator::EQUAL, ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
 
@@ -215,9 +215,6 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubFilterActions extends FilterActions
 {
