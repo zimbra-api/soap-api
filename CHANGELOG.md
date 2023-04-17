@@ -6,9 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## 3.0.0 - 2023-04-17
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.1.0...3.0.0)
-* Remove Doctrine Annotation
-* Remove attribute reader class
-* Replace MyCLabs\Enum\Enum by PHP 8.1 Enums
+* Remove Doctrine annotation
+* Remove Attribute reader class
+* Remove Enum serializer handler class
+* Replace MyClabs Enum by PHP 8.1 BackedEnum
 
 ## 2.1.0 - 2023-04-10
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.8...2.1.0)
