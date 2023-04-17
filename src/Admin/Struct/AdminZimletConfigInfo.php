@@ -99,7 +99,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName('global')]
     #[Type(AdminZimletGlobalConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?AdminZimletGlobalConfigInfo $global = NULL;
+    private ?ZimletGlobalConfigInfo $global = NULL;
 
     /**
      * Zimlet host configuration information
@@ -110,7 +110,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName('host')]
     #[Type(AdminZimletHostConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?AdminZimletHostConfigInfo $host = NULL;
+    private ?ZimletHostConfigInfo $host = NULL;
 
     /**
      * Constructor
