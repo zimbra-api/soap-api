@@ -39,11 +39,6 @@ class GetDistributionListMembersRequest extends SoapRequest
     /**
      * The starting offset (0, 25, etc)
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -54,11 +49,6 @@ class GetDistributionListMembersRequest extends SoapRequest
 
     /**
      * The name of the distribution list
-     * 
-     * @Accessor(getter="getDl", setter="setDl")
-     * @SerializedName("dl")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */

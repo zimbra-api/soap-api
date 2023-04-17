@@ -28,9 +28,6 @@ class ModifyPrefsEnvelope extends SoapEnvelope
 {
     /**
      * Soap body
-     * @SerializedName("Body")
-     * @Type("Zimbra\Account\Message\ModifyPrefsBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
      * @var SoapBodyInterface
      */

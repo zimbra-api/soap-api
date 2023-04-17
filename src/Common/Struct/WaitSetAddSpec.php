@@ -221,11 +221,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * @SerializedName("folderInterests")
-     * @SkipWhenEmpty
-     * @Type("string")
-     * @VirtualProperty
-     * @XmlAttribute
+     * Get folder interests
      *
      * @return string
      */
