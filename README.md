@@ -4,7 +4,7 @@ This library is a simple Object Oriented wrapper for the Zimbra SOAP API.
 
 ## Requirement
 * PHP 8.1.x or later,
-* [Http Discovery](https://docs.php-http.org/en/latest/discovery.html) library for finding installed http clients and http message factories,
+* [PSR Discovery](https://github.com/psr-discovery) library for searching installed http clients and http message factories,
 * [Serializer](https://jmsyst.com/libs/serializer) library for (de-)serializing XML,
 * (optional) PHPUnit to run tests,
 

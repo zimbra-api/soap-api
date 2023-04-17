@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Remove Attribute reader class
 * Remove Enum serializer handler class
 * Replace MyClabs Enum by PHP 8.1 BackedEnum
+* Replace Http Discovery by PSR Discovery
 
 ## 2.1.0 - 2023-04-10
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.8...2.1.0)
