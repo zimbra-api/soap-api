@@ -38,7 +38,7 @@ class InviteComponentCommonTest extends ZimbraTestCase
         $calClass = InviteClass::PUB;
         $url = $this->faker->url;
         $recurIdZ = $this->faker->word;
-        $changes = implode(',', $this->faker->randomElements(InviteChange::case(), 2));
+        $changes = implode(',', array_map(fn ($change) => $change->value, $this->faker->randomElements(InviteChange::cases(), 2)));
 
         $inv = new InviteComponentCommon(
             $method,

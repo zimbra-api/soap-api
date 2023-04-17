@@ -19,7 +19,7 @@ class TagActionSelectorTest extends ZimbraTestCase
 {
     public function testTagActionSelector()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::cases())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->value;
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;

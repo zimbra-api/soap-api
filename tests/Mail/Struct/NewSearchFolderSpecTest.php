@@ -16,7 +16,7 @@ class NewSearchFolderSpecTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $query = $this->faker->word;
-        $searchTypes = implode(',', [ItemType::MESSAGE, ItemType::CONVERSATION]);
+        $searchTypes = implode(',', [ItemType::MESSAGE->value, ItemType::CONVERSATION->value]);
         $sortBy = SearchSortBy::DATE_DESC;
         $flags = $this->faker->word;
         $color = $this->faker->numberBetween(0, 127);

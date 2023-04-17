@@ -20,13 +20,13 @@ class DocumentActionSelectorTest extends ZimbraTestCase
 {
     public function testDocumentActionSelector()
     {
-        $operation = $this->faker->randomElement(DocumentActionOp::cases())->getValue();
+        $operation = $this->faker->randomElement(DocumentActionOp::cases())->value;
         $ids = $this->faker->uuid;
 
         $zimbraId = $this->faker->uuid;
         $grantType = GranteeType::USR;
 
-        $rights = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
+        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $expiry = $this->faker->randomNumber;
         $displayName = $this->faker->name;
         $args = $this->faker->word;

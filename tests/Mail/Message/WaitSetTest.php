@@ -22,9 +22,9 @@ class WaitSetResponseTest extends ZimbraTestCase
         $waitSetId = $this->faker->uuid;
         $lastKnownSeqNo = $this->faker->word;
         $defaultInterests = implode(',', [
-            InterestType::FOLDERS->getValue(),
-            InterestType::MESSAGES->getValue(),
-            InterestType::CONTACTS->getValue(),
+            InterestType::FOLDERS->value,
+            InterestType::MESSAGES->value,
+            InterestType::CONTACTS->value,
         ]);
         $timeout = $this->faker->randomNumber;
         $name = $this->faker->word;
@@ -32,8 +32,8 @@ class WaitSetResponseTest extends ZimbraTestCase
         $uid = $this->faker->uuid;
         $token = $this->faker->word;
         $interests = [
-            InterestType::FOLDERS->getValue(),
-            InterestType::MESSAGES->getValue(),
+            InterestType::FOLDERS->value,
+            InterestType::MESSAGES->value,
         ];
 
         $seqNo = $this->faker->word;

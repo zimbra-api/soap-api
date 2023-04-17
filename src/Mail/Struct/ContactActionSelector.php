@@ -96,7 +96,7 @@ class ContactActionSelector extends ActionSelector
      */
     public function setOperation(string $operation): self
     {
-        if (ContactActionOp::isValid($operation)) {
+        if (ContactActionOp::tryFrom($operation)) {
             parent::setOperation($operation);
         }
         return $this;

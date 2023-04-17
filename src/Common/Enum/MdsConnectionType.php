@@ -25,7 +25,7 @@ enum MdsConnectionType: string
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    case CLEARTEXT = 'cleartext';
+    case CLEAR_TEXT = 'cleartext';
 
     /**
      * Constant for value 'ssl'

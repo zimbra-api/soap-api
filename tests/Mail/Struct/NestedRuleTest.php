@@ -147,7 +147,7 @@ class NestedRuleTest extends ZimbraTestCase
             $index, TRUE, $header, StringComparison::IS, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
         $inviteTest = new InviteTest(
             $index, TRUE, [$method]

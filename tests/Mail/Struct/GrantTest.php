@@ -13,7 +13,7 @@ class GrantTest extends ZimbraTestCase
 {
     public function testGrant()
     {
-        $perm = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
+        $perm = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $granteeType = GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;

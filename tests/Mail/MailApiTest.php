@@ -70,8 +70,8 @@ EOT;
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -189,7 +189,7 @@ EOT;
     public function testAutoComplete()
     {
         $email = $this->faker->email;
-        $matchType = \Zimbra\Common\Enum\AutoCompleteMatchType::GAL();
+        $matchType = \Zimbra\Common\Enum\AutoCompleteMatchType::GAL;
         $ranking = $this->faker->randomNumber;
         $id = $this->faker->uuid;
         $folder = $this->faker->word;
@@ -353,7 +353,7 @@ EOT;
         $response = $api->checkRecurConflicts();
 
         $instance = new \Zimbra\Mail\Struct\ConflictRecurrenceInstance(
-            [new \Zimbra\Mail\Struct\FreeBusyUserStatus($name, \Zimbra\Common\Enum\FreeBusyStatus::FREE())]
+            [new \Zimbra\Mail\Struct\FreeBusyUserStatus($name, \Zimbra\Common\Enum\FreeBusyStatus::FREE)]
         );
         $this->assertEquals([$instance], $response->getInstances());
     }
@@ -401,7 +401,7 @@ EOT;
     public function testContactAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ContactActionOp::cases())->value;
         $nonExistentIds = $this->faker->uuid;
         $newlyCreatedIds = $this->faker->uuid;
         $zimbraId = $this->faker->uuid;
@@ -430,7 +430,7 @@ EOT;
     public function testConvAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ConvActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ConvActionOp::cases())->value;
         $nonExistentIds = $this->faker->uuid;
         $newlyCreatedIds = $this->faker->uuid;
 
@@ -493,8 +493,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -583,8 +583,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -704,7 +704,7 @@ EOT;
             $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE,
             [new \Zimbra\Mail\Struct\MailCustomMetadata($section)],
             [new \Zimbra\Common\Struct\ContactAttr($key, $value, $part, $contentType, $size, $contentFilename)],
-            [new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT(), $value)],
+            [new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT, $value)],
             $memberOf
         );
         $this->assertEquals($contact, $response->getContact());
@@ -746,7 +746,7 @@ EOT;
         $folderUuid = $this->faker->uuid;
         $unreadCount =  $this->faker->randomNumber;
         $imapUnreadCount =  $this->faker->randomNumber;
-        $view = \Zimbra\Common\Enum\ViewType::CONVERSATION();
+        $view = \Zimbra\Common\Enum\ViewType::CONVERSATION;
         $revision =  $this->faker->randomNumber;
         $modifiedSequence =  $this->faker->randomNumber;
         $changeDate =  $this->faker->unixTime;
@@ -757,7 +757,7 @@ EOT;
         $imapUidNext =  $this->faker->randomNumber;
         $url = $this->faker->word;
         $webOfflineSyncDays =  $this->faker->randomNumber;
-        $perm = implode(',', [\Zimbra\Common\Enum\RemoteFolderAccess::CREATE(), \Zimbra\Common\Enum\RemoteFolderAccess::READ()]);
+        $perm = implode(',', [\Zimbra\Common\Enum\RemoteFolderAccess::CREATE->value, \Zimbra\Common\Enum\RemoteFolderAccess::READ->value]);
         $restUrl = $this->faker->word;
         $lifetime = $this->faker->word;
         $section = $this->faker->word;
@@ -767,8 +767,8 @@ EOT;
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [\Zimbra\Common\Enum\ActionGrantRight::READ(), \Zimbra\Common\Enum\ActionGrantRight::WRITE()]);
-        $granteeType = \Zimbra\Common\Enum\GrantGranteeType::USR();
+        $grantRight = implode(',', [\Zimbra\Common\Enum\ActionGrantRight::READ->value, \Zimbra\Common\Enum\ActionGrantRight::WRITE->value]);
+        $granteeType = \Zimbra\Common\Enum\GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
         $granteeName = $this->faker->name;
@@ -844,8 +844,8 @@ EOT;
             [new \Zimbra\Mail\Struct\Mountpoint($id, $uuid)],
             [new \Zimbra\Mail\Struct\SearchFolder($id, $uuid)],
             new \Zimbra\Mail\Struct\RetentionPolicy(
-                [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime)],
-                [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER(), $id, $name, $lifetime)]
+                [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime)],
+                [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER, $id, $name, $lifetime)]
             )
         );
         $this->assertEquals($folder, $response->getFolder());
@@ -955,9 +955,9 @@ EOT;
         $uuid = $this->faker->uuid;
         $query = $this->faker->word;
         $searchTypes = implode(',', [
-            \Zimbra\Common\Enum\ItemType::MESSAGE(), \Zimbra\Common\Enum\ItemType::CONVERSATION()
+            \Zimbra\Common\Enum\ItemType::MESSAGE->value, \Zimbra\Common\Enum\ItemType::CONVERSATION->value
         ]);
-        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -1028,8 +1028,8 @@ EOT;
 
         $metadata = new \Zimbra\Mail\Struct\MailCustomMetadata($section, [new \Zimbra\Common\Struct\KeyValuePair($key, $value)]);
         $retentionPolicy = new \Zimbra\Mail\Struct\RetentionPolicy(
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime)],
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER(), $id, $name, $lifetime)]
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime)],
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER, $id, $name, $lifetime)]
         );
         $tag = new \Zimbra\Mail\Struct\TagInfo(
             $id,
@@ -1072,8 +1072,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -1162,8 +1162,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -1234,9 +1234,9 @@ EOT;
         $type = $this->faker->word;
         $sequence = $this->faker->randomNumber;
         $interests = implode(',', [
-            \Zimbra\Common\Enum\InterestType::FOLDERS()->getValue(),
-            \Zimbra\Common\Enum\InterestType::MESSAGES()->getValue(),
-            \Zimbra\Common\Enum\InterestType::CONTACTS()->getValue(),
+            \Zimbra\Common\Enum\InterestType::FOLDERS->value,
+            \Zimbra\Common\Enum\InterestType::MESSAGES->value,
+            \Zimbra\Common\Enum\InterestType::CONTACTS->value,
         ]);
 
         $xml = <<<EOT
@@ -1341,7 +1341,7 @@ EOT;
         $invId = $this->faker->randomNumber;
         $componentNum = $this->faker->randomNumber;
 
-        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY();
+        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY;
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
@@ -1360,7 +1360,7 @@ EOT;
         $address = $this->faker->email;
         $displayName = $this->faker->name;
         $role = $this->faker->word;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -1440,7 +1440,7 @@ EOT;
     public function documentAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->randomElement(DocumentActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(DocumentActionOp::cases())->value;
 
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;
@@ -1571,7 +1571,7 @@ EOT;
 
     public function testFolderAction()
     {
-        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ContactActionOp::cases())->value;
         $id = $this->faker->uuid;
         $zimbraId = $this->faker->uuid;
         $nonExistentIds = $this->faker->uuid;
@@ -1696,7 +1696,7 @@ EOT;
         $date = $this->faker->unixTime;
         $attendee = $this->faker->email;
         $sentBy = $this->faker->email;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
 
@@ -1869,7 +1869,7 @@ EOT;
         $invId = $this->faker->randomNumber;
         $componentNum = $this->faker->randomNumber;
 
-        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY();
+        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY;
         $date = $this->faker->date;
         $weeks = mt_rand(1, 100);
         $days = mt_rand(1, 30);
@@ -1883,7 +1883,7 @@ EOT;
         $summary = $this->faker->text;
         $location = $this->faker->text;
         $role = $this->faker->word;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -2026,7 +2026,7 @@ EOT;
         $invId = $this->faker->randomNumber;
         $componentNum = $this->faker->randomNumber;
 
-        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY();
+        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY;
         $date = $this->faker->date;
         $weeks = mt_rand(1, 100);
         $days = mt_rand(1, 30);
@@ -2040,7 +2040,7 @@ EOT;
         $summary = $this->faker->text;
         $location = $this->faker->text;
         $role = $this->faker->word;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -2294,7 +2294,7 @@ EOT;
 
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata($section);
         $attr = new \Zimbra\Common\Struct\ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
-        $member = new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT(), $value);
+        $member = new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT, $value);
         $contact = new \Zimbra\Mail\Struct\ContactInfo(
             $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );
@@ -2317,7 +2317,7 @@ EOT;
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
         $origId = $this->faker->uuid;
-        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $draftAccountId = $this->faker->uuid;
         $draftAutoSendTime = $this->faker->randomNumber;
@@ -2331,7 +2331,7 @@ EOT;
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
 
         $contentType = $this->faker->mimeType;
         $size = $this->faker->randomNumber;
@@ -2341,7 +2341,7 @@ EOT;
         $location = $this->faker->word;
         $content = $this->faker->text;
 
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $method = $this->faker->word;
@@ -2485,14 +2485,14 @@ EOT;
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = $this->faker->randomNumber;
-        $connectionType = \Zimbra\Common\Enum\ConnectionType::CLEAR_TEXT();
+        $connectionType = \Zimbra\Common\Enum\ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->text;
         $pollingInterval = $this->faker->word;
         $emailAddress = $this->faker->email;
         $smtpHost = $this->faker->ipv4;
         $smtpPort = $this->faker->randomNumber;
-        $smtpConnectionType = \Zimbra\Common\Enum\ConnectionType::CLEAR_TEXT();
+        $smtpConnectionType = \Zimbra\Common\Enum\ConnectionType::CLEAR_TEXT;
         $smtpUsername = $this->faker->email;
         $smtpPassword = $this->faker->text;
         $defaultSignature = $this->faker->word;
@@ -2839,10 +2839,10 @@ EOT;
             $index, TRUE, $header
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $envelopeTest = new \Zimbra\Mail\Struct\EnvelopeTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
             $index, TRUE
@@ -2863,10 +2863,10 @@ EOT;
             $index, TRUE, $value
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $time
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $time
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $date
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $date
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
             $index, TRUE
@@ -2878,10 +2878,10 @@ EOT;
             $index, TRUE, $header
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH()
+            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
             $index, TRUE, [$method]
@@ -2896,10 +2896,10 @@ EOT;
             $index, TRUE, $header
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, $value, TRUE
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER(), $size
+            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER, $size
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
             $index, TRUE
@@ -2920,7 +2920,7 @@ EOT;
             $index, TRUE
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
-            \Zimbra\Common\Enum\FilterCondition::ALL_OF(), [
+            \Zimbra\Common\Enum\FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -2964,19 +2964,19 @@ EOT;
         $actionStop = new \Zimbra\Mail\Struct\StopAction($index);
         $actionReject = new \Zimbra\Mail\Struct\RejectAction($index, $content);
         $actionEreject = new \Zimbra\Mail\Struct\ErejectAction($index, $content);
-        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO(), $content);
+        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO, $content);
         $actionAddheader = new \Zimbra\Mail\Struct\AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new \Zimbra\Mail\Struct\DeleteheaderAction(
             $index, TRUE, $offset
-            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new \Zimbra\Mail\Struct\ReplaceheaderAction(
             $index, TRUE, $offset,
-            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
 
-        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF()));
+        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF));
         $filterRule = new \Zimbra\Mail\Struct\FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
@@ -3013,7 +3013,7 @@ EOT;
         $rgb = $this->faker->hexcolor;
         $unreadCount = $this->faker->randomNumber;
         $imapUnreadCount = $this->faker->randomNumber;
-        $view = \Zimbra\Common\Enum\ViewType::CONVERSATION();
+        $view = \Zimbra\Common\Enum\ViewType::CONVERSATION;
         $revision = $this->faker->randomNumber;
         $modifiedSequence = $this->faker->randomNumber;
         $changeDate = $this->faker->unixTime;
@@ -3024,7 +3024,7 @@ EOT;
         $imapUidNext = $this->faker->randomNumber;
         $url = $this->faker->word;
         $webOfflineSyncDays = $this->faker->randomNumber;
-        $perm = implode(',', [\Zimbra\Common\Enum\RemoteFolderAccess::CREATE(), \Zimbra\Common\Enum\RemoteFolderAccess::READ()]);
+        $perm = implode(',', [\Zimbra\Common\Enum\RemoteFolderAccess::CREATE->value, \Zimbra\Common\Enum\RemoteFolderAccess::READ->value]);
         $restUrl = $this->faker->word;
         $lifetime = $this->faker->word;
         $section = $this->faker->word;
@@ -3034,8 +3034,8 @@ EOT;
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [\Zimbra\Common\Enum\ActionGrantRight::READ(), \Zimbra\Common\Enum\ActionGrantRight::WRITE()]);
-        $granteeType = \Zimbra\Common\Enum\GrantGranteeType::USR();
+        $grantRight = implode(',', [\Zimbra\Common\Enum\ActionGrantRight::READ->value, \Zimbra\Common\Enum\ActionGrantRight::WRITE->value]);
+        $granteeType = \Zimbra\Common\Enum\GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
         $granteeName = $this->faker->name;
@@ -3081,8 +3081,8 @@ EOT;
             )]
         );
         $retentionPolicy = new \Zimbra\Mail\Struct\RetentionPolicy(
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime)],
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER(), $id, $name, $lifetime)]
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime)],
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER, $id, $name, $lifetime)]
         );
         $subFolder = new \Zimbra\Mail\Struct\Folder($id, $uuid);
         $mountpoint = new \Zimbra\Mail\Struct\Mountpoint($id, $uuid);
@@ -3434,8 +3434,8 @@ EOT;
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -3477,7 +3477,7 @@ EOT;
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
         $origId = $this->faker->uuid;
-        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $draftAccountId = $this->faker->email;
         $draftAutoSendTime = $this->faker->unixTime;
@@ -3494,9 +3494,9 @@ EOT;
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
 
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $method = $this->faker->word;
@@ -3759,10 +3759,10 @@ EOT;
             $index, TRUE, $header
         );
         $addressTest = new \Zimbra\Mail\Struct\AddressTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $envelopeTest = new \Zimbra\Mail\Struct\EnvelopeTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL(), \Zimbra\Common\Enum\StringComparison::IS(), TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET()
+            $index, TRUE, $header, \Zimbra\Common\Enum\AddressPart::ALL, \Zimbra\Common\Enum\StringComparison::IS, TRUE, $value, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET
         );
         $attachmentTest = new \Zimbra\Mail\Struct\AttachmentTest(
             $index, TRUE
@@ -3783,10 +3783,10 @@ EOT;
             $index, TRUE, $value
         );
         $currentTimeTest = new \Zimbra\Mail\Struct\CurrentTimeTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $time
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $time
         );
         $dateTest = new \Zimbra\Mail\Struct\DateTest(
-            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE(), $date
+            $index, TRUE, \Zimbra\Common\Enum\DateComparison::BEFORE, $date
         );
         $facebookTest = new \Zimbra\Mail\Struct\FacebookTest(
             $index, TRUE
@@ -3798,10 +3798,10 @@ EOT;
             $index, TRUE, $header
         );
         $headerTest = new \Zimbra\Mail\Struct\HeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), \Zimbra\Common\Enum\ValueComparison::EQUAL(), \Zimbra\Common\Enum\CountComparison::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, \Zimbra\Common\Enum\ValueComparison::EQUAL, \Zimbra\Common\Enum\CountComparison::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new \Zimbra\Mail\Struct\ImportanceTest(
-            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH()
+            $index, TRUE, \Zimbra\Common\Enum\Importance::HIGH
         );
         $inviteTest = new \Zimbra\Mail\Struct\InviteTest(
             $index, TRUE, [$method]
@@ -3816,10 +3816,10 @@ EOT;
             $index, TRUE, $header
         );
         $mimeHeaderTest = new \Zimbra\Mail\Struct\MimeHeaderTest(
-            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS(), $value, TRUE
+            $index, TRUE, $header, \Zimbra\Common\Enum\StringComparison::IS, $value, TRUE
         );
         $sizeTest = new \Zimbra\Mail\Struct\SizeTest(
-            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER(), $size
+            $index, TRUE, \Zimbra\Common\Enum\NumberComparison::OVER, $size
         );
         $socialcastTest = new \Zimbra\Mail\Struct\SocialcastTest(
             $index, TRUE
@@ -3840,7 +3840,7 @@ EOT;
             $index, TRUE
         );
         $filterTests = new \Zimbra\Mail\Struct\FilterTests(
-            \Zimbra\Common\Enum\FilterCondition::ALL_OF(), [
+            \Zimbra\Common\Enum\FilterCondition::ALL_OF, [
                 $addressBookTest,
                 $addressTest,
                 $envelopeTest,
@@ -3884,19 +3884,19 @@ EOT;
         $actionStop = new \Zimbra\Mail\Struct\StopAction($index);
         $actionReject = new \Zimbra\Mail\Struct\RejectAction($index, $content);
         $actionEreject = new \Zimbra\Mail\Struct\ErejectAction($index, $content);
-        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO(), $content);
+        $actionLog = new \Zimbra\Mail\Struct\LogAction($index, \Zimbra\Common\Enum\LoggingLevel::INFO, $content);
         $actionAddheader = new \Zimbra\Mail\Struct\AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new \Zimbra\Mail\Struct\DeleteheaderAction(
             $index, TRUE, $offset
-            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue])
+            , new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue])
         );
         $actionReplaceheader = new \Zimbra\Mail\Struct\ReplaceheaderAction(
             $index, TRUE, $offset,
-            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS(), TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL(), \Zimbra\Common\Enum\ComparisonComparator::OCTET(), $headerName, [$headerValue]),
+            new \Zimbra\Mail\Struct\EditheaderTest(\Zimbra\Common\Enum\MatchType::IS, TRUE, TRUE, \Zimbra\Common\Enum\RelationalComparator::EQUAL, \Zimbra\Common\Enum\ComparisonComparator::OCTET, $headerName, [$headerValue]),
             $newName, $newValue
         );
 
-        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF()));
+        $child = new \Zimbra\Mail\Struct\NestedRule(new \Zimbra\Mail\Struct\FilterTests(\Zimbra\Common\Enum\FilterCondition::ALL_OF));
         $filterRule = new \Zimbra\Mail\Struct\FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
@@ -3943,7 +3943,7 @@ EOT;
         $response = $api->getPermission();
 
         $ace = new \Zimbra\Mail\Struct\AccountACEInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE
+            \Zimbra\Common\Enum\GranteeType::USR, \Zimbra\Common\Enum\AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
     }
@@ -4028,7 +4028,7 @@ EOT;
         $dtStart = new \Zimbra\Mail\Struct\DtTimeInfo($dateTime, $timezone, $utcTime);
         $dtEnd = new \Zimbra\Mail\Struct\DtTimeInfo($dateTime, $timezone, $utcTime);
         $duration = new \Zimbra\Mail\Struct\DurationInfo($weeks, $days, $hours, $minutes, $seconds);
-        $recurrence = new \Zimbra\Mail\Struct\RecurrenceInfo([new \Zimbra\Mail\Struct\SimpleRepeatingRule(\Zimbra\Common\Enum\Frequency::HOUR())]);
+        $recurrence = new \Zimbra\Mail\Struct\RecurrenceInfo([new \Zimbra\Mail\Struct\SimpleRepeatingRule(\Zimbra\Common\Enum\Frequency::HOUR)]);
         $cancel = new \Zimbra\Mail\Struct\CancelItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);
         $except = new \Zimbra\Mail\Struct\ExceptionItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);
         $invite = new \Zimbra\Mail\Struct\InviteItemRecur($exceptionId, $dtStart, $dtEnd, $duration, $recurrence);
@@ -4044,8 +4044,8 @@ EOT;
         $id = $this->faker->uuid;
         $uuid = $this->faker->uuid;
         $query = $this->faker->word;
-        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
-        $types = implode(',', [\Zimbra\Common\Enum\ItemType::MESSAGE(), \Zimbra\Common\Enum\ItemType::CONVERSATION()]);
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC;
+        $types = implode(',', [\Zimbra\Common\Enum\ItemType::MESSAGE->value, \Zimbra\Common\Enum\ItemType::CONVERSATION->value]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -4154,8 +4154,8 @@ EOT;
         $response = $api->getSystemRetentionPolicy();
 
         $retention = new \Zimbra\Mail\Struct\RetentionPolicy(
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime)],
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER(), $id, $name, $lifetime)]
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime)],
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER, $id, $name, $lifetime)]
         );
         $this->assertEquals($retention, $response->getRetentionPolicy());
     }
@@ -4208,8 +4208,8 @@ EOT;
             $section, [new \Zimbra\Common\Struct\KeyValuePair($key, $value)]
         );
         $retentionPolicy = new \Zimbra\Mail\Struct\RetentionPolicy(
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime)],
-            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER(), $id, $name, $lifetime)]
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::SYSTEM, $id, $name, $lifetime)],
+            [new \Zimbra\Mail\Struct\Policy(\Zimbra\Common\Enum\Type::USER, $id, $name, $lifetime)]
         );
         $tag = new \Zimbra\Mail\Struct\TagInfo(
             $id,
@@ -4275,7 +4275,7 @@ EOT;
         $date = $this->faker->unixTime;
         $attendee = $this->faker->email;
         $sentBy = $this->faker->email;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
 
@@ -4403,7 +4403,7 @@ EOT;
         $invId = $this->faker->randomNumber;
         $componentNum = $this->faker->randomNumber;
 
-        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY();
+        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY;
         $date = $this->faker->date;
         $weeks = mt_rand(1, 100);
         $days = mt_rand(1, 30);
@@ -4417,7 +4417,7 @@ EOT;
         $summary = $this->faker->text;
         $location = $this->faker->text;
         $role = $this->faker->word;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -4648,7 +4648,7 @@ EOT;
         $response = $api->grantPermission();
 
         $ace = new \Zimbra\Mail\Struct\AccountACEInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE
+            \Zimbra\Common\Enum\GranteeType::USR, \Zimbra\Common\Enum\AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
     }
@@ -4870,8 +4870,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -4991,7 +4991,7 @@ EOT;
             $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE,
             [new \Zimbra\Mail\Struct\MailCustomMetadata($section)],
             [new \Zimbra\Common\Struct\ContactAttr($key, $value, $part, $contentType, $size, $contentFilename)],
-            [new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT(), $value)],
+            [new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT, $value)],
             $memberOf
         );
         $this->assertEquals($contact, $response->getContact());
@@ -5084,8 +5084,8 @@ EOT;
         $id = $this->faker->uuid;
         $uuid = $this->faker->uuid;
         $query = $this->faker->word;
-        $searchTypes = implode(',', [\Zimbra\Common\Enum\ItemType::MESSAGE(), \Zimbra\Common\Enum\ItemType::CONVERSATION()]);
-        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+        $searchTypes = implode(',', [\Zimbra\Common\Enum\ItemType::MESSAGE->value, \Zimbra\Common\Enum\ItemType::CONVERSATION->value]);
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -5135,8 +5135,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -5378,7 +5378,7 @@ EOT;
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
         $origId = $this->faker->uuid;
-        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $draftAccountId = $this->faker->uuid;
         $draftAutoSendTime = $this->faker->randomNumber;
@@ -5393,7 +5393,7 @@ EOT;
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
 
         $contentType = $this->faker->mimeType;
         $size = $this->faker->randomNumber;
@@ -5403,7 +5403,7 @@ EOT;
         $location = $this->faker->word;
         $content = $this->faker->text;
 
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $method = $this->faker->word;
@@ -5527,7 +5527,7 @@ EOT;
         $response = $api->revokePermission();
 
         $ace = new \Zimbra\Mail\Struct\AccountACEInfo(
-            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE
+            \Zimbra\Common\Enum\GranteeType::USR, \Zimbra\Common\Enum\AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
     }
@@ -5564,7 +5564,7 @@ EOT;
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
         $origId = $this->faker->uuid;
-        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $draftAccountId = $this->faker->uuid;
         $draftAutoSendTime = $this->faker->randomNumber;
@@ -5579,7 +5579,7 @@ EOT;
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
 
         $contentType = $this->faker->mimeType;
         $size = $this->faker->randomNumber;
@@ -5589,7 +5589,7 @@ EOT;
         $location = $this->faker->word;
         $content = $this->faker->text;
 
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $method = $this->faker->word;
@@ -5698,7 +5698,7 @@ EOT;
         $id = $this->faker->uuid;
         $conversationId = $this->faker->uuid;
         $query = $this->faker->word;
-        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC;
 
         $queryOffset = $this->faker->randomNumber;
         $totalSize = $this->faker->randomNumber;
@@ -5768,7 +5768,7 @@ EOT;
     {
         $id = $this->faker->uuid;
         $query = $this->faker->word;
-        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC;
 
         $queryOffset = $this->faker->randomNumber;
         $totalSize = $this->faker->randomNumber;
@@ -5940,7 +5940,7 @@ EOT;
 
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
-        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED;
         $draftAccountId = $this->faker->email;
         $draftAutoSendTime = $this->faker->unixTime;
         $sentDate = $this->faker->unixTime;
@@ -5949,8 +5949,8 @@ EOT;
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = \Zimbra\Common\Enum\AddressType::TO();
-        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $addressType = \Zimbra\Common\Enum\AddressType::TO;
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK;
 
         $seq = $this->faker->randomNumber;
         $date = $this->faker->unixTime;
@@ -6166,7 +6166,7 @@ EOT;
         $invId = $this->faker->randomNumber;
         $componentNum = $this->faker->randomNumber;
 
-        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY();
+        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY;
         $name = $this->faker->name;
         $value = $this->faker->word;
         $date = $this->faker->date;
@@ -6185,7 +6185,7 @@ EOT;
         $address = $this->faker->email;
         $displayName = $this->faker->name;
         $role = $this->faker->word;
-        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -6372,7 +6372,7 @@ EOT;
 
     public function testTagAction()
     {
-        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\TagActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\TagActionOp::cases())->value;
         $id = $this->faker->uuid;
         $successes = $this->faker->uuid;
         $successNames = $this->faker->word;

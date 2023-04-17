@@ -13,7 +13,7 @@ class DocumentActionGrantTest extends ZimbraTestCase
 {
     public function testDocumentActionGrant()
     {
-        $rights = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
+        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $grantType = GranteeType::USR;
         $expiry = $this->faker->randomNumber;
         $zimbraId = $this->faker->uuid;

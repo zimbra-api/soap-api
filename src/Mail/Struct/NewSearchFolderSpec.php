@@ -221,7 +221,7 @@ class NewSearchFolderSpec
     {
         $validTypes = [];
         foreach (explode(',', $searchTypes) as $type) {
-            if (ItemType::isValid($type) && !in_array($type, $validTypes)) {
+            if (ItemType::tryFrom($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }

@@ -20,7 +20,7 @@ class FolderActionSelectorTest extends ZimbraTestCase
 {
     public function testFolderActionSelector()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::cases())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->value;
         $ids = $this->faker->uuid;
 
         $id = $this->faker->uuid;
@@ -32,7 +32,7 @@ class FolderActionSelectorTest extends ZimbraTestCase
         $view = $this->faker->word;
         $numDays = $this->faker->randomNumber;
 
-        $rights = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
+        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $displayName = $this->faker->name;
         $args = $this->faker->word;
         $password = $this->faker->word;

@@ -30,12 +30,12 @@ class SearchActionTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->word;
 
-        $taskStatus = implode(',', $this->faker->randomElements(TaskStatus::cases(), 3));
+        $taskStatus = implode(',', array_map(fn ($status) => $status->value, $this->faker->randomElements(TaskStatus::cases(), 3)));
         $calItemExpandStart = $this->faker->randomNumber;
         $calItemExpandEnd = $this->faker->randomNumber;
         $query = $this->faker->word;
-        $searchTypes = implode(',', $this->faker->randomElements(SearchType::cases(), 3));
-        $groupBy = implode(',', $this->faker->randomElements(SearchType::cases(), 3));
+        $searchTypes = implode(',', array_map(fn ($type) => $type->value, $this->faker->randomElements(SearchType::cases(), 3)));
+        $groupBy = implode(',', array_map(fn ($by) => $by->value, $this->faker->randomElements(SearchType::cases(), 3)));
         $sortBy = SearchSortBy::DATE_DESC;
         $fetch = $this->faker->word;
         $maxInlinedLength = $this->faker->randomNumber;

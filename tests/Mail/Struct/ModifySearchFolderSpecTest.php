@@ -16,7 +16,7 @@ class ModifySearchFolderSpecTest extends ZimbraTestCase
     {
         $id = $this->faker->uuid;
         $query = $this->faker->word;
-        $searchTypes = implode(',', [ItemType::MESSAGE, ItemType::CONVERSATION]);
+        $searchTypes = implode(',', [ItemType::MESSAGE->value, ItemType::CONVERSATION->value]);
         $sortBy = SearchSortBy::DATE_DESC;
 
         $folder = new ModifySearchFolderSpec(
