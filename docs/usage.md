@@ -38,20 +38,10 @@ Sometimes you authenticate with an administrator account but want to access the 
 Example: Batch request for `getAccountInfo`
 ```php
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
- */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
 class BatchGetAccountInfosEnvelope extends SoapEnvelope
 {
-    /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("BatchGetAccountInfosBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     */
     #[Accessor(getter: 'getBody', setter: 'setBody')]
     #[SerializedName(name: 'Body')]
     #[Type(name: BatchGetAccountInfosBody::class)]
@@ -79,24 +69,12 @@ class BatchGetAccountInfosEnvelope extends SoapEnvelope
 
 class BatchGetAccountInfosBody extends SoapBody
 {
-    /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("BatchRequest")
-     * @Type("BatchGetAccountInfosRequest")
-     * @XmlElement(namespace="urn:zimbra")
-     */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'BatchRequest')]
     #[Type(name: BatchGetAccountInfosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $request;
 
-    /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("BatchResponse")
-     * @Type("BatchGetAccountInfosResponse")
-     * @XmlElement(namespace="urn:zimbra")
-     */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName(name: 'BatchResponse')]
     #[Type(name: BatchGetAccountInfosResponse::class)]
@@ -138,11 +116,6 @@ class BatchGetAccountInfosBody extends SoapBody
 }
 class BatchGetAccountInfosRequest extends BatchRequest
 {
-    /**
-     * @Accessor(getter="getRequests", setter="setRequests")
-     * @Type("array<Zimbra\Admin\Message\GetAccountInfoRequest>")
-     * @XmlList(inline=true, entry="GetAccountInfoRequest", namespace="urn:zimbraAdmin")
-     */
     #[Accessor(getter: 'getRequests', setter: 'setRequests')]
     #[Type(name: 'array<Zimbra\Admin\Message\GetAccountInfoRequest>')]
     #[XmlList(inline: true, entry: "GetAccountInfoRequest", namespace: 'urn:zimbraAdmin')]
@@ -175,11 +148,6 @@ class BatchGetAccountInfosRequest extends BatchRequest
 }
 class BatchGetAccountInfosResponse implements BatchResponseInterface
 {
-    /**
-     * @Accessor(getter="getResponses", setter="setResponses")
-     * @Type("array<Zimbra\Admin\Message\GetAccountInfoResponse>")
-     * @XmlList(inline=true, entry="GetAccountInfoResponse", namespace="urn:zimbraAdmin")
-     */
     #[Accessor(getter: 'getResponses', setter: 'setResponses')]
     #[Type(name: 'array<Zimbra\Admin\Message\GetAccountInfoResponse>')]
     #[XmlList(inline: true, entry: "GetAccountInfoResponse", namespace: 'urn:zimbraAdmin')]
@@ -211,7 +179,7 @@ class BatchAdminApi extends AdminApi
         $accountInfos = [];
         $requests = [];
         foreach ($accounts as $account) {
-            $by = filter_var($account, FILTER_VALIDATE_EMAIL) ? AccountBy::NAME() : AccountBy::ID();
+            $by = filter_var($account, FILTER_VALIDATE_EMAIL) ? AccountBy::NAME : AccountBy::ID;
             $request = GetAccountInfoRequest(
                 new AccountSelector($by, $account)
             );

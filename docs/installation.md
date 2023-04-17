@@ -2,10 +2,9 @@ Zimbra SOAP API library Installation
 ====================================
 
 ## Requirement
-* PHP 7.4.x or later,
+* PHP 8.1.x or later,
 * [Http Discovery](https://docs.php-http.org/en/latest/discovery.html) library for finding installed http clients and http message factories,
 * [Serializer](https://jmsyst.com/libs/serializer) library for (de-)serializing XML,
-* [PHP Enum](https://github.com/myclabs/php-enum) library,
 * (optional) PHPUnit to run tests,
 
 ## Installation
