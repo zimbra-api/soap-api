@@ -99,7 +99,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByAccountName(string $name, string $password): ?Message\AuthResponse
     {
-        $account = new AccountSelector(new AccountBy('name'), $name);
+        $account = new AccountSelector(AccountBy::NAME, $name);
         return $this->auth($account, $password);
     }
 
@@ -108,7 +108,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByAccountId(string $id, string $password): ?Message\AuthResponse
     {
-        $account = new AccountSelector(new AccountBy('id'), $id);
+        $account = new AccountSelector(AccountBy::ID, $id);
         return $this->auth($account, $password);
     }
 
@@ -125,7 +125,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByPreauth(string $name, string $preauthKey): ?Message\AuthResponse
     {
-        $account = new AccountSelector(new AccountBy('name'), $name);
+        $account = new AccountSelector(AccountBy::NAME, $name);
         return $this->auth($account, NULL, NULL, new PreAuth($account, $preauthKey));
     }
 

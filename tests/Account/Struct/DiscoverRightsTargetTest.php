@@ -47,7 +47,7 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" id="$id" name="$name" d="$displayName" xmlns:urn="urn:zimbraAccount">
+<result type="account" id="$id" name="$name" d="$displayName" xmlns:urn="urn:zimbraAccount">
     <urn:email addr="$addr" />
 </result>
 EOT;

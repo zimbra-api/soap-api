@@ -222,7 +222,7 @@ class AuthTest extends ZimbraTestCase
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $by = AccountBy::NAME->getValue();
+        $by = AccountBy::NAME->value;
         $xml = <<<EOT
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">

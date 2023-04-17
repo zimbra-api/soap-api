@@ -43,7 +43,7 @@ class DistributionListActionTest extends ZimbraTestCase
 
         $dl = new DistributionListSelector(DLBy::NAME, $value);
         $action = new DistributionListAction(
-            Operation::MODIFY(), $name, $subsReq, [$member], [$owner], [$right], [$attr]
+            Operation::MODIFY, $name, $subsReq, [$member], [$owner], [$right], [$attr]
         );
 
         $request = new DistributionListActionRequest($dl, $action);

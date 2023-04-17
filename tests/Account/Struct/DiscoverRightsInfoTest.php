@@ -39,7 +39,7 @@ class DiscoverRightsInfoTest extends ZimbraTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result right="$right" xmlns:urn="urn:zimbraAccount">
-    <urn:target type="$type" id="$id" name="$name" d="$displayName">
+    <urn:target type="account" id="$id" name="$name" d="$displayName">
         <urn:email addr="$addr" />
     </urn:target>
 </result>
