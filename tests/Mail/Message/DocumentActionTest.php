@@ -23,12 +23,12 @@ class DocumentActionTest extends ZimbraTestCase
     public function testDocumentAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->randomElement(DocumentActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(DocumentActionOp::cases())->value;
 
         $zimbraId = $this->faker->uuid;
-        $grantType = GranteeType::USR();
+        $grantType = GranteeType::USR;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode(',', [ActionGrantRight::READ, ActionGrantRight::WRITE]);
         $expiry = $this->faker->randomNumber;
         $displayName = $this->faker->name;
         $args = $this->faker->word;

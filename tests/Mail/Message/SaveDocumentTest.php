@@ -33,7 +33,7 @@ class SaveDocumentTest extends ZimbraTestCase
         $content = $this->faker->word;
         $flags = $this->faker->word;
         $action = $this->faker->word;
-        $type = NewFileCreationTypes::DOCUMENT();
+        $type = NewFileCreationTypes::DOCUMENT;
         $part = $this->faker->uuid;
 
         $upload = new Id($id);

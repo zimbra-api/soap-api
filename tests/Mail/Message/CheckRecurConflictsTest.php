@@ -84,7 +84,7 @@ class CheckRecurConflictsTest extends ZimbraTestCase
         $this->assertSame([$fbUser, $fbUser], $request->getFreebusyUsers());
 
         $instance = new ConflictRecurrenceInstance(
-            [new FreeBusyUserStatus($name, FreeBusyStatus::FREE())]
+            [new FreeBusyUserStatus($name, FreeBusyStatus::FREE)]
         );
 
         $response = new CheckRecurConflictsResponse([$instance]);

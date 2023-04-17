@@ -26,7 +26,7 @@ class RevokePermissionTest extends ZimbraTestCase
         $accessKey = $this->faker->word;
         $password = $this->faker->sha256;
         $ace = new AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE
+            GranteeType::USR, AceRightType::INVITE->value, $zimbraId, $displayName, $accessKey, $password, TRUE
         );
 
         $request = new RevokePermissionRequest([$ace]);

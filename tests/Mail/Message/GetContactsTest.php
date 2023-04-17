@@ -111,7 +111,7 @@ class GetContactsTest extends ZimbraTestCase
 
         $meta = new MailCustomMetadata($section);
         $attr = new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
-        $member = new ContactGroupMember(MemberType::CONTACT(), $value);
+        $member = new ContactGroupMember(MemberType::CONTACT, $value);
         $contact = new ContactInfo(
             $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );

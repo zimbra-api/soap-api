@@ -35,22 +35,22 @@ class SearchConvTest extends ZimbraTestCase
         $name = $this->faker->word;
         $conversationId = $this->faker->uuid;
 
-        $taskStatus = implode(',', $this->faker->randomElements(TaskStatus::values(), 3));
+        $taskStatus = implode(',', $this->faker->randomElements(TaskStatus::cases(), 3));
         $calItemExpandStart = $this->faker->randomNumber;
         $calItemExpandEnd = $this->faker->randomNumber;
         $query = $this->faker->word;
-        $searchTypes = implode(',', $this->faker->randomElements(SearchType::values(), 3));
-        $groupBy = implode(',', $this->faker->randomElements(SearchType::values(), 3));
-        $sortBy = SearchSortBy::DATE_DESC();
+        $searchTypes = implode(',', $this->faker->randomElements(SearchType::cases(), 3));
+        $groupBy = implode(',', $this->faker->randomElements(SearchType::cases(), 3));
+        $sortBy = SearchSortBy::DATE_DESC;
         $fetch = $this->faker->word;
         $maxInlinedLength = $this->faker->randomNumber;
-        $wantRecipients = WantRecipsSetting::PUT_BOTH();
+        $wantRecipients = WantRecipsSetting::PUT_BOTH;
         $resultMode = $this->faker->randomElement(['NORMAL', 'IDS']);
         $field = $this->faker->word;
         $limit = $this->faker->randomNumber;
         $offset = $this->faker->randomNumber;
         $locale = $this->faker->locale;
-        $wantContent = MsgContent::ORIGINAL();
+        $wantContent = MsgContent::ORIGINAL;
 
         $queryOffset = $this->faker->randomNumber;
         $totalSize = $this->faker->randomNumber;

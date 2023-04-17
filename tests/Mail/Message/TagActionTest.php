@@ -23,7 +23,7 @@ class TagActionTest extends ZimbraTestCase
 {
     public function testTagAction()
     {
-        $operation = $this->faker->randomElement(TagActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(TagActionOp::cases())->value;
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
@@ -32,8 +32,8 @@ class TagActionTest extends ZimbraTestCase
 
         $action = new TagActionSelector(
             $operation, new RetentionPolicy(
-                [new Policy(Type::SYSTEM(), $id, $name, $lifetime)],
-                [new Policy(Type::USER(), $id, $name, $lifetime)]
+                [new Policy(Type::SYSTEM, $id, $name, $lifetime)],
+                [new Policy(Type::USER, $id, $name, $lifetime)]
             )
         );
         $request = new TagActionRequest($action);

@@ -45,7 +45,7 @@ class ModifyContactTest extends ZimbraTestCase
             $id, $tagNames,
             [new ModifyContactAttr($name, $operation, $attachId, $id, $part, $value)],
             [new ModifyContactGroupMember(
-                ModifyGroupMemberOperation::ADD(), MemberType::CONTACT(), $value
+                ModifyGroupMemberOperation::ADD, MemberType::CONTACT, $value
             )]
         );
         $request = new ModifyContactRequest($contactSpec, FALSE, FALSE, FALSE, FALSE);
@@ -92,7 +92,7 @@ class ModifyContactTest extends ZimbraTestCase
             $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE,
             [new MailCustomMetadata($section)],
             [new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename)],
-            [new ContactGroupMember(MemberType::CONTACT(), $value)],
+            [new ContactGroupMember(MemberType::CONTACT, $value)],
             $memberOf
         );
         $response = new ModifyContactResponse($contactInfo);

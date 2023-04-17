@@ -23,7 +23,7 @@ class ContactActionTest extends ZimbraTestCase
     public function testContactAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ContactActionOp::cases())->value;
         $name = $this->faker->word;
         $attachId = $this->faker->uuid;
         $cid = $this->faker->numberBetween(1, 100);

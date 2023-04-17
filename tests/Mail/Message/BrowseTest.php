@@ -19,7 +19,7 @@ class BrowseTest extends ZimbraTestCase
 {
     public function testBrowse()
     {
-        $browseBy = BrowseBy::DOMAINS();
+        $browseBy = BrowseBy::DOMAINS;
         $regex = $this->faker->word;
         $max = $this->faker->randomNumber;
         $browseDomainHeader = $this->faker->word;
@@ -30,7 +30,7 @@ class BrowseTest extends ZimbraTestCase
         $this->assertSame($browseBy, $request->getBrowseBy());
         $this->assertSame($regex, $request->getRegex());
         $this->assertSame($max, $request->getMax());
-        $request = new BrowseRequest(BrowseBy::OBJECTS());
+        $request = new BrowseRequest(BrowseBy::OBJECTS);
         $request->setBrowseBy($browseBy)
             ->setRegex($regex)
             ->setMax($max);

@@ -22,7 +22,7 @@ class ConvActionTest extends ZimbraTestCase
     public function testConvAction()
     {
         $id = $this->faker->uuid;
-        $operation = $this->faker->randomElement(ConvActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(ConvActionOp::cases())->value;
         $nonExistentIds = $this->faker->uuid;
         $newlyCreatedIds = $this->faker->uuid;
         $acctRelativePath = $this->faker->word;

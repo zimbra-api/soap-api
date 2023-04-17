@@ -34,7 +34,7 @@ class SetTaskTest extends ZimbraTestCase
     {
         $id = $this->faker->word;
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -55,7 +55,7 @@ class SetTaskTest extends ZimbraTestCase
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $nextAlarm = $this->faker->randomNumber;
-        $partStat = ParticipationStatus::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT;
         $sequence = $this->faker->randomNumber;
         $date = $this->faker->unixTime;
         $attendee = $this->faker->email;
@@ -72,7 +72,7 @@ class SetTaskTest extends ZimbraTestCase
             [new Header($name, $value)], $inReplyTo, $folderId, $flags, $content,
             new MimePartInfo($contentType, $content, $contentId), new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO, $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)], $fragment
         );
         $item = new SetCalendarItemInfo($partStat, $msg);

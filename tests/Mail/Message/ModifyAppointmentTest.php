@@ -48,7 +48,7 @@ class ModifyAppointmentTest extends ZimbraTestCase
         $tzDayOffset = $this->faker->randomNumber;
 
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -75,8 +75,8 @@ class ModifyAppointmentTest extends ZimbraTestCase
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = AddressType::TO();
-        $calItemType = InviteType::TASK();
+        $addressType = AddressType::TO;
+        $calItemType = InviteType::TASK;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
@@ -89,7 +89,7 @@ class ModifyAppointmentTest extends ZimbraTestCase
             new MimePartInfo($contentType, $content, $contentId),
             new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO, $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)],
             $fragment
         );

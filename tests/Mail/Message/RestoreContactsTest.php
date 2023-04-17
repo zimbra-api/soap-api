@@ -19,7 +19,7 @@ class RestoreContactsTest extends ZimbraTestCase
     public function testRestoreContacts()
     {
         $fileName = $this->faker->word;
-        $resolve = RestoreResolve::RESET();
+        $resolve = RestoreResolve::RESET;
 
         $request = new RestoreContactsRequest($fileName, $resolve);
         $this->assertSame($fileName, $request->getContactsBackupFileName());

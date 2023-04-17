@@ -21,7 +21,7 @@ class IMAPCopyTest extends ZimbraTestCase
     public function testIMAPCopy()
     {
         $ids = $this->faker->word;
-        $type = MailItemType::MESSAGE();
+        $type = MailItemType::MESSAGE;
         $folder = $this->faker->randomNumber;
         $id = $this->faker->randomNumber;
         $imapUid = $this->faker->randomNumber;

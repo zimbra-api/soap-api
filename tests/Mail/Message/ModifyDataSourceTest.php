@@ -32,14 +32,14 @@ class ModifyDataSourceTest extends ZimbraTestCase
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
         $port = $this->faker->randomNumber;
-        $connectionType = ConnectionType::CLEAR_TEXT();
+        $connectionType = ConnectionType::CLEAR_TEXT;
         $username = $this->faker->email;
         $password = $this->faker->text;
         $pollingInterval = $this->faker->word;
         $emailAddress = $this->faker->email;
         $smtpHost = $this->faker->ipv4;
         $smtpPort = $this->faker->randomNumber;
-        $smtpConnectionType = ConnectionType::CLEAR_TEXT();
+        $smtpConnectionType = ConnectionType::CLEAR_TEXT;
         $smtpUsername = $this->faker->email;
         $smtpPassword = $this->faker->text;
         $defaultSignature = $this->faker->word;

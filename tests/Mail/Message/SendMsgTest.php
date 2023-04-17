@@ -41,7 +41,7 @@ class SendMsgTest extends ZimbraTestCase
     {
         $id = $this->faker->word;
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -66,7 +66,7 @@ class SendMsgTest extends ZimbraTestCase
 
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
-        $draftReplyType = ReplyType::REPLIED();
+        $draftReplyType = ReplyType::REPLIED;
         $draftAccountId = $this->faker->email;
         $draftAutoSendTime = $this->faker->unixTime;
         $sentDate = $this->faker->unixTime;
@@ -75,8 +75,8 @@ class SendMsgTest extends ZimbraTestCase
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = AddressType::TO();
-        $calItemType = InviteType::TASK();
+        $addressType = AddressType::TO;
+        $calItemType = InviteType::TASK;
 
         $seq = $this->faker->randomNumber;
         $date = $this->faker->unixTime;
@@ -89,7 +89,7 @@ class SendMsgTest extends ZimbraTestCase
         $mimePart = new MimePartInfo($contentType, $content, $contentId);
         $attachments = new AttachmentsInfo($id);
         $invite = new InvitationInfo($method, $componentNum, TRUE);
-        $emailAddress = new EmailAddrInfo($address, AddressType::TO(), $personal);
+        $emailAddress = new EmailAddrInfo($address, AddressType::TO, $personal);
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
         $msg = new MsgToSend(
             $id, $origId, $replyType, $identityId, $subject, [$header], $inReplyTo, $folderId, $flags, $content, $mimePart, $attachments, $invite, [$emailAddress], [$timezone], $fragment, $draftId, TRUE, $dataSourceId

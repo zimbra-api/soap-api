@@ -2,8 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\Enum\FreeBusyStatus;
-
 use Zimbra\Mail\Message\ExpandRecurEnvelope;
 use Zimbra\Mail\Message\ExpandRecurBody;
 use Zimbra\Mail\Message\ExpandRecurRequest;

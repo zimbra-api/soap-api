@@ -43,7 +43,7 @@ class SaveDraftTest extends ZimbraTestCase
         $id = $this->faker->word;
         $intId = $this->faker->randomNumber;
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $identityId = $this->faker->uuid;
         $subject = $this->faker->text;
         $inReplyTo = $this->faker->uuid;
@@ -72,7 +72,7 @@ class SaveDraftTest extends ZimbraTestCase
         $partIds = $this->faker->word;
         $imapUid = $this->faker->randomNumber;
         $calendarIntendedFor = $this->faker->word;
-        $draftReplyType = ReplyType::REPLIED();
+        $draftReplyType = ReplyType::REPLIED;
         $draftAutoSendTime = $this->faker->randomNumber;
         $sentDate = $this->faker->randomNumber;
         $resentDate = $this->faker->randomNumber;
@@ -81,14 +81,14 @@ class SaveDraftTest extends ZimbraTestCase
         $messageIdHeader = $this->faker->word;
 
         $display = $this->faker->name;
-        $addressType = AddressType::TO();
+        $addressType = AddressType::TO;
 
         $size = $this->faker->randomNumber;
         $contentDisposition = $this->faker->word;
         $contentFilename = $this->faker->word;
         $location = $this->faker->word;
 
-        $calItemType = InviteType::TASK();
+        $calItemType = InviteType::TASK;
         $key = $this->faker->word;
 
         $seq = $this->faker->randomNumber;
@@ -101,7 +101,7 @@ class SaveDraftTest extends ZimbraTestCase
         $mimePart = new MimePartInfo($contentType, $content, $contentId);
         $attachments = new AttachmentsInfo($id);
         $invite = new InvitationInfo($method, $componentNum, TRUE);
-        $emailAddress = new EmailAddrInfo($address, AddressType::TO(), $personal);
+        $emailAddress = new EmailAddrInfo($address, AddressType::TO, $personal);
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
         $msg = new SaveDraftMsg(
             $id, $origId, $replyType, $identityId, $subject, [$header], $inReplyTo, $folderId, $flags, $content, $mimePart, $attachments, $invite, [$emailAddress], [$timezone], $fragment, $intId, $draftAccountId, $tags, $tagNames, $rgb, $color, $autoSendTime

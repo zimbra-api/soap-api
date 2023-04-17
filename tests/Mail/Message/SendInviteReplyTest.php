@@ -27,11 +27,11 @@ class SendInviteReplyTest extends ZimbraTestCase
     {
         $id = $this->faker->uuid;
         $componentNum = $this->faker->randomNumber;
-        $verb = VerbType::ACCEPT();
+        $verb = VerbType::ACCEPT;
         $identityId = $this->faker->uuid;
 
         $origId = $this->faker->uuid;
-        $replyType = ReplyType::REPLIED();
+        $replyType = ReplyType::REPLIED;
         $subject = $this->faker->text;
 
         $dateTime = $this->faker->date;
