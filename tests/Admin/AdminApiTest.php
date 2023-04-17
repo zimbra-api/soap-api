@@ -55,7 +55,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addAccountLogger(new \Zimbra\Admin\Struct\LoggerInfo());
-        $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO;
+        $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO);
         $this->assertEquals([$logger], $response->getLoggers());
     }
 

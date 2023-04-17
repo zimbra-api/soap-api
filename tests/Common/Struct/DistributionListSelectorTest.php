@@ -18,7 +18,7 @@ class DistributionListSelectorTest extends ZimbraTestCase
         $this->assertEquals(DLBy::ID, $dl->getBy());
         $this->assertSame($value, $dl->getValue());
 
-        $dl->setBy(DLBy::NAME;
+        $dl->setBy(DLBy::NAME);
         $this->assertEquals(DLBy::NAME, $dl->getBy());
 
         $xml = <<<EOT

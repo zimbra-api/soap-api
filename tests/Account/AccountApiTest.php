@@ -1122,7 +1122,7 @@ EOT;
         $childAccount = new \Zimbra\Account\Struct\ChildAccount($id, $name, TRUE, TRUE, [$attr]);
         $identity = new \Zimbra\Account\Struct\Identity($name, $id, [$attr]);
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, [
-            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML
+            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML)
         ]);
         $rightsInfo = new \Zimbra\Account\Struct\DiscoverRightsInfo($right, [
             new \Zimbra\Account\Struct\DiscoverRightsTarget($type, $id, $name, $displayName, [
@@ -1335,7 +1335,7 @@ EOT;
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getSignatures();
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, [
-            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML
+            new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML)
         ]);
         $this->assertEquals([$signature], $response->getSignatures());
     }

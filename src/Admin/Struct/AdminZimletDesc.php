@@ -115,7 +115,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('includeCSS')]
     #[Type(AdminZimletIncludeCSS::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private AdminZimletIncludeCSS $includeCSS = NULL;
+    private ?AdminZimletIncludeCSS $includeCSS = NULL;
 
     /**
      * @var AdminZimletTarget
@@ -124,7 +124,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('zimletTarget')]
     #[Type(AdminZimletTarget::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private AdminZimletTarget $zimletTarget = NULL;
+    private ?AdminZimletTarget $zimletTarget = NULL;
 
     /**
      * Constructor
