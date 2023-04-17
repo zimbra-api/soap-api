@@ -31,7 +31,6 @@ class SyncGalAccountDataSourceSpec
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\DataSourceBy>')]
     #[XmlAttribute]
     private DataSourceBy $by;
 

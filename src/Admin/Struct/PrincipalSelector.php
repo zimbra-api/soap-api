@@ -31,7 +31,6 @@ class PrincipalSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>')]
     #[XmlAttribute]
     private AutoProvPrincipalBy $by;
 

@@ -31,7 +31,6 @@ class CacheEntrySelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\CacheEntryBy>')]
     #[XmlAttribute]
     private CacheEntryBy $by;
 

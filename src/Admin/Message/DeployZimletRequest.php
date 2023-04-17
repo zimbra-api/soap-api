@@ -34,7 +34,6 @@ class DeployZimletRequest extends SoapRequest
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletDeployAction>')]
     #[XmlAttribute]
     private ZimletDeployAction $action;
 

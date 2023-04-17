@@ -63,7 +63,6 @@ class GetAllRightsRequest extends SoapRequest
      */
     #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
     #[SerializedName('rightClass')]
-    #[Type('Enum<Zimbra\Common\Enum\RightClass>')]
     #[XmlAttribute]
     private ?RightClass $rightClass;
 

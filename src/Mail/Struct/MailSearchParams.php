@@ -157,7 +157,6 @@ trait MailSearchParams
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
     #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
@@ -254,7 +253,6 @@ trait MailSearchParams
      */
     #[Accessor(getter: 'getWantRecipients', setter: 'setWantRecipients')]
     #[SerializedName('recip')]
-    #[Type('Enum<Zimbra\Common\Enum\WantRecipsSetting>')]
     #[XmlAttribute]
     private ?WantRecipsSetting $wantRecipients;
 
@@ -390,7 +388,6 @@ trait MailSearchParams
      */
     #[Accessor(getter: 'getWantContent', setter: 'setWantContent')]
     #[SerializedName('wantContent')]
-    #[Type('Enum<Zimbra\Common\Enum\MsgContent>')]
     #[XmlAttribute]
     private ?MsgContent $wantContent;
 

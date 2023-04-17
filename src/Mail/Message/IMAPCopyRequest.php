@@ -45,7 +45,6 @@ class IMAPCopyRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('t')]
-    #[Type('Enum<Zimbra\Common\Enum\MailItemType>')]
     #[XmlAttribute]
     private MailItemType $type;
 

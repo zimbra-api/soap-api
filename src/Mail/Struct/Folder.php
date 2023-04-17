@@ -156,7 +156,6 @@ class Folder
      */
     #[Accessor(getter: 'getView', setter: 'setView')]
     #[SerializedName('view')]
-    #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
     private ?ViewType $view;
 

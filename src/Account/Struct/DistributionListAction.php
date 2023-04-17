@@ -34,7 +34,6 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\Operation>')]
     #[XmlAttribute]
     private Operation $op;
 

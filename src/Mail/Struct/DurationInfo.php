@@ -101,7 +101,6 @@ class DurationInfo implements DurationInfoInterface
      */
     #[Accessor(getter: 'getRelated', setter: 'setRelated')]
     #[SerializedName('related')]
-    #[Type('Enum<Zimbra\Common\Enum\AlarmRelated>')]
     #[XmlAttribute]
     private ?AlarmRelated $related;
 

@@ -31,7 +31,6 @@ class CurrentTimeTest extends FilterTest
      */
     #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
     #[SerializedName('dateComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
     #[XmlAttribute]
     private ?DateComparison $dateComparison;
 

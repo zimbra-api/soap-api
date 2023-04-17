@@ -13,7 +13,7 @@ namespace Zimbra\Common\Serializer;
 use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
-use JMS\Serializer\Metadata\Driver\{AttributeDriver, TypedPropertiesDriver};
+use JMS\Serializer\Metadata\Driver\{AttributeDriver, EnumPropertiesDriver, TypedPropertiesDriver};
 use JMS\Serializer\Naming\{
     CamelCaseNamingStrategy, PropertyNamingStrategyInterface, SerializedNameAnnotationStrategy
 };
@@ -70,6 +70,6 @@ class AttributeDriverFactory implements DriverFactoryInterface
             $this->propertyNamingStrategy, $this->typeParser
         );
 
-        return new TypedPropertiesDriver($driver, $this->typeParser);
+        return new TypedPropertiesDriver(new EnumPropertiesDriver($driver), $this->typeParser);
     }
 }

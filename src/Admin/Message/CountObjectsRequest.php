@@ -44,7 +44,6 @@ class CountObjectsRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\CountObjectsType>')]
     #[XmlAttribute]
     private CountObjectsType $type;
 

@@ -32,7 +32,6 @@ class InviteWithGroupInfo
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteType>')]
     #[XmlAttribute]
     private InviteType $calItemType;
 

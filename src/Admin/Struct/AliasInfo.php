@@ -42,7 +42,6 @@ class AliasInfo extends AdminObjectInfo
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private ?TargetType $targetType;
 

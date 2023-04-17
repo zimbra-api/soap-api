@@ -33,7 +33,6 @@ class DedupeBlobsResponse extends SoapResponse
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\DedupStatus>')]
     #[XmlAttribute]
     private ?DedupStatus $status;
 

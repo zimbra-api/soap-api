@@ -33,7 +33,6 @@ class RankingActionSpec
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\RankingActionOp>')]
     #[XmlAttribute]
     private RankingActionOp $operation;
 

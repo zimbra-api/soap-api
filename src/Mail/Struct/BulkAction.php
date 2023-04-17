@@ -34,7 +34,6 @@ class BulkAction
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\BulkOperation>')]
     #[XmlAttribute]
     private BulkOperation $op;
 

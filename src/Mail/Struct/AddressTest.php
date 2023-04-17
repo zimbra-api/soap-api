@@ -44,7 +44,6 @@ class AddressTest extends FilterTest
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
     #[SerializedName('part')]
-    #[Type('Enum<Zimbra\Common\Enum\AddressPart>')]
     #[XmlAttribute]
     private ?AddressPart $part;
 
@@ -55,7 +54,6 @@ class AddressTest extends FilterTest
      */
     #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
     #[SerializedName('stringComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
     private ?StringComparison $comparison;
 
@@ -88,7 +86,6 @@ class AddressTest extends FilterTest
      */
     #[Accessor(getter: 'getValueComparison', setter: 'setValueComparison')]
     #[SerializedName('valueComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\ValueComparison>')]
     #[XmlAttribute]
     private ?ValueComparison $valueComparison;
 
@@ -99,7 +96,6 @@ class AddressTest extends FilterTest
      */
     #[Accessor(getter: 'getCountComparison', setter: 'setCountComparison')]
     #[SerializedName('countComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\CountComparison>')]
     #[XmlAttribute]
     private ?CountComparison $countComparison;
 
@@ -110,7 +106,6 @@ class AddressTest extends FilterTest
      */
     #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
     #[SerializedName('valueComparisonComparator')]
-    #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
     private ?ComparisonComparator $valueComparisonComparator;
 

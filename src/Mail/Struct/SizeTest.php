@@ -31,7 +31,6 @@ class SizeTest extends FilterTest
      */
     #[Accessor(getter: 'getNumberComparison', setter: 'setNumberComparison')]
     #[SerializedName('numberComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\NumberComparison>')]
     #[XmlAttribute]
     private ?NumberComparison $numberComparison;
 

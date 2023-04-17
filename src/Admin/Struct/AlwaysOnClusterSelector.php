@@ -31,7 +31,6 @@ class AlwaysOnClusterSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>')]
     #[XmlAttribute]
     private AlwaysOnClusterBy $by;
 

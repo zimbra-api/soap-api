@@ -48,7 +48,6 @@ class GetAccountDistributionListsRequest extends SoapRequest
      */
     #[Accessor(getter: 'getMemberOf', setter: 'setMemberOf')]
     #[SerializedName('memberOf')]
-    #[Type('Enum<Zimbra\Common\Enum\MemberOfSelector>')]
     #[XmlAttribute]
     private ?MemberOfSelector $memberOf;
 

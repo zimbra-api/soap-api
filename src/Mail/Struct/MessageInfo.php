@@ -77,7 +77,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     #[Accessor(getter: 'getDraftReplyType', setter: 'setDraftReplyType')]
     #[SerializedName('rt')]
-    #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
     private ?ReplyType $draftReplyType;
 

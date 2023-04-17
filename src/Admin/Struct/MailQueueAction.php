@@ -38,7 +38,6 @@ class MailQueueAction
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\QueueAction>')]
     #[XmlAttribute]
     private QueueAction $op;
 
@@ -47,7 +46,6 @@ class MailQueueAction
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\QueueActionBy>')]
     #[XmlAttribute]
     private QueueActionBy $by;
 

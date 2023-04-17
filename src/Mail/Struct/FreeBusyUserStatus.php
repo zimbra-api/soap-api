@@ -43,7 +43,6 @@ class FreeBusyUserStatus
      */
     #[Accessor(getter: 'getFreebusyStatus', setter: 'setFreebusyStatus')]
     #[SerializedName('fb')]
-    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private FreeBusyStatus $freebusyStatus;
 

@@ -46,7 +46,6 @@ class ContactBackupRequest extends SoapRequest
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\ContactBackupOp>')]
     #[XmlAttribute]
     private ContactBackupOp $op;
 

@@ -54,7 +54,6 @@ class Msg
      */
     #[Accessor(getter: 'getReplyType', setter: 'setReplyType')]
     #[SerializedName('rt')]
-    #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
     private ?ReplyType $replyType;
 

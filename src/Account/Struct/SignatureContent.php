@@ -31,7 +31,6 @@ class SignatureContent
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\ContentType>')]
     #[XmlAttribute]
     private ?ContentType $type;
 

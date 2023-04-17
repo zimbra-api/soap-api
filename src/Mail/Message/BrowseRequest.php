@@ -33,7 +33,6 @@ class BrowseRequest extends SoapRequest
      */
     #[Accessor(getter: 'getBrowseBy', setter: 'setBrowseBy')]
     #[SerializedName('browseBy')]
-    #[Type('Enum<Zimbra\Common\Enum\BrowseBy>')]
     #[XmlAttribute]
     private BrowseBy $browseBy;
 

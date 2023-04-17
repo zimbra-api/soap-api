@@ -33,7 +33,6 @@ class ReIndexResponse extends SoapResponse
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\ReIndexStatus>')]
     #[XmlAttribute]
     private ?ReIndexStatus $status;
 

@@ -143,7 +143,6 @@ class DocumentSpec
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\NewFileCreationTypes>')]
     #[XmlAttribute]
     private ?NewFileCreationTypes $type;
 

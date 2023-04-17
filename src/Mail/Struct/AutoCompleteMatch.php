@@ -43,7 +43,6 @@ class AutoCompleteMatch
      */
     #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\AutoCompleteMatchType>')]
     #[XmlAttribute]
     private ?MatchType $matchType;
 

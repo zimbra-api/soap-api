@@ -42,7 +42,6 @@ class HeaderTest extends FilterTest
      */
     #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
     #[SerializedName('stringComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
     private ?StringComparison $stringComparison;
 
@@ -53,7 +52,6 @@ class HeaderTest extends FilterTest
      */
     #[Accessor(getter: 'getValueComparison', setter: 'setValueComparison')]
     #[SerializedName('valueComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\ValueComparison>')]
     #[XmlAttribute]
     private ?ValueComparison $valueComparison;
 
@@ -64,7 +62,6 @@ class HeaderTest extends FilterTest
      */
     #[Accessor(getter: 'getCountComparison', setter: 'setCountComparison')]
     #[SerializedName('countComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\CountComparison>')]
     #[XmlAttribute]
     private ?CountComparison $countComparison;
 
@@ -75,7 +72,6 @@ class HeaderTest extends FilterTest
      */
     #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
     #[SerializedName('valueComparisonComparator')]
-    #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
     private ?ComparisonComparator $valueComparisonComparator;
 

@@ -36,7 +36,6 @@ class GetServerNIfsRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\IpType>')]
     #[XmlAttribute]
     private ?IpType $type;
 

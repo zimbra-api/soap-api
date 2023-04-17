@@ -112,7 +112,6 @@ class MailDataSource implements DataSource
      */
     #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
     #[SerializedName('connectionType')]
-    #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
     private ?ConnectionType $connectionType;
 
@@ -200,7 +199,6 @@ class MailDataSource implements DataSource
      */
     #[Accessor(getter: 'getSmtpConnectionType', setter: 'setSmtpConnectionType')]
     #[SerializedName('smtpConnectionType')]
-    #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
     private ?ConnectionType $smtpConnectionType;
 

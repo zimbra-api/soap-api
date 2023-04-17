@@ -31,7 +31,6 @@ class DistributionListSubscribeReq
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
     #[XmlAttribute]
     private DistributionListSubscribeOp $op;
 

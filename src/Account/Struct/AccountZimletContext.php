@@ -55,7 +55,6 @@ class AccountZimletContext implements ZimletContextInterface
      */
     #[Accessor(getter: 'getZimletPresence', setter: 'setZimletPresence')]
     #[SerializedName('presence')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletPresence>')]
     #[XmlAttribute]
     private ZimletPresence $zimletPresence;
 

@@ -67,7 +67,6 @@ class SearchGalRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
     private ?GalSearchType $type;
 

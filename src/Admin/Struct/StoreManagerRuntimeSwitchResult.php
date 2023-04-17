@@ -31,7 +31,6 @@ class StoreManagerRuntimeSwitchResult
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>')]
     #[XmlAttribute]
     private RuntimeSwitchStatus $status;
 

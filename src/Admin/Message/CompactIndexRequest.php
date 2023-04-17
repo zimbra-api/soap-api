@@ -47,7 +47,6 @@ class CompactIndexRequest extends SoapRequest
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\CompactIndexAction>')]
     #[XmlAttribute]
     private ?Action $action;
 

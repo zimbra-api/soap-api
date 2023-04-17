@@ -31,7 +31,6 @@ class FormatInfo
      */
     #[Accessor(getter: 'getFormat', setter: 'setFormat')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\RequestFormat>')]
     #[XmlAttribute]
     private RequestFormat $format;
 

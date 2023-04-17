@@ -59,7 +59,6 @@ class SendShareNotificationRequest extends SoapRequest
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\ShareAction>')]
     #[XmlAttribute]
     private ?ShareAction $action;
 

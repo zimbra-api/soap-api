@@ -42,7 +42,6 @@ class MimeHeaderTest extends FilterTest
      */
     #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
     #[SerializedName('stringComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
     #[XmlAttribute]
     private ?StringComparison $stringComparison;
 

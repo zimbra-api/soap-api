@@ -31,7 +31,6 @@ class FilterTests
      */
     #[Accessor(getter: 'getCondition', setter: 'setCondition')]
     #[SerializedName('condition')]
-    #[Type('Enum<Zimbra\Common\Enum\FilterCondition>')]
     #[XmlAttribute]
     private FilterCondition $condition;
 

@@ -133,7 +133,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      */
     #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
     #[SerializedName('fba')]
-    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private ?FreeBusyStatus $freeBusyActual;
 
@@ -145,7 +144,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      */
     #[Accessor(getter: 'getFreeBusy', setter: 'setFreeBusy')]
     #[SerializedName('fb')]
-    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
     #[XmlAttribute]
     private ?FreeBusyStatus $freeBusy;
 
@@ -156,7 +154,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      */
     #[Accessor(getter: 'getTransparency', setter: 'setTransparency')]
     #[SerializedName('transp')]
-    #[Type('Enum<Zimbra\Common\Enum\Transparency>')]
     #[XmlAttribute]
     private ?Transparency $transparency;
 
@@ -257,7 +254,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteStatus>')]
     #[XmlAttribute]
     private ?InviteStatus $status;
 
@@ -268,7 +264,6 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      */
     #[Accessor(getter: 'getCalClass', setter: 'setCalClass')]
     #[SerializedName('class')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteClass>')]
     #[XmlAttribute]
     private ?InviteClass $calClass;
 

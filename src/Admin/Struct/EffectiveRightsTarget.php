@@ -31,7 +31,6 @@ class EffectiveRightsTarget
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private TargetType $type;
 

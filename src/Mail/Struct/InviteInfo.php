@@ -35,7 +35,6 @@ class InviteInfo implements InviteInfoInterface
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteType>')]
     #[XmlAttribute]
     private InviteType $calItemType;
 

@@ -11,6 +11,7 @@
 namespace Zimbra\Common\Serializer;
 
 use JMS\Serializer\{
+    Handler\EnumHandler,
     Handler\HandlerRegistryInterface,
     Handler\SubscribingHandlerInterface,
     SerializerBuilder,
@@ -112,7 +113,7 @@ final class SerializerFactory
     public static function create(): SerializerInterface
     {
         if (!(self::$builder instanceof SerializerBuilder)) {
-            self::addSerializerHandler(new EnumSerializerHandler());
+            self::addSerializerHandler(new EnumHandler());
             self::$builder = SerializerBuilder::create();
         }
 

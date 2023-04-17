@@ -182,7 +182,6 @@ class MsgSpec
      */
     #[Accessor(getter: 'getWantContent', setter: 'setWantContent')]
     #[SerializedName('wantContent')]
-    #[Type('Enum<Zimbra\Common\Enum\MsgContent>')]
     #[XmlAttribute]
     private ?MsgContent $wantContent;
 

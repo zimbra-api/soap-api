@@ -64,7 +64,6 @@ class ExchangeAuthSpec
      */
     #[Accessor(getter: 'getScheme', setter: 'setScheme')]
     #[SerializedName('scheme')]
-    #[Type('Enum<Zimbra\Common\Enum\AuthScheme>')]
     #[XmlAttribute]
     private AuthScheme $scheme;
 

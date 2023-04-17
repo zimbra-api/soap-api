@@ -32,7 +32,6 @@ class WkDay implements WkDayInterface
      */
     #[Accessor(getter: 'getDay', setter: 'setDay')]
     #[SerializedName('day')]
-    #[Type('Enum<Zimbra\Common\Enum\WeekDay>')]
     #[XmlAttribute]
     private WeekDay $day;
 

@@ -34,7 +34,6 @@ class DedupeBlobsRequest extends SoapRequest
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\DedupAction>')]
     #[XmlAttribute]
     private DedupAction $action;
 

@@ -41,7 +41,6 @@ class AlarmInfo implements AlarmInfoInterface
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\AlarmAction>')]
     #[XmlAttribute]
     private AlarmAction $action;
 

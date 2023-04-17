@@ -125,7 +125,6 @@ class CalendarAttendee implements CalendarAttendeeInterface
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
     #[SerializedName('ptst')]
-    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
     private ?PartStat $partStat;
 

@@ -44,7 +44,6 @@ class AutoCompleteRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('t')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
     private ?GalSearchType $type;
 

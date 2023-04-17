@@ -31,7 +31,6 @@ class UcServiceSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\UcServiceBy>')]
     #[XmlAttribute]
     private UcServiceBy $by;
 

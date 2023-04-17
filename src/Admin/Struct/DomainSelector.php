@@ -31,7 +31,6 @@ class DomainSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\DomainBy>')]
     #[XmlAttribute]
     private DomainBy $by;
 

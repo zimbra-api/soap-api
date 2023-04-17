@@ -31,7 +31,6 @@ class CalendarResourceSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\CalendarResourceBy>')]
     #[XmlAttribute]
     private CalendarResourceBy $by;
 

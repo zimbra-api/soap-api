@@ -44,7 +44,6 @@ class LockoutMailboxRequest extends SoapRequest
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
     #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\LockoutOperation>')]
     #[XmlAttribute]
     private ?LockoutOperation $operation;
 

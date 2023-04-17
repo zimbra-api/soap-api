@@ -113,7 +113,6 @@ class AccountDataSource implements DataSource
      */
     #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
     #[SerializedName('connectionType')]
-    #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
     #[XmlAttribute]
     private ?ConnectionType $connectionType;
 

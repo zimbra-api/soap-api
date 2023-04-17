@@ -42,7 +42,6 @@ class RightInfo
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\RightType>')]
     #[XmlAttribute]
     private RightType $type;
 
@@ -64,7 +63,6 @@ class RightInfo
      */
     #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
     #[SerializedName('rightClass')]
-    #[Type('Enum<Zimbra\Common\Enum\RightClass>')]
     #[XmlAttribute]
     private RightClass $rightClass;
 

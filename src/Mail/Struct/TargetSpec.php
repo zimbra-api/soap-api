@@ -32,7 +32,6 @@ class TargetSpec
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
     private TargetType $targetType;
 
@@ -43,7 +42,6 @@ class TargetSpec
      */
     #[Accessor(getter: 'getAccountBy', setter: 'setAccountBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
     #[XmlAttribute]
     private AccountBy $accountBy;
 

@@ -57,7 +57,6 @@ class CalReply extends RecurIdInfo
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
     #[SerializedName('ptst')]
-    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
     #[XmlAttribute]
     private ?ParticipationStatus $partStat;
 

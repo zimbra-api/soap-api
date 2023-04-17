@@ -31,7 +31,6 @@ class GranteeSelector
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
     private ?GranteeType $type;
 
@@ -42,7 +41,6 @@ class GranteeSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeBy>')]
     #[XmlAttribute]
     private ?GranteeBy $by;
 

@@ -31,7 +31,6 @@ class EditheaderTest
      */
     #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
     #[SerializedName('matchType')]
-    #[Type('Enum<Zimbra\Common\Enum\MatchType>')]
     #[XmlAttribute]
     private ?MatchType $matchType;
 
@@ -64,7 +63,6 @@ class EditheaderTest
      */
     #[Accessor(getter: 'getRelationalComparator', setter: 'setRelationalComparator')]
     #[SerializedName('relationalComparator')]
-    #[Type('Enum<Zimbra\Common\Enum\RelationalComparator>')]
     #[XmlAttribute]
     private ?RelationalComparator $relationalComparator;
 
@@ -75,7 +73,6 @@ class EditheaderTest
      */
     #[Accessor(getter: 'getComparator', setter: 'setComparator')]
     #[SerializedName('comparator')]
-    #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
     #[XmlAttribute]
     private ?ComparisonComparator $comparator;
 

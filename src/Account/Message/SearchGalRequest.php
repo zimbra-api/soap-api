@@ -63,7 +63,6 @@ class SearchGalRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
     #[XmlAttribute]
     private ?GalSearchType $type;
 
@@ -101,7 +100,6 @@ class SearchGalRequest extends SoapRequest
      */
     #[Accessor(getter: 'getNeedIsMember', setter: 'setNeedIsMember')]
     #[SerializedName('needIsMember')]
-    #[Type('Enum<Zimbra\Common\Enum\MemberOfSelector>')]
     #[XmlAttribute]
     private ?MemberOfSelector $needIsMember;
 

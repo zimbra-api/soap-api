@@ -42,7 +42,6 @@ class ZimletAcl
      */
     #[Accessor(getter: 'getAcl', setter: 'setAcl')]
     #[SerializedName('acl')]
-    #[Type('Enum<Zimbra\Common\Enum\AclType>')]
     #[XmlAttribute]
     private ?AclType $acl;
 

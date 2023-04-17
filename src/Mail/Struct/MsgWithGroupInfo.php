@@ -79,7 +79,6 @@ class MsgWithGroupInfo extends MessageCommon
      */
     #[Accessor(getter: 'getDraftReplyType', setter: 'setDraftReplyType')]
     #[SerializedName('rt')]
-    #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
     #[XmlAttribute]
     private ?ReplyType $draftReplyType;
 

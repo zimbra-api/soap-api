@@ -49,7 +49,6 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      */
     #[Accessor(getter: 'getFrequency', setter: 'setFrequency')]
     #[SerializedName('freq')]
-    #[Type('Enum<Zimbra\Common\Enum\Frequency>')]
     #[XmlAttribute]
     private Frequency $frequency;
 

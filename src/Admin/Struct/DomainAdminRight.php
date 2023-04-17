@@ -42,7 +42,6 @@ class DomainAdminRight
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\RightType>')]
     #[XmlAttribute]
     private RightType $type;
 

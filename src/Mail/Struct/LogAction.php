@@ -31,7 +31,6 @@ class LogAction extends FilterAction
      */
     #[Accessor(getter: 'getLevel', setter: 'setLevel')]
     #[SerializedName('level')]
-    #[Type('Enum<Zimbra\Common\Enum\LoggingLevel>')]
     #[XmlAttribute]
     private ?LoggingLevel $level;
 

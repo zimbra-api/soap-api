@@ -31,7 +31,6 @@ class ServerSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\ServerBy>')]
     #[XmlAttribute]
     private ServerBy $by;
 

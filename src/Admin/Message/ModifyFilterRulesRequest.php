@@ -35,7 +35,6 @@ class ModifyFilterRulesRequest extends SoapRequest
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
     #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\AdminFilterType>')]
     #[XmlAttribute]
     private AdminFilterType $type;
 

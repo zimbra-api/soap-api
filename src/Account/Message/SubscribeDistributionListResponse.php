@@ -32,7 +32,6 @@ class SubscribeDistributionListResponse extends SoapResponse
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>')]
     #[XmlAttribute]
     private SubscribeStatus $status;
 

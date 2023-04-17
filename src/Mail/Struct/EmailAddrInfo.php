@@ -44,7 +44,6 @@ class EmailAddrInfo
      */
     #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
     #[SerializedName('t')]
-    #[Type('Enum<Zimbra\Common\Enum\AddressType>')]
     #[XmlAttribute]
     private ?AddressType $addressType;
 

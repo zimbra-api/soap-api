@@ -32,7 +32,6 @@ class CompactIndexResponse extends SoapResponse
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\CompactIndexStatus>')]
     #[XmlAttribute]
     private ?Status $status;
 

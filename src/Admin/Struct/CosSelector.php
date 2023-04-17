@@ -31,7 +31,6 @@ class CosSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\CosBy>')]
     #[XmlAttribute]
     private CosBy $by;
 

@@ -44,7 +44,6 @@ class NewMountpointSpec
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
     #[SerializedName('view')]
-    #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
     #[XmlAttribute]
     private ?ViewType $defaultView;
 

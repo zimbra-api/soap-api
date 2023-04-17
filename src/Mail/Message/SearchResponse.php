@@ -53,7 +53,6 @@ class SearchResponse extends SoapResponse
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
     #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 

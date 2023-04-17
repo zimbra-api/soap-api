@@ -57,7 +57,6 @@ class SendInviteReplyRequest extends SoapRequest
      */
     #[Accessor(getter: 'getVerb', setter: 'setVerb')]
     #[SerializedName('verb')]
-    #[Type('Enum<Zimbra\Common\Enum\VerbType>')]
     #[XmlAttribute]
     private VerbType $verb;
 

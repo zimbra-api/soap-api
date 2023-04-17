@@ -31,7 +31,6 @@ class XMPPComponentSelector
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
     #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\XmppComponentBy>')]
     #[XmlAttribute]
     private XmppComponentBy $by;
 

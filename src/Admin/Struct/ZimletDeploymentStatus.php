@@ -42,7 +42,6 @@ class ZimletDeploymentStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletDeployStatus>')]
     #[XmlAttribute]
     private ZimletDeployStatus $status;
 

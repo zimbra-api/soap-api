@@ -31,7 +31,6 @@ class ImportanceTest extends FilterTest
      */
     #[Accessor(getter: 'getImportance', setter: 'setImportance')]
     #[SerializedName('imp')]
-    #[Type('Enum<Zimbra\Common\Enum\Importance>')]
     #[XmlAttribute]
     private ?Importance $importance;
 
