@@ -17,8 +17,9 @@ class RuntimeSwitchStatusTest extends TestCase
             'FAIL'         => 'FAIL',
             'NO_OPERATION' => 'NO_OPERATION',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(RuntimeSwitchStatus::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(RuntimeSwitchStatus::from($value)->name, $name);
+            $this->assertSame(RuntimeSwitchStatus::from($value)->value, $value);
         }
     }
 }

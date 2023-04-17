@@ -20,7 +20,7 @@ class CacheSelectorTest extends ZimbraTestCase
         $value1 = $this->faker->word;
         $value2 = $this->faker->word;
         $enums = $this->faker->randomElements(CacheType::cases(), mt_rand(1, count(CacheType::cases())));
-        $types = implode(',', $enums);
+        $types = implode(',', array_map(fn ($type) => $type->value, $enums));
 
         $entry1 = new CacheEntrySelector(CacheEntryBy::NAME, $value1);
         $entry2 = new CacheEntrySelector(CacheEntryBy::NAME, $value2);

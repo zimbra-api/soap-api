@@ -44,7 +44,7 @@ class EnvelopeTest extends ZimbraTestCase
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
-        $format = new FormatInfo(RequestFormat::XML());
+        $format = new FormatInfo(RequestFormat::XML);
         $notify = new NotifyInfo($sequence);
         $context = new Context(
             $hopCount,

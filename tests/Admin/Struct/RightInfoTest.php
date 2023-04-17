@@ -28,13 +28,13 @@ class RightInfoTest extends ZimbraTestCase
 
         $attrs = new RightsAttrs(TRUE, [new Attr($key, $value)]);
         $rights = new ComboRights([new ComboRightInfo(
-            $name, RightType::PRESET(), $targetType
+            $name, RightType::PRESET, $targetType
         )]);
 
-        $right = new StubRightInfo($name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, $attrs, $rights);
+        $right = new StubRightInfo($name, RightType::PRESET, RightClass::ALL, $desc, $targetType, $attrs, $rights);
         $this->assertSame($name, $right->getName());
-        $this->assertEquals(RightType::PRESET(), $right->getType());
-        $this->assertEquals(RightClass::ALL(), $right->getRightClass());
+        $this->assertEquals(RightType::PRESET, $right->getType());
+        $this->assertEquals(RightClass::ALL, $right->getRightClass());
         $this->assertSame($desc, $right->getDesc());
         $this->assertSame($targetType, $right->getTargetType());
         $this->assertSame($attrs, $right->getAttrs());
@@ -42,15 +42,15 @@ class RightInfoTest extends ZimbraTestCase
 
         $right = new StubRightInfo();
         $right->setName($name)
-             ->setType(RightType::PRESET())
-             ->setRightClass(RightClass::ALL())
+             ->setType(RightType::PRESET)
+             ->setRightClass(RightClass::ALL)
              ->setDesc($desc)
              ->setTargetType($targetType)
              ->setAttrs($attrs)
              ->setRights($rights);
         $this->assertSame($name, $right->getName());
-        $this->assertEquals(RightType::PRESET(), $right->getType());
-        $this->assertEquals(RightClass::ALL(), $right->getRightClass());
+        $this->assertEquals(RightType::PRESET, $right->getType());
+        $this->assertEquals(RightClass::ALL, $right->getRightClass());
         $this->assertSame($desc, $right->getDesc());
         $this->assertSame($targetType, $right->getTargetType());
         $this->assertSame($attrs, $right->getAttrs());

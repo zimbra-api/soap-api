@@ -26,7 +26,7 @@ class ContactBackupTest extends ZimbraTestCase
         $request = new ContactBackupRequest([$server], ContactBackupOp::START);
         $this->assertSame([$server], $request->getServers());
         $this->assertEquals(ContactBackupOp::START, $request->getOp());
-        $request = new ContactBackupRequest([], ContactBackupOp::STOP());
+        $request = new ContactBackupRequest([], ContactBackupOp::STOP);
         $request->setServers([$server])
             ->addServer($server)
             ->setOp(ContactBackupOp::START);

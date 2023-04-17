@@ -39,7 +39,7 @@ class ApiTest extends ZimbraTestCase
 </soap:Envelope>
 EOT;
 
-        $account = new AccountInfo(AccountBy::NAME(), $email);
+        $account = new AccountInfo(AccountBy::NAME, $email);
         $api = new StubApi($this->mockSoapClient($xml));
         $api->setAuthToken($token)
             ->setTargetAccount($account);

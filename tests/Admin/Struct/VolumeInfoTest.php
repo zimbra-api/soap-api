@@ -18,7 +18,7 @@ class VolumeInfoTest extends ZimbraTestCase
     public function testVolumeInfo()
     {
         $id = mt_rand(0, 10);
-        $type = $this->faker->randomElement(VolumeType::cases());
+        $type = $this->faker->randomElement(VolumeType::cases())->value;
         $threshold = mt_rand(0, 10);
         $mgbits = mt_rand(0, 10);
         $mbits = mt_rand(0, 10);

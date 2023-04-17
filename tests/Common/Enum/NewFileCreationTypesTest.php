@@ -17,8 +17,9 @@ class NewFileCreationTypesTest extends TestCase
             'PRESENTATION' => 'presentation',
             'SPREADSHEET'  => 'spreadsheet',
         ];
-        foreach ($values as $enum => $value) {
-            $this->assertSame(NewFileCreationTypes::$enum()->getValue(), $value);
+        foreach ($values as $name => $value) {
+            $this->assertSame(NewFileCreationTypes::from($value)->name, $name);
+            $this->assertSame(NewFileCreationTypes::from($value)->value, $value);
         }
     }
 }

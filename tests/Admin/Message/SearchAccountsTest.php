@@ -148,7 +148,7 @@ class SearchAccountsTest extends ZimbraTestCase
                     <urn:owner id="$id" name="$name" type="all" />
                 </urn:owners>
             </urn:dl>
-            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="account">
                 <urn:a n="$key">$value</urn:a>
             </urn:alias>
             <urn:account name="$name" id="$id" isExternal="true">

@@ -169,7 +169,7 @@ class ModifyOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header, StringComparison::IS, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
         $inviteTest = new InviteTest(
             $index, TRUE, [$method]
@@ -328,7 +328,7 @@ class ModifyOutgoingFilterRulesTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:ModifyOutgoingFilterRulesRequest type="$type">
+        <urn:ModifyOutgoingFilterRulesRequest type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>

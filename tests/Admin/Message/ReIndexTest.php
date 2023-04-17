@@ -23,7 +23,7 @@ class ReIndexTest extends ZimbraTestCase
         $id = $this->faker->word;
         $ids = $this->faker->word;
         $enums = $this->faker->randomElements(ReindexType::cases(), mt_rand(1, count(ReindexType::cases())));
-        $types = implode(',', $enums);
+        $types = implode(',', array_map(fn ($type) => $type->value, $enums));
         $numSucceeded = $this->faker->randomNumber;
         $numFailed = $this->faker->randomNumber;
         $numRemaining = $this->faker->randomNumber;

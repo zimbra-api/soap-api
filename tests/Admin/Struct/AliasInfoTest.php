@@ -35,7 +35,7 @@ class AliasInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" targetName="$targetName" type="$targetType" xmlns:urn="urn:zimbraAdmin">
+<result name="$name" id="$id" targetName="$targetName" type="account" xmlns:urn="urn:zimbraAdmin">
     <urn:a n="$key">$value</urn:a>
 </result>
 EOT;

@@ -39,7 +39,7 @@ class VolumeIdAndProgress
      * 
      * @var string
      */
-    #[Accessor(getter: 'get', setter: 'setProgress')]
+    #[Accessor(getter: 'getProgress', setter: 'setProgress')]
     #[SerializedName('progress')]
     #[Type('string')]
     #[XmlAttribute]

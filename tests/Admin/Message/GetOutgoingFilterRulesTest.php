@@ -188,7 +188,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header, StringComparison::IS, ValueComparison::EQUAL, CountComparison::EQUAL, ComparisonComparator::OCTET, $value, TRUE
         );
         $importanceTest = new ImportanceTest(
-            $index, TRUE, Importance::HIGH()
+            $index, TRUE, Importance::HIGH
         );
         $inviteTest = new InviteTest(
             $index, TRUE, [$method]
@@ -206,7 +206,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $index, TRUE, $header, StringComparison::IS, $value, TRUE
         );
         $sizeTest = new SizeTest(
-            $index, TRUE, NumberComparison::OVER(), $size
+            $index, TRUE, NumberComparison::OVER, $size
         );
         $socialcastTest = new SocialcastTest(
             $index, TRUE
@@ -270,7 +270,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
         $actionStop = new StopAction($index);
         $actionReject = new RejectAction($index, $content);
         $actionEreject = new ErejectAction($index, $content);
-        $actionLog = new LogAction($index, LoggingLevel::INFO(), $content);
+        $actionLog = new LogAction($index, LoggingLevel::INFO, $content);
         $actionAddheader = new AddheaderAction($index, $headerName, $headerValue, TRUE);
         $actionDeleteheader = new DeleteheaderAction(
             $index, TRUE, $offset
@@ -342,13 +342,13 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:GetOutgoingFilterRulesRequest type="$type">
+        <urn:GetOutgoingFilterRulesRequest type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>
             <urn:server by="name">$value</urn:server>
         </urn:GetOutgoingFilterRulesRequest>
-        <urn:GetOutgoingFilterRulesResponse type="$type">
+        <urn:GetOutgoingFilterRulesResponse type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>

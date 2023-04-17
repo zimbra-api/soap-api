@@ -1199,7 +1199,7 @@ EOT;
     public function testCreateVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::cases());
+        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::cases())->value;
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;
@@ -2709,7 +2709,7 @@ EOT;
     public function testGetAllVolumes()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::cases());
+        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::cases())->value;
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;
@@ -3290,7 +3290,7 @@ EOT;
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:GetFilterRulesResponse type="$type">
+        <urn:GetFilterRulesResponse type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>
@@ -3927,7 +3927,7 @@ EOT;
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
-        <urn:GetOutgoingFilterRulesResponse type="$type">
+        <urn:GetOutgoingFilterRulesResponse type="before">
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>
@@ -4590,7 +4590,7 @@ EOT;
     public function testGetVolume()
     {
         $id = $this->faker->randomNumber;
-        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::cases());
+        $type = $this->faker->randomElement(\Zimbra\Common\Enum\VolumeType::cases())->value;
         $threshold = $this->faker->randomNumber;
         $mgbits = $this->faker->randomNumber;
         $mbits = $this->faker->randomNumber;
@@ -5833,7 +5833,7 @@ EOT;
                     <urn:owner id="$id" name="$name" type="all" />
                 </urn:owners>
             </urn:dl>
-            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="account">
                 <urn:a n="$key">$value</urn:a>
             </urn:alias>
             <urn:account name="$name" id="$id" isExternal="true">
@@ -5961,7 +5961,7 @@ EOT;
                     <urn:owner id="$id" name="$name" type="all" />
                 </urn:owners>
             </urn:dl>
-            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="account">
                 <urn:a n="$key">$value</urn:a>
             </urn:alias>
             <urn:account name="$name" id="$id" isExternal="true">
