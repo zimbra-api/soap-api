@@ -58,7 +58,9 @@ class GetRightsResponse extends SoapResponse
      */
     public function setAces(array $aces): self
     {
-        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEInfo);
+        $this->aces = array_filter(
+            $aces, static fn ($ace) => $ace instanceof AccountACEInfo
+        );
         return $this;
     }
 

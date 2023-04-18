@@ -231,7 +231,9 @@ class GetAccountInfoResponse extends SoapResponse
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NamedValue);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof NamedValue
+        );
         return $this;
     }
 

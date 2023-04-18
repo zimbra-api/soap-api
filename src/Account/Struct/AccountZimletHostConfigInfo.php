@@ -114,7 +114,9 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      */
     public function setZimletProperties(array $properties): self
     {
-        $this->properties = array_filter($properties, static fn ($prop) => $prop instanceof AccountZimletProperty);
+        $this->properties = array_filter(
+            $properties, static fn ($prop) => $prop instanceof AccountZimletProperty
+        );
         return $this;
     }
 

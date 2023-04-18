@@ -59,7 +59,9 @@ class CreateSignatureBody extends SoapBody
      * @param  CreateSignatureResponse $response
      * @return self
      */
-    public function __construct(?CreateSignatureRequest $request = NULL, ?CreateSignatureResponse $response = NULL)
+    public function __construct(
+        ?CreateSignatureRequest $request = NULL, ?CreateSignatureResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

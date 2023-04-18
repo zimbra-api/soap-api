@@ -193,7 +193,9 @@ class Signature
      */
     public function setContents(array $contents): self
     {
-        $this->contents = array_filter($contents, static fn ($content) => $content instanceof SignatureContent);
+        $this->contents = array_filter(
+            $contents, static fn ($content) => $content instanceof SignatureContent
+        );
         return $this;
     }
 

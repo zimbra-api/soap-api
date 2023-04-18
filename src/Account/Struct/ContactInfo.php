@@ -914,7 +914,9 @@ class ContactInfo
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = array_filter($metadatas, static fn ($metadata) => $metadata instanceof AccountCustomMetadata);
+        $this->metadatas = array_filter(
+            $metadatas, static fn ($metadata) => $metadata instanceof AccountCustomMetadata
+        );
         return $this;
     }
 
@@ -936,7 +938,9 @@ class ContactInfo
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ContactAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof ContactAttr
+        );
         return $this;
     }
 

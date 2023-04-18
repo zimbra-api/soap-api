@@ -83,7 +83,9 @@ class GetWhiteBlackListResponse extends SoapResponse
      */
     public function setWhiteListEntries(array $entries): self
     {
-        $this->whiteListEntries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
+        $this->whiteListEntries = array_unique(
+            array_map(static fn ($entry) => trim($entry), $entries)
+        );
         return $this;
     }
 
@@ -105,7 +107,9 @@ class GetWhiteBlackListResponse extends SoapResponse
      */
     public function setBlackListEntries(array $entries): self
     {
-        $this->blackListEntries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
+        $this->blackListEntries = array_unique(
+            array_map(static fn ($entry) => trim($entry), $entries)
+        );
         return $this;
     }
 

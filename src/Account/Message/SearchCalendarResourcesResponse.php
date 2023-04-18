@@ -234,7 +234,9 @@ class SearchCalendarResourcesResponse extends SoapResponse
      */
     public function setCalendarResources(array $resources): self
     {
-        $this->calendarResources = array_filter($resources, static fn ($resource) => $resource instanceof CalendarResourceInfo);
+        $this->calendarResources = array_filter(
+            $resources, static fn ($resource) => $resource instanceof CalendarResourceInfo
+        );
         return $this;
     }
 

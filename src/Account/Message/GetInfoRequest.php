@@ -138,7 +138,9 @@ class GetInfoRequest extends SoapRequest
      */
     public function setRights(string $rights): self
     {
-        $this->rights = array_unique(array_map(static fn ($right) => trim($right), explode(',', $rights)));
+        $this->rights = array_unique(
+            array_map(static fn ($right) => trim($right), explode(',', $rights))
+        );
         return $this;
     }
 

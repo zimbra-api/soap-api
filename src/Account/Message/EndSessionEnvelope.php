@@ -49,7 +49,9 @@ class EndSessionEnvelope extends SoapEnvelope
      * @param  SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?EndSessionBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?EndSessionBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

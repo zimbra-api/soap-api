@@ -58,7 +58,9 @@ class GetOAuthConsumersResponse extends SoapResponse
      */
     public function setConsumers(array $consumers): self
     {
-        $this->consumers = array_filter($consumers, static fn ($consumer) => $consumer instanceof OAuthConsumer);
+        $this->consumers = array_filter(
+            $consumers, static fn ($consumer) => $consumer instanceof OAuthConsumer
+        );
         return $this;
     }
 

@@ -186,7 +186,9 @@ class CheckRightsTargetSpec
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_unique(array_map(static fn ($right) => trim($right), $rights));
+        $this->rights = array_unique(
+            array_map(static fn ($right) => trim($right), $rights)
+        );
         return $this;
     }
 

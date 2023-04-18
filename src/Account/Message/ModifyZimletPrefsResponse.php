@@ -67,7 +67,9 @@ class ModifyZimletPrefsResponse extends SoapResponse
      */
     public function setZimlets(array $zimlets)
     {
-        $this->zimlets = array_unique(array_map(static fn ($zimlet) => trim($zimlet), $zimlets));
+        $this->zimlets = array_unique(
+            array_map(static fn ($zimlet) => trim($zimlet), $zimlets)
+        );
         return $this;
     }
 }

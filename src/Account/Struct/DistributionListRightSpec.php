@@ -106,7 +106,9 @@ class DistributionListRightSpec
      */
     public function setGrantees(array $grantees): self
     {
-        $this->grantees = array_filter($grantees, static fn ($grantee) => $grantee instanceof GranteeSelector);
+        $this->grantees = array_filter(
+            $grantees, static fn ($grantee) => $grantee instanceof GranteeSelector
+        );
         return $this;
     }
 
