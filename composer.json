@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "jms/serializer": "^3.0",
+        "jms/serializer": "^3.20",
         "myclabs/php-enum": "^1.0",
         "php-http/discovery": "^1.0",
         "psr/http-client": "^1.0",
@@ -49,5 +49,10 @@
             "vendor/bin/phpunit",
             "vendor/bin/phpstan analyse"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
