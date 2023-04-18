@@ -59,7 +59,9 @@ class GetShareInfoBody extends SoapBody
      * @param GetShareInfoResponse $response
      * @return self
      */
-    public function __construct(?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL)
+    public function __construct(
+        ?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

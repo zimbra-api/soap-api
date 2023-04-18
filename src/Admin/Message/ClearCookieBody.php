@@ -59,7 +59,9 @@ class ClearCookieBody extends SoapBody
      * @param ClearCookieResponse $response
      * @return self
      */
-    public function __construct(?ClearCookieRequest $request = NULL, ?ClearCookieResponse $response = NULL)
+    public function __construct(
+        ?ClearCookieRequest $request = NULL, ?ClearCookieResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

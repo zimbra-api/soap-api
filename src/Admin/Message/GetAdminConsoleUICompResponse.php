@@ -58,7 +58,9 @@ class GetAdminConsoleUICompResponse extends SoapResponse
      */
     public function setValues(array $values): self
     {
-        $this->values = array_filter($values, static fn ($value) => $value instanceof InheritedFlaggedValue);
+        $this->values = array_filter(
+            $values, static fn ($value) => $value instanceof InheritedFlaggedValue
+        );
         return $this;
     }
 

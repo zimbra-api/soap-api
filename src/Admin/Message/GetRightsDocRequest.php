@@ -71,7 +71,9 @@ class GetRightsDocRequest extends SoapRequest
      */
     public function setPkgs(array $pkgs): self
     {
-        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof PackageSelector);
+        $this->pkgs = array_filter(
+            $pkgs, static fn ($pkg) => $pkg instanceof PackageSelector
+        );
         return $this;
     }
 

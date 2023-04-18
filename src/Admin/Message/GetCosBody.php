@@ -59,7 +59,9 @@ class GetCosBody extends SoapBody
      * @param GetCosResponse $response
      * @return self
      */
-    public function __construct(?GetCosRequest $request = NULL, ?GetCosResponse $response = NULL)
+    public function __construct(
+        ?GetCosRequest $request = NULL, ?GetCosResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -43,7 +43,7 @@ class CreateCosRequest extends SoapRequest implements AdminAttrs
     #[Accessor(getter: 'getName', setter: 'setName')]
     #[SerializedName('name')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $name;
 
     /**

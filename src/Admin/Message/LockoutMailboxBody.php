@@ -59,7 +59,9 @@ class LockoutMailboxBody extends SoapBody
      * @param LockoutMailboxResponse $response
      * @return self
      */
-    public function __construct(?LockoutMailboxRequest $request = NULL, ?LockoutMailboxResponse $response = NULL)
+    public function __construct(
+        ?LockoutMailboxRequest $request = NULL, ?LockoutMailboxResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

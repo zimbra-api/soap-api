@@ -59,7 +59,9 @@ class RenameAccountBody extends SoapBody
      * @param RenameAccountResponse $response
      * @return self
      */
-    public function __construct(?RenameAccountRequest $request = NULL, ?RenameAccountResponse $response = NULL)
+    public function __construct(
+        ?RenameAccountRequest $request = NULL, ?RenameAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

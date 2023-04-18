@@ -59,7 +59,9 @@ class DeleteMailboxBody extends SoapBody
      * @param DeleteMailboxResponse $response
      * @return self
      */
-    public function __construct(?DeleteMailboxRequest $request = NULL, ?DeleteMailboxResponse $response = NULL)
+    public function __construct(
+        ?DeleteMailboxRequest $request = NULL, ?DeleteMailboxResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

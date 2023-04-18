@@ -59,7 +59,9 @@ class RenameCosBody extends SoapBody
      * @param RenameCosResponse $response
      * @return self
      */
-    public function __construct(?RenameCosRequest $request = NULL, ?RenameCosResponse $response = NULL)
+    public function __construct(
+        ?RenameCosRequest $request = NULL, ?RenameCosResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -74,7 +74,9 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = array_filter($searches, static fn ($search) => $search instanceof NamedValue);
+        $this->searches = array_filter(
+            $searches, static fn ($search) => $search instanceof NamedValue
+        );
         return $this;
     }
 

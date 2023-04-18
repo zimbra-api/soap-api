@@ -383,7 +383,9 @@ class AdminWaitSetRequest extends SoapRequest
      */
     public function setAddAccounts(array $accounts): self
     {
-        $this->addAccounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
+        $this->addAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+        );
         return $this;
     }
 
@@ -417,7 +419,9 @@ class AdminWaitSetRequest extends SoapRequest
      */
     public function setUpdateAccounts(array $accounts): self
     {
-        $this->updateAccounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
+        $this->updateAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+        );
         return $this;
     }
 
@@ -451,7 +455,9 @@ class AdminWaitSetRequest extends SoapRequest
      */
     public function setRemoveAccounts(array $accounts): self
     {
-        $this->removeAccounts = array_filter($accounts, static fn ($account) => $account instanceof Id);
+        $this->removeAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof Id
+        );
         return $this;
     }
 

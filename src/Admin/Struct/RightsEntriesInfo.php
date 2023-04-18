@@ -52,7 +52,7 @@ class RightsEntriesInfo
     #[SerializedName('rights')]
     #[Type(EffectiveRightsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $rights;
+    private EffectiveRightsInfo $rights;
 
     /**
      * Constructor
@@ -84,7 +84,9 @@ class RightsEntriesInfo
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = array_filter($entries, static fn ($entry) => $entry instanceof NamedElement);
+        $this->entries = array_filter(
+            $entries, static fn ($entry) => $entry instanceof NamedElement
+        );
         return $this;
     }
 

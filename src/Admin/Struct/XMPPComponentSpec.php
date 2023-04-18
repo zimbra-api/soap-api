@@ -53,7 +53,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     #[SerializedName('domain')]
     #[Type(DomainSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Server selector
@@ -69,7 +69,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     #[SerializedName('server')]
     #[Type(ServerSelector::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $server;
+    private ServerSelector $server;
 
     /**
      * Constructor

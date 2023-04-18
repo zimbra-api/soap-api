@@ -134,7 +134,9 @@ class AccountLoggerInfo
      */
     public function setLoggers(array $loggers): self
     {
-        $this->loggers = array_filter($loggers, static fn ($logger) => $logger instanceof LoggerInfo);
+        $this->loggers = array_filter(
+            $loggers, static fn ($logger) => $logger instanceof LoggerInfo
+        );
         return $this;
     }
 

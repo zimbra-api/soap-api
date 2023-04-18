@@ -59,7 +59,9 @@ class VerifyIndexBody extends SoapBody
      * @param VerifyIndexResponse $response
      * @return self
      */
-    public function __construct(?VerifyIndexRequest $request = NULL, ?VerifyIndexResponse $response = NULL)
+    public function __construct(
+        ?VerifyIndexRequest $request = NULL, ?VerifyIndexResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

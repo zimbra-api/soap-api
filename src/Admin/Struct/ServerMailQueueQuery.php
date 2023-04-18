@@ -37,7 +37,7 @@ class ServerMailQueueQuery
     #[SerializedName('queue')]
     #[Type(MailQueueQuery::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $queue;
+    private MailQueueQuery $queue;
 
     /**
      * MTA Server

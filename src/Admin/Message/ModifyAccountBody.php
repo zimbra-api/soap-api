@@ -59,7 +59,9 @@ class ModifyAccountBody extends SoapBody
      * @param ModifyAccountResponse $response
      * @return self
      */
-    public function __construct(?ModifyAccountRequest $request = NULL, ?ModifyAccountResponse $response = NULL)
+    public function __construct(
+        ?ModifyAccountRequest $request = NULL, ?ModifyAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

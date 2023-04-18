@@ -38,7 +38,7 @@ class UcServiceSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\UcServiceBy>')]
     #[XmlAttribute]
-    private $by;
+    private UcServiceBy $by;
 
     /**
      * Key for choosing ucservice

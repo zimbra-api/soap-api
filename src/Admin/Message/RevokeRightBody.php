@@ -59,7 +59,9 @@ class RevokeRightBody extends SoapBody
      * @param RevokeRightResponse $response
      * @return self
      */
-    public function __construct(?RevokeRightRequest $request = NULL, ?RevokeRightResponse $response = NULL)
+    public function __construct(
+        ?RevokeRightRequest $request = NULL, ?RevokeRightResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

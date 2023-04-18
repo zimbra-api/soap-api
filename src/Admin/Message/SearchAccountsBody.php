@@ -59,7 +59,9 @@ class SearchAccountsBody extends SoapBody
      * @param SearchAccountsResponse $response
      * @return self
      */
-    public function __construct(?SearchAccountsRequest $request = NULL, ?SearchAccountsResponse $response = NULL)
+    public function __construct(
+        ?SearchAccountsRequest $request = NULL, ?SearchAccountsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

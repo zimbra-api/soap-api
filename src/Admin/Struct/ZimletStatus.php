@@ -54,7 +54,7 @@ class ZimletStatus
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletStatusSetting>')]
     #[XmlAttribute]
-    private $status;
+    private ZimletStatusSetting $status;
 
     /**
      * Extension

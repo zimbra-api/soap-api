@@ -54,7 +54,7 @@ class AliasInfo extends AdminObjectInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $targetType;
+    private ?TargetType $targetType;
 
     /**
      * Constructor
@@ -76,9 +76,7 @@ class AliasInfo extends AdminObjectInfo
     {
         parent::__construct($name, $id, $attrs);
         $this->setTargetName($targetName);
-        if ($targetType instanceof TargetType) {
-            $this->setTargetType($targetType);
-        }
+        $this->targetType = $targetType;
     }
 
     /**

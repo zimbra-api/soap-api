@@ -59,7 +59,9 @@ class GetQuotaUsageBody extends SoapBody
      * @param GetQuotaUsageResponse $response
      * @return self
      */
-    public function __construct(?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL)
+    public function __construct(
+        ?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class CountObjectsBody extends SoapBody
      * @param CountObjectsResponse $response
      * @return self
      */
-    public function __construct(?CountObjectsRequest $request = NULL, ?CountObjectsResponse $response = NULL)
+    public function __construct(
+        ?CountObjectsRequest $request = NULL, ?CountObjectsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

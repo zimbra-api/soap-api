@@ -59,7 +59,9 @@ class UndeployZimletBody extends SoapBody
      * @param UndeployZimletResponse $response
      * @return self
      */
-    public function __construct(?UndeployZimletRequest $request = NULL, ?UndeployZimletResponse $response = NULL)
+    public function __construct(
+        ?UndeployZimletRequest $request = NULL, ?UndeployZimletResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class GetGrantsBody extends SoapBody
      * @param GetGrantsResponse $response
      * @return self
      */
-    public function __construct(?GetGrantsRequest $request = NULL, ?GetGrantsResponse $response = NULL)
+    public function __construct(
+        ?GetGrantsRequest $request = NULL, ?GetGrantsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

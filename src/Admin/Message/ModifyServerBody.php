@@ -59,7 +59,9 @@ class ModifyServerBody extends SoapBody
      * @param ModifyServerResponse $response
      * @return self
      */
-    public function __construct(?ModifyServerRequest $request = NULL, ?ModifyServerResponse $response = NULL)
+    public function __construct(
+        ?ModifyServerRequest $request = NULL, ?ModifyServerResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

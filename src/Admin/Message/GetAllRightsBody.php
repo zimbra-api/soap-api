@@ -59,7 +59,9 @@ class GetAllRightsBody extends SoapBody
      * @param GetAllRightsResponse $response
      * @return self
      */
-    public function __construct(?GetAllRightsRequest $request = NULL, ?GetAllRightsResponse $response = NULL)
+    public function __construct(
+        ?GetAllRightsRequest $request = NULL, ?GetAllRightsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -110,7 +110,9 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      */
     public function setKeys(array $keys)
     {
-        $this->keys = array_unique(array_map(static fn ($key) => trim($key), $keys));
+        $this->keys = array_unique(
+            array_map(static fn ($key) => trim($key), $keys)
+        );
         return $this;
     }
 }

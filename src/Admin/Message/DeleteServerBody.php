@@ -59,7 +59,9 @@ class DeleteServerBody extends SoapBody
      * @param DeleteServerResponse $response
      * @return self
      */
-    public function __construct(?DeleteServerRequest $request = NULL, ?DeleteServerResponse $response = NULL)
+    public function __construct(
+        ?DeleteServerRequest $request = NULL, ?DeleteServerResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

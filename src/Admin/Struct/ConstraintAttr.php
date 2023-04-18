@@ -53,7 +53,7 @@ class ConstraintAttr
     #[SerializedName('constraint')]
     #[Type(ConstraintInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $constraint;
+    private ConstraintInfo $constraint;
 
     /**
      * Constructor

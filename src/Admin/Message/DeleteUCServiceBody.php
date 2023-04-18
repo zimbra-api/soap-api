@@ -59,7 +59,9 @@ class DeleteUCServiceBody extends SoapBody
      * @param DeleteUCServiceResponse $response
      * @return self
      */
-    public function __construct(?DeleteUCServiceRequest $request = NULL, ?DeleteUCServiceResponse $response = NULL)
+    public function __construct(
+        ?DeleteUCServiceRequest $request = NULL, ?DeleteUCServiceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

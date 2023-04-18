@@ -59,7 +59,9 @@ class GetIndexStatsBody extends SoapBody
      * @param GetIndexStatsResponse $response
      * @return self
      */
-    public function __construct(?GetIndexStatsRequest $request = NULL, ?GetIndexStatsResponse $response = NULL)
+    public function __construct(
+        ?GetIndexStatsRequest $request = NULL, ?GetIndexStatsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

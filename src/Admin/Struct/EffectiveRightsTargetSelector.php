@@ -38,7 +38,7 @@ class EffectiveRightsTargetSelector
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
     #[XmlAttribute]
-    private $type;
+    private TargetType $type;
 
     /**
      * Target by
@@ -54,7 +54,7 @@ class EffectiveRightsTargetSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\TargetBy>')]
     #[XmlAttribute]
-    private $by;
+    private ?TargetBy $by;
 
     /**
      * The value
@@ -83,9 +83,7 @@ class EffectiveRightsTargetSelector
     )
     {
         $this->setType($type ?? new TargetType('account'));
-        if (NULL !== $by) {
-            $this->setBy($by);
-        }
+        $this->by = $by;
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -38,7 +38,7 @@ class StoreManagerRuntimeSwitchResult
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>')]
     #[XmlAttribute]
-    private $status;
+    private RuntimeSwitchStatus $status;
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store

@@ -108,7 +108,9 @@ class PackageRightsInfo
      */
     public function setCmds(array $cmds)
     {
-        $this->cmds = array_filter($cmds, static fn ($cmd) => $cmd instanceof CmdRightsInfo);
+        $this->cmds = array_filter(
+            $cmds, static fn ($cmd) => $cmd instanceof CmdRightsInfo
+        );
         return $this;
     }
 }

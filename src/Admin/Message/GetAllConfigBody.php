@@ -59,7 +59,9 @@ class GetAllConfigBody extends SoapBody
      * @param GetAllConfigResponse $response
      * @return self
      */
-    public function __construct(?GetAllConfigRequest $request = NULL, ?GetAllConfigResponse $response = NULL)
+    public function __construct(
+        ?GetAllConfigRequest $request = NULL, ?GetAllConfigResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

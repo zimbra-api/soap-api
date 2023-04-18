@@ -49,7 +49,9 @@ class ModifyLDAPEntryEnvelope extends SoapEnvelope
      * @param SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?ModifyLDAPEntryBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?ModifyLDAPEntryBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

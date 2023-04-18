@@ -72,7 +72,9 @@ class TestResultInfo
      */
     public function setCompletedTests(array $tests): self
     {
-        $this->completedTests = array_filter($tests, static fn ($test) => $test instanceof CompletedTestInfo);
+        $this->completedTests = array_filter(
+            $tests, static fn ($test) => $test instanceof CompletedTestInfo
+        );
         return $this;
     }
 
@@ -94,7 +96,9 @@ class TestResultInfo
      */
     public function setFailedTests(array $tests): self
     {
-        $this->failedTests = array_filter($tests, static fn ($test) => $test instanceof FailedTestInfo);
+        $this->failedTests = array_filter(
+            $tests, static fn ($test) => $test instanceof FailedTestInfo
+        );
         return $this;
     }
 

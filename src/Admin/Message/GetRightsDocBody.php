@@ -59,7 +59,9 @@ class GetRightsDocBody extends SoapBody
      * @param GetRightsDocResponse $response
      * @return self
      */
-    public function __construct(?GetRightsDocRequest $request = NULL, ?GetRightsDocResponse $response = NULL)
+    public function __construct(
+        ?GetRightsDocRequest $request = NULL, ?GetRightsDocResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -49,7 +49,9 @@ class DeleteVolumeEnvelope extends SoapEnvelope
      * @param SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?DeleteVolumeBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?DeleteVolumeBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

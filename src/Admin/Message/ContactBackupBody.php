@@ -59,7 +59,9 @@ class ContactBackupBody extends SoapBody
      * @param ContactBackupResponse $response
      * @return self
      */
-    public function __construct(?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL)
+    public function __construct(
+        ?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

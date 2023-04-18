@@ -110,7 +110,9 @@ class DedupeBlobsRequest extends SoapRequest
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = array_filter($volumes, static fn ($volume) => $volume instanceof IntIdAttr);
+        $this->volumes = array_filter(
+            $volumes, static fn ($volume) => $volume instanceof IntIdAttr
+        );
         return $this;
     }
 

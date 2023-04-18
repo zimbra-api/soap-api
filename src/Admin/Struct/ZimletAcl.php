@@ -54,7 +54,7 @@ class ZimletAcl
     #[SerializedName('acl')]
     #[Type('Enum<Zimbra\Common\Enum\AclType>')]
     #[XmlAttribute]
-    private $acl;
+    private ?AclType $acl;
 
     /**
      * Constructor
@@ -65,11 +65,9 @@ class ZimletAcl
      */
     public function __construct(?string $cos = NULL, ?AclType $acl = NULL)
     {
+        $this->acl = $acl;
         if (NULL !== $cos) {
             $this->setCos($cos);
-        }
-        if (NULL !== $acl) {
-            $this->setAcl($acl);
         }
     }
 

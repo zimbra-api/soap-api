@@ -178,7 +178,9 @@ class CosInfo implements AdminObjectInterface
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof CosInfoAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof CosInfoAttr
+        );
         return $this;
     }
 

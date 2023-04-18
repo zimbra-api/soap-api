@@ -59,7 +59,9 @@ class DeleteDomainBody extends SoapBody
      * @param DeleteDomainResponse $response
      * @return self
      */
-    public function __construct(?DeleteDomainRequest $request = NULL, ?DeleteDomainResponse $response = NULL)
+    public function __construct(
+        ?DeleteDomainRequest $request = NULL, ?DeleteDomainResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

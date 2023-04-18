@@ -51,7 +51,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     #[Accessor(getter: 'getCode', setter: 'setCode')]
     #[SerializedName('code')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
@@ -67,7 +67,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
     #[SerializedName('message')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**
@@ -109,7 +109,9 @@ class CheckDomainMXRecordResponse extends SoapResponse
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
+        $this->entries = array_unique(
+            array_map(static fn ($entry) => trim($entry), $entries)
+        );
         return $this;
     }
 

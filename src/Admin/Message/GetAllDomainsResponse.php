@@ -58,7 +58,9 @@ class GetAllDomainsResponse extends SoapResponse
      */
     public function setDomainList(array $domainList): self
     {
-        $this->domainList = array_filter($domainList, static fn ($domain) => $domain instanceof DomainInfo);
+        $this->domainList = array_filter(
+            $domainList, static fn ($domain) => $domain instanceof DomainInfo
+        );
         return $this;
     }
 

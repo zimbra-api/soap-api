@@ -59,7 +59,9 @@ class GrantRightBody extends SoapBody
      * @param GrantRightResponse $response
      * @return self
      */
-    public function __construct(?GrantRightRequest $request = NULL, ?GrantRightResponse $response = NULL)
+    public function __construct(
+        ?GrantRightRequest $request = NULL, ?GrantRightResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class GetRightBody extends SoapBody
      * @param GetRightResponse $response
      * @return self
      */
-    public function __construct(?GetRightRequest $request = NULL, ?GetRightResponse $response = NULL)
+    public function __construct(
+        ?GetRightRequest $request = NULL, ?GetRightResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

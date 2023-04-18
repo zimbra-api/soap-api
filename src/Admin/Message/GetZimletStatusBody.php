@@ -59,7 +59,9 @@ class GetZimletStatusBody extends SoapBody
      * @param GetZimletStatusResponse $response
      * @return self
      */
-    public function __construct(?GetZimletStatusRequest $request = NULL, ?GetZimletStatusResponse $response = NULL)
+    public function __construct(
+        ?GetZimletStatusRequest $request = NULL, ?GetZimletStatusResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

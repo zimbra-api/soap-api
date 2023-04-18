@@ -37,7 +37,7 @@ class MailQueueQuery
     #[SerializedName('query')]
     #[Type(QueueQuery::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $query;
+    private QueueQuery $query;
 
     /**
      * Queue name

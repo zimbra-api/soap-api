@@ -70,7 +70,7 @@ class GranteeInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
-    private $type;
+    private ?GranteeType $type;
 
     /**
      * Constructor
@@ -86,9 +86,7 @@ class GranteeInfo
     {
         $this->setId($id)
              ->setName($name);
-        if ($type instanceof GranteeType) {
-            $this->setType($type);
-        }
+        $this->type = $type;
     }
 
     /**

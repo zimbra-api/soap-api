@@ -38,7 +38,7 @@ class XMPPComponentSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\XmppComponentBy>')]
     #[XmlAttribute]
-    private $by;
+    private XmppComponentBy $by;
 
     /**
      * The key used to identify the XMPP component

@@ -59,7 +59,9 @@ class GetDomainInfoBody extends SoapBody
      * @param GetDomainInfoResponse $response
      * @return self
      */
-    public function __construct(?GetDomainInfoRequest $request = NULL, ?GetDomainInfoResponse $response = NULL)
+    public function __construct(
+        ?GetDomainInfoRequest $request = NULL, ?GetDomainInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -158,7 +158,9 @@ class InfoForSessionType
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof AccountSessionInfo);
+        $this->accounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof AccountSessionInfo
+        );
         return $this;
     }
 
@@ -180,7 +182,9 @@ class InfoForSessionType
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionInfo);
+        $this->sessions = array_filter(
+            $sessions, static fn ($session) => $session instanceof SessionInfo
+        );
         return $this;
     }
 

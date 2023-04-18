@@ -58,7 +58,9 @@ class CountAccountResponse extends SoapResponse
      */
     public function setCos(array $coses): self
     {
-        $this->cos = array_filter($coses, static fn ($cos) => $cos instanceof CosCountInfo);
+        $this->cos = array_filter(
+            $coses, static fn ($cos) => $cos instanceof CosCountInfo
+        );
         return $this;
     }
 

@@ -37,7 +37,7 @@ class RightViaInfo
     #[SerializedName('target')]
     #[Type(TargetWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $target;
+    private TargetWithType $target;
 
     /**
      * Target
@@ -53,7 +53,7 @@ class RightViaInfo
     #[SerializedName('grantee')]
     #[Type(GranteeWithType::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $grantee;
+    private GranteeWithType $grantee;
 
     /**
      * Target
@@ -69,7 +69,7 @@ class RightViaInfo
     #[SerializedName('right')]
     #[Type(CheckedRight::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $right;
+    private CheckedRight $right;
 
     /**
      * Constructor

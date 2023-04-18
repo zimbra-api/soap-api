@@ -59,7 +59,9 @@ class PurgeMessagesBody extends SoapBody
      * @param PurgeMessagesResponse $response
      * @return self
      */
-    public function __construct(?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL)
+    public function __construct(
+        ?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class CheckAuthConfigBody extends SoapBody
      * @param CheckAuthConfigResponse $response
      * @return self
      */
-    public function __construct(?CheckAuthConfigRequest $request = NULL, ?CheckAuthConfigResponse $response = NULL)
+    public function __construct(
+        ?CheckAuthConfigRequest $request = NULL, ?CheckAuthConfigResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

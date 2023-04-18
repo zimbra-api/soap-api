@@ -59,7 +59,9 @@ class ModifyConfigBody extends SoapBody
      * @param ModifyConfigResponse $response
      * @return self
      */
-    public function __construct(?ModifyConfigRequest $request = NULL, ?ModifyConfigResponse $response = NULL)
+    public function __construct(
+        ?ModifyConfigRequest $request = NULL, ?ModifyConfigResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class DeployZimletBody extends SoapBody
      * @param DeployZimletResponse $response
      * @return self
      */
-    public function __construct(?DeployZimletRequest $request = NULL, ?DeployZimletResponse $response = NULL)
+    public function __construct(
+        ?DeployZimletRequest $request = NULL, ?DeployZimletResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

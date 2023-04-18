@@ -59,7 +59,9 @@ class ResetAccountPasswordBody extends SoapBody
      * @param ResetAccountPasswordResponse $response
      * @return self
      */
-    public function __construct(?ResetAccountPasswordRequest $request = NULL, ?ResetAccountPasswordResponse $response = NULL)
+    public function __construct(
+        ?ResetAccountPasswordRequest $request = NULL, ?ResetAccountPasswordResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

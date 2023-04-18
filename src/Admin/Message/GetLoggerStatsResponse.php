@@ -52,7 +52,7 @@ class GetLoggerStatsResponse extends SoapResponse
     #[Accessor(getter: 'getNote', setter: 'setNote')]
     #[SerializedName('note')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $note;
 
     /**
@@ -78,7 +78,9 @@ class GetLoggerStatsResponse extends SoapResponse
      */
     public function setHostNames(array $hostNames): self
     {
-        $this->hostNames = array_filter($hostNames, static fn ($hostname) => $hostname instanceof HostStats);
+        $this->hostNames = array_filter(
+            $hostNames, static fn ($hostname) => $hostname instanceof HostStats
+        );
         return $this;
     }
 

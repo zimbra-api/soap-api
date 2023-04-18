@@ -38,7 +38,7 @@ class ServerSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\ServerBy>')]
     #[XmlAttribute]
-    private $by;
+    private ServerBy $by;
 
     /**
      * Key for choosing server

@@ -59,7 +59,9 @@ class CreateServerBody extends SoapBody
      * @param CreateServerResponse $response
      * @return self
      */
-    public function __construct(?CreateServerRequest $request = NULL, ?CreateServerResponse $response = NULL)
+    public function __construct(
+        ?CreateServerRequest $request = NULL, ?CreateServerResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

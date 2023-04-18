@@ -58,7 +58,9 @@ class GetLDAPEntriesResponse extends SoapResponse
      */
     public function setLDAPEntries(array $LDAPEntries): self
     {
-        $this->LDAPEntries = array_filter($LDAPEntries, static fn ($LDAPEntry) => $LDAPEntry instanceof LDAPEntryInfo);
+        $this->LDAPEntries = array_filter(
+            $LDAPEntries, static fn ($LDAPEntry) => $LDAPEntry instanceof LDAPEntryInfo
+        );
         return $this;
     }
 

@@ -38,7 +38,7 @@ class CosSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\CosBy>')]
     #[XmlAttribute]
-    private $by;
+    private CosBy $by;
 
     /**
      * The key used to identify the COS

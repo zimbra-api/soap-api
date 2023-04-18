@@ -37,7 +37,7 @@ class CheckAuthConfigResponse extends SoapResponse
     #[Accessor(getter: 'getCode', setter: 'setCode')]
     #[SerializedName('code')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
@@ -53,7 +53,7 @@ class CheckAuthConfigResponse extends SoapResponse
     #[Accessor(getter: 'getBindDn', setter: 'setBindDn')]
     #[SerializedName('bindDn')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $bindDn;
 
     /**
@@ -69,7 +69,7 @@ class CheckAuthConfigResponse extends SoapResponse
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
     #[SerializedName('message')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**

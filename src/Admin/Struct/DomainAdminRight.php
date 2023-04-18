@@ -54,7 +54,7 @@ class DomainAdminRight
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\RightType>')]
     #[XmlAttribute]
-    private $type;
+    private RightType $type;
 
     /**
      * Description
@@ -196,7 +196,9 @@ class DomainAdminRight
      */
     public function setRights(array $rights)
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightWithName);
+        $this->rights = array_filter(
+            $rights, static fn ($right) => $right instanceof RightWithName
+        );
         return $this;
     }
 }

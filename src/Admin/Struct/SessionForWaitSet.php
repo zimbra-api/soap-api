@@ -132,7 +132,7 @@ class SessionForWaitSet
     #[SerializedName('WaitSetSession')]
     #[Type(WaitSetSessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $waitSetSession;
+    private ?WaitSetSessionInfo $waitSetSession;
 
     /**
      * Constructor
@@ -158,6 +158,7 @@ class SessionForWaitSet
     {
         $this->setAccount($account)
              ->setInterests($interests);
+        $this->waitSetSession = $waitSetSession;
         if (NULL !== $token) {
             $this->setToken($token);
         }
@@ -169,9 +170,6 @@ class SessionForWaitSet
         }
         if (NULL !== $acctIdError) {
             $this->setAcctIdError($acctIdError);
-        }
-        if ($waitSetSession instanceof WaitSetSessionInfo) {
-            $this->setWaitSetSession($waitSetSession);
         }
     }
 

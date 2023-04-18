@@ -59,7 +59,9 @@ class GetMailboxStatsBody extends SoapBody
      * @param GetMailboxStatsResponse $response
      * @return self
      */
-    public function __construct(?GetMailboxStatsRequest $request = NULL, ?GetMailboxStatsResponse $response = NULL)
+    public function __construct(
+        ?GetMailboxStatsRequest $request = NULL, ?GetMailboxStatsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

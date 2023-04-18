@@ -59,7 +59,9 @@ class GetAllSkinsBody extends SoapBody
      * @param GetAllSkinsResponse $response
      * @return self
      */
-    public function __construct(?GetAllSkinsRequest $request = NULL, ?GetAllSkinsResponse $response = NULL)
+    public function __construct(
+        ?GetAllSkinsRequest $request = NULL, ?GetAllSkinsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

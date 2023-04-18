@@ -101,7 +101,7 @@ class IncorrectBlobRevisionInfo
     #[SerializedName('blob')]
     #[Type(BlobRevisionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $blob;
+    private ?BlobRevisionInfo $blob;
 
     /**
      * Constructor
@@ -125,9 +125,7 @@ class IncorrectBlobRevisionInfo
              ->setRevision($revision)
              ->setSize($size)
              ->setVolumeId($volumeId);
-        if ($blob instanceof BlobRevisionInfo) {
-            $this->setBlob($blob);
-        }
+        $this->blob = $blob;
     }
 
     /**

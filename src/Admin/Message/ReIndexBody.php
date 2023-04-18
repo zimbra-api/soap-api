@@ -59,7 +59,9 @@ class ReIndexBody extends SoapBody
      * @param ReIndexResponse $response
      * @return self
      */
-    public function __construct(?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL)
+    public function __construct(
+        ?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

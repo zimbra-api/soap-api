@@ -59,7 +59,9 @@ class DeleteZimletBody extends SoapBody
      * @param DeleteZimletResponse $response
      * @return self
      */
-    public function __construct(?DeleteZimletRequest $request = NULL, ?DeleteZimletResponse $response = NULL)
+    public function __construct(
+        ?DeleteZimletRequest $request = NULL, ?DeleteZimletResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

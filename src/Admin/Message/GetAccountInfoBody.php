@@ -59,7 +59,9 @@ class GetAccountInfoBody extends SoapBody
      * @param GetAccountInfoResponse $response
      * @return self
      */
-    public function __construct(?GetAccountInfoRequest $request = NULL, ?GetAccountInfoResponse $response = NULL)
+    public function __construct(
+        ?GetAccountInfoRequest $request = NULL, ?GetAccountInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

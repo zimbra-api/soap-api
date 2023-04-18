@@ -59,7 +59,9 @@ class QueryWaitSetBody extends SoapBody
      * @param QueryWaitSetResponse $response
      * @return self
      */
-    public function __construct(?QueryWaitSetRequest $request = NULL, ?QueryWaitSetResponse $response = NULL)
+    public function __construct(
+        ?QueryWaitSetRequest $request = NULL, ?QueryWaitSetResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

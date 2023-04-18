@@ -59,7 +59,9 @@ class DeleteCosBody extends SoapBody
      * @param DeleteCosResponse $response
      * @return self
      */
-    public function __construct(?DeleteCosRequest $request = NULL, ?DeleteCosResponse $response = NULL)
+    public function __construct(
+        ?DeleteCosRequest $request = NULL, ?DeleteCosResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

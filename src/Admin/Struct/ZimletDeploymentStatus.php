@@ -53,7 +53,7 @@ class ZimletDeploymentStatus
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\ZimletDeployStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ZimletDeployStatus $status;
 
     /**
      * Error message

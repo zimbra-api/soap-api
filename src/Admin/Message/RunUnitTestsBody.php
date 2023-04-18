@@ -59,7 +59,9 @@ class RunUnitTestsBody extends SoapBody
      * @param RunUnitTestsResponse $response
      * @return self
      */
-    public function __construct(?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL)
+    public function __construct(
+        ?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

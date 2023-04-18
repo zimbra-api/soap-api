@@ -38,7 +38,7 @@ class DomainSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\DomainBy>')]
     #[XmlAttribute]
-    private $by;
+    private DomainBy $by;
 
     /**
      * The key used to identify the domain

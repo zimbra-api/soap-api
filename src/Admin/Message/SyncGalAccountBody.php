@@ -59,7 +59,9 @@ class SyncGalAccountBody extends SoapBody
      * @param SyncGalAccountResponse $response
      * @return self
      */
-    public function __construct(?SyncGalAccountRequest $request = NULL, ?SyncGalAccountResponse $response = NULL)
+    public function __construct(
+        ?SyncGalAccountRequest $request = NULL, ?SyncGalAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

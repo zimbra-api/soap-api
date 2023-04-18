@@ -84,7 +84,7 @@ class ServiceStatus
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
     #[Type('Enum<Zimbra\Common\Enum\ZeroOrOne>')]
     #[XmlValue(cdata: false)]
-    private $status;
+    private ZeroOrOne $status;
 
     /**
      * Constructor

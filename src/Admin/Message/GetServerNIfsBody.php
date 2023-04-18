@@ -59,7 +59,9 @@ class GetServerNIfsBody extends SoapBody
      * @param GetServerNIfsResponse $response
      * @return self
      */
-    public function __construct(?GetServerNIfsRequest $request = NULL, ?GetServerNIfsResponse $response = NULL)
+    public function __construct(
+        ?GetServerNIfsRequest $request = NULL, ?GetServerNIfsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class CountAccountBody extends SoapBody
      * @param CountAccountResponse $response
      * @return self
      */
-    public function __construct(?CountAccountRequest $request = NULL, ?CountAccountResponse $response = NULL)
+    public function __construct(
+        ?CountAccountRequest $request = NULL, ?CountAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

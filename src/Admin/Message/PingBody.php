@@ -59,7 +59,9 @@ class PingBody extends SoapBody
      * @param PingResponse $response
      * @return self
      */
-    public function __construct(?PingRequest $request = NULL, ?PingResponse $response = NULL)
+    public function __construct(
+        ?PingRequest $request = NULL, ?PingResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class GetLoggerStatsBody extends SoapBody
      * @param GetLoggerStatsResponse $response
      * @return self
      */
-    public function __construct(?GetLoggerStatsRequest $request = NULL, ?GetLoggerStatsResponse $response = NULL)
+    public function __construct(
+        ?GetLoggerStatsRequest $request = NULL, ?GetLoggerStatsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

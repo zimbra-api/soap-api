@@ -59,7 +59,9 @@ class ModifyUCServiceBody extends SoapBody
      * @param ModifyUCServiceResponse $response
      * @return self
      */
-    public function __construct(?ModifyUCServiceRequest $request = NULL, ?ModifyUCServiceResponse $response = NULL)
+    public function __construct(
+        ?ModifyUCServiceRequest $request = NULL, ?ModifyUCServiceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -51,7 +51,7 @@ class EffectiveRightsInfo
     #[SerializedName('setAttrs')]
     #[Type(EffectiveAttrsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $setAttrs;
+    private EffectiveAttrsInfo $setAttrs;
 
     /**
      * All attributes that can be got
@@ -67,7 +67,7 @@ class EffectiveRightsInfo
     #[SerializedName('getAttrs')]
     #[Type(EffectiveAttrsInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $getAttrs;
+    private EffectiveAttrsInfo $getAttrs;
 
     /**
      * Constructor
@@ -103,7 +103,9 @@ class EffectiveRightsInfo
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightWithName);
+        $this->rights = array_filter(
+            $rights, static fn ($right) => $right instanceof RightWithName
+        );
         return $this;
     }
 

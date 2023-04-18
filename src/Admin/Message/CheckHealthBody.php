@@ -59,7 +59,9 @@ class CheckHealthBody extends SoapBody
      * @param CheckHealthResponse $response
      * @return self
      */
-    public function __construct(?CheckHealthRequest $request = NULL, ?CheckHealthResponse $response = NULL)
+    public function __construct(
+        ?CheckHealthRequest $request = NULL, ?CheckHealthResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

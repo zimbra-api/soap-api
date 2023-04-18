@@ -38,7 +38,7 @@ class CheckGalConfigResponse extends SoapResponse
     #[Accessor(getter: 'getCode', setter: 'setCode')]
     #[SerializedName('code')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
@@ -54,7 +54,7 @@ class CheckGalConfigResponse extends SoapResponse
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
     #[SerializedName('message')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**
@@ -144,7 +144,9 @@ class CheckGalConfigResponse extends SoapResponse
      */
     public function setGalContacts(array $contacts): self
     {
-        $this->galContacts = array_filter($contacts, static fn ($contact) => $contact instanceof GalContactInfo);
+        $this->galContacts = array_filter(
+            $contacts, static fn ($contact) => $contact instanceof GalContactInfo
+        );
         return $this;
     }
 

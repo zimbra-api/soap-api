@@ -37,7 +37,7 @@ class GrantInfo
     #[SerializedName('target')]
     #[Type(TypeIdName::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $target;
+    private TypeIdName $target;
 
     /**
      * Information on grantee
@@ -53,7 +53,7 @@ class GrantInfo
     #[SerializedName('grantee')]
     #[Type(GranteeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $grantee;
+    private GranteeInfo $grantee;
 
     /**
      * Information on right
@@ -69,7 +69,7 @@ class GrantInfo
     #[SerializedName('right')]
     #[Type(RightModifierInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $right;
+    private RightModifierInfo $right;
 
     /**
      * Constructor

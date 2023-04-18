@@ -71,7 +71,7 @@ class AutoProvAccountRequest extends SoapRequest
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
     #[SerializedName('password')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $password;
 
     /**

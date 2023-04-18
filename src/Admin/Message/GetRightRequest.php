@@ -56,7 +56,7 @@ class GetRightRequest extends SoapRequest
     #[Accessor(getter: 'getRight', setter: 'setRight')]
     #[SerializedName('right')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $right;
 
     /**

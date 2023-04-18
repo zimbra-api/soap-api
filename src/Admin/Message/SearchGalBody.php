@@ -59,7 +59,9 @@ class SearchGalBody extends SoapBody
      * @param SearchGalResponse $response
      * @return self
      */
-    public function __construct(?SearchGalRequest $request = NULL, ?SearchGalResponse $response = NULL)
+    public function __construct(
+        ?SearchGalRequest $request = NULL, ?SearchGalResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

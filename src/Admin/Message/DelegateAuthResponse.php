@@ -37,7 +37,7 @@ class DelegateAuthResponse extends SoapResponse
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
     #[SerializedName('authToken')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
     /**
@@ -53,7 +53,7 @@ class DelegateAuthResponse extends SoapResponse
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
     #[SerializedName('lifetime')]
     #[Type('int')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $lifetime;
 
     /**

@@ -109,7 +109,9 @@ class EffectiveAttrsInfo
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof EffectiveAttrInfo);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof EffectiveAttrInfo
+        );
         return $this;
     }
 }

@@ -59,7 +59,9 @@ class ModifyDomainBody extends SoapBody
      * @param ModifyDomainResponse $response
      * @return self
      */
-    public function __construct(?ModifyDomainRequest $request = NULL, ?ModifyDomainResponse $response = NULL)
+    public function __construct(
+        ?ModifyDomainRequest $request = NULL, ?ModifyDomainResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

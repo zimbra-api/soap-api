@@ -59,7 +59,9 @@ class GetSessionsBody extends SoapBody
      * @param GetSessionsResponse $response
      * @return self
      */
-    public function __construct(?GetSessionsRequest $request = NULL, ?GetSessionsResponse $response = NULL)
+    public function __construct(
+        ?GetSessionsRequest $request = NULL, ?GetSessionsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

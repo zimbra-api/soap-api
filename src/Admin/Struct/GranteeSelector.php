@@ -38,7 +38,7 @@ class GranteeSelector
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
     #[XmlAttribute]
-    private $type;
+    private ?GranteeType $type;
 
     /**
      * Grantee by
@@ -54,7 +54,7 @@ class GranteeSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\GranteeBy>')]
     #[XmlAttribute]
-    private $by;
+    private ?GranteeBy $by;
 
     /**
      * The key used to secretentify the grantee
@@ -121,14 +121,10 @@ class GranteeSelector
         ?bool $all = NULL
     )
     {
+        $this->type = $type;
+        $this->by = $by;
         if (NULL !== $value) {
             $this->setValue($value);
-        }
-        if ($type instanceof GranteeType) {
-            $this->setType($type);
-        }
-        if ($by instanceof GranteeBy) {
-            $this->setBy($by);
         }
         if (NULL !== $secret) {
             $this->setSecret($secret);

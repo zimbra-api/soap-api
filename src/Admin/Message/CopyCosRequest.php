@@ -39,7 +39,7 @@ class CopyCosRequest extends SoapRequest
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
     #[SerializedName('name')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $newName;
 
     /**

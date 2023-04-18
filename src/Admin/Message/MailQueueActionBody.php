@@ -59,7 +59,9 @@ class MailQueueActionBody extends SoapBody
      * @param MailQueueActionResponse $response
      * @return self
      */
-    public function __construct(?MailQueueActionRequest $request = NULL, ?MailQueueActionResponse $response = NULL)
+    public function __construct(
+        ?MailQueueActionRequest $request = NULL, ?MailQueueActionResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

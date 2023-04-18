@@ -59,7 +59,9 @@ class PushFreeBusyBody extends SoapBody
      * @param PushFreeBusyResponse $response
      * @return self
      */
-    public function __construct(?PushFreeBusyRequest $request = NULL, ?PushFreeBusyResponse $response = NULL)
+    public function __construct(
+        ?PushFreeBusyRequest $request = NULL, ?PushFreeBusyResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

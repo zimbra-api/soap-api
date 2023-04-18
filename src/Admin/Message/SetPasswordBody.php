@@ -59,7 +59,9 @@ class SetPasswordBody extends SoapBody
      * @param SetPasswordResponse $response
      * @return self
      */
-    public function __construct(?SetPasswordRequest $request = NULL, ?SetPasswordResponse $response = NULL)
+    public function __construct(
+        ?SetPasswordRequest $request = NULL, ?SetPasswordResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

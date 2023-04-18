@@ -49,7 +49,9 @@ class RunUnitTestsEnvelope extends SoapEnvelope
      * @param SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?RunUnitTestsBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?RunUnitTestsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

@@ -38,7 +38,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[Accessor(getter: 'getLdapSearchBase', setter: 'setLdapSearchBase')]
     #[SerializedName('ldapSearchBase')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $ldapSearchBase;
 
     /**

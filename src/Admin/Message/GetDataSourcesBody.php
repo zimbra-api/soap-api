@@ -59,7 +59,9 @@ class GetDataSourcesBody extends SoapBody
      * @param GetDataSourcesResponse $response
      * @return self
      */
-    public function __construct(?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL)
+    public function __construct(
+        ?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

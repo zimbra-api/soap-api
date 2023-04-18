@@ -38,7 +38,7 @@ class AuthResponse extends SoapResponse
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
     #[SerializedName('authToken')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
     /**
@@ -54,7 +54,7 @@ class AuthResponse extends SoapResponse
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
     #[SerializedName('csrfToken')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $csrfToken;
 
     /**
@@ -70,7 +70,7 @@ class AuthResponse extends SoapResponse
     #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
     #[SerializedName('lifetime')]
     #[Type('int')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $lifetime;
 
     /**
@@ -86,7 +86,7 @@ class AuthResponse extends SoapResponse
     #[Accessor(getter: 'getTwoFactorAuthRequired', setter: 'setTwoFactorAuthRequired')]
     #[SerializedName('twoFactorAuthRequired')]
     #[Type('bool')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $twoFactorAuthRequired;
 
     /**

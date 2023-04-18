@@ -58,7 +58,9 @@ class GetAllActiveServersResponse extends SoapResponse
      */
     public function setServerList(array $list): self
     {
-        $this->serverList = array_filter($list, static fn ($server) => $server instanceof ServerInfo);
+        $this->serverList = array_filter(
+            $list, static fn ($server) => $server instanceof ServerInfo
+        );
         return $this;
     }
 

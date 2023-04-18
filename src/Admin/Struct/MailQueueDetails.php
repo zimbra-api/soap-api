@@ -293,7 +293,9 @@ class MailQueueDetails
      */
     public function setQueueSummaries(array $summaries): self
     {
-        $this->queueSummaries = array_filter($summaries, static fn ($qs) => $qs instanceof QueueSummary);
+        $this->queueSummaries = array_filter(
+            $summaries, static fn ($qs) => $qs instanceof QueueSummary
+        );
         return $this;
     }
 
@@ -327,7 +329,9 @@ class MailQueueDetails
      */
     public function setQueueItems(array $queueItems): self
     {
-        $this->queueItems = array_filter($queueItems, static fn ($qi) => $qi instanceof QueueItem);
+        $this->queueItems = array_filter(
+            $queueItems, static fn ($qi) => $qi instanceof QueueItem
+        );
         return $this;
     }
 

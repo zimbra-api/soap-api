@@ -70,7 +70,7 @@ class AuthRequest extends SoapRequest
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
     #[SerializedName('authToken')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
     /**
@@ -102,7 +102,7 @@ class AuthRequest extends SoapRequest
     #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
     #[SerializedName('virtualHost')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $virtualHost;
 
     /**
@@ -150,7 +150,7 @@ class AuthRequest extends SoapRequest
     #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
     #[SerializedName('twoFactorCode')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $twoFactorCode;
 
     /**

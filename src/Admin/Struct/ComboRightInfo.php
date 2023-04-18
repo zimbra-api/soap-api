@@ -50,7 +50,7 @@ class ComboRightInfo
     #[SerializedName('type')]
     #[Type('Enum<Zimbra\Common\Enum\RightType>')]
     #[XmlAttribute]
-    private $type;
+    private RightType $type;
 
     /**
      * @Accessor(getter="getTargetType", setter="setTargetType")

@@ -38,7 +38,7 @@ class TzFixupRuleMatch
     #[SerializedName('any')]
     #[Type(SimpleElement::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $any;
+    private ?SimpleElement $any;
 
     /**
      * Tz ID
@@ -54,7 +54,7 @@ class TzFixupRuleMatch
     #[SerializedName('tzid')]
     #[Type(Id::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $tzid;
+    private ?Id $tzid;
 
     /**
      * Offset
@@ -70,7 +70,7 @@ class TzFixupRuleMatch
     #[SerializedName('nonDst')]
     #[Type(Offset::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $nonDst;
+    private ?Offset $nonDst;
 
     /**
      * Rules
@@ -86,7 +86,7 @@ class TzFixupRuleMatch
     #[SerializedName('rules')]
     #[Type(TzFixupRuleMatchRules::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $rules;
+    private ?TzFixupRuleMatchRules $rules;
 
     /**
      * Dates
@@ -102,7 +102,7 @@ class TzFixupRuleMatch
     #[SerializedName('dates')]
     #[Type(TzFixupRuleMatchDates::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $dates;
+    private ?TzFixupRuleMatchDates $dates;
 
     /**
      * Constructor
@@ -122,21 +122,11 @@ class TzFixupRuleMatch
         ?TzFixupRuleMatchDates $dates = NULL
     )
     {
-        if ($any instanceof SimpleElement) {
-            $this->setAny($any);
-        }
-        if ($tzid instanceof Id) {
-            $this->setTzid($tzid);
-        }
-        if ($nonDst instanceof Offset) {
-            $this->setNonDst($nonDst);
-        }
-        if ($rules instanceof TzFixupRuleMatchRules) {
-            $this->setRules($rules);
-        }
-        if ($dates instanceof TzFixupRuleMatchDates) {
-            $this->setDates($dates);
-        }
+        $this->any = $any;
+        $this->tzid = $tzid;
+        $this->nonDst = $nonDst;
+        $this->rules = $rules;
+        $this->dates = $dates;
     }
 
     /**

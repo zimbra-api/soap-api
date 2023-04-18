@@ -59,7 +59,9 @@ class GetLicenseInfoBody extends SoapBody
      * @param GetLicenseInfoResponse $response
      * @return self
      */
-    public function __construct(?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL)
+    public function __construct(
+        ?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

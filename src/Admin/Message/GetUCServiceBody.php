@@ -59,7 +59,9 @@ class GetUCServiceBody extends SoapBody
      * @param GetUCServiceResponse $response
      * @return self
      */
-    public function __construct(?GetUCServiceRequest $request = NULL, ?GetUCServiceResponse $response = NULL)
+    public function __construct(
+        ?GetUCServiceRequest $request = NULL, ?GetUCServiceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

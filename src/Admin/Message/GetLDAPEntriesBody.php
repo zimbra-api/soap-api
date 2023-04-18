@@ -59,7 +59,9 @@ class GetLDAPEntriesBody extends SoapBody
      * @param GetLDAPEntriesResponse $response
      * @return self
      */
-    public function __construct(?GetLDAPEntriesRequest $request = NULL, ?GetLDAPEntriesResponse $response = NULL)
+    public function __construct(
+        ?GetLDAPEntriesRequest $request = NULL, ?GetLDAPEntriesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -75,7 +75,9 @@ class RunUnitTestsRequest extends SoapRequest
      */
     public function setTests(array $tests): self
     {
-        $this->tests = array_unique(array_map(static fn ($test) => trim($test), $tests));
+        $this->tests = array_unique(
+            array_map(static fn ($test) => trim($test), $tests)
+        );
         return $this;
     }
 

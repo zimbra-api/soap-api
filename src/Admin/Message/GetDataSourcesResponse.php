@@ -58,7 +58,9 @@ class GetDataSourcesResponse extends SoapResponse
      */
     public function setDataSources(array $sources): self
     {
-        $this->dataSources = array_filter($sources, static fn ($source) => $source instanceof DataSourceInfo);
+        $this->dataSources = array_filter(
+            $sources, static fn ($source) => $source instanceof DataSourceInfo
+        );
         return $this;
     }
 

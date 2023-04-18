@@ -50,7 +50,7 @@ class LoggerInfo
     #[SerializedName('level')]
     #[Type('Enum<Zimbra\Common\Enum\LoggingLevel>')]
     #[XmlAttribute]
-    private $level;
+    private ?LoggingLevel $level;
 
     /**
      * Constructor
@@ -62,9 +62,7 @@ class LoggerInfo
     public function __construct(string $category = '', ?LoggingLevel $level = NULL)
     {
         $this->setCategory($category);
-        if (NULL !== $level) {
-            $this->setLevel($level);
-        }
+        $this->level = $level;
     }
 
     /**

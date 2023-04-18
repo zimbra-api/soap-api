@@ -100,7 +100,9 @@ class GetServiceStatusResponse extends SoapResponse
      */
     public function setServiceStatuses(array $statuses): self
     {
-        $this->serviceStatuses = array_filter($statuses, static fn ($status) => $status instanceof ServiceStatus);
+        $this->serviceStatuses = array_filter(
+            $statuses, static fn ($status) => $status instanceof ServiceStatus
+        );
         return $this;
     }
 

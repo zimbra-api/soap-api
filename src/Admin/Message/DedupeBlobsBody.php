@@ -59,7 +59,9 @@ class DedupeBlobsBody extends SoapBody
      * @param DedupeBlobsResponse $response
      * @return self
      */
-    public function __construct(?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL)
+    public function __construct(
+        ?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

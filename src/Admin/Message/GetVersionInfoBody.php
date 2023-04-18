@@ -59,7 +59,9 @@ class GetVersionInfoBody extends SoapBody
      * @param GetVersionInfoResponse $response
      * @return self
      */
-    public function __construct(?GetVersionInfoRequest $request = NULL, ?GetVersionInfoResponse $response = NULL)
+    public function __construct(
+        ?GetVersionInfoRequest $request = NULL, ?GetVersionInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

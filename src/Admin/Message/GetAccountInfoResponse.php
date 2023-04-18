@@ -38,7 +38,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[Accessor(getter: 'getName', setter: 'setName')]
     #[SerializedName('name')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $name;
 
     /**
@@ -96,7 +96,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[Accessor(getter: 'getAdminSoapURL', setter: 'setAdminSoapURL')]
     #[SerializedName('adminSoapURL')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $adminSoapURL;
 
     /**
@@ -112,7 +112,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[Accessor(getter: 'getPublicMailURL', setter: 'setPublicMailURL')]
     #[SerializedName('publicMailURL')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $publicMailURL;
 
     /**
@@ -177,7 +177,9 @@ class GetAccountInfoResponse extends SoapResponse
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrList = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
+        $this->attrList = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof Attr
+        );
         return $this;
     }
 
@@ -221,7 +223,9 @@ class GetAccountInfoResponse extends SoapResponse
      */
     public function setSoapURLList(array $soapURLList): self
     {
-        $this->soapURLList = array_unique(array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList));
+        $this->soapURLList = array_unique(
+            array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList)
+        );
         return $this;
     }
 

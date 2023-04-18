@@ -108,7 +108,9 @@ class QueueQuery
      */
     public function setFields(array $fields): self
     {
-        $this->fields = array_filter($fields, static fn ($field) => $field instanceof QueueQueryField);
+        $this->fields = array_filter(
+            $fields, static fn ($field) => $field instanceof QueueQueryField
+        );
         return $this;
     }
 

@@ -37,7 +37,7 @@ class TzFixupRuleMatchDates
     #[SerializedName('standard')]
     #[Type(TzFixupRuleMatchDate::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $standard;
+    private TzFixupRuleMatchDate $standard;
 
     /**
      * Daylight saving match date
@@ -52,7 +52,7 @@ class TzFixupRuleMatchDates
     #[SerializedName('daylight')]
     #[Type(TzFixupRuleMatchDate::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $daylight;
+    private TzFixupRuleMatchDate $daylight;
 
     /**
      * Offset from UTC in standard time; local = UTC + offset

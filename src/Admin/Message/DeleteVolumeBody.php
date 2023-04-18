@@ -59,7 +59,9 @@ class DeleteVolumeBody extends SoapBody
      * @param DeleteVolumeResponse $response
      * @return self
      */
-    public function __construct(?DeleteVolumeRequest $request = NULL, ?DeleteVolumeResponse $response = NULL)
+    public function __construct(
+        ?DeleteVolumeRequest $request = NULL, ?DeleteVolumeResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

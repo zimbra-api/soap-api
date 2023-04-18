@@ -59,7 +59,9 @@ class CheckDirectoryBody extends SoapBody
      * @param CheckDirectoryResponse $response
      * @return self
      */
-    public function __construct(?CheckDirectoryRequest $request = NULL, ?CheckDirectoryResponse $response = NULL)
+    public function __construct(
+        ?CheckDirectoryRequest $request = NULL, ?CheckDirectoryResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -37,7 +37,7 @@ class MailQueueWithAction
     #[SerializedName('action')]
     #[Type(MailQueueAction::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $action;
+    private MailQueueAction $action;
 
     /**
      * Queue name

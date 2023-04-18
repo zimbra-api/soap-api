@@ -59,7 +59,9 @@ class RenameUCServiceBody extends SoapBody
      * @param RenameUCServiceResponse $response
      * @return self
      */
-    public function __construct(?RenameUCServiceRequest $request = NULL, ?RenameUCServiceResponse $response = NULL)
+    public function __construct(
+        ?RenameUCServiceRequest $request = NULL, ?RenameUCServiceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

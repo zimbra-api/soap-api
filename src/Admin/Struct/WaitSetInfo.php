@@ -121,7 +121,7 @@ class WaitSetInfo
     #[SerializedName('ready')]
     #[Type(AccountsAttrib::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $signalledAccounts;
+    private ?AccountsAttrib $signalledAccounts;
 
     /**
      * CB sequence number
@@ -240,9 +240,7 @@ class WaitSetInfo
              ->setErrors($errors)
              ->setBufferedCommits($bufferedCommits)
              ->setSessions($sessions);
-        if ($signalledAccounts instanceof AccountsAttrib) {
-            $this->setSignalledAccounts($signalledAccounts);
-        }
+        $this->signalledAccounts = $signalledAccounts;
         if (NULL !== $cbSeqNo) {
             $this->setCbSeqNo($cbSeqNo);
         }
@@ -448,7 +446,9 @@ class WaitSetInfo
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
+        $this->errors = array_filter(
+            $errors, static fn ($error) => $error instanceof IdAndType
+        );
         return $this;
     }
 
@@ -470,7 +470,9 @@ class WaitSetInfo
      */
     public function setBufferedCommits(array $commits): self
     {
-        $this->bufferedCommits = array_filter($commits, static fn ($commit) => $commit instanceof BufferedCommitInfo);
+        $this->bufferedCommits = array_filter(
+            $commits, static fn ($commit) => $commit instanceof BufferedCommitInfo
+        );
         return $this;
     }
 
@@ -492,7 +494,9 @@ class WaitSetInfo
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionForWaitSet);
+        $this->sessions = array_filter(
+            $sessions, static fn ($session) => $session instanceof SessionForWaitSet
+        );
         return $this;
     }
 }

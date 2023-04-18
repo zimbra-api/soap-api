@@ -59,7 +59,9 @@ class MigrateAccountBody extends SoapBody
      * @param MigrateAccountResponse $response
      * @return self
      */
-    public function __construct(?MigrateAccountRequest $request = NULL, ?MigrateAccountResponse $response = NULL)
+    public function __construct(
+        ?MigrateAccountRequest $request = NULL, ?MigrateAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

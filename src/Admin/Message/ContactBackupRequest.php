@@ -92,7 +92,9 @@ class ContactBackupRequest extends SoapRequest
      */
     public function setServers(array $servers): self
     {
-        $this->servers = array_filter($servers, static fn ($server) => $server instanceof ServerSelector);
+        $this->servers = array_filter(
+            $servers, static fn ($server) => $server instanceof ServerSelector
+        );
         return $this;
     }
 

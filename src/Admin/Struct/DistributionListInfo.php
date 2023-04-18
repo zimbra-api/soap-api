@@ -139,7 +139,9 @@ class DistributionListInfo extends AdminObjectInfo
      */
     public function setMembers(array $members)
     {
-        $this->members = array_unique(array_map(static fn ($member) => trim($member), $members));
+        $this->members = array_unique(
+            array_map(static fn ($member) => trim($member), $members)
+        );
         return $this;
     }
 
@@ -161,7 +163,9 @@ class DistributionListInfo extends AdminObjectInfo
      */
     public function setOwners(array $owners)
     {
-        $this->owners = array_filter($owners, static fn ($owner) => $owner instanceof GranteeInfo);
+        $this->owners = array_filter(
+            $owners, static fn ($owner) => $owner instanceof GranteeInfo
+        );
         return $this;
     }
 }

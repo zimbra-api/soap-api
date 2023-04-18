@@ -59,7 +59,9 @@ class GetAllLocalesBody extends SoapBody
      * @param GetAllLocalesResponse $response
      * @return self
      */
-    public function __construct(?GetAllLocalesRequest $request = NULL, ?GetAllLocalesResponse $response = NULL)
+    public function __construct(
+        ?GetAllLocalesRequest $request = NULL, ?GetAllLocalesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

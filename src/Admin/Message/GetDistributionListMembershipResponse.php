@@ -58,7 +58,9 @@ class GetDistributionListMembershipResponse extends SoapResponse
      */
     public function setDls(array $dls): self
     {
-        $this->dls = array_filter($dls, static fn ($dl) => $dl instanceof DistributionListMembershipInfo);
+        $this->dls = array_filter(
+            $dls, static fn ($dl) => $dl instanceof DistributionListMembershipInfo
+        );
         return $this;
     }
 

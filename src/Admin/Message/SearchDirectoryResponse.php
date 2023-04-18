@@ -270,7 +270,9 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function setCalendarResources(array $resources): self
     {
-        $this->calResources = array_filter($resources, static fn ($resource) => $resource instanceof CalendarResourceInfo);
+        $this->calResources = array_filter(
+            $resources, static fn ($resource) => $resource instanceof CalendarResourceInfo
+        );
         return $this;
     }
 
@@ -292,7 +294,9 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function setDistributionLists(array $dls): self
     {
-        $this->dls = array_filter($dls, static fn ($dl) => $dl instanceof DistributionListInfo);
+        $this->dls = array_filter(
+            $dls, static fn ($dl) => $dl instanceof DistributionListInfo
+        );
         return $this;
     }
 
@@ -314,7 +318,9 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function setAliases(array $aliases): self
     {
-        $this->aliases = array_filter($aliases, static fn ($alias) => $alias instanceof AliasInfo);
+        $this->aliases = array_filter(
+            $aliases, static fn ($alias) => $alias instanceof AliasInfo
+        );
         return $this;
     }
 
@@ -336,7 +342,9 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof AccountInfo);
+        $this->accounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof AccountInfo
+        );
         return $this;
     }
 
@@ -358,7 +366,9 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function setDomains(array $domains): self
     {
-        $this->domains = array_filter($domains, static fn ($domain) => $domain instanceof DomainInfo);
+        $this->domains = array_filter(
+            $domains, static fn ($domain) => $domain instanceof DomainInfo
+        );
         return $this;
     }
 
@@ -380,7 +390,9 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function setCOSes(array $coses): self
     {
-        $this->coses = array_filter($coses, static fn ($cos) => $cos instanceof CosInfo);
+        $this->coses = array_filter(
+            $coses, static fn ($cos) => $cos instanceof CosInfo
+        );
         return $this;
     }
 

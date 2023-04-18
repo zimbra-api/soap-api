@@ -59,7 +59,9 @@ class FlushCacheBody extends SoapBody
      * @param FlushCacheResponse $response
      * @return self
      */
-    public function __construct(?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL)
+    public function __construct(
+        ?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

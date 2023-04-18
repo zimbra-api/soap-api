@@ -59,7 +59,9 @@ class MailQueueFlushBody extends SoapBody
      * @param MailQueueFlushResponse $response
      * @return self
      */
-    public function __construct(?MailQueueFlushRequest $request = NULL, ?MailQueueFlushResponse $response = NULL)
+    public function __construct(
+        ?MailQueueFlushRequest $request = NULL, ?MailQueueFlushResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

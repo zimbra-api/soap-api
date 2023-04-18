@@ -59,7 +59,9 @@ class NoOpBody extends SoapBody
      * @param NoOpResponse $response
      * @return self
      */
-    public function __construct(?NoOpRequest $request = NULL, ?NoOpResponse $response = NULL)
+    public function __construct(
+        ?NoOpRequest $request = NULL, ?NoOpResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

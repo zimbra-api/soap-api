@@ -50,7 +50,7 @@ class ContactBackupServer
     #[SerializedName('status')]
     #[Type('Enum<Zimbra\Common\Enum\ContactBackupStatus>')]
     #[XmlAttribute]
-    private $status;
+    private ContactBackupStatus $status;
 
     /**
      * Constructor

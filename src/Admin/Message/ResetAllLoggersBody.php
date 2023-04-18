@@ -59,7 +59,9 @@ class ResetAllLoggersBody extends SoapBody
      * @param ResetAllLoggersResponse $response
      * @return self
      */
-    public function __construct(?ResetAllLoggersRequest $request = NULL, ?ResetAllLoggersResponse $response = NULL)
+    public function __construct(
+        ?ResetAllLoggersRequest $request = NULL, ?ResetAllLoggersResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

@@ -59,7 +59,9 @@ class DelegateAuthBody extends SoapBody
      * @param DelegateAuthResponse $response
      * @return self
      */
-    public function __construct(?DelegateAuthRequest $request = NULL, ?DelegateAuthResponse $response = NULL)
+    public function __construct(
+        ?DelegateAuthRequest $request = NULL, ?DelegateAuthResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

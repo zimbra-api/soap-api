@@ -59,7 +59,9 @@ class GetFilterRulesBody extends SoapBody
      * @param GetFilterRulesResponse $response
      * @return self
      */
-    public function __construct(?GetFilterRulesRequest $request = NULL, ?GetFilterRulesResponse $response = NULL)
+    public function __construct(
+        ?GetFilterRulesRequest $request = NULL, ?GetFilterRulesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

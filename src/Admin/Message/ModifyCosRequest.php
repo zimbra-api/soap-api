@@ -42,7 +42,7 @@ class ModifyCosRequest extends SoapRequest implements AdminAttrs
     #[Accessor(getter: 'getId', setter: 'setId')]
     #[SerializedName('id')]
     #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $id;
 
     /**

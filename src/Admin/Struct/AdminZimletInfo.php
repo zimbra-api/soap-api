@@ -38,7 +38,7 @@ class AdminZimletInfo implements ZimletInterface
     #[SerializedName('zimletContext')]
     #[Type(AdminZimletContext::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimletContext;
+    private ?ZimletContextInterface $zimletContext;
 
     /**
      * Zimlet description
@@ -54,7 +54,7 @@ class AdminZimletInfo implements ZimletInterface
     #[SerializedName('zimlet')]
     #[Type(AdminZimletDesc::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimlet;
+    private ?ZimletDesc $zimlet;
 
     /**
      * Zimlet config
@@ -70,7 +70,7 @@ class AdminZimletInfo implements ZimletInterface
     #[SerializedName('zimletConfig')]
     #[Type(AdminZimletConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimletConfig;
+    private ?ZimletConfigInfo $zimletConfig;
 
     /**
      * Constructor
@@ -86,15 +86,9 @@ class AdminZimletInfo implements ZimletInterface
         ?AdminZimletConfigInfo $zimletConfig = NULL
     )
     {
-        if ($zimletContext instanceof AdminZimletContext) {
-            $this->setZimletContext($zimletContext);
-        }
-        if ($zimlet instanceof AdminZimletDesc) {
-            $this->setZimlet($zimlet);
-        }
-        if ($zimletConfig instanceof AdminZimletConfigInfo) {
-            $this->setZimletConfig($zimletConfig);
-        }
+        $this->zimletContext = $zimletContext;
+        $this->zimlet = $zimlet;
+        $this->zimletConfig = $zimletConfig;
     }
 
     /**

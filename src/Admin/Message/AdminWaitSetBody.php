@@ -59,7 +59,9 @@ class AdminWaitSetBody extends SoapBody
      * @param AdminWaitSetResponse $response
      * @return self
      */
-    public function __construct(?AdminWaitSetRequest $request = NULL, ?AdminWaitSetResponse $response = NULL)
+    public function __construct(
+        ?AdminWaitSetRequest $request = NULL, ?AdminWaitSetResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

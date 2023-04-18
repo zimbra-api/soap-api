@@ -59,7 +59,9 @@ class DumpSessionsBody extends SoapBody
      * @param DumpSessionsResponse $response
      * @return self
      */
-    public function __construct(?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL)
+    public function __construct(
+        ?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

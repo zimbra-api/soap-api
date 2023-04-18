@@ -58,7 +58,9 @@ class QueryWaitSetResponse extends SoapResponse
      */
     public function setWaitsets(array $waitsets): self
     {
-        $this->waitsets = array_filter($waitsets, static fn ($waitset) => $waitset instanceof WaitSetInfo);
+        $this->waitsets = array_filter(
+            $waitsets, static fn ($waitset) => $waitset instanceof WaitSetInfo
+        );
         return $this;
     }
 

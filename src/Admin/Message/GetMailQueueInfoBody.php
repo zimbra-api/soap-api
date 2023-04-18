@@ -59,7 +59,9 @@ class GetMailQueueInfoBody extends SoapBody
      * @param GetMailQueueInfoResponse $response
      * @return self
      */
-    public function __construct(?GetMailQueueInfoRequest $request = NULL, ?GetMailQueueInfoResponse $response = NULL)
+    public function __construct(
+        ?GetMailQueueInfoRequest $request = NULL, ?GetMailQueueInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }

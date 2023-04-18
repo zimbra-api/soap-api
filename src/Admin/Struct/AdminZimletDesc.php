@@ -132,7 +132,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('serverExtension')]
     #[Type(ZimletServerExtension::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $serverExtension;
+    private ?ZimletServerExtension $serverExtension = NULL;
 
     /**
      * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
@@ -146,7 +146,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('include')]
     #[Type(AdminZimletInclude::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $include;
+    private ?AdminZimletInclude $include = NULL;
 
     /**
      * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
@@ -160,7 +160,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('includeCSS')]
     #[Type(AdminZimletIncludeCSS::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $includeCSS;
+    private ?AdminZimletIncludeCSS $includeCSS = NULL;
 
     /**
      * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
@@ -174,7 +174,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('zimletTarget')]
     #[Type(AdminZimletTarget::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private $zimletTarget;
+    private ?AdminZimletTarget $zimletTarget = NULL;
 
     /**
      * Constructor

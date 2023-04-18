@@ -59,7 +59,9 @@ class CreateVolumeBody extends SoapBody
      * @param CreateVolumeResponse $response
      * @return self
      */
-    public function __construct(?CreateVolumeRequest $request = NULL, ?CreateVolumeResponse $response = NULL)
+    public function __construct(
+        ?CreateVolumeRequest $request = NULL, ?CreateVolumeResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
