@@ -445,7 +445,9 @@ class SearchResponse extends SoapResponse
      */
     public function setSimpleHits(array $hits): self
     {
-        $this->simpleHits = array_filter($hits, static fn($hit) => $hit instanceof SimpleSearchHit);
+        $this->simpleHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof SimpleSearchHit
+        );
         return $this;
     }
 
@@ -467,7 +469,9 @@ class SearchResponse extends SoapResponse
      */
     public function setConversationHits(array $hits): self
     {
-        $this->conversationHits = array_filter($hits, static fn($hit) => $hit instanceof ConversationHitInfo);
+        $this->conversationHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof ConversationHitInfo
+        );
         return $this;
     }
 
@@ -489,7 +493,9 @@ class SearchResponse extends SoapResponse
      */
     public function setMessageHits(array $hits): self
     {
-        $this->messageHits = array_filter($hits, static fn($hit) => $hit instanceof MessageHitInfo);
+        $this->messageHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof MessageHitInfo
+        );
         return $this;
     }
 
@@ -511,7 +517,9 @@ class SearchResponse extends SoapResponse
      */
     public function setChatHits(array $hits): self
     {
-        $this->chatHits = array_filter($hits, static fn($hit) => $hit instanceof ChatHitInfo);
+        $this->chatHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof ChatHitInfo
+        );
         return $this;
     }
 
@@ -533,7 +541,9 @@ class SearchResponse extends SoapResponse
      */
     public function setMessagePartHits(array $hits): self
     {
-        $this->messagePartHits = array_filter($hits, static fn($hit) => $hit instanceof MessagePartHitInfo);
+        $this->messagePartHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof MessagePartHitInfo
+        );
         return $this;
     }
 
@@ -555,7 +565,9 @@ class SearchResponse extends SoapResponse
      */
     public function setContactHits(array $hits): self
     {
-        $this->contactHits = array_filter($hits, static fn($hit) => $hit instanceof ContactInfo);
+        $this->contactHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof ContactInfo
+        );
         return $this;
     }
 
@@ -577,7 +589,9 @@ class SearchResponse extends SoapResponse
      */
     public function setNoteHits(array $hits): self
     {
-        $this->noteHits = array_filter($hits, static fn($hit) => $hit instanceof NoteHitInfo);
+        $this->noteHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof NoteHitInfo
+        );
         return $this;
     }
 
@@ -599,7 +613,9 @@ class SearchResponse extends SoapResponse
      */
     public function setDocumentHits(array $hits): self
     {
-        $this->documentHits = array_filter($hits, static fn($hit) => $hit instanceof DocumentHitInfo);
+        $this->documentHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof DocumentHitInfo
+        );
         return $this;
     }
 
@@ -621,7 +637,9 @@ class SearchResponse extends SoapResponse
      */
     public function setWikiHits(array $hits): self
     {
-        $this->wikiHits = array_filter($hits, static fn($hit) => $hit instanceof WikiHitInfo);
+        $this->wikiHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof WikiHitInfo
+        );
         return $this;
     }
 
@@ -643,7 +661,9 @@ class SearchResponse extends SoapResponse
      */
     public function setAppointmentHits(array $hits): self
     {
-        $this->appointmentHits = array_filter($hits, static fn($hit) => $hit instanceof AppointmentHitInfo);
+        $this->appointmentHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof AppointmentHitInfo
+        );
         return $this;
     }
 
@@ -665,7 +685,9 @@ class SearchResponse extends SoapResponse
      */
     public function setTaskHits(array $hits): self
     {
-        $this->taskHits = array_filter($hits, static fn($hit) => $hit instanceof TaskHitInfo);
+        $this->taskHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof TaskHitInfo
+        );
         return $this;
     }
 

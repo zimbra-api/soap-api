@@ -49,7 +49,9 @@ class GetSearchFolderEnvelope extends SoapEnvelope
      * @param  SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?GetSearchFolderBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?GetSearchFolderBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }

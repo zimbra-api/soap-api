@@ -58,7 +58,9 @@ class DiffDocumentResponse extends SoapResponse
      */
     public function setChunks(array $chunks): self
     {
-        $this->chunks = array_filter($chunks, static fn ($chunk) => $chunk instanceof DispositionAndText);
+        $this->chunks = array_filter(
+            $chunks, static fn ($chunk) => $chunk instanceof DispositionAndText
+        );
         return $this;
     }
 

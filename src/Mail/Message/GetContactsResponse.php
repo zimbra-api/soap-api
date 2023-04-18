@@ -58,7 +58,9 @@ class GetContactsResponse extends SoapResponse
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = array_filter($contacts, static fn ($cn) => $cn instanceof ContactInfo);
+        $this->contacts = array_filter(
+            $contacts, static fn ($cn) => $cn instanceof ContactInfo
+        );
         return $this;
     }
 

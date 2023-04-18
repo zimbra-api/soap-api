@@ -421,7 +421,9 @@ class SetAppointmentRequest extends SoapRequest
      */
     public function setExceptions(array $exceptions): self
     {
-        $this->exceptions = array_filter($exceptions, static fn ($except) => $except instanceof SetCalendarItemInfo);
+        $this->exceptions = array_filter(
+            $exceptions, static fn ($except) => $except instanceof SetCalendarItemInfo
+        );
         return $this;
     }
 
@@ -455,7 +457,9 @@ class SetAppointmentRequest extends SoapRequest
      */
     public function setCancellations(array $cancellations): self
     {
-        $this->cancellations = array_filter($cancellations, static fn ($cancel) => $cancel instanceof SetCalendarItemInfo);
+        $this->cancellations = array_filter(
+            $cancellations, static fn ($cancel) => $cancel instanceof SetCalendarItemInfo
+        );
         return $this;
     }
 
@@ -489,7 +493,9 @@ class SetAppointmentRequest extends SoapRequest
      */
     public function setReplies(array $replies): self
     {
-        $this->replies = array_filter($replies, static fn ($reply) => $reply instanceof CalReply);
+        $this->replies = array_filter(
+            $replies, static fn ($reply) => $reply instanceof CalReply
+        );
         return $this;
     }
 

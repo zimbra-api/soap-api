@@ -752,7 +752,9 @@ class MsgWithGroupInfo extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = array_filter($emails, static fn ($email) => $email instanceof EmailInfo);
+        $this->emails = array_filter(
+            $emails, static fn ($email) => $email instanceof EmailInfo
+        );
         return $this;
     }
 
@@ -862,7 +864,9 @@ class MsgWithGroupInfo extends MessageCommon
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn ($header) => $header instanceof KeyValuePair);
+        $this->headers = array_filter(
+            $headers, static fn ($header) => $header instanceof KeyValuePair
+        );
         return $this;
     }
 

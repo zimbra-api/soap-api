@@ -104,7 +104,9 @@ class OpenIMAPFolderResponse extends SoapResponse
      */
     public function setMessages(array $messages): self
     {
-        $this->messages = array_filter($messages, static fn ($message) => $message instanceof ImapMessageInfo);
+        $this->messages = array_filter(
+            $messages, static fn ($message) => $message instanceof ImapMessageInfo
+        );
         return $this;
     }
 

@@ -58,7 +58,9 @@ class CheckRecurConflictsResponse extends SoapResponse
      */
     public function setInstances(array $instances): self
     {
-        $this->instances = array_filter($instances, static fn ($instance) => $instance instanceof ConflictRecurrenceInstance);
+        $this->instances = array_filter(
+            $instances, static fn ($instance) => $instance instanceof ConflictRecurrenceInstance
+        );
         return $this;
     }
 

@@ -636,7 +636,9 @@ class MsgSpec
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn ($header) => $header instanceof AttributeName);
+        $this->headers = array_filter(
+            $headers, static fn ($header) => $header instanceof AttributeName
+        );
         return $this;
     }
 

@@ -74,7 +74,9 @@ class ListDocumentRevisionsResponse extends SoapResponse
      */
     public function setRevisions(array $revisions): self
     {
-        $this->revisions = array_filter($revisions, static fn ($rev) => $rev instanceof DocumentInfo);
+        $this->revisions = array_filter(
+            $revisions, static fn ($rev) => $rev instanceof DocumentInfo
+        );
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ListDocumentRevisionsResponse extends SoapResponse
      */
     public function setUsers(array $users): self
     {
-        $this->users = array_filter($users, static fn ($user) => $user instanceof IdEmailName);
+        $this->users = array_filter(
+            $users, static fn ($user) => $user instanceof IdEmailName
+        );
         return $this;
     }
 

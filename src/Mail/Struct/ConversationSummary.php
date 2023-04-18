@@ -601,7 +601,9 @@ class ConversationSummary
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = array_filter($metadatas, static fn($metadata) => $metadata instanceof MailCustomMetadata);
+        $this->metadatas = array_filter(
+            $metadatas, static fn($metadata) => $metadata instanceof MailCustomMetadata
+        );
         return $this;
     }
 
@@ -657,7 +659,9 @@ class ConversationSummary
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = array_filter($emails, static fn($email) => $email instanceof EmailInfo);
+        $this->emails = array_filter(
+            $emails, static fn($email) => $email instanceof EmailInfo
+        );
         return $this;
     }
 

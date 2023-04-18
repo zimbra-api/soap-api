@@ -32,14 +32,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
     #[SerializedName('action')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $action;
 
     /**
@@ -48,14 +48,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getFileName", setter="setFileName")
      * @SerializedName("filename")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getFileName', setter: 'setFileName')]
     #[SerializedName('filename')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fileName;
 
     /**
@@ -64,14 +64,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getOwnerFileId", setter="setOwnerFileId")
      * @SerializedName("itemId")
      * @Type("int")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var int
      */
     #[Accessor(getter: 'getOwnerFileId', setter: 'setOwnerFileId')]
     #[SerializedName('itemId')]
     #[Type('int')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $ownerFileId;
 
     /**
@@ -80,14 +80,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getFileUUID", setter="setFileUUID")
      * @SerializedName("ruuid")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getFileUUID', setter: 'setFileUUID')]
     #[SerializedName('ruuid')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fileUUID;
 
     /**
@@ -96,14 +96,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getFileOwnerName", setter="setFileOwnerName")
      * @SerializedName("owner")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getFileOwnerName', setter: 'setFileOwnerName')]
     #[SerializedName('owner')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fileOwnerName;
 
     /**
@@ -112,14 +112,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("perm")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
     #[SerializedName('perm')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $rights;
 
     /**
@@ -128,14 +128,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
     #[SerializedName('ct')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $contentType;
 
     /**
@@ -144,14 +144,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
     #[SerializedName('s')]
     #[Type('int')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $size;
 
     /**
@@ -160,14 +160,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getOwnerAccountId", setter="setOwnerAccountId")
      * @SerializedName("rid")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
     #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
     #[SerializedName('rid')]
     #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $ownerAccountId;
 
     /**
@@ -176,14 +176,14 @@ class FileSharedWithMeRequest extends SoapRequest
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
-     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
     #[SerializedName('d')]
     #[Type('int')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $date;
 
     /**

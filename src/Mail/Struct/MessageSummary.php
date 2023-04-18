@@ -199,7 +199,9 @@ class MessageSummary extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = array_filter($emails, static fn ($email) => $email instanceof EmailInfo);
+        $this->emails = array_filter(
+            $emails, static fn ($email) => $email instanceof EmailInfo
+        );
         return $this;
     }
 

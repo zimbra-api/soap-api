@@ -265,7 +265,9 @@ class SearchConvResponse extends SoapResponse
      */
     public function setMessages(array $messages): self
     {
-        $this->messages = array_filter($messages, static fn($message) => $message instanceof MessageHitInfo);
+        $this->messages = array_filter(
+            $messages, static fn($message) => $message instanceof MessageHitInfo
+        );
         return $this;
     }
 

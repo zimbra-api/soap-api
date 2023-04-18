@@ -68,7 +68,9 @@ class FilterVariables extends FilterAction
      */
     public function setVariables(array $variables)
     {
-        $this->variables = array_filter($variables, static fn ($variable) => $variable instanceof FilterVariable);
+        $this->variables = array_filter(
+            $variables, static fn ($variable) => $variable instanceof FilterVariable
+        );
         return $this;
     }
 

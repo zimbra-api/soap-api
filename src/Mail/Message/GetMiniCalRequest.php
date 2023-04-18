@@ -200,7 +200,9 @@ class GetMiniCalRequest extends SoapRequest
      */
     public function setFolders(array $folders): self
     {
-        $this->folders = array_filter($folders, static fn ($folder) => $folder instanceof Id);
+        $this->folders = array_filter(
+            $folders, static fn ($folder) => $folder instanceof Id
+        );
         return $this;
     }
 

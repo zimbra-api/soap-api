@@ -172,7 +172,9 @@ class ModifyContactSpec
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ModifyContactAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof ModifyContactAttr
+        );
         return $this;
     }
 
@@ -206,7 +208,9 @@ class ModifyContactSpec
      */
     public function setContactGroupMembers(array $members): self
     {
-        $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof ModifyContactGroupMember);
+        $this->contactGroupMembers = array_filter(
+            $members, static fn ($member) => $member instanceof ModifyContactGroupMember
+        );
         return $this;
     }
 

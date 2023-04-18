@@ -330,7 +330,9 @@ class GetFreeBusyRequest extends SoapRequest
      */
     public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = array_filter($users, static fn ($usr) => $usr instanceof FreeBusyUserSpec);
+        $this->freebusyUsers = array_filter(
+            $users, static fn ($usr) => $usr instanceof FreeBusyUserSpec
+        );
         return $this;
     }
 

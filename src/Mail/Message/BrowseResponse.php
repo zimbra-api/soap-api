@@ -58,7 +58,9 @@ class BrowseResponse extends SoapResponse
      */
     public function setBrowseDatas(array $datas): self
     {
-        $this->browseDatas = array_filter($datas, static fn ($data) => $data instanceof BrowseData);
+        $this->browseDatas = array_filter(
+            $datas, static fn ($data) => $data instanceof BrowseData
+        );
         return $this;
     }
 

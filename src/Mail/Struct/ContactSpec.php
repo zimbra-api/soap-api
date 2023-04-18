@@ -300,7 +300,9 @@ class ContactSpec implements SpecifyContact
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NewContactAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof NewContactAttr
+        );
         return $this;
     }
 
@@ -334,7 +336,9 @@ class ContactSpec implements SpecifyContact
      */
     public function setContactGroupMembers(array $members): self
     {
-        $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof NewContactGroupMember);
+        $this->contactGroupMembers = array_filter(
+            $members, static fn ($member) => $member instanceof NewContactGroupMember
+        );
         return $this;
     }
 

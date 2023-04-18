@@ -206,7 +206,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter(
+            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+        );
         return $this;
     }
 
@@ -264,7 +266,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function getComponents(): array
     {
-        return array_merge($this->cancelComponents, $this->inviteComponents, $this->exceptComponents);
+        return array_merge(
+            $this->cancelComponents, $this->inviteComponents, $this->exceptComponents
+        );
     }
 
     /**
@@ -275,7 +279,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setCancelComponents(array $components): self
     {
-        $this->cancelComponents = array_filter($components, static fn ($cancel) => $cancel instanceof ExpandedRecurrenceCancel);
+        $this->cancelComponents = array_filter(
+            $components, static fn ($cancel) => $cancel instanceof ExpandedRecurrenceCancel
+        );
         return $this;
     }
 
@@ -297,7 +303,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = array_filter($components, static fn ($comp) => $comp instanceof ExpandedRecurrenceInvite);
+        $this->inviteComponents = array_filter(
+            $components, static fn ($comp) => $comp instanceof ExpandedRecurrenceInvite
+        );
         return $this;
     }
 
@@ -319,7 +327,9 @@ class ExpandRecurRequest extends SoapRequest
      */
     public function setExceptComponents(array $components): self
     {
-        $this->exceptComponents = array_filter($components, static fn ($except) => $except instanceof ExpandedRecurrenceException);
+        $this->exceptComponents = array_filter(
+            $components, static fn ($except) => $except instanceof ExpandedRecurrenceException
+        );
         return $this;
     }
 

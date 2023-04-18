@@ -81,7 +81,9 @@ class AutoCompleteResponse extends SoapResponse
      */
     public function setMatches(array $matches): self
     {
-        $this->matches = array_filter($matches, static fn ($match) => $match instanceof AutoCompleteMatch);
+        $this->matches = array_filter(
+            $matches, static fn ($match) => $match instanceof AutoCompleteMatch
+        );
         return $this;
     }
 

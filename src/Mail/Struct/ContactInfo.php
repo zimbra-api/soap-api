@@ -988,7 +988,9 @@ class ContactInfo implements ContactInterface, SearchHit
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = array_filter($metadatas, static fn ($metadata) => $metadata instanceof CustomMetadataInterface);
+        $this->metadatas = array_filter(
+            $metadatas, static fn ($metadata) => $metadata instanceof CustomMetadataInterface
+        );
         return $this;
     }
 
@@ -1010,7 +1012,9 @@ class ContactInfo implements ContactInterface, SearchHit
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ContactAttr);
+        $this->attrs = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof ContactAttr
+        );
         return $this;
     }
 
@@ -1032,7 +1036,9 @@ class ContactInfo implements ContactInterface, SearchHit
      */
     public function setContactGroupMembers(array $members): self
     {
-        $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof ContactGroupMemberInterface);
+        $this->contactGroupMembers = array_filter(
+            $members, static fn ($member) => $member instanceof ContactGroupMemberInterface
+        );
         return $this;
     }
 

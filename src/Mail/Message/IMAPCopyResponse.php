@@ -58,7 +58,9 @@ class IMAPCopyResponse extends SoapResponse
      */
     public function setItems(array $items): self
     {
-        $this->items = array_filter($items, static fn ($item) => $item instanceof IMAPItemInfo);
+        $this->items = array_filter(
+            $items, static fn ($item) => $item instanceof IMAPItemInfo
+        );
         return $this;
     }
 

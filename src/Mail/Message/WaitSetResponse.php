@@ -205,7 +205,9 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      */
     public function setSignalledAccounts(array $accounts = []): self
     {
-        $this->signalledAccounts = array_filter($accounts, static fn ($account) => $account instanceof AccountWithModifications);
+        $this->signalledAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof AccountWithModifications
+        );
         return $this;
     }
 
@@ -227,7 +229,9 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      */
     public function setErrors(array $errors = []): self
     {
-        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
+        $this->errors = array_filter(
+            $errors, static fn ($error) => $error instanceof IdAndType
+        );
         return $this;
     }
 

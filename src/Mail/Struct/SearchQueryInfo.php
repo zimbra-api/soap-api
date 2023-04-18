@@ -73,7 +73,9 @@ class SearchQueryInfo
      */
     public function setSuggests(array $suggests): self
     {
-        $this->suggests = array_filter($suggests, static fn($suggest) => $suggest instanceof SuggestedQueryString);
+        $this->suggests = array_filter(
+            $suggests, static fn($suggest) => $suggest instanceof SuggestedQueryString
+        );
         return $this;
     }
 
@@ -95,7 +97,9 @@ class SearchQueryInfo
      */
     public function setWildcards(array $wildcards): self
     {
-        $this->wildcards = array_filter($wildcards, static fn($wildcard) => $wildcard instanceof WildcardExpansionQueryInfo);
+        $this->wildcards = array_filter(
+            $wildcards, static fn($wildcard) => $wildcard instanceof WildcardExpansionQueryInfo
+        );
         return $this;
     }
 

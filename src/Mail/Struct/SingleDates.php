@@ -112,7 +112,9 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      */
     public function setDtVals(array $dtVals): self
     {
-        $this->dtVals = array_filter($dtVals, static fn ($dtVal) => $dtVal instanceof DtValInterface);
+        $this->dtVals = array_filter(
+            $dtVals, static fn ($dtVal) => $dtVal instanceof DtValInterface
+        );
         return $this;
     }
 

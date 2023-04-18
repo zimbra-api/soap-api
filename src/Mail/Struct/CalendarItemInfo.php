@@ -655,7 +655,9 @@ class CalendarItemInfo
      */
     public function setInvites(array $invites): self
     {
-        $this->invites = array_filter($invites, static fn ($invite) => $invite instanceof Invitation);
+        $this->invites = array_filter(
+            $invites, static fn ($invite) => $invite instanceof Invitation
+        );
         return $this;
     }
 
@@ -677,7 +679,9 @@ class CalendarItemInfo
      */
     public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = array_filter($replies, static fn ($reply) => $reply instanceof CalendarReply);
+        $this->calendarReplies = array_filter(
+            $replies, static fn ($reply) => $reply instanceof CalendarReply
+        );
         return $this;
     }
 
@@ -699,7 +703,9 @@ class CalendarItemInfo
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = array_filter($metadatas, static fn ($meta) => $meta instanceof MailCustomMetadata);
+        $this->metadatas = array_filter(
+            $metadatas, static fn ($meta) => $meta instanceof MailCustomMetadata
+        );
         return $this;
     }
 

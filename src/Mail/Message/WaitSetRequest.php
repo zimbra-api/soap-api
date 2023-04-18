@@ -334,7 +334,9 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      */
     public function setDefaultInterests(string $defaultInterests): self
     {
-        $types = array_filter(explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type));
+        $types = array_filter(
+            explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type)
+        );
         $this->defaultInterests = implode(',', array_unique($types));
         return $this;
     }
@@ -403,7 +405,9 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      */
     public function setAddAccounts(array $accounts): self
     {
-        $this->addAccounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
+        $this->addAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+        );
         return $this;
     }
 
@@ -437,7 +441,9 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      */
     public function setUpdateAccounts(array $accounts): self
     {
-        $this->updateAccounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
+        $this->updateAccounts = array_filter(
+            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+        );
         return $this;
     }
 
@@ -471,7 +477,9 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      */
     public function setRemoveAccounts(array $removeAccounts): self
     {
-        $this->removeAccounts = array_filter($removeAccounts, static fn ($account) => $account instanceof Id);
+        $this->removeAccounts = array_filter(
+            $removeAccounts, static fn ($account) => $account instanceof Id
+        );
         return $this;
     }
 

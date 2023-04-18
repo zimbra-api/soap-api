@@ -347,7 +347,9 @@ class Invitation
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter(
+            $timezones, static fn($timezone) => $timezone instanceof CalTZInfo
+        );
         return $this;
     }
 
@@ -403,7 +405,9 @@ class Invitation
      */
     public function setPartInfos(array $partInfos): self
     {
-        $this->partInfos = array_filter($partInfos, static fn($partInfo) => $partInfo instanceof PartInfo);
+        $this->partInfos = array_filter(
+            $partInfos, static fn($partInfo) => $partInfo instanceof PartInfo
+        );
         return $this;
     }
 
@@ -437,7 +441,9 @@ class Invitation
      */
     public function setShareNotifications(array $notifications): self
     {
-        $this->shareNotifications = array_filter($notifications, static fn($notification) => $notification instanceof ShareNotification);
+        $this->shareNotifications = array_filter(
+            $notifications, static fn($notification) => $notification instanceof ShareNotification
+        );
         return $this;
     }
 
@@ -471,7 +477,9 @@ class Invitation
      */
     public function setDlSubs(array $dlSubs): self
     {
-        $this->dlSubs = array_filter($dlSubs, static fn($dlSub) => $dlSub instanceof DLSubscriptionNotification);
+        $this->dlSubs = array_filter(
+            $dlSubs, static fn($dlSub) => $dlSub instanceof DLSubscriptionNotification
+        );
         return $this;
     }
 

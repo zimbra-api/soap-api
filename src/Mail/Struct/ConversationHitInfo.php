@@ -156,7 +156,9 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
      */
     public function setMessageHits(array $hits): self
     {
-        $this->messageHits = array_filter($hits, static fn($hit) => $hit instanceof ConversationMsgHitInfo);
+        $this->messageHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof ConversationMsgHitInfo
+        );
         return $this;
     }
 

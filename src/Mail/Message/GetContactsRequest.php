@@ -505,7 +505,9 @@ class GetContactsRequest extends SoapRequest
      */
     public function setAttributes(array $attrs): self
     {
-        $this->attributes = array_filter($attrs, static fn ($attr) => $attr instanceof AttributeName);
+        $this->attributes = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof AttributeName
+        );
         return $this;
     }
 
@@ -539,7 +541,9 @@ class GetContactsRequest extends SoapRequest
      */
     public function setMemberAttributes(array $attrs): self
     {
-        $this->memberAttributes = array_filter($attrs, static fn ($attr) => $attr instanceof AttributeName);
+        $this->memberAttributes = array_filter(
+            $attrs, static fn ($attr) => $attr instanceof AttributeName
+        );
         return $this;
     }
 
@@ -573,7 +577,9 @@ class GetContactsRequest extends SoapRequest
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = array_filter($contacts, static fn ($cn) => $cn instanceof Id);
+        $this->contacts = array_filter(
+            $contacts, static fn ($cn) => $cn instanceof Id
+        );
         return $this;
     }
 

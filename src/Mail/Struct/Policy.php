@@ -118,7 +118,9 @@ class Policy
         return new self(new EnumType('user'), NULL, NULL, $lifetime);
     }
 
-    public static function newSystemPolicy(?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL): Policy
+    public static function newSystemPolicy(
+        ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL
+    ): Policy
     {
         return new self(new EnumType('system'), $id, $name, $lifetime);
     }

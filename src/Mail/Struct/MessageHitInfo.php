@@ -251,7 +251,9 @@ class MessageHitInfo extends MessageInfo implements SearchHit
      */
     public function setMessagePartHits(array $hits): self
     {
-        $this->messagePartHits = array_filter($hits, static fn($hit) => $hit instanceof Part);
+        $this->messagePartHits = array_filter(
+            $hits, static fn($hit) => $hit instanceof Part
+        );
         return $this;
     }
 

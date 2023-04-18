@@ -408,7 +408,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      */
     public function setCategories(array $categories)
     {
-        $this->categories = array_unique(array_map(static fn ($category) => trim($category), $categories));
+        $this->categories = array_unique(
+            array_map(static fn ($category) => trim($category), $categories)
+        );
         return $this;
     }
 
@@ -464,7 +466,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      */
     public function setInstances(array $instances): self
     {
-        $this->instances = array_filter($instances, static fn($instance) => $instance instanceof InstanceDataInfo);
+        $this->instances = array_filter(
+            $instances, static fn($instance) => $instance instanceof InstanceDataInfo
+        );
         return $this;
     }
 
@@ -508,7 +512,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      */
     public function setInvites(array $invites): self
     {
-        $this->invites = array_filter($invites, static fn($invite) => $invite instanceof Invitation);
+        $this->invites = array_filter(
+            $invites, static fn($invite) => $invite instanceof Invitation
+        );
         return $this;
     }
 
@@ -530,7 +536,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      */
     public function setReplies(array $replies): self
     {
-        $this->replies = array_filter($replies, static fn($reply) => $reply instanceof CalReply);
+        $this->replies = array_filter(
+            $replies, static fn($reply) => $reply instanceof CalReply
+        );
         return $this;
     }
 

@@ -186,7 +186,9 @@ class SetAppointmentResponse extends SoapResponse
      */
     public function setExceptions(array $exceptions): self
     {
-        $this->exceptions = array_filter($exceptions, static fn ($except) => $except instanceof ExceptIdInfo);
+        $this->exceptions = array_filter(
+            $exceptions, static fn ($except) => $except instanceof ExceptIdInfo
+        );
         return $this;
     }
 

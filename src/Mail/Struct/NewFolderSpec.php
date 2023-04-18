@@ -446,7 +446,9 @@ class NewFolderSpec
      */
     public function setGrants(array $grants): self
     {
-        $this->grants = array_filter($grants, static fn ($grant) => $grant instanceof ActionGrantSelector);
+        $this->grants = array_filter(
+            $grants, static fn ($grant) => $grant instanceof ActionGrantSelector
+        );
         return $this;
     }
 

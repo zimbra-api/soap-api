@@ -145,7 +145,9 @@ class Acl
      */
     public function setGrants(array $grants): self
     {
-        $this->grants = array_filter($grants, static fn ($grant) => $grant instanceof Grant);
+        $this->grants = array_filter(
+            $grants, static fn ($grant) => $grant instanceof Grant
+        );
         return $this;
     }
 

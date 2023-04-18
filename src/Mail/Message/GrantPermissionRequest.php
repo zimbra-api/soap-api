@@ -73,7 +73,9 @@ class GrantPermissionRequest extends SoapRequest
      */
     public function setAces(array $aces): self
     {
-        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEinfo);
+        $this->aces = array_filter(
+            $aces, static fn ($ace) => $ace instanceof AccountACEinfo
+        );
         return $this;
     }
 

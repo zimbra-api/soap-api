@@ -96,7 +96,9 @@ class GetMiniCalResponse extends SoapResponse
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = array_filter($errors, static fn ($error) => $error instanceof MiniCalError);
+        $this->errors = array_filter(
+            $errors, static fn ($error) => $error instanceof MiniCalError
+        );
         return $this;
     }
 

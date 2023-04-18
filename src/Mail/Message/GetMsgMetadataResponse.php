@@ -74,7 +74,9 @@ class GetMsgMetadataResponse extends SoapResponse
      */
     public function setChatMessages(array $messages): self
     {
-        $this->chatMessages = array_filter($messages, static fn ($msg) => $msg instanceof ChatSummary);
+        $this->chatMessages = array_filter(
+            $messages, static fn ($msg) => $msg instanceof ChatSummary
+        );
         return $this;
     }
 
@@ -96,7 +98,9 @@ class GetMsgMetadataResponse extends SoapResponse
      */
     public function setMsgMessages(array $messages): self
     {
-        $this->msgMessages = array_filter($messages, static fn ($msg) => $msg instanceof MessageSummary);
+        $this->msgMessages = array_filter(
+            $messages, static fn ($msg) => $msg instanceof MessageSummary
+        );
         return $this;
     }
 

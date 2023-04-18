@@ -144,7 +144,9 @@ class InviteInfo implements InviteInfoInterface
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfoInterface);
+        $this->timezones = array_filter(
+            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfoInterface
+        );
         return $this;
     }
 

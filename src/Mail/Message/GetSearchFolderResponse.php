@@ -58,7 +58,9 @@ class GetSearchFolderResponse extends SoapResponse
      */
     public function setSearchFolders(array $folders): self
     {
-        $this->searchFolders = array_filter($folders, static fn ($folder) => $folder instanceof SearchFolder);
+        $this->searchFolders = array_filter(
+            $folders, static fn ($folder) => $folder instanceof SearchFolder
+        );
         return $this;
     }
 

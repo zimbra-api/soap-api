@@ -164,7 +164,9 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      */
     public function setDefaultInterests(string $defaultInterests): self
     {
-        $types = array_filter(explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type));
+        $types = array_filter(
+            explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type)
+        );
         $this->defaultInterests = implode(',', array_unique($types));
         return $this;
     }
@@ -177,7 +179,9 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      */
     public function setErrors(array $errors = []): self
     {
-        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
+        $this->errors = array_filter(
+            $errors, static fn ($error) => $error instanceof IdAndType
+        );
         return $this;
     }
 

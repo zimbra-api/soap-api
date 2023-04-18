@@ -49,7 +49,9 @@ class GetTagEnvelope extends SoapEnvelope
      * @param  SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?GetTagBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?GetTagBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }
