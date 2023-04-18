@@ -45,7 +45,9 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
      * @param  SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?SoapBodyInterface $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?SoapBodyInterface $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         $this->header = $header;
         if ($body instanceof SoapBodyInterface) {

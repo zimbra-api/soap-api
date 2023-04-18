@@ -59,14 +59,14 @@ class Client implements ClientInterface
      * 
      * @var string
      */
-    private $serviceUrl;
+    private string $serviceUrl;
 
     /**
      * Http cookie
      * 
      * @var string
      */
-    private $cookie;
+    private ?string $cookie = NULL;
 
     /**
      * Http client

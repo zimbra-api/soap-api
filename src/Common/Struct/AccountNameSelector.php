@@ -36,7 +36,7 @@ class AccountNameSelector
     #[SerializedName('by')]
     #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
     #[XmlAttribute]
-    private $by;
+    private AccountBy $by;
 
     /**
      * @Accessor(getter="getName", setter="setName")

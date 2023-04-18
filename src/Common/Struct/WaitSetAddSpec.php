@@ -202,7 +202,9 @@ class WaitSetAddSpec
      */
     public function setInterests(string $interests): self
     {
-        $types = array_filter(explode(',', $interests), static fn ($type) => InterestType::isValid($type));
+        $types = array_filter(
+            explode(',', $interests), static fn ($type) => InterestType::isValid($type)
+        );
         $this->interests = !empty($types) ? implode(',', array_unique($types)) : NULL;
         return $this;
     }
@@ -230,11 +232,15 @@ class WaitSetAddSpec
     {
         $this->folderInterests = [];
         if (is_array($folderInterests)) {
-            $folderInterests = array_map(static fn ($folderId) => (int) $folderId, $folderInterests);
+            $folderInterests = array_map(
+                static fn ($folderId) => (int) $folderId, $folderInterests
+            );
             $this->folderInterests = array_unique($folderInterests);
         }
         else {
-            $folderInterests = array_map(static fn ($folderId) => (int) $folderId, explode(',', $folderInterests));
+            $folderInterests = array_map(
+                static fn ($folderId) => (int) $folderId, explode(',', $folderInterests)
+            );
             $this->folderInterests = array_unique($folderInterests);
         }
         return $this;

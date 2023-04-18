@@ -73,7 +73,9 @@ class GranteeChooser
      * @param string $name
      * @return self
      */
-    public function __construct(?string $type = NULL, ?string $id = NULL, ?string $name = NULL)
+    public function __construct(
+        ?string $type = NULL, ?string $id = NULL, ?string $name = NULL
+    )
     {
         if (NULL !== $type) {
             $this->setType($type);
