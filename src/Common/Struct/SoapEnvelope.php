@@ -20,9 +20,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNa
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'http://www.w3.org/2003/05/soap-envelope', prefix: 'soap')]
+#[XmlNamespace(uri: SoapEnvelope::SOAP_NAMESPACE, prefix: 'soap')]
 abstract class SoapEnvelope implements SoapEnvelopeInterface
 {
+    const SOAP_NAMESPACE = 'http://www.w3.org/2003/05/soap-envelope';
+
     /**
      * Header
      * 
@@ -31,7 +33,7 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
     #[Accessor(getter: 'getHeader', setter: 'setHeader')]
     #[SerializedName('Header')]
     #[Type(SoapHeader::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?SoapHeaderInterface $header;
 
     /**
