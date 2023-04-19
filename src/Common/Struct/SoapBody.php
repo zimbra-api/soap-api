@@ -31,7 +31,7 @@ abstract class SoapBody implements SoapBodyInterface
     #[Accessor(getter: 'getSoapFault', setter: 'setSoapFault')]
     #[SerializedName('Fault')]
     #[Type(SoapFault::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?SoapFaultInterface $soapFault;
 
     /**

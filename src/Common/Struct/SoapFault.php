@@ -32,7 +32,7 @@ class SoapFault implements SoapFaultInterface
     #[Accessor(getter: 'getFaultCode', setter: 'setFaultCode')]
     #[SerializedName('Code')]
     #[Type(Code::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?Code $faultCode;
 
     /**
@@ -43,7 +43,7 @@ class SoapFault implements SoapFaultInterface
     #[Accessor(getter: 'getFaultReason', setter: 'setFaultReason')]
     #[SerializedName('Reason')]
     #[Type(Reason::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?Reason $faultReason;
 
     /**
