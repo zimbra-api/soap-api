@@ -55,39 +55,11 @@ class Client implements ClientInterface
     ];
 
     /**
-     * Soap service url
-     * 
-     * @var string
-     */
-    private string $serviceUrl;
-
-    /**
      * Http cookie
      * 
      * @var string
      */
     private ?string $cookie = NULL;
-
-    /**
-     * Http client
-     * 
-     * @var HttpClientInterface
-     */
-    private HttpClientInterface $httpClient;
-
-    /**
-     * Request factory
-     * 
-     * @var RequestFactoryInterface
-     */
-    private RequestFactoryInterface $requestFactory;
-
-    /**
-     * Stream factory
-     * 
-     * @var StreamFactoryInterface
-     */
-    private StreamFactoryInterface $streamFactory;
 
     /**
      * Http request message
@@ -112,16 +84,12 @@ class Client implements ClientInterface
      * @param StreamFactoryInterface $streamFactory
      */
     public function __construct(
-        string $serviceUrl,
-        HttpClientInterface $httpClient,
-        RequestFactoryInterface $requestFactory,
-        StreamFactoryInterface $streamFactory
+        private string $serviceUrl,
+        private HttpClientInterface $httpClient,
+        private RequestFactoryInterface $requestFactory,
+        private StreamFactoryInterface $streamFactory
     )
     {
-        $this->serviceUrl = $serviceUrl;
-        $this->httpClient = $httpClient;
-        $this->requestFactory = $requestFactory;
-        $this->streamFactory = $streamFactory;
     }
 
     /**
