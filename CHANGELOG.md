@@ -4,8 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 3.0.1 - 2023-10-03
+[Full Changelog](https://github.com/zimbra-api/soap-api/compare/3.0.0...3.0.1)
+
+* Fix mime part of message with group information
+
 ## 3.0.0 - 2023-04-17
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.1.0...3.0.0)
+
 * Remove Doctrine annotation
 * Remove Attribute reader class
 * Remove Enum serializer handler class
