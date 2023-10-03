@@ -21,6 +21,7 @@ use Zimbra\Mail\Struct\Header;
 use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\MsgToSend;
+use Zimbra\Mail\Struct\PartInfo;
 
 use Zimbra\Mail\Struct\CalendarReply;
 use Zimbra\Mail\Struct\InviteComponentWithGroupInfo;
@@ -50,7 +51,11 @@ class SendMsgTest extends ZimbraTestCase
         $content = $this->faker->text;
         $fragment = $this->faker->text;
         $contentType = $this->faker->word;
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
         $contentId = $this->faker->uuid;
+        $location = $this->faker->word;
         $name = $this->faker->name;
         $key = $this->faker->name;
         $value = $this->faker->word;
@@ -126,12 +131,14 @@ class SendMsgTest extends ZimbraTestCase
             $calItemType, [$timezone], [$inviteComponent], [$calendarReply]
         );
         $header = new KeyValuePair($key, $value);
-        $mimePart = new MimePartInfo($contentType, $content, $contentId);
+        $partInfo = new PartInfo(
+            $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content
+        );
         $shr = new ShareNotification(TRUE, $content);
         $dlSubs = new DLSubscriptionNotification(TRUE, $content);
         $urlValue = new UrlAndValue($url, $value);
         $msg = new MsgWithGroupInfo(
-            $id, $imapUid, $calendarIntendedFor, $origId, $draftReplyType, $identityId, $draftAccountId, $draftAutoSendTime, $sentDate, $resentDate, $part, $fragment, [$email], $subject, $messageIdHeader, $inReplyTo, $invite, [$header], $mimePart, $shr, $dlSubs, $urlValue
+            $id, $imapUid, $calendarIntendedFor, $origId, $draftReplyType, $identityId, $draftAccountId, $draftAutoSendTime, $sentDate, $resentDate, $part, $fragment, [$email], $subject, $messageIdHeader, $inReplyTo, $invite, [$header], $partInfo, $shr, $dlSubs, $urlValue
         );
 
         $response = new SendMsgResponse($msg);
@@ -186,7 +193,9 @@ class SendMsgTest extends ZimbraTestCase
                     </urn:replies>
                 </urn:inv>
                 <urn:header n="$key">$value</urn:header>
-                <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+                <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:mp>
                 <urn:shr truncated="true">
                     <urn:content>$content</urn:content>
                 </urn:shr>

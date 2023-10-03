@@ -16,7 +16,7 @@ use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\InviteComponentWithGroupInfo;
 use Zimbra\Mail\Struct\InviteWithGroupInfo;
 use Zimbra\Mail\Struct\EmailInfo;
-use Zimbra\Mail\Struct\MimePartInfo;
+use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Mail\Struct\ShareNotification;
 use Zimbra\Mail\Struct\DLSubscriptionNotification;
 use Zimbra\Mail\Struct\MsgWithGroupInfo;
@@ -65,8 +65,12 @@ class MsgWithGroupInfoTest extends ZimbraTestCase
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
         $contentType = $this->faker->mimeType;
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
         $content = $this->faker->text;
         $contentId = $this->faker->uuid;
+        $location = $this->faker->word;
         $url = $this->faker->url;
 
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
@@ -77,7 +81,9 @@ class MsgWithGroupInfoTest extends ZimbraTestCase
             $calItemType, [$timezone], [$inviteComponent], [$calendarReply]
         );
         $header = new KeyValuePair($key, $value);
-        $mimePart = new MimePartInfo($contentType, $content, $contentId);
+        $mimePart = new PartInfo(
+            $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content
+        );
         $shr = new ShareNotification(TRUE, $content);
         $dlSubs = new DLSubscriptionNotification(TRUE, $content);
         $urlValue = new UrlAndValue($url, $value);
@@ -173,7 +179,9 @@ class MsgWithGroupInfoTest extends ZimbraTestCase
         </urn:replies>
     </urn:inv>
     <urn:header n="$key">$value</urn:header>
-    <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+        <urn:content>$content</urn:content>
+    </urn:mp>
     <urn:shr truncated="true">
         <urn:content>$content</urn:content>
     </urn:shr>

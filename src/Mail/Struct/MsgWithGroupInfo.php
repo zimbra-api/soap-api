@@ -226,13 +226,13 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Mime part information
      * 
-     * @var MimePartInfo
+     * @var PartInfo
      */
     #[Accessor(getter: 'getMimePart', setter: 'setMimePart')]
     #[SerializedName('mp')]
-    #[Type(MimePartInfo::class)]
+    #[Type(PartInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?MimePartInfo $mimePart;
+    private ?PartInfo $mimePart;
 
     /**
      * Share Notification information
@@ -288,7 +288,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @param  string $inReplyTo
      * @param  InviteWithGroupInfo $invite
      * @param  array $headers
-     * @param  MimePartInfo $mimePart
+     * @param  PartInfo $mimePart
      * @param  ShareNotification $shr
      * @param  DLSubscriptionNotification $dlSubs
      * @param  UrlAndValue $content = NULL
@@ -313,7 +313,7 @@ class MsgWithGroupInfo extends MessageCommon
         ?string $inReplyTo = NULL,
         ?InviteWithGroupInfo $invite = NULL,
         array $headers = [],
-        ?MimePartInfo $mimePart = NULL,
+        ?PartInfo $mimePart = NULL,
         ?ShareNotification $shr = NULL,
         ?DLSubscriptionNotification $dlSubs = NULL,
         ?UrlAndValue $content = NULL
@@ -796,9 +796,9 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Get mimePart
      *
-     * @return MimePartInfo
+     * @return PartInfo
      */
-    public function getMimePart(): ?MimePartInfo
+    public function getMimePart(): ?PartInfo
     {
         return $this->mimePart;
     }
@@ -806,10 +806,10 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Set mimePart
      *
-     * @param  MimePartInfo $mimePart
+     * @param  PartInfo $mimePart
      * @return self
      */
-    public function setMimePart(MimePartInfo $mimePart): self
+    public function setMimePart(PartInfo $mimePart): self
     {
         $this->mimePart = $mimePart;
         return $this;

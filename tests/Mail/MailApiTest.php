@@ -3508,8 +3508,12 @@ EOT;
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
         $contentType = $this->faker->mimeType;
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
         $content = $this->faker->text;
         $contentId = $this->faker->uuid;
+        $location = $this->faker->word;
         $url = $this->faker->url;
 
         $xml = <<<EOT
@@ -3531,7 +3535,9 @@ EOT;
                     </urn:replies>
                 </urn:inv>
                 <urn:header n="$key">$value</urn:header>
-                <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+                <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:mp>
                 <urn:shr truncated="true">
                     <urn:content>$content</urn:content>
                 </urn:shr>
@@ -3556,7 +3562,9 @@ EOT;
             $calItemType, [$timezone], [$inviteComponent], [$calendarReply]
         );
         $header = new \Zimbra\Common\Struct\KeyValuePair($key, $value);
-        $mimePart = new \Zimbra\Mail\Struct\MimePartInfo($contentType, $content, $contentId);
+        $mimePart = new \Zimbra\Mail\Struct\PartInfo(
+            $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content
+        );
         $shr = new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content);
         $dlSubs = new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content);
         $urlValue = new \Zimbra\Common\Struct\UrlAndValue($url, $value);
@@ -5928,7 +5936,11 @@ EOT;
         $content = $this->faker->text;
         $fragment = $this->faker->text;
         $contentType = $this->faker->word;
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
         $contentId = $this->faker->uuid;
+        $location = $this->faker->word;
         $key = $this->faker->name;
         $value = $this->faker->word;
         $method = $this->faker->word;
@@ -5978,7 +5990,9 @@ EOT;
                     </urn:replies>
                 </urn:inv>
                 <urn:header n="$key">$value</urn:header>
-                <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+                <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:mp>
                 <urn:shr truncated="true">
                     <urn:content>$content</urn:content>
                 </urn:shr>
@@ -6003,7 +6017,9 @@ EOT;
             $calItemType, [$timezone], [$inviteComponent], [$calendarReply]
         );
         $header = new \Zimbra\Common\Struct\KeyValuePair($key, $value);
-        $mimePart = new \Zimbra\Mail\Struct\MimePartInfo($contentType, $content, $contentId);
+        $mimePart = new \Zimbra\Mail\Struct\PartInfo(
+            $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content
+        );
         $shr = new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content);
         $dlSubs = new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content);
         $urlValue = new \Zimbra\Common\Struct\UrlAndValue($url, $value);
