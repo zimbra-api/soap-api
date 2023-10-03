@@ -62,6 +62,7 @@ trait SetCalendarItemInfoTrait
     {
         $this->partStat = $partStat;
         $this->msg = $msg;
+        return $this;
     }
 
     /**
