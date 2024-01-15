@@ -32,7 +32,7 @@ class FolderActionSelectorTest extends ZimbraTestCase
         $view = $this->faker->word;
         $numDays = $this->faker->randomNumber;
 
-        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $rights = implode([ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $displayName = $this->faker->name;
         $args = $this->faker->word;
         $password = $this->faker->word;

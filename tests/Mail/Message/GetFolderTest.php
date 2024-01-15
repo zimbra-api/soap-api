@@ -69,7 +69,7 @@ class GetFolderTest extends ZimbraTestCase
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $grantRight = implode([ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $granteeType = GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;

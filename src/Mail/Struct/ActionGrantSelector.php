@@ -161,12 +161,12 @@ class ActionGrantSelector
     public function setRights(string $rights): self
     {
         $validRights = [];
-        foreach (explode(',', $rights) as $right) {
+        foreach (str_split($rights) as $right) {
             if (ActionGrantRight::tryFrom($right) && !in_array($right, $validRights)) {
                 $validRights[] = $right;
             }
         }
-        $this->rights = implode(',', $validRights);
+        $this->rights = implode($validRights);
         return $this;
     }
 

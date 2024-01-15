@@ -767,7 +767,7 @@ EOT;
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [\Zimbra\Common\Enum\ActionGrantRight::READ->value, \Zimbra\Common\Enum\ActionGrantRight::WRITE->value]);
+        $grantRight = implode([\Zimbra\Common\Enum\ActionGrantRight::READ->value, \Zimbra\Common\Enum\ActionGrantRight::WRITE->value]);
         $granteeType = \Zimbra\Common\Enum\GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
@@ -3034,7 +3034,7 @@ EOT;
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [\Zimbra\Common\Enum\ActionGrantRight::READ->value, \Zimbra\Common\Enum\ActionGrantRight::WRITE->value]);
+        $grantRight = implode([\Zimbra\Common\Enum\ActionGrantRight::READ->value, \Zimbra\Common\Enum\ActionGrantRight::WRITE->value]);
         $granteeType = \Zimbra\Common\Enum\GrantGranteeType::USR;
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;

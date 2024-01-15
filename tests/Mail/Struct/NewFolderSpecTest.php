@@ -24,7 +24,7 @@ class NewFolderSpecTest extends ZimbraTestCase
         $rgb = $this->faker->hexcolor;
         $url = $this->faker->word;
 
-        $rights = implode(',', [ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
+        $rights = implode([ActionGrantRight::READ->value, ActionGrantRight::WRITE->value]);
         $grantType = GranteeType::USR;
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;
