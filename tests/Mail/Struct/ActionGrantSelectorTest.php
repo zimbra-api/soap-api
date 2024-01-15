@@ -13,7 +13,7 @@ class ActionGrantSelectorTest extends ZimbraTestCase
 {
     public function testActionGrantSelector()
     {
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode([ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
         $grantType = GranteeType::USR();
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;

@@ -26,7 +26,7 @@ class DocumentActionSelectorTest extends ZimbraTestCase
         $zimbraId = $this->faker->uuid;
         $grantType = GranteeType::USR();
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode([ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
         $expiry = $this->faker->randomNumber;
         $displayName = $this->faker->name;
         $args = $this->faker->word;

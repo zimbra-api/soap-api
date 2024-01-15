@@ -195,12 +195,12 @@ class Grant
     public function setPerm(string $perm): self
     {
         $validRights = [];
-        foreach (explode(',', $perm) as $right) {
+        foreach (str_split($perm) as $right) {
             if (ActionGrantRight::isValid($right) && !in_array($right, $validRights)) {
                 $validRights[] = $right;
             }
         }
-        $this->perm = implode(',', $validRights);
+        $this->perm = implode($validRights);
         return $this;
     }
 

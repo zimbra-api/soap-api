@@ -39,7 +39,7 @@ class FolderActionTest extends ZimbraTestCase
         $nonExistentIds = $this->faker->uuid;
         $newlyCreatedIds = $this->faker->uuid;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode([ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
         $displayName = $this->faker->name;
         $args = $this->faker->word;
         $password = $this->faker->word;

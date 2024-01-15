@@ -41,7 +41,7 @@ class CreateFolderTest extends ZimbraTestCase
         $color = $this->faker->numberBetween(0, 127);
         $rgb = $this->faker->hexcolor;
 
-        $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $rights = implode([ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
         $grantType = GranteeType::USR();
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;
@@ -75,7 +75,7 @@ class CreateFolderTest extends ZimbraTestCase
         $internalGrantExpiry = $this->faker->randomNumber;
         $guestGrantExpiry = $this->faker->randomNumber;
 
-        $grantRight = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
+        $grantRight = implode([ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
         $granteeType = GrantGranteeType::USR();
         $granteeId = $this->faker->uuid;
         $expiry = $this->faker->unixTime;
