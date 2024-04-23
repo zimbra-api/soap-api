@@ -73,7 +73,7 @@ class AttributeDriverFactory implements DriverFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createDriver(array $metadataDirs, Reader $annotationReader): DriverInterface
+    public function createDriver(array $metadataDirs, ?Reader $annotationReader = null): DriverInterface
     {
         $driver = new AttributeDriver(
             $this->propertyNamingStrategy, $this->typeParser
