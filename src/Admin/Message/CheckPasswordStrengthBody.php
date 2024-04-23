@@ -33,7 +33,7 @@ class CheckPasswordStrengthBody extends SoapBody
     #[SerializedName('CheckPasswordStrengthRequest')]
     #[Type(CheckPasswordStrengthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckPasswordStrengthBody extends SoapBody
     #[SerializedName('CheckPasswordStrengthResponse')]
     #[Type(CheckPasswordStrengthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckPasswordStrengthBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckPasswordStrengthRequest $request = NULL, ?CheckPasswordStrengthResponse $response = NULL
+        ?CheckPasswordStrengthRequest $request = null, ?CheckPasswordStrengthResponse $response = null
     )
     {
         parent::__construct($request, $response);

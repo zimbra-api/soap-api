@@ -56,10 +56,10 @@ class ForwardAppointmentInviteRequest extends SoapRequest
      * @param  Msg $msg
      * @return self
      */
-    public function __construct(?string $id = NULL, ?Msg $msg = NULL)
+    public function __construct(?string $id = null, ?Msg $msg = null)
     {
         $this->msg = $msg;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

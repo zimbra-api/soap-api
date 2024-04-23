@@ -33,7 +33,7 @@ class GetVersionInfoBody extends SoapBody
     #[SerializedName('GetVersionInfoRequest')]
     #[Type(GetVersionInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetVersionInfoBody extends SoapBody
     #[SerializedName('GetVersionInfoResponse')]
     #[Type(GetVersionInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetVersionInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetVersionInfoRequest $request = NULL, ?GetVersionInfoResponse $response = NULL
+        ?GetVersionInfoRequest $request = null, ?GetVersionInfoResponse $response = null
     )
     {
         parent::__construct($request, $response);

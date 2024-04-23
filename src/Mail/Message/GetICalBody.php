@@ -33,7 +33,7 @@ class GetICalBody extends SoapBody
     #[SerializedName('GetICalRequest')]
     #[Type(GetICalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetICalBody extends SoapBody
     #[SerializedName('GetICalResponse')]
     #[Type(GetICalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetICalBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetICalRequest $request = NULL, ?GetICalResponse $response = NULL
+        ?GetICalRequest $request = null, ?GetICalResponse $response = null
     )
     {
         parent::__construct($request, $response);

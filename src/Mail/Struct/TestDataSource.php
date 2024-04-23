@@ -53,11 +53,11 @@ class TestDataSource
      * @return self
      */
     public function __construct(
-        int $success = 0, ?string $error = NULL
+        int $success = 0, ?string $error = null
     )
     {
         $this->setSuccess($success);
-        if (NULL !== $error) {
+        if (null !== $error) {
             $this->setError($error);
         }
     }

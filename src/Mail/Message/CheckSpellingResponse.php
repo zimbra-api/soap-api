@@ -54,7 +54,7 @@ class CheckSpellingResponse extends SoapResponse
      * @param  array $misspelledWords
      * @return self
      */
-    public function __construct(bool $available = FALSE, array $misspelledWords = [])
+    public function __construct(bool $available = false, array $misspelledWords = [])
     {
         $this->setAvailable($available)
              ->setMisspelledWords($misspelledWords);

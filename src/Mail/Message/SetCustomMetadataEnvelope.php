@@ -35,7 +35,7 @@ class SetCustomMetadataEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SetCustomMetadataBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SetCustomMetadataEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SetCustomMetadataBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SetCustomMetadataBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

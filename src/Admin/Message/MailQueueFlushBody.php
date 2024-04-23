@@ -33,7 +33,7 @@ class MailQueueFlushBody extends SoapBody
     #[SerializedName('MailQueueFlushRequest')]
     #[Type(MailQueueFlushRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class MailQueueFlushBody extends SoapBody
     #[SerializedName('MailQueueFlushResponse')]
     #[Type(MailQueueFlushResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class MailQueueFlushBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?MailQueueFlushRequest $request = NULL, ?MailQueueFlushResponse $response = NULL
+        ?MailQueueFlushRequest $request = null, ?MailQueueFlushResponse $response = null
     )
     {
         parent::__construct($request, $response);

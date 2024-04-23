@@ -69,22 +69,22 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
         array $messageHits = [],
-        ?int $num = NULL,
-        ?int $numUnread = NULL,
-        ?int $totalSize = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $date = NULL,
-        ?bool $elided = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?int $num = null,
+        ?int $numUnread = null,
+        ?int $totalSize = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $date = null,
+        ?bool $elided = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = [],
-        ?string $subject = NULL,
-        ?string $fragment = NULL,
+        ?string $subject = null,
+        ?string $fragment = null,
         array $emails = []
     )
     {
@@ -106,7 +106,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
             $emails
         );
         $this->setMessageHits($messageHits);
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
     }

@@ -63,12 +63,12 @@ class DistributionListGranteeSelector
      * @return self
      */
     public function __construct(
-        ?GranteeType $type = NULL, ?DistributionListGranteeBy $by = NULL, ?string $value = NULL
+        ?GranteeType $type = null, ?DistributionListGranteeBy $by = null, ?string $value = null
     )
     {
         $this->setType($type ?? GranteeType::ALL)
              ->setBy($by ?? DistributionListGranteeBy::NAME);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

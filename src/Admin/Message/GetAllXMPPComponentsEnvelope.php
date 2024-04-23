@@ -35,7 +35,7 @@ class GetAllXMPPComponentsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetAllXMPPComponentsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetAllXMPPComponentsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAllXMPPComponentsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetAllXMPPComponentsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

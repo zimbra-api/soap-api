@@ -137,42 +137,42 @@ class VersionInfo
      * @return self
      */
     public function __construct(
-        ?string $type = NULL,
-        ?string $version = NULL,
-        ?string $release = NULL,
-        ?string $buildDate = NULL,
-        ?string $host = NULL,
-        ?string $majorVersion = NULL,
-        ?string $minorVersion = NULL,
-        ?string $microVersion = NULL,
-        ?string $platform = NULL
+        ?string $type = null,
+        ?string $version = null,
+        ?string $release = null,
+        ?string $buildDate = null,
+        ?string $host = null,
+        ?string $majorVersion = null,
+        ?string $minorVersion = null,
+        ?string $microVersion = null,
+        ?string $platform = null
     )
     {
-        if (NULL !== $type) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $release) {
+        if (null !== $release) {
             $this->setRelease($release);
         }
-        if (NULL !== $buildDate) {
+        if (null !== $buildDate) {
             $this->setBuildDate($buildDate);
         }
-        if (NULL !== $host) {
+        if (null !== $host) {
             $this->setHost($host);
         }
-        if (NULL !== $majorVersion) {
+        if (null !== $majorVersion) {
             $this->setMajorVersion($majorVersion);
         }
-        if (NULL !== $minorVersion) {
+        if (null !== $minorVersion) {
             $this->setMinorVersion($minorVersion);
         }
-        if (NULL !== $microVersion) {
+        if (null !== $microVersion) {
             $this->setMicroVersion($microVersion);
         }
-        if (NULL !== $platform) {
+        if (null !== $platform) {
             $this->setPlatform($platform);
         }
 

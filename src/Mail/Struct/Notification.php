@@ -53,12 +53,12 @@ class Notification implements NotificationInterface
      * @param  string $content
      * @return self
      */
-    public function __construct(?bool $truncatedContent = NULL, ?string $content = NULL)
+    public function __construct(?bool $truncatedContent = null, ?string $content = null)
     {
-        if (NULL !== $truncatedContent) {
+        if (null !== $truncatedContent) {
             $this->setTruncatedContent($truncatedContent);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

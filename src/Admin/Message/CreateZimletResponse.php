@@ -42,7 +42,7 @@ class CreateZimletResponse extends SoapResponse
      * @param ZimletInfo $zimlet
      * @return self
      */
-    public function __construct(?ZimletInfo $zimlet = NULL)
+    public function __construct(?ZimletInfo $zimlet = null)
     {
         $this->zimlet = $zimlet;
     }

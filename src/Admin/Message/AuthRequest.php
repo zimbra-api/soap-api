@@ -127,36 +127,36 @@ class AuthRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $password = NULL,
-        ?string $authToken = NULL,
-        ?AccountSelector $account = NULL,
-        ?string $virtualHost = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL
+        ?string $name = null,
+        ?string $password = null,
+        ?string $authToken = null,
+        ?AccountSelector $account = null,
+        ?string $virtualHost = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null
     )
     {
         $this->account = $account;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $password){
+        if (null !== $password){
             $this->setPassword($password);
         }
-        if (NULL !== $authToken) {
+        if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if (NULL !== $virtualHost) {
+        if (null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
-        if (NULL !== $persistAuthTokenCookie) {
+        if (null !== $persistAuthTokenCookie) {
             $this->setPersistAuthTokenCookie($persistAuthTokenCookie);
         }
-        if (NULL !== $csrfSupported) {
+        if (null !== $csrfSupported) {
             $this->setCsrfSupported($csrfSupported);
         }
-        if (NULL !== $twoFactorCode) {
+        if (null !== $twoFactorCode) {
             $this->setTwoFactorCode($twoFactorCode);
         }
     }

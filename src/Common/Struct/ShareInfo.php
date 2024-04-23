@@ -198,7 +198,7 @@ class ShareInfo
         string $granteeId = '',
         string $granteeName = '',
         string $granteeDisplayName = '',
-        string $mountpointId = NULL
+        string $mountpointId = null
     )
     {
         $this->setOwnerId($ownerId)
@@ -214,7 +214,7 @@ class ShareInfo
              ->setGranteeName($granteeName)
              ->setGranteeDisplayName($granteeDisplayName);
 
-        if (NULL !== $mountpointId) {
+        if (null !== $mountpointId) {
             $this->setMountpointId($mountpointId);
         }
     }

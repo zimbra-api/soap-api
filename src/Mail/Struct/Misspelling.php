@@ -54,10 +54,10 @@ class Misspelling
      * @param  string $suggestions
      * @return self
      */
-    public function __construct(string $word = '', ?string $suggestions = NULL)
+    public function __construct(string $word = '', ?string $suggestions = null)
     {
         $this->setWord($word);
-        if (NULL !== $suggestions) {
+        if (null !== $suggestions) {
             $this->setSuggestions($suggestions);
         }
     }

@@ -33,7 +33,7 @@ class GetOAuthConsumersBody extends SoapBody
     #[SerializedName('GetOAuthConsumersRequest')]
     #[Type(GetOAuthConsumersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetOAuthConsumersBody extends SoapBody
     #[SerializedName('GetOAuthConsumersResponse')]
     #[Type(GetOAuthConsumersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetOAuthConsumersBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetOAuthConsumersRequest $request = NULL, ?GetOAuthConsumersResponse $response = NULL
+        ?GetOAuthConsumersRequest $request = null, ?GetOAuthConsumersResponse $response = null
     )
     {
         parent::__construct($request, $response);

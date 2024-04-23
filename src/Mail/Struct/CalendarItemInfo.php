@@ -220,19 +220,19 @@ class CalendarItemInfo
      * @return self
      */
     public function __construct(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL,
-        ?int $revision = NULL,
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?string $folder = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $nextAlarm = NULL,
-        ?bool $orphan = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $uid = null,
+        ?string $id = null,
+        ?int $revision = null,
+        ?int $size = null,
+        ?int $date = null,
+        ?string $folder = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
+        ?int $nextAlarm = null,
+        ?bool $orphan = null,
         array $invites = [],
         array $calendarReplies = [],
         array $metadatas = []
@@ -241,43 +241,43 @@ class CalendarItemInfo
         $this->setInvites($invites)
              ->setCalendarReplies($calendarReplies)
              ->setMetadatas($metadatas);
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $nextAlarm) {
+        if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
-        if (NULL !== $orphan) {
+        if (null !== $orphan) {
             $this->setOrphan($orphan);
         }
     }

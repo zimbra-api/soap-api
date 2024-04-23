@@ -70,12 +70,12 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
      * @return self
      */
     public function __construct(
-        string $name = '', ?bool $dynamic = NULL, array $attrs = []
+        string $name = '', ?bool $dynamic = null, array $attrs = []
     )
     {
         $this->setName($name)
              ->setKeyValuePairs($attrs);
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }

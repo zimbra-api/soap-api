@@ -70,17 +70,17 @@ class SearchFolder extends Folder
     public function __construct(
         string $id = '',
         string $uuid = '',
-        ?string $query = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?string $types = NULL
+        ?string $query = null,
+        ?SearchSortBy $sortBy = null,
+        ?string $types = null
     )
     {
     	parent::__construct($id, $uuid);
         $this->sortBy = $sortBy;
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
-        if (NULL !== $types) {
+        if (null !== $types) {
             $this->setTypes($types);
         }
     }

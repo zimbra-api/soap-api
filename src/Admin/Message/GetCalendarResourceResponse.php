@@ -42,7 +42,7 @@ class GetCalendarResourceResponse extends SoapResponse
      * @param CalendarResourceInfo $calResource
      * @return self
      */
-    public function __construct(?CalendarResourceInfo $calResource = NULL)
+    public function __construct(?CalendarResourceInfo $calResource = null)
     {
         $this->calResource = $calResource;
     }

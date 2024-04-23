@@ -78,17 +78,17 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * @return self
      */
     public function __construct(
-        AccountSelector $account, ?bool $applyCos = NULL, ?bool $effectiveQuota = NULL, ?string $attrs = NULL
+        AccountSelector $account, ?bool $applyCos = null, ?bool $effectiveQuota = null, ?string $attrs = null
     )
     {
         $this->setAccount($account);
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $effectiveQuota) {
+        if (null !== $effectiveQuota) {
             $this->setEffectiveQuota($effectiveQuota);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

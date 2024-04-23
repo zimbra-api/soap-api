@@ -55,14 +55,14 @@ class CosInfoAttr extends Attr
      * @return self
      */
     public function __construct(
-        string $key = '', ?string $value = NULL, ?bool $cosAttr = NULL, ?bool $permDenied = NULL
+        string $key = '', ?string $value = null, ?bool $cosAttr = null, ?bool $permDenied = null
     )
     {
     	parent::__construct($key, $value);
-        if (NULL !== $cosAttr) {
+        if (null !== $cosAttr) {
             $this->setCosAttr($cosAttr);
         }
-        if (NULL !== $permDenied) {
+        if (null !== $permDenied) {
             $this->setPermDenied($permDenied);
         }
     }

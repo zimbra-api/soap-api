@@ -33,7 +33,7 @@ class DeleteGalSyncAccountBody extends SoapBody
     #[SerializedName('DeleteGalSyncAccountRequest')]
     #[Type(DeleteGalSyncAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteGalSyncAccountBody extends SoapBody
     #[SerializedName('DeleteGalSyncAccountResponse')]
     #[Type(DeleteGalSyncAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteGalSyncAccountRequest $request = NULL, ?DeleteGalSyncAccountResponse $response = NULL
+        ?DeleteGalSyncAccountRequest $request = null, ?DeleteGalSyncAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -33,7 +33,7 @@ class GetTagBody extends SoapBody
     #[SerializedName('GetTagRequest')]
     #[Type(GetTagRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetTagBody extends SoapBody
     #[SerializedName('GetTagResponse')]
     #[Type(GetTagResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetTagBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetTagRequest $request = NULL, ?GetTagResponse $response = NULL
+        ?GetTagRequest $request = null, ?GetTagResponse $response = null
     )
     {
         parent::__construct($request, $response);

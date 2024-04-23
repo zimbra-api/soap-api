@@ -98,23 +98,23 @@ class ModifyContactRequest extends SoapRequest
      */
     public function __construct(
         ModifyContactSpec $contact,
-        ?bool $replace = NULL,
-        ?bool $verbose = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $replace = null,
+        ?bool $verbose = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     )
     {
         $this->setContact($contact);
-        if (NULL !== $replace) {
+        if (null !== $replace) {
             $this->setReplace($replace);
         }
-        if (NULL !== $verbose) {
+        if (null !== $verbose) {
             $this->setVerbose($verbose);
         }
-        if (NULL !== $wantImapUid) {
+        if (null !== $wantImapUid) {
             $this->setWantImapUid($wantImapUid);
         }
-        if (NULL !== $wantModifiedSequence) {
+        if (null !== $wantModifiedSequence) {
             $this->setWantModifiedSequence($wantModifiedSequence);
         }
     }

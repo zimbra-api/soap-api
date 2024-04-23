@@ -35,7 +35,7 @@ class GetServiceStatusEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetServiceStatusBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetServiceStatusEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetServiceStatusBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetServiceStatusBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

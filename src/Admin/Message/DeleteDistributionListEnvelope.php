@@ -35,7 +35,7 @@ class DeleteDistributionListEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DeleteDistributionListBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DeleteDistributionListEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DeleteDistributionListBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DeleteDistributionListBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

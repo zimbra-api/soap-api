@@ -33,7 +33,7 @@ class GetWorkingHoursBody extends SoapBody
     #[SerializedName('GetWorkingHoursRequest')]
     #[Type(GetWorkingHoursRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetWorkingHoursBody extends SoapBody
     #[SerializedName('GetWorkingHoursResponse')]
     #[Type(GetWorkingHoursResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetWorkingHoursBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetWorkingHoursRequest $request = NULL, ?GetWorkingHoursResponse $response = NULL
+        ?GetWorkingHoursRequest $request = null, ?GetWorkingHoursResponse $response = null
     )
     {
         parent::__construct($request, $response);

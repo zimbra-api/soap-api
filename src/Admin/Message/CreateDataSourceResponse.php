@@ -42,7 +42,7 @@ class CreateDataSourceResponse extends SoapResponse
      * @param DataSourceInfo $dataSource
      * @return self
      */
-    public function __construct(?DataSourceInfo $dataSource = NULL)
+    public function __construct(?DataSourceInfo $dataSource = null)
     {
         $this->dataSource = $dataSource;
     }

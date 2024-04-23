@@ -77,19 +77,19 @@ class ItemSpec
      * @return self
      */
     public function __construct(
-        ?string $id = NULL, ?string $folder = NULL, ?string $name = NULL, ?string $path = NULL
+        ?string $id = null, ?string $folder = null, ?string $name = null, ?string $path = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $path) {
+        if (null !== $path) {
             $this->setPath($path);
         }
     }

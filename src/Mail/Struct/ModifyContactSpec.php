@@ -76,18 +76,18 @@ class ModifyContactSpec
      * @return self
      */
     public function __construct(
-        ?int $id = NULL,
-        ?string $tagNames = NULL,
+        ?int $id = null,
+        ?string $tagNames = null,
         array $attrs = [],
         array $contactGroupMembers = []
     )
     {
         $this->setAttrs($attrs)
              ->setContactGroupMembers($contactGroupMembers);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
     }

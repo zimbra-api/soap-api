@@ -35,7 +35,7 @@ class SendVerificationCodeEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SendVerificationCodeBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SendVerificationCodeEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SendVerificationCodeBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SendVerificationCodeBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

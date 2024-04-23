@@ -42,10 +42,10 @@ class NoOpResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?bool $waitDisallowed = NULL
+        ?bool $waitDisallowed = null
     )
     {
-        if (NULL !== $waitDisallowed) {
+        if (null !== $waitDisallowed) {
             $this->setWaitDisallowed($waitDisallowed);
         }
     }

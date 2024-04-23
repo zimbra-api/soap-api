@@ -33,7 +33,7 @@ class GetRightsBody extends SoapBody
     #[SerializedName('GetRightsRequest')]
     #[Type(GetRightsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetRightsBody extends SoapBody
     #[SerializedName('GetRightsResponse')]
     #[Type(GetRightsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetRightsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetRightsRequest $request = NULL, ?GetRightsResponse $response = NULL
+        ?GetRightsRequest $request = null, ?GetRightsResponse $response = null
     )
     {
         parent::__construct($request, $response);

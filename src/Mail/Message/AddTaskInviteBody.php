@@ -33,7 +33,7 @@ class AddTaskInviteBody extends SoapBody
     #[SerializedName('AddTaskInviteRequest')]
     #[Type(AddTaskInviteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AddTaskInviteBody extends SoapBody
     #[SerializedName('AddTaskInviteResponse')]
     #[Type(AddTaskInviteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AddTaskInviteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddTaskInviteRequest $request = NULL, ?AddTaskInviteResponse $response = NULL
+        ?AddTaskInviteRequest $request = null, ?AddTaskInviteResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -73,16 +73,16 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $ownerOf = NULL,
-        ?MemberOfSelector $memberOf = NULL,
-        ?string $attrs = NULL
+        ?bool $ownerOf = null,
+        ?MemberOfSelector $memberOf = null,
+        ?string $attrs = null
     )
     {
         $this->memberOf = $memberOf;
-        if(NULL !== $ownerOf) {
+        if(null !== $ownerOf) {
             $this->setOwnerOf($ownerOf);
         }
-        if(NULL !== $attrs) {
+        if(null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

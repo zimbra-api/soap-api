@@ -60,7 +60,7 @@ class NewContactGroupMember
      * @return self
      */
     public function __construct(
-        ?MemberType $type = NULL, string $value = ''
+        ?MemberType $type = null, string $value = ''
     )
     {
         $this->setType($type ?? MemberType::CONTACT)

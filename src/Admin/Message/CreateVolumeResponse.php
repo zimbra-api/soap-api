@@ -42,7 +42,7 @@ class CreateVolumeResponse extends SoapResponse
      * @param VolumeInfo $volume
      * @return self
      */
-    public function __construct(?VolumeInfo $volume = NULL)
+    public function __construct(?VolumeInfo $volume = null)
     {
         $this->volume = $volume;
     }

@@ -65,16 +65,16 @@ class RawInvite
      * @return self
      */
     public function __construct(
-        ?string $uid = NULL, ?string $summary = NULL, ?string $content = NULL
+        ?string $uid = null, ?string $summary = null, ?string $content = null
     )
     {
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $summary) {
+        if (null !== $summary) {
             $this->setSummary($summary);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

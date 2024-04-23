@@ -77,13 +77,13 @@ class InfoForSessionType
      * @return self
      */
     public function __construct(
-        int $activeSessions = 0, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = []
+        int $activeSessions = 0, ?int $activeAccounts = null, array $accounts = [], array $sessions = []
     )
     {
         $this->setActiveSessions($activeSessions)
              ->setAccounts($accounts)
              ->setSessions($sessions);
-        if (NULL !== $activeAccounts) {
+        if (null !== $activeAccounts) {
             $this->setActiveAccounts($activeAccounts);
         }
     }

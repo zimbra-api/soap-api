@@ -67,13 +67,13 @@ class AdminZimletContext implements ZimletContextInterface
      */
     public function __construct(
         string $baseUrl = '',
-        ?ZimletPresence $presence = NULL,
-        ?int $priority = NULL
+        ?ZimletPresence $presence = null,
+        ?int $priority = null
     )
     {
         $this->setZimletBaseUrl($baseUrl)
              ->setZimletPresence($presence ?? ZimletPresence::ENABLED);
-        if (NULL !== $priority) {
+        if (null !== $priority) {
             $this->setZimletPriority($priority);
         }
     }

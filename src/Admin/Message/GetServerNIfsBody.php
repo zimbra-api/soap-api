@@ -33,7 +33,7 @@ class GetServerNIfsBody extends SoapBody
     #[SerializedName('GetServerNIfsRequest')]
     #[Type(GetServerNIfsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetServerNIfsBody extends SoapBody
     #[SerializedName('GetServerNIfsResponse')]
     #[Type(GetServerNIfsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetServerNIfsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetServerNIfsRequest $request = NULL, ?GetServerNIfsResponse $response = NULL
+        ?GetServerNIfsRequest $request = null, ?GetServerNIfsResponse $response = null
     )
     {
         parent::__construct($request, $response);

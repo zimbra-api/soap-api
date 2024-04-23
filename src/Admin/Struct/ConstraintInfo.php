@@ -65,12 +65,12 @@ class ConstraintInfo
      * @param  array $values
      * @return self
      */
-    public function __construct(?string $min = NULL, ?string $max = NULL, array $values = [])
+    public function __construct(?string $min = null, ?string $max = null, array $values = [])
     {
-        if (NULL !== $min) {
+        if (null !== $min) {
             $this->setMin($min);
         }
-        if (NULL !== $max) {
+        if (null !== $max) {
             $this->setMax($max);
         }
         $this->setValues($values);

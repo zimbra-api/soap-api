@@ -33,7 +33,7 @@ class GetLDAPEntriesBody extends SoapBody
     #[SerializedName('GetLDAPEntriesRequest')]
     #[Type(GetLDAPEntriesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetLDAPEntriesBody extends SoapBody
     #[SerializedName('GetLDAPEntriesResponse')]
     #[Type(GetLDAPEntriesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetLDAPEntriesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetLDAPEntriesRequest $request = NULL, ?GetLDAPEntriesResponse $response = NULL
+        ?GetLDAPEntriesRequest $request = null, ?GetLDAPEntriesResponse $response = null
     )
     {
         parent::__construct($request, $response);

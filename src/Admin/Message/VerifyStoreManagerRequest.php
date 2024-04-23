@@ -67,18 +67,18 @@ class VerifyStoreManagerRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?int $fileSize = NULL,
-        ?int $num = NULL,
-        ?bool $checkBlobs = NULL
+        ?int $fileSize = null,
+        ?int $num = null,
+        ?bool $checkBlobs = null
     )
     {
-        if (NULL !== $fileSize) {
+        if (null !== $fileSize) {
             $this->setFileSize($fileSize);
         }
-        if (NULL !== $num) {
+        if (null !== $num) {
             $this->setNum($num);
         }
-        if (NULL !== $checkBlobs) {
+        if (null !== $checkBlobs) {
             $this->setCheckBlobs($checkBlobs);
         }
     }

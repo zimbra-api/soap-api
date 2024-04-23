@@ -162,48 +162,48 @@ class MessagePartHitInfo implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?int $conversationId = NULL,
-        ?int $messageId = NULL,
-        ?string $contentType = NULL,
-        ?string $contentName = NULL,
-        ?string $part = NULL,
-        ?EmailInfo $email = NULL,
-        ?string $subject = NULL
+        ?string $id = null,
+        ?string $sortField = null,
+        ?int $size = null,
+        ?int $date = null,
+        ?int $conversationId = null,
+        ?int $messageId = null,
+        ?string $contentType = null,
+        ?string $contentName = null,
+        ?string $part = null,
+        ?EmailInfo $email = null,
+        ?string $subject = null
     )
     {
         $this->email = $email;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $conversationId) {
+        if (null !== $conversationId) {
             $this->setConversationId($conversationId);
         }
-        if (NULL !== $messageId) {
+        if (null !== $messageId) {
             $this->setMessageId($messageId);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $contentName) {
+        if (null !== $contentName) {
             $this->setContentName($contentName);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
     }

@@ -65,16 +65,16 @@ class GranteeChooser
      * @return self
      */
     public function __construct(
-        ?string $type = NULL, ?string $id = NULL, ?string $name = NULL
+        ?string $type = null, ?string $id = null, ?string $name = null
     )
     {
-        if (NULL !== $type) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

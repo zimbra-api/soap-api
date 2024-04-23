@@ -82,20 +82,20 @@ class AutoCompleteGalResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?bool $more = NULL,
-        ?bool $tokenizeKey = NULL,
-        ?bool $pagingSupported = NULL,
+        ?bool $more = null,
+        ?bool $tokenizeKey = null,
+        ?bool $pagingSupported = null,
         array $contacts = []
     )
     {
         $this->setContacts($contacts);
-        if(NULL !== $more) {
+        if(null !== $more) {
             $this->setMore($more);
         }
-        if(NULL !== $tokenizeKey) {
+        if(null !== $tokenizeKey) {
             $this->setTokenizeKey($tokenizeKey);
         }
-        if(NULL !== $pagingSupported) {
+        if(null !== $pagingSupported) {
             $this->setPagingSupported($pagingSupported);
         }
     }

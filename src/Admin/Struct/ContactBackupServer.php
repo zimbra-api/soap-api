@@ -52,7 +52,7 @@ class ContactBackupServer
      * @param ContactBackupStatus $status
      * @return self
      */
-    public function __construct(string $name = '', ?ContactBackupStatus $status = NULL)
+    public function __construct(string $name = '', ?ContactBackupStatus $status = null)
     {
         $this->setName($name)
              ->setStatus($status ?? ContactBackupStatus::STOPPED);

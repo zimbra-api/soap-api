@@ -35,7 +35,7 @@ class RemoveAccountAliasEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(RemoveAccountAliasBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class RemoveAccountAliasEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?RemoveAccountAliasBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?RemoveAccountAliasBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

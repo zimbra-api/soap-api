@@ -33,7 +33,7 @@ class GetWhiteBlackListBody extends SoapBody
     #[SerializedName('GetWhiteBlackListRequest')]
     #[Type(GetWhiteBlackListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetWhiteBlackListBody extends SoapBody
     #[SerializedName('GetWhiteBlackListResponse')]
     #[Type(GetWhiteBlackListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetWhiteBlackListBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetWhiteBlackListRequest $request = NULL, ?GetWhiteBlackListResponse $response = NULL
+        ?GetWhiteBlackListRequest $request = null, ?GetWhiteBlackListResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -51,9 +51,9 @@ class PackageRightsInfo
      * @param array  $cmds
      * @return self
      */
-    public function __construct(?string $name = NULL, array $cmds = [])
+    public function __construct(?string $name = null, array $cmds = [])
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
         $this->setCmds($cmds);

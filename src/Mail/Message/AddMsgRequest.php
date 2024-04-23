@@ -56,10 +56,10 @@ class AddMsgRequest extends SoapRequest
      * @param  bool $filterSent
      * @return self
      */
-    public function __construct(AddMsgSpec $msg, ?bool $filterSent = NULL)
+    public function __construct(AddMsgSpec $msg, ?bool $filterSent = null)
     {
         $this->setMsg($msg);
-        if (NULL !== $filterSent) {
+        if (null !== $filterSent) {
             $this->setFilterSent($filterSent);
         }
     }

@@ -118,7 +118,7 @@ class MissingBlobInfo
         int $size = 0,
         int $volumeId = 0,
         string $blobPath = '',
-        bool $external = FALSE,
+        bool $external = false,
         int $version = 0
     )
     {

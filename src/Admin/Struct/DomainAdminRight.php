@@ -79,7 +79,7 @@ class DomainAdminRight
      */
     public function __construct(
         string $name = '',
-        ?RightType $type = NULL,
+        ?RightType $type = null,
         string $desc = '',
         array $rights = []
     )

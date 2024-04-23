@@ -33,7 +33,7 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
     #[SerializedName('RefreshRegisteredAuthTokensRequest')]
     #[Type(RefreshRegisteredAuthTokensRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
     #[SerializedName('RefreshRegisteredAuthTokensResponse')]
     #[Type(RefreshRegisteredAuthTokensResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RefreshRegisteredAuthTokensRequest $request = NULL, ?RefreshRegisteredAuthTokensResponse $response = NULL
+        ?RefreshRegisteredAuthTokensRequest $request = null, ?RefreshRegisteredAuthTokensResponse $response = null
     )
     {
         parent::__construct($request, $response);

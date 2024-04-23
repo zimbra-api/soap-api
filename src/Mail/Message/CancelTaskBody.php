@@ -33,7 +33,7 @@ class CancelTaskBody extends SoapBody
     #[SerializedName('CancelTaskRequest')]
     #[Type(CancelTaskRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CancelTaskBody extends SoapBody
     #[SerializedName('CancelTaskResponse')]
     #[Type(CancelTaskResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CancelTaskBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CancelTaskRequest $request = NULL, ?CancelTaskResponse $response = NULL
+        ?CancelTaskRequest $request = null, ?CancelTaskResponse $response = null
     )
     {
         parent::__construct($request, $response);

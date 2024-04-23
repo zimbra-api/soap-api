@@ -43,11 +43,11 @@ class AddressBookTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?bool $negative = NULL, ?string $header = NULL
+        ?int $index = null, ?bool $negative = null, ?string $header = null
     )
     {
         parent::__construct($index, $negative);
-        if (NULL !== $header) {
+        if (null !== $header) {
             $this->setHeader($header);
         }
     }

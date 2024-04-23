@@ -33,7 +33,7 @@ class GetAvailableSkinsBody extends SoapBody
     #[SerializedName('GetAvailableSkinsRequest')]
     #[Type(GetAvailableSkinsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAvailableSkinsBody extends SoapBody
     #[SerializedName('GetAvailableSkinsResponse')]
     #[Type(GetAvailableSkinsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAvailableSkinsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAvailableSkinsRequest $request = NULL, ?GetAvailableSkinsResponse $response = NULL
+        ?GetAvailableSkinsRequest $request = null, ?GetAvailableSkinsResponse $response = null
     )
     {
         parent::__construct($request, $response);

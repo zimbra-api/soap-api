@@ -33,7 +33,7 @@ class GetAllFreeBusyProvidersBody extends SoapBody
     #[SerializedName('GetAllFreeBusyProvidersRequest')]
     #[Type(GetAllFreeBusyProvidersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAllFreeBusyProvidersBody extends SoapBody
     #[SerializedName('GetAllFreeBusyProvidersResponse')]
     #[Type(GetAllFreeBusyProvidersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAllFreeBusyProvidersBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAllFreeBusyProvidersRequest $request = NULL, ?GetAllFreeBusyProvidersResponse $response = NULL
+        ?GetAllFreeBusyProvidersRequest $request = null, ?GetAllFreeBusyProvidersResponse $response = null
     )
     {
         parent::__construct($request, $response);

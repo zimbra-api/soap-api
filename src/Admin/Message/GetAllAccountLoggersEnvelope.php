@@ -35,7 +35,7 @@ class GetAllAccountLoggersEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetAllAccountLoggersBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetAllAccountLoggersEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAllAccountLoggersBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetAllAccountLoggersBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -64,14 +64,14 @@ class AccountNameSelector
      * @return self
      */
     public function __construct(
-        ?AccountBy $by = NULL, ?string $name = NULL, ?string $value = NULL
+        ?AccountBy $by = null, ?string $name = null, ?string $value = null
     )
     {
         $this->setBy($by ?? AccountBy::NAME);
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

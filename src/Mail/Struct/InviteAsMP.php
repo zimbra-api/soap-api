@@ -157,13 +157,13 @@ class InviteAsMP extends MessageCommon
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $part = NULL,
-        ?int $sentDate = NULL,
+        ?string $id = null,
+        ?string $part = null,
+        ?int $sentDate = null,
         array $emails = [],
-        ?string $subject = NULL,
-        ?string $messageIdHeader = NULL,
-        ?MPInviteInfo $invite = NULL,
+        ?string $subject = null,
+        ?string $messageIdHeader = null,
+        ?MPInviteInfo $invite = null,
         array $headers = [],
         array $contentElems = []
     )
@@ -172,19 +172,19 @@ class InviteAsMP extends MessageCommon
              ->setHeaders($headers)
              ->setContentElems($contentElems);
         $this->invite = $invite;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $sentDate) {
+        if (null !== $sentDate) {
             $this->setSentDate($sentDate);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $messageIdHeader) {
+        if (null !== $messageIdHeader) {
             $this->setMessageIdHeader($messageIdHeader);
         }
     }

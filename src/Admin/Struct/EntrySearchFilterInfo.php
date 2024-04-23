@@ -54,9 +54,9 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @param SearchFilterCondition $condition
      * @return self
      */
-    public function __construct(?SearchFilterCondition $condition = NULL)
+    public function __construct(?SearchFilterCondition $condition = null)
     {
-        $this->condition = $this->conditions = NULL;
+        $this->condition = $this->conditions = null;
         if ($condition instanceof MultiCond) {
             $this->setConditions($condition);
         }

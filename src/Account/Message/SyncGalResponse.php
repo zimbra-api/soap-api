@@ -126,34 +126,34 @@ class SyncGalResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?bool $more = NULL,
-        ?string $token = NULL,
-        ?string $galDefinitionLastModified = NULL,
-        ?bool $throttled = NULL,
-        ?bool $fullSyncRecommended = NULL,
-        ?int $remain = NULL,
+        ?bool $more = null,
+        ?string $token = null,
+        ?string $galDefinitionLastModified = null,
+        ?bool $throttled = null,
+        ?bool $fullSyncRecommended = null,
+        ?int $remain = null,
         array $contacts = [],
         array $deleted = []
     )
     {
         $this->setContacts($contacts)
              ->setDeleted($deleted);
-        if(NULL !== $more) {
+        if(null !== $more) {
             $this->setMore($more);
         }
-        if(NULL !== $token) {
+        if(null !== $token) {
             $this->setToken($token);
         }
-        if(NULL !== $galDefinitionLastModified) {
+        if(null !== $galDefinitionLastModified) {
             $this->setGalDefinitionLastModified($galDefinitionLastModified);
         }
-        if(NULL !== $throttled) {
+        if(null !== $throttled) {
             $this->setThrottled($throttled);
         }
-        if(NULL !== $fullSyncRecommended) {
+        if(null !== $fullSyncRecommended) {
             $this->setFullSyncRecommended($fullSyncRecommended);
         }
-        if(NULL !== $remain) {
+        if(null !== $remain) {
             $this->setRemain($remain);
         }
     }

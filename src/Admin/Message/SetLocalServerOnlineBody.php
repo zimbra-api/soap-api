@@ -33,7 +33,7 @@ class SetLocalServerOnlineBody extends SoapBody
     #[SerializedName('SetLocalServerOnlineRequest')]
     #[Type(SetLocalServerOnlineRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SetLocalServerOnlineBody extends SoapBody
     #[SerializedName('SetLocalServerOnlineResponse')]
     #[Type(SetLocalServerOnlineResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SetLocalServerOnlineBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SetLocalServerOnlineRequest $request = NULL, ?SetLocalServerOnlineResponse $response = NULL
+        ?SetLocalServerOnlineRequest $request = null, ?SetLocalServerOnlineResponse $response = null
     )
     {
         parent::__construct($request, $response);

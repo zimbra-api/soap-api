@@ -54,10 +54,10 @@ class DeleteDistributionListRequest extends SoapRequest
      * @param  bool   $cascadeDelete
      * @return self
      */
-    public function __construct(string $id = '', ?bool $cascadeDelete = NULL)
+    public function __construct(string $id = '', ?bool $cascadeDelete = null)
     {
         $this->setId($id);
-        if (NULL !== $cascadeDelete) {
+        if (null !== $cascadeDelete) {
             $this->setCascadeDelete($cascadeDelete);
         }
     }

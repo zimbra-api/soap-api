@@ -42,7 +42,7 @@ class GetDomainResponse extends SoapResponse
      * @param DomainInfo $domain
      * @return self
      */
-    public function __construct(?DomainInfo $domain = NULL)
+    public function __construct(?DomainInfo $domain = null)
     {
         $this->domain = $domain;
         if ($domain instanceof DomainInfo) {

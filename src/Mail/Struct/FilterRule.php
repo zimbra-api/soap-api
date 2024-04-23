@@ -101,12 +101,12 @@ class FilterRule
      * @return self
      */
     public function __construct(
-        ?FilterTests $tests = NULL,
+        ?FilterTests $tests = null,
         string $name = '',
-        bool $active = FALSE,
-        ?FilterVariables $filterVariables = NULL,
+        bool $active = false,
+        ?FilterVariables $filterVariables = null,
         array $actions = [],
-        ?NestedRule $child = NULL
+        ?NestedRule $child = null
     )
     {
         $this->setName($name)

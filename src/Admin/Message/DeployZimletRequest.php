@@ -81,17 +81,17 @@ class DeployZimletRequest extends SoapRequest
      */
     public function __construct(
         AttachmentIdAttrib $content,
-        ?ZimletDeployAction $action = NULL,
-        ?bool $flushCache = NULL,
-        ?bool $synchronous = NULL
+        ?ZimletDeployAction $action = null,
+        ?bool $flushCache = null,
+        ?bool $synchronous = null
     )
     {
         $this->setAction($action ?? ZimletDeployAction::DEPLOY_ALL)
              ->setContent($content);
-        if (NULL !== $flushCache) {
+        if (null !== $flushCache) {
             $this->setFlushCache($flushCache);
         }
-        if (NULL !== $synchronous) {
+        if (null !== $synchronous) {
             $this->setSynchronous($synchronous);
         }
     }

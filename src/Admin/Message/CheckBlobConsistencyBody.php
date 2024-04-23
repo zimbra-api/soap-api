@@ -33,7 +33,7 @@ class CheckBlobConsistencyBody extends SoapBody
     #[SerializedName('CheckBlobConsistencyRequest')]
     #[Type(CheckBlobConsistencyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckBlobConsistencyBody extends SoapBody
     #[SerializedName('CheckBlobConsistencyResponse')]
     #[Type(CheckBlobConsistencyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckBlobConsistencyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckBlobConsistencyRequest $request = NULL, ?CheckBlobConsistencyResponse $response = NULL
+        ?CheckBlobConsistencyRequest $request = null, ?CheckBlobConsistencyResponse $response = null
     )
     {
         parent::__construct($request, $response);

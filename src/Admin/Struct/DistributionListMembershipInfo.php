@@ -66,12 +66,12 @@ class DistributionListMembershipInfo
      * @return self
      */
     public function __construct(
-        string $id = '', string $name = '', ?string $via = NULL
+        string $id = '', string $name = '', ?string $via = null
     )
     {
         $this->setId($id)
              ->setName($name);
-        if (NULL !== $via) {
+        if (null !== $via) {
             $this->setVia($via);
         }
     }

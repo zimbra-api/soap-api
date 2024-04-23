@@ -217,23 +217,23 @@ class SyncResponse extends SoapResponse
      */
     public function __construct(
         int $changeDate = 0,
-        ?string $token = NULL,
-        ?int $size = NULL,
-        ?bool $more = NULL,
-        ?SyncDeletedInfo $deleted = NULL,
+        ?string $token = null,
+        ?int $size = null,
+        ?bool $more = null,
+        ?SyncDeletedInfo $deleted = null,
         array $items = []
     )
     {
         $this->setChangeDate($changeDate)
              ->setItems($items);
         $this->deleted = $deleted;
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
     }

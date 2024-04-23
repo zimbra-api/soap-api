@@ -55,8 +55,8 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @return self
      */
     public function __construct(
-        ?DateAttr $absolute = NULL,
-        ?DurationInfo $relative = NULL
+        ?DateAttr $absolute = null,
+        ?DurationInfo $relative = null
     )
     {
         $this->absolute = $absolute;

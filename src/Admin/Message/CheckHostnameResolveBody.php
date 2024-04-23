@@ -33,7 +33,7 @@ class CheckHostnameResolveBody extends SoapBody
     #[SerializedName('CheckHostnameResolveRequest')]
     #[Type(CheckHostnameResolveRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckHostnameResolveBody extends SoapBody
     #[SerializedName('CheckHostnameResolveResponse')]
     #[Type(CheckHostnameResolveResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckHostnameResolveBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckHostnameResolveRequest $request = NULL, ?CheckHostnameResolveResponse $response = NULL
+        ?CheckHostnameResolveRequest $request = null, ?CheckHostnameResolveResponse $response = null
     )
     {
         parent::__construct($request, $response);

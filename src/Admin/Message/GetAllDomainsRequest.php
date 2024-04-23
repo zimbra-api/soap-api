@@ -42,9 +42,9 @@ class GetAllDomainsRequest extends SoapRequest
      * @param  bool $applyConfig
      * @return self
      */
-    public function __construct(?bool $applyConfig = NULL)
+    public function __construct(?bool $applyConfig = null)
     {
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
     }

@@ -33,7 +33,7 @@ class AddAccountLoggerBody extends SoapBody
     #[SerializedName('AddAccountLoggerRequest')]
     #[Type(AddAccountLoggerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AddAccountLoggerBody extends SoapBody
     #[SerializedName('AddAccountLoggerResponse')]
     #[Type(AddAccountLoggerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AddAccountLoggerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddAccountLoggerRequest $request = NULL, ?AddAccountLoggerResponse $response = NULL
+        ?AddAccountLoggerRequest $request = null, ?AddAccountLoggerResponse $response = null
     )
     {
         parent::__construct($request, $response);

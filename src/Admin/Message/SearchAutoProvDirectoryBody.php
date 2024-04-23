@@ -33,7 +33,7 @@ class SearchAutoProvDirectoryBody extends SoapBody
     #[SerializedName('SearchAutoProvDirectoryRequest')]
     #[Type(SearchAutoProvDirectoryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SearchAutoProvDirectoryBody extends SoapBody
     #[SerializedName('SearchAutoProvDirectoryResponse')]
     #[Type(SearchAutoProvDirectoryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SearchAutoProvDirectoryBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SearchAutoProvDirectoryRequest $request = NULL, ?SearchAutoProvDirectoryResponse $response = NULL
+        ?SearchAutoProvDirectoryRequest $request = null, ?SearchAutoProvDirectoryResponse $response = null
     )
     {
         parent::__construct($request, $response);

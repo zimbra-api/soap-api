@@ -211,64 +211,64 @@ class AutoCompleteMatch
      * @return self
      */
     public function __construct(
-        ?string $email = NULL,
-        ?MatchType $matchType = NULL,
-        ?int $ranking = NULL,
-        ?bool $group = NULL,
-        ?bool $canExpandGroupMembers = NULL,
-        ?string $id = NULL,
-        ?string $folder = NULL,
-        ?string $displayName = NULL,
-        ?string $firstName = NULL,
-        ?string $middleName = NULL,
-        ?string $lastName = NULL,
-        ?string $fullName = NULL,
-        ?string $nickname = NULL,
-        ?string $company = NULL,
-        ?string $fileAs = NULL
+        ?string $email = null,
+        ?MatchType $matchType = null,
+        ?int $ranking = null,
+        ?bool $group = null,
+        ?bool $canExpandGroupMembers = null,
+        ?string $id = null,
+        ?string $folder = null,
+        ?string $displayName = null,
+        ?string $firstName = null,
+        ?string $middleName = null,
+        ?string $lastName = null,
+        ?string $fullName = null,
+        ?string $nickname = null,
+        ?string $company = null,
+        ?string $fileAs = null
     )
     {
         $this->matchType = $matchType;
-        if (NULL !== $email) {
+        if (null !== $email) {
             $this->setEmail($email);
         }
-        if (NULL !== $ranking) {
+        if (null !== $ranking) {
             $this->setRanking($ranking);
         }
-        if (NULL !== $group) {
+        if (null !== $group) {
             $this->setGroup($group);
         }
-        if (NULL !== $canExpandGroupMembers) {
+        if (null !== $canExpandGroupMembers) {
             $this->setCanExpandGroupMembers($canExpandGroupMembers);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $firstName) {
+        if (null !== $firstName) {
             $this->setFirstName($firstName);
         }
-        if (NULL !== $middleName) {
+        if (null !== $middleName) {
             $this->setMiddleName($middleName);
         }
-        if (NULL !== $lastName) {
+        if (null !== $lastName) {
             $this->setLastName($lastName);
         }
-        if (NULL !== $fullName) {
+        if (null !== $fullName) {
             $this->setFullName($fullName);
         }
-        if (NULL !== $nickname) {
+        if (null !== $nickname) {
             $this->setNickname($nickname);
         }
-        if (NULL !== $company) {
+        if (null !== $company) {
             $this->setCompany($company);
         }
-        if (NULL !== $fileAs) {
+        if (null !== $fileAs) {
             $this->setFileAs($fileAs);
         }
     }

@@ -53,13 +53,13 @@ class Identity extends AttrsImpl
      * @param array  $attrs
      * @return self
      */
-    public function __construct(?string $name = NULL, ?string $id = NULL, array $attrs = [])
+    public function __construct(?string $name = null, ?string $id = null, array $attrs = [])
     {
         parent::__construct($attrs);
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

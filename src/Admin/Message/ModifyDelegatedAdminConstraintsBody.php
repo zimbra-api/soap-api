@@ -33,7 +33,7 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
     #[SerializedName('ModifyDelegatedAdminConstraintsRequest')]
     #[Type(ModifyDelegatedAdminConstraintsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
     #[SerializedName('ModifyDelegatedAdminConstraintsResponse')]
     #[Type(ModifyDelegatedAdminConstraintsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,8 +54,8 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyDelegatedAdminConstraintsRequest $request = NULL,
-        ?ModifyDelegatedAdminConstraintsResponse $response = NULL
+        ?ModifyDelegatedAdminConstraintsRequest $request = null,
+        ?ModifyDelegatedAdminConstraintsResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -51,10 +51,10 @@ class PrincipalSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(?AutoProvPrincipalBy $by = NULL, ?string $value = NULL)
+    public function __construct(?AutoProvPrincipalBy $by = null, ?string $value = null)
     {
         $this->setBy($by ?? AutoProvPrincipalBy::DN);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

@@ -66,7 +66,7 @@ class DataSourceInfo extends AdminAttrsImpl
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?DataSourceType $type = NULL, array $attrs = []
+        string $name = '', string $id = '', ?DataSourceType $type = null, array $attrs = []
     )
     {
         parent::__construct($attrs);

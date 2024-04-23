@@ -42,7 +42,7 @@ class GetCreateObjectAttrsResponse extends SoapResponse
      * @param EffectiveAttrsInfo $setAttrs
      * @return self
      */
-    public function __construct(?EffectiveAttrsInfo $setAttrs = NULL)
+    public function __construct(?EffectiveAttrsInfo $setAttrs = null)
     {
         $this->setAttrs = $setAttrs;
     }

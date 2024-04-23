@@ -89,16 +89,16 @@ class CountObjectsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?CountObjectsType $type = NULL,
+        ?CountObjectsType $type = null,
         array $domains = [],
-        ?UcServiceSelector $ucService = NULL,
-        ?bool $onlyRelated = NULL
+        ?UcServiceSelector $ucService = null,
+        ?bool $onlyRelated = null
     )
     {
         $this->setType($type ?? CountObjectsType::ACCOUNT)
              ->setDomains($domains);
         $this->ucService = $ucService;
-        if (NULL !== $onlyRelated) {
+        if (null !== $onlyRelated) {
             $this->setOnlyRelated($onlyRelated);
         }
     }

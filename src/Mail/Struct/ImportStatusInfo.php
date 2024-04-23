@@ -79,22 +79,22 @@ abstract class ImportStatusInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?bool $running = NULL,
-        ?bool $success = NULL,
-        ?string $error = NULL
+        ?string $id = null,
+        ?bool $running = null,
+        ?bool $success = null,
+        ?string $error = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $running) {
+        if (null !== $running) {
             $this->setRunning($running);
         }
-        if (NULL !== $success) {
+        if (null !== $success) {
             $this->setSuccess($success);
         }
-        if (NULL !== $error) {
+        if (null !== $error) {
             $this->setError($error);
         }
     }

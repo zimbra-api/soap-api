@@ -45,7 +45,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
      * @param  Msg $msg
      * @return self
      */
-    public function __construct(?Msg $msg = NULL)
+    public function __construct(?Msg $msg = null)
     {
         $this->msg = $msg;
     }

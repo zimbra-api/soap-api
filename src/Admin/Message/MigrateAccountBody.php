@@ -33,7 +33,7 @@ class MigrateAccountBody extends SoapBody
     #[SerializedName('MigrateAccountRequest')]
     #[Type(MigrateAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class MigrateAccountBody extends SoapBody
     #[SerializedName('MigrateAccountResponse')]
     #[Type(MigrateAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class MigrateAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?MigrateAccountRequest $request = NULL, ?MigrateAccountResponse $response = NULL
+        ?MigrateAccountRequest $request = null, ?MigrateAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

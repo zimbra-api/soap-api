@@ -51,10 +51,10 @@ class KeyValuePair
      * @param string $value
      * @return self
      */
-    public function __construct(string $key = '', ?string $value = NULL)
+    public function __construct(string $key = '', ?string $value = null)
     {
         $this->setKey($key);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

@@ -33,7 +33,7 @@ class RenameAccountBody extends SoapBody
     #[SerializedName('RenameAccountRequest')]
     #[Type(RenameAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RenameAccountBody extends SoapBody
     #[SerializedName('RenameAccountResponse')]
     #[Type(RenameAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RenameAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RenameAccountRequest $request = NULL, ?RenameAccountResponse $response = NULL
+        ?RenameAccountRequest $request = null, ?RenameAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -35,7 +35,7 @@ class VerifyStoreManagerEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(VerifyStoreManagerBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class VerifyStoreManagerEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?VerifyStoreManagerBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?VerifyStoreManagerBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

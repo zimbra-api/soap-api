@@ -125,16 +125,16 @@ class AddressTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $header = NULL,
-        ?AddressPart $part = NULL,
-        ?StringComparison $comparison = NULL,
-        ?bool $caseSensitive = NULL,
-        ?string $value = NULL,
-        ?ValueComparison $valueComparison = NULL,
-        ?CountComparison $countComparison = NULL,
-        ?ComparisonComparator $valueComparisonComparator = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $header = null,
+        ?AddressPart $part = null,
+        ?StringComparison $comparison = null,
+        ?bool $caseSensitive = null,
+        ?string $value = null,
+        ?ValueComparison $valueComparison = null,
+        ?CountComparison $countComparison = null,
+        ?ComparisonComparator $valueComparisonComparator = null
     )
     {
     	parent::__construct($index, $negative);
@@ -143,13 +143,13 @@ class AddressTest extends FilterTest
         $this->valueComparison = $valueComparison;
         $this->countComparison = $countComparison;
         $this->valueComparisonComparator = $valueComparisonComparator;
-        if (NULL !== $header) {
+        if (null !== $header) {
             $this->setHeader($header);
         }
-        if (NULL !== $caseSensitive) {
+        if (null !== $caseSensitive) {
             $this->setCaseSensitive($caseSensitive);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

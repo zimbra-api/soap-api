@@ -51,10 +51,10 @@ class SignatureContent
      * @param ContentType $type
      * @return self
      */
-    public function __construct(?string $value = NULL, ?ContentType $type = NULL)
+    public function __construct(?string $value = null, ?ContentType $type = null)
     {
         $this->type = $type;
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

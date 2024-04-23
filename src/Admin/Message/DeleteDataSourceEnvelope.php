@@ -35,7 +35,7 @@ class DeleteDataSourceEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DeleteDataSourceBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DeleteDataSourceEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DeleteDataSourceBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DeleteDataSourceBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

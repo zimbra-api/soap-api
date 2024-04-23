@@ -79,9 +79,9 @@ class ZimletAclStatusPri
      */
     public function __construct(
         string $name = '',
-        ?ZimletAcl $acl = NULL,
-        ?ValueAttrib $status = NULL,
-        ?IntegerValueAttrib $priority = NULL
+        ?ZimletAcl $acl = null,
+        ?ValueAttrib $status = null,
+        ?IntegerValueAttrib $priority = null
     )
     {
         $this->setName($name);

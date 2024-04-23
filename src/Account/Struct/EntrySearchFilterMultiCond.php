@@ -77,15 +77,15 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        ?bool $not = NULL,
-        ?bool $or = NULL,
+        ?bool $not = null,
+        ?bool $or = null,
         array $conditions = []
     )
     {
-        if (NULL !== $not) {
+        if (null !== $not) {
             $this->setNot($not);
         }
-        if (NULL !== $or) {
+        if (null !== $or) {
             $this->setOr($or);
         }
         $this->setConditions($conditions);

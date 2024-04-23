@@ -219,22 +219,22 @@ class Msg
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $replyType = NULL,
-        ?string $identityId = NULL,
-        ?string $subject = NULL,
+        ?string $attachmentId = null,
+        ?string $origId = null,
+        ?ReplyType $replyType = null,
+        ?string $identityId = null,
+        ?string $subject = null,
         array $headers = [],
-        ?string $inReplyTo = NULL,
-        ?string $folderId = NULL,
-        ?string $flags = NULL,
-        ?string $content = NULL,
-        ?MimePartInfo $mimePart = NULL,
-        ?AttachmentsInfo $attachments = NULL,
-        ?InvitationInfo $invite = NULL,
+        ?string $inReplyTo = null,
+        ?string $folderId = null,
+        ?string $flags = null,
+        ?string $content = null,
+        ?MimePartInfo $mimePart = null,
+        ?AttachmentsInfo $attachments = null,
+        ?InvitationInfo $invite = null,
         array $emailAddresses = [],
         array $timezones = [],
-        ?string $fragment = NULL
+        ?string $fragment = null
     )
     {
         $this->setHeaders($headers)
@@ -244,31 +244,31 @@ class Msg
         $this->mimePart = $mimePart;
         $this->attachments = $attachments;
         $this->invite = $invite;
-        if (NULL !== $attachmentId) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
-        if (NULL !== $origId) {
+        if (null !== $origId) {
             $this->setOrigId($origId);
         }
-        if (NULL !== $identityId) {
+        if (null !== $identityId) {
             $this->setIdentityId($identityId);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $inReplyTo) {
+        if (null !== $inReplyTo) {
             $this->setInReplyTo($inReplyTo);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

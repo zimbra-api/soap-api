@@ -33,7 +33,7 @@ class SetRecoveryAccountBody extends SoapBody
     #[SerializedName('SetRecoveryAccountRequest')]
     #[Type(SetRecoveryAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SetRecoveryAccountBody extends SoapBody
     #[SerializedName('SetRecoveryAccountResponse')]
     #[Type(SetRecoveryAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SetRecoveryAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SetRecoveryAccountRequest $request = NULL, ?SetRecoveryAccountResponse $response = NULL
+        ?SetRecoveryAccountRequest $request = null, ?SetRecoveryAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

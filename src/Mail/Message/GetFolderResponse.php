@@ -64,9 +64,9 @@ class GetFolderResponse extends SoapResponse
      * @param  Folder $folder
      * @return self
      */
-    public function __construct(?Folder $folder = NULL)
+    public function __construct(?Folder $folder = null)
     {
-        $this->folder = $this->mountpoint = $this->searchFolder = NULL;
+        $this->folder = $this->mountpoint = $this->searchFolder = null;
         if ($folder instanceof Mountpoint) {
             $this->setMountpoint($folder);
         }

@@ -428,37 +428,37 @@ class Folder
     public function __construct(
         string $id = '',
         string $uuid = '',
-        ?string $name = NULL,
-        ?string $absoluteFolderPath = NULL,
-        ?string $parentId = NULL,
-        ?string $folderUuid = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $unreadCount = NULL,
-        ?int $imapUnreadCount = NULL,
-        ?ViewType $view = NULL,
-        ?int $revision = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $changeDate = NULL,
-        ?int $itemCount = NULL,
-        ?int $imapItemCount = NULL,
-        ?int $totalSize = NULL,
-        ?int $imapModifiedSequence = NULL,
-        ?int $imapUidNext = NULL,
-        ?string $url = NULL,
-        ?bool $activeSyncDisabled = NULL,
-        ?int $webOfflineSyncDays = NULL,
-        ?string $perm = NULL,
-        ?bool $recursive = NULL,
-        ?string $restUrl = NULL,
-        ?bool $deletable = NULL,
+        ?string $name = null,
+        ?string $absoluteFolderPath = null,
+        ?string $parentId = null,
+        ?string $folderUuid = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $unreadCount = null,
+        ?int $imapUnreadCount = null,
+        ?ViewType $view = null,
+        ?int $revision = null,
+        ?int $modifiedSequence = null,
+        ?int $changeDate = null,
+        ?int $itemCount = null,
+        ?int $imapItemCount = null,
+        ?int $totalSize = null,
+        ?int $imapModifiedSequence = null,
+        ?int $imapUidNext = null,
+        ?string $url = null,
+        ?bool $activeSyncDisabled = null,
+        ?int $webOfflineSyncDays = null,
+        ?string $perm = null,
+        ?bool $recursive = null,
+        ?string $restUrl = null,
+        ?bool $deletable = null,
         array $metadatas = [],
-        ?Acl $acl = NULL,
+        ?Acl $acl = null,
         array $subFolders = [],
         array $mountpoints = [],
         array $searchFolders = [],
-        ?RetentionPolicy $retentionPolicy = NULL
+        ?RetentionPolicy $retentionPolicy = null
     )
     {
         $this->setId($id)
@@ -470,79 +470,79 @@ class Folder
         $this->view = $view;
         $this->acl = $acl;
         $this->retentionPolicy = $retentionPolicy;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $absoluteFolderPath) {
+        if (null !== $absoluteFolderPath) {
             $this->setAbsoluteFolderPath($absoluteFolderPath);
         }
-        if (NULL !== $parentId) {
+        if (null !== $parentId) {
             $this->setParentId($parentId);
         }
-        if (NULL !== $folderUuid) {
+        if (null !== $folderUuid) {
             $this->setFolderUuid($folderUuid);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $unreadCount) {
+        if (null !== $unreadCount) {
             $this->setUnreadCount($unreadCount);
         }
-        if (NULL !== $imapUnreadCount) {
+        if (null !== $imapUnreadCount) {
             $this->setImapUnreadCount($imapUnreadCount);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $itemCount) {
+        if (null !== $itemCount) {
             $this->setItemCount($itemCount);
         }
-        if (NULL !== $imapItemCount) {
+        if (null !== $imapItemCount) {
             $this->setImapItemCount($imapItemCount);
         }
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $imapModifiedSequence) {
+        if (null !== $imapModifiedSequence) {
             $this->setImapModifiedSequence($imapModifiedSequence);
         }
-        if (NULL !== $imapUidNext) {
+        if (null !== $imapUidNext) {
             $this->setImapUidNext($imapUidNext);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $activeSyncDisabled) {
+        if (null !== $activeSyncDisabled) {
             $this->setActiveSyncDisabled($activeSyncDisabled);
         }
-        if (NULL !== $webOfflineSyncDays) {
+        if (null !== $webOfflineSyncDays) {
             $this->setWebOfflineSyncDays($webOfflineSyncDays);
         }
-        if (NULL !== $perm) {
+        if (null !== $perm) {
             $this->setPerm($perm);
         }
-        if (NULL !== $recursive) {
+        if (null !== $recursive) {
             $this->setRecursive($recursive);
         }
-        if (NULL !== $restUrl) {
+        if (null !== $restUrl) {
             $this->setRestUrl($restUrl);
         }
-        if (NULL !== $deletable) {
+        if (null !== $deletable) {
             $this->setDeletable($deletable);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

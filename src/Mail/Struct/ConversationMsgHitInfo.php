@@ -104,27 +104,27 @@ class ConversationMsgHitInfo
      */
     public function __construct(
         string $id = '',
-        ?int $size = NULL,
-        ?string $folderId = NULL,
-        ?string $flags = NULL,
-        ?int $autoSendTime = NULL,
-        ?int $date = NULL
+        ?int $size = null,
+        ?string $folderId = null,
+        ?string $flags = null,
+        ?int $autoSendTime = null,
+        ?int $date = null
     )
     {
         $this->setId($id);
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $autoSendTime) {
+        if (null !== $autoSendTime) {
             $this->setAutoSendTime($autoSendTime);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
     }

@@ -116,9 +116,9 @@ class MailQueueDetails
     public function __construct(
         string $name = '',
         int $time = 0,
-        bool $stillScanning = FALSE,
+        bool $stillScanning = false,
         int $total = 0,
-        bool $more = FALSE,
+        bool $more = false,
         array $queueSummaries = [],
         array $queueItems = []
     )

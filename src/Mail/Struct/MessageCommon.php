@@ -163,48 +163,48 @@ class MessageCommon implements MessageCommonInterface
      * @return self
      */
     public function __construct(
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?string $folder = NULL,
-        ?string $conversationId = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $revision = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?int $size = null,
+        ?int $date = null,
+        ?string $folder = null,
+        ?string $conversationId = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $revision = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = []
     )
     {
         $this->setMetadatas($metadatas);
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $conversationId) {
+        if (null !== $conversationId) {
             $this->setConversationId($conversationId);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
     }

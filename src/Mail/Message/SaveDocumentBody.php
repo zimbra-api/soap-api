@@ -33,7 +33,7 @@ class SaveDocumentBody extends SoapBody
     #[SerializedName('SaveDocumentRequest')]
     #[Type(SaveDocumentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SaveDocumentBody extends SoapBody
     #[SerializedName('SaveDocumentResponse')]
     #[Type(SaveDocumentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SaveDocumentBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SaveDocumentRequest $request = NULL, ?SaveDocumentResponse $response = NULL
+        ?SaveDocumentRequest $request = null, ?SaveDocumentResponse $response = null
     )
     {
         parent::__construct($request, $response);

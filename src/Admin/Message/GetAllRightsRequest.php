@@ -75,13 +75,13 @@ class GetAllRightsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL
+        ?string $targetType = null, ?bool $expandAllAttrs = null, ?RightClass $rightClass = null
     )
     {
-        if (NULL !== $targetType) {
+        if (null !== $targetType) {
             $this->setTargetType($targetType);
         }
-        if (NULL !== $expandAllAttrs) {
+        if (null !== $expandAllAttrs) {
             $this->setExpandAllAttrs($expandAllAttrs);
         }
         $this->rightClass = $rightClass;

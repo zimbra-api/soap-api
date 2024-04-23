@@ -33,7 +33,7 @@ class AddGalSyncDataSourceBody extends SoapBody
     #[SerializedName('AddGalSyncDataSourceRequest')]
     #[Type(AddGalSyncDataSourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AddGalSyncDataSourceBody extends SoapBody
     #[SerializedName('AddGalSyncDataSourceResponse')]
     #[Type(AddGalSyncDataSourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddGalSyncDataSourceRequest $request = NULL, ?AddGalSyncDataSourceResponse $response = NULL
+        ?AddGalSyncDataSourceRequest $request = null, ?AddGalSyncDataSourceResponse $response = null
     )
     {
         parent::__construct($request, $response);

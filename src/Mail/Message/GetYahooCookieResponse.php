@@ -78,19 +78,19 @@ class GetYahooCookieResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $error = NULL, ?string $crumb = NULL, ?string $y = NULL, ?string $t = NULL
+        ?string $error = null, ?string $crumb = null, ?string $y = null, ?string $t = null
     )
     {
-        if (NULL !== $error) {
+        if (null !== $error) {
             $this->setError($error);
         }
-        if (NULL !== $crumb) {
+        if (null !== $crumb) {
             $this->setCrumb($crumb);
         }
-        if (NULL !== $y) {
+        if (null !== $y) {
             $this->setY($y);
         }
-        if (NULL !== $t) {
+        if (null !== $t) {
             $this->setT($t);
         }
     }

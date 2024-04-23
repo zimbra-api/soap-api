@@ -35,7 +35,7 @@ class ChangePasswordEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ChangePasswordBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ChangePasswordEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ChangePasswordBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ChangePasswordBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

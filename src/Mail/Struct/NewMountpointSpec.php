@@ -189,50 +189,50 @@ class NewMountpointSpec
     public function __construct(
         string $name = '',
         string $folderId = '',
-        ?ViewType $defaultView = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?string $url = NULL,
-        ?bool $fetchIfExists = NULL,
-        ?bool $reminderEnabled = NULL,
-        ?string $ownerId = NULL,
-        ?string $ownerName = NULL,
-        ?int $remoteId = NULL,
-        ?string $path = NULL
+        ?ViewType $defaultView = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?string $url = null,
+        ?bool $fetchIfExists = null,
+        ?bool $reminderEnabled = null,
+        ?string $ownerId = null,
+        ?string $ownerName = null,
+        ?int $remoteId = null,
+        ?string $path = null
     )
     {
         $this->setName($name)
              ->setFolderId($folderId);
         $this->defaultView = $defaultView;
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $fetchIfExists) {
+        if (null !== $fetchIfExists) {
             $this->setFetchIfExists($fetchIfExists);
         }
-        if (NULL !== $reminderEnabled) {
+        if (null !== $reminderEnabled) {
             $this->setReminderEnabled($reminderEnabled);
         }
-        if (NULL !== $ownerId) {
+        if (null !== $ownerId) {
             $this->setOwnerId($ownerId);
         }
-        if (NULL !== $ownerName) {
+        if (null !== $ownerName) {
             $this->setOwnerName($ownerName);
         }
-        if (NULL !== $remoteId) {
+        if (null !== $remoteId) {
             $this->setRemoteId($remoteId);
         }
-        if (NULL !== $path) {
+        if (null !== $path) {
             $this->setPath($path);
         }
     }

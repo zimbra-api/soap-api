@@ -151,42 +151,42 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @return self
      */
     public function __construct(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL,
-        ?string $galAccountId = NULL,
-        ?string $name = NULL,
-        ?string $attrs = NULL
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null,
+        ?string $galAccountId = null,
+        ?string $name = null,
+        ?string $attrs = null
     )
     {
         $this->cursor = $cursor;
         $this->searchFilter = $searchFilter;
-        if (NULL !== $quick) {
+        if (null !== $quick) {
             $this->setQuick($quick);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $locale) {
+        if (null !== $locale) {
             $this->setLocale($locale);
         }
-        if (NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

@@ -117,28 +117,28 @@ class GetFolderRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?GetFolderSpec $folder = NULL,
-        ?bool $isVisible = NULL,
-        ?bool $needGranteeName = NULL,
-        ?string $viewConstraint = NULL,
-        ?int $treeDepth = NULL,
-        ?bool $traverseMountpoints = NULL
+        ?GetFolderSpec $folder = null,
+        ?bool $isVisible = null,
+        ?bool $needGranteeName = null,
+        ?string $viewConstraint = null,
+        ?int $treeDepth = null,
+        ?bool $traverseMountpoints = null
     )
     {
         $this->folder = $folder;
-        if (NULL !== $isVisible) {
+        if (null !== $isVisible) {
             $this->setVisible($isVisible);
         }
-        if (NULL !== $needGranteeName) {
+        if (null !== $needGranteeName) {
             $this->setNeedGranteeName($needGranteeName);
         }
-        if (NULL !== $viewConstraint) {
+        if (null !== $viewConstraint) {
             $this->setViewConstraint($viewConstraint);
         }
-        if (NULL !== $treeDepth) {
+        if (null !== $treeDepth) {
             $this->setTreeDepth($treeDepth);
         }
-        if (NULL !== $traverseMountpoints) {
+        if (null !== $traverseMountpoints) {
             $this->setTraverseMountpoints($traverseMountpoints);
         }
     }

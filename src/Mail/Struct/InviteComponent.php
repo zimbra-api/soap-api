@@ -258,51 +258,51 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @return self
      */
     public function __construct(
-        ?string $method = NULL,
-        ?int $componentNum = NULL,
-        ?bool $rsvp = NULL,
-        ?string $priority = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?string $percentComplete = NULL,
-        ?string $completed = NULL,
-        ?bool $noBlob = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?FreeBusyStatus $freeBusy = NULL,
-        ?Transparency $transparency = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $xUid = NULL,
-        ?string $uid = NULL,
-        ?int $sequence = NULL,
-        ?int $dateTime = NULL,
-        ?string $calItemId = NULL,
-        ?string $deprecatedApptId = NULL,
-        ?string $calItemFolder = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?string $url = NULL,
-        ?bool $isException = NULL,
-        ?string $recurIdZ = NULL,
-        ?bool $isAllDay = NULL,
-        ?bool $isDraft = NULL,
-        ?bool $neverSent = NULL,
-        ?string $changes = NULL,
+        ?string $method = null,
+        ?int $componentNum = null,
+        ?bool $rsvp = null,
+        ?string $priority = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?string $percentComplete = null,
+        ?string $completed = null,
+        ?bool $noBlob = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?FreeBusyStatus $freeBusy = null,
+        ?Transparency $transparency = null,
+        ?bool $isOrganizer = null,
+        ?string $xUid = null,
+        ?string $uid = null,
+        ?int $sequence = null,
+        ?int $dateTime = null,
+        ?string $calItemId = null,
+        ?string $deprecatedApptId = null,
+        ?string $calItemFolder = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?string $url = null,
+        ?bool $isException = null,
+        ?string $recurIdZ = null,
+        ?bool $isAllDay = null,
+        ?bool $isDraft = null,
+        ?bool $neverSent = null,
+        ?string $changes = null,
         array $categories = [],
         array $comments = [],
         array $contacts = [],
-        ?GeoInfoInterface $geo = NULL,
+        ?GeoInfoInterface $geo = null,
         array $attendees = [],
         array $alarms = [],
         array $xProps = [],
-        ?string $fragment = NULL,
-        ?string $description = NULL,
-        ?string $htmlDescription = NULL,
-        ?CalOrganizerInterface $organizer = NULL,
-        ?RecurrenceInfoInterface $recurrence = NULL,
-        ?ExceptionRecurIdInfoInterface $exceptionId = NULL,
-        ?DtTimeInfoInterface $dtStart = NULL,
-        ?DtTimeInfoInterface $dtEnd = NULL,
-        ?DurationInfoInterface $duration = NULL
+        ?string $fragment = null,
+        ?string $description = null,
+        ?string $htmlDescription = null,
+        ?CalOrganizerInterface $organizer = null,
+        ?RecurrenceInfoInterface $recurrence = null,
+        ?ExceptionRecurIdInfoInterface $exceptionId = null,
+        ?DtTimeInfoInterface $dtStart = null,
+        ?DtTimeInfoInterface $dtEnd = null,
+        ?DurationInfoInterface $duration = null
     )
     {
         parent::__construct(
@@ -349,13 +349,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
         $this->dtStart = $dtStart;
         $this->dtEnd = $dtEnd;
         $this->duration = $duration;
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $htmlDescription) {
+        if (null !== $htmlDescription) {
             $this->setHtmlDescription($htmlDescription);
         }
     }

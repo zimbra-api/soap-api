@@ -33,7 +33,7 @@ class GetCommentsBody extends SoapBody
     #[SerializedName('GetCommentsRequest')]
     #[Type(GetCommentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetCommentsBody extends SoapBody
     #[SerializedName('GetCommentsResponse')]
     #[Type(GetCommentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetCommentsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetCommentsRequest $request = NULL, ?GetCommentsResponse $response = NULL
+        ?GetCommentsRequest $request = null, ?GetCommentsResponse $response = null
     )
     {
         parent::__construct($request, $response);

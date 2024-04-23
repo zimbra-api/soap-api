@@ -42,7 +42,7 @@ class SoapHeader implements SoapHeaderInterface
      * @param  Context $context
      * @return self
      */
-    public function __construct(?Context $context = NULL)
+    public function __construct(?Context $context = null)
     {
         $this->context = $context;
     }

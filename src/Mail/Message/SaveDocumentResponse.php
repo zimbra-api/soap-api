@@ -42,7 +42,7 @@ class SaveDocumentResponse extends SoapResponse
      * @param  IdVersionName $doc
      * @return self
      */
-    public function __construct(?IdVersionName $doc = NULL)
+    public function __construct(?IdVersionName $doc = null)
     {
         $this->doc = $doc;
     }

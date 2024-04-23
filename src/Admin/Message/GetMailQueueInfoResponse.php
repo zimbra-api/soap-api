@@ -42,7 +42,7 @@ class GetMailQueueInfoResponse extends SoapResponse
      * @param Server $server
      * @return self
      */
-    public function __construct(?Server $server = NULL)
+    public function __construct(?Server $server = null)
     {
         $this->server = $server;
     }

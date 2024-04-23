@@ -88,22 +88,22 @@ class MimePartInfo
      * @return self
      */
     public function __construct(
-        ?string $contentType = NULL,
-        ?string $content = NULL,
-        ?string $contentId = NULL,
-        ?AttachmentsInfo $attachments = NULL,
+        ?string $contentType = null,
+        ?string $content = null,
+        ?string $contentId = null,
+        ?AttachmentsInfo $attachments = null,
         array $mimeParts = []
     )
     {
         $this->setMimeParts($mimeParts);
         $this->attachments = $attachments;
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $contentId) {
+        if (null !== $contentId) {
             $this->setContentId($contentId);
         }
     }

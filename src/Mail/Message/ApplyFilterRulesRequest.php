@@ -73,12 +73,12 @@ class ApplyFilterRulesRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
+        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
     )
     {
         $this->setFilterRules($filterRules);
         $this->msgIds = $msgIds;
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
     }

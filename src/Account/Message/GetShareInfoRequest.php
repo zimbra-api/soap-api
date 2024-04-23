@@ -82,18 +82,18 @@ class GetShareInfoRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?GranteeChooser $grantee = NULL,
-        ?AccountSelector $owner = NULL,
-        ?bool $internal = NULL,
-        ?bool $includeSelf = NULL
+        ?GranteeChooser $grantee = null,
+        ?AccountSelector $owner = null,
+        ?bool $internal = null,
+        ?bool $includeSelf = null
     )
     {
         $this->grantee = $grantee;
         $this->owner = $owner;
-        if(NULL !== $internal) {
+        if(null !== $internal) {
             $this->setInternal($internal);
         }
-        if(NULL !== $includeSelf) {
+        if(null !== $includeSelf) {
             $this->setIncludeSelf($includeSelf);
         }
     }

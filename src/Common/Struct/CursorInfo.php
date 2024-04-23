@@ -77,22 +77,22 @@ class CursorInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortVal = NULL,
-        ?string $endSortVal = NULL,
-        ?bool   $includeOffset = NULL
+        ?string $id = null,
+        ?string $sortVal = null,
+        ?string $endSortVal = null,
+        ?bool   $includeOffset = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortVal) {
+        if (null !== $sortVal) {
             $this->setSortVal($sortVal);
         }
-        if (NULL !== $endSortVal) {
+        if (null !== $endSortVal) {
             $this->setEndSortVal($endSortVal);
         }
-        if (NULL !== $includeOffset) {
+        if (null !== $includeOffset) {
             $this->setIncludeOffset($includeOffset);
         }
     }

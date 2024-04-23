@@ -88,12 +88,12 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * @return self
      */
     public function __construct(
-        string $defaultInterests = '', ?bool $allAccounts = NULL, array $accounts = []
+        string $defaultInterests = '', ?bool $allAccounts = null, array $accounts = []
     )
     {
         $this->setDefaultInterests($defaultInterests)
              ->setAccounts($accounts);
-        if (NULL !== $allAccounts) {
+        if (null !== $allAccounts) {
             $this->setAllAccounts($allAccounts);
         }
     }

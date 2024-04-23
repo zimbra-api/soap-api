@@ -80,16 +80,16 @@ class NewNoteSpec
     public function __construct(
         string $folder = '',
         string $content = '',
-        ?int $color = NULL,
-        ?string $bounds = NULL
+        ?int $color = null,
+        ?string $bounds = null
     )
     {
         $this->setFolder($folder)
              ->setContent($content);
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $bounds) {
+        if (null !== $bounds) {
             $this->setBounds($bounds);
         }
     }

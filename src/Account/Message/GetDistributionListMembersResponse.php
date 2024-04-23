@@ -82,16 +82,16 @@ class GetDistributionListMembersResponse extends SoapResponse
     public function __construct(
         array $dlMembers = [],
         array $habGroupMembers = [],
-        ?bool $more = NULL,
-        ?int $total = NULL
+        ?bool $more = null,
+        ?int $total = null
     )
     {
         $this->setDlMembers($dlMembers)
              ->setHABGroupMembers($habGroupMembers);
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if (NULL !== $total) {
+        if (null !== $total) {
             $this->setTotal($total);
         }
     }

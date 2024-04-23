@@ -42,7 +42,7 @@ class WkstRule implements WkstRuleInterface
      * @param  WeekDay $day
      * @return self
      */
-    public function __construct(?WeekDay $day = NULL)
+    public function __construct(?WeekDay $day = null)
     {
         $this->setDay($day ?? WeekDay::SUNDAY);
     }

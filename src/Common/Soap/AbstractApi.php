@@ -11,9 +11,17 @@
 namespace Zimbra\Common\Soap;
 
 use JMS\Serializer\SerializerInterface;
-use Psr\Log\{LoggerAwareInterface, LoggerAwareTrait, LoggerInterface, NullLogger};
+use Psr\Log\{
+    LoggerAwareInterface,
+    LoggerAwareTrait,
+    LoggerInterface,
+    NullLogger
+};
 use Zimbra\Common\Serializer\SerializerFactory;
-use Zimbra\Common\Struct\Header\{AccountInfo, Context};
+use Zimbra\Common\Struct\Header\{
+    AccountInfo,
+    Context
+};
 use Zimbra\Common\Struct\{
     SoapBodyInterface,
     SoapEnvelopeInterface,
@@ -36,6 +44,7 @@ use Zimbra\Common\Struct\{
 abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
+
     const SERIALIZE_FORMAT = 'xml';
 
     /**
@@ -50,21 +59,21 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
      *
      * @var SerializerInterface
      */
-    private ?SerializerInterface $serializer = NULL;
+    private ?SerializerInterface $serializer = null;
 
     /**
      * Request soap header
      * 
      * @var SoapHeaderInterface
      */
-    private ?SoapHeaderInterface $requestHeader = NULL;
+    private ?SoapHeaderInterface $requestHeader = null;
 
     /**
      * Response soap header
      * 
      * @var SoapHeaderInterface
      */
-    private ?SoapHeaderInterface $responseHeader = NULL;
+    private ?SoapHeaderInterface $responseHeader = null;
 
     /**
      * Constructor
@@ -163,7 +172,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
         $this->getLogger()->debug('Soap request message: {request}', ['request' => $requestMessage]);
         $response = $this->getClient()->sendRequest($requestMessage);
 
-        $soapResponse = NULL;
+        $soapResponse = null;
         $responseMessage = $response->getBody()->getContents();
         $this->getLogger()->debug('Soap response message: {response}', ['response' => $responseMessage]);
         $responseEnvelope = $this->getSerializer()->deserialize(

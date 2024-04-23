@@ -35,7 +35,7 @@ class AutoCompleteEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(AutoCompleteBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class AutoCompleteEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?AutoCompleteBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?AutoCompleteBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -106,28 +106,28 @@ abstract class CalItemRequestBase extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     )
     {
         $this->msg = $msg;
-        if (NULL !== $echo) {
+        if (null !== $echo) {
             $this->setEcho($echo);
         }
-        if (NULL !== $maxSize) {
+        if (null !== $maxSize) {
             $this->setMaxSize($maxSize);
         }
-        if (NULL !== $wantHtml) {
+        if (null !== $wantHtml) {
             $this->setWantHtml($wantHtml);
         }
-        if (NULL !== $neuter) {
+        if (null !== $neuter) {
             $this->setNeuter($neuter);
         }
-        if (NULL !== $forceSend) {
+        if (null !== $forceSend) {
             $this->setForceSend($forceSend);
         }
     }

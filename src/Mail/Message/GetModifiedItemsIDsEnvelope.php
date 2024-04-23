@@ -35,7 +35,7 @@ class GetModifiedItemsIDsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetModifiedItemsIDsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetModifiedItemsIDsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetModifiedItemsIDsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetModifiedItemsIDsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

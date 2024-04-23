@@ -68,16 +68,16 @@ class GetAllServersRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL
+        ?string $service = null, ?string $alwaysOnClusterId = null, ?bool $applyConfig = null
     )
     {
-        if (NULL !== $service) {
+        if (null !== $service) {
             $this->setService($service);
         }
-        if (NULL !== $alwaysOnClusterId) {
+        if (null !== $alwaysOnClusterId) {
             $this->setAlwaysOnClusterId($alwaysOnClusterId);
         }
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
     }

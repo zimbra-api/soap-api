@@ -65,14 +65,14 @@ class AuthToken
      * @return self
      */
     public function __construct(
-        string $value = '', ?bool $verifyAccount = NULL, ?int $lifetime = NULL
+        string $value = '', ?bool $verifyAccount = null, ?int $lifetime = null
     )
     {
         $this->setValue($value);
-        if (NULL !== $verifyAccount) {
+        if (null !== $verifyAccount) {
             $this->setVerifyAccount($verifyAccount);
         }
-        if (NULL !== $lifetime) {
+        if (null !== $lifetime) {
             $this->setLifetime($lifetime);
         }
     }

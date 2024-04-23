@@ -33,7 +33,7 @@ class RevokeRightsBody extends SoapBody
     #[SerializedName('RevokeRightsRequest')]
     #[Type(RevokeRightsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RevokeRightsBody extends SoapBody
     #[SerializedName('RevokeRightsResponse')]
     #[Type(RevokeRightsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RevokeRightsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RevokeRightsRequest $request = NULL, ?RevokeRightsResponse $response = NULL
+        ?RevokeRightsRequest $request = null, ?RevokeRightsResponse $response = null
     )
     {
         parent::__construct($request, $response);

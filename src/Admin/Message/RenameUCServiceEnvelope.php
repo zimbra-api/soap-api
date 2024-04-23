@@ -35,7 +35,7 @@ class RenameUCServiceEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(RenameUCServiceBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class RenameUCServiceEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?RenameUCServiceBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?RenameUCServiceBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

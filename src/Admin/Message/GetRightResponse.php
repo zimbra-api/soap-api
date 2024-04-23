@@ -42,7 +42,7 @@ class GetRightResponse extends SoapResponse
      * @param RightInfo $right
      * @return self
      */
-    public function __construct(?RightInfo $right = NULL)
+    public function __construct(?RightInfo $right = null)
     {
         $this->right = $right;
     }

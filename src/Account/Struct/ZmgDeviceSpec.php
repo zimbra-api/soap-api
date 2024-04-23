@@ -111,21 +111,21 @@ class ZmgDeviceSpec
         string $appId = '',
         string $registrationId = '',
         string $pushProvider = '',
-        ?string $osName = NULL,
-        ?string $osVersion = NULL,
-        ?int $maxPayloadSize = NULL
+        ?string $osName = null,
+        ?string $osVersion = null,
+        ?int $maxPayloadSize = null
     )
     {
         $this->setAppId($appId)
              ->setRegistrationId($registrationId)
              ->setPushProvider($pushProvider);
-        if (NULL !== $osName) {
+        if (null !== $osName) {
             $this->setOSName($osName);
         }
-        if (NULL !== $osVersion) {
+        if (null !== $osVersion) {
             $this->setOSVersion($osVersion);
         }
-        if (NULL !== $maxPayloadSize) {
+        if (null !== $maxPayloadSize) {
             $this->setMaxPayloadSize($maxPayloadSize);
         }
     }

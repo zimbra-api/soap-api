@@ -173,10 +173,10 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     public function __construct(
         string $waitSetId = '',
         string $lastKnownSeqNo = '',
-        ?bool $block = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $timeout = NULL,
-        ?bool $expand = NULL,
+        ?bool $block = null,
+        ?string $defaultInterests = null,
+        ?int $timeout = null,
+        ?bool $expand = null,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
@@ -187,16 +187,16 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
              ->setAddAccounts($addAccounts)
              ->setUpdateAccounts($updateAccounts)
              ->setRemoveAccounts($removeAccounts);
-        if (NULL !== $block) {
+        if (null !== $block) {
             $this->setBlock($block);
         }
-        if (NULL !== $defaultInterests) {
+        if (null !== $defaultInterests) {
             $this->setDefaultInterests($defaultInterests);
         }
-        if (NULL !== $timeout) {
+        if (null !== $timeout) {
             $this->setTimeout($timeout);
         }
-        if (NULL !== $expand) {
+        if (null !== $expand) {
             $this->setExpand($expand);
         }
     }

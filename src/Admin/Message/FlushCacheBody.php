@@ -33,7 +33,7 @@ class FlushCacheBody extends SoapBody
     #[SerializedName('FlushCacheRequest')]
     #[Type(FlushCacheRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class FlushCacheBody extends SoapBody
     #[SerializedName('FlushCacheResponse')]
     #[Type(FlushCacheResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class FlushCacheBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL
+        ?FlushCacheRequest $request = null, ?FlushCacheResponse $response = null
     )
     {
         parent::__construct($request, $response);

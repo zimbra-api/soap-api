@@ -64,16 +64,16 @@ class Stat
      * @return self
      */
     public function __construct(
-        ?string $value = NULL, ?string $name = NULL, ?string $description = NULL
+        ?string $value = null, ?string $name = null, ?string $description = null
     )
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
     }

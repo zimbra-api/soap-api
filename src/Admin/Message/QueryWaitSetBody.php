@@ -33,7 +33,7 @@ class QueryWaitSetBody extends SoapBody
     #[SerializedName('QueryWaitSetRequest')]
     #[Type(QueryWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class QueryWaitSetBody extends SoapBody
     #[SerializedName('QueryWaitSetResponse')]
     #[Type(QueryWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class QueryWaitSetBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?QueryWaitSetRequest $request = NULL, ?QueryWaitSetResponse $response = NULL
+        ?QueryWaitSetRequest $request = null, ?QueryWaitSetResponse $response = null
     )
     {
         parent::__construct($request, $response);

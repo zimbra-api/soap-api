@@ -92,20 +92,20 @@ class NewContactAttr
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $attachId = NULL, ?int $id = NULL, ?string $part = NULL, ?string $value = NULL
+        string $name = '', ?string $attachId = null, ?int $id = null, ?string $part = null, ?string $value = null
     )
     {
         $this->setName($name);
-        if (NULL !== $attachId) {
+        if (null !== $attachId) {
             $this->setAttachId($attachId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

@@ -115,29 +115,29 @@ class ActionGrantSelector
      */
     public function __construct(
         string $rights = '',
-        ?GranteeType $grantType = NULL,
-        ?string $zimbraId = NULL,
-        ?string $displayName = NULL,
-        ?string $args = NULL,
-        ?string $password = NULL,
-        ?string $accessKey = NULL
+        ?GranteeType $grantType = null,
+        ?string $zimbraId = null,
+        ?string $displayName = null,
+        ?string $args = null,
+        ?string $password = null,
+        ?string $accessKey = null
     )
     {
         $this->setRights($rights)
              ->setGrantType($grantType ?? GranteeType::ALL);
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $args) {
+        if (null !== $args) {
             $this->setArgs($args);
         }
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
     }

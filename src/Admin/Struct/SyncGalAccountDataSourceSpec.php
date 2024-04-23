@@ -77,20 +77,20 @@ class SyncGalAccountDataSourceSpec
      * @return self
      */
     public function __construct(
-        ?DataSourceBy $by = NULL,
-        ?string $value = NULL,
-        ?bool $fullSync = NULL,
-        ?bool $reset = NULL
+        ?DataSourceBy $by = null,
+        ?string $value = null,
+        ?bool $fullSync = null,
+        ?bool $reset = null
     )
     {
         $this->setBy($by ?? DataSourceBy::ID);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $fullSync) {
+        if (null !== $fullSync) {
             $this->setFullSync($fullSync);
         }
-        if (NULL !== $reset) {
+        if (null !== $reset) {
             $this->setReset($reset);
         }
     }

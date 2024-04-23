@@ -33,7 +33,7 @@ class DeleteLDAPEntryBody extends SoapBody
     #[SerializedName('DeleteLDAPEntryRequest')]
     #[Type(DeleteLDAPEntryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteLDAPEntryBody extends SoapBody
     #[SerializedName('DeleteLDAPEntryResponse')]
     #[Type(DeleteLDAPEntryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteLDAPEntryBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteLDAPEntryRequest $request = NULL, ?DeleteLDAPEntryResponse $response = NULL
+        ?DeleteLDAPEntryRequest $request = null, ?DeleteLDAPEntryResponse $response = null
     )
     {
         parent::__construct($request, $response);

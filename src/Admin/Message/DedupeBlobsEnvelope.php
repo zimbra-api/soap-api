@@ -35,7 +35,7 @@ class DedupeBlobsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DedupeBlobsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DedupeBlobsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DedupeBlobsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DedupeBlobsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

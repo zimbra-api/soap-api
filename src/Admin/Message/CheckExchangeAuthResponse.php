@@ -55,11 +55,11 @@ class CheckExchangeAuthResponse extends SoapResponse
      */
     public function __construct(
         string $code = '',
-        ?string $message = NULL
+        ?string $message = null
     )
     {
         $this->setCode($code);
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

@@ -86,7 +86,7 @@ class GetMiniCalRequest extends SoapRequest
         int $startTime = 0,
         int $endTime = 0,
         array $folders = [],
-        ?CalTZInfo $timezone = NULL
+        ?CalTZInfo $timezone = null
     )
     {
         $this->setStartTime($startTime)

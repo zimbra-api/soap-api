@@ -33,7 +33,7 @@ class FixCalendarEndTimeBody extends SoapBody
     #[SerializedName('FixCalendarEndTimeRequest')]
     #[Type(FixCalendarEndTimeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class FixCalendarEndTimeBody extends SoapBody
     #[SerializedName('FixCalendarEndTimeResponse')]
     #[Type(FixCalendarEndTimeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class FixCalendarEndTimeBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?FixCalendarEndTimeRequest $request = NULL, ?FixCalendarEndTimeResponse $response = NULL
+        ?FixCalendarEndTimeRequest $request = null, ?FixCalendarEndTimeResponse $response = null
     )
     {
         parent::__construct($request, $response);

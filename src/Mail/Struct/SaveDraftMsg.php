@@ -123,29 +123,29 @@ class SaveDraftMsg extends Msg
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $replyType = NULL,
-        ?string $identityId = NULL,
-        ?string $subject = NULL,
+        ?string $attachmentId = null,
+        ?string $origId = null,
+        ?ReplyType $replyType = null,
+        ?string $identityId = null,
+        ?string $subject = null,
         array $headers = [],
-        ?string $inReplyTo = NULL,
-        ?string $folderId = NULL,
-        ?string $flags = NULL,
-        ?string $content = NULL,
-        ?MimePartInfo $mimePart = NULL,
-        ?AttachmentsInfo $attachments = NULL,
-        ?InvitationInfo $invite = NULL,
+        ?string $inReplyTo = null,
+        ?string $folderId = null,
+        ?string $flags = null,
+        ?string $content = null,
+        ?MimePartInfo $mimePart = null,
+        ?AttachmentsInfo $attachments = null,
+        ?InvitationInfo $invite = null,
         array $emailAddresses = [],
         array $timezones = [],
-        ?string $fragment = NULL,
-        ?int $id = NULL,
-        ?string $draftAccountId = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?int $autoSendTime = NULL
+        ?string $fragment = null,
+        ?int $id = null,
+        ?string $draftAccountId = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?int $autoSendTime = null
     )
     {
         parent::__construct(
@@ -166,25 +166,25 @@ class SaveDraftMsg extends Msg
             $timezones,
             $fragment
         );
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $draftAccountId) {
+        if (null !== $draftAccountId) {
             $this->setDraftAccountId($draftAccountId);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $autoSendTime) {
+        if (null !== $autoSendTime) {
             $this->setAutoSendTime($autoSendTime);
         }
     }

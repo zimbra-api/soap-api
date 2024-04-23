@@ -33,7 +33,7 @@ class CheckSpellingBody extends SoapBody
     #[SerializedName('CheckSpellingRequest')]
     #[Type(CheckSpellingRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckSpellingBody extends SoapBody
     #[SerializedName('CheckSpellingResponse')]
     #[Type(CheckSpellingResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckSpellingBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckSpellingRequest $request = NULL, ?CheckSpellingResponse $response = NULL
+        ?CheckSpellingRequest $request = null, ?CheckSpellingResponse $response = null
     )
     {
         parent::__construct($request, $response);

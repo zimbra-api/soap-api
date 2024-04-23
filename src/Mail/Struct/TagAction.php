@@ -41,10 +41,10 @@ class TagAction extends FilterAction
      * @param string $tag
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $tag = NULL)
+    public function __construct(?int $index = null, ?string $tag = null)
     {
     	parent::__construct($index);
-        if (NULL !== $tag) {
+        if (null !== $tag) {
             $this->setTag($tag);
         }
     }

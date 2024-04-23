@@ -65,7 +65,7 @@ class GetAllMailboxesResponse extends SoapResponse
      * @param array $mboxes
      * @return self
      */
-    public function __construct(bool $more = FALSE, int $searchTotal = 0, array $mboxes = [])
+    public function __construct(bool $more = false, int $searchTotal = 0, array $mboxes = [])
     {
         $this->setMore($more)
              ->setSearchTotal($searchTotal)

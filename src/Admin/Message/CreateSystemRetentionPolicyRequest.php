@@ -65,7 +65,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
+        ?CosSelector $cos = null, ?PolicyHolder $keep = null, ?PolicyHolder $purge = null
     )
     {
         $this->cos = $cos;
@@ -75,12 +75,12 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
 
     public static function newKeepRequest(Policy $policy): CreateSystemRetentionPolicyRequest
     {
-        return new self(NULL, new PolicyHolder($policy));
+        return new self(null, new PolicyHolder($policy));
     }
 
     public static function newPurgeRequest(Policy $policy): CreateSystemRetentionPolicyRequest
     {
-        return new self(NULL, NULL, new PolicyHolder($policy));
+        return new self(null, null, new PolicyHolder($policy));
     }
 
     /**

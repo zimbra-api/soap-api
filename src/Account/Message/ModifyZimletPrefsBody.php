@@ -33,7 +33,7 @@ class ModifyZimletPrefsBody extends SoapBody
     #[SerializedName('ModifyZimletPrefsRequest')]
     #[Type(ModifyZimletPrefsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ModifyZimletPrefsBody extends SoapBody
     #[SerializedName('ModifyZimletPrefsResponse')]
     #[Type(ModifyZimletPrefsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ModifyZimletPrefsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyZimletPrefsRequest $request = NULL, ?ModifyZimletPrefsResponse $response = NULL
+        ?ModifyZimletPrefsRequest $request = null, ?ModifyZimletPrefsResponse $response = null
     )
     {
         parent::__construct($request, $response);

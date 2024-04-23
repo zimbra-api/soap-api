@@ -33,7 +33,7 @@ class ImportContactsBody extends SoapBody
     #[SerializedName('ImportContactsRequest')]
     #[Type(ImportContactsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ImportContactsBody extends SoapBody
     #[SerializedName('ImportContactsResponse')]
     #[Type(ImportContactsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ImportContactsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ImportContactsRequest $request = NULL, ?ImportContactsResponse $response = NULL
+        ?ImportContactsRequest $request = null, ?ImportContactsResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -88,26 +88,26 @@ class RightModifierInfo
      * @return self
      */
     public function __construct(
-        ?string $value = NULL,
-        ?bool $deny = NULL,
-        ?bool $canDelegate = NULL,
-        ?bool $disinheritSubGroups = NULL,
-        ?bool $subDomain = NULL
+        ?string $value = null,
+        ?bool $deny = null,
+        ?bool $canDelegate = null,
+        ?bool $disinheritSubGroups = null,
+        ?bool $subDomain = null
     )
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $deny) {
+        if (null !== $deny) {
             $this->setDeny($deny);
         }
-        if (NULL !== $canDelegate) {
+        if (null !== $canDelegate) {
             $this->setCanDelegate($canDelegate);
         }
-        if (NULL !== $disinheritSubGroups) {
+        if (null !== $disinheritSubGroups) {
             $this->setDisinheritSubGroups($disinheritSubGroups);
         }
-        if (NULL !== $subDomain) {
+        if (null !== $subDomain) {
             $this->setSubDomain($subDomain);
         }
     }

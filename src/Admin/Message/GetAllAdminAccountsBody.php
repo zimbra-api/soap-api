@@ -33,7 +33,7 @@ class GetAllAdminAccountsBody extends SoapBody
     #[SerializedName('GetAllAdminAccountsRequest')]
     #[Type(GetAllAdminAccountsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAllAdminAccountsBody extends SoapBody
     #[SerializedName('GetAllAdminAccountsResponse')]
     #[Type(GetAllAdminAccountsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAllAdminAccountsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAllAdminAccountsRequest $request = NULL, ?GetAllAdminAccountsResponse $response = NULL
+        ?GetAllAdminAccountsRequest $request = null, ?GetAllAdminAccountsResponse $response = null
     )
     {
         parent::__construct($request, $response);

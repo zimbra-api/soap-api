@@ -33,7 +33,7 @@ class CopyCosBody extends SoapBody
     #[SerializedName('CopyCosRequest')]
     #[Type(CopyCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CopyCosBody extends SoapBody
     #[SerializedName('CopyCosResponse')]
     #[Type(CopyCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CopyCosBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CopyCosRequest $request = NULL, ?CopyCosResponse $response = NULL
+        ?CopyCosRequest $request = null, ?CopyCosResponse $response = null
     )
     {
         parent::__construct($request, $response);

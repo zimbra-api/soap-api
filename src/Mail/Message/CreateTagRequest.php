@@ -43,7 +43,7 @@ class CreateTagRequest extends SoapRequest
      * @param  TagSpec $tag
      * @return self
      */
-    public function __construct(?TagSpec $tag = NULL)
+    public function __construct(?TagSpec $tag = null)
     {
         $this->tag = $tag;
     }

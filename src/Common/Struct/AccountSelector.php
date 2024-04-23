@@ -51,10 +51,10 @@ class AccountSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(?AccountBy $by = NULL, ?string $value = NULL)
+    public function __construct(?AccountBy $by = null, ?string $value = null)
     {
         $this->setBy($by ?? AccountBy::NAME);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

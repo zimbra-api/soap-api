@@ -61,12 +61,12 @@ class GetAttributeInfoRequest extends SoapRequest
      * @param  string $entryTypes
      * @return self
      */
-    public function __construct(?string $attrs = NULL, ?string $entryTypes = NULL)
+    public function __construct(?string $attrs = null, ?string $entryTypes = null)
     {
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
-        if (NULL !== $entryTypes) {
+        if (null !== $entryTypes) {
             $this->setEntryTypes($entryTypes);
         }
     }

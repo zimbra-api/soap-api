@@ -240,62 +240,62 @@ class SearchGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?string $ref = NULL,
-        ?string $name = NULL,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $needIsOwner = NULL,
-        ?MemberOfSelector $needIsMember = NULL,
-        ?bool $needSMIMECerts = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL,
-        ?string $query = NULL
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?string $ref = null,
+        ?string $name = null,
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?bool $needIsOwner = null,
+        ?MemberOfSelector $needIsMember = null,
+        ?bool $needSMIMECerts = null,
+        ?string $galAccountId = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null,
+        ?string $query = null
     )
     {
         $this->cursor = $cursor;
         $this->searchFilter = $searchFilter;
         $this->type = $type;
         $this->needIsMember = $needIsMember;
-        if (NULL !== $ref) {
+        if (null !== $ref) {
             $this->setRef($ref);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if (NULL !== $needIsOwner) {
+        if (null !== $needIsOwner) {
             $this->setNeedIsOwner($needIsOwner);
         }
-        if (NULL !== $needSMIMECerts) {
+        if (null !== $needSMIMECerts) {
             $this->setNeedSMIMECerts($needSMIMECerts);
         }
-        if (NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if (NULL !== $quick) {
+        if (null !== $quick) {
             $this->setQuick($quick);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $locale) {
+        if (null !== $locale) {
             $this->setLocale($locale);
         }
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
     }

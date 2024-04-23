@@ -113,22 +113,22 @@ class DistributionListInfo extends ObjectInfo
         array $members = [],
         array $owners = [],
         array $rights = [],
-        ?bool $isOwner = NULL,
-        ?bool $isMember = NULL,
-        ?bool $dynamic = NULL
+        ?bool $isOwner = null,
+        ?bool $isMember = null,
+        ?bool $dynamic = null
     )
     {
         parent::__construct($name, $id, $attrs);
         $this->setMembers($members)
              ->setOwners($owners)
              ->setRights($rights);
-        if (NULL !== $isOwner) {
+        if (null !== $isOwner) {
             $this->setIsOwner($isOwner);
         }
-        if (NULL !== $isMember) {
+        if (null !== $isMember) {
             $this->setIsMember($isMember);
         }
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }

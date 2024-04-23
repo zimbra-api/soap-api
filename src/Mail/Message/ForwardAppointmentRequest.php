@@ -80,13 +80,13 @@ class ForwardAppointmentRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
         $this->exceptionId = $exceptionId;

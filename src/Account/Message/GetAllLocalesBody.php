@@ -33,7 +33,7 @@ class GetAllLocalesBody extends SoapBody
     #[SerializedName('GetAllLocalesRequest')]
     #[Type(GetAllLocalesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAllLocalesBody extends SoapBody
     #[SerializedName('GetAllLocalesResponse')]
     #[Type(GetAllLocalesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAllLocalesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAllLocalesRequest $request = NULL, ?GetAllLocalesResponse $response = NULL
+        ?GetAllLocalesRequest $request = null, ?GetAllLocalesResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -123,9 +123,9 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
         string $name = '',
         string $domain = '',
         string $mailHost = '',
-        ?GalMode $type = NULL,
-        ?string $password = NULL,
-        ?string $folder = NULL,
+        ?GalMode $type = null,
+        ?string $password = null,
+        ?string $folder = null,
         array $attrs = []
     )
     {
@@ -135,10 +135,10 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
              ->setMailHost($mailHost)
              ->setType($type ?? GalMode::BOTH)
              ->setAttrs($attrs);
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
     }

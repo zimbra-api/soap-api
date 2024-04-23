@@ -42,7 +42,7 @@ class SetCurrentVolumeResponse extends SoapResponse
      * @param StoreManagerRuntimeSwitchResult $runtimeSwitchResult
      * @return self
      */
-    public function __construct(?StoreManagerRuntimeSwitchResult $runtimeSwitchResult = NULL)
+    public function __construct(?StoreManagerRuntimeSwitchResult $runtimeSwitchResult = null)
     {
         $this->runtimeSwitchResult = $runtimeSwitchResult;
     }

@@ -33,7 +33,7 @@ class GetLastItemIdInMailboxBody extends SoapBody
     #[SerializedName('GetLastItemIdInMailboxRequest')]
     #[Type(GetLastItemIdInMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetLastItemIdInMailboxBody extends SoapBody
     #[SerializedName('GetLastItemIdInMailboxResponse')]
     #[Type(GetLastItemIdInMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetLastItemIdInMailboxBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetLastItemIdInMailboxRequest $request = NULL, ?GetLastItemIdInMailboxResponse $response = NULL
+        ?GetLastItemIdInMailboxRequest $request = null, ?GetLastItemIdInMailboxResponse $response = null
     )
     {
         parent::__construct($request, $response);

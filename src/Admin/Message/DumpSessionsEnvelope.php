@@ -35,7 +35,7 @@ class DumpSessionsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DumpSessionsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DumpSessionsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DumpSessionsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DumpSessionsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

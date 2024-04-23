@@ -100,21 +100,21 @@ class AutoCompleteGalRequest extends SoapRequest
      */
     public function __construct(
         string $name = '',
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $galAccountId = NULL,
-        ?int $limit = NULL
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $galAccountId = null,
+        ?int $limit = null
     )
     {
         $this->setName($name);
         $this->type = $type;
-        if(NULL !== $needCanExpand) {
+        if(null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if(NULL !== $galAccountId) {
+        if(null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if(NULL !== $limit) {
+        if(null !== $limit) {
             $this->setLimit($limit);
         }
     }

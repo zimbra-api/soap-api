@@ -80,18 +80,18 @@ class InstanceRecurIdInfo
      * @return self
      */
     public function __construct(
-        ?string $range = NULL,
-        ?string $dateTime = NULL,
-        ?string $timezone = NULL
+        ?string $range = null,
+        ?string $dateTime = null,
+        ?string $timezone = null
     )
     {
-        if (NULL !== $range) {
+        if (null !== $range) {
             $this->setRange($range);
         }
-        if (NULL !== $dateTime) {
+        if (null !== $dateTime) {
             $this->setDateTime($dateTime);
         }
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
     }

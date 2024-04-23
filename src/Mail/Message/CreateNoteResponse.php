@@ -42,7 +42,7 @@ class CreateNoteResponse extends SoapResponse
      * @param  NoteInfo $note
      * @return self
      */
-    public function __construct(?NoteInfo $note = NULL)
+    public function __construct(?NoteInfo $note = null)
     {
         $this->note = $note;
     }

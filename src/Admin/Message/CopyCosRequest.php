@@ -55,10 +55,10 @@ class CopyCosRequest extends SoapRequest
      * @param  string $newName
      * @return self
      */
-    public function __construct(?CosSelector $cos = NULL, ?string $newName = NULL)
+    public function __construct(?CosSelector $cos = null, ?string $newName = null)
     {
         $this->cos = $cos;
-        if (NULL !== $newName) {
+        if (null !== $newName) {
             $this->setNewName($newName);
         }
     }

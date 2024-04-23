@@ -66,17 +66,17 @@ class DocAttachSpec extends AttachSpec
      * @return self
      */
     public function __construct(
-        ?string $path = NULL, ?string $id = NULL, ?int $version = NULL, ?bool $optional = NULL
+        ?string $path = null, ?string $id = null, ?int $version = null, ?bool $optional = null
     )
     {
         parent::__construct($optional);
-        if (NULL !== $path) {
+        if (null !== $path) {
             $this->setPath($path);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
     }

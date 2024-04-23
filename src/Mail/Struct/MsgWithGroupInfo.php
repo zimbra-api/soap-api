@@ -291,32 +291,32 @@ class MsgWithGroupInfo extends MessageCommon
      * @param  PartInfo $mimePart
      * @param  ShareNotification $shr
      * @param  DLSubscriptionNotification $dlSubs
-     * @param  UrlAndValue $content = NULL
+     * @param  UrlAndValue $content = null
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $imapUid = NULL,
-        ?string $calendarIntendedFor = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $draftReplyType = NULL,
-        ?string $identityId = NULL,
-        ?string $draftAccountId = NULL,
-        ?int $draftAutoSendTime = NULL,
-        ?int $sentDate = NULL,
-        ?int $resentDate = NULL,
-        ?string $part = NULL,
-        ?string $fragment = NULL,
+        ?string $id = null,
+        ?int $imapUid = null,
+        ?string $calendarIntendedFor = null,
+        ?string $origId = null,
+        ?ReplyType $draftReplyType = null,
+        ?string $identityId = null,
+        ?string $draftAccountId = null,
+        ?int $draftAutoSendTime = null,
+        ?int $sentDate = null,
+        ?int $resentDate = null,
+        ?string $part = null,
+        ?string $fragment = null,
         array $emails = [],
-        ?string $subject = NULL,
-        ?string $messageIdHeader = NULL,
-        ?string $inReplyTo = NULL,
-        ?InviteWithGroupInfo $invite = NULL,
+        ?string $subject = null,
+        ?string $messageIdHeader = null,
+        ?string $inReplyTo = null,
+        ?InviteWithGroupInfo $invite = null,
         array $headers = [],
-        ?PartInfo $mimePart = NULL,
-        ?ShareNotification $shr = NULL,
-        ?DLSubscriptionNotification $dlSubs = NULL,
-        ?UrlAndValue $content = NULL
+        ?PartInfo $mimePart = null,
+        ?ShareNotification $shr = null,
+        ?DLSubscriptionNotification $dlSubs = null,
+        ?UrlAndValue $content = null
     )
     {
         $this->setHeaders($headers)
@@ -327,46 +327,46 @@ class MsgWithGroupInfo extends MessageCommon
         $this->shr = $shr;
         $this->dlSubs = $dlSubs;
         $this->content = $content;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $imapUid) {
+        if (null !== $imapUid) {
             $this->setImapUid($imapUid);
         }
-        if (NULL !== $calendarIntendedFor) {
+        if (null !== $calendarIntendedFor) {
             $this->setCalendarIntendedFor($calendarIntendedFor);
         }
-        if (NULL !== $origId) {
+        if (null !== $origId) {
             $this->setOrigId($origId);
         }
-        if (NULL !== $identityId) {
+        if (null !== $identityId) {
             $this->setIdentityId($identityId);
         }
-        if (NULL !== $draftAccountId) {
+        if (null !== $draftAccountId) {
             $this->setDraftAccountId($draftAccountId);
         }
-        if (NULL !== $draftAutoSendTime) {
+        if (null !== $draftAutoSendTime) {
             $this->setDraftAutoSendTime($draftAutoSendTime);
         }
-        if (NULL !== $sentDate) {
+        if (null !== $sentDate) {
             $this->setSentDate($sentDate);
         }
-        if (NULL !== $resentDate) {
+        if (null !== $resentDate) {
             $this->setResentDate($resentDate);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $messageIdHeader) {
+        if (null !== $messageIdHeader) {
             $this->setMessageIdHeader($messageIdHeader);
         }
-        if (NULL !== $inReplyTo) {
+        if (null !== $inReplyTo) {
             $this->setInReplyTo($inReplyTo);
         }
     }

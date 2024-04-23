@@ -136,7 +136,7 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function __construct(
         int $num = 0,
-        bool $more = FALSE,
+        bool $more = false,
         int $searchTotal = 0,
         array $calResources = [],
         array $dls = [],

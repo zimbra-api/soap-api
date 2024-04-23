@@ -380,35 +380,35 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @return self
      */
     public function __construct(
-        ?string $method = NULL,
-        ?int $componentNum = NULL,
-        ?bool $rsvp = NULL,
-        ?string $priority = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?string $percentComplete = NULL,
-        ?string $completed = NULL,
-        ?bool $noBlob = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?FreeBusyStatus $freeBusy = NULL,
-        ?Transparency $transparency = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $xUid = NULL,
-        ?string $uid = NULL,
-        ?int $sequence = NULL,
-        ?int $dateTime = NULL,
-        ?string $calItemId = NULL,
-        ?string $deprecatedApptId = NULL,
-        ?string $calItemFolder = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?string $url = NULL,
-        ?bool $isException = NULL,
-        ?string $recurIdZ = NULL,
-        ?bool $isAllDay = NULL,
-        ?bool $isDraft = NULL,
-        ?bool $neverSent = NULL,
-        ?string $changes = NULL
+        ?string $method = null,
+        ?int $componentNum = null,
+        ?bool $rsvp = null,
+        ?string $priority = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?string $percentComplete = null,
+        ?string $completed = null,
+        ?bool $noBlob = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?FreeBusyStatus $freeBusy = null,
+        ?Transparency $transparency = null,
+        ?bool $isOrganizer = null,
+        ?string $xUid = null,
+        ?string $uid = null,
+        ?int $sequence = null,
+        ?int $dateTime = null,
+        ?string $calItemId = null,
+        ?string $deprecatedApptId = null,
+        ?string $calItemFolder = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?string $url = null,
+        ?bool $isException = null,
+        ?string $recurIdZ = null,
+        ?bool $isAllDay = null,
+        ?bool $isDraft = null,
+        ?bool $neverSent = null,
+        ?string $changes = null
     )
     {
         $this->freeBusyActual = $freeBusyActual;
@@ -416,76 +416,76 @@ class InviteComponentCommon implements InviteComponentCommonInterface
         $this->transparency = $transparency;
         $this->status = $status;
         $this->calClass = $calClass;
-        if (NULL !== $method) {
+        if (null !== $method) {
             $this->setMethod($method);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
-        if (NULL !== $rsvp) {
+        if (null !== $rsvp) {
             $this->setRsvp($rsvp);
         }
-        if (NULL !== $priority) {
+        if (null !== $priority) {
             $this->setPriority($priority);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
-        if (NULL !== $percentComplete) {
+        if (null !== $percentComplete) {
             $this->setPercentComplete($percentComplete);
         }
-        if (NULL !== $completed) {
+        if (null !== $completed) {
             $this->setCompleted($completed);
         }
-        if (NULL !== $noBlob) {
+        if (null !== $noBlob) {
             $this->setNoBlob($noBlob);
         }
-        if (NULL !== $isOrganizer) {
+        if (null !== $isOrganizer) {
             $this->setIsOrganizer($isOrganizer);
         }
-        if (NULL !== $xUid) {
+        if (null !== $xUid) {
             $this->setXUid($xUid);
         }
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $sequence) {
+        if (null !== $sequence) {
             $this->setSequence($sequence);
         }
-        if (NULL !== $dateTime) {
+        if (null !== $dateTime) {
             $this->setDateTime($dateTime);
         }
-        if (NULL !== $calItemId) {
+        if (null !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
-        if (NULL !== $deprecatedApptId) {
+        if (null !== $deprecatedApptId) {
             $this->setDeprecatedApptId($deprecatedApptId);
         }
-        if (NULL !== $calItemFolder) {
+        if (null !== $calItemFolder) {
             $this->setCalItemFolder($calItemFolder);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $isException) {
+        if (null !== $isException) {
             $this->setIsException($isException);
         }
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
-        if (NULL !== $isAllDay) {
+        if (null !== $isAllDay) {
             $this->setIsAllDay($isAllDay);
         }
-        if (NULL !== $isDraft) {
+        if (null !== $isDraft) {
             $this->setIsDraft($isDraft);
         }
-        if (NULL !== $neverSent) {
+        if (null !== $neverSent) {
             $this->setNeverSent($neverSent);
         }
-        if (NULL !== $changes) {
+        if (null !== $changes) {
             $this->setChanges($changes);
         }
     }

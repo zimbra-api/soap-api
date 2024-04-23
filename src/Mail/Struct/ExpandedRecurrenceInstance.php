@@ -89,26 +89,26 @@ class ExpandedRecurrenceInstance
      * @return self
      */
     public function __construct(
-        ?int $startTime = NULL,
-        ?int $duration = NULL,
-        ?bool $allDay = NULL,
-        ?int $tzOffset = NULL,
-        ?string $recurIdZ = NULL
+        ?int $startTime = null,
+        ?int $duration = null,
+        ?bool $allDay = null,
+        ?int $tzOffset = null,
+        ?string $recurIdZ = null
     )
     {
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $duration) {
+        if (null !== $duration) {
             $this->setDuration($duration);
         }
-        if (NULL !== $allDay) {
+        if (null !== $allDay) {
             $this->setAllDay($allDay);
         }
-        if (NULL !== $tzOffset) {
+        if (null !== $tzOffset) {
             $this->setTzOffset($tzOffset);
         }
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
     }

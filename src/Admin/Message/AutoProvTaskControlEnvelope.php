@@ -35,7 +35,7 @@ class AutoProvTaskControlEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(AutoProvTaskControlBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class AutoProvTaskControlEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?AutoProvTaskControlBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?AutoProvTaskControlBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -321,29 +321,29 @@ class ContactInfo implements ContactInterface, SearchHit
      */
     public function __construct(
         string $id = '',
-        ?string $sortField = NULL,
-        ?bool $canExpand = NULL,
-        ?int $imapUid = NULL,
-        ?string $folder = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequenceId = NULL,
-        ?int $date = NULL,
-        ?int $revisionId = NULL,
-        ?string $fileAs = NULL,
-        ?string $email = NULL,
-        ?string $email2 = NULL,
-        ?string $email3 = NULL,
-        ?string $type = NULL,
-        ?string $dlist = NULL,
-        ?string $reference = NULL,
-        ?bool $tooManyMembers = NULL,
+        ?string $sortField = null,
+        ?bool $canExpand = null,
+        ?int $imapUid = null,
+        ?string $folder = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequenceId = null,
+        ?int $date = null,
+        ?int $revisionId = null,
+        ?string $fileAs = null,
+        ?string $email = null,
+        ?string $email2 = null,
+        ?string $email3 = null,
+        ?string $type = null,
+        ?string $dlist = null,
+        ?string $reference = null,
+        ?bool $tooManyMembers = null,
         array $metadatas  = [],
         array $attrs = [],
         array $contactGroupMembers = [],
-        ?string $memberOf = NULL
+        ?string $memberOf = null
     )
     {
         $this->setId($id)
@@ -351,64 +351,64 @@ class ContactInfo implements ContactInterface, SearchHit
              ->setAttrs($attrs)
              ->setContactGroupMembers($contactGroupMembers);
 
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
-        if (NULL !== $canExpand) {
+        if (null !== $canExpand) {
             $this->setCanExpand($canExpand);
         }
-        if (NULL !== $imapUid) {
+        if (null !== $imapUid) {
             $this->setImapUid($imapUid);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequenceId) {
+        if (null !== $modifiedSequenceId) {
             $this->setModifiedSequenceId($modifiedSequenceId);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $revisionId) {
+        if (null !== $revisionId) {
             $this->setRevisionId($revisionId);
         }
-        if (NULL !== $fileAs) {
+        if (null !== $fileAs) {
             $this->setFileAs($fileAs);
         }
-        if (NULL !== $email) {
+        if (null !== $email) {
             $this->setEmail($email);
         }
-        if (NULL !== $email2) {
+        if (null !== $email2) {
             $this->setEmail2($email2);
         }
-        if (NULL !== $email3) {
+        if (null !== $email3) {
             $this->setEmail3($email3);
         }
-        if (NULL !== $type) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (NULL !== $dlist) {
+        if (null !== $dlist) {
             $this->setDlist($dlist);
         }
-        if (NULL !== $reference) {
+        if (null !== $reference) {
             $this->setReference($reference);
         }
-        if (NULL !== $tooManyMembers) {
+        if (null !== $tooManyMembers) {
             $this->setTooManyMembers($tooManyMembers);
         }
-        if (NULL !== $memberOf) {
+        if (null !== $memberOf) {
             $this->setMemberOf($memberOf);
         }
     }

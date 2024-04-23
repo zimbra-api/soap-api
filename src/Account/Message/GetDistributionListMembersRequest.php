@@ -68,15 +68,15 @@ class GetDistributionListMembersRequest extends SoapRequest
      */
     public function __construct(
         string $dl = '',
-        ?int $limit = NULL,
-        ?int $offset = NULL
+        ?int $limit = null,
+        ?int $offset = null
     )
     {
         $this->setDl($dl);
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
     }

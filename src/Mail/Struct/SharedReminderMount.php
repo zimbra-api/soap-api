@@ -52,10 +52,10 @@ class SharedReminderMount
      * @param bool $showReminders
      * @return self
      */
-    public function __construct(string $id = '', ?bool $showReminders = NULL)
+    public function __construct(string $id = '', ?bool $showReminders = null)
     {
         $this->setId($id);
-        if (NULL !== $showReminders) {
+        if (null !== $showReminders) {
             $this->setShowReminders($showReminders);
         }
     }

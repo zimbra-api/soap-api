@@ -55,11 +55,11 @@ class GetCustomMetadataResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $id = NULL, ?MailCustomMetadata $metadata = NULL
+        ?string $id = null, ?MailCustomMetadata $metadata = null
     )
     {
         $this->metadata = $metadata;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

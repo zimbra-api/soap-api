@@ -43,7 +43,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
      * @param  Component $component
      * @return self
      */
-    public function __construct(?Component $component = NULL)
+    public function __construct(?Component $component = null)
     {
         $this->component = $component;
     }

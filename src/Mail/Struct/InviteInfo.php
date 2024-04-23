@@ -81,9 +81,9 @@ class InviteInfo implements InviteInfoInterface
      * @return self
      */
     public function __construct(
-        ?InviteType $calItemType = NULL,
+        ?InviteType $calItemType = null,
         array $timezones = [],
-        ?InviteComponent $inviteComponent = NULL,
+        ?InviteComponent $inviteComponent = null,
         array $calendarReplies = []
     )
     {

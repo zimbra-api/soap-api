@@ -33,7 +33,7 @@ class CountObjectsBody extends SoapBody
     #[SerializedName('CountObjectsRequest')]
     #[Type(CountObjectsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CountObjectsBody extends SoapBody
     #[SerializedName('CountObjectsResponse')]
     #[Type(CountObjectsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CountObjectsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CountObjectsRequest $request = NULL, ?CountObjectsResponse $response = NULL
+        ?CountObjectsRequest $request = null, ?CountObjectsResponse $response = null
     )
     {
         parent::__construct($request, $response);

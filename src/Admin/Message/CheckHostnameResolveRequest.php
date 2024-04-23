@@ -42,9 +42,9 @@ class CheckHostnameResolveRequest extends SoapRequest
      * @param  string $hostname
      * @return self
      */
-    public function __construct(?string $hostname = NULL)
+    public function __construct(?string $hostname = null)
     {
-        if (NULL !== $hostname) {
+        if (null !== $hostname) {
 	        $this->setHostname($hostname);
         }
     }

@@ -52,11 +52,11 @@ class AlwaysOnClusterSelector
      * @return self
      */
     public function __construct(
-        ?AlwaysOnClusterBy $by = NULL, ?string $value = NULL
+        ?AlwaysOnClusterBy $by = null, ?string $value = null
     )
     {
         $this->setBy($by ?? AlwaysOnClusterBy::ID);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

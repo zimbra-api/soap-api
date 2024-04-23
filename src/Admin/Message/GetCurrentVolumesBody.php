@@ -33,7 +33,7 @@ class GetCurrentVolumesBody extends SoapBody
     #[SerializedName('GetCurrentVolumesRequest')]
     #[Type(GetCurrentVolumesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetCurrentVolumesBody extends SoapBody
     #[SerializedName('GetCurrentVolumesResponse')]
     #[Type(GetCurrentVolumesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetCurrentVolumesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetCurrentVolumesRequest $request = NULL, ?GetCurrentVolumesResponse $response = NULL
+        ?GetCurrentVolumesRequest $request = null, ?GetCurrentVolumesResponse $response = null
     )
     {
         parent::__construct($request, $response);

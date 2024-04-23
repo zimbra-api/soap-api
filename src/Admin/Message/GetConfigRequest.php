@@ -43,7 +43,7 @@ class GetConfigRequest extends SoapRequest
      * @param  Attr $attr
      * @return self
      */
-    public function __construct(?Attr $attr = NULL)
+    public function __construct(?Attr $attr = null)
     {
         $this->attr = $attr;
     }

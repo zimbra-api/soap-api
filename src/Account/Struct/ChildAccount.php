@@ -92,8 +92,8 @@ class ChildAccount
     public function __construct(
         string $id = '',
         string $name = '',
-        bool $isVisible = FALSE,
-        bool $isActive = FALSE,
+        bool $isVisible = false,
+        bool $isActive = false,
         array $attrs = []
     )
     {

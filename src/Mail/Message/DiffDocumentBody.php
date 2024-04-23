@@ -33,7 +33,7 @@ class DiffDocumentBody extends SoapBody
     #[SerializedName('DiffDocumentRequest')]
     #[Type(DiffDocumentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DiffDocumentBody extends SoapBody
     #[SerializedName('DiffDocumentResponse')]
     #[Type(DiffDocumentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DiffDocumentBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DiffDocumentRequest $request = NULL, ?DiffDocumentResponse $response = NULL
+        ?DiffDocumentRequest $request = null, ?DiffDocumentResponse $response = null
     )
     {
         parent::__construct($request, $response);

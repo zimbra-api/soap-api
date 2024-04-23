@@ -35,7 +35,7 @@ class SaveDraftEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SaveDraftBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SaveDraftEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SaveDraftBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SaveDraftBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

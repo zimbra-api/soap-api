@@ -43,7 +43,7 @@ class CreateContactResponse extends SoapResponse
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(?ContactInfo $contact = NULL)
+    public function __construct(?ContactInfo $contact = null)
     {
         $this->contact = $contact;
     }

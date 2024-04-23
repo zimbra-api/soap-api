@@ -55,12 +55,12 @@ class RankingActionSpec
      * @return self
      */
     public function __construct(
-        ?RankingActionOp $operation = NULL,
-        ?string $email = NULL
+        ?RankingActionOp $operation = null,
+        ?string $email = null
     )
     {
         $this->setOperation($operation ?? RankingActionOp::RESET);
-        if (NULL !== $email) {
+        if (null !== $email) {
             $this->setEmail($email);
         }
     }

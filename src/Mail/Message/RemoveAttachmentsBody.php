@@ -33,7 +33,7 @@ class RemoveAttachmentsBody extends SoapBody
     #[SerializedName('RemoveAttachmentsRequest')]
     #[Type(RemoveAttachmentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RemoveAttachmentsBody extends SoapBody
     #[SerializedName('RemoveAttachmentsResponse')]
     #[Type(RemoveAttachmentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RemoveAttachmentsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveAttachmentsRequest $request = NULL, ?RemoveAttachmentsResponse $response = NULL
+        ?RemoveAttachmentsRequest $request = null, ?RemoveAttachmentsResponse $response = null
     )
     {
         parent::__construct($request, $response);

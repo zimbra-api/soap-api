@@ -80,7 +80,7 @@ class BlobSizeInfo
         string $path = '',
         int $size = 0,
         int $fileSize = 0,
-        bool $external = FALSE
+        bool $external = false
     )
     {
         $this->setPath($path)

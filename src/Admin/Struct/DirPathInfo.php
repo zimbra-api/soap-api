@@ -90,10 +90,10 @@ class DirPathInfo
      */
     public function __construct(
         string $path = '',
-        bool $exists = FALSE,
-        bool $directory = FALSE,
-        bool $readable = FALSE,
-        bool $writable = FALSE
+        bool $exists = false,
+        bool $directory = false,
+        bool $readable = false,
+        bool $writable = false
     )
     {
         $this->setPath($path)

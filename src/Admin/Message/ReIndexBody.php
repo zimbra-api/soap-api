@@ -33,7 +33,7 @@ class ReIndexBody extends SoapBody
     #[SerializedName('ReIndexRequest')]
     #[Type(ReIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ReIndexBody extends SoapBody
     #[SerializedName('ReIndexResponse')]
     #[Type(ReIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ReIndexBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL
+        ?ReIndexRequest $request = null, ?ReIndexResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -127,28 +127,28 @@ class DurationInfo implements DurationInfoInterface
      * @return self
      */
     public function __construct(
-        ?int $weeks = NULL,
-        ?int $days = NULL,
-        ?int $hours = NULL,
-        ?int $minutes = NULL,
-        ?int $seconds = NULL,
-        ?AlarmRelated $related = NULL
+        ?int $weeks = null,
+        ?int $days = null,
+        ?int $hours = null,
+        ?int $minutes = null,
+        ?int $seconds = null,
+        ?AlarmRelated $related = null
     )
     {
         $this->related = $related;
-        if (NULL !== $weeks) {
+        if (null !== $weeks) {
             $this->setWeeks($weeks);
         }
-        if (NULL !== $days) {
+        if (null !== $days) {
             $this->setDays($days);
         }
-        if (NULL !== $hours) {
+        if (null !== $hours) {
             $this->setHours($hours);
         }
-        if (NULL !== $minutes) {
+        if (null !== $minutes) {
             $this->setMinutes($minutes);
         }
-        if (NULL !== $seconds) {
+        if (null !== $seconds) {
             $this->setSeconds($seconds);
         }
     }

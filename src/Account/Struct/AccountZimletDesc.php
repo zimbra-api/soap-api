@@ -142,38 +142,38 @@ class AccountZimletDesc implements ZimletDesc
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $version = NULL,
-        ?string $description = NULL,
-        ?string $extension = NULL,
-        ?string $target = NULL,
-        ?string $label = NULL,
-        ?ZimletServerExtension $serverExtension = NULL,
-        ?AccountZimletInclude $include = NULL,
-        ?AccountZimletIncludeCSS $includeCSS = NULL,
-        ?AccountZimletTarget $zimletTarget = NULL
+        ?string $name = null,
+        ?string $version = null,
+        ?string $description = null,
+        ?string $extension = null,
+        ?string $target = null,
+        ?string $label = null,
+        ?ZimletServerExtension $serverExtension = null,
+        ?AccountZimletInclude $include = null,
+        ?AccountZimletIncludeCSS $includeCSS = null,
+        ?AccountZimletTarget $zimletTarget = null
     )
     {
         $this->serverExtension = $serverExtension;
         $this->include = $include;
         $this->includeCSS = $includeCSS;
         $this->zimletTarget = $zimletTarget;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $extension) {
+        if (null !== $extension) {
             $this->setExtension($extension);
         }
-        if (NULL !== $target) {
+        if (null !== $target) {
             $this->setTarget($target);
         }
-        if (NULL !== $label) {
+        if (null !== $label) {
             $this->setLabel($label);
         }
     }

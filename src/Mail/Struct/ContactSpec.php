@@ -113,11 +113,11 @@ class ContactSpec implements SpecifyContact
      * @return self
      */
     public function __construct(
-        ?int $id = NULL,
-        ?string $folder = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?VCardInfo $vcard = NULL,
+        ?int $id = null,
+        ?string $folder = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?VCardInfo $vcard = null,
         array $attrs = [],
         array $contactGroupMembers = []
     )
@@ -125,16 +125,16 @@ class ContactSpec implements SpecifyContact
         $this->setAttrs($attrs)
              ->setContactGroupMembers($contactGroupMembers);
         $this->vcard = $vcard;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
     }

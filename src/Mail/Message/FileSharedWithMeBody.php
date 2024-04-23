@@ -33,7 +33,7 @@ class FileSharedWithMeBody extends SoapBody
     #[SerializedName('FileSharedWithMeRequest')]
     #[Type(FileSharedWithMeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class FileSharedWithMeBody extends SoapBody
     #[SerializedName('FileSharedWithMeResponse')]
     #[Type(FileSharedWithMeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class FileSharedWithMeBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?FileSharedWithMeRequest $request = NULL, ?FileSharedWithMeResponse $response = NULL
+        ?FileSharedWithMeRequest $request = null, ?FileSharedWithMeResponse $response = null
     )
     {
         parent::__construct($request, $response);

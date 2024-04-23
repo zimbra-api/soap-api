@@ -70,7 +70,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     public function __construct(
         EffectiveAttrsInfo $setAttrs,
         EffectiveAttrsInfo $getAttrs,
-        ?TargetType $type = NULL,
+        ?TargetType $type = null,
         string $id = '',
         string $name = '',
         array $rights = []

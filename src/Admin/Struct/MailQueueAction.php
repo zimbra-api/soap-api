@@ -58,7 +58,7 @@ class MailQueueAction
      * @return self
      */
     public function __construct(
-        QueueQuery $query, ?QueueAction $op = NULL, ?QueueActionBy $by = NULL
+        QueueQuery $query, ?QueueAction $op = null, ?QueueActionBy $by = null
     )
     {
         $this->setQuery($query)

@@ -35,7 +35,7 @@ class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SnoozeCalendarItemAlarmBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SnoozeCalendarItemAlarmBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SnoozeCalendarItemAlarmBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

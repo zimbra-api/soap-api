@@ -54,7 +54,7 @@ class CheckPermissionResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        bool $allow = FALSE,
+        bool $allow = false,
         array $rights = []
     )
     {

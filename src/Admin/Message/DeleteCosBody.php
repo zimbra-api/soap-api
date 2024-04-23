@@ -33,7 +33,7 @@ class DeleteCosBody extends SoapBody
     #[SerializedName('DeleteCosRequest')]
     #[Type(DeleteCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteCosBody extends SoapBody
     #[SerializedName('DeleteCosResponse')]
     #[Type(DeleteCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteCosBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteCosRequest $request = NULL, ?DeleteCosResponse $response = NULL
+        ?DeleteCosRequest $request = null, ?DeleteCosResponse $response = null
     )
     {
         parent::__construct($request, $response);

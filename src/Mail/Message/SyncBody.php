@@ -33,7 +33,7 @@ class SyncBody extends SoapBody
     #[SerializedName('SyncRequest')]
     #[Type(SyncRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SyncBody extends SoapBody
     #[SerializedName('SyncResponse')]
     #[Type(SyncResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SyncBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SyncRequest $request = NULL, ?SyncResponse $response = NULL
+        ?SyncRequest $request = null, ?SyncResponse $response = null
     )
     {
         parent::__construct($request, $response);

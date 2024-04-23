@@ -53,10 +53,10 @@ class InheritedFlaggedValue
      * @param  string $value
      * @return self
      */
-    public function __construct(bool $inherited = FALSE, ?string $value = NULL)
+    public function __construct(bool $inherited = false, ?string $value = null)
     {
         $this->setInherited($inherited);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

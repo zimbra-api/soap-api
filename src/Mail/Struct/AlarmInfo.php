@@ -136,12 +136,12 @@ class AlarmInfo implements AlarmInfoInterface
      * @return self
      */
     public function __construct(
-        ?AlarmAction $action = NULL,
-        ?AlarmTriggerInfo $trigger = NULL,
-        ?DurationInfo $repeat = NULL,
-        ?string $description = NULL,
-        ?CalendarAttach $attach = NULL,
-        ?string $summary = NULL,
+        ?AlarmAction $action = null,
+        ?AlarmTriggerInfo $trigger = null,
+        ?DurationInfo $repeat = null,
+        ?string $description = null,
+        ?CalendarAttach $attach = null,
+        ?string $summary = null,
         array $attendees = [],
         array $xProps = []
     )
@@ -152,10 +152,10 @@ class AlarmInfo implements AlarmInfoInterface
         $this->trigger = $trigger;
         $this->repeat = $repeat;
         $this->attach = $attach;
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $summary) {
+        if (null !== $summary) {
             $this->setSummary($summary);
         }
     }

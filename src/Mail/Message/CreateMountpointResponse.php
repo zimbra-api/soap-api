@@ -42,7 +42,7 @@ class CreateMountpointResponse extends SoapResponse
      * @param  Mountpoint $mount
      * @return self
      */
-    public function __construct(?Mountpoint $mount = NULL)
+    public function __construct(?Mountpoint $mount = null)
     {
         $this->mount = $mount;
     }

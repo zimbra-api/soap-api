@@ -94,28 +94,28 @@ class NotifyAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?string $address = NULL,
-        ?string $subject = NULL,
-        ?int $maxBodySize = NULL,
-        ?string $content = NULL,
-        ?string $origHeaders = NULL
+        ?int $index = null,
+        ?string $address = null,
+        ?string $subject = null,
+        ?int $maxBodySize = null,
+        ?string $content = null,
+        ?string $origHeaders = null
     )
     {
     	parent::__construct($index);
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $maxBodySize) {
+        if (null !== $maxBodySize) {
             $this->setMaxBodySize($maxBodySize);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $origHeaders) {
+        if (null !== $origHeaders) {
             $this->setOrigHeaders($origHeaders);
         }
     }

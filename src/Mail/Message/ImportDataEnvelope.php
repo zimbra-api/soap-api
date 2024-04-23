@@ -35,7 +35,7 @@ class ImportDataEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ImportDataBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ImportDataEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ImportDataBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ImportDataBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

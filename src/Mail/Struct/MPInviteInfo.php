@@ -78,7 +78,7 @@ class MPInviteInfo
      * @return self
      */
     public function __construct(
-        ?InviteType $calItemType = NULL,
+        ?InviteType $calItemType = null,
         array $timezones = [],
         array $calendarReplies = [],
         array $inviteComponents = []

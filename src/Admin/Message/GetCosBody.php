@@ -33,7 +33,7 @@ class GetCosBody extends SoapBody
     #[SerializedName('GetCosRequest')]
     #[Type(GetCosRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetCosBody extends SoapBody
     #[SerializedName('GetCosResponse')]
     #[Type(GetCosResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetCosBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetCosRequest $request = NULL, ?GetCosResponse $response = NULL
+        ?GetCosRequest $request = null, ?GetCosResponse $response = null
     )
     {
         parent::__construct($request, $response);

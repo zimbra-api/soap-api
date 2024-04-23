@@ -52,10 +52,10 @@ class CheckDirSelector
      * @param bool   $create
      * @return self
      */
-    public function __construct(string $path = '', ?bool $create = NULL)
+    public function __construct(string $path = '', ?bool $create = null)
     {
         $this->setPath($path);
-        if (NULL !== $create) {
+        if (null !== $create) {
             $this->setCreate($create);
         }
     }

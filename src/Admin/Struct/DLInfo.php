@@ -58,12 +58,12 @@ class DLInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $via = '', string $name = '', string $id = '', ?bool $dynamic = NULL, array $attrs = []
+        string $via = '', string $name = '', string $id = '', ?bool $dynamic = null, array $attrs = []
     )
     {
         parent::__construct($name, $id, $attrs);
         $this->setVia($via);
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }

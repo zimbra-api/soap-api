@@ -42,7 +42,7 @@ class GetVersionInfoResponse extends SoapResponse
      * @param VersionInfo $info
      * @return self
      */
-    public function __construct(?VersionInfo $info = NULL)
+    public function __construct(?VersionInfo $info = null)
     {
         $this->info = $info;
     }

@@ -33,7 +33,7 @@ class DedupeBlobsBody extends SoapBody
     #[SerializedName('DedupeBlobsRequest')]
     #[Type(DedupeBlobsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DedupeBlobsBody extends SoapBody
     #[SerializedName('DedupeBlobsResponse')]
     #[Type(DedupeBlobsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DedupeBlobsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL
+        ?DedupeBlobsRequest $request = null, ?DedupeBlobsResponse $response = null
     )
     {
         parent::__construct($request, $response);

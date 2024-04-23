@@ -52,10 +52,10 @@ class Session
      * @param  string $type
      * @return self
      */
-    public function __construct(string $id = '', ?string $type = NULL)
+    public function __construct(string $id = '', ?string $type = null)
     {
         $this->setId($id);
-        if (NULL !== $type) {
+        if (null !== $type) {
             $this->setType($type);
         }
     }

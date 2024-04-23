@@ -42,7 +42,7 @@ class RecalculateMailboxCountsResponse extends SoapResponse
      * @param Mailbox $mailbox
      * @return self
      */
-    public function __construct(?Mailbox $mailbox = NULL)
+    public function __construct(?Mailbox $mailbox = null)
     {
         $this->mailbox = $mailbox;
     }

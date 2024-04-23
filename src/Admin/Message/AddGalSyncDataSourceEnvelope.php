@@ -35,7 +35,7 @@ class AddGalSyncDataSourceEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(AddGalSyncDataSourceBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class AddGalSyncDataSourceEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?AddGalSyncDataSourceBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?AddGalSyncDataSourceBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

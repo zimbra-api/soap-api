@@ -373,7 +373,7 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Proxy URL for accessing XMPP over BOSH.
-     * Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
+     * Should be returned only when zimbraFeatureChatEnabled is set to true for Account/COS
      * 
      * @var string
      */
@@ -431,22 +431,22 @@ class GetInfoResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?int $attachmentSizeLimit = NULL,
-        ?int $documentSizeLimit = NULL,
-        ?bool $spellCheckAvailable = NULL,
-        ?string $version = NULL,
-        ?string $accountId = NULL,
-        ?int $profileImageId = NULL,
-        ?string $accountName = NULL,
-        ?string $crumb = NULL,
-        ?int $lifetime = NULL,
-        ?bool $adminDelegated = NULL,
-        ?string $restUrl = NULL,
-        ?int $quotaUsed = NULL,
-        ?int $previousSessionTime = NULL,
-        ?int $lastWriteAccessTime = NULL,
-        ?int $recentMessageCount = NULL,
-        ?Cos $cos = NULL,
+        ?int $attachmentSizeLimit = null,
+        ?int $documentSizeLimit = null,
+        ?bool $spellCheckAvailable = null,
+        ?string $version = null,
+        ?string $accountId = null,
+        ?int $profileImageId = null,
+        ?string $accountName = null,
+        ?string $crumb = null,
+        ?int $lifetime = null,
+        ?bool $adminDelegated = null,
+        ?string $restUrl = null,
+        ?int $quotaUsed = null,
+        ?int $previousSessionTime = null,
+        ?int $lastWriteAccessTime = null,
+        ?int $recentMessageCount = null,
+        ?Cos $cos = null,
         array $prefs = [],
         array $attrs = [],
         array $zimlets = [],
@@ -456,58 +456,58 @@ class GetInfoResponse extends SoapResponse
         array $dataSources = [],
         array $childAccounts = [],
         array $discoveredRights = [],
-        ?string $soapURL = NULL,
-        ?string $publicURL = NULL,
-        ?string $changePasswordURL = NULL,
-        ?string $adminURL = NULL,
-        ?string $boshURL = NULL,
-        ?bool $isTrackingIMAP = NULL
+        ?string $soapURL = null,
+        ?string $publicURL = null,
+        ?string $changePasswordURL = null,
+        ?string $adminURL = null,
+        ?string $boshURL = null,
+        ?bool $isTrackingIMAP = null
     )
     {
         $this->cos = $cos;
-        if (NULL !== $attachmentSizeLimit) {
+        if (null !== $attachmentSizeLimit) {
             $this->setAttachmentSizeLimit($attachmentSizeLimit);
         }
-        if (NULL !== $documentSizeLimit) {
+        if (null !== $documentSizeLimit) {
             $this->setDocumentSizeLimit($documentSizeLimit);
         }
-        if (NULL !== $spellCheckAvailable) {
+        if (null !== $spellCheckAvailable) {
             $this->setSpellCheckAvailable($spellCheckAvailable);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $accountId) {
+        if (null !== $accountId) {
             $this->setAccountId($accountId);
         }
-        if (NULL !== $profileImageId) {
+        if (null !== $profileImageId) {
             $this->setProfileImageId($profileImageId);
         }
-        if (NULL !== $accountName) {
+        if (null !== $accountName) {
             $this->setAccountName($accountName);
         }
-        if (NULL !== $crumb) {
+        if (null !== $crumb) {
             $this->setCrumb($crumb);
         }
-        if (NULL !== $lifetime) {
+        if (null !== $lifetime) {
             $this->setLifetime($lifetime);
         }
-        if (NULL !== $adminDelegated) {
+        if (null !== $adminDelegated) {
             $this->setAdminDelegated($adminDelegated);
         }
-        if (NULL !== $restUrl) {
+        if (null !== $restUrl) {
             $this->setRestUrl($restUrl);
         }
-        if (NULL !== $quotaUsed) {
+        if (null !== $quotaUsed) {
             $this->setQuotaUsed($quotaUsed);
         }
-        if (NULL !== $previousSessionTime) {
+        if (null !== $previousSessionTime) {
             $this->setPreviousSessionTime($previousSessionTime);
         }
-        if (NULL !== $lastWriteAccessTime) {
+        if (null !== $lastWriteAccessTime) {
             $this->setLastWriteAccessTime($lastWriteAccessTime);
         }
-        if (NULL !== $recentMessageCount) {
+        if (null !== $recentMessageCount) {
             $this->setRecentMessageCount($recentMessageCount);
         }
         $this->setPrefs($prefs)
@@ -519,22 +519,22 @@ class GetInfoResponse extends SoapResponse
              ->setDataSources($dataSources)
              ->setChildAccounts($childAccounts)
              ->setDiscoveredRights($discoveredRights);
-        if (NULL !== $soapURL) {
+        if (null !== $soapURL) {
             $this->setSoapURL($soapURL);
         }
-        if (NULL !== $publicURL) {
+        if (null !== $publicURL) {
             $this->setPublicURL($publicURL);
         }
-        if (NULL !== $changePasswordURL) {
+        if (null !== $changePasswordURL) {
             $this->setChangePasswordURL($changePasswordURL);
         }
-        if (NULL !== $adminURL) {
+        if (null !== $adminURL) {
             $this->setAdminURL($adminURL);
         }
-        if (NULL !== $boshURL) {
+        if (null !== $boshURL) {
             $this->setBoshURL($boshURL);
         }
-        if (NULL !== $isTrackingIMAP) {
+        if (null !== $isTrackingIMAP) {
             $this->setIsTrackingIMAP($isTrackingIMAP);
         }
     }

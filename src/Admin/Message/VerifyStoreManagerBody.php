@@ -33,7 +33,7 @@ class VerifyStoreManagerBody extends SoapBody
     #[SerializedName('VerifyStoreManagerRequest')]
     #[Type(VerifyStoreManagerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class VerifyStoreManagerBody extends SoapBody
     #[SerializedName('VerifyStoreManagerResponse')]
     #[Type(VerifyStoreManagerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class VerifyStoreManagerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?VerifyStoreManagerRequest $request = NULL, ?VerifyStoreManagerResponse $response = NULL
+        ?VerifyStoreManagerRequest $request = null, ?VerifyStoreManagerResponse $response = null
     )
     {
         parent::__construct($request, $response);

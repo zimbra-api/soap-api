@@ -33,7 +33,7 @@ class SendVerificationCodeBody extends SoapBody
     #[SerializedName('SendVerificationCodeRequest')]
     #[Type(SendVerificationCodeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SendVerificationCodeBody extends SoapBody
     #[SerializedName('SendVerificationCodeResponse')]
     #[Type(SendVerificationCodeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SendVerificationCodeBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SendVerificationCodeRequest $request = NULL, ?SendVerificationCodeResponse $response = NULL
+        ?SendVerificationCodeRequest $request = null, ?SendVerificationCodeResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -55,7 +55,7 @@ class ReIndexResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?ReIndexStatus $status = NULL, ?ReindexProgressInfo $progress = NULL
+        ?ReIndexStatus $status = null, ?ReindexProgressInfo $progress = null
     )
     {
         $this->status = $status;

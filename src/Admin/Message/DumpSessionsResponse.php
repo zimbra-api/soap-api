@@ -116,12 +116,12 @@ class DumpSessionsResponse extends SoapResponse
      */
     public function __construct(
         int $totalActiveSessions = 0,
-        ?InfoForSessionType $soapSessions = NULL,
-        ?InfoForSessionType $imapSessions = NULL,
-        ?InfoForSessionType $adminSessions = NULL,
-        ?InfoForSessionType $wikiSessions = NULL,
-        ?InfoForSessionType $synclistenerSessions = NULL,
-        ?InfoForSessionType $waitsetSessions = NULL
+        ?InfoForSessionType $soapSessions = null,
+        ?InfoForSessionType $imapSessions = null,
+        ?InfoForSessionType $adminSessions = null,
+        ?InfoForSessionType $wikiSessions = null,
+        ?InfoForSessionType $synclistenerSessions = null,
+        ?InfoForSessionType $waitsetSessions = null
     )
     {
         $this->setTotalActiveSessions($totalActiveSessions);

@@ -66,9 +66,9 @@ class AdminZimletInfo implements ZimletInterface
      * @return self
      */
     public function __construct(
-        ?AdminZimletContext $zimletContext = NULL,
-        ?AdminZimletDesc $zimlet = NULL,
-        ?AdminZimletConfigInfo $zimletConfig = NULL
+        ?AdminZimletContext $zimletContext = null,
+        ?AdminZimletDesc $zimlet = null,
+        ?AdminZimletConfigInfo $zimletConfig = null
     )
     {
         $this->zimletContext = $zimletContext;

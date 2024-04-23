@@ -33,7 +33,7 @@ class GetModifiedItemsIDsBody extends SoapBody
     #[SerializedName('GetModifiedItemsIDsRequest')]
     #[Type(GetModifiedItemsIDsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetModifiedItemsIDsBody extends SoapBody
     #[SerializedName('GetModifiedItemsIDsResponse')]
     #[Type(GetModifiedItemsIDsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetModifiedItemsIDsRequest $request = NULL, ?GetModifiedItemsIDsResponse $response = NULL
+        ?GetModifiedItemsIDsRequest $request = null, ?GetModifiedItemsIDsResponse $response = null
     )
     {
         parent::__construct($request, $response);

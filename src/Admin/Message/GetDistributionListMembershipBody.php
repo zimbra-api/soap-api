@@ -33,7 +33,7 @@ class GetDistributionListMembershipBody extends SoapBody
     #[SerializedName('GetDistributionListMembershipRequest')]
     #[Type(GetDistributionListMembershipRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetDistributionListMembershipBody extends SoapBody
     #[SerializedName('GetDistributionListMembershipResponse')]
     #[Type(GetDistributionListMembershipResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,8 +54,8 @@ class GetDistributionListMembershipBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDistributionListMembershipRequest $request = NULL,
-        ?GetDistributionListMembershipResponse $response = NULL
+        ?GetDistributionListMembershipRequest $request = null,
+        ?GetDistributionListMembershipResponse $response = null
     )
     {
         parent::__construct($request, $response);

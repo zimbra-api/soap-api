@@ -35,7 +35,7 @@ class CheckSpellingEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(CheckSpellingBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class CheckSpellingEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?CheckSpellingBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?CheckSpellingBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

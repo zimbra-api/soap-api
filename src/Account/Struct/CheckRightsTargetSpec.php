@@ -67,7 +67,7 @@ class CheckRightsTargetSpec
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', array $rights = []
+        ?TargetType $type = null, ?TargetBy $by = null, string $key = '', array $rights = []
     )
     {
         $this->setTargetType($type ?? TargetType::ACCOUNT)

@@ -65,12 +65,12 @@ class TargetSpec
      * @return self
      */
     public function __construct(
-        ?TargetType $targetType = NULL, ?AccountBy $accountBy = NULL, ?string $value = NULL
+        ?TargetType $targetType = null, ?AccountBy $accountBy = null, ?string $value = null
     )
     {
         $this->setTargetType($targetType ?? TargetType::ACCOUNT)
              ->setAccountBy($accountBy ?? AccountBy::NAME);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

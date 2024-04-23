@@ -33,7 +33,7 @@ class EndSessionBody extends SoapBody
     #[SerializedName('EndSessionRequest')]
     #[Type(EndSessionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class EndSessionBody extends SoapBody
     #[SerializedName('EndSessionResponse')]
     #[Type(EndSessionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class EndSessionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?EndSessionRequest $request = NULL, ?EndSessionResponse $response = NULL
+        ?EndSessionRequest $request = null, ?EndSessionResponse $response = null
     )
     {
         parent::__construct($request, $response);

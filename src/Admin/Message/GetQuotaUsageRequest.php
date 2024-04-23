@@ -119,34 +119,34 @@ class GetQuotaUsageRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $domain = NULL,
-        ?bool $allServers = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?bool $refresh = NULL
+        ?string $domain = null,
+        ?bool $allServers = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?bool $refresh = null
     )
     {
-        if (NULL !== $domain) {
+        if (null !== $domain) {
             $this->setDomain($domain);
         }
-        if (NULL !== $allServers) {
+        if (null !== $allServers) {
             $this->setAllServers($allServers);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $refresh) {
+        if (null !== $refresh) {
             $this->setRefresh($refresh);
         }
     }

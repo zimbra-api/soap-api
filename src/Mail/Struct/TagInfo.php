@@ -174,47 +174,47 @@ class TagInfo
      */
     public function __construct(
         string $id = '',
-        ?string $name = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $unread = NULL,
-        ?int $count = NULL,
-        ?int $date = NULL,
-        ?int $revision = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?string $name = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $unread = null,
+        ?int $count = null,
+        ?int $date = null,
+        ?int $revision = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = [],
-        ?RetentionPolicy $retentionPolicy = NULL
+        ?RetentionPolicy $retentionPolicy = null
     )
     {
         $this->setId($id)
              ->setMetadatas($metadatas);
         $this->retentionPolicy = $retentionPolicy;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $unread) {
+        if (null !== $unread) {
             $this->setUnread($unread);
         }
-        if (NULL !== $count) {
+        if (null !== $count) {
             $this->setCount($count);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
     }

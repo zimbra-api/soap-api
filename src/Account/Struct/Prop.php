@@ -64,12 +64,12 @@ class Prop
      * @return self
      */
     public function __construct(
-        string $zimlet = '', string $name = '', ?string $value = NULL
+        string $zimlet = '', string $name = '', ?string $value = null
     )
     {
         $this->setZimlet($zimlet)
              ->setName($name);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

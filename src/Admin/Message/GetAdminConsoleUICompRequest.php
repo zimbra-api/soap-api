@@ -56,7 +56,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
      * @param  DlSelector $dl
      * @return self
      */
-    public function __construct(?AccountSelector $account = NULL, ?DlSelector $dl = NULL)
+    public function __construct(?AccountSelector $account = null, ?DlSelector $dl = null)
     {
         $this->account = $account;
         $this->dl = $dl;

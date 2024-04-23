@@ -55,7 +55,7 @@ class LockoutMailboxRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        AccountNameSelector $account, ?LockoutOperation $operation = NULL
+        AccountNameSelector $account, ?LockoutOperation $operation = null
     )
     {
         $this->setAccount($account);

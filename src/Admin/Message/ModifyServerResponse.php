@@ -42,7 +42,7 @@ class ModifyServerResponse extends SoapResponse
      * @param ServerInfo $server
      * @return self
      */
-    public function __construct(?ServerInfo $server = NULL)
+    public function __construct(?ServerInfo $server = null)
     {
         $this->server = $server;
     }

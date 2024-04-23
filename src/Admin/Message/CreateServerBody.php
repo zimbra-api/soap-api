@@ -33,7 +33,7 @@ class CreateServerBody extends SoapBody
     #[SerializedName('CreateServerRequest')]
     #[Type(CreateServerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateServerBody extends SoapBody
     #[SerializedName('CreateServerResponse')]
     #[Type(CreateServerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateServerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateServerRequest $request = NULL, ?CreateServerResponse $response = NULL
+        ?CreateServerRequest $request = null, ?CreateServerResponse $response = null
     )
     {
         parent::__construct($request, $response);

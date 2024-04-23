@@ -33,7 +33,7 @@ class DeleteSignatureBody extends SoapBody
     #[SerializedName('DeleteSignatureRequest')]
     #[Type(DeleteSignatureRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteSignatureBody extends SoapBody
     #[SerializedName('DeleteSignatureResponse')]
     #[Type(DeleteSignatureResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteSignatureBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteSignatureRequest $request = NULL, ?DeleteSignatureResponse $response = NULL
+        ?DeleteSignatureRequest $request = null, ?DeleteSignatureResponse $response = null
     )
     {
         parent::__construct($request, $response);

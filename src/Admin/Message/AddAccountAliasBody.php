@@ -33,7 +33,7 @@ class AddAccountAliasBody extends SoapBody
     #[SerializedName('AddAccountAliasRequest')]
     #[Type(AddAccountAliasRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AddAccountAliasBody extends SoapBody
     #[SerializedName('AddAccountAliasResponse')]
     #[Type(AddAccountAliasResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AddAccountAliasBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddAccountAliasRequest $request = NULL, ?AddAccountAliasResponse $response = NULL
+        ?AddAccountAliasRequest $request = null, ?AddAccountAliasResponse $response = null
     )
     {
         parent::__construct($request, $response);

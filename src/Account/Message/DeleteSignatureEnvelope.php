@@ -35,7 +35,7 @@ class DeleteSignatureEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DeleteSignatureBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DeleteSignatureEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DeleteSignatureBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DeleteSignatureBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

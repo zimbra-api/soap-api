@@ -64,14 +64,14 @@ class DistributionListSubscribeReq
      * @return self
      */
     public function __construct(
-        ?DistributionListSubscribeOp $op = NULL, ?string $value = NULL, ?bool $bccOwners = NULL
+        ?DistributionListSubscribeOp $op = null, ?string $value = null, ?bool $bccOwners = null
     )
     {
 		$this->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $bccOwners) {
+        if (null !== $bccOwners) {
 			$this->setBccOwners($bccOwners);
         }
     }

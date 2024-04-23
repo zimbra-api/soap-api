@@ -105,28 +105,28 @@ class EmailInfo implements EmailInfoInterface
      * @return self
      */
     public function __construct(
-        ?string $address = NULL,
-        ?string $display = NULL,
-        ?string $personal = NULL,
-        ?AddressType $addressType = NULL,
-        ?bool $group = NULL,
-        ?bool $canExpandGroupMembers = NULL
+        ?string $address = null,
+        ?string $display = null,
+        ?string $personal = null,
+        ?AddressType $addressType = null,
+        ?bool $group = null,
+        ?bool $canExpandGroupMembers = null
     )
     {
         $this->addressType = $addressType;
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $display) {
+        if (null !== $display) {
             $this->setDisplay($display);
         }
-        if (NULL !== $personal) {
+        if (null !== $personal) {
             $this->setPersonal($personal);
         }
-        if (NULL !== $group) {
+        if (null !== $group) {
             $this->setGroup($group);
         }
-        if (NULL !== $canExpandGroupMembers) {
+        if (null !== $canExpandGroupMembers) {
             $this->setCanExpandGroupMembers($canExpandGroupMembers);
         }
     }

@@ -35,7 +35,7 @@ class AddTaskInviteEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(AddTaskInviteBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class AddTaskInviteEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?AddTaskInviteBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?AddTaskInviteBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

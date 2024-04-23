@@ -33,7 +33,7 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
     #[SerializedName('SnoozeCalendarItemAlarmRequest')]
     #[Type(SnoozeCalendarItemAlarmRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
     #[SerializedName('SnoozeCalendarItemAlarmResponse')]
     #[Type(SnoozeCalendarItemAlarmResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SnoozeCalendarItemAlarmRequest $request = NULL, ?SnoozeCalendarItemAlarmResponse $response = NULL
+        ?SnoozeCalendarItemAlarmRequest $request = null, ?SnoozeCalendarItemAlarmResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -90,11 +90,11 @@ class TzFixupRuleMatch
      * @return self
      */
     public function __construct(
-        ?SimpleElement $any = NULL,
-        ?Id $tzid = NULL,
-        ?Offset $nonDst = NULL,
-        ?TzFixupRuleMatchRules $rules = NULL,
-        ?TzFixupRuleMatchDates $dates = NULL
+        ?SimpleElement $any = null,
+        ?Id $tzid = null,
+        ?Offset $nonDst = null,
+        ?TzFixupRuleMatchRules $rules = null,
+        ?TzFixupRuleMatchDates $dates = null
     )
     {
         $this->any = $any;

@@ -42,7 +42,7 @@ class GetMailboxMetadataResponse extends SoapResponse
      * @param  MailCustomMetadata $metadata
      * @return self
      */
-    public function __construct(?MailCustomMetadata $metadata = NULL)
+    public function __construct(?MailCustomMetadata $metadata = null)
     {
         $this->metadata = $metadata;
     }

@@ -33,7 +33,7 @@ class RankingActionBody extends SoapBody
     #[SerializedName('RankingActionRequest')]
     #[Type(RankingActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RankingActionBody extends SoapBody
     #[SerializedName('RankingActionResponse')]
     #[Type(RankingActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RankingActionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RankingActionRequest $request = NULL, ?RankingActionResponse $response = NULL
+        ?RankingActionRequest $request = null, ?RankingActionResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -42,7 +42,7 @@ class GetICalResponse extends SoapResponse
      * @param  ICalContent $content
      * @return self
      */
-    public function __construct(?ICalContent $content = NULL)
+    public function __construct(?ICalContent $content = null)
     {
         $this->content = $content;
     }

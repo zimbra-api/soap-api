@@ -33,7 +33,7 @@ class GetLicenseInfoBody extends SoapBody
     #[SerializedName('GetLicenseInfoRequest')]
     #[Type(GetLicenseInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetLicenseInfoBody extends SoapBody
     #[SerializedName('GetLicenseInfoResponse')]
     #[Type(GetLicenseInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetLicenseInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL
+        ?GetLicenseInfoRequest $request = null, ?GetLicenseInfoResponse $response = null
     )
     {
         parent::__construct($request, $response);

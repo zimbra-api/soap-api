@@ -33,7 +33,7 @@ class CheckHealthBody extends SoapBody
     #[SerializedName('CheckHealthRequest')]
     #[Type(CheckHealthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckHealthBody extends SoapBody
     #[SerializedName('CheckHealthResponse')]
     #[Type(CheckHealthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckHealthBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckHealthRequest $request = NULL, ?CheckHealthResponse $response = NULL
+        ?CheckHealthRequest $request = null, ?CheckHealthResponse $response = null
     )
     {
         parent::__construct($request, $response);

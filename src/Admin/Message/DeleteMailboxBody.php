@@ -33,7 +33,7 @@ class DeleteMailboxBody extends SoapBody
     #[SerializedName('DeleteMailboxRequest')]
     #[Type(DeleteMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteMailboxBody extends SoapBody
     #[SerializedName('DeleteMailboxResponse')]
     #[Type(DeleteMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteMailboxBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteMailboxRequest $request = NULL, ?DeleteMailboxResponse $response = NULL
+        ?DeleteMailboxRequest $request = null, ?DeleteMailboxResponse $response = null
     )
     {
         parent::__construct($request, $response);

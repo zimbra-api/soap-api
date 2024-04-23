@@ -80,24 +80,24 @@ class ContactAttr extends KeyValuePair
      */
     public function __construct(
         string $key = '',
-        ?string$value = NULL,
-        ?string $part = NULL,
-        ?string $contentType = NULL,
-        ?int $size = NULL,
-        ?string $contentFilename = NULL
+        ?string$value = null,
+        ?string $part = null,
+        ?string $contentType = null,
+        ?int $size = null,
+        ?string $contentFilename = null
     )
     {
         parent::__construct($key, $value);
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $contentFilename) {
+        if (null !== $contentFilename) {
             $this->setContentFilename($contentFilename);
         }
     }

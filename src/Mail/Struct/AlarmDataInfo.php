@@ -113,32 +113,32 @@ class AlarmDataInfo
      * @return self
      */
     public function __construct(
-        ?int $nextAlarm = NULL,
-        ?int $alarmInstanceStart = NULL,
-        ?int $invId = NULL,
-        ?int $componentNum = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?AlarmInfo $alarm = NULL
+        ?int $nextAlarm = null,
+        ?int $alarmInstanceStart = null,
+        ?int $invId = null,
+        ?int $componentNum = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?AlarmInfo $alarm = null
     )
     {
         $this->alarm = $alarm;
-        if (NULL !== $nextAlarm) {
+        if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
-        if (NULL !== $alarmInstanceStart) {
+        if (null !== $alarmInstanceStart) {
             $this->setAlarmInstanceStart($alarmInstanceStart);
         }
-        if (NULL !== $invId) {
+        if (null !== $invId) {
             $this->setInvId($invId);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
     }

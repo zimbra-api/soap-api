@@ -80,15 +80,15 @@ class SaveDraftRequest extends SoapRequest
      */
     public function __construct(
         SaveDraftMsg $msg,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     )
     {
         $this->setMsg($msg);
-        if (NULL !== $wantImapUid) {
+        if (null !== $wantImapUid) {
             $this->setWantImapUid($wantImapUid);
         }
-        if (NULL !== $wantModifiedSequence) {
+        if (null !== $wantModifiedSequence) {
             $this->setWantModifiedSequence($wantModifiedSequence);
         }
     }

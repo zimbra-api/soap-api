@@ -53,10 +53,10 @@ class WkDay implements WkDayInterface
      * @param  int $ordWk
      * @return self
      */
-    public function __construct(?WeekDay $day = NULL, ?int $ordWk = NULL)
+    public function __construct(?WeekDay $day = null, ?int $ordWk = null)
     {
         $this->setDay($day ?? WeekDay::SUNDAY);
-        if (NULL !== $ordWk) {
+        if (null !== $ordWk) {
             $this->setOrdWk($ordWk);
         }
     }

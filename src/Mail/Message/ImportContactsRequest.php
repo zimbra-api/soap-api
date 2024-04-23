@@ -97,20 +97,20 @@ class ImportContactsRequest extends SoapRequest
     public function __construct(
         Content $content,
         string $contentType = 'text/csv',
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null
     )
     {
         $this->setContent($content)
              ->setContentType($contentType);
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $csvFormat) {
+        if (null !== $csvFormat) {
             $this->setCsvFormat($csvFormat);
         }
-        if (NULL !== $csvLocale) {
+        if (null !== $csvLocale) {
             $this->setCsvLocale($csvLocale);
         }
     }

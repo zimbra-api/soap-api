@@ -91,8 +91,8 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      */
     public function __construct(
         string $waitSetId = '',
-        ?bool $canceled = NULL,
-        ?string $seqNo = NULL,
+        ?bool $canceled = null,
+        ?string $seqNo = null,
         array $signalledAccounts = [],
         array $errors = []
     )
@@ -100,10 +100,10 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
         $this->setWaitSetId($waitSetId)
              ->setSignalledAccounts($signalledAccounts)
              ->setErrors($errors);
-        if (NULL !== $canceled) {
+        if (null !== $canceled) {
             $this->setCanceled($canceled);
         }
-        if (NULL !== $seqNo) {
+        if (null !== $seqNo) {
             $this->setSeqNo($seqNo);
         }
     }

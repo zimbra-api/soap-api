@@ -56,10 +56,10 @@ class GetRightRequest extends SoapRequest
      * @param  bool $expandAllAttrs
      * @return self
      */
-    public function __construct(string $right = '', ?bool $expandAllAttrs = NULL)
+    public function __construct(string $right = '', ?bool $expandAllAttrs = null)
     {
         $this->setRight($right);
-        if (NULL !== $expandAllAttrs) {
+        if (null !== $expandAllAttrs) {
             $this->setExpandAllAttrs($expandAllAttrs);
         }
     }

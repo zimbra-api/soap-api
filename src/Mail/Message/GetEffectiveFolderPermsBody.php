@@ -33,7 +33,7 @@ class GetEffectiveFolderPermsBody extends SoapBody
     #[SerializedName('GetEffectiveFolderPermsRequest')]
     #[Type(GetEffectiveFolderPermsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetEffectiveFolderPermsBody extends SoapBody
     #[SerializedName('GetEffectiveFolderPermsResponse')]
     #[Type(GetEffectiveFolderPermsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetEffectiveFolderPermsRequest $request = NULL, ?GetEffectiveFolderPermsResponse $response = NULL
+        ?GetEffectiveFolderPermsRequest $request = null, ?GetEffectiveFolderPermsResponse $response = null
     )
     {
         parent::__construct($request, $response);

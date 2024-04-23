@@ -114,32 +114,32 @@ class CalOrganizer implements CalOrganizerInterface
      * @return self
      */
     public function __construct(
-        ?string $address = NULL,
-        ?string $url = NULL,
-        ?string $displayName = NULL,
-        ?string $sentBy = NULL,
-        ?string $dir = NULL,
-        ?string $language = NULL,
+        ?string $address = null,
+        ?string $url = null,
+        ?string $displayName = null,
+        ?string $sentBy = null,
+        ?string $dir = null,
+        ?string $language = null,
         array $xParams = []
     )
     {
         $this->setXParams($xParams);
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $sentBy) {
+        if (null !== $sentBy) {
             $this->setSentBy($sentBy);
         }
-        if (NULL !== $dir) {
+        if (null !== $dir) {
             $this->setDir($dir);
         }
-        if (NULL !== $language) {
+        if (null !== $language) {
             $this->setLanguage($language);
         }
     }

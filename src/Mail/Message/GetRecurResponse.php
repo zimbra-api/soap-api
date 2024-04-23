@@ -84,10 +84,10 @@ class GetRecurResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?CalTZInfo $timezone = NULL,
-        ?CancelItemRecur $cancelComponent = NULL,
-        ?ExceptionItemRecur $exceptComponent = NULL,
-        ?InviteItemRecur $inviteComponent = NULL
+        ?CalTZInfo $timezone = null,
+        ?CancelItemRecur $cancelComponent = null,
+        ?ExceptionItemRecur $exceptComponent = null,
+        ?InviteItemRecur $inviteComponent = null
     )
     {
         $this->timezone = $timezone;

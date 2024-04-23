@@ -72,17 +72,17 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
      */
     public function __construct(
         DistributionListSelector $dl,
-        ?bool $needOwners = NULL,
-        ?string $needRights = NULL,
+        ?bool $needOwners = null,
+        ?string $needRights = null,
         array $attrs = []
     )
     {
         $this->setDl($dl)
              ->setAttrs($attrs);
-        if (NULL !== $needOwners) {
+        if (null !== $needOwners) {
             $this->setNeedOwners($needOwners);
         }
-        if (NULL !== $needRights) {
+        if (null !== $needRights) {
             $this->setNeedRights($needRights);
         }
     }

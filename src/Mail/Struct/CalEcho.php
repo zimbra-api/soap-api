@@ -40,7 +40,7 @@ class CalEcho
      * @param InviteAsMP $invite
      * @return self
      */
-    public function __construct(?InviteAsMP $invite = NULL)
+    public function __construct(?InviteAsMP $invite = null)
     {
         $this->invite = $invite;
     }

@@ -94,23 +94,23 @@ class ExportContactsRequest extends SoapRequest
      */
     public function __construct(
         string $contentType = '',
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL,
-        ?string $csvDelimiter = NULL
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null,
+        ?string $csvDelimiter = null
     )
     {
         $this->setContentType($contentType);
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $csvFormat) {
+        if (null !== $csvFormat) {
             $this->setCsvFormat($csvFormat);
         }
-        if (NULL !== $csvLocale) {
+        if (null !== $csvLocale) {
             $this->setCsvLocale($csvLocale);
         }
-        if (NULL !== $csvDelimiter) {
+        if (null !== $csvDelimiter) {
             $this->setCsvDelimiter($csvDelimiter);
         }
     }

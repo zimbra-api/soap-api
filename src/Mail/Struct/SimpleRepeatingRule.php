@@ -226,20 +226,20 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @return self
      */
     public function __construct(
-        ?Frequency $frequency = NULL,
-        ?DateTimeStringAttrInterface $until = NULL,
-        ?NumAttrInterface $count = NULL,
-        ?IntervalRuleInterface $interval = NULL,
-        ?BySecondRuleInterface $bySecond = NULL,
-        ?ByMinuteRuleInterface $byMinute = NULL,
-        ?ByHourRuleInterface $byHour = NULL,
-        ?ByDayRuleInterface $byDay = NULL,
-        ?ByMonthDayRuleInterface $byMonthDay = NULL,
-        ?ByYearDayRuleInterface $byYearDay = NULL,
-        ?ByWeekNoRuleInterface $byWeekNo = NULL,
-        ?ByMonthRuleInterface $byMonth = NULL,
-        ?BySetPosRuleInterface $bySetPos = NULL,
-        ?WkstRuleInterface $weekStart = NULL,
+        ?Frequency $frequency = null,
+        ?DateTimeStringAttrInterface $until = null,
+        ?NumAttrInterface $count = null,
+        ?IntervalRuleInterface $interval = null,
+        ?BySecondRuleInterface $bySecond = null,
+        ?ByMinuteRuleInterface $byMinute = null,
+        ?ByHourRuleInterface $byHour = null,
+        ?ByDayRuleInterface $byDay = null,
+        ?ByMonthDayRuleInterface $byMonthDay = null,
+        ?ByYearDayRuleInterface $byYearDay = null,
+        ?ByWeekNoRuleInterface $byWeekNo = null,
+        ?ByMonthRuleInterface $byMonth = null,
+        ?BySetPosRuleInterface $bySetPos = null,
+        ?WkstRuleInterface $weekStart = null,
         array $xNames = []
     )
     {

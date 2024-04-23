@@ -89,9 +89,9 @@ class DedupeBlobsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?DedupStatus $status = NULL,
-        ?int $totalSize = NULL,
-        ?int $totalCount = NULL,
+        ?DedupStatus $status = null,
+        ?int $totalSize = null,
+        ?int $totalCount = null,
         array $volumeBlobsProgress = [],
         array $blobDigestsProgress = []
     )
@@ -99,10 +99,10 @@ class DedupeBlobsResponse extends SoapResponse
         $this->setVolumeBlobsProgress($volumeBlobsProgress)
              ->setBlobDigestsProgress($blobDigestsProgress);
         $this->status = $status;
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $totalCount) {
+        if (null !== $totalCount) {
             $this->setTotalCount($totalCount);
         }
     }

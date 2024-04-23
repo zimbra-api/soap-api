@@ -53,11 +53,11 @@ class RightPermission
      * @return self
      */
     public function __construct(
-        bool $allow = FALSE, ?string $rightName = NULL
+        bool $allow = false, ?string $rightName = null
     )
     {
         $this->setAllow($allow);
-        if (NULL !== $rightName) {
+        if (null !== $rightName) {
             $this->setRightName($rightName);
         }
     }

@@ -33,7 +33,7 @@ class SendDeliveryReportBody extends SoapBody
     #[SerializedName('SendDeliveryReportRequest')]
     #[Type(SendDeliveryReportRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SendDeliveryReportBody extends SoapBody
     #[SerializedName('SendDeliveryReportResponse')]
     #[Type(SendDeliveryReportResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SendDeliveryReportBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SendDeliveryReportRequest $request = NULL, ?SendDeliveryReportResponse $response = NULL
+        ?SendDeliveryReportRequest $request = null, ?SendDeliveryReportResponse $response = null
     )
     {
         parent::__construct($request, $response);

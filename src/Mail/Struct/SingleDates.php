@@ -53,10 +53,10 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      * @param  array $dtVals
      * @return self
      */
-    public function __construct(?string $timezone = NULL, array $dtVals = [])
+    public function __construct(?string $timezone = null, array $dtVals = [])
     {
         $this->setDtVals($dtVals);
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
     }

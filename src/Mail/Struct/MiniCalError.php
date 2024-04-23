@@ -66,12 +66,12 @@ class MiniCalError
     public function __construct(
         string $id = '',
         string $code = '',
-        ?string $errorMessage = NULL
+        ?string $errorMessage = null
     )
     {
         $this->setId($id)
              ->setCode($code);
-        if (NULL !== $errorMessage) {
+        if (null !== $errorMessage) {
             $this->setErrorMessage($errorMessage);
         }
     }

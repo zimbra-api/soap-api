@@ -57,7 +57,7 @@ class PushFreeBusyRequest extends SoapRequest
      * @param  array $accounts
      * @return self
      */
-    public function __construct(?Names $domains = NULL, array $accounts = [])
+    public function __construct(?Names $domains = null, array $accounts = [])
     {
         $this->setAccounts($accounts);
         $this->domains = $domains;

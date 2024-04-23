@@ -117,9 +117,9 @@ class TzOnsetInfo
         int $hour = 0,
         int $minute = 0,
         int $second = 0,
-        ?int $dayOfMonth = NULL,
-        ?int $week = NULL,
-        ?int $dayOfWeek = NULL
+        ?int $dayOfMonth = null,
+        ?int $week = null,
+        ?int $dayOfWeek = null
     )
     {
         $this->setMonth($month)
@@ -127,13 +127,13 @@ class TzOnsetInfo
              ->setMinute($minute)
              ->setSecond($second);
 
-        if (is_int($dayOfMonth) and in_array((int) $dayOfMonth, range(1, 31))) {
+        if (is_int($dayOfMonth) && in_array((int) $dayOfMonth, range(1, 31))) {
             $this->setDayOfMonth($dayOfMonth);
         }
-        if (is_int($week) and in_array((int) $week, [-1, 1, 2, 3, 4])) {
+        if (is_int($week) && in_array((int) $week, [-1, 1, 2, 3, 4])) {
             $this->setWeek($week);
         }
-        if (is_int($dayOfWeek) and in_array((int) $dayOfWeek, range(1, 7))) {
+        if (is_int($dayOfWeek) && in_array((int) $dayOfWeek, range(1, 7))) {
             $this->setDayOfWeek((int) $dayOfWeek);
         }
     }

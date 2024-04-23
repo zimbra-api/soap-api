@@ -33,7 +33,7 @@ class CheckDirectoryBody extends SoapBody
     #[SerializedName('CheckDirectoryRequest')]
     #[Type(CheckDirectoryRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckDirectoryBody extends SoapBody
     #[SerializedName('CheckDirectoryResponse')]
     #[Type(CheckDirectoryResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckDirectoryBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckDirectoryRequest $request = NULL, ?CheckDirectoryResponse $response = NULL
+        ?CheckDirectoryRequest $request = null, ?CheckDirectoryResponse $response = null
     )
     {
         parent::__construct($request, $response);

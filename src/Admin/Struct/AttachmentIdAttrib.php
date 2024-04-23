@@ -40,9 +40,9 @@ class AttachmentIdAttrib
      * @param  string $aid
      * @return self
      */
-    public function __construct(?string $aid = NULL)
+    public function __construct(?string $aid = null)
     {
-        if (NULL !== $aid) {
+        if (null !== $aid) {
             $this->setAttachmentId($aid);
         }
     }

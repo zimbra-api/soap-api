@@ -43,7 +43,7 @@ class CheckDomainMXRecordRequest extends SoapRequest
      * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(?DomainSelector $domain = NULL)
+    public function __construct(?DomainSelector $domain = null)
     {
         $this->domain = $domain;
     }

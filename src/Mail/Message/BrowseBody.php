@@ -33,7 +33,7 @@ class BrowseBody extends SoapBody
     #[SerializedName('BrowseRequest')]
     #[Type(BrowseRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class BrowseBody extends SoapBody
     #[SerializedName('BrowseResponse')]
     #[Type(BrowseResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class BrowseBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?BrowseRequest $request = NULL, ?BrowseResponse $response = NULL
+        ?BrowseRequest $request = null, ?BrowseResponse $response = null
     )
     {
         parent::__construct($request, $response);

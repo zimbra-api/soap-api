@@ -33,7 +33,7 @@ class InvalidateReminderDeviceBody extends SoapBody
     #[SerializedName('InvalidateReminderDeviceRequest')]
     #[Type(InvalidateReminderDeviceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class InvalidateReminderDeviceBody extends SoapBody
     #[SerializedName('InvalidateReminderDeviceResponse')]
     #[Type(InvalidateReminderDeviceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class InvalidateReminderDeviceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?InvalidateReminderDeviceRequest $request = NULL, ?InvalidateReminderDeviceResponse $response = NULL
+        ?InvalidateReminderDeviceRequest $request = null, ?InvalidateReminderDeviceResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -33,7 +33,7 @@ class SetMailboxMetadataBody extends SoapBody
     #[SerializedName('SetMailboxMetadataRequest')]
     #[Type(SetMailboxMetadataRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SetMailboxMetadataBody extends SoapBody
     #[SerializedName('SetMailboxMetadataResponse')]
     #[Type(SetMailboxMetadataResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SetMailboxMetadataBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SetMailboxMetadataRequest $request = NULL, ?SetMailboxMetadataResponse $response = NULL
+        ?SetMailboxMetadataRequest $request = null, ?SetMailboxMetadataResponse $response = null
     )
     {
         parent::__construct($request, $response);

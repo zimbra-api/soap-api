@@ -33,7 +33,7 @@ class GrantPermissionBody extends SoapBody
     #[SerializedName('GrantPermissionRequest')]
     #[Type(GrantPermissionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GrantPermissionBody extends SoapBody
     #[SerializedName('GrantPermissionResponse')]
     #[Type(GrantPermissionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GrantPermissionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GrantPermissionRequest $request = NULL, ?GrantPermissionResponse $response = NULL
+        ?GrantPermissionRequest $request = null, ?GrantPermissionResponse $response = null
     )
     {
         parent::__construct($request, $response);

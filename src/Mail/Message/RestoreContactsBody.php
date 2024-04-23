@@ -33,7 +33,7 @@ class RestoreContactsBody extends SoapBody
     #[SerializedName('RestoreContactsRequest')]
     #[Type(RestoreContactsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RestoreContactsBody extends SoapBody
     #[SerializedName('RestoreContactsResponse')]
     #[Type(RestoreContactsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RestoreContactsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RestoreContactsRequest $request = NULL, ?RestoreContactsResponse $response = NULL
+        ?RestoreContactsRequest $request = null, ?RestoreContactsResponse $response = null
     )
     {
         parent::__construct($request, $response);

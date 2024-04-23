@@ -44,11 +44,11 @@ class AccountInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?bool $isExternal = NULL, array $attrs = []
+        string $name = '', string $id = '', ?bool $isExternal = null, array $attrs = []
     )
     {
         parent::__construct($name, $id, $attrs);
-        if (NULL !== $isExternal) {
+        if (null !== $isExternal) {
             $this->setIsExternal($isExternal);
         }
     }

@@ -40,9 +40,9 @@ abstract class AttachSpec
      * @param bool $optional
      * @return self
      */
-    public function __construct(?bool $optional = NULL)
+    public function __construct(?bool $optional = null)
     {
-        if (NULL !== $optional) {
+        if (null !== $optional) {
             $this->setOptional($optional);
         }
     }

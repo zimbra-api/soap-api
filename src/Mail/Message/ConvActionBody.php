@@ -33,7 +33,7 @@ class ConvActionBody extends SoapBody
     #[SerializedName('ConvActionRequest')]
     #[Type(ConvActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ConvActionBody extends SoapBody
     #[SerializedName('ConvActionResponse')]
     #[Type(ConvActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ConvActionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ConvActionRequest $request = NULL, ?ConvActionResponse $response = NULL
+        ?ConvActionRequest $request = null, ?ConvActionResponse $response = null
     )
     {
         parent::__construct($request, $response);

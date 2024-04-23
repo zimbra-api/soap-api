@@ -140,36 +140,36 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     public function __construct(
         DomainSelector $domain,
         string $keyAttr = '',
-        ?string $query = NULL,
-        ?string $name = NULL,
-        ?int $maxResults = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?bool $refresh = NULL,
-        ?string $attrs = NULL
+        ?string $query = null,
+        ?string $name = null,
+        ?int $maxResults = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $refresh = null,
+        ?string $attrs = null
     )
     {
         $this->setKeyAttr($keyAttr)
              ->setDomain($domain);
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $maxResults) {
+        if (null !== $maxResults) {
             $this->setMaxResults($maxResults);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $refresh) {
+        if (null !== $refresh) {
             $this->setRefresh($refresh);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

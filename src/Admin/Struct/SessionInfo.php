@@ -102,18 +102,18 @@ class SessionInfo
         string $sessionId = '',
         int $createdDate = 0,
         int $lastAccessedDate = 0,
-        ?string $zimbraId = NULL,
-        ?string $name = NULL
+        ?string $zimbraId = null,
+        ?string $name = null
     )
     {
         $this->setSessionId($sessionId)
              ->setCreatedDate($createdDate)
              ->setLastAccessedDate($lastAccessedDate);
 
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

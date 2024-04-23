@@ -57,7 +57,7 @@ class GetServerNIfsRequest extends SoapRequest
      * @param  IpType $type
      * @return self
      */
-    public function __construct(Server $server, ?IpType $type = NULL)
+    public function __construct(Server $server, ?IpType $type = null)
     {
         $this->setServer($server);
         $this->type = $type;

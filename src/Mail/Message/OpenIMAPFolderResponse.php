@@ -69,13 +69,13 @@ class OpenIMAPFolderResponse extends SoapResponse
      */
     public function __construct(
         array $messages = [],
-        ?bool $hasMore = NULL,
-        ?ImapCursorInfo $cursor = NULL
+        ?bool $hasMore = null,
+        ?ImapCursorInfo $cursor = null
     )
     {
         $this->setMessages($messages);
         $this->cursor = $cursor;
-        if (NULL !== $hasMore) {
+        if (null !== $hasMore) {
             $this->setHasMore($hasMore);
         }
     }

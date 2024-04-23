@@ -35,7 +35,7 @@ class GetIMAPRecentCutoffEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetIMAPRecentCutoffBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetIMAPRecentCutoffEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetIMAPRecentCutoffBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetIMAPRecentCutoffBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

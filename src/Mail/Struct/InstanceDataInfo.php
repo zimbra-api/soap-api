@@ -128,37 +128,37 @@ class InstanceDataInfo extends InstanceDataAttrs
      * @return self
      */
     public function __construct(
-        ?int $startTime = NULL,
-        ?bool $isException = NULL,
-        ?CalOrganizer $organizer = NULL,
+        ?int $startTime = null,
+        ?bool $isException = null,
+        ?CalOrganizer $organizer = null,
         array $categories = [],
-        ?GeoInfo $geo = NULL,
-        ?string $fragment = NULL,
-        ?int $duration = NULL,
-        ?ParticipationStatus $partStat = NULL,
-        ?string $recurIdZ = NULL,
-        ?int $tzOffset = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?string $taskPercentComplete = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $hasExceptions = NULL,
-        ?string $priority = NULL,
-        ?FreeBusyStatus $freeBusyIntended = NULL,
-        ?Transparency $transparency = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?bool $hasOtherAttendees = NULL,
-        ?bool $hasAlarm = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $invId = NULL,
-        ?int $componentNum = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?bool $allDay = NULL,
-        ?bool $draft = NULL,
-        ?bool $neverSent = NULL,
-        ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL
+        ?GeoInfo $geo = null,
+        ?string $fragment = null,
+        ?int $duration = null,
+        ?ParticipationStatus $partStat = null,
+        ?string $recurIdZ = null,
+        ?int $tzOffset = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?string $taskPercentComplete = null,
+        ?bool $isRecurring = null,
+        ?bool $hasExceptions = null,
+        ?string $priority = null,
+        ?FreeBusyStatus $freeBusyIntended = null,
+        ?Transparency $transparency = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?bool $hasOtherAttendees = null,
+        ?bool $hasAlarm = null,
+        ?bool $isOrganizer = null,
+        ?string $invId = null,
+        ?int $componentNum = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?bool $allDay = null,
+        ?bool $draft = null,
+        ?bool $neverSent = null,
+        ?int $taskDueDate = null,
+        ?int $taskTzOffsetDue = null
     )
     {
         parent::__construct(
@@ -191,13 +191,13 @@ class InstanceDataInfo extends InstanceDataAttrs
         $this->setCategories($categories);
         $this->organizer = $organizer;
         $this->geo = $geo;
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $isException) {
+        if (null !== $isException) {
             $this->setIsException($isException);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

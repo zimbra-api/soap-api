@@ -42,7 +42,7 @@ class GetConvResponse extends SoapResponse
      * @param  ConversationInfo $conversation
      * @return self
      */
-    public function __construct(?ConversationInfo $conversation = NULL)
+    public function __construct(?ConversationInfo $conversation = null)
     {
         $this->conversation = $conversation;
     }

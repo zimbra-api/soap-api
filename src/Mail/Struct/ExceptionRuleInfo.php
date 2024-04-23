@@ -55,8 +55,8 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @return self
      */
     public function __construct(
-        ?RecurrenceInfoInterface $add = NULL,
-        ?RecurrenceInfoInterface $exclude = NULL
+        ?RecurrenceInfoInterface $add = null,
+        ?RecurrenceInfoInterface $exclude = null
     )
     {
         parent::__construct(-1, '');

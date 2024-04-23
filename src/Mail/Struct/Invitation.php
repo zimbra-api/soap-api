@@ -149,9 +149,9 @@ class Invitation
         int $sequence = 0,
         int $id = 0,
         int $componentNum = 0,
-        ?string $recurrenceId = NULL,
+        ?string $recurrenceId = null,
         array $timezones = [],
-        ?InviteComponent $inviteComponent = NULL,
+        ?InviteComponent $inviteComponent = null,
         array $partInfos = [],
         array $shareNotifications = [],
         array $dlSubs = []
@@ -166,7 +166,7 @@ class Invitation
              ->setId($id)
              ->setComponentNum($componentNum);
         $this->inviteComponent = $inviteComponent;
-        if (NULL !== $recurrenceId) {
+        if (null !== $recurrenceId) {
             $this->setRecurrenceId($recurrenceId);
         }
     }

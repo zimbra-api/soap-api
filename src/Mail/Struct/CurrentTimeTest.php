@@ -55,15 +55,15 @@ class CurrentTimeTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?DateComparison $dateComparison = NULL,
-        ?string $time = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?DateComparison $dateComparison = null,
+        ?string $time = null
     )
     {
     	parent::__construct($index, $negative);
         $this->dateComparison = $dateComparison;
-        if (NULL !== $time) {
+        if (null !== $time) {
             $this->setTime($time);
         }
     }

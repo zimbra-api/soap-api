@@ -94,17 +94,17 @@ class ChangePasswordRequest extends SoapRequest
         AccountSelector $account,
         string $oldPassword = '',
         string $newPassword = '',
-        ?string $virtualHost = NULL,
-        ?bool $dryRun = NULL
+        ?string $virtualHost = null,
+        ?bool $dryRun = null
     )
     {
         $this->setAccount($account)
              ->setOldPassword($oldPassword)
              ->setPassword($newPassword);
-        if(NULL !== $virtualHost) {
+        if(null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
-        if(NULL !== $dryRun) {
+        if(null !== $dryRun) {
             $this->setDryRun($dryRun);
         }
     }

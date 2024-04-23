@@ -78,15 +78,15 @@ class ZimletStatus
      */
     public function __construct(
         string $name = '',
-        ?ZimletStatusSetting $status = NULL,
-        bool $extension = FALSE,
-        ?int $priority = NULL
+        ?ZimletStatusSetting $status = null,
+        bool $extension = false,
+        ?int $priority = null
     )
     {
         $this->setName($name)
              ->setStatus($status ?? ZimletStatusSetting::ENABLED)
              ->setExtension($extension);
-        if (NULL !== $priority) {
+        if (null !== $priority) {
             $this->setPriority($priority);
         }
     }

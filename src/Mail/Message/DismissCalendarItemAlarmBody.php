@@ -33,7 +33,7 @@ class DismissCalendarItemAlarmBody extends SoapBody
     #[SerializedName('DismissCalendarItemAlarmRequest')]
     #[Type(DismissCalendarItemAlarmRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DismissCalendarItemAlarmBody extends SoapBody
     #[SerializedName('DismissCalendarItemAlarmResponse')]
     #[Type(DismissCalendarItemAlarmResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DismissCalendarItemAlarmRequest $request = NULL, ?DismissCalendarItemAlarmResponse $response = NULL
+        ?DismissCalendarItemAlarmRequest $request = null, ?DismissCalendarItemAlarmResponse $response = null
     )
     {
         parent::__construct($request, $response);

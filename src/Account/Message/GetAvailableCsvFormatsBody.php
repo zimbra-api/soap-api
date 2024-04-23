@@ -33,7 +33,7 @@ class GetAvailableCsvFormatsBody extends SoapBody
     #[SerializedName('GetAvailableCsvFormatsRequest')]
     #[Type(GetAvailableCsvFormatsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAvailableCsvFormatsBody extends SoapBody
     #[SerializedName('GetAvailableCsvFormatsResponse')]
     #[Type(GetAvailableCsvFormatsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAvailableCsvFormatsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAvailableCsvFormatsRequest $request = NULL, ?GetAvailableCsvFormatsResponse $response = NULL
+        ?GetAvailableCsvFormatsRequest $request = null, ?GetAvailableCsvFormatsResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -51,10 +51,10 @@ class GranteeWithType
      * @param  string $value
      * @return self
      */
-    public function __construct(string $type = '', ?string $value = NULL)
+    public function __construct(string $type = '', ?string $value = null)
     {
         $this->setType($type);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

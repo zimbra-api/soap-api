@@ -33,7 +33,7 @@ class DeleteSystemRetentionPolicyBody extends SoapBody
     #[SerializedName('DeleteSystemRetentionPolicyRequest')]
     #[Type(DeleteSystemRetentionPolicyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteSystemRetentionPolicyBody extends SoapBody
     #[SerializedName('DeleteSystemRetentionPolicyResponse')]
     #[Type(DeleteSystemRetentionPolicyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteSystemRetentionPolicyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteSystemRetentionPolicyRequest $request = NULL, ?DeleteSystemRetentionPolicyResponse $response = NULL
+        ?DeleteSystemRetentionPolicyRequest $request = null, ?DeleteSystemRetentionPolicyResponse $response = null
     )
     {
         parent::__construct($request, $response);

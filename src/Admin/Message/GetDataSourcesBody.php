@@ -33,7 +33,7 @@ class GetDataSourcesBody extends SoapBody
     #[SerializedName('GetDataSourcesRequest')]
     #[Type(GetDataSourcesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetDataSourcesBody extends SoapBody
     #[SerializedName('GetDataSourcesResponse')]
     #[Type(GetDataSourcesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetDataSourcesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL
+        ?GetDataSourcesRequest $request = null, ?GetDataSourcesResponse $response = null
     )
     {
         parent::__construct($request, $response);

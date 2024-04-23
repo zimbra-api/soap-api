@@ -62,12 +62,12 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $name = '', ?bool $dynamic = NULL, array $attrs = []
+        string $name = '', ?bool $dynamic = null, array $attrs = []
     )
     {
         $this->setName($name)
              ->setAttrs($attrs);
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }

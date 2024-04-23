@@ -55,17 +55,17 @@ class BodyTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $value = NULL,
-        ?bool $caseSensitive = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $value = null,
+        ?bool $caseSensitive = null
     )
     {
     	parent::__construct($index, $negative);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $caseSensitive) {
+        if (null !== $caseSensitive) {
             $this->setCaseSensitive($caseSensitive);
         }
     }

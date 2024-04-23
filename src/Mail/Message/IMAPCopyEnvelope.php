@@ -35,7 +35,7 @@ class IMAPCopyEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(IMAPCopyBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class IMAPCopyEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?IMAPCopyBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?IMAPCopyBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -42,7 +42,7 @@ class GetIndexStatsResponse extends SoapResponse
      * @param IndexStats $stats
      * @return self
      */
-    public function __construct(?IndexStats $stats = NULL)
+    public function __construct(?IndexStats $stats = null)
     {
         $this->stats = $stats;
     }

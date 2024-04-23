@@ -57,10 +57,10 @@ class DelegateAuthRequest extends SoapRequest
      * @param  int $duration
      * @return self
      */
-    public function __construct(AccountSelector $account, ?int $duration = NULL)
+    public function __construct(AccountSelector $account, ?int $duration = null)
     {
         $this->setAccount($account);
-        if (NULL !== $duration) {
+        if (null !== $duration) {
             $this->setDuration($duration);
         }
     }

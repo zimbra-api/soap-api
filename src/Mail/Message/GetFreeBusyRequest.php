@@ -120,26 +120,26 @@ class GetFreeBusyRequest extends SoapRequest
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $uid = NULL,
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $excludeUid = NULL,
+        ?string $uid = null,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $excludeUid = null,
         array $freebusyUsers = []
     )
     {
         $this->setStartTime($startTime)
              ->setEndTime($endTime)
              ->setFreebusyUsers($freebusyUsers);
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $excludeUid) {
+        if (null !== $excludeUid) {
             $this->setExcludeUid($excludeUid);
         }
     }

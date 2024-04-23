@@ -35,7 +35,7 @@ class SetRecoveryAccountEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SetRecoveryAccountBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SetRecoveryAccountEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SetRecoveryAccountBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SetRecoveryAccountBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -33,7 +33,7 @@ class GetApptSummariesBody extends SoapBody
     #[SerializedName('GetApptSummariesRequest')]
     #[Type(GetApptSummariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetApptSummariesBody extends SoapBody
     #[SerializedName('GetApptSummariesResponse')]
     #[Type(GetApptSummariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetApptSummariesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetApptSummariesRequest $request = NULL, ?GetApptSummariesResponse $response = NULL
+        ?GetApptSummariesRequest $request = null, ?GetApptSummariesResponse $response = null
     )
     {
         parent::__construct($request, $response);

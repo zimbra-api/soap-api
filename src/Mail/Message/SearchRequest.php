@@ -86,37 +86,37 @@ class SearchRequest extends SoapRequest implements SearchParameters
      * @return self
      */
     public function __construct(
-        ?string $query = NULL,
-        ?bool $inDumpster = NULL,
-        ?string $searchTypes = NULL,
-        ?string $groupBy = NULL,
-        ?int $calItemExpandStart = NULL,
-        ?int $calItemExpandEnd = NULL,
-        ?bool $quick = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?bool $includeTagDeleted = NULL,
-        ?bool $includeTagMuted = NULL,
-        ?string $taskStatus = NULL,
-        ?string $fetch = NULL,
-        ?bool $markRead = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $neuterImages = NULL,
-        ?WantRecipsSetting $wantRecipients = NULL,
-        ?bool $prefetch = NULL,
-        ?string $resultMode = NULL,
-        ?bool $fullConversation = NULL,
-        ?string $field = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
+        ?string $query = null,
+        ?bool $inDumpster = null,
+        ?string $searchTypes = null,
+        ?string $groupBy = null,
+        ?int $calItemExpandStart = null,
+        ?int $calItemExpandEnd = null,
+        ?bool $quick = null,
+        ?SearchSortBy $sortBy = null,
+        ?bool $includeTagDeleted = null,
+        ?bool $includeTagMuted = null,
+        ?string $taskStatus = null,
+        ?string $fetch = null,
+        ?bool $markRead = null,
+        ?int $maxInlinedLength = null,
+        ?bool $wantHtml = null,
+        ?bool $needCanExpand = null,
+        ?bool $neuterImages = null,
+        ?WantRecipsSetting $wantRecipients = null,
+        ?bool $prefetch = null,
+        ?string $resultMode = null,
+        ?bool $fullConversation = null,
+        ?string $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         array $headers = [],
-        ?CalTZInfo $calTz = NULL,
-        ?string $locale = NULL,
-        ?CursorInfo $cursor = NULL,
-        ?MsgContent $wantContent = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $warmup = NULL
+        ?CalTZInfo $calTz = null,
+        ?string $locale = null,
+        ?CursorInfo $cursor = null,
+        ?MsgContent $wantContent = null,
+        ?bool $includeMemberOf = null,
+        ?bool $warmup = null
     )
     {
         $this->setHeaders($headers);
@@ -125,79 +125,79 @@ class SearchRequest extends SoapRequest implements SearchParameters
         $this->calTz = $calTz;
         $this->cursor = $cursor;
         $this->wantContent = $wantContent;
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
-        if (NULL !== $inDumpster) {
+        if (null !== $inDumpster) {
             $this->setInDumpster($inDumpster);
         }
-        if (NULL !== $searchTypes) {
+        if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
         }
-        if (NULL !== $groupBy) {
+        if (null !== $groupBy) {
             $this->setGroupBy($groupBy);
         }
-        if (NULL !== $quick) {
+        if (null !== $quick) {
             $this->setQuick($quick);
         }
-        if (NULL !== $includeTagDeleted) {
+        if (null !== $includeTagDeleted) {
             $this->setIncludeTagDeleted($includeTagDeleted);
         }
-        if (NULL !== $includeTagMuted) {
+        if (null !== $includeTagMuted) {
             $this->setIncludeTagMuted($includeTagMuted);
         }
-        if (NULL !== $taskStatus) {
+        if (null !== $taskStatus) {
             $this->setAllowableTaskStatus($taskStatus);
         }
-        if (NULL !== $calItemExpandStart) {
+        if (null !== $calItemExpandStart) {
             $this->setCalItemExpandStart($calItemExpandStart);
         }
-        if (NULL !== $calItemExpandEnd) {
+        if (null !== $calItemExpandEnd) {
             $this->setCalItemExpandEnd($calItemExpandEnd);
         }
-        if (NULL !== $fetch) {
+        if (null !== $fetch) {
             $this->setFetch($fetch);
         }
-        if (NULL !== $markRead) {
+        if (null !== $markRead) {
             $this->setMarkRead($markRead);
         }
-        if (NULL !== $maxInlinedLength) {
+        if (null !== $maxInlinedLength) {
             $this->setMaxInlinedLength($maxInlinedLength);
         }
-        if (NULL !== $wantHtml) {
+        if (null !== $wantHtml) {
             $this->setWantHtml($wantHtml);
         }
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if (NULL !== $neuterImages) {
+        if (null !== $neuterImages) {
             $this->setNeuterImages($neuterImages);
         }
-        if (NULL !== $prefetch) {
+        if (null !== $prefetch) {
             $this->setPrefetch($prefetch);
         }
-        if (NULL !== $resultMode) {
+        if (null !== $resultMode) {
             $this->setResultMode($resultMode);
         }
-        if (NULL !== $fullConversation) {
+        if (null !== $fullConversation) {
             $this->setFullConversation($fullConversation);
         }
-        if (NULL !== $field) {
+        if (null !== $field) {
             $this->setField($field);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $locale) {
+        if (null !== $locale) {
             $this->setLocale($locale);
         }
-        if (NULL !== $includeMemberOf) {
+        if (null !== $includeMemberOf) {
             $this->setIncludeMemberOf($includeMemberOf);
         }
-        if (NULL !== $warmup) {
+        if (null !== $warmup) {
             $this->setWarmup($warmup);
         }
     }

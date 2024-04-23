@@ -69,12 +69,12 @@ class BrowseData
      * @return self
      */
     public function __construct(
-        string $browseDomainHeader = '', int $frequency = 0, ?string $data = NULL
+        string $browseDomainHeader = '', int $frequency = 0, ?string $data = null
     )
     {
         $this->setBrowseDomainHeader($browseDomainHeader)
              ->setFrequency($frequency);
-        if (NULL !== $data) {
+        if (null !== $data) {
             $this->setData($data);
         }
     }

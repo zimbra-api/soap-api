@@ -54,7 +54,7 @@ class GetServiceStatusResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?TimeZoneInfo $timezone = NULL, array $serviceStatuses = []
+        ?TimeZoneInfo $timezone = null, array $serviceStatuses = []
     )
     {
         $this->setServiceStatuses($serviceStatuses);

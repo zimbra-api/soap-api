@@ -203,56 +203,56 @@ class AuthResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $authToken = NULL,
-        ?int $lifetime = NULL,
-        ?Session $session = NULL,
-        ?string $refer = NULL,
-        ?string $skin = NULL,
-        ?string $csrfToken = NULL,
-        ?string $deviceId = NULL,
-        ?string $trustedToken = NULL,
-        ?int $trustLifetime = NULL,
-        ?bool $zmgProxy = NULL,
+        ?string $authToken = null,
+        ?int $lifetime = null,
+        ?Session $session = null,
+        ?string $refer = null,
+        ?string $skin = null,
+        ?string $csrfToken = null,
+        ?string $deviceId = null,
+        ?string $trustedToken = null,
+        ?int $trustLifetime = null,
+        ?bool $zmgProxy = null,
         array $prefs = [],
         array $attrs = [],
-        ?bool $twoFactorAuthRequired = NULL,
-        ?bool $trustedDevicesEnabled = NULL
+        ?bool $twoFactorAuthRequired = null,
+        ?bool $trustedDevicesEnabled = null
     )
     {
         $this->session = $session;
         $this->setPrefs($prefs)
              ->setAttrs($attrs);
-        if(NULL !== $authToken) {
+        if(null !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if(NULL !== $lifetime) {
+        if(null !== $lifetime) {
             $this->setLifetime($lifetime);
         }
-        if(NULL !== $refer) {
+        if(null !== $refer) {
             $this->setRefer($refer);
         }
-        if(NULL !== $skin) {
+        if(null !== $skin) {
             $this->setSkin($skin);
         }
-        if(NULL !== $csrfToken) {
+        if(null !== $csrfToken) {
             $this->setCsrfToken($csrfToken);
         }
-        if(NULL !== $deviceId) {
+        if(null !== $deviceId) {
             $this->setDeviceId($deviceId);
         }
-        if(NULL !== $trustedToken) {
+        if(null !== $trustedToken) {
             $this->setTrustedToken($trustedToken);
         }
-        if(NULL !== $trustLifetime) {
+        if(null !== $trustLifetime) {
             $this->setTrustLifetime($trustLifetime);
         }
-        if(NULL !== $zmgProxy) {
+        if(null !== $zmgProxy) {
             $this->setZmgProxy($zmgProxy);
         }
-        if(NULL !== $twoFactorAuthRequired) {
+        if(null !== $twoFactorAuthRequired) {
             $this->setTwoFactorAuthRequired($twoFactorAuthRequired);
         }
-        if(NULL !== $trustedDevicesEnabled) {
+        if(null !== $trustedDevicesEnabled) {
             $this->setTrustedDevicesEnabled($trustedDevicesEnabled);
         }
     }

@@ -33,7 +33,7 @@ class AutoCompleteBody extends SoapBody
     #[SerializedName('AutoCompleteRequest')]
     #[Type(AutoCompleteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AutoCompleteBody extends SoapBody
     #[SerializedName('AutoCompleteResponse')]
     #[Type(AutoCompleteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AutoCompleteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AutoCompleteRequest $request = NULL, ?AutoCompleteResponse $response = NULL
+        ?AutoCompleteRequest $request = null, ?AutoCompleteResponse $response = null
     )
     {
         parent::__construct($request, $response);

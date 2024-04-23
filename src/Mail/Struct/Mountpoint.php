@@ -117,35 +117,35 @@ class Mountpoint extends Folder
     public function __construct(
         string $id = '',
         string $uuid = '',
-        ?string $ownerEmail = NULL,
-        ?string $ownerAccountId = NULL,
-        ?int $remoteFolderId = NULL,
-        ?string $remoteUuid = NULL,
-        ?string $remoteFolderName = NULL,
-        ?bool $reminderEnabled = NULL,
-        ?bool $broken = NULL
+        ?string $ownerEmail = null,
+        ?string $ownerAccountId = null,
+        ?int $remoteFolderId = null,
+        ?string $remoteUuid = null,
+        ?string $remoteFolderName = null,
+        ?bool $reminderEnabled = null,
+        ?bool $broken = null
     )
     {
     	parent::__construct($id, $uuid);
-        if (NULL !== $ownerEmail) {
+        if (null !== $ownerEmail) {
             $this->setOwnerEmail($ownerEmail);
         }
-        if (NULL !== $ownerAccountId) {
+        if (null !== $ownerAccountId) {
             $this->setOwnerAccountId($ownerAccountId);
         }
-        if (NULL !== $remoteFolderId) {
+        if (null !== $remoteFolderId) {
             $this->setRemoteFolderId($remoteFolderId);
         }
-        if (NULL !== $remoteUuid) {
+        if (null !== $remoteUuid) {
             $this->setRemoteUuid($remoteUuid);
         }
-        if (NULL !== $remoteFolderName) {
+        if (null !== $remoteFolderName) {
             $this->setRemoteFolderName($remoteFolderName);
         }
-        if (NULL !== $reminderEnabled) {
+        if (null !== $reminderEnabled) {
             $this->setReminderEnabled($reminderEnabled);
         }
-        if (NULL !== $broken) {
+        if (null !== $broken) {
             $this->setBroken($broken);
         }
     }

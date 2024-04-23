@@ -35,7 +35,7 @@ class GetDistributionListEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetDistributionListBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetDistributionListEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetDistributionListBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetDistributionListBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

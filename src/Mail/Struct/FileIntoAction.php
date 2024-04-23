@@ -55,14 +55,14 @@ class FileIntoAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?string $folder = NULL, ?bool $copy = NULL
+        ?int $index = null, ?string $folder = null, ?bool $copy = null
     )
     {
     	parent::__construct($index);
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $copy) {
+        if (null !== $copy) {
             $this->setCopy($copy);
         }
     }

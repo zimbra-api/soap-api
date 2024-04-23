@@ -68,10 +68,10 @@ class CmdRightsInfo
      * @return self
      */
     public function __construct(
-        ?string $name = NULL, array $rights = [], array $notes = []
+        ?string $name = null, array $rights = [], array $notes = []
     )
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
         $this->setRights($rights)

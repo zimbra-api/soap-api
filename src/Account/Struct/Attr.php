@@ -64,14 +64,14 @@ class Attr
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $value = NULL, ?bool $pd = NULL
+        string $name = '', ?string $value = null, ?bool $pd = null
     )
     {
         $this->setName($name);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $pd) {
+        if (null !== $pd) {
             $this->setPermDenied($pd);
         }
     }

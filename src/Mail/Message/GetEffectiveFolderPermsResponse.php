@@ -42,7 +42,7 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
      * @param  Rights $folder
      * @return self
      */
-    public function __construct(?Rights $folder = NULL)
+    public function __construct(?Rights $folder = null)
     {
         $this->folder = $folder;
     }

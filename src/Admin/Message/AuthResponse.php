@@ -79,22 +79,22 @@ class AuthResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $authToken = NULL,
-        ?string $csrfToken = NULL,
-        ?int $lifetime = NULL,
-        ?bool $twoFactorAuthRequired = NULL
+        ?string $authToken = null,
+        ?string $csrfToken = null,
+        ?int $lifetime = null,
+        ?bool $twoFactorAuthRequired = null
     )
     {
-        if (NULL !== $authToken) {
+        if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if (NULL !== $csrfToken) {
+        if (null !== $csrfToken) {
             $this->setCsrfToken($csrfToken);
         }
-        if (NULL !== $lifetime) {
+        if (null !== $lifetime) {
             $this->setLifetime($lifetime);
         }
-        if (NULL !== $twoFactorAuthRequired) {
+        if (null !== $twoFactorAuthRequired) {
             $this->setTwoFactorAuthRequired($twoFactorAuthRequired);
         }
     }

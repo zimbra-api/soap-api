@@ -33,7 +33,7 @@ class CreateMountpointBody extends SoapBody
     #[SerializedName('CreateMountpointRequest')]
     #[Type(CreateMountpointRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateMountpointBody extends SoapBody
     #[SerializedName('CreateMountpointResponse')]
     #[Type(CreateMountpointResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateMountpointBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateMountpointRequest $request = NULL, ?CreateMountpointResponse $response = NULL
+        ?CreateMountpointRequest $request = null, ?CreateMountpointResponse $response = null
     )
     {
         parent::__construct($request, $response);

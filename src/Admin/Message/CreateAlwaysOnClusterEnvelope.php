@@ -35,7 +35,7 @@ class CreateAlwaysOnClusterEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(CreateAlwaysOnClusterBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class CreateAlwaysOnClusterEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?CreateAlwaysOnClusterBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?CreateAlwaysOnClusterBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

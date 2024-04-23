@@ -66,7 +66,7 @@ class GetQuotaUsageResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-    	bool $more = FALSE,
+    	bool $more = false,
         int $searchTotal = 0,
         array $accountQuotas = [])
     {

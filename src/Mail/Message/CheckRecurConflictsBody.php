@@ -33,7 +33,7 @@ class CheckRecurConflictsBody extends SoapBody
     #[SerializedName('CheckRecurConflictsRequest')]
     #[Type(CheckRecurConflictsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckRecurConflictsBody extends SoapBody
     #[SerializedName('CheckRecurConflictsResponse')]
     #[Type(CheckRecurConflictsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckRecurConflictsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckRecurConflictsRequest $request = NULL, ?CheckRecurConflictsResponse $response = NULL
+        ?CheckRecurConflictsRequest $request = null, ?CheckRecurConflictsResponse $response = null
     )
     {
         parent::__construct($request, $response);

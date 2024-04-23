@@ -57,7 +57,7 @@ class CompactIndexRequest extends SoapRequest
      * @param  Action $action
      * @return self
      */
-    public function __construct(Mailbox $mbox, ?Action $action = NULL)
+    public function __construct(Mailbox $mbox, ?Action $action = null)
     {
         $this->setMbox($mbox);
         $this->action = $action;

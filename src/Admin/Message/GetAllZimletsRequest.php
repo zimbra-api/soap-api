@@ -45,7 +45,7 @@ class GetAllZimletsRequest extends SoapRequest
      * @param  ZimletExcludeType $exclude
      * @return self
      */
-    public function __construct(?ZimletExcludeType $exclude = NULL)
+    public function __construct(?ZimletExcludeType $exclude = null)
     {
         $this->exclude = $exclude;
     }

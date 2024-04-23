@@ -164,7 +164,7 @@ class GetItemResponse extends SoapResponse
      * @param  mixed $item
      * @return self
      */
-    public function __construct($item = NULL)
+    public function __construct($item = null)
     {
         $this->folderItem = 
         $this->tagItem = 
@@ -176,8 +176,8 @@ class GetItemResponse extends SoapResponse
         $this->wikiItem = 
         $this->docItem = 
         $this->msgItem = 
-        $this->chatItem = NULL;
-        if (NULL !== $item) {
+        $this->chatItem = null;
+        if (null !== $item) {
             $this->setItem($item);
         }
     }

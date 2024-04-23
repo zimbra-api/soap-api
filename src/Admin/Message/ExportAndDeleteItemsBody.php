@@ -33,7 +33,7 @@ class ExportAndDeleteItemsBody extends SoapBody
     #[SerializedName('ExportAndDeleteItemsRequest')]
     #[Type(ExportAndDeleteItemsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ExportAndDeleteItemsBody extends SoapBody
     #[SerializedName('ExportAndDeleteItemsResponse')]
     #[Type(ExportAndDeleteItemsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ExportAndDeleteItemsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ExportAndDeleteItemsRequest $request = NULL, ?ExportAndDeleteItemsResponse $response = NULL
+        ?ExportAndDeleteItemsRequest $request = null, ?ExportAndDeleteItemsResponse $response = null
     )
     {
         parent::__construct($request, $response);

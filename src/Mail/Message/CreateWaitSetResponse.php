@@ -87,20 +87,20 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * @return self
      */
     public function __construct(
-        ?string $waitSetId = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $sequence = NULL,
+        ?string $waitSetId = null,
+        ?string $defaultInterests = null,
+        ?int $sequence = null,
         array $errors = []
     )
     {
         $this->setErrors($errors);
-        if (NULL !== $waitSetId) {
+        if (null !== $waitSetId) {
             $this->setWaitSetId($waitSetId);
         }
-        if (NULL !== $defaultInterests) {
+        if (null !== $defaultInterests) {
             $this->setDefaultInterests($defaultInterests);
         }
-        if (NULL !== $sequence) {
+        if (null !== $sequence) {
             $this->setSequence($sequence);
         }
     }

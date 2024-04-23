@@ -52,12 +52,12 @@ class Cos
      * @param string $name
      * @return self
      */
-    public function __construct(?string $id = NULL, ?string $name = NULL)
+    public function __construct(?string $id = null, ?string $name = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

@@ -65,12 +65,12 @@ class MailboxWithMailboxId
      * @return self
      */
     public function __construct(
-        int $mbxid = 0, string $accountId = '', ?int $size = NULL
+        int $mbxid = 0, string $accountId = '', ?int $size = null
     )
     {
         $this->setMbxid($mbxid)
              ->setAccountId($accountId);
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
     }

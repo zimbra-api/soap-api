@@ -68,12 +68,12 @@ class LocaleInfo implements LocaleInterface
     public function __construct(
         string $id = '',
         string $name = '',
-        ?string $localName = NULL
+        ?string $localName = null
     )
     {
         $this->setId($id)
              ->setName($name);
-        if (NULL !== $localName) {
+        if (null !== $localName) {
             $this->setLocalName($localName);
         }
     }

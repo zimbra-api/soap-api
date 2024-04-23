@@ -35,7 +35,7 @@ class CancelAppointmentEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(CancelAppointmentBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class CancelAppointmentEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?CancelAppointmentBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?CancelAppointmentBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

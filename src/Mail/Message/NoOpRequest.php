@@ -109,22 +109,22 @@ class NoOpRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $wait = NULL,
-        ?bool $includeDelegates = NULL,
-        ?bool $enforceLimit = NULL,
-        ?int $timeout = NULL
+        ?bool $wait = null,
+        ?bool $includeDelegates = null,
+        ?bool $enforceLimit = null,
+        ?int $timeout = null
     )
     {
-        if (NULL !== $wait) {
+        if (null !== $wait) {
             $this->setWait($wait);
         }
-        if (NULL !== $includeDelegates) {
+        if (null !== $includeDelegates) {
             $this->setIncludeDelegates($includeDelegates);
         }
-        if (NULL !== $enforceLimit) {
+        if (null !== $enforceLimit) {
             $this->setEnforceLimit($enforceLimit);
         }
-        if (NULL !== $timeout) {
+        if (null !== $timeout) {
             $this->setTimeout($timeout);
         }
     }

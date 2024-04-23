@@ -33,7 +33,7 @@ class GetGrantsBody extends SoapBody
     #[SerializedName('GetGrantsRequest')]
     #[Type(GetGrantsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetGrantsBody extends SoapBody
     #[SerializedName('GetGrantsResponse')]
     #[Type(GetGrantsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetGrantsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetGrantsRequest $request = NULL, ?GetGrantsResponse $response = NULL
+        ?GetGrantsRequest $request = null, ?GetGrantsResponse $response = null
     )
     {
         parent::__construct($request, $response);

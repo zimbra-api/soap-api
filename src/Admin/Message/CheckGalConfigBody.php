@@ -33,7 +33,7 @@ class CheckGalConfigBody extends SoapBody
     #[SerializedName('CheckGalConfigRequest')]
     #[Type(CheckGalConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckGalConfigBody extends SoapBody
     #[SerializedName('CheckGalConfigResponse')]
     #[Type(CheckGalConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckGalConfigBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckGalConfigRequest $request = NULL, ?CheckGalConfigResponse $response = NULL
+        ?CheckGalConfigRequest $request = null, ?CheckGalConfigResponse $response = null
     )
     {
         parent::__construct($request, $response);

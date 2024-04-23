@@ -34,21 +34,21 @@ final class SerializerFactory
      *
      * @var SerializerBuilder
      */
-    private static ?SerializerBuilder $builder = NULL;
+    private static ?SerializerBuilder $builder = null;
 
     /**
      * Debug mode
      *
      * @var bool
      */
-    private static bool $debug = FALSE;
+    private static bool $debug = false;
 
     /**
      * Cache dir
      * 
      * @var string
      */
-    private static ?string $cacheDir = NULL;
+    private static ?string $cacheDir = null;
 
     /**
      * List of serializer handlers.
@@ -63,7 +63,7 @@ final class SerializerFactory
      * @param  bool $debug
      * @return bool
      */
-    public static function setDebugMode(bool $debug = FALSE): bool
+    public static function setDebugMode(bool $debug = false): bool
     {
         return self::$debug = $debug;
     }
@@ -74,7 +74,7 @@ final class SerializerFactory
      * @param  string $cacheDir
      * @return string
      */
-    public static function setCacheDir(?string $cacheDir = NULL): ?string
+    public static function setCacheDir(?string $cacheDir = null): ?string
     {
         return self::$cacheDir = $cacheDir;
     }
@@ -120,7 +120,7 @@ final class SerializerFactory
         if (self::$debug) {
             self::$builder->setDebug(self::$debug);
         }
-        if (NULL !== self::$cacheDir) {
+        if (null !== self::$cacheDir) {
             self::$builder->setCacheDir(self::$cacheDir);
         }
 

@@ -33,7 +33,7 @@ class GetConfigBody extends SoapBody
     #[SerializedName('GetConfigRequest')]
     #[Type(GetConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetConfigBody extends SoapBody
     #[SerializedName('GetConfigResponse')]
     #[Type(GetConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetConfigBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetConfigRequest $request = NULL, ?GetConfigResponse $response = NULL
+        ?GetConfigRequest $request = null, ?GetConfigResponse $response = null
     )
     {
         parent::__construct($request, $response);

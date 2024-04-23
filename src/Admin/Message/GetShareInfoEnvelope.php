@@ -35,7 +35,7 @@ class GetShareInfoEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetShareInfoBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetShareInfoEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetShareInfoBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetShareInfoBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -44,7 +44,7 @@ class GetMailboxRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?Mailbox $mbox = NULL
+        ?Mailbox $mbox = null
     )
     {
         $this->mbox = $mbox;

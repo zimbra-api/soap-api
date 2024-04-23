@@ -83,16 +83,16 @@ class RecurIdInfo implements RecurIdInfoInterface
     public function __construct(
         int $recurrenceRangeType = 0,
         string $recurrenceId = '',
-        ?string $timezone = NULL,
-        ?string $recurIdZ = NULL
+        ?string $timezone = null,
+        ?string $recurIdZ = null
     )
     {
         $this->setRecurrenceRangeType($recurrenceRangeType)
              ->setRecurrenceId($recurrenceId);
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
     }

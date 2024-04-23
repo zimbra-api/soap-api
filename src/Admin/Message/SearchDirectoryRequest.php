@@ -169,54 +169,54 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * @return self
      */
     public function __construct(
-        ?string $query = NULL,
-        ?int $maxResults = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $sortBy = NULL,
-        ?string $types = NULL,
-        ?bool $sortAscending = NULL,
-        ?bool $isCountOnly = NULL,
-        ?string $attrs = NULL
+        ?string $query = null,
+        ?int $maxResults = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?bool $applyConfig = null,
+        ?string $sortBy = null,
+        ?string $types = null,
+        ?bool $sortAscending = null,
+        ?bool $isCountOnly = null,
+        ?string $attrs = null
     )
     {
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
-        if (NULL !== $maxResults) {
+        if (null !== $maxResults) {
             $this->setMaxResults($maxResults);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $domain) {
+        if (null !== $domain) {
             $this->setDomain($domain);
         }
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $types) {
+        if (null !== $types) {
             $this->setTypes($types);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $isCountOnly) {
+        if (null !== $isCountOnly) {
             $this->setCountOnly($isCountOnly);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

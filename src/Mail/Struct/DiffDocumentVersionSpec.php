@@ -65,14 +65,14 @@ class DiffDocumentVersionSpec
      * @return self
      */
     public function __construct(
-        string $id = '', ?int $version1 = NULL, ?int $version2 = NULL
+        string $id = '', ?int $version1 = null, ?int $version2 = null
     )
     {
         $this->setId($id);
-        if (NULL !== $version1) {
+        if (null !== $version1) {
             $this->setVersion1($version1);
         }
-        if (NULL !== $version2) {
+        if (null !== $version2) {
             $this->setVersion2($version2);
         }
     }

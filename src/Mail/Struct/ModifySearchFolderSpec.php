@@ -80,14 +80,14 @@ class ModifySearchFolderSpec
     public function __construct(
         string $id = '',
         string $query = '',
-        ?string $searchTypes = NULL,
-        ?SearchSortBy $sortBy = NULL
+        ?string $searchTypes = null,
+        ?SearchSortBy $sortBy = null
     )
     {
         $this->setId($id)
              ->setQuery($query);
         $this->sortBy = $sortBy;
-        if (NULL !== $searchTypes) {
+        if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
         }
     }

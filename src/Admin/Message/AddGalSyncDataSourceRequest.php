@@ -97,8 +97,8 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
         AccountSelector $account,
         string $name = '',
         string $domain = '',
-        ?GalMode $type = NULL,
-        ?string $folder = NULL,
+        ?GalMode $type = null,
+        ?string $folder = null,
         array $attrs = []
     )
     {
@@ -106,7 +106,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
              ->setName($name)
              ->setDomain($domain)
              ->setType($type ?? GalMode::BOTH);
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
         $this->setAttrs($attrs);

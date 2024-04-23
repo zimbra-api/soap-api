@@ -55,7 +55,7 @@ class GetAllAccountsRequest extends SoapRequest
      * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(?ServerSelector $server = NULL, ?DomainSelector $domain = NULL)
+    public function __construct(?ServerSelector $server = null, ?DomainSelector $domain = null)
     {
         $this->server = $server;
         $this->domain = $domain;

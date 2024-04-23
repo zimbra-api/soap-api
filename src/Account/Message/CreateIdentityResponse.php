@@ -42,7 +42,7 @@ class CreateIdentityResponse extends SoapResponse
      * @param Identity $identity
      * @return self
      */
-    public function __construct(?Identity $identity = NULL)
+    public function __construct(?Identity $identity = null)
     {
         $this->identity = $identity;
     }

@@ -35,7 +35,7 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetAvailableCsvFormatsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAvailableCsvFormatsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetAvailableCsvFormatsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

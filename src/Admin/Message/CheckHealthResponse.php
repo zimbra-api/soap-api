@@ -41,7 +41,7 @@ class CheckHealthResponse extends SoapResponse
      * @param bool $healthy
      * @return self
      */
-    public function __construct(bool $healthy = FALSE)
+    public function __construct(bool $healthy = false)
     {
         $this->setHealthy($healthy);
     }

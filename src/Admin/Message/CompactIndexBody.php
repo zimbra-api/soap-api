@@ -33,7 +33,7 @@ class CompactIndexBody extends SoapBody
     #[SerializedName('CompactIndexRequest')]
     #[Type(CompactIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CompactIndexBody extends SoapBody
     #[SerializedName('CompactIndexResponse')]
     #[Type(CompactIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CompactIndexBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CompactIndexRequest $request = NULL, ?CompactIndexResponse $response = NULL
+        ?CompactIndexRequest $request = null, ?CompactIndexResponse $response = null
     )
     {
         parent::__construct($request, $response);

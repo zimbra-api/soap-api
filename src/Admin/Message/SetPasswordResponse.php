@@ -42,9 +42,9 @@ class SetPasswordResponse extends SoapResponse
      * @param string $message
      * @return self
      */
-    public function __construct(?string $message = NULL)
+    public function __construct(?string $message = null)
     {
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

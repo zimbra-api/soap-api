@@ -33,7 +33,7 @@ class GetIMAPRecentCutoffBody extends SoapBody
     #[SerializedName('GetIMAPRecentCutoffRequest')]
     #[Type(GetIMAPRecentCutoffRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetIMAPRecentCutoffBody extends SoapBody
     #[SerializedName('GetIMAPRecentCutoffResponse')]
     #[Type(GetIMAPRecentCutoffResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetIMAPRecentCutoffBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetIMAPRecentCutoffRequest $request = NULL, ?GetIMAPRecentCutoffResponse $response = NULL
+        ?GetIMAPRecentCutoffRequest $request = null, ?GetIMAPRecentCutoffResponse $response = null
     )
     {
         parent::__construct($request, $response);

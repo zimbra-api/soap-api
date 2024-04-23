@@ -42,7 +42,7 @@ class ChangePrimaryEmailResponse extends SoapResponse
      * @param Account $account
      * @return self
      */
-    public function __construct(?Account $account = NULL)
+    public function __construct(?Account $account = null)
     {
         $this->account = $account;
     }

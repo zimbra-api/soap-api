@@ -52,10 +52,10 @@ class EffectiveAttrsInfo
      * @param array $attrs
      * @return self
      */
-    public function __construct(?bool $all = NULL, array $attrs = [])
+    public function __construct(?bool $all = null, array $attrs = [])
     {
         $this->setAttrs($attrs);
-        if (NULL !== $all) {
+        if (null !== $all) {
             $this->setAll($all);
         }
     }

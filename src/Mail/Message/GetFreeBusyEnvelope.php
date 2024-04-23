@@ -35,7 +35,7 @@ class GetFreeBusyEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetFreeBusyBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetFreeBusyEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetFreeBusyBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetFreeBusyBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

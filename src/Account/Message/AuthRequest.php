@@ -274,25 +274,25 @@ class AuthRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?AccountSelector $account = NULL,
-        ?string $password = NULL,
-        ?string $recoveryCode = NULL,
-        ?PreAuth $preauth = NULL,
-        ?AuthToken $authToken = NULL,
-        ?string $jwtToken = NULL,
-        ?string $virtualHost = NULL,
+        ?AccountSelector $account = null,
+        ?string $password = null,
+        ?string $recoveryCode = null,
+        ?PreAuth $preauth = null,
+        ?AuthToken $authToken = null,
+        ?string $jwtToken = null,
+        ?string $virtualHost = null,
         array $prefs = [],
         array $attrs = [],
-        ?string $requestedSkin = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL,
-        ?bool $deviceTrusted = NULL,
-        ?string $trustedDeviceToken = NULL,
-        ?string $deviceId = NULL,
-        ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL,
-        ?bool $ignoreSameSite = NULL
+        ?string $requestedSkin = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null,
+        ?bool $deviceTrusted = null,
+        ?string $trustedDeviceToken = null,
+        ?string $deviceId = null,
+        ?bool $generateDeviceId = null,
+        ?string $tokenType = null,
+        ?bool $ignoreSameSite = null
     )
     {
         $this->setPrefs($prefs)
@@ -300,46 +300,46 @@ class AuthRequest extends SoapRequest
         $this->account = $account;
         $this->preauth = $preauth;
         $this->authToken = $authToken;
-        if(NULL !== $password) {
+        if(null !== $password) {
             $this->setPassword($password);
         }
-        if(NULL !== $recoveryCode) {
+        if(null !== $recoveryCode) {
             $this->setRecoveryCode($recoveryCode);
         }
-        if(NULL !== $jwtToken) {
+        if(null !== $jwtToken) {
             $this->setJwtToken($jwtToken);
         }
-        if(NULL !== $virtualHost) {
+        if(null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
-        if(NULL !== $requestedSkin) {
+        if(null !== $requestedSkin) {
             $this->setRequestedSkin($requestedSkin);
         }
-        if(NULL !== $persistAuthTokenCookie) {
+        if(null !== $persistAuthTokenCookie) {
             $this->setPersistAuthTokenCookie($persistAuthTokenCookie);
         }
-        if(NULL !== $csrfSupported) {
+        if(null !== $csrfSupported) {
             $this->setCsrfSupported($csrfSupported);
         }
-        if(NULL !== $twoFactorCode) {
+        if(null !== $twoFactorCode) {
             $this->setTwoFactorCode($twoFactorCode);
         }
-        if(NULL !== $deviceTrusted) {
+        if(null !== $deviceTrusted) {
             $this->setDeviceTrusted($deviceTrusted);
         }
-        if(NULL !== $trustedDeviceToken) {
+        if(null !== $trustedDeviceToken) {
             $this->setTrustedDeviceToken($trustedDeviceToken);
         }
-        if(NULL !== $deviceId) {
+        if(null !== $deviceId) {
             $this->setDeviceId($deviceId);
         }
-        if(NULL !== $generateDeviceId) {
+        if(null !== $generateDeviceId) {
             $this->setGenerateDeviceId($generateDeviceId);
         }
-        if(NULL !== $tokenType) {
+        if(null !== $tokenType) {
             $this->setTokenType($tokenType);
         }
-        if(NULL !== $ignoreSameSite) {
+        if(null !== $ignoreSameSite) {
             $this->setIgnoreSameSite($ignoreSameSite);
         }
     }

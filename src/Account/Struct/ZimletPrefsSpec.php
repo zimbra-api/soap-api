@@ -53,7 +53,7 @@ class ZimletPrefsSpec
      * @return self
      */
     public function __construct(
-        string $name = '', ?ZimletStatus $presence = NULL
+        string $name = '', ?ZimletStatus $presence = null
     )
     {
         $this->setName($name)

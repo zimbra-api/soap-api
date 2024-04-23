@@ -90,28 +90,28 @@ class VolumeExternalInfo extends BaseExternalVolume
      * @return self
      */
     public function __construct(
-        ?string $storageType = NULL,
-        ?string $volumePrefix = NULL,
-        ?string $globalBucketConfigId = NULL,
-        ?bool $useInFrequentAccess = NULL,
-        ?int $useInFrequentAccessThreshold = NULL,
-        ?bool $useIntelligentTiering = NULL
+        ?string $storageType = null,
+        ?string $volumePrefix = null,
+        ?string $globalBucketConfigId = null,
+        ?bool $useInFrequentAccess = null,
+        ?int $useInFrequentAccessThreshold = null,
+        ?bool $useIntelligentTiering = null
     )
     {
         parent::__construct($storageType);
-        if (NULL !== $volumePrefix) {
+        if (null !== $volumePrefix) {
             $this->setVolumePrefix($volumePrefix);
         }
-        if (NULL !== $globalBucketConfigId) {
+        if (null !== $globalBucketConfigId) {
             $this->setGlobalBucketConfigurationId($globalBucketConfigId);
         }
-        if (NULL !== $useInFrequentAccess) {
+        if (null !== $useInFrequentAccess) {
             $this->setUseInFrequentAccess($useInFrequentAccess);
         }
-        if (NULL !== $useInFrequentAccessThreshold) {
+        if (null !== $useInFrequentAccessThreshold) {
             $this->setUseInFrequentAccessThreshold($useInFrequentAccessThreshold);
         }
-        if (NULL !== $useIntelligentTiering) {
+        if (null !== $useIntelligentTiering) {
             $this->setUseIntelligentTiering($useIntelligentTiering);
         }
     }

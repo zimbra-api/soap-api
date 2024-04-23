@@ -83,13 +83,13 @@ class SendShareNotificationRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        Id $item, array $emailAddresses = [], ?ShareAction $action = NULL, ?string $notes = NULL
+        Id $item, array $emailAddresses = [], ?ShareAction $action = null, ?string $notes = null
     )
     {
         $this->setItem($item)
              ->setEmailAddresses($emailAddresses);
         $this->action = $action;
-        if (NULL !== $notes) {
+        if (null !== $notes) {
             $this->setNotes($notes);
         }
     }

@@ -33,7 +33,7 @@ class AuthBody extends SoapBody
     #[SerializedName('AuthRequest')]
     #[Type(AuthRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AuthBody extends SoapBody
     #[SerializedName('AuthResponse')]
     #[Type(AuthResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AuthBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AuthRequest $request = NULL, ?AuthResponse $response = NULL
+        ?AuthRequest $request = null, ?AuthResponse $response = null
     )
     {
         parent::__construct($request, $response);

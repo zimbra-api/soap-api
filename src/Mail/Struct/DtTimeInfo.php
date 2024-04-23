@@ -81,18 +81,18 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @return self
      */
     public function __construct(
-        ?string $dateTime = NULL,
-        ?string $timezone = NULL,
-        ?int $utcTime = NULL
+        ?string $dateTime = null,
+        ?string $timezone = null,
+        ?int $utcTime = null
     )
     {
-        if (NULL !== $dateTime) {
+        if (null !== $dateTime) {
             $this->setDateTime($dateTime);
         }
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
-        if (NULL !== $utcTime) {
+        if (null !== $utcTime) {
             $this->setUtcTime($utcTime);
         }
     }

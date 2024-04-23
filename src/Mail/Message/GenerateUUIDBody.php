@@ -33,7 +33,7 @@ class GenerateUUIDBody extends SoapBody
     #[SerializedName('GenerateUUIDRequest')]
     #[Type(GenerateUUIDRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GenerateUUIDBody extends SoapBody
     #[SerializedName('GenerateUUIDResponse')]
     #[Type(GenerateUUIDResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GenerateUUIDBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GenerateUUIDRequest $request = NULL, ?GenerateUUIDResponse $response = NULL
+        ?GenerateUUIDRequest $request = null, ?GenerateUUIDResponse $response = null
     )
     {
         parent::__construct($request, $response);

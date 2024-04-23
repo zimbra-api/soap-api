@@ -109,7 +109,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\AddAppointmentInviteResponse
      */
     function addAppointmentInvite(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
+        ?ParticipationStatus $partStat = null, ?Msg $msg = null
     ): ?Message\AddAppointmentInviteResponse;
 
     /**
@@ -128,7 +128,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  bool $filterSent
      * @return Message\AddMsgResponse
      */
-    function addMsg(AddMsgSpec $msg, ?bool $filterSent = NULL): ?Message\AddMsgResponse;
+    function addMsg(AddMsgSpec $msg, ?bool $filterSent = null): ?Message\AddMsgResponse;
 
     /**
      * Add a task invite
@@ -138,7 +138,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\AddTaskInviteResponse
      */
     function addTaskInvite(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
+        ?ParticipationStatus $partStat = null, ?Msg $msg = null
     ): ?Message\AddTaskInviteResponse;
 
     /**
@@ -163,7 +163,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ApplyFilterRulesResponse
      */
     function applyFilterRules(
-        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
+        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
     ): ?Message\ApplyFilterRulesResponse;
 
     /**
@@ -180,7 +180,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ApplyOutgoingFilterRulesResponse
      */
     function applyOutgoingFilterRules(
-        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
+        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
     ): ?Message\ApplyOutgoingFilterRulesResponse;
 
     /**
@@ -195,10 +195,10 @@ interface MailApiInterface extends AccountApiInterface
      */
     function autoComplete(
         string $name,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $folderList = NULL,
-        ?bool $includeGal = NULL
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $folderList = null,
+        ?bool $includeGal = null
     ): ?Message\AutoCompleteResponse;
 
     /**
@@ -230,7 +230,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\BrowseResponse
      */
     function browse(
-        ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
+        ?BrowseBy $browseBy = null, ?string $regex = null, ?int $max = null
     ): ?Message\BrowseResponse;
 
     /**
@@ -248,13 +248,13 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CancelAppointmentResponse
      */
     function cancelAppointment(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?InstanceRecurIdInfo $instance = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?InstanceRecurIdInfo $instance = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\CancelAppointmentResponse;
 
     /**
@@ -270,13 +270,13 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CancelTaskResponse
      */
     function cancelTask(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?InstanceRecurIdInfo $instance = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?InstanceRecurIdInfo $instance = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\CancelTaskResponse;
 
     /**
@@ -288,7 +288,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CheckPermissionResponse
      */
     function checkPermission(
-        ?TargetSpec $target = NULL, array $rights = []
+        ?TargetSpec $target = null, array $rights = []
     ): ?Message\CheckPermissionResponse;
 
     /**
@@ -306,10 +306,10 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CheckRecurConflictsResponse
      */
     function checkRecurConflicts(
-        ?int $startTime = NULL,
-        ?int $endTime = NULL,
-        ?bool $allInstances = NULL,
-        ?string $excludeUid = NULL,
+        ?int $startTime = null,
+        ?int $endTime = null,
+        ?bool $allInstances = null,
+        ?string $excludeUid = null,
         array $timezones = [],
         array $components = [],
         array $freebusyUsers = []
@@ -326,7 +326,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CheckSpellingResponse
      */
     function checkSpelling(
-        ?string $dictionary = NULL, ?string $ignoreList = NULL, ?string $text = NULL
+        ?string $dictionary = null, ?string $ignoreList = null, ?string $text = null
     ): ?Message\CheckSpellingResponse;
 
     /**
@@ -338,7 +338,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CompleteTaskInstanceResponse
      */
     function completeTaskInstance(
-        DtTimeInfo $exceptionId, string $id, ?CalTZInfo $timezone = NULL
+        DtTimeInfo $exceptionId, string $id, ?CalTZInfo $timezone = null
     ): ?Message\CompleteTaskInstanceResponse;
 
     /**
@@ -371,11 +371,11 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CounterAppointmentResponse
      */
     function counterAppointment(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null
     ): ?Message\CounterAppointmentResponse;
 
     /**
@@ -394,16 +394,16 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CreateAppointmentExceptionResponse
      */
     function createAppointmentException(
-        ?string $id = NULL,
-        ?int $numComponents = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $numComponents = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateAppointmentExceptionResponse;
 
     /**
@@ -418,12 +418,12 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CreateAppointmentResponse
      */
     function createAppointment(
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateAppointmentResponse;
 
     /**
@@ -437,9 +437,9 @@ interface MailApiInterface extends AccountApiInterface
      */
     function createContact(
         ContactSpec $contact,
-        ?bool $verbose = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $verbose = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     ): ?Message\CreateContactResponse;
 
     /**
@@ -450,7 +450,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MailDataSource $dataSource
      * @return Message\CreateDataSourceResponse
      */
-    function createDataSource(?MailDataSource $dataSource = NULL): ?Message\CreateDataSourceResponse;
+    function createDataSource(?MailDataSource $dataSource = null): ?Message\CreateDataSourceResponse;
 
     /**
      * Create folder
@@ -490,7 +490,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  TagSpec $tag
      * @return Message\CreateTagResponse
      */
-    function createTag(?TagSpec $tag = NULL): ?Message\CreateTagResponse;
+    function createTag(?TagSpec $tag = null): ?Message\CreateTagResponse;
 
     /**
      * Create task exception.
@@ -508,16 +508,16 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CreateTaskExceptionResponse
      */
     function createTaskException(
-        ?string $id = NULL,
-        ?int $numComponents = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $numComponents = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateTaskExceptionResponse;
 
     /**
@@ -532,12 +532,12 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CreateTaskResponse
      */
     function createTask(
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateTaskResponse;
 
     /**
@@ -551,7 +551,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CreateWaitSetResponse
      */
     function createWaitSet(
-        string $defaultInterests, ?bool $allAccounts = NULL, array $accounts = []
+        string $defaultInterests, ?bool $allAccounts = null, array $accounts = []
     ): ?Message\CreateWaitSetResponse;
 
     /**
@@ -562,7 +562,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  Msg $msg
      * @return Message\DeclineCounterAppointmentResponse
      */
-    function declineCounterAppointment(?Msg $msg = NULL): ?Message\DeclineCounterAppointmentResponse;
+    function declineCounterAppointment(?Msg $msg = null): ?Message\DeclineCounterAppointmentResponse;
 
     /**
      * Deletes the given data sources.
@@ -592,7 +592,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  DiffDocumentVersionSpec $doc
      * @return Message\DiffDocumentResponse
      */
-    function diffDocument(?DiffDocumentVersionSpec $doc = NULL): ?Message\DiffDocumentResponse;
+    function diffDocument(?DiffDocumentVersionSpec $doc = null): ?Message\DiffDocumentResponse;
 
     /**
      * Dismiss calendar item alarm
@@ -653,10 +653,10 @@ interface MailApiInterface extends AccountApiInterface
      */
     function exportContacts(
         string $contentType,
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL,
-        ?string $csvDelimiter = NULL
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null,
+        ?string $csvDelimiter = null
     ): ?Message\ExportContactsResponse;
 
     /**
@@ -794,7 +794,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ForwardAppointmentInviteResponse
      */
     function forwardAppointmentInvite(
-        ?string $id = NULL, ?Msg $msg = NULL
+        ?string $id = null, ?Msg $msg = null
     ): ?Message\ForwardAppointmentInviteResponse;
 
     /**
@@ -807,10 +807,10 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ForwardAppointmentResponse
      */
     function forwardAppointment(
-        ?string $id = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\ForwardAppointmentResponse;
 
     /**
@@ -832,11 +832,11 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetAppointmentResponse
      */
     function getAppointment(
-        ?bool $sync = NULL,
-        ?bool $includeContent = NULL,
-        ?bool $includeInvites = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL
+        ?bool $sync = null,
+        ?bool $includeContent = null,
+        ?bool $includeInvites = null,
+        ?string $uid = null,
+        ?string $id = null
     ): ?Message\GetAppointmentResponse;
 
     /**
@@ -871,7 +871,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetApptSummariesResponse
      */
     function getApptSummaries(
-        int $startTime, int $endTime, ?string $folderId = NULL
+        int $startTime, int $endTime, ?string $folderId = null
     ): ?Message\GetApptSummariesResponse;
 
     /**
@@ -883,7 +883,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetCalendarItemSummariesResponse
      */
     function getCalendarItemSummaries(
-        int $startTime, int $endTime, ?string $folderId = NULL
+        int $startTime, int $endTime, ?string $folderId = null
     ): ?Message\GetCalendarItemSummariesResponse;
 
     /**
@@ -930,15 +930,15 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetContactsResponse
      */
     function getContacts(
-        ?bool $sync = NULL,
-        ?string $folderId = NULL,
-        ?string $sortBy = NULL,
-        ?bool $derefGroupMember = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $returnHiddenAttrs = NULL,
-        ?bool $returnCertInfo = NULL,
-        ?bool $wantImapUid = NULL,
-        ?int $maxMembers = NULL,
+        ?bool $sync = null,
+        ?string $folderId = null,
+        ?string $sortBy = null,
+        ?bool $derefGroupMember = null,
+        ?bool $includeMemberOf = null,
+        ?bool $returnHiddenAttrs = null,
+        ?bool $returnCertInfo = null,
+        ?bool $wantImapUid = null,
+        ?int $maxMembers = null,
         array $attributes = [],
         array $memberAttributes = [],
         array $contacts = []
@@ -967,7 +967,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetCustomMetadataResponse
      */
     function getCustomMetadata(
-        SectionAttr $metadata, ?string $id = NULL
+        SectionAttr $metadata, ?string $id = null
     ): ?Message\GetCustomMetadataResponse;
 
     /**
@@ -1027,12 +1027,12 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetFolderResponse
      */
     function getFolder(
-        ?GetFolderSpec $folder = NULL,
-        ?bool $isVisible = NULL,
-        ?bool $needGranteeName = NULL,
-        ?string $viewConstraint = NULL,
-        ?int $treeDepth = NULL,
-        ?bool $traverseMountpoints = NULL
+        ?GetFolderSpec $folder = null,
+        ?bool $isVisible = null,
+        ?bool $needGranteeName = null,
+        ?string $viewConstraint = null,
+        ?int $treeDepth = null,
+        ?bool $traverseMountpoints = null
     ): ?Message\GetFolderResponse;
 
     /**
@@ -1052,10 +1052,10 @@ interface MailApiInterface extends AccountApiInterface
     function getFreeBusy(
         int $startTime,
         int $endTime,
-        ?string $uid = NULL,
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $excludeUid = NULL,
+        ?string $uid = null,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $excludeUid = null,
         array $freebusyUsers = []
     ): ?Message\GetFreeBusyResponse;
 
@@ -1071,7 +1071,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetICalResponse
      */
     function getICal(
-        ?string $id = NULL, ?int $startTime = NULL, ?int $endTime = NULL
+        ?string $id = null, ?int $startTime = null, ?int $endTime = null
     ): ?Message\GetICalResponse;
 
     /**
@@ -1139,7 +1139,7 @@ interface MailApiInterface extends AccountApiInterface
         int $startTime,
         int $endTime,
         array $folders = [],
-        ?CalTZInfo $timezone = NULL
+        ?CalTZInfo $timezone = null
     ): ?Message\GetMiniCalResponse;
 
     /**
@@ -1248,11 +1248,11 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetTaskResponse
      */
     function getTask(
-        ?bool $sync = NULL,
-        ?bool $includeContent = NULL,
-        ?bool $includeInvites = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL
+        ?bool $sync = null,
+        ?bool $includeContent = null,
+        ?bool $includeInvites = null,
+        ?string $uid = null,
+        ?string $id = null
     ): ?Message\GetTaskResponse;
 
     /**
@@ -1264,7 +1264,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetTaskSummariesResponse
      */
     function getTaskSummaries(
-        int $startTime, int $endTime, ?string $folderId = NULL
+        int $startTime, int $endTime, ?string $folderId = null
     ): ?Message\GetTaskSummariesResponse;
 
     /**
@@ -1280,7 +1280,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetWorkingHoursResponse
      */
     function getWorkingHours(
-        int $startTime, int $endTime, ?string $id = NULL, ?string $name = NULL
+        int $startTime, int $endTime, ?string $id = null, ?string $name = null
     ): ?Message\GetWorkingHoursResponse;
 
     /**
@@ -1326,7 +1326,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  int $folder
      * @return Message\IMAPCopyResponse
      */
-    function imapCopy(string $ids, ?MailItemType $type = NULL, int $folder = 0): ?Message\IMAPCopyResponse;
+    function imapCopy(string $ids, ?MailItemType $type = null, int $folder = 0): ?Message\IMAPCopyResponse;
 
     /**
      * Import appointments
@@ -1339,7 +1339,7 @@ interface MailApiInterface extends AccountApiInterface
     function importAppointments(
         ContentSpec $content,
         string $contentType = 'text/calendar',
-        ?string $folderId = NULL
+        ?string $folderId = null
     ): ?Message\ImportAppointmentsResponse;
 
     /**
@@ -1355,9 +1355,9 @@ interface MailApiInterface extends AccountApiInterface
     function importContacts(
         Content $content,
         string $contentType = 'text/csv',
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null
     ): ?Message\ImportContactsResponse;
 
     /**
@@ -1423,16 +1423,16 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ModifyAppointmentResponse
      */
     function modifyAppointment(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\ModifyAppointmentResponse;
 
     /**
@@ -1449,10 +1449,10 @@ interface MailApiInterface extends AccountApiInterface
      */
     function modifyContact(
         ModifyContactSpec $contact,
-        ?bool $replace = NULL,
-        ?bool $verbose = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $replace = null,
+        ?bool $verbose = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     ): ?Message\ModifyContactResponse;
 
     /**
@@ -1464,7 +1464,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MailDataSource $dataSource
      * @return Message\ModifyDataSourceResponse
      */
-    function modifyDataSource(?MailDataSource $dataSource = NULL): ?Message\ModifyDataSourceResponse;
+    function modifyDataSource(?MailDataSource $dataSource = null): ?Message\ModifyDataSourceResponse;
 
     /**
      * Modify Filter rules
@@ -1485,7 +1485,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ModifyMailboxMetadataResponse
      */
     function modifyMailboxMetadata(
-        ?MailCustomMetadata $metadata = NULL
+        ?MailCustomMetadata $metadata = null
     ): ?Message\ModifyMailboxMetadataResponse;
 
     /**
@@ -1506,7 +1506,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ModifyProfileImageResponse
      */
     function modifyProfileImage(
-        ?string $uploadId = NULL, ?string $imageB64Data = NULL
+        ?string $uploadId = null, ?string $imageB64Data = null
     ): ?Message\ModifyProfileImageResponse;
 
     /**
@@ -1535,16 +1535,16 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ModifyTaskResponse
      */
     function modifyTask(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\ModifyTaskResponse;
 
     /**
@@ -1591,10 +1591,10 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\NoOpResponse
      */
     function noOp(
-        ?bool $wait = NULL,
-        ?bool $includeDelegates = NULL,
-        ?bool $enforceLimit = NULL,
-        ?int $timeout = NULL
+        ?bool $wait = null,
+        ?bool $includeDelegates = null,
+        ?bool $enforceLimit = null,
+        ?int $timeout = null
     ): ?Message\NoOpResponse;
 
     /**
@@ -1614,7 +1614,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\OpenIMAPFolderResponse
      */
     function openIMAPFolder(
-        string $folderId, int $limit, ?ImapCursorInfo $cursor = NULL
+        string $folderId, int $limit, ?ImapCursorInfo $cursor = null
     ): ?Message\OpenIMAPFolderResponse;
 
     /**
@@ -1654,8 +1654,8 @@ interface MailApiInterface extends AccountApiInterface
      */
     function recoverAccount(
         string $email,
-        ?RecoverAccountOperation $op = NULL,
-        ?Channel $channel = NULL
+        ?RecoverAccountOperation $op = null,
+        ?Channel $channel = null
     ): ?Message\RecoverAccountResponse;
 
     /**
@@ -1684,7 +1684,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\RestoreContactsResponse
      */
     function restoreContacts(
-        string $fileName, ?RestoreResolve $resolve = NULL
+        string $fileName, ?RestoreResolve $resolve = null
     ): ?Message\RestoreContactsResponse;
 
     /**
@@ -1751,8 +1751,8 @@ interface MailApiInterface extends AccountApiInterface
      */
     function saveDraft(
         SaveDraftMsg $msg,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     ): ?Message\SaveDraftResponse;
 
     /**
@@ -1813,37 +1813,37 @@ interface MailApiInterface extends AccountApiInterface
      */
     function searchConv(
         string $conversationId = '',
-        ?string $query = NULL,
-        ?bool $inDumpster = NULL,
-        ?string $searchTypes = NULL,
-        ?string $groupBy = NULL,
-        ?int $calItemExpandStart = NULL,
-        ?int $calItemExpandEnd = NULL,
-        ?bool $quick = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?bool $includeTagDeleted = NULL,
-        ?bool $includeTagMuted = NULL,
-        ?string $taskStatus = NULL,
-        ?string $fetch = NULL,
-        ?bool $markRead = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $neuterImages = NULL,
-        ?WantRecipsSetting $wantRecipients = NULL,
-        ?bool $prefetch = NULL,
-        ?string $resultMode = NULL,
-        ?bool $fullConversation = NULL,
-        ?string $field = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
+        ?string $query = null,
+        ?bool $inDumpster = null,
+        ?string $searchTypes = null,
+        ?string $groupBy = null,
+        ?int $calItemExpandStart = null,
+        ?int $calItemExpandEnd = null,
+        ?bool $quick = null,
+        ?SearchSortBy $sortBy = null,
+        ?bool $includeTagDeleted = null,
+        ?bool $includeTagMuted = null,
+        ?string $taskStatus = null,
+        ?string $fetch = null,
+        ?bool $markRead = null,
+        ?int $maxInlinedLength = null,
+        ?bool $wantHtml = null,
+        ?bool $needCanExpand = null,
+        ?bool $neuterImages = null,
+        ?WantRecipsSetting $wantRecipients = null,
+        ?bool $prefetch = null,
+        ?string $resultMode = null,
+        ?bool $fullConversation = null,
+        ?string $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         array $headers = [],
-        ?CalTZInfo $calTz = NULL,
-        ?string $locale = NULL,
-        ?CursorInfo $cursor = NULL,
-        ?MsgContent $wantContent = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $nestMessages = NULL
+        ?CalTZInfo $calTz = null,
+        ?string $locale = null,
+        ?CursorInfo $cursor = null,
+        ?MsgContent $wantContent = null,
+        ?bool $includeMemberOf = null,
+        ?bool $nestMessages = null
     ): ?Message\SearchConvResponse;
 
     /**
@@ -1885,37 +1885,37 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SearchResponse
      */
     function search(
-        ?string $query = NULL,
-        ?bool $inDumpster = NULL,
-        ?string $searchTypes = NULL,
-        ?string $groupBy = NULL,
-        ?int $calItemExpandStart = NULL,
-        ?int $calItemExpandEnd = NULL,
-        ?bool $quick = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?bool $includeTagDeleted = NULL,
-        ?bool $includeTagMuted = NULL,
-        ?string $taskStatus = NULL,
-        ?string $fetch = NULL,
-        ?bool $markRead = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $neuterImages = NULL,
-        ?WantRecipsSetting $wantRecipients = NULL,
-        ?bool $prefetch = NULL,
-        ?string $resultMode = NULL,
-        ?bool $fullConversation = NULL,
-        ?string $field = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
+        ?string $query = null,
+        ?bool $inDumpster = null,
+        ?string $searchTypes = null,
+        ?string $groupBy = null,
+        ?int $calItemExpandStart = null,
+        ?int $calItemExpandEnd = null,
+        ?bool $quick = null,
+        ?SearchSortBy $sortBy = null,
+        ?bool $includeTagDeleted = null,
+        ?bool $includeTagMuted = null,
+        ?string $taskStatus = null,
+        ?string $fetch = null,
+        ?bool $markRead = null,
+        ?int $maxInlinedLength = null,
+        ?bool $wantHtml = null,
+        ?bool $needCanExpand = null,
+        ?bool $neuterImages = null,
+        ?WantRecipsSetting $wantRecipients = null,
+        ?bool $prefetch = null,
+        ?string $resultMode = null,
+        ?bool $fullConversation = null,
+        ?string $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         array $headers = [],
-        ?CalTZInfo $calTz = NULL,
-        ?string $locale = NULL,
-        ?CursorInfo $cursor = NULL,
-        ?MsgContent $wantContent = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $warmup = NULL
+        ?CalTZInfo $calTz = null,
+        ?string $locale = null,
+        ?CursorInfo $cursor = null,
+        ?MsgContent $wantContent = null,
+        ?bool $includeMemberOf = null,
+        ?bool $warmup = null
     ): ?Message\SearchResponse;
 
     /**
@@ -1940,12 +1940,12 @@ interface MailApiInterface extends AccountApiInterface
     function sendInviteReply(
         string $id,
         int $componentNum,
-        ?VerbType $verb = NULL,
-        ?bool $updateOrganizer = NULL,
-        ?string $identityId = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?VerbType $verb = null,
+        ?bool $updateOrganizer = null,
+        ?string $identityId = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\SendInviteReplyResponse;
 
     /**
@@ -1981,12 +1981,12 @@ interface MailApiInterface extends AccountApiInterface
      */
     function sendMsg(
         MsgToSend $msg,
-        ?bool $needCalendarSentbyFixup = NULL,
-        ?bool $isCalendarForward = NULL,
-        ?bool $noSaveToSent = NULL,
-        ?bool $fetchSavedMsg = NULL,
-        ?string $sendUid = NULL,
-        ?bool $deliveryReport = NULL
+        ?bool $needCalendarSentbyFixup = null,
+        ?bool $isCalendarForward = null,
+        ?bool $noSaveToSent = null,
+        ?bool $fetchSavedMsg = null,
+        ?string $sendUid = null,
+        ?bool $deliveryReport = null
     ): ?Message\SendMsgResponse;
 
     /**
@@ -2000,7 +2000,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SendShareNotificationResponse
      */
     function sendShareNotification(
-        Id $item, array $emailAddresses = [], ?ShareAction $action = NULL, ?string $notes = NULL
+        Id $item, array $emailAddresses = [], ?ShareAction $action = null, ?string $notes = null
     ): ?Message\SendShareNotificationResponse;
 
     /**
@@ -2010,7 +2010,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SendVerificationCodeResponse
      */
     function sendVerificationCode(
-        ?string $address = NULL
+        ?string $address = null
     ): ?Message\SendVerificationCodeResponse;
 
     /**
@@ -2034,13 +2034,13 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SetAppointmentResponse
      */
     function setAppointment(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?bool $noNextAlarm = NULL,
-        ?int $nextAlarm = NULL,
-        ?SetCalendarItemInfo $defaultId = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?bool $noNextAlarm = null,
+        ?int $nextAlarm = null,
+        ?SetCalendarItemInfo $defaultId = null,
         array $exceptions = [],
         array $cancellations = [],
         array $replies = []
@@ -2082,10 +2082,10 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SetRecoveryAccountResponse
      */
     function setRecoveryAccount(
-        ?RecoveryAccountOperation $op = NULL,
-        ?string $recoveryAccount = NULL,
-        ?string $verificationCode = NULL,
-        ?Channel $channel = NULL
+        ?RecoveryAccountOperation $op = null,
+        ?string $recoveryAccount = null,
+        ?string $verificationCode = null,
+        ?Channel $channel = null
     ): ?Message\SetRecoveryAccountResponse;
 
     /**
@@ -2105,13 +2105,13 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SetTaskResponse
      */
     function setTask(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?bool $noNextAlarm = NULL,
-        ?int $nextAlarm = NULL,
-        ?SetCalendarItemInfo $defaultId = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?bool $noNextAlarm = null,
+        ?int $nextAlarm = null,
+        ?SetCalendarItemInfo $defaultId = null,
         array $exceptions = [],
         array $cancellations = [],
         array $replies = []
@@ -2145,13 +2145,13 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SyncResponse
      */
     function sync(
-        ?string $token = NULL,
-        ?int $calendarCutoff = NULL,
-        ?int $msgCutoff = NULL,
-        ?string $folderId = NULL,
-        ?bool $typedDeletes = NULL,
-        ?int $deleteLimit = NULL,
-        ?int $changeLimit = NULL
+        ?string $token = null,
+        ?int $calendarCutoff = null,
+        ?int $msgCutoff = null,
+        ?string $folderId = null,
+        ?bool $typedDeletes = null,
+        ?int $deleteLimit = null,
+        ?int $changeLimit = null
     ): ?Message\SyncResponse;
 
     /**
@@ -2170,7 +2170,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MailDataSource $dataSource
      * @return Message\TestDataSourceResponse
      */
-    function testDataSource(?MailDataSource $dataSource = NULL): ?Message\TestDataSourceResponse;
+    function testDataSource(?MailDataSource $dataSource = null): ?Message\TestDataSourceResponse;
 
     /**
      * Validate the verification code sent to a device.
@@ -2182,7 +2182,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\VerifyCodeResponse
      */
     function verifyCode(
-        ?string $address = NULL, ?string $verificationCode = NULL
+        ?string $address = null, ?string $verificationCode = null
     ): ?Message\VerifyCodeResponse;
 
     /**
@@ -2223,10 +2223,10 @@ interface MailApiInterface extends AccountApiInterface
     function waitSet(
         string $waitSetId,
         string $lastKnownSeqNo,
-        ?bool $block = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $timeout = NULL,
-        ?bool $expand = NULL,
+        ?bool $block = null,
+        ?string $defaultInterests = null,
+        ?int $timeout = null,
+        ?bool $expand = null,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []

@@ -35,7 +35,7 @@ class EndSessionEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(EndSessionBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class EndSessionEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?EndSessionBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?EndSessionBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

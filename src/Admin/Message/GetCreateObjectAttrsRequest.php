@@ -76,7 +76,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        TargetWithType $target, ?DomainSelector $domain = NULL, ?CosSelector $cos = NULL
+        TargetWithType $target, ?DomainSelector $domain = null, ?CosSelector $cos = null
     )
     {
         $this->setTarget($target);

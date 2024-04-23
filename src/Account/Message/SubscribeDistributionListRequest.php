@@ -55,7 +55,7 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        DistributionListSelector $dl, ?DistributionListSubscribeOp $op = NULL
+        DistributionListSelector $dl, ?DistributionListSubscribeOp $op = null
     )
     {
         $this->setDl($dl)

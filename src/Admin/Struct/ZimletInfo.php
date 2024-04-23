@@ -44,11 +44,11 @@ class ZimletInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $attrs = [], ?string $hasKeyword = NULL
+        string $name = '', string $id = '', array $attrs = [], ?string $hasKeyword = null
     )
     {
         parent::__construct($name, $id, $attrs);
-        if (NULL !== $hasKeyword) {
+        if (null !== $hasKeyword) {
             $this->setHasKeyword($hasKeyword);
         }
     }

@@ -54,14 +54,14 @@ class RecoverAccountResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $recoveryAccount = NULL,
-        ?int $recoveryAttemptsLeft = NULL
+        ?string $recoveryAccount = null,
+        ?int $recoveryAttemptsLeft = null
     )
     {
-        if (NULL !== $recoveryAccount) {
+        if (null !== $recoveryAccount) {
             $this->setRecoveryAccount($recoveryAccount);
         }
-        if (NULL !== $recoveryAttemptsLeft) {
+        if (null !== $recoveryAttemptsLeft) {
             $this->setRecoveryAttemptsLeft($recoveryAttemptsLeft);
         }
     }

@@ -33,7 +33,7 @@ class DeleteIdentityBody extends SoapBody
     #[SerializedName('DeleteIdentityRequest')]
     #[Type(DeleteIdentityRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteIdentityBody extends SoapBody
     #[SerializedName('DeleteIdentityResponse')]
     #[Type(DeleteIdentityResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteIdentityBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteIdentityRequest $request = NULL, ?DeleteIdentityResponse $response = NULL
+        ?DeleteIdentityRequest $request = null, ?DeleteIdentityResponse $response = null
     )
     {
         parent::__construct($request, $response);

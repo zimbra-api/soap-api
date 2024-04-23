@@ -82,15 +82,15 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = []
+        ?bool $checkSize = null, ?bool $reportUsedBlobs = null, array $volumes = [], array $mailboxes = []
     )
     {
         $this->setVolumes($volumes)
              ->setMailboxes($mailboxes);
-        if (NULL !== $checkSize) {
+        if (null !== $checkSize) {
             $this->setCheckSize($checkSize);
         }
-        if (NULL !== $reportUsedBlobs){
+        if (null !== $reportUsedBlobs){
             $this->setReportUsedBlobs($reportUsedBlobs);
         }
     }

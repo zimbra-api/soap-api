@@ -157,10 +157,10 @@ class AdminWaitSetRequest extends SoapRequest
     public function __construct(
         string $waitSetId = '',
         string $lastKnownSeqNo = '',
-        ?bool $block = NULL,
-        ?bool $expand = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $timeout = NULL,
+        ?bool $block = null,
+        ?bool $expand = null,
+        ?string $defaultInterests = null,
+        ?int $timeout = null,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
@@ -171,16 +171,16 @@ class AdminWaitSetRequest extends SoapRequest
              ->setAddAccounts($addAccounts)
              ->setUpdateAccounts($updateAccounts)
              ->setRemoveAccounts($removeAccounts);
-        if (NULL !== $block) {
+        if (null !== $block) {
             $this->setBlock($block);
         }
-        if (NULL !== $expand) {
+        if (null !== $expand) {
             $this->setExpand($expand);
         }
-        if (NULL !== $defaultInterests) {
+        if (null !== $defaultInterests) {
             $this->setDefaultInterests($defaultInterests);
         }
-        if (NULL !== $timeout) {
+        if (null !== $timeout) {
             $this->setTimeout($timeout);
         }
     }

@@ -126,34 +126,34 @@ class SyncRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $token = NULL,
-        ?int $calendarCutoff = NULL,
-        ?int $msgCutoff = NULL,
-        ?string $folderId = NULL,
-        ?bool $typedDeletes = NULL,
-        ?int $deleteLimit = NULL,
-        ?int $changeLimit = NULL
+        ?string $token = null,
+        ?int $calendarCutoff = null,
+        ?int $msgCutoff = null,
+        ?string $folderId = null,
+        ?bool $typedDeletes = null,
+        ?int $deleteLimit = null,
+        ?int $changeLimit = null
     )
     {
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $calendarCutoff) {
+        if (null !== $calendarCutoff) {
             $this->setCalendarCutoff($calendarCutoff);
         }
-        if (NULL !== $msgCutoff) {
+        if (null !== $msgCutoff) {
             $this->setMsgCutoff($msgCutoff);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $typedDeletes) {
+        if (null !== $typedDeletes) {
             $this->setTypedDeletes($typedDeletes);
         }
-        if (NULL !== $deleteLimit) {
+        if (null !== $deleteLimit) {
             $this->setDeleteLimit($deleteLimit);
         }
-        if (NULL !== $changeLimit) {
+        if (null !== $changeLimit) {
             $this->setChangeLimit($changeLimit);
         }
     }

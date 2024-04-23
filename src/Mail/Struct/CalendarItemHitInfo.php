@@ -173,17 +173,17 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?int $date = NULL,
-        ?bool $contentMatched = NULL,
-        ?int $nextAlarm = NULL,
-        ?CalOrganizer $organizer = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
+        ?int $date = null,
+        ?bool $contentMatched = null,
+        ?int $nextAlarm = null,
+        ?CalOrganizer $organizer = null,
         array $categories = [],
-        ?GeoInfo $geo = NULL,
-        ?string $fragment = NULL,
+        ?GeoInfo $geo = null,
+        ?string $fragment = null,
         array $instances = [],
-        ?AlarmDataInfo $alarmData = NULL,
+        ?AlarmDataInfo $alarmData = null,
         array $invites = [],
         array $replies = []
     )
@@ -193,25 +193,25 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
              ->setInstances($instances)
              ->setInvites($invites)
              ->setReplies($replies);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $contentMatched) {
+        if (null !== $contentMatched) {
             $this->setContentMatched($contentMatched);
         }
-        if (NULL !== $nextAlarm) {
+        if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
         $this->organizer = $organizer;
         $this->geo = $geo;
         $this->alarmData = $alarmData;
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

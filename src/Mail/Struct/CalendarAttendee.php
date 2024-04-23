@@ -194,26 +194,26 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @return self
      */
     public function __construct(
-        ?string $attendeeEmail = NULL,
-        ?string $attendeeName = NULL,
-        ?string $role = NULL,
-        ?PartStat $partStat = NULL,
-        ?bool $rsvp = NULL,
+        ?string $attendeeEmail = null,
+        ?string $attendeeName = null,
+        ?string $role = null,
+        ?PartStat $partStat = null,
+        ?bool $rsvp = null,
         array $xParams = []
     )
     {
         $this->setXParams($xParams);
         $this->partStat = $partStat;
-        if (NULL !== $attendeeEmail) {
+        if (null !== $attendeeEmail) {
             $this->setAddress($attendeeEmail);
         }
-        if (NULL !== $attendeeName) {
+        if (null !== $attendeeName) {
             $this->setDisplayName($attendeeName);
         }
-        if (NULL !== $role) {
+        if (null !== $role) {
             $this->setRole($role);
         }
-        if (NULL !== $rsvp) {
+        if (null !== $rsvp) {
             $this->setRsvp($rsvp);
         }
     }

@@ -208,62 +208,62 @@ class ConversationSummary
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $num = NULL,
-        ?int $numUnread = NULL,
-        ?int $totalSize = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $date = NULL,
-        ?bool $elided = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?string $id = null,
+        ?int $num = null,
+        ?int $numUnread = null,
+        ?int $totalSize = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $date = null,
+        ?bool $elided = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = [],
-        ?string $subject = NULL,
-        ?string $fragment = NULL,
+        ?string $subject = null,
+        ?string $fragment = null,
         array $emails = []
     )
     {
         $this->setMetadatas($metadatas)
              ->setEmails($emails);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $num) {
+        if (null !== $num) {
             $this->setNum($num);
         }
-        if (NULL !== $numUnread) {
+        if (null !== $numUnread) {
             $this->setNumUnread($numUnread);
         }
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $elided) {
+        if (null !== $elided) {
             $this->setElided($elided);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

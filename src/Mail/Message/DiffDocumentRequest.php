@@ -45,7 +45,7 @@ class DiffDocumentRequest extends SoapRequest
      * @param  DiffDocumentVersionSpec $doc
      * @return self
      */
-    public function __construct(?DiffDocumentVersionSpec $doc = NULL)
+    public function __construct(?DiffDocumentVersionSpec $doc = null)
     {
         $this->doc = $doc;
     }

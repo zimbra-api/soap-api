@@ -77,7 +77,7 @@ class CheckRightsTargetInfo
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', bool $allow = FALSE, array $rights = []
+        ?TargetType $type = null, ?TargetBy $by = null, string $key = '', bool $allow = false, array $rights = []
     )
     {
         $this->setTargetType($type ?? TargetType::ACCOUNT)

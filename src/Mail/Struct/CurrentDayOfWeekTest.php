@@ -43,13 +43,13 @@ class CurrentDayOfWeekTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $values = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $values = null
     )
     {
     	parent::__construct($index, $negative);
-        if (NULL !== $values) {
+        if (null !== $values) {
             $this->setValues($values);
         }
     }

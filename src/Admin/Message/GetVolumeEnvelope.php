@@ -35,7 +35,7 @@ class GetVolumeEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetVolumeBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetVolumeEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetVolumeBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetVolumeBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

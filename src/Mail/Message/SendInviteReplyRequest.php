@@ -64,7 +64,7 @@ class SendInviteReplyRequest extends SoapRequest
      * Update organizer. true by default. if false then only make the update locally.
      * Note that earlier documentation implied incorrectly that if this was false it would be ignored and treated
      * as being true if an <m> element is present.
-     * Also take a note that, if RSVP setting in original invite is not present or FALSE then updateOrganizer will be treated as FALSE.
+     * Also take a note that, if RSVP setting in original invite is not present or false then updateOrganizer will be treated as false.
      * 
      * @var bool
      */
@@ -134,12 +134,12 @@ class SendInviteReplyRequest extends SoapRequest
     public function __construct(
         string $id = '',
         int $componentNum = 0,
-        ?VerbType $verb = NULL,
-        ?bool $updateOrganizer = NULL,
-        ?string $identityId = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?VerbType $verb = null,
+        ?bool $updateOrganizer = null,
+        ?string $identityId = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     )
     {
         $this->setId($id)
@@ -148,10 +148,10 @@ class SendInviteReplyRequest extends SoapRequest
         $this->exceptionId = $exceptionId;
         $this->timezone = $timezone;
         $this->msg = $msg;
-        if (NULL !== $updateOrganizer) {
+        if (null !== $updateOrganizer) {
             $this->setUpdateOrganizer($updateOrganizer);
         }
-        if (NULL !== $identityId) {
+        if (null !== $identityId) {
             $this->setIdentityId($identityId);
         }
     }

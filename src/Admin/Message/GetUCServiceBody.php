@@ -33,7 +33,7 @@ class GetUCServiceBody extends SoapBody
     #[SerializedName('GetUCServiceRequest')]
     #[Type(GetUCServiceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetUCServiceBody extends SoapBody
     #[SerializedName('GetUCServiceResponse')]
     #[Type(GetUCServiceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetUCServiceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetUCServiceRequest $request = NULL, ?GetUCServiceResponse $response = NULL
+        ?GetUCServiceRequest $request = null, ?GetUCServiceResponse $response = null
     )
     {
         parent::__construct($request, $response);

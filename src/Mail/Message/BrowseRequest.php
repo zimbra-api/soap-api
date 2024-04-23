@@ -67,14 +67,14 @@ class BrowseRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
+        ?BrowseBy $browseBy = null, ?string $regex = null, ?int $max = null
     )
     {
         $this->setBrowseBy($browseBy ?? BrowseBy::DOMAINS);
-        if (NULL !== $regex) {
+        if (null !== $regex) {
             $this->setRegex($regex);
         }
-        if (NULL !== $max) {
+        if (null !== $max) {
             $this->setMax($max);
         }
     }

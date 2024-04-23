@@ -106,7 +106,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * Proxy URL for accessing XMPP over BOSH.
-     * Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
+     * Should be returned only when zimbraFeatureChatEnabled is set to true for Account/COS
      * 
      * @var string
      */
@@ -132,32 +132,32 @@ class GetAccountInfoResponse extends SoapResponse
     public function __construct(
         string $name = '',
         array $attrs = [],
-        ?string $soapURL = NULL,
-        ?string $publicURL = NULL,
-        ?string $changePasswordURL = NULL,
-        ?string $communityURL = NULL,
-        ?string $adminURL = NULL,
-        ?string $boshURL = NULL
+        ?string $soapURL = null,
+        ?string $publicURL = null,
+        ?string $changePasswordURL = null,
+        ?string $communityURL = null,
+        ?string $adminURL = null,
+        ?string $boshURL = null
     )
     {
         $this->setName($name)
              ->setAttrs($attrs);
-        if (NULL !== $soapURL) {
+        if (null !== $soapURL) {
             $this->setSoapURL($soapURL);
         }
-        if (NULL !== $publicURL) {
+        if (null !== $publicURL) {
             $this->setPublicURL($publicURL);
         }
-        if (NULL !== $changePasswordURL) {
+        if (null !== $changePasswordURL) {
             $this->setChangePasswordURL($changePasswordURL);
         }
-        if (NULL !== $communityURL) {
+        if (null !== $communityURL) {
             $this->setCommunityURL($communityURL);
         }
-        if (NULL !== $adminURL) {
+        if (null !== $adminURL) {
             $this->setAdminURL($adminURL);
         }
-        if (NULL !== $boshURL) {
+        if (null !== $boshURL) {
             $this->setBoshURL($boshURL);
         }
     }

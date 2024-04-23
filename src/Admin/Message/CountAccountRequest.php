@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CountAccountRequest class
  * Count number of accounts by cos in a domain
- * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, nor does it include any calendar resources.
+ * Note, it doesn't include any account with zimbraIsSystemResource=true, nor does it include any calendar resources.
  *
  * @package    Zimbra
  * @subpackage Admin

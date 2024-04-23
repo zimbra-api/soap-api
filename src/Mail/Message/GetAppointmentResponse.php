@@ -54,8 +54,8 @@ class GetAppointmentResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?CalendarItemInfo $appt = NULL,
-        ?TaskItemInfo $task = NULL
+        ?CalendarItemInfo $appt = null,
+        ?TaskItemInfo $task = null
     )
     {
         $this->appt = $appt;

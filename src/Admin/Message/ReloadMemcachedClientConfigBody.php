@@ -33,7 +33,7 @@ class ReloadMemcachedClientConfigBody extends SoapBody
     #[SerializedName('ReloadMemcachedClientConfigRequest')]
     #[Type(ReloadMemcachedClientConfigRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ReloadMemcachedClientConfigBody extends SoapBody
     #[SerializedName('ReloadMemcachedClientConfigResponse')]
     #[Type(ReloadMemcachedClientConfigResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ReloadMemcachedClientConfigBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ReloadMemcachedClientConfigRequest $request = NULL, ?ReloadMemcachedClientConfigResponse $response = NULL
+        ?ReloadMemcachedClientConfigRequest $request = null, ?ReloadMemcachedClientConfigResponse $response = null
     )
     {
         parent::__construct($request, $response);

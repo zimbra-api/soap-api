@@ -41,10 +41,10 @@ class ReplyAction extends FilterAction
      * @param string $content
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $content = NULL)
+    public function __construct(?int $index = null, ?string $content = null)
     {
     	parent::__construct($index);
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

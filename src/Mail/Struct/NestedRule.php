@@ -77,10 +77,10 @@ class NestedRule
      * @return self
      */
     public function __construct(
-        ?FilterTests $tests = NULL,
-        ?FilterVariables $filterVariables = NULL,
+        ?FilterTests $tests = null,
+        ?FilterVariables $filterVariables = null,
         array $actions = [],
-        ?NestedRule $child = NULL
+        ?NestedRule $child = null
     )
     {
         $this->setFilterActions($actions);

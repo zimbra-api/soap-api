@@ -93,21 +93,21 @@ class SearchGalRequest extends SoapRequest
      */
     public function __construct(
         string $domain = '',
-        ?string $name = NULL,
-        ?int $limit = NULL,
-        ?GalSearchType $type = NULL,
-        ?string $galAccountId = NULL
+        ?string $name = null,
+        ?int $limit = null,
+        ?GalSearchType $type = null,
+        ?string $galAccountId = null
     )
     {
         $this->setDomain($domain);
         $this->type = $type;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
     }

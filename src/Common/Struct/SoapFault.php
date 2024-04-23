@@ -54,7 +54,7 @@ class SoapFault implements SoapFaultInterface
      * @return self
      */
     public function __construct(
-        ?Code $faultCode = NULL, ?Reason $faultReason = NULL
+        ?Code $faultCode = null, ?Reason $faultReason = null
     )
     {
         $this->faultCode = $faultCode;

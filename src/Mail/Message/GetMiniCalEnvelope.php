@@ -35,7 +35,7 @@ class GetMiniCalEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetMiniCalBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetMiniCalEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetMiniCalBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetMiniCalBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

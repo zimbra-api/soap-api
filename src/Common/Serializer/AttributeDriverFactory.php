@@ -13,11 +13,20 @@ namespace Zimbra\Common\Serializer;
 use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
-use JMS\Serializer\Metadata\Driver\{AttributeDriver, EnumPropertiesDriver, TypedPropertiesDriver};
-use JMS\Serializer\Naming\{
-    CamelCaseNamingStrategy, PropertyNamingStrategyInterface, SerializedNameAnnotationStrategy
+use JMS\Serializer\Metadata\Driver\{
+    AttributeDriver,
+    EnumPropertiesDriver,
+    TypedPropertiesDriver
 };
-use JMS\Serializer\Type\{Parser, ParserInterface};
+use JMS\Serializer\Naming\{
+    CamelCaseNamingStrategy,
+    PropertyNamingStrategyInterface,
+    SerializedNameAnnotationStrategy
+};
+use JMS\Serializer\Type\{
+    Parser,
+    ParserInterface
+};
 
 /**
  * Attribute driver factory class.
@@ -35,14 +44,14 @@ class AttributeDriverFactory implements DriverFactoryInterface
      * 
      * @var PropertyNamingStrategyInterface
      */
-    private PropertyNamingStrategyInterface $propertyNamingStrategy;
+    private readonly PropertyNamingStrategyInterface $propertyNamingStrategy;
 
     /**
      * Type parser
      * 
      * @var ParserInterface
      */
-    private ParserInterface $typeParser;
+    private readonly ParserInterface $typeParser;
 
     /**
      * Constructor
@@ -51,14 +60,14 @@ class AttributeDriverFactory implements DriverFactoryInterface
      * @param ParserInterface $typeParser
      */
     public function __construct(
-        ?PropertyNamingStrategyInterface $propertyNamingStrategy = NULL,
-        ?ParserInterface $typeParser = NULL
+        ?PropertyNamingStrategyInterface $propertyNamingStrategy = null,
+        ?ParserInterface $typeParser = null
     )
     {
-        $this->propertyNamingStrategy = $propertyNamingStrategy ?: new SerializedNameAnnotationStrategy(
+        $this->propertyNamingStrategy = $propertyNamingStrategy ?? new SerializedNameAnnotationStrategy(
             new CamelCaseNamingStrategy()
         );
-        $this->typeParser = $typeParser ?: new Parser();
+        $this->typeParser = $typeParser ?? new Parser();
     }
 
     /**

@@ -67,12 +67,12 @@ class CheckDomainMXRecordResponse extends SoapResponse
     public function __construct(
         array $entries = [],
         string $code = '',
-        ?string $message = NULL
+        ?string $message = null
     )
     {
         $this->setEntries($entries)
              ->setCode($code);
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

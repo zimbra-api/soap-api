@@ -65,7 +65,7 @@ class GranteeInfo
      * @return self
      */
     public function __construct(
-        string $id = '', string $name = '', ?GranteeType $type = NULL
+        string $id = '', string $name = '', ?GranteeType $type = null
     )
     {
         $this->setId($id)

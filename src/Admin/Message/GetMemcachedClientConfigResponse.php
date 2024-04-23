@@ -90,26 +90,26 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $serverList = NULL,
-        ?string $hashAlgorithm = NULL,
-        ?bool $binaryProtocolEnabled = NULL,
-        ?int $defaultExpirySeconds = NULL,
-        ?int $defaultTimeoutMillis = NULL
+        ?string $serverList = null,
+        ?string $hashAlgorithm = null,
+        ?bool $binaryProtocolEnabled = null,
+        ?int $defaultExpirySeconds = null,
+        ?int $defaultTimeoutMillis = null
     )
     {
-        if (NULL !== $serverList) {
+        if (null !== $serverList) {
             $this->setServerList($serverList);
         }
-        if (NULL !== $hashAlgorithm) {
+        if (null !== $hashAlgorithm) {
             $this->setHashAlgorithm($hashAlgorithm);
         }
-        if (NULL !== $binaryProtocolEnabled) {
+        if (null !== $binaryProtocolEnabled) {
             $this->setBinaryProtocolEnabled($binaryProtocolEnabled);
         }
-        if (NULL !== $defaultExpirySeconds) {
+        if (null !== $defaultExpirySeconds) {
             $this->setDefaultExpirySeconds($defaultExpirySeconds);
         }
-        if (NULL !== $defaultTimeoutMillis) {
+        if (null !== $defaultTimeoutMillis) {
             $this->setDefaultTimeoutMillis($defaultTimeoutMillis);
         }
     }

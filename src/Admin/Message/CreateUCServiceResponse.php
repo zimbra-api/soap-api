@@ -42,7 +42,7 @@ class CreateUCServiceResponse extends SoapResponse
      * @param UCServiceInfo $ucService
      * @return self
      */
-    public function __construct(?UCServiceInfo $ucService = NULL)
+    public function __construct(?UCServiceInfo $ucService = null)
     {
         $this->ucService = $ucService;
     }

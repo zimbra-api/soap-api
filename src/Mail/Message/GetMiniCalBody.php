@@ -33,7 +33,7 @@ class GetMiniCalBody extends SoapBody
     #[SerializedName('GetMiniCalRequest')]
     #[Type(GetMiniCalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetMiniCalBody extends SoapBody
     #[SerializedName('GetMiniCalResponse')]
     #[Type(GetMiniCalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetMiniCalBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetMiniCalRequest $request = NULL, ?GetMiniCalResponse $response = NULL
+        ?GetMiniCalRequest $request = null, ?GetMiniCalResponse $response = null
     )
     {
         parent::__construct($request, $response);

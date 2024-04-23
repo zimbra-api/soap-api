@@ -33,7 +33,7 @@ class AutoProvTaskControlBody extends SoapBody
     #[SerializedName('AutoProvTaskControlRequest')]
     #[Type(AutoProvTaskControlRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AutoProvTaskControlBody extends SoapBody
     #[SerializedName('AutoProvTaskControlResponse')]
     #[Type(AutoProvTaskControlResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AutoProvTaskControlBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AutoProvTaskControlRequest $request = NULL, ?AutoProvTaskControlResponse $response = NULL
+        ?AutoProvTaskControlRequest $request = null, ?AutoProvTaskControlResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -169,10 +169,10 @@ class WaitSetInfo
         string $defaultInterests = '',
         int $lastAccessDate = 0,
         array $errors = [],
-        ?AccountsAttrib $signalledAccounts = NULL,
-        ?string $cbSeqNo = NULL,
-        ?string $currentSeqNo = NULL,
-        ?string $nextSeqNo = NULL,
+        ?AccountsAttrib $signalledAccounts = null,
+        ?string $cbSeqNo = null,
+        ?string $currentSeqNo = null,
+        ?string $nextSeqNo = null,
         array $bufferedCommits = [],
         array $sessions = []
     )
@@ -187,13 +187,13 @@ class WaitSetInfo
         if ($signalledAccounts instanceof AccountsAttrib) {
             $this->setSignalledAccounts($signalledAccounts);
         }
-        if (NULL !== $cbSeqNo) {
+        if (null !== $cbSeqNo) {
             $this->setCbSeqNo($cbSeqNo);
         }
-        if (NULL !== $currentSeqNo) {
+        if (null !== $currentSeqNo) {
             $this->setCurrentSeqNo($currentSeqNo);
         }
-        if (NULL !== $nextSeqNo) {
+        if (null !== $nextSeqNo) {
             $this->setNextSeqNo($nextSeqNo);
         }
     }

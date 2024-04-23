@@ -33,7 +33,7 @@ class ResetPasswordBody extends SoapBody
     #[SerializedName('ResetPasswordRequest')]
     #[Type(ResetPasswordRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ResetPasswordBody extends SoapBody
     #[SerializedName('ResetPasswordResponse')]
     #[Type(ResetPasswordResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ResetPasswordBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ResetPasswordRequest $request = NULL, ?ResetPasswordResponse $response = NULL
+        ?ResetPasswordRequest $request = null, ?ResetPasswordResponse $response = null
     )
     {
         parent::__construct($request, $response);

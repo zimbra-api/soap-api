@@ -67,15 +67,15 @@ class TagSpec
      */
     public function __construct(
         string $name = '',
-        ?string $rgb = NULL,
-        ?int $color = NULL
+        ?string $rgb = null,
+        ?int $color = null
     )
     {
         $this->setName($name);
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
     }

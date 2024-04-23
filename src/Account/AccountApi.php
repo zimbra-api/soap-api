@@ -50,25 +50,25 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function auth(
-        ?AccountSelector $account = NULL,
-        ?string $password = NULL,
-        ?string $recoveryCode = NULL,
-        ?PreAuth $preauth = NULL,
-        ?AuthToken $authToken = NULL,
-        ?string $jwtToken = NULL,
-        ?string $virtualHost = NULL,
+        ?AccountSelector $account = null,
+        ?string $password = null,
+        ?string $recoveryCode = null,
+        ?PreAuth $preauth = null,
+        ?AuthToken $authToken = null,
+        ?string $jwtToken = null,
+        ?string $virtualHost = null,
         array $prefs = [],
         array $attrs = [],
-        ?string $requestedSkin = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL,
-        ?bool $deviceTrusted = NULL,
-        ?string $trustedDeviceToken = NULL,
-        ?string $deviceId = NULL,
-        ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL,
-        ?bool $ignoreSameSite = NULL
+        ?string $requestedSkin = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null,
+        ?bool $deviceTrusted = null,
+        ?string $trustedDeviceToken = null,
+        ?string $deviceId = null,
+        ?bool $generateDeviceId = null,
+        ?string $tokenType = null,
+        ?bool $ignoreSameSite = null
     ): ?Message\AuthResponse
     {
         return $this->invoke(new Message\AuthRequest(
@@ -117,7 +117,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByToken(string $authToken): ?Message\AuthResponse
     {
-        return $this->auth(NULL, NULL, NULL, NULL, new AuthToken($authToken));
+        return $this->auth(null, null, null, null, new AuthToken($authToken));
     }
 
     /**
@@ -126,7 +126,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     public function authByPreauth(string $name, string $preauthKey): ?Message\AuthResponse
     {
         $account = new AccountSelector(AccountBy::NAME, $name);
-        return $this->auth($account, NULL, NULL, new PreAuth($account, $preauthKey));
+        return $this->auth($account, null, null, new PreAuth($account, $preauthKey));
     }
 
     /**
@@ -134,10 +134,10 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function autoCompleteGal(
         string $name,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $galAccountId = NULL,
-        ?int $limit = NULL
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $galAccountId = null,
+        ?int $limit = null
     ): ?Message\AutoCompleteGalResponse
     {
         return $this->invoke(new Message\AutoCompleteGalRequest(
@@ -152,8 +152,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         AccountSelector $account,
         string $oldPassword,
         string $newPassword,
-        ?string $virtualHost = NULL,
-        ?bool $dryRun = NULL
+        ?string $virtualHost = null,
+        ?bool $dryRun = null
     ): ?Message\ChangePasswordResponse
     {
         return $this->invoke(new Message\ChangePasswordRequest(
@@ -181,7 +181,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function createDistributionList(
-        string $name, ?bool $dynamic = NULL, array $attrs = []
+        string $name, ?bool $dynamic = null, array $attrs = []
     ): ?Message\CreateDistributionListResponse
     {
         return $this->invoke(new Message\CreateDistributionListRequest(
@@ -243,10 +243,10 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function endSession(
-        ?bool $logoff = NULL,
-        ?bool $clearAllSoapSessions = NULL,
-        ?bool $excludeCurrentSession = NULL,
-        ?string $sessionId = NULL
+        ?bool $logoff = null,
+        ?bool $clearAllSoapSessions = null,
+        ?bool $excludeCurrentSession = null,
+        ?string $sessionId = null
     ): ?Message\EndSessionResponse
     {
         return $this->invoke(new Message\EndSessionRequest(
@@ -258,9 +258,9 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function getAccountDistributionLists(
-        ?bool $ownerOf = NULL,
-        ?MemberOfSelector $memberOf = NULL,
-        ?string $attrs = NULL
+        ?bool $ownerOf = null,
+        ?MemberOfSelector $memberOf = null,
+        ?string $attrs = null
     ): ?Message\GetAccountDistributionListsResponse
     {
         return $this->invoke(new Message\GetAccountDistributionListsRequest(
@@ -313,8 +313,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getDistributionListMembers(
         string $dl,
-        ?int $limit = NULL,
-        ?int $offset = NULL
+        ?int $limit = null,
+        ?int $offset = null
     ): ?Message\GetDistributionListMembersResponse
     {
         return $this->invoke(new Message\GetDistributionListMembersRequest(
@@ -327,8 +327,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getDistributionList(
         DistributionListSelector $dl,
-        ?bool $needOwners = NULL,
-        ?string $needRights = NULL,
+        ?bool $needOwners = null,
+        ?string $needRights = null,
         array $attrs = []
     ): ?Message\GetDistributionListResponse
     {
@@ -349,7 +349,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function getInfo(
-        ?string $sections = NULL, ?string $rights = NULL
+        ?string $sections = null, ?string $rights = null
     ): ?Message\GetInfoResponse
     {
         return $this->invoke(new Message\GetInfoRequest(
@@ -385,10 +385,10 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function getShareInfo(
-        ?GranteeChooser $grantee = NULL,
-        ?AccountSelector $owner = NULL,
-        ?bool $internal = NULL,
-        ?bool $includeSelf = NULL
+        ?GranteeChooser $grantee = null,
+        ?AccountSelector $owner = null,
+        ?bool $internal = null,
+        ?bool $includeSelf = null
     ): ?Message\GetShareInfoResponse
     {
         return $this->invoke(new Message\GetShareInfoRequest(
@@ -508,16 +508,16 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function searchCalendarResources(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL,
-        ?string $galAccountId = NULL,
-        ?string $name = NULL,
-        ?string $attrs = NULL
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null,
+        ?string $galAccountId = null,
+        ?string $name = null,
+        ?string $attrs = null
     ): ?Message\SearchCalendarResourcesResponse
     {
         return $this->invoke(new Message\SearchCalendarResourcesRequest(
@@ -538,21 +538,21 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function searchGal(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?string $ref = NULL,
-        ?string $name = NULL,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $needIsOwner = NULL,
-        ?MemberOfSelector $needIsMember = NULL,
-        ?bool $needSMIMECerts = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?string $ref = null,
+        ?string $name = null,
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?bool $needIsOwner = null,
+        ?MemberOfSelector $needIsMember = null,
+        ?bool $needSMIMECerts = null,
+        ?string $galAccountId = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null
     ): ?Message\SearchGalResponse
     {
         return $this->invoke(new Message\SearchGalRequest(
@@ -588,11 +588,11 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function syncGal(
-        ?string $token = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $idOnly = NULL,
-        ?bool $getCount = NULL,
-        ?int $limit = NULL
+        ?string $token = null,
+        ?string $galAccountId = null,
+        ?bool $idOnly = null,
+        ?bool $getCount = null,
+        ?int $limit = null
     ): ?Message\SyncGalResponse
     {
         return $this->invoke(new Message\SyncGalRequest(

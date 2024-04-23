@@ -184,15 +184,15 @@ class GetContactsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $sync = NULL,
-        ?string $folderId = NULL,
-        ?string $sortBy = NULL,
-        ?bool $derefGroupMember = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $returnHiddenAttrs = NULL,
-        ?bool $returnCertInfo = NULL,
-        ?bool $wantImapUid = NULL,
-        ?int $maxMembers = NULL,
+        ?bool $sync = null,
+        ?string $folderId = null,
+        ?string $sortBy = null,
+        ?bool $derefGroupMember = null,
+        ?bool $includeMemberOf = null,
+        ?bool $returnHiddenAttrs = null,
+        ?bool $returnCertInfo = null,
+        ?bool $wantImapUid = null,
+        ?int $maxMembers = null,
         array $attributes = [],
         array $memberAttributes = [],
         array $contacts = []
@@ -201,31 +201,31 @@ class GetContactsRequest extends SoapRequest
         $this->setAttributes($attributes)
              ->setMemberAttributes($memberAttributes)
              ->setContacts($contacts);
-        if (NULL !== $sync) {
+        if (null !== $sync) {
             $this->setSync($sync);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $derefGroupMember) {
+        if (null !== $derefGroupMember) {
             $this->setDerefGroupMember($derefGroupMember);
         }
-        if (NULL !== $includeMemberOf) {
+        if (null !== $includeMemberOf) {
             $this->setIncludeMemberOf($includeMemberOf);
         }
-        if (NULL !== $returnHiddenAttrs) {
+        if (null !== $returnHiddenAttrs) {
             $this->setReturnHiddenAttrs($returnHiddenAttrs);
         }
-        if (NULL !== $returnCertInfo) {
+        if (null !== $returnCertInfo) {
             $this->setReturnCertInfo($returnCertInfo);
         }
-        if (NULL !== $wantImapUid) {
+        if (null !== $wantImapUid) {
             $this->setWantImapUid($wantImapUid);
         }
-        if (NULL !== $maxMembers) {
+        if (null !== $maxMembers) {
             $this->setMaxMembers($maxMembers);
         }
     }

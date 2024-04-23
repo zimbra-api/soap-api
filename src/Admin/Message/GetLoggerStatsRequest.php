@@ -85,7 +85,7 @@ class GetLoggerStatsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?HostName $hostName = NULL, ?StatsSpec $stats = NULL, ?TimeAttr $startTime = NULL, ?TimeAttr $endTime = NULL
+        ?HostName $hostName = null, ?StatsSpec $stats = null, ?TimeAttr $startTime = null, ?TimeAttr $endTime = null
     )
     {
         $this->hostName = $hostName;

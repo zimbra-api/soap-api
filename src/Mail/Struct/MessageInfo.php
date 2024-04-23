@@ -290,37 +290,37 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $imapUid = NULL,
-        ?string $calendarIntendedFor = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $draftReplyType = NULL,
-        ?string $identityId = NULL,
-        ?string $draftAccountId = NULL,
-        ?int $draftAutoSendTime = NULL,
-        ?int $sentDate = NULL,
-        ?int $resentDate = NULL,
-        ?string $part = NULL,
-        ?string $fragment = NULL,
+        ?string $id = null,
+        ?int $imapUid = null,
+        ?string $calendarIntendedFor = null,
+        ?string $origId = null,
+        ?ReplyType $draftReplyType = null,
+        ?string $identityId = null,
+        ?string $draftAccountId = null,
+        ?int $draftAutoSendTime = null,
+        ?int $sentDate = null,
+        ?int $resentDate = null,
+        ?string $part = null,
+        ?string $fragment = null,
         array $emails = [],
-        ?string $subject = NULL,
-        ?string $messageIdHeader = NULL,
-        ?string $inReplyTo = NULL,
-        ?InviteInfo $invite = NULL,
+        ?string $subject = null,
+        ?string $messageIdHeader = null,
+        ?string $inReplyTo = null,
+        ?InviteInfo $invite = null,
         array $headers = [],
         array $partInfos = [],
         array $shareNotifications = [],
         array $dlSubs = [],
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?string $folder = NULL,
-        ?string $conversationId = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $revision = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?int $size = null,
+        ?int $date = null,
+        ?string $folder = null,
+        ?string $conversationId = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $revision = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = []
     )
     {
@@ -345,46 +345,46 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
         	 ->setDlSubs($dlSubs);
         $this->draftReplyType = $draftReplyType;
         $this->invite = $invite;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $imapUid) {
+        if (null !== $imapUid) {
             $this->setImapUid($imapUid);
         }
-        if (NULL !== $calendarIntendedFor) {
+        if (null !== $calendarIntendedFor) {
             $this->setCalendarIntendedFor($calendarIntendedFor);
         }
-        if (NULL !== $origId) {
+        if (null !== $origId) {
             $this->setOrigId($origId);
         }
-        if (NULL !== $identityId) {
+        if (null !== $identityId) {
             $this->setIdentityId($identityId);
         }
-        if (NULL !== $draftAccountId) {
+        if (null !== $draftAccountId) {
             $this->setDraftAccountId($draftAccountId);
         }
-        if (NULL !== $draftAutoSendTime) {
+        if (null !== $draftAutoSendTime) {
             $this->setDraftAutoSendTime($draftAutoSendTime);
         }
-        if (NULL !== $sentDate) {
+        if (null !== $sentDate) {
             $this->setSentDate($sentDate);
         }
-        if (NULL !== $resentDate) {
+        if (null !== $resentDate) {
             $this->setResentDate($resentDate);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $messageIdHeader) {
+        if (null !== $messageIdHeader) {
             $this->setMessageIdHeader($messageIdHeader);
         }
-        if (NULL !== $inReplyTo) {
+        if (null !== $inReplyTo) {
             $this->setInReplyTo($inReplyTo);
         }
     }
@@ -748,7 +748,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     public function getInvite(): ?InviteInfo
     {
         $invite = $this->getInvitInterface();
-        return ($invite instanceof InviteInfo) ? $invite : NULL;
+        return ($invite instanceof InviteInfo) ? $invite : null;
     }
 
     /**

@@ -60,7 +60,7 @@ class RestoreContactsRequest extends SoapRequest
      */
     public function __construct(
         string $fileName = '',
-        ?RestoreResolve $resolve = NULL
+        ?RestoreResolve $resolve = null
     )
     {
         $this->setContactsBackupFileName($fileName);

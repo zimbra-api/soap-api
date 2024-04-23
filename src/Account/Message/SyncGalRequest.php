@@ -91,26 +91,26 @@ class SyncGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $token = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $idOnly = NULL,
-        ?bool $getCount = NULL,
-        ?int $limit = NULL
+        ?string $token = null,
+        ?string $galAccountId = null,
+        ?bool $idOnly = null,
+        ?bool $getCount = null,
+        ?int $limit = null
     )
     {
-        if(NULL !== $token) {
+        if(null !== $token) {
             $this->setToken($token);
         }
-        if(NULL !== $galAccountId) {
+        if(null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if(NULL !== $idOnly) {
+        if(null !== $idOnly) {
             $this->setIdOnly($idOnly);
         }
-        if(NULL !== $getCount) {
+        if(null !== $getCount) {
             $this->setCount($getCount);
         }
-        if(NULL !== $limit) {
+        if(null !== $limit) {
             $this->setLimit($limit);
         }
     }

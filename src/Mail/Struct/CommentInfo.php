@@ -160,48 +160,48 @@ class CommentInfo
      * @return self
      */
     public function __construct(
-        ?string $parentId = NULL,
-        ?string $id = NULL,
-        ?string $uuid = NULL,
-        ?string $creatorEmail = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $date = NULL,
+        ?string $parentId = null,
+        ?string $id = null,
+        ?string $uuid = null,
+        ?string $creatorEmail = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $date = null,
         array $metadatas = []
     )
     {
         $this->setMetadatas($metadatas);
-        if (NULL !== $parentId) {
+        if (null !== $parentId) {
             $this->setParentId($parentId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $uuid) {
+        if (null !== $uuid) {
             $this->setUuid($uuid);
         }
-        if (NULL !== $creatorEmail) {
+        if (null !== $creatorEmail) {
             $this->setCreatorEmail($creatorEmail);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
     }

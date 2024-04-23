@@ -71,18 +71,18 @@ class GetICalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $startTime = NULL,
-        ?int $endTime = NULL
+        ?string $id = null,
+        ?int $startTime = null,
+        ?int $endTime = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $endTime) {
+        if (null !== $endTime) {
             $this->setEndTime($endTime);
         }
     }

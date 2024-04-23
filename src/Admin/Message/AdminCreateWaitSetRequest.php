@@ -71,13 +71,13 @@ class AdminCreateWaitSetRequest extends SoapRequest
      */
     public function __construct(
         string $defaultInterests = '',
-        ?bool $allAccounts = NULL,
+        ?bool $allAccounts = null,
         array $accounts = []
     )
     {
         $this->setDefaultInterests($defaultInterests)
              ->setAccounts($accounts);
-        if (NULL !== $allAccounts) {
+        if (null !== $allAccounts) {
             $this->setAllAccounts($allAccounts);
         }
     }

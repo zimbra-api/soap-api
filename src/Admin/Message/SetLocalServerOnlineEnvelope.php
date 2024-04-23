@@ -35,7 +35,7 @@ class SetLocalServerOnlineEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SetLocalServerOnlineBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SetLocalServerOnlineEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SetLocalServerOnlineBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SetLocalServerOnlineBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

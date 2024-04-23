@@ -51,12 +51,12 @@ class UrlAndValue
      * @param  string $value
      * @return self
      */
-    public function __construct(?string $url = NULL, ?string $value = NULL)
+    public function __construct(?string $url = null, ?string $value = null)
     {
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

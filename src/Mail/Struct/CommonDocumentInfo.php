@@ -317,98 +317,98 @@ class CommonDocumentInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $uuid = NULL,
-        ?string $name = NULL,
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?string $folderId = NULL,
-        ?string $folderUuid = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $metadataVersion = NULL,
-        ?int $changeDate = NULL,
-        ?int $revision = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $description = NULL,
-        ?string $contentType = NULL,
-        ?bool $descEnabled = NULL,
-        ?int $version = NULL,
-        ?string $lastEditedBy = NULL,
-        ?string $creator = NULL,
-        ?int $createdDate = NULL,
+        ?string $id = null,
+        ?string $uuid = null,
+        ?string $name = null,
+        ?int $size = null,
+        ?int $date = null,
+        ?string $folderId = null,
+        ?string $folderUuid = null,
+        ?int $modifiedSequence = null,
+        ?int $metadataVersion = null,
+        ?int $changeDate = null,
+        ?int $revision = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $description = null,
+        ?string $contentType = null,
+        ?bool $descEnabled = null,
+        ?int $version = null,
+        ?string $lastEditedBy = null,
+        ?string $creator = null,
+        ?int $createdDate = null,
         array $metadatas = [],
-        ?string $fragment = NULL,
-        ?Acl $acl = NULL
+        ?string $fragment = null,
+        ?Acl $acl = null
     )
     {
         $this->setMetadatas($metadatas);
         $this->acl = $acl;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $uuid) {
+        if (null !== $uuid) {
             $this->setUuid($uuid);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $folderUuid) {
+        if (null !== $folderUuid) {
             $this->setFolderUuid($folderUuid);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $metadataVersion) {
+        if (null !== $metadataVersion) {
             $this->setMetadataVersion($metadataVersion);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $descEnabled) {
+        if (null !== $descEnabled) {
             $this->setDescEnabled($descEnabled);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $lastEditedBy) {
+        if (null !== $lastEditedBy) {
             $this->setLastEditedBy($lastEditedBy);
         }
-        if (NULL !== $creator) {
+        if (null !== $creator) {
             $this->setCreator($creator);
         }
-        if (NULL !== $createdDate) {
+        if (null !== $createdDate) {
             $this->setCreatedDate($createdDate);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

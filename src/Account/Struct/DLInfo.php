@@ -111,29 +111,29 @@ class DLInfo extends ObjectInfo
         string $id = '',
         string $ref = '',
         string $name = '',
-        ?string $displayName = NULL,
-        ?bool $dynamic = NULL,
-        ?string $via = NULL,
-        ?bool $isOwner = NULL,
-        ?bool $isMember = NULL,
+        ?string $displayName = null,
+        ?bool $dynamic = null,
+        ?string $via = null,
+        ?bool $isOwner = null,
+        ?bool $isMember = null,
         array $attrs = []
     )
     {
         parent::__construct($name, $id, $attrs);
         $this->setRef($ref);
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
-        if (NULL !== $via) {
+        if (null !== $via) {
             $this->setVia($via);
         }
-        if (NULL !== $isOwner) {
+        if (null !== $isOwner) {
             $this->setIsOwner($isOwner);
         }
-        if (NULL !== $isMember) {
+        if (null !== $isMember) {
             $this->setIsMember($isMember);
         }
     }

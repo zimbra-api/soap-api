@@ -45,7 +45,7 @@ class AutoProvTaskControlRequest extends SoapRequest
      * @param AutoProvTaskAction $action
      * @return self
      */
-    public function __construct(?AutoProvTaskAction $action = NULL)
+    public function __construct(?AutoProvTaskAction $action = null)
     {
         $this->setAction($action ?? AutoProvTaskAction::STATUS);
     }

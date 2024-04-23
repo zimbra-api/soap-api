@@ -52,7 +52,7 @@ class StatsInfo
      * @param  StatsValues $values
      * @return self
      */
-    public function __construct(string $name = '', ?StatsValues $values = NULL)
+    public function __construct(string $name = '', ?StatsValues $values = null)
     {
         $this->setName($name);
         $this->values = $values;

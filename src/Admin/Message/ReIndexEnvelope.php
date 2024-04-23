@@ -35,7 +35,7 @@ class ReIndexEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ReIndexBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ReIndexEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ReIndexBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ReIndexBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

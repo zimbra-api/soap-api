@@ -33,7 +33,7 @@ class CreateTaskExceptionBody extends SoapBody
     #[SerializedName('CreateTaskExceptionRequest')]
     #[Type(CreateTaskExceptionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateTaskExceptionBody extends SoapBody
     #[SerializedName('CreateTaskExceptionResponse')]
     #[Type(CreateTaskExceptionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateTaskExceptionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateTaskExceptionRequest $request = NULL, ?CreateTaskExceptionResponse $response = NULL
+        ?CreateTaskExceptionRequest $request = null, ?CreateTaskExceptionResponse $response = null
     )
     {
         parent::__construct($request, $response);

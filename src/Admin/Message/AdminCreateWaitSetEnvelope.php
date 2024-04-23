@@ -35,7 +35,7 @@ class AdminCreateWaitSetEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(AdminCreateWaitSetBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class AdminCreateWaitSetEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?AdminCreateWaitSetBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?AdminCreateWaitSetBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

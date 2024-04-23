@@ -33,7 +33,7 @@ class VerifyCodeResponse extends SoapResponse
     #[SerializedName('success')]
     #[Type('bool')]
     #[XmlAttribute]
-    private $success = FALSE;
+    private $success = false;
 
     /**
      * Constructor
@@ -42,7 +42,7 @@ class VerifyCodeResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        bool $success = FALSE
+        bool $success = false
     )
     {
         $this->setSuccess($success);

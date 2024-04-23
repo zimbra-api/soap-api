@@ -35,7 +35,7 @@ class RevokeRightsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(RevokeRightsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class RevokeRightsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?RevokeRightsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?RevokeRightsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

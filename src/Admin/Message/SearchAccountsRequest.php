@@ -142,39 +142,39 @@ class SearchAccountsRequest extends SoapRequest
      */
     public function __construct(
         string $query = '',
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?string $attrs = NULL,
-        ?string $sortBy = NULL,
-        ?string $types = NULL,
-        ?bool $sortAscending = NULL
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?string $attrs = null,
+        ?string $sortBy = null,
+        ?string $types = null,
+        ?bool $sortAscending = null
     )
     {
         $this->setQuery($query);
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $domain) {
+        if (null !== $domain) {
             $this->setDomain($domain);
         }
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $types) {
+        if (null !== $types) {
             $this->setTypes($types);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
     }

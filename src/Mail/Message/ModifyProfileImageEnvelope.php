@@ -35,7 +35,7 @@ class ModifyProfileImageEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ModifyProfileImageBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ModifyProfileImageEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ModifyProfileImageBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ModifyProfileImageBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

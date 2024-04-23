@@ -33,7 +33,7 @@ class RenameDistributionListBody extends SoapBody
     #[SerializedName('RenameDistributionListRequest')]
     #[Type(RenameDistributionListRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RenameDistributionListBody extends SoapBody
     #[SerializedName('RenameDistributionListResponse')]
     #[Type(RenameDistributionListResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RenameDistributionListBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RenameDistributionListRequest $request = NULL, ?RenameDistributionListResponse $response = NULL
+        ?RenameDistributionListRequest $request = null, ?RenameDistributionListResponse $response = null
     )
     {
         parent::__construct($request, $response);

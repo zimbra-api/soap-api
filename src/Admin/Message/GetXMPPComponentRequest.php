@@ -47,10 +47,10 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(XMPPComponentSelector $component, ?string $attrs = NULL)
+    public function __construct(XMPPComponentSelector $component, ?string $attrs = null)
     {
         $this->setComponent($component);
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

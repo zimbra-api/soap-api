@@ -33,7 +33,7 @@ class ModifyCalendarResourceBody extends SoapBody
     #[SerializedName('ModifyCalendarResourceRequest')]
     #[Type(ModifyCalendarResourceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ModifyCalendarResourceBody extends SoapBody
     #[SerializedName('ModifyCalendarResourceResponse')]
     #[Type(ModifyCalendarResourceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ModifyCalendarResourceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyCalendarResourceRequest $request = NULL, ?ModifyCalendarResourceResponse $response = NULL
+        ?ModifyCalendarResourceRequest $request = null, ?ModifyCalendarResourceResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -52,11 +52,11 @@ class CalendarResourceSelector
      * @return self
      */
     public function __construct(
-        ?CalendarResourceBy $by = NULL, ?string $value = NULL
+        ?CalendarResourceBy $by = null, ?string $value = null
     )
     {
         $this->setBy($by ?? CalendarResourceBy::ID);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

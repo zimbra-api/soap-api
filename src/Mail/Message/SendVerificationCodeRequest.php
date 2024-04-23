@@ -42,9 +42,9 @@ class SendVerificationCodeRequest extends SoapRequest
      * @param  string $address
      * @return self
      */
-    public function __construct(?string $address = NULL)
+    public function __construct(?string $address = null)
     {
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
     }

@@ -35,7 +35,7 @@ class RecordIMAPSessionEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(RecordIMAPSessionBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class RecordIMAPSessionEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?RecordIMAPSessionBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?RecordIMAPSessionBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

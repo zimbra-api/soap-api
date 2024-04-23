@@ -42,7 +42,7 @@ class CreateSystemRetentionPolicyResponse extends SoapResponse
      * @param  Policy $policy
      * @return self
      */
-    public function __construct(?Policy $policy = NULL)
+    public function __construct(?Policy $policy = null)
     {
         $this->policy = $policy;
     }

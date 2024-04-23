@@ -63,16 +63,16 @@ class AccountWithModifications
      * @return self
      */
     public function __construct(
-        ?int $id = NULL,
+        ?int $id = null,
         array $mods = [],
-        ?int $lastChangeId = NULL
+        ?int $lastChangeId = null
     )
     {
         $this->setPendingFolderModifications($mods);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $lastChangeId) {
+        if (null !== $lastChangeId) {
             $this->setLastChangeId($lastChangeId);
         }
     }

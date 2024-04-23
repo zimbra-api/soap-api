@@ -98,8 +98,8 @@ class CalReply extends RecurIdInfo
         int $sequence = 0,
         int $date = 0,
         string $attendee = '',
-        ?string $sentBy = NULL,
-        ?ParticipationStatus $partStat = NULL
+        ?string $sentBy = null,
+        ?ParticipationStatus $partStat = null
     )
     {
         parent::__construct($recurrenceRangeType, $recurrenceId);
@@ -107,7 +107,7 @@ class CalReply extends RecurIdInfo
              ->setDate($date)
              ->setAttendee($attendee);
         $this->partStat = $partStat;
-        if (NULL != $sentBy) {
+        if (null != $sentBy) {
             $this->setSentBy($sentBy);
         }
     }

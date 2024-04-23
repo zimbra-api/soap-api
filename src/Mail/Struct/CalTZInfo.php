@@ -121,10 +121,10 @@ class CalTZInfo implements CalTZInfoInterface
         string $id = '',
         int $tzStdOffset = 0,
         int $tzDayOffset = 0,
-        ?TzOnsetInfo $standardTzOnset = NULL,
-        ?TzOnsetInfo $daylightTzOnset = NULL,
-        ?string $standardTZName = NULL,
-        ?string $daylightTZName = NULL
+        ?TzOnsetInfo $standardTzOnset = null,
+        ?TzOnsetInfo $daylightTzOnset = null,
+        ?string $standardTZName = null,
+        ?string $daylightTZName = null
     )
     {
         $this->setId($id)
@@ -132,10 +132,10 @@ class CalTZInfo implements CalTZInfoInterface
              ->setTzDayOffset($tzDayOffset);
         $this->standardTzOnset = $standardTzOnset;
         $this->daylightTzOnset = $daylightTzOnset;
-        if (NULL !== $standardTZName) {
+        if (null !== $standardTZName) {
             $this->setStandardTZName($standardTZName);
         }
-        if (NULL !== $daylightTZName) {
+        if (null !== $daylightTZName) {
             $this->setDaylightTZName($daylightTZName);
         }
     }

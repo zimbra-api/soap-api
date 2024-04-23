@@ -33,7 +33,7 @@ class GetAllXMPPComponentsBody extends SoapBody
     #[SerializedName('GetAllXMPPComponentsRequest')]
     #[Type(GetAllXMPPComponentsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAllXMPPComponentsBody extends SoapBody
     #[SerializedName('GetAllXMPPComponentsResponse')]
     #[Type(GetAllXMPPComponentsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAllXMPPComponentsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAllXMPPComponentsRequest $request = NULL, ?GetAllXMPPComponentsResponse $response = NULL
+        ?GetAllXMPPComponentsRequest $request = null, ?GetAllXMPPComponentsResponse $response = null
     )
     {
         parent::__construct($request, $response);

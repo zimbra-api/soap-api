@@ -41,7 +41,7 @@ class AutoProvTaskControlResponse extends SoapResponse
      * @param AutoProvTaskStatus $status
      * @return self
      */
-    public function __construct(?AutoProvTaskStatus $status = NULL)
+    public function __construct(?AutoProvTaskStatus $status = null)
     {
         $this->status = $status;
     }

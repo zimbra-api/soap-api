@@ -33,7 +33,7 @@ class CreateSearchFolderBody extends SoapBody
     #[SerializedName('CreateSearchFolderRequest')]
     #[Type(CreateSearchFolderRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateSearchFolderBody extends SoapBody
     #[SerializedName('CreateSearchFolderResponse')]
     #[Type(CreateSearchFolderResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateSearchFolderBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateSearchFolderRequest $request = NULL, ?CreateSearchFolderResponse $response = NULL
+        ?CreateSearchFolderRequest $request = null, ?CreateSearchFolderResponse $response = null
     )
     {
         parent::__construct($request, $response);

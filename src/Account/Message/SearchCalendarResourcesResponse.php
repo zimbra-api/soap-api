@@ -92,23 +92,23 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $sortBy = NULL,
-        ?int $offset = NULL,
-        ?bool $more = NULL,
-        ?bool $pagingSupported = NULL,
+        ?string $sortBy = null,
+        ?int $offset = null,
+        ?bool $more = null,
+        ?bool $pagingSupported = null,
         array $calendarResources = []
     )
     {
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if (NULL !== $pagingSupported) {
+        if (null !== $pagingSupported) {
             $this->setPagingSupported($pagingSupported);
         }
         $this->setCalendarResources($calendarResources);

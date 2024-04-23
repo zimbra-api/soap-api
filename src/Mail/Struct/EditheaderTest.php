@@ -110,12 +110,12 @@ class EditheaderTest
      * @return self
      */
     public function __construct(
-        ?MatchType $matchType = NULL,
-        ?bool $count = NULL,
-        ?bool $value = NULL,
-        ?RelationalComparator $relationalComparator = NULL,
-        ?ComparisonComparator $comparator = NULL,
-        ?string $headerName = NULL,
+        ?MatchType $matchType = null,
+        ?bool $count = null,
+        ?bool $value = null,
+        ?RelationalComparator $relationalComparator = null,
+        ?ComparisonComparator $comparator = null,
+        ?string $headerName = null,
         array $headerValue = []
     )
     {
@@ -123,13 +123,13 @@ class EditheaderTest
         $this->matchType = $matchType;
         $this->relationalComparator = $relationalComparator;
         $this->comparator = $comparator;
-        if (NULL !== $count) {
+        if (null !== $count) {
             $this->setCount($count);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $headerName) {
+        if (null !== $headerName) {
             $this->setHeaderName($headerName);
         }
     }

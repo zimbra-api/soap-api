@@ -128,34 +128,34 @@ class NestedSearchConversation
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $num = NULL,
-        ?int $totalSize = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
+        ?string $id = null,
+        ?int $num = null,
+        ?int $totalSize = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
         array $messages = [],
-        ?SearchQueryInfo $queryInfo = NULL
+        ?SearchQueryInfo $queryInfo = null
     )
     {
         $this->setMessages($messages);
         $this->queryInfo = $queryInfo;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $num) {
+        if (null !== $num) {
             $this->setNum($num);
         }
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
     }

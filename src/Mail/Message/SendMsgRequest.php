@@ -140,31 +140,31 @@ class SendMsgRequest extends SoapRequest
      */
     public function __construct(
         MsgToSend $msg,
-        ?bool $needCalendarSentbyFixup = NULL,
-        ?bool $isCalendarForward = NULL,
-        ?bool $noSaveToSent = NULL,
-        ?bool $fetchSavedMsg = NULL,
-        ?string $sendUid = NULL,
-        ?bool $deliveryReport = NULL
+        ?bool $needCalendarSentbyFixup = null,
+        ?bool $isCalendarForward = null,
+        ?bool $noSaveToSent = null,
+        ?bool $fetchSavedMsg = null,
+        ?string $sendUid = null,
+        ?bool $deliveryReport = null
     )
     {
         $this->setMsg($msg);
-        if (NULL !== $needCalendarSentbyFixup) {
+        if (null !== $needCalendarSentbyFixup) {
             $this->setNeedCalendarSentbyFixup($needCalendarSentbyFixup);
         }
-        if (NULL !== $isCalendarForward) {
+        if (null !== $isCalendarForward) {
             $this->setIsCalendarForward($isCalendarForward);
         }
-        if (NULL !== $noSaveToSent) {
+        if (null !== $noSaveToSent) {
             $this->setNoSaveToSent($noSaveToSent);
         }
-        if (NULL !== $fetchSavedMsg) {
+        if (null !== $fetchSavedMsg) {
             $this->setFetchSavedMsg($fetchSavedMsg);
         }
-        if (NULL !== $sendUid) {
+        if (null !== $sendUid) {
             $this->setSendUid($sendUid);
         }
-        if (NULL !== $deliveryReport) {
+        if (null !== $deliveryReport) {
             $this->setDeliveryReport($deliveryReport);
         }
     }

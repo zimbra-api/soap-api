@@ -33,7 +33,7 @@ class DeleteAlwaysOnClusterBody extends SoapBody
     #[SerializedName('DeleteAlwaysOnClusterRequest')]
     #[Type(DeleteAlwaysOnClusterRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteAlwaysOnClusterBody extends SoapBody
     #[SerializedName('DeleteAlwaysOnClusterResponse')]
     #[Type(DeleteAlwaysOnClusterResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteAlwaysOnClusterRequest $request = NULL, ?DeleteAlwaysOnClusterResponse $response = NULL
+        ?DeleteAlwaysOnClusterRequest $request = null, ?DeleteAlwaysOnClusterResponse $response = null
     )
     {
         parent::__construct($request, $response);

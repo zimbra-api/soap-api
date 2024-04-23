@@ -33,7 +33,7 @@ class SetServerOfflineBody extends SoapBody
     #[SerializedName('SetServerOfflineRequest')]
     #[Type(SetServerOfflineRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SetServerOfflineBody extends SoapBody
     #[SerializedName('SetServerOfflineResponse')]
     #[Type(SetServerOfflineResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SetServerOfflineBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SetServerOfflineRequest $request = NULL, ?SetServerOfflineResponse $response = NULL
+        ?SetServerOfflineRequest $request = null, ?SetServerOfflineResponse $response = null
     )
     {
         parent::__construct($request, $response);

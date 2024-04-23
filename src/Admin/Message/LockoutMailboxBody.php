@@ -33,7 +33,7 @@ class LockoutMailboxBody extends SoapBody
     #[SerializedName('LockoutMailboxRequest')]
     #[Type(LockoutMailboxRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class LockoutMailboxBody extends SoapBody
     #[SerializedName('LockoutMailboxResponse')]
     #[Type(LockoutMailboxResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class LockoutMailboxBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?LockoutMailboxRequest $request = NULL, ?LockoutMailboxResponse $response = NULL
+        ?LockoutMailboxRequest $request = null, ?LockoutMailboxResponse $response = null
     )
     {
         parent::__construct($request, $response);

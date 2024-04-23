@@ -80,18 +80,18 @@ class XMPPComponentInfo extends AdminAttrsImpl
     public function __construct(
         string $name = '',
         string $id = '',
-        ?string $domainName = NULL,
-        ?string $serverName = NULL,
+        ?string $domainName = null,
+        ?string $serverName = null,
         array $attrs = []
     )
     {
         parent::__construct($attrs);
         $this->setName($name)
              ->setId($id);
-        if (NULL !== $domainName) {
+        if (null !== $domainName) {
             $this->setDomainName($domainName);
         }
-        if (NULL !== $serverName) {
+        if (null !== $serverName) {
             $this->setServerName($serverName);
         }
     }

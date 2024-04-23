@@ -93,14 +93,14 @@ class LinkInfo
         string $uuid = '',
         string $name = '',
         string $defaultView = '',
-        ?string $rights = NULL,
+        ?string $rights = null,
     )
     {
         $this->setId($id)
              ->setUuid($uuid)
              ->setName($name)
              ->setDefaultView($defaultView);
-        if (NULL !== $rights) {
+        if (null !== $rights) {
             $this->setRights($rights);
         }
     }

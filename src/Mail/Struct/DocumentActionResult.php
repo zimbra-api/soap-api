@@ -72,21 +72,21 @@ class DocumentActionResult extends ActionResult
     public function __construct(
         string $id = '',
         string $operation = '',
-        ?string $nonExistentIds = NULL,
-        ?string $newlyCreatedIds = NULL,
-        ?string $zimbraId = NULL,
-        ?string $displayName = NULL,
-        ?string $accessKey = NULL
+        ?string $nonExistentIds = null,
+        ?string $newlyCreatedIds = null,
+        ?string $zimbraId = null,
+        ?string $displayName = null,
+        ?string $accessKey = null
     )
     {
         parent::__construct($id, $operation, $nonExistentIds, $newlyCreatedIds);
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
     }

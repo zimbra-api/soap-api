@@ -83,24 +83,24 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
      * @return self
      */
     public function __construct(
-        ?DistributionList $dl = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?bool $sortAscending = NULL,
-        ?string $attrs = NULL
+        ?DistributionList $dl = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $sortAscending = null,
+        ?string $attrs = null
     )
     {
         $this->dl = $dl;
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

@@ -51,10 +51,10 @@ class ServerSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(?ServerBy $by = NULL, ?string $value = NULL)
+    public function __construct(?ServerBy $by = null, ?string $value = null)
     {
         $this->setBy($by ?? ServerBy::NAME);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

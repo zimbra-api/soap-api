@@ -33,7 +33,7 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
     #[SerializedName('GetAggregateQuotaUsageOnServerRequest')]
     #[Type(GetAggregateQuotaUsageOnServerRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
     #[SerializedName('GetAggregateQuotaUsageOnServerResponse')]
     #[Type(GetAggregateQuotaUsageOnServerResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,8 +54,8 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAggregateQuotaUsageOnServerRequest $request = NULL,
-        ?GetAggregateQuotaUsageOnServerResponse $response = NULL
+        ?GetAggregateQuotaUsageOnServerRequest $request = null,
+        ?GetAggregateQuotaUsageOnServerResponse $response = null
     )
     {
         parent::__construct($request, $response);

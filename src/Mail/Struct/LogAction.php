@@ -53,12 +53,12 @@ class LogAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?LoggingLevel $level = NULL, ?string $content = NULL
+        ?int $index = null, ?LoggingLevel $level = null, ?string $content = null
     )
     {
     	parent::__construct($index);
         $this->level = $level;
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

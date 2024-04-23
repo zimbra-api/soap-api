@@ -33,7 +33,7 @@ class SyncGalBody extends SoapBody
     #[SerializedName('SyncGalRequest')]
     #[Type(SyncGalRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SyncGalBody extends SoapBody
     #[SerializedName('SyncGalResponse')]
     #[Type(SyncGalResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SyncGalBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SyncGalRequest $request = NULL, ?SyncGalResponse $response = NULL
+        ?SyncGalRequest $request = null, ?SyncGalResponse $response = null
     )
     {
         parent::__construct($request, $response);

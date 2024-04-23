@@ -35,7 +35,7 @@ class DismissCalendarItemAlarmEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DismissCalendarItemAlarmBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DismissCalendarItemAlarmEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DismissCalendarItemAlarmBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DismissCalendarItemAlarmBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

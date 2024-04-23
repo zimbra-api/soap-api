@@ -67,15 +67,15 @@ class TagActionInfo
      */
     public function __construct(
         string $successes = '',
-        ?string $successNames = NULL,
-        ?string $operation = NULL
+        ?string $successNames = null,
+        ?string $operation = null
     )
     {
         $this->setSuccesses($successes);
-        if (NULL !== $successNames) {
+        if (null !== $successNames) {
             $this->setSuccessNames($successNames);
         }
-        if (NULL !== $operation) {
+        if (null !== $operation) {
             $this->setOperation($operation);
         }
     }

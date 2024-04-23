@@ -33,7 +33,7 @@ class CountAccountBody extends SoapBody
     #[SerializedName('CountAccountRequest')]
     #[Type(CountAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CountAccountBody extends SoapBody
     #[SerializedName('CountAccountResponse')]
     #[Type(CountAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CountAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CountAccountRequest $request = NULL, ?CountAccountResponse $response = NULL
+        ?CountAccountRequest $request = null, ?CountAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -40,9 +40,9 @@ class Id
      * @param  string $id
      * @return self
      */
-    public function __construct(?string $id = NULL)
+    public function __construct(?string $id = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

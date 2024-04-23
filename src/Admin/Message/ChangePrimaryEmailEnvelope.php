@@ -35,7 +35,7 @@ class ChangePrimaryEmailEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ChangePrimaryEmailBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ChangePrimaryEmailEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ChangePrimaryEmailBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ChangePrimaryEmailBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

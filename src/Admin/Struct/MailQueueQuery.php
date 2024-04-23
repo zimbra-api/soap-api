@@ -77,15 +77,15 @@ class MailQueueQuery
      * @return self
      */
     public function __construct(
-        QueueQuery $query, string $name = '', ?bool $scan = NULL, ?int $wait = NULL
+        QueueQuery $query, string $name = '', ?bool $scan = null, ?int $wait = null
     )
     {
         $this->setQuery($query)
              ->setQueueName($name);
-        if (NULL !== $scan) {
+        if (null !== $scan) {
             $this->setScan($scan);
         }
-        if (NULL !== $wait) {
+        if (null !== $wait) {
             $this->setWaitSeconds($wait);
         }
     }

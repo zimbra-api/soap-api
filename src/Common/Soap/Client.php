@@ -12,7 +12,10 @@ namespace Zimbra\Common\Soap;
 
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\{
-    RequestFactoryInterface, RequestInterface, ResponseInterface, StreamFactoryInterface
+    RequestFactoryInterface,
+    RequestInterface,
+    ResponseInterface,
+    StreamFactoryInterface
 };
 
 /**
@@ -59,21 +62,21 @@ class Client implements ClientInterface
      * 
      * @var string
      */
-    private ?string $cookie = NULL;
+    private ?string $cookie = null;
 
     /**
      * Http request message
      * 
      * @var RequestInterface
      */
-    private ?RequestInterface $httpRequest = NULL;
+    private ?RequestInterface $httpRequest = null;
 
     /**
      * Http response message
      * 
      * @var ResponseInterface
      */
-    private ?ResponseInterface $httpResponse = NULL;
+    private ?ResponseInterface $httpResponse = null;
 
     /**
      * Constructor
@@ -84,10 +87,10 @@ class Client implements ClientInterface
      * @param StreamFactoryInterface $streamFactory
      */
     public function __construct(
-        private string $serviceUrl,
-        private HttpClientInterface $httpClient,
-        private RequestFactoryInterface $requestFactory,
-        private StreamFactoryInterface $streamFactory
+        private readonly string $serviceUrl,
+        private readonly HttpClientInterface $httpClient,
+        private readonly RequestFactoryInterface $requestFactory,
+        private readonly StreamFactoryInterface $streamFactory
     )
     {
     }
@@ -147,7 +150,7 @@ class Client implements ClientInterface
 
     private static function getOriginatingIp(): ?string
     {
-        static $ip = NULL;
+        static $ip = null;
         if (empty($ip) && !empty($_SERVER)) {
             foreach(self::$serverOriginatingIpHeaders as $header) {
                 if (!empty($_SERVER[$header])) {

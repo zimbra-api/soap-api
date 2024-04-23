@@ -42,7 +42,7 @@ class ApplyFilterRulesResponse extends SoapResponse
      * @param  IdsAttr $msgIds
      * @return self
      */
-    public function __construct(?IdsAttr $msgIds = NULL)
+    public function __construct(?IdsAttr $msgIds = null)
     {
         $this->msgIds = $msgIds;
     }

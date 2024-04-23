@@ -66,15 +66,15 @@ class DeleteheaderAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?bool $last = NULL, ?int $offset = NULL, ?EditheaderTest $test = NULL
+        ?int $index = null, ?bool $last = null, ?int $offset = null, ?EditheaderTest $test = null
     )
     {
     	parent::__construct($index);
         $this->test = $test;
-        if (NULL !== $last) {
+        if (null !== $last) {
             $this->setLast($last);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
     }

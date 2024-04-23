@@ -35,7 +35,7 @@ class ModifyDistributionListEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ModifyDistributionListBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ModifyDistributionListEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ModifyDistributionListBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ModifyDistributionListBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

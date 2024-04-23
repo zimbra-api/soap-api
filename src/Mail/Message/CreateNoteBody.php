@@ -33,7 +33,7 @@ class CreateNoteBody extends SoapBody
     #[SerializedName('CreateNoteRequest')]
     #[Type(CreateNoteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateNoteBody extends SoapBody
     #[SerializedName('CreateNoteResponse')]
     #[Type(CreateNoteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateNoteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateNoteRequest $request = NULL, ?CreateNoteResponse $response = NULL
+        ?CreateNoteRequest $request = null, ?CreateNoteResponse $response = null
     )
     {
         parent::__construct($request, $response);

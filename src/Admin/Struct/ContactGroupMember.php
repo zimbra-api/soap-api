@@ -65,7 +65,7 @@ class ContactGroupMember
      * @return self
      */
     public function __construct(
-        string $type = '', string $value = '', ?ContactInfo $contact = NULL
+        string $type = '', string $value = '', ?ContactInfo $contact = null
     )
     {
         $this->setType($type)

@@ -42,7 +42,7 @@ class ContactActionResponse extends SoapResponse
      * @param  FolderActionResult $action
      * @return self
      */
-    public function __construct(?FolderActionResult $action = NULL)
+    public function __construct(?FolderActionResult $action = null)
     {
         $this->action = $action;
         if ($action instanceof FolderActionResult) {

@@ -33,7 +33,7 @@ class CreateAccountBody extends SoapBody
     #[SerializedName('CreateAccountRequest')]
     #[Type(CreateAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateAccountBody extends SoapBody
     #[SerializedName('CreateAccountResponse')]
     #[Type(CreateAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateAccountRequest $request = NULL, ?CreateAccountResponse $response = NULL
+        ?CreateAccountRequest $request = null, ?CreateAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

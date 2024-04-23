@@ -11,7 +11,13 @@
 namespace Zimbra\Common\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, Exclude, SerializedName, SkipWhenEmpty, Type, VirtualProperty, XmlAttribute
+    Accessor,
+    Exclude,
+    SerializedName,
+    SkipWhenEmpty,
+    Type,
+    VirtualProperty,
+    XmlAttribute
 };
 use Zimbra\Common\Enum\InterestType;
 
@@ -88,22 +94,22 @@ class WaitSetAddSpec
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $id = NULL,
-        ?string $token = NULL,
-        ?string $interests = NULL
+        ?string $name = null,
+        ?string $id = null,
+        ?string $token = null,
+        ?string $interests = null
     )
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $interests) {
+        if (null !== $interests) {
             $this->setInterests($interests);
         }
     }
@@ -182,8 +188,11 @@ class WaitSetAddSpec
      */
     public function setInterests(string $interests): self
     {
-        $types = array_filter(explode(',', $interests), static fn ($type) => InterestType::tryFrom($type));
-        $this->interests = !empty($types) ? implode(',', array_unique($types)) : NULL;
+        $types = array_filter(
+            explode(',', $interests),
+            static fn ($type) => InterestType::tryFrom($type)
+        );
+        $this->interests = !empty($types) ? implode(',', array_unique($types)) : null;
         return $this;
     }
 
@@ -210,11 +219,16 @@ class WaitSetAddSpec
     {
         $this->folderInterests = [];
         if (is_array($folderInterests)) {
-            $folderInterests = array_map(static fn ($folderId) => (int) $folderId, $folderInterests);
+            $folderInterests = array_map(
+                static fn ($folderId) => (int) $folderId, $folderInterests
+            );
             $this->folderInterests = array_unique($folderInterests);
         }
         else {
-            $folderInterests = array_map(static fn ($folderId) => (int) $folderId, explode(',', $folderInterests));
+            $folderInterests = array_map(
+                static fn ($folderId) => (int) $folderId,
+                explode(',', $folderInterests)
+            );
             $this->folderInterests = array_unique($folderInterests);
         }
         return $this;
@@ -232,6 +246,6 @@ class WaitSetAddSpec
     #[XmlAttribute]
     public function getFolderInterests(): ?string
     {
-        return !empty($this->folderInterests) ? implode(',', $this->folderInterests) : NULL;
+        return !empty($this->folderInterests) ? implode(',', $this->folderInterests) : null;
     }
 }

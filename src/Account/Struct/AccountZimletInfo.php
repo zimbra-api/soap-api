@@ -68,9 +68,9 @@ class AccountZimletInfo implements ZimletInterface
      * @return self
      */
     public function __construct(
-        ?AccountZimletContext $zimletContext = NULL,
-        ?AccountZimletDesc $zimlet = NULL,
-        ?AccountZimletConfigInfo $zimletConfig = NULL
+        ?AccountZimletContext $zimletContext = null,
+        ?AccountZimletDesc $zimlet = null,
+        ?AccountZimletConfigInfo $zimletConfig = null
     )
     {
         $this->zimletContext = $zimletContext;

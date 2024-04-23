@@ -33,7 +33,7 @@ class DumpSessionsBody extends SoapBody
     #[SerializedName('DumpSessionsRequest')]
     #[Type(DumpSessionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DumpSessionsBody extends SoapBody
     #[SerializedName('DumpSessionsResponse')]
     #[Type(DumpSessionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DumpSessionsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL
+        ?DumpSessionsRequest $request = null, ?DumpSessionsResponse $response = null
     )
     {
         parent::__construct($request, $response);

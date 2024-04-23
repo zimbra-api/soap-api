@@ -51,12 +51,12 @@ class ICalContent
      * @param string $ical
      * @return self
      */
-    public function __construct(?string $id = NULL, ?string $ical = NULL)
+    public function __construct(?string $id = null, ?string $ical = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $ical) {
+        if (null !== $ical) {
             $this->setIcal($ical);
         }
     }

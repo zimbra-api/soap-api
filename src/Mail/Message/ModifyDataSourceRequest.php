@@ -36,7 +36,7 @@ class ModifyDataSourceRequest extends SoapRequest
      * @param  MailDataSource $dataSource
      * @return self
      */
-    public function __construct(?MailDataSource $dataSource = NULL)
+    public function __construct(?MailDataSource $dataSource = null)
     {
         $this->imapDataSource = 
         $this->pop3DataSource = 
@@ -45,7 +45,7 @@ class ModifyDataSourceRequest extends SoapRequest
         $this->rssDataSource = 
         $this->galDataSource = 
         $this->calDataSource = 
-        $this->unknownDataSource = NULL;
+        $this->unknownDataSource = null;
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);
         }

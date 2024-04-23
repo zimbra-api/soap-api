@@ -72,12 +72,12 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?LoggerInfo $logger = NULL, ?AccountSelector $account = NULL, ?string $id = NULL
+        ?LoggerInfo $logger = null, ?AccountSelector $account = null, ?string $id = null
     )
     {
         $this->logger = $logger;
         $this->account = $account;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

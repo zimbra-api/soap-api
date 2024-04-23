@@ -33,7 +33,7 @@ class GetDocumentShareURLBody extends SoapBody
     #[SerializedName('GetDocumentShareURLRequest')]
     #[Type(GetDocumentShareURLRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetDocumentShareURLBody extends SoapBody
     #[SerializedName('GetDocumentShareURLResponse')]
     #[Type(GetDocumentShareURLResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetDocumentShareURLBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDocumentShareURLRequest $request = NULL, ?GetDocumentShareURLResponse $response = NULL
+        ?GetDocumentShareURLRequest $request = null, ?GetDocumentShareURLResponse $response = null
     )
     {
         parent::__construct($request, $response);

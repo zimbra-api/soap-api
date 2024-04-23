@@ -33,7 +33,7 @@ class AutoProvAccountBody extends SoapBody
     #[SerializedName('AutoProvAccountRequest')]
     #[Type(AutoProvAccountRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AutoProvAccountBody extends SoapBody
     #[SerializedName('AutoProvAccountResponse')]
     #[Type(AutoProvAccountResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AutoProvAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AutoProvAccountRequest $request = NULL, ?AutoProvAccountResponse $response = NULL
+        ?AutoProvAccountRequest $request = null, ?AutoProvAccountResponse $response = null
     )
     {
         parent::__construct($request, $response);

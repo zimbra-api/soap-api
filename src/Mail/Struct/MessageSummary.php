@@ -101,23 +101,23 @@ class MessageSummary extends MessageCommon
      */
     public function __construct(
         string $id = '',
-        ?int $autoSendTime = NULL,
+        ?int $autoSendTime = null,
         array $emails = [],
-        ?string $subject = NULL,
-        ?string $fragment = NULL,
-        ?InviteInfo $invite = NULL
+        ?string $subject = null,
+        ?string $fragment = null,
+        ?InviteInfo $invite = null
     )
     {
         $this->setId($id)
              ->setEmails($emails);
         $this->invite = $invite;
-        if (NULL !== $autoSendTime) {
+        if (null !== $autoSendTime) {
             $this->setAutoSendTime($autoSendTime);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

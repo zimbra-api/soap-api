@@ -33,7 +33,7 @@ class ClearCookieBody extends SoapBody
     #[SerializedName('ClearCookieRequest')]
     #[Type(ClearCookieRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ClearCookieBody extends SoapBody
     #[SerializedName('ClearCookieResponse')]
     #[Type(ClearCookieResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ClearCookieBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ClearCookieRequest $request = NULL, ?ClearCookieResponse $response = NULL
+        ?ClearCookieRequest $request = null, ?ClearCookieResponse $response = null
     )
     {
         parent::__construct($request, $response);

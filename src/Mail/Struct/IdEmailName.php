@@ -65,18 +65,18 @@ class IdEmailName
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $email = NULL,
-        ?string $name = NULL
+        ?string $id = null,
+        ?string $email = null,
+        ?string $name = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $email) {
+        if (null !== $email) {
             $this->setEmail($email);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

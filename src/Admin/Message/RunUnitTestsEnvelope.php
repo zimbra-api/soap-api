@@ -35,7 +35,7 @@ class RunUnitTestsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(RunUnitTestsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class RunUnitTestsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?RunUnitTestsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?RunUnitTestsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

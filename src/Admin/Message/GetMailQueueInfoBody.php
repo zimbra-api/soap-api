@@ -33,7 +33,7 @@ class GetMailQueueInfoBody extends SoapBody
     #[SerializedName('GetMailQueueInfoRequest')]
     #[Type(GetMailQueueInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetMailQueueInfoBody extends SoapBody
     #[SerializedName('GetMailQueueInfoResponse')]
     #[Type(GetMailQueueInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetMailQueueInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetMailQueueInfoRequest $request = NULL, ?GetMailQueueInfoResponse $response = NULL
+        ?GetMailQueueInfoRequest $request = null, ?GetMailQueueInfoResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -67,12 +67,12 @@ class CheckGalConfigResponse extends SoapResponse
      */
     public function __construct(
         string $code = '',
-        ?string $message = NULL,
+        ?string $message = null,
         array $galContacts = []
     )
     {
         $this->setCode($code);
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
         $this->setGalContacts($galContacts);

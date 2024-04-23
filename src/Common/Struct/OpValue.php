@@ -51,10 +51,10 @@ class OpValue
      * @param  string $value
      * @return self
      */
-    public function __construct(string $op = '+', ?string $value = NULL)
+    public function __construct(string $op = '+', ?string $value = null)
     {
         $this->setOp($op);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

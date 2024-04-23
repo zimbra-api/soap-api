@@ -42,7 +42,7 @@ class CreateTagResponse extends SoapResponse
      * @param  TagInfo $tag
      * @return self
      */
-    public function __construct(?TagInfo $tag = NULL)
+    public function __construct(?TagInfo $tag = null)
     {
         $this->tag = $tag;
     }

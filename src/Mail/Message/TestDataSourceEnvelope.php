@@ -35,7 +35,7 @@ class TestDataSourceEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(TestDataSourceBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class TestDataSourceEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?TestDataSourceBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?TestDataSourceBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

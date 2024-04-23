@@ -115,30 +115,30 @@ class CreateCalendarItemResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $calItemId = NULL,
-        ?string $deprecatedApptId = NULL,
-        ?string $calInvId = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Id $msg = NULL,
-        ?CalEcho $echo = NULL
+        ?string $calItemId = null,
+        ?string $deprecatedApptId = null,
+        ?string $calInvId = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Id $msg = null,
+        ?CalEcho $echo = null
     )
     {
         $this->msg = $msg;
         $this->echo = $echo;
-        if (NULL !== $calItemId) {
+        if (null !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
-        if (NULL !== $deprecatedApptId) {
+        if (null !== $deprecatedApptId) {
             $this->setDeprecatedApptId($deprecatedApptId);
         }
-        if (NULL !== $calInvId) {
+        if (null !== $calInvId) {
             $this->setCalInvId($calInvId);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
     }

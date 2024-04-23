@@ -41,9 +41,9 @@ class ModifyProfileImageResponse extends SoapResponse
      * @param  int  $itemId
      * @return self
      */
-    public function __construct(?int $itemId = NULL)
+    public function __construct(?int $itemId = null)
     {
-        if (NULL !== $itemId) {
+        if (null !== $itemId) {
             $this->setItemId($itemId);
         }
     }

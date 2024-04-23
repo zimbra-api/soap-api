@@ -51,12 +51,12 @@ class LimitedQuery
      * @param  string $value
      * @return self
      */
-    public function __construct(?int $limit = NULL, ?string $value = NULL)
+    public function __construct(?int $limit = null, ?string $value = null)
     {
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

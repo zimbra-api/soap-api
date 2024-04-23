@@ -44,10 +44,10 @@ class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInte
      * @param array $keyValuePairs
      * @return self
      */
-    public function __construct(?string $section = NULL, array $keyValuePairs = [])
+    public function __construct(?string $section = null, array $keyValuePairs = [])
     {
         parent::__construct($keyValuePairs);
-        if (NULL !== $section) {
+        if (null !== $section) {
             $this->setSection($section);
         }
     }

@@ -54,12 +54,12 @@ class GeoInfo implements GeoInfoInterface
      * @param string $longitude
      * @return self
      */
-    public function __construct(?string $latitude = NULL, ?string $longitude = NULL)
+    public function __construct(?string $latitude = null, ?string $longitude = null)
     {
-        if (NULL !== $latitude) {
+        if (null !== $latitude) {
             $this->setLatitude($latitude);
         }
-        if (NULL !== $longitude) {
+        if (null !== $longitude) {
             $this->setLongitude($longitude);
         }
     }

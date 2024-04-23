@@ -63,12 +63,12 @@ class EffectiveRightsTargetSelector
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?TargetBy $by = NULL, ?string $value = NULL
+        ?TargetType $type = null, ?TargetBy $by = null, ?string $value = null
     )
     {
         $this->setType($type ?? TargetType::ACCOUNT);
         $this->by = $by;
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

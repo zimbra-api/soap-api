@@ -53,10 +53,10 @@ class SaveDraftResponse extends SoapResponse
      * @param  MessageInfo $message
      * @return self
      */
-    public function __construct(?MessageInfo $message = NULL)
+    public function __construct(?MessageInfo $message = null)
     {
-        $this->msgMessage = $this->chatMessage = NULL;
-        if (NULL !== $message) {
+        $this->msgMessage = $this->chatMessage = null;
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

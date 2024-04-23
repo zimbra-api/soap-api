@@ -158,17 +158,17 @@ class FolderActionSelector extends ActionSelector
      */
     public function __construct(
         string $operation = '',
-        ?string $ids = NULL,
-        ?bool $recursive = NULL,
-        ?string $url = NULL,
-        ?bool $excludeFreeBusy = NULL,
-        ?string $zimbraId = NULL,
-        ?GranteeType $grantType = NULL,
-        ?string $view = NULL,
-        ?ActionGrantSelector $grant = NULL,
+        ?string $ids = null,
+        ?bool $recursive = null,
+        ?string $url = null,
+        ?bool $excludeFreeBusy = null,
+        ?string $zimbraId = null,
+        ?GranteeType $grantType = null,
+        ?string $view = null,
+        ?ActionGrantSelector $grant = null,
         ?array $grants = [],
-        ?RetentionPolicy $retentionPolicy = NULL,
-        ?int $numDays = NULL
+        ?RetentionPolicy $retentionPolicy = null,
+        ?int $numDays = null
     )
     {
         parent::__construct($operation, $ids);
@@ -176,22 +176,22 @@ class FolderActionSelector extends ActionSelector
         $this->grantType = $grantType;
         $this->grant = $grant;
         $this->retentionPolicy = $retentionPolicy;
-        if (NULL !== $recursive) {
+        if (null !== $recursive) {
             $this->setRecursive($recursive);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $excludeFreeBusy) {
+        if (null !== $excludeFreeBusy) {
             $this->setExcludeFreebusy($excludeFreeBusy);
         }
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $view) {
+        if (null !== $view) {
             $this->setView($view);
         }
-        if (NULL !== $numDays) {
+        if (null !== $numDays) {
             $this->setNumDays($numDays);
         }
     }

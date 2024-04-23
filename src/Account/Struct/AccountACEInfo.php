@@ -125,34 +125,34 @@ class AccountACEInfo
      * @return self
      */
     public function __construct(
-        ?GranteeType $granteeType = NULL,
+        ?GranteeType $granteeType = null,
         string $right = '',
-        ?string $zimbraId = NULL,
-        ?string $displayName = NULL,
-        ?string $accessKey = NULL,
-        ?string $password = NULL,
-        ?bool $deny = NULL,
-        ?bool $checkGranteeType = NULL
+        ?string $zimbraId = null,
+        ?string $displayName = null,
+        ?string $accessKey = null,
+        ?string $password = null,
+        ?bool $deny = null,
+        ?bool $checkGranteeType = null
     )
     {
         $this->setGranteeType($granteeType ?? GranteeType::ALL)
              ->setRight($right);
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $deny) {
+        if (null !== $deny) {
             $this->setDeny($deny);
         }
-        if (NULL !== $checkGranteeType) {
+        if (null !== $checkGranteeType) {
             $this->setCheckGranteeType($checkGranteeType);
         }
     }

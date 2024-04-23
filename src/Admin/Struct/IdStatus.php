@@ -52,12 +52,12 @@ class IdStatus
      * @param  string $status
      * @return self
      */
-    public function __construct(?string $id = NULL, ?string $status = NULL)
+    public function __construct(?string $id = null, ?string $status = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $status) {
+        if (null !== $status) {
             $this->setStatus($status);
         }
     }

@@ -35,7 +35,7 @@ class LockoutMailboxEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(LockoutMailboxBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class LockoutMailboxEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?LockoutMailboxBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?LockoutMailboxBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

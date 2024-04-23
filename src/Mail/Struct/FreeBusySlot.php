@@ -164,44 +164,44 @@ class FreeBusySlot
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $id = NULL,
-        ?string $subject = NULL,
-        ?string $location = NULL,
-        ?bool $isMeeting = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $isException = NULL,
-        ?bool $isReminderSet = NULL,
-        ?bool $isPrivate = NULL,
-        ?bool $hasPermission = NULL
+        ?string $id = null,
+        ?string $subject = null,
+        ?string $location = null,
+        ?bool $isMeeting = null,
+        ?bool $isRecurring = null,
+        ?bool $isException = null,
+        ?bool $isReminderSet = null,
+        ?bool $isPrivate = null,
+        ?bool $hasPermission = null
     )
     {
         $this->setStartTime($startTime)
              ->setEndTime($endTime);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
-        if (NULL !== $isMeeting) {
+        if (null !== $isMeeting) {
             $this->setMeeting($isMeeting);
         }
-        if (NULL !== $isRecurring) {
+        if (null !== $isRecurring) {
             $this->setRecurring($isRecurring);
         }
-        if (NULL !== $isException) {
+        if (null !== $isException) {
             $this->setException($isException);
         }
-        if (NULL !== $isReminderSet) {
+        if (null !== $isReminderSet) {
             $this->setReminderSet($isReminderSet);
         }
-        if (NULL !== $isPrivate) {
+        if (null !== $isPrivate) {
             $this->setPrivate($isPrivate);
         }
-        if (NULL !== $hasPermission) {
+        if (null !== $hasPermission) {
             $this->setHasPermission($hasPermission);
         }
     }

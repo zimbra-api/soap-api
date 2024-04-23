@@ -128,7 +128,7 @@ class CreateDataSourceResponse extends SoapResponse
      * @param  Id $dataSource
      * @return self
      */
-    public function __construct(?Id $dataSource = NULL)
+    public function __construct(?Id $dataSource = null)
     {
         $this->imapDataSource = 
         $this->pop3DataSource = 
@@ -137,7 +137,7 @@ class CreateDataSourceResponse extends SoapResponse
         $this->rssDataSource = 
         $this->galDataSource = 
         $this->calDataSource = 
-        $this->unknownDataSource = NULL;
+        $this->unknownDataSource = null;
         if ($dataSource instanceof ImapDataSourceId) {
             $this->setImapDataSource($dataSource);
         }

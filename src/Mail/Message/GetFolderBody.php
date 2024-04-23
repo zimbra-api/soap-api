@@ -33,7 +33,7 @@ class GetFolderBody extends SoapBody
     #[SerializedName('GetFolderRequest')]
     #[Type(GetFolderRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetFolderBody extends SoapBody
     #[SerializedName('GetFolderResponse')]
     #[Type(GetFolderResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetFolderBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetFolderRequest $request = NULL, ?GetFolderResponse $response = NULL
+        ?GetFolderRequest $request = null, ?GetFolderResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -51,10 +51,10 @@ class DomainSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(?DomainBy $by = NULL, ?string $value = NULL)
+    public function __construct(?DomainBy $by = null, ?string $value = null)
     {
         $this->setBy($by ?? DomainBy::NAME);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

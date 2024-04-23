@@ -53,7 +53,7 @@ class FreeBusyUserStatus
      * @param  FreeBusyStatus $freebusyStatus
      * @return self
      */
-    public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = NULL)
+    public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = null)
     {
         $this->setName($name)
              ->setFreebusyStatus($freebusyStatus ?? FreeBusyStatus::FREE);

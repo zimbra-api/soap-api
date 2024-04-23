@@ -60,16 +60,16 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
      * @return self
      */
     public function __construct(
-        ?DomainSelector $domain = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $attrs = NULL
+        ?DomainSelector $domain = null,
+        ?bool $applyConfig = null,
+        ?string $attrs = null
     )
     {
         $this->domain = $domain;
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

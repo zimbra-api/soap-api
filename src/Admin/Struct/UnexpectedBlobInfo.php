@@ -80,7 +80,7 @@ class UnexpectedBlobInfo
         int $volumeId = 0,
         string $path = '',
         int $fileSize = 0,
-        bool $external = FALSE
+        bool $external = false
     )
     {
         $this->setVolumeId($volumeId)

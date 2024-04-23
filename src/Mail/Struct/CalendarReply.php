@@ -102,8 +102,8 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
         int $seq = 0,
         int $date = 0,
         string $attendee = '',
-        ?string $sentBy = NULL,
-        ?ParticipationStatus $partStat = NULL
+        ?string $sentBy = null,
+        ?ParticipationStatus $partStat = null
     )
     {
         parent::__construct($recurrenceRangeType, $recurrenceId);
@@ -111,7 +111,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
              ->setDate($date)
              ->setAttendee($attendee);
         $this->partStat = $partStat;
-        if (NULL != $sentBy) {
+        if (null != $sentBy) {
             $this->setSentBy($sentBy);
         }
     }

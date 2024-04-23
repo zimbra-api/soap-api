@@ -164,42 +164,42 @@ class PartInfo implements PartInfoInterface
     public function __construct(
         string $part = '',
         string $contentType = '',
-        ?int $size = NULL,
-        ?string $contentDisposition = NULL,
-        ?string $contentFilename = NULL,
-        ?string $contentId = NULL,
-        ?string $location = NULL,
-        ?bool $body = NULL,
-        ?bool $truncatedContent = NULL,
-        ?string $content = NULL,
+        ?int $size = null,
+        ?string $contentDisposition = null,
+        ?string $contentFilename = null,
+        ?string $contentId = null,
+        ?string $location = null,
+        ?bool $body = null,
+        ?bool $truncatedContent = null,
+        ?string $content = null,
         array $mimeParts = []
     )
     {
         $this->setPart($part)
              ->setContentType($contentType)
              ->setMimeParts($mimeParts);
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $contentDisposition) {
+        if (null !== $contentDisposition) {
             $this->setContentDisposition($contentDisposition);
         }
-        if (NULL !== $contentFilename) {
+        if (null !== $contentFilename) {
             $this->setContentFilename($contentFilename);
         }
-        if (NULL !== $contentId) {
+        if (null !== $contentId) {
             $this->setContentId($contentId);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
-        if (NULL !== $body) {
+        if (null !== $body) {
             $this->setBody($body);
         }
-        if (NULL !== $truncatedContent) {
+        if (null !== $truncatedContent) {
             $this->setTruncatedContent($truncatedContent);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

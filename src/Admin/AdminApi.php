@@ -103,7 +103,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function addAccountLogger(
-        LoggerInfo $logger, ?AccountSelector $account = NULL, ?string $id = NULL
+        LoggerInfo $logger, ?AccountSelector $account = null, ?string $id = null
     ): ?Message\AddAccountLoggerResponse
     {
         return $this->invoke(new Message\AddAccountLoggerRequest(
@@ -139,7 +139,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $name,
         string $domain,
         GalMode $type,
-        ?string $folder = NULL,
+        ?string $folder = null,
         array $attrs = []
     ): ?Message\AddGalSyncDataSourceResponse
     {
@@ -152,7 +152,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function adminCreateWaitSet(
-        string $defaultInterests, ?bool $allAccounts = NULL, array $accounts = []
+        string $defaultInterests, ?bool $allAccounts = null, array $accounts = []
     ): ?Message\AdminCreateWaitSetResponse
     {
         return $this->invoke(new Message\AdminCreateWaitSetRequest(
@@ -174,10 +174,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     public function adminWaitSet(
         string $waitSetId,
         string $lastKnownSeqNo,
-        ?bool $block = NULL,
-        ?bool $expand = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $timeout = NULL,
+        ?bool $block = null,
+        ?bool $expand = null,
+        ?string $defaultInterests = null,
+        ?int $timeout = null,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
@@ -200,14 +200,14 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function auth(
-        ?string $name = NULL,
-        ?string $password = NULL,
-        ?string $authToken = NULL,
-        ?AccountSelector $account = NULL,
-        ?string $virtualHost = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL
+        ?string $name = null,
+        ?string $password = null,
+        ?string $authToken = null,
+        ?AccountSelector $account = null,
+        ?string $virtualHost = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null
     ): ?Message\AuthResponse
     {
         return $this->invoke(new Message\AuthRequest(
@@ -227,7 +227,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function authByToken(string $authToken): ?Message\AuthResponse
     {
-        return $this->auth(NULL, NULL, $authToken);
+        return $this->auth(null, null, $authToken);
     }
 
     /**
@@ -236,9 +236,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     public function autoCompleteGal(
         string $domain,
         string $name,
-        ?GalSearchType $type = NULL,
-        ?string $galAccountId = NULL,
-        ?int $limit = NULL
+        ?GalSearchType $type = null,
+        ?string $galAccountId = null,
+        ?int $limit = null
     ): ?Message\AutoCompleteGalResponse
     {
         return $this->invoke(new Message\AutoCompleteGalRequest(
@@ -252,7 +252,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     public function autoProvAccount(
         DomainSelector $domain,
         PrincipalSelector $principal,
-        ?string $password = NULL
+        ?string $password = null
     ): ?Message\AutoProvAccountResponse
     {
         return $this->invoke(new Message\AutoProvAccountRequest(
@@ -296,7 +296,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function checkBlobConsistency(
-        ?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = []
+        ?bool $checkSize = null, ?bool $reportUsedBlobs = null, array $volumes = [], array $mailboxes = []
     ): ?Message\CheckBlobConsistencyResponse
     {
         return $this->invoke(new Message\CheckBlobConsistencyRequest(
@@ -315,7 +315,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function checkDomainMXRecord(DomainSelector $domain = NULL): ?Message\CheckDomainMXRecordResponse
+    public function checkDomainMXRecord(DomainSelector $domain = null): ?Message\CheckDomainMXRecordResponse
     {
         return $this->invoke(new Message\CheckDomainMXRecordRequest($domain));
     }
@@ -323,7 +323,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function checkExchangeAuth(?ExchangeAuthSpec $auth = NULL): ?Message\CheckExchangeAuthResponse
+    public function checkExchangeAuth(?ExchangeAuthSpec $auth = null): ?Message\CheckExchangeAuthResponse
     {
         return $this->invoke(new Message\CheckExchangeAuthRequest($auth));
     }
@@ -332,7 +332,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function checkGalConfig(
-        ?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = []
+        ?LimitedQuery $query = null, ?string $action = null, array $attrs = []
     ): ?Message\CheckGalConfigResponse
     {
         return $this->invoke(new Message\CheckGalConfigRequest(
@@ -351,7 +351,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function checkHostnameResolve(?string $hostname = NULL): ?Message\CheckHostnameResolveResponse
+    public function checkHostnameResolve(?string $hostname = null): ?Message\CheckHostnameResolveResponse
     {
         return $this->invoke(new Message\CheckHostnameResolveRequest($hostname));
     }
@@ -391,7 +391,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function compactIndex(
-        MailboxByAccountIdSelector $mbox, ?CompactIndexAction $action = NULL
+        MailboxByAccountIdSelector $mbox, ?CompactIndexAction $action = null
     ): ?Message\CompactIndexResponse
     {
         return $this->invoke(new Message\CompactIndexRequest($mbox, $action));
@@ -416,7 +416,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function contactBackup(array $servers = [], ?ContactBackupOp $op = NULL): ?Message\ContactBackupResponse
+    public function contactBackup(array $servers = [], ?ContactBackupOp $op = null): ?Message\ContactBackupResponse
     {
         return $this->invoke(new Message\ContactBackupRequest($servers, $op));
     }
@@ -424,7 +424,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function copyCos(?CosSelector $cos = NULL, ?string $newName = NULL): ?Message\CopyCosResponse
+    public function copyCos(?CosSelector $cos = null, ?string $newName = null): ?Message\CopyCosResponse
     {
         return $this->invoke(new Message\CopyCosRequest($cos, $newName));
     }
@@ -441,10 +441,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function countObjects(
-        ?CountObjectsType $type = NULL,
+        ?CountObjectsType $type = null,
         array $domains = [],
-        ?UcServiceSelector $ucService = NULL,
-        ?bool $onlyRelated = NULL
+        ?UcServiceSelector $ucService = null,
+        ?bool $onlyRelated = null
     ): ?Message\CountObjectsResponse
     {
         return $this->invoke(new Message\CountObjectsRequest(
@@ -456,7 +456,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function createAccount(
-        string $name, ?string $password = NULL, array $attrs = []
+        string $name, ?string $password = null, array $attrs = []
     ): ?Message\CreateAccountResponse
     {
         return $this->invoke(new Message\CreateAccountRequest(
@@ -478,7 +478,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function createCalendarResource(
-        string $name, ?string $password = NULL, array $attrs = []
+        string $name, ?string $password = null, array $attrs = []
     ): ?Message\CreateCalendarResourceResponse
     {
         return $this->invoke(new Message\CreateCalendarResourceRequest(
@@ -508,7 +508,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function createDistributionList(
-        string $name, ?bool $dynamic = NULL, array $attrs = []
+        string $name, ?bool $dynamic = null, array $attrs = []
     ): ?Message\CreateDistributionListResponse
     {
         return $this->invoke(new Message\CreateDistributionListRequest(
@@ -532,9 +532,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $name,
         string $domain,
         string $mailHost,
-        ?GalMode $type = NULL,
-        ?string $password = NULL,
-        ?string $folder = NULL,
+        ?GalMode $type = null,
+        ?string $password = null,
+        ?string $folder = null,
         array $attrs = []
     ): ?Message\CreateGalSyncAccountResponse
     {
@@ -563,7 +563,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function createSystemRetentionPolicy(
-        ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
+        ?CosSelector $cos = null, ?PolicyHolder $keep = null, ?PolicyHolder $purge = null
     ): ?Message\CreateSystemRetentionPolicyResponse
     {
         return $this->invoke(new Message\CreateSystemRetentionPolicyRequest(
@@ -606,7 +606,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function dedupeBlobs(?DedupAction $action = NULL, array $volumes = []): ?Message\DedupeBlobsResponse
+    public function dedupeBlobs(?DedupAction $action = null, array $volumes = []): ?Message\DedupeBlobsResponse
     {
         return $this->invoke(new Message\DedupeBlobsRequest($action, $volumes));
     }
@@ -614,7 +614,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function delegateAuth(AccountSelector $account, ?int $duration = NULL): ?Message\DelegateAuthResponse
+    public function delegateAuth(AccountSelector $account, ?int $duration = null): ?Message\DelegateAuthResponse
     {
         return $this->invoke(new Message\DelegateAuthRequest($account, $duration));
     }
@@ -667,7 +667,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function deleteDistributionList(
-        string $id, ?bool $cascadeDelete = NULL
+        string $id, ?bool $cascadeDelete = null
     ): ?Message\DeleteDistributionListResponse
     {
         return $this->invoke(new Message\DeleteDistributionListRequest($id, $cascadeDelete));
@@ -701,7 +701,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function deleteMailbox(
-        ?MailboxByAccountIdSelector $mbox = NULL
+        ?MailboxByAccountIdSelector $mbox = null
     ): ?Message\DeleteMailboxResponse
     {
         return $this->invoke(new Message\DeleteMailboxRequest($mbox));
@@ -719,7 +719,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function deleteSystemRetentionPolicy(
-        Policy $policy, ?CosSelector $cos = NULL
+        Policy $policy, ?CosSelector $cos = null
     ): ?Message\DeleteSystemRetentionPolicyResponse
     {
         return $this->invoke(new Message\DeleteSystemRetentionPolicyRequest(
@@ -747,7 +747,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function deleteXMPPComponent(
-        ?XMPPComponentSelector $component = NULL
+        ?XMPPComponentSelector $component = null
     ): ?Message\DeleteXMPPComponentResponse
     {
         return $this->invoke(new Message\DeleteXMPPComponentRequest($component));
@@ -766,9 +766,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deployZimlet(
         AttachmentIdAttrib $content,
-        ?ZimletDeployAction $action = NULL,
-        ?bool $flushCache = NULL,
-        ?bool $synchronous = NULL
+        ?ZimletDeployAction $action = null,
+        ?bool $flushCache = null,
+        ?bool $synchronous = null
     ): ?Message\DeployZimletResponse
     {
         return $this->invoke(new Message\DeployZimletRequest(
@@ -780,7 +780,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function dumpSessions(
-        ?bool $includeAccounts = NULL, ?bool $groupByAccount = NULL
+        ?bool $includeAccounts = null, ?bool $groupByAccount = null
     ): ?Message\DumpSessionsResponse
     {
         return $this->invoke(new Message\DumpSessionsRequest(
@@ -792,7 +792,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function exportAndDeleteItems(
-        ExportAndDeleteMailboxSpec $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL
+        ExportAndDeleteMailboxSpec $mailbox, ?string $exportDir = null, ?string $exportFilenamePrefix = null
     ): ?Message\ExportAndDeleteItemsResponse
     {
         return $this->invoke(new Message\ExportAndDeleteItemsRequest(
@@ -803,7 +803,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function fixCalendarEndTime(?bool $sync = NULL, array $accounts = []): ?Message\FixCalendarEndTimeResponse
+    public function fixCalendarEndTime(?bool $sync = null, array $accounts = []): ?Message\FixCalendarEndTimeResponse
     {
         return $this->invoke(new Message\FixCalendarEndTimeRequest($sync, $accounts));
     }
@@ -811,7 +811,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function fixCalendarPriority(?bool $sync = NULL, array $accounts = []): ?Message\FixCalendarPriorityResponse
+    public function fixCalendarPriority(?bool $sync = null, array $accounts = []): ?Message\FixCalendarPriorityResponse
     {
         return $this->invoke(new Message\FixCalendarPriorityRequest($sync, $accounts));
     }
@@ -820,7 +820,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function fixCalendarTZ(
-        ?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL
+        ?bool $sync = null, ?int $after = null, array $accounts = [], ?TzFixup $tzFixup = null
     ): ?Message\FixCalendarTZResponse
     {
         return $this->invoke(new Message\FixCalendarTZRequest(
@@ -831,7 +831,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function flushCache(?CacheSelector $cache = NULL): ?Message\FlushCacheResponse
+    public function flushCache(?CacheSelector $cache = null): ?Message\FlushCacheResponse
     {
         return $this->invoke(new Message\FlushCacheRequest($cache));
     }
@@ -840,7 +840,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAccount(
-        AccountSelector $account, ?bool $applyCos = NULL, ?bool $effectiveQuota = NULL, ?string $attrs = NULL
+        AccountSelector $account, ?bool $applyCos = null, ?bool $effectiveQuota = null, ?string $attrs = null
     ): ?Message\GetAccountResponse
     {
         return $this->invoke(new Message\GetAccountRequest(
@@ -860,7 +860,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAccountLoggers(
-        ?string $id = NULL, ?AccountSelector $account = NULL
+        ?string $id = null, ?AccountSelector $account = null
     ): ?Message\GetAccountLoggersResponse
     {
         return $this->invoke(new Message\GetAccountLoggersRequest($id, $account));
@@ -878,7 +878,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAdminConsoleUIComp(
-        ?AccountSelector $account = NULL, ?DistributionListSelector $dl = NULL
+        ?AccountSelector $account = null, ?DistributionListSelector $dl = null
     ): ?Message\GetAdminConsoleUICompResponse
     {
         return $this->invoke(new Message\GetAdminConsoleUICompRequest($account, $dl));
@@ -920,7 +920,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAllAccounts(
-        ?ServerSelector $server = NULL, ?DomainSelector $domain = NULL
+        ?ServerSelector $server = null, ?DomainSelector $domain = null
     ): ?Message\GetAllAccountsResponse
     {
         return $this->invoke(new Message\GetAllAccountsRequest($server, $domain));
@@ -937,7 +937,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAllAdminAccounts(?bool $applyCos = NULL): ?Message\GetAllAdminAccountsResponse
+    public function getAllAdminAccounts(?bool $applyCos = null): ?Message\GetAllAdminAccountsResponse
     {
         return $this->invoke(new Message\GetAllAdminAccountsRequest($applyCos));
     }
@@ -954,7 +954,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAllCalendarResources(
-        ?ServerSelector $server = NULL, ?DomainSelector $domain = NULL
+        ?ServerSelector $server = null, ?DomainSelector $domain = null
     ): ?Message\GetAllCalendarResourcesResponse
     {
         return $this->invoke(new Message\GetAllCalendarResourcesRequest($server, $domain));
@@ -980,7 +980,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAllDistributionLists(
-        ?DomainSelector $domain = NULL
+        ?DomainSelector $domain = null
     ): ?Message\GetAllDistributionListsResponse
     {
         return $this->invoke(new Message\GetAllDistributionListsRequest($domain));
@@ -989,7 +989,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAllDomains(?bool $applyConfig = NULL): ?Message\GetAllDomainsResponse
+    public function getAllDomains(?bool $applyConfig = null): ?Message\GetAllDomainsResponse
     {
         return $this->invoke(new Message\GetAllDomainsRequest($applyConfig));
     }
@@ -998,7 +998,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAllEffectiveRights(
-        ?GranteeSelector $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
+        ?GranteeSelector $grantee = null, ?bool $expandSetAttrs = null, ?bool $expandGetAttrs = null
     ): ?Message\GetAllEffectiveRightsResponse
     {
         return $this->invoke(new Message\GetAllEffectiveRightsRequest(
@@ -1025,7 +1025,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAllMailboxes(?int $limit = NULL, ?int $offset = NULL): ?Message\GetAllMailboxesResponse
+    public function getAllMailboxes(?int $limit = null, ?int $offset = null): ?Message\GetAllMailboxesResponse
     {
         return $this->invoke(new Message\GetAllMailboxesRequest($limit, $offset));
     }
@@ -1034,7 +1034,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAllRights(
-        ?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL
+        ?string $targetType = null, ?bool $expandAllAttrs = null, ?RightClass $rightClass = null
     ): ?Message\GetAllRightsResponse
     {
         return $this->invoke(new Message\GetAllRightsRequest(
@@ -1046,7 +1046,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAllServers(
-        ?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL
+        ?string $service = null, ?string $alwaysOnClusterId = null, ?bool $applyConfig = null
     ): ?Message\GetAllServersResponse
     {
         return $this->invoke(new Message\GetAllServersRequest(
@@ -1089,7 +1089,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAllZimlets(?ZimletExcludeType $exclude = NULL): ?Message\GetAllZimletsResponse
+    public function getAllZimlets(?ZimletExcludeType $exclude = null): ?Message\GetAllZimletsResponse
     {
         return $this->invoke(new Message\GetAllZimletsRequest($exclude));
     }
@@ -1098,7 +1098,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAlwaysOnCluster(
-        ?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL
+        ?AlwaysOnClusterSelector $cluster = null, ?string $attrs = null
     ): ?Message\GetAlwaysOnClusterResponse
     {
         return $this->invoke(new Message\GetAlwaysOnClusterRequest($cluster, $attrs));
@@ -1108,7 +1108,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAttributeInfo(
-        ?string $attrs = NULL, ?string $entryTypes = NULL
+        ?string $attrs = null, ?string $entryTypes = null
     ): ?Message\GetAttributeInfoResponse
     {
         return $this->invoke(new Message\GetAttributeInfoRequest($attrs, $entryTypes));
@@ -1118,7 +1118,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getCalendarResource(
-        ?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL
+        ?CalendarResourceSelector $calResource = null, ?bool $applyCos = null, ?string $attrs = null
     ): ?Message\GetCalendarResourceResponse
     {
         return $this->invoke(new Message\GetCalendarResourceRequest(
@@ -1129,7 +1129,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfig(?Attr $attr = NULL): ?Message\GetConfigResponse
+    public function getConfig(?Attr $attr = null): ?Message\GetConfigResponse
     {
         return $this->invoke(new Message\GetConfigRequest($attr));
     }
@@ -1137,7 +1137,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getCos(CosSelector $cos, ?string $attrs = NULL): ?Message\GetCosResponse
+    public function getCos(CosSelector $cos, ?string $attrs = null): ?Message\GetCosResponse
     {
         return $this->invoke(new Message\GetCosRequest($cos, $attrs));
     }
@@ -1146,7 +1146,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getCreateObjectAttrs(
-        TargetWithType $target, ?DomainSelector $domain = NULL, ?CosSelector $cos = NULL
+        TargetWithType $target, ?DomainSelector $domain = null, ?CosSelector $cos = null
     ): ?Message\GetCreateObjectAttrsResponse
     {
         return $this->invoke(new Message\GetCreateObjectAttrsRequest(
@@ -1174,7 +1174,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getDelegatedAdminConstraints(
-        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+        TargetType $type, ?string $id = null, ?string $name = null, array $attrs = []
     ): ?Message\GetDelegatedAdminConstraintsResponse
     {
         return $this->invoke(new Message\GetDelegatedAdminConstraintsRequest(
@@ -1186,11 +1186,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getDistributionList(
-        ?DistributionListSelector $dl = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?bool $sortAscending = NULL,
-        ?string $attrs = NULL
+        ?DistributionListSelector $dl = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $sortAscending = null,
+        ?string $attrs = null
     ): ?Message\GetDistributionListResponse
     {
         return $this->invoke(new Message\GetDistributionListRequest(
@@ -1202,9 +1202,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getDistributionListMembership(
-        ?DistributionListSelector $dl = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL
+        ?DistributionListSelector $dl = null,
+        ?int $limit = null,
+        ?int $offset = null
     ): ?Message\GetDistributionListMembershipResponse
     {
         return $this->invoke(new Message\GetDistributionListMembershipRequest(
@@ -1216,9 +1216,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getDomain(
-        ?DomainSelector $domain = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $attrs = NULL
+        ?DomainSelector $domain = null,
+        ?bool $applyConfig = null,
+        ?string $attrs = null
     ): ?Message\GetDomainResponse
     {
         return $this->invoke(new Message\GetDomainRequest(
@@ -1230,7 +1230,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getDomainInfo(
-        ?DomainSelector $domain = NULL, ?bool $applyConfig = NULL
+        ?DomainSelector $domain = null, ?bool $applyConfig = null
     ): ?Message\GetDomainInfoResponse
     {
         return $this->invoke(new Message\GetDomainInfoRequest($domain, $applyConfig));
@@ -1241,9 +1241,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getEffectiveRights(
         EffectiveRightsTargetSelector $target,
-        ?GranteeSelector $grantee = NULL,
-        ?bool $expandSetAttrs = NULL,
-        ?bool $expandGetAttrs = NULL
+        ?GranteeSelector $grantee = null,
+        ?bool $expandSetAttrs = null,
+        ?bool $expandGetAttrs = null
     ): ?Message\GetEffectiveRightsResponse
     {
         return $this->invoke(new Message\GetEffectiveRightsRequest(
@@ -1256,10 +1256,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getFilterRules(
         AdminFilterType $type,
-        ?AccountSelector $account = NULL,
-        ?DomainSelector $domain = NULL,
-        ?CosSelector $cos = NULL,
-        ?ServerSelector $server = NULL
+        ?AccountSelector $account = null,
+        ?DomainSelector $domain = null,
+        ?CosSelector $cos = null,
+        ?ServerSelector $server = null
     ): ?Message\GetFilterRulesResponse
     {
         return $this->invoke(new Message\GetFilterRulesRequest(
@@ -1270,7 +1270,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getFreeBusyQueueInfo(?NamedElement $provider = NULL): ?Message\GetFreeBusyQueueInfoResponse
+    public function getFreeBusyQueueInfo(?NamedElement $provider = null): ?Message\GetFreeBusyQueueInfoResponse
     {
         return $this->invoke(new Message\GetFreeBusyQueueInfoRequest($provider));
     }
@@ -1279,8 +1279,8 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getGrants(
-        ?EffectiveRightsTargetSelector $target = NULL,
-        ?GranteeSelector $grantee = NULL
+        ?EffectiveRightsTargetSelector $target = null,
+        ?GranteeSelector $grantee = null
     ): ?Message\GetGrantsResponse
     {
         return $this->invoke(new Message\GetGrantsRequest($target, $grantee));
@@ -1299,11 +1299,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getLDAPEntries(
         string $ldapSearchBase,
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $query = NULL
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $query = null
     ): ?Message\GetLDAPEntriesResponse
     {
         return $this->invoke(new Message\GetLDAPEntriesRequest(
@@ -1323,7 +1323,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getLoggerStats(
-        ?HostName $hostName = NULL, ?StatsSpec $stats = NULL, ?TimeAttr $startTime = NULL, ?TimeAttr $endTime = NULL
+        ?HostName $hostName = null, ?StatsSpec $stats = null, ?TimeAttr $startTime = null, ?TimeAttr $endTime = null
     ): ?Message\GetLoggerStatsResponse
     {
         return $this->invoke(new Message\GetLoggerStatsRequest(
@@ -1334,7 +1334,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getMailbox(?MailboxByAccountIdSelector $mbox = NULL): ?Message\GetMailboxResponse
+    public function getMailbox(?MailboxByAccountIdSelector $mbox = null): ?Message\GetMailboxResponse
     {
         return $this->invoke(new Message\GetMailboxRequest($mbox));
     }
@@ -1383,13 +1383,13 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getQuotaUsage(
-        ?string $domain = NULL,
-        ?bool $allServers = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?bool $refresh = NULL
+        ?string $domain = null,
+        ?bool $allServers = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?bool $refresh = null
     ): ?Message\GetQuotaUsageResponse
     {
         return $this->invoke(new Message\GetQuotaUsageRequest(
@@ -1400,7 +1400,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getRight(string $right, ?bool $expandAllAttrs = NULL): ?Message\GetRightResponse
+    public function getRight(string $right, ?bool $expandAllAttrs = null): ?Message\GetRightResponse
     {
         return $this->invoke(new Message\GetRightRequest($right, $expandAllAttrs));
     }
@@ -1417,9 +1417,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getServer(
-        ?ServerSelector $server = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $attrs = NULL
+        ?ServerSelector $server = null,
+        ?bool $applyConfig = null,
+        ?string $attrs = null
     ): ?Message\GetServerResponse
     {
         return $this->invoke(new Message\GetServerRequest(
@@ -1430,7 +1430,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getServerNIfs(ServerSelector $server, ?IpType $type = NULL): ?Message\GetServerNIfsResponse
+    public function getServerNIfs(ServerSelector $server, ?IpType $type = null): ?Message\GetServerNIfsResponse
     {
         return $this->invoke(new Message\GetServerNIfsRequest($server, $type));
     }
@@ -1456,10 +1456,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getSessions(
         SessionType $type,
-        ?GetSessionsSortBy $sortBy = NULL,
-        ?int $offset = NULL,
-        ?int $limit = NULL,
-        ?bool $refresh = NULL
+        ?GetSessionsSortBy $sortBy = null,
+        ?int $offset = null,
+        ?int $limit = null,
+        ?bool $refresh = null
     ): ?Message\GetSessionsResponse
     {
         return $this->invoke(new Message\GetSessionsRequest(
@@ -1471,7 +1471,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getShareInfo(
-        AccountSelector $owner, ?GranteeChooser $grantee = NULL
+        AccountSelector $owner, ?GranteeChooser $grantee = null
     ): ?Message\GetShareInfoResponse
     {
         return $this->invoke(new Message\GetShareInfoRequest($owner, $grantee));
@@ -1480,7 +1480,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getSystemRetentionPolicy(?CosSelector $cos = NULL): ?Message\GetSystemRetentionPolicyResponse
+    public function getSystemRetentionPolicy(?CosSelector $cos = null): ?Message\GetSystemRetentionPolicyResponse
     {
         return $this->invoke(new Message\GetSystemRetentionPolicyRequest($cos));
     }
@@ -1488,7 +1488,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getUCService(UcServiceSelector $ucService, ?string $attrs = NULL): ?Message\GetUCServiceResponse
+    public function getUCService(UcServiceSelector $ucService, ?string $attrs = null): ?Message\GetUCServiceResponse
     {
         return $this->invoke(new Message\GetUCServiceRequest($ucService, $attrs));
     }
@@ -1513,7 +1513,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getXMPPComponent(
-        XMPPComponentSelector $component, ?string $attrs = NULL
+        XMPPComponentSelector $component, ?string $attrs = null
     ): ?Message\GetXMPPComponentResponse
     {
         return $this->invoke(new Message\GetXMPPComponentRequest($component, $attrs));
@@ -1522,7 +1522,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getZimlet(NamedElement $zimlet, ?string $attrs = NULL): ?Message\GetZimletResponse
+    public function getZimlet(NamedElement $zimlet, ?string $attrs = null): ?Message\GetZimletResponse
     {
         return $this->invoke(new Message\GetZimletRequest($zimlet, $attrs));
     }
@@ -1553,7 +1553,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function lockoutMailbox(
-        AccountNameSelector $account, ?LockoutOperation $operation = NULL
+        AccountNameSelector $account, ?LockoutOperation $operation = null
     ): ?Message\LockoutMailboxResponse
     {
         return $this->invoke(new Message\LockoutMailboxRequest($account, $operation));
@@ -1647,7 +1647,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyDelegatedAdminConstraints(
-        ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+        ?TargetType $type = null, ?string $id = null, ?string $name = null, array $attrs = []
     ): ?Message\ModifyDelegatedAdminConstraintsResponse
     {
         return $this->invoke(new Message\ModifyDelegatedAdminConstraintsRequest(
@@ -1675,11 +1675,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyFilterRules(
-        ?AdminFilterType $type = NULL,
-        ?AccountSelector $account = NULL,
-        ?DomainSelector $domain = NULL,
-        ?CosSelector $cos = NULL,
-        ?ServerSelector $server = NULL,
+        ?AdminFilterType $type = null,
+        ?AccountSelector $account = null,
+        ?DomainSelector $domain = null,
+        ?CosSelector $cos = null,
+        ?ServerSelector $server = null,
         array $filterRules = []
     ): ?Message\ModifyFilterRulesResponse
     {
@@ -1700,11 +1700,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyOutgoingFilterRules(
-        ?AdminFilterType $type = NULL,
-        ?AccountSelector $account = NULL,
-        ?DomainSelector $domain = NULL,
-        ?CosSelector $cos = NULL,
-        ?ServerSelector $server = NULL,
+        ?AdminFilterType $type = null,
+        ?AccountSelector $account = null,
+        ?DomainSelector $domain = null,
+        ?CosSelector $cos = null,
+        ?ServerSelector $server = null,
         array $filterRules = []
     ): ?Message\ModifyOutgoingFilterRulesResponse
     {
@@ -1725,7 +1725,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifySystemRetentionPolicy(
-        Policy $policy, ?CosSelector $cos = NULL
+        Policy $policy, ?CosSelector $cos = null
     ): ?Message\ModifySystemRetentionPolicyResponse
     {
         return $this->invoke(new Message\ModifySystemRetentionPolicyRequest($policy, $cos));
@@ -1782,7 +1782,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function purgeFreeBusyQueue(?NamedElement $provider = NULL): ?Message\PurgeFreeBusyQueueResponse
+    public function purgeFreeBusyQueue(?NamedElement $provider = null): ?Message\PurgeFreeBusyQueueResponse
     {
         return $this->invoke(new Message\PurgeFreeBusyQueueRequest($provider));
     }
@@ -1790,7 +1790,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function purgeMessages(?MailboxByAccountIdSelector $mbox = NULL): ?Message\PurgeMessagesResponse
+    public function purgeMessages(?MailboxByAccountIdSelector $mbox = null): ?Message\PurgeMessagesResponse
     {
         return $this->invoke(new Message\PurgeMessagesRequest($mbox));
     }
@@ -1798,7 +1798,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function pushFreeBusy(?Names $domains = NULL, array $accounts = []): ?Message\PushFreeBusyResponse
+    public function pushFreeBusy(?Names $domains = null, array $accounts = []): ?Message\PushFreeBusyResponse
     {
         return $this->invoke(new Message\PushFreeBusyRequest($domains, $accounts));
     }
@@ -1806,7 +1806,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function queryWaitSet(?string $waitSetId = NULL): ?Message\QueryWaitSetResponse
+    public function queryWaitSet(?string $waitSetId = null): ?Message\QueryWaitSetResponse
     {
         return $this->invoke(new Message\QueryWaitSetRequest($waitSetId));
     }
@@ -1815,7 +1815,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function recalculateMailboxCounts(
-        ?MailboxByAccountIdSelector $mbox = NULL
+        ?MailboxByAccountIdSelector $mbox = null
     ): ?Message\RecalculateMailboxCountsResponse
     {
         return $this->invoke(new Message\RecalculateMailboxCountsRequest($mbox));
@@ -1835,7 +1835,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function reIndex(
-        ReindexMailboxInfo $mbox, ?ReIndexAction $action = NULL
+        ReindexMailboxInfo $mbox, ?ReIndexAction $action = null
     ): ?Message\ReIndexResponse
     {
         return $this->invoke(new Message\ReIndexRequest($mbox, $action));
@@ -1869,7 +1869,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function removeAccountLogger(
-        ?LoggerInfo $logger = NULL, ?AccountSelector $account = NULL, ?string $id = NULL
+        ?LoggerInfo $logger = null, ?AccountSelector $account = null, ?string $id = null
     ): ?Message\RemoveAccountLoggerResponse
     {
         return $this->invoke(new Message\RemoveAccountLoggerRequest(
@@ -1990,14 +1990,14 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function searchAccounts(
         string $query,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?string $attrs = NULL,
-        ?string $sortBy = NULL,
-        ?string $types = NULL,
-        ?bool $sortAscending = NULL
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?string $attrs = null,
+        ?string $sortBy = null,
+        ?string $types = null,
+        ?bool $sortAscending = null
     ): ?Message\SearchAccountsResponse
     {
         return $this->invoke(new Message\SearchAccountsRequest(
@@ -2019,13 +2019,13 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     public function searchAutoProvDirectory(
         DomainSelector $domain,
         string $keyAttr = '',
-        ?string $query = NULL,
-        ?string $name = NULL,
-        ?int $maxResults = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?bool $refresh = NULL,
-        ?string $attrs = NULL
+        ?string $query = null,
+        ?string $name = null,
+        ?int $maxResults = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $refresh = null,
+        ?string $attrs = null
     ): ?Message\SearchAutoProvDirectoryResponse
     {
         return $this->invoke(new Message\SearchAutoProvDirectoryRequest(
@@ -2045,14 +2045,14 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function searchCalendarResources(
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?string $attrs = NULL
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?string $attrs = null
     ): ?Message\SearchCalendarResourcesResponse
     {
         return $this->invoke(new Message\SearchCalendarResourcesRequest(
@@ -2071,18 +2071,18 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function searchDirectory(
-        ?string $query = NULL,
-        ?int $maxResults = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $sortBy = NULL,
-        ?string $types = NULL,
-        ?bool $sortAscending = NULL,
-        ?bool $isCountOnly = NULL,
-        ?string $attrs = NULL
+        ?string $query = null,
+        ?int $maxResults = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?bool $applyConfig = null,
+        ?string $sortBy = null,
+        ?string $types = null,
+        ?bool $sortAscending = null,
+        ?bool $isCountOnly = null,
+        ?string $attrs = null
     ): ?Message\SearchDirectoryResponse
     {
         return $this->invoke(new Message\SearchDirectoryRequest(
@@ -2106,10 +2106,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function searchGal(
         string $domain,
-        ?string $name = NULL,
-        ?int $limit = NULL,
-        ?GalSearchType $type = NULL,
-        ?string $galAccountId = NULL
+        ?string $name = null,
+        ?int $limit = null,
+        ?GalSearchType $type = null,
+        ?string $galAccountId = null
     ): ?Message\SearchGalResponse
     {
         return $this->invoke(new Message\SearchGalRequest(
@@ -2137,7 +2137,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function setPassword(
-        string $id, string $newPassword, ?bool $dryRun = NULL
+        string $id, string $newPassword, ?bool $dryRun = null
     ): ?Message\SetPasswordResponse
     {
         return $this->invoke(new Message\SetPasswordRequest($id, $newPassword, $dryRun));
@@ -2147,7 +2147,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function setServerOffline(
-        ?ServerSelector $server = NULL, ?string $attrs = NULL
+        ?ServerSelector $server = null, ?string $attrs = null
     ): ?Message\SetServerOfflineResponse
     {
         return $this->invoke(new Message\SetServerOfflineRequest($server, $attrs));
@@ -2164,7 +2164,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function undeployZimlet(string $name, ?string $action = NULL): ?Message\UndeployZimletResponse
+    public function undeployZimlet(string $name, ?string $action = null): ?Message\UndeployZimletResponse
     {
         return $this->invoke(new Message\UndeployZimletRequest($name, $action));
     }
@@ -2172,7 +2172,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function verifyIndex(?MailboxByAccountIdSelector $mbox = NULL): ?Message\VerifyIndexResponse
+    public function verifyIndex(?MailboxByAccountIdSelector $mbox = null): ?Message\VerifyIndexResponse
     {
         return $this->invoke(new Message\VerifyIndexRequest($mbox));
     }
@@ -2181,9 +2181,9 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function verifyStoreManager(
-        ?int $fileSize = NULL,
-        ?int $num = NULL,
-        ?bool $checkBlobs = NULL
+        ?int $fileSize = null,
+        ?int $num = null,
+        ?bool $checkBlobs = null
     ): ?Message\VerifyStoreManagerResponse
     {
         return $this->invoke(new Message\VerifyStoreManagerRequest(

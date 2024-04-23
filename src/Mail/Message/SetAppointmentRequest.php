@@ -162,13 +162,13 @@ class SetAppointmentRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?bool $noNextAlarm = NULL,
-        ?int $nextAlarm = NULL,
-        ?SetCalendarItemInfo $defaultId = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?bool $noNextAlarm = null,
+        ?int $nextAlarm = null,
+        ?SetCalendarItemInfo $defaultId = null,
         array $exceptions = [],
         array $cancellations = [],
         array $replies = []
@@ -178,22 +178,22 @@ class SetAppointmentRequest extends SoapRequest
              ->setCancellations($cancellations)
              ->setReplies($replies);
         $this->defaultId = $defaultId;
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $noNextAlarm) {
+        if (null !== $noNextAlarm) {
             $this->setNoNextAlarm($noNextAlarm);
         }
-        if (NULL !== $nextAlarm) {
+        if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
     }

@@ -35,7 +35,7 @@ class GetMailboxMetadataEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetMailboxMetadataBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetMailboxMetadataEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetMailboxMetadataBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetMailboxMetadataBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -58,7 +58,7 @@ class ReIndexRequest extends SoapRequest
      * @param  Action $action
      * @return self
      */
-    public function __construct(Mbox $mbox, ?Action $action = NULL)
+    public function __construct(Mbox $mbox, ?Action $action = null)
     {
         $this->setMbox($mbox);
         $this->action = $action;

@@ -35,7 +35,7 @@ class ModifyZimletEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ModifyZimletBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ModifyZimletEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ModifyZimletBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ModifyZimletBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

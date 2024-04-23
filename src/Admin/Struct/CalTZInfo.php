@@ -119,10 +119,10 @@ class CalTZInfo
         string $id = '',
         int $stdoff = 0,
         int $dayoff = 0,
-        ?TzOnsetInfo $standard = NULL,
-        ?TzOnsetInfo $daylight = NULL,
-        ?string $stdname = NULL,
-        ?string $dayname = NULL
+        ?TzOnsetInfo $standard = null,
+        ?TzOnsetInfo $daylight = null,
+        ?string $stdname = null,
+        ?string $dayname = null
     )
     {
         $this->setId($id)
@@ -130,10 +130,10 @@ class CalTZInfo
              ->setTzDayOffset($dayoff);
         $this->standardTzOnset = $standard;
         $this->daylightTzOnset = $daylight;
-        if (NULL !== $stdname) {
+        if (null !== $stdname) {
             $this->setStandardTZName($stdname);
         }
-        if (NULL !== $dayname) {
+        if (null !== $dayname) {
             $this->setDaylightTZName($dayname);
         }
     }

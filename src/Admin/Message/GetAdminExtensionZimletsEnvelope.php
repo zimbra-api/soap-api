@@ -35,7 +35,7 @@ class GetAdminExtensionZimletsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetAdminExtensionZimletsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetAdminExtensionZimletsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAdminExtensionZimletsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetAdminExtensionZimletsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -90,22 +90,22 @@ class GetSessionsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?SessionType $type = NULL,
-        ?GetSessionsSortBy $sortBy = NULL,
-        ?int $offset = NULL,
-        ?int $limit = NULL,
-        ?bool $refresh = NULL
+        ?SessionType $type = null,
+        ?GetSessionsSortBy $sortBy = null,
+        ?int $offset = null,
+        ?int $limit = null,
+        ?bool $refresh = null
     )
     {
         $this->setType($type ?? SessionType::SOAP);
         $this->sortBy = $sortBy;
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $refresh) {
+        if (null !== $refresh) {
             $this->setRefresh($refresh);
         }
     }

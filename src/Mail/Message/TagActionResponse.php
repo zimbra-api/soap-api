@@ -43,7 +43,7 @@ class TagActionResponse extends SoapResponse
      * @param  TagActionInfo $action
      * @return self
      */
-    public function __construct(?TagActionInfo $action = NULL)
+    public function __construct(?TagActionInfo $action = null)
     {
         $this->action = $action;
     }

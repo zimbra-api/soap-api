@@ -71,16 +71,16 @@ class CheckSpellingRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $dictionary = NULL, ?string $ignoreList = NULL, ?string $text = NULL
+        ?string $dictionary = null, ?string $ignoreList = null, ?string $text = null
     )
     {
-        if (NULL !== $dictionary) {
+        if (null !== $dictionary) {
             $this->setDictionary($dictionary);
         }
-        if (NULL !== $ignoreList) {
+        if (null !== $ignoreList) {
             $this->setIgnoreList($ignoreList);
         }
-        if (NULL !== $text) {
+        if (null !== $text) {
             $this->setText($text);
         }
     }

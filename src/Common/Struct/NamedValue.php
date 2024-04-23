@@ -51,10 +51,10 @@ class NamedValue
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name = '', ?string $value = NULL)
+    public function __construct(string $name = '', ?string $value = null)
     {
         $this->setName($name);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

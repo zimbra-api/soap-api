@@ -33,7 +33,7 @@ class AddAppointmentInviteBody extends SoapBody
     #[SerializedName('AddAppointmentInviteRequest')]
     #[Type(AddAppointmentInviteRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AddAppointmentInviteBody extends SoapBody
     #[SerializedName('AddAppointmentInviteResponse')]
     #[Type(AddAppointmentInviteResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AddAppointmentInviteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddAppointmentInviteRequest $request = NULL, ?AddAppointmentInviteResponse $response = NULL
+        ?AddAppointmentInviteRequest $request = null, ?AddAppointmentInviteResponse $response = null
     )
     {
         parent::__construct($request, $response);

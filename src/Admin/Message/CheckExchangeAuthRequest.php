@@ -43,7 +43,7 @@ class CheckExchangeAuthRequest extends SoapRequest
      * @param  ExchangeAuthSpec  $auth
      * @return self
      */
-    public function __construct(?ExchangeAuthSpec $auth = NULL)
+    public function __construct(?ExchangeAuthSpec $auth = null)
     {
         $this->auth = $auth;
     }

@@ -67,9 +67,9 @@ class DtVal implements DtValInterface
      * @return self
      */
     public function __construct(
-        ?DtTimeInfo $startTime = NULL,
-        ?DtTimeInfo $endTime = NULL,
-        ?DurationInfo $duration = NULL
+        ?DtTimeInfo $startTime = null,
+        ?DtTimeInfo $endTime = null,
+        ?DurationInfo $duration = null
     )
     {
         $this->startTime = $startTime;

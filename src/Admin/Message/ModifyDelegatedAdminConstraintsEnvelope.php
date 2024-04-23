@@ -35,7 +35,7 @@ class ModifyDelegatedAdminConstraintsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ModifyDelegatedAdminConstraintsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ModifyDelegatedAdminConstraintsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ModifyDelegatedAdminConstraintsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ModifyDelegatedAdminConstraintsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

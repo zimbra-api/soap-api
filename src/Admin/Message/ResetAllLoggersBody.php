@@ -33,7 +33,7 @@ class ResetAllLoggersBody extends SoapBody
     #[SerializedName('ResetAllLoggersRequest')]
     #[Type(ResetAllLoggersRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ResetAllLoggersBody extends SoapBody
     #[SerializedName('ResetAllLoggersResponse')]
     #[Type(ResetAllLoggersResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ResetAllLoggersBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ResetAllLoggersRequest $request = NULL, ?ResetAllLoggersResponse $response = NULL
+        ?ResetAllLoggersRequest $request = null, ?ResetAllLoggersResponse $response = null
     )
     {
         parent::__construct($request, $response);

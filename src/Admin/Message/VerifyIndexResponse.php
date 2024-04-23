@@ -53,7 +53,7 @@ class VerifyIndexResponse extends SoapResponse
      * @param string $message
      * @return self
      */
-    public function __construct(bool $status = FALSE, string $message = '')
+    public function __construct(bool $status = false, string $message = '')
     {
         $this->setStatus($status)
              ->setMessage($message);

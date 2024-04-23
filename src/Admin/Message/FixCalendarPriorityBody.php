@@ -33,7 +33,7 @@ class FixCalendarPriorityBody extends SoapBody
     #[SerializedName('FixCalendarPriorityRequest')]
     #[Type(FixCalendarPriorityRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class FixCalendarPriorityBody extends SoapBody
     #[SerializedName('FixCalendarPriorityResponse')]
     #[Type(FixCalendarPriorityResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class FixCalendarPriorityBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?FixCalendarPriorityRequest $request = NULL, ?FixCalendarPriorityResponse $response = NULL
+        ?FixCalendarPriorityRequest $request = null, ?FixCalendarPriorityResponse $response = null
     )
     {
         parent::__construct($request, $response);

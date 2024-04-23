@@ -95,11 +95,11 @@ class CalendarItemRecur
      * @return self
      */
     public function __construct(
-        ?ExceptionRecurIdInfo $exceptionId = NULL,
-        ?DtTimeInfo $dtStart = NULL,
-        ?DtTimeInfo $dtEnd = NULL,
-        ?DurationInfo $duration = NULL,
-        ?RecurrenceInfo $recurrence = NULL
+        ?ExceptionRecurIdInfo $exceptionId = null,
+        ?DtTimeInfo $dtStart = null,
+        ?DtTimeInfo $dtEnd = null,
+        ?DurationInfo $duration = null,
+        ?RecurrenceInfo $recurrence = null
     )
     {
         $this->exceptionId = $exceptionId;

@@ -93,7 +93,7 @@ class UsedBlobInfo
         int $revision = 0,
         int $size = 0,
         int $volumeId = 0,
-        ?BlobSizeInfo $blob = NULL
+        ?BlobSizeInfo $blob = null
     )
     {
         $this->setId($id)

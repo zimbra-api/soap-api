@@ -43,9 +43,9 @@ abstract class SoapBody implements SoapBodyInterface
      * @return self
      */
     public function __construct(
-        ?SoapRequestInterface $request = NULL,
-        ?SoapResponseInterface $response = NULL,
-        ?SoapFaultInterface $soapFault = NULL
+        ?SoapRequestInterface $request = null,
+        ?SoapResponseInterface $response = null,
+        ?SoapFaultInterface $soapFault = null
     )
     {
         $this->soapFault = $soapFault;

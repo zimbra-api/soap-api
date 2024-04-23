@@ -67,7 +67,7 @@ class RunUnitTestsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?TestResultInfo $results = NULL,
+        ?TestResultInfo $results = null,
         int $numExecuted = 0,
         int $numFailed = 0
     )

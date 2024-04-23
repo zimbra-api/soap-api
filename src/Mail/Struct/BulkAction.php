@@ -57,12 +57,12 @@ class BulkAction
      * @return self
      */
     public function __construct(
-        ?BulkOperation $op = NULL,
-        ?string $folder = NULL
+        ?BulkOperation $op = null,
+        ?string $folder = null
     )
     {
         $this->setOp($op ?? BulkOperation::READ);
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
     }

@@ -33,7 +33,7 @@ class AdminCreateWaitSetBody extends SoapBody
     #[SerializedName('AdminCreateWaitSetRequest')]
     #[Type(AdminCreateWaitSetRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class AdminCreateWaitSetBody extends SoapBody
     #[SerializedName('AdminCreateWaitSetResponse')]
     #[Type(AdminCreateWaitSetResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class AdminCreateWaitSetBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AdminCreateWaitSetRequest $request = NULL, ?AdminCreateWaitSetResponse $response = NULL
+        ?AdminCreateWaitSetRequest $request = null, ?AdminCreateWaitSetResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -103,28 +103,28 @@ class ConversationSpec
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $inlineRule = NULL,
-        ?bool $wantHtml = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $needCanExpand = NULL,
+        ?string $id = null,
+        ?string $inlineRule = null,
+        ?bool $wantHtml = null,
+        ?int $maxInlinedLength = null,
+        ?bool $needCanExpand = null,
         array $headers = []
     )
     {
         $this->setHeaders($headers);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $inlineRule) {
+        if (null !== $inlineRule) {
             $this->setInlineRule($inlineRule);
         }
-        if (NULL !== $wantHtml) {
+        if (null !== $wantHtml) {
             $this->setWantHtml($wantHtml);
         }
-        if (NULL !== $maxInlinedLength) {
+        if (null !== $maxInlinedLength) {
             $this->setMaxInlinedLength($maxInlinedLength);
         }
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
     }

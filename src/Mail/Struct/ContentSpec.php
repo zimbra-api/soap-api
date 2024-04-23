@@ -76,19 +76,19 @@ class ContentSpec
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = NULL, ?string $messageId = NULL, ?string $part = NULL, ?string $text = NULL
+        ?string $attachmentId = null, ?string $messageId = null, ?string $part = null, ?string $text = null
     )
     {
-        if (NULL !== $attachmentId) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
-        if (NULL !== $messageId) {
+        if (null !== $messageId) {
             $this->setMessageId($messageId);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $text) {
+        if (null !== $text) {
             $this->setText($text);
         }
     }

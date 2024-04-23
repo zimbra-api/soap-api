@@ -35,7 +35,7 @@ class ResetAllLoggersEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ResetAllLoggersBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ResetAllLoggersEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ResetAllLoggersBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ResetAllLoggersBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

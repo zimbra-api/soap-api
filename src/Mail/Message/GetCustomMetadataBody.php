@@ -33,7 +33,7 @@ class GetCustomMetadataBody extends SoapBody
     #[SerializedName('GetCustomMetadataRequest')]
     #[Type(GetCustomMetadataRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetCustomMetadataBody extends SoapBody
     #[SerializedName('GetCustomMetadataResponse')]
     #[Type(GetCustomMetadataResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetCustomMetadataBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetCustomMetadataRequest $request = NULL, ?GetCustomMetadataResponse $response = NULL
+        ?GetCustomMetadataRequest $request = null, ?GetCustomMetadataResponse $response = null
     )
     {
         parent::__construct($request, $response);

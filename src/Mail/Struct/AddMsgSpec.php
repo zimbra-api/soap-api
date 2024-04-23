@@ -127,38 +127,38 @@ class AddMsgSpec
      * @return self
      */
     public function __construct(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folder = NULL,
-        ?bool $noICal = NULL,
-        ?int $dateReceived = NULL,
-        ?string $attachmentId = NULL,
-        ?string $content = NULL
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folder = null,
+        ?bool $noICal = null,
+        ?int $dateReceived = null,
+        ?string $attachmentId = null,
+        ?string $content = null
     )
     {
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $noICal) {
+        if (null !== $noICal) {
             $this->setNoICal($noICal);
         }
-        if (NULL !== $dateReceived) {
+        if (null !== $dateReceived) {
             $this->setDateReceived($dateReceived);
         }
-        if (NULL !== $attachmentId) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

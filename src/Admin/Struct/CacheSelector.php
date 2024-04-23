@@ -81,14 +81,14 @@ class CacheSelector
      * @return self
      */
     public function __construct(
-        string $types = '', ?bool $allServers = NULL, ?bool $imapServers = NULL, array $entries = []
+        string $types = '', ?bool $allServers = null, ?bool $imapServers = null, array $entries = []
     )
     {
         $this->setTypes($types);
-        if (NULL !== $allServers) {
+        if (null !== $allServers) {
             $this->setAllServers($allServers);
         }
-        if (NULL !== $imapServers) {
+        if (null !== $imapServers) {
             $this->setIncludeImapServers($imapServers);
         }
         $this->setEntries($entries);

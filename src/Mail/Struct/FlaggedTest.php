@@ -43,13 +43,13 @@ class FlaggedTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $flag = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $flag = null
     )
     {
     	parent::__construct($index, $negative);
-        if (NULL !== $flag) {
+        if (null !== $flag) {
             $this->setFlag($flag);
         }
     }

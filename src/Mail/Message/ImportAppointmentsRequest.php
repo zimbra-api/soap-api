@@ -72,12 +72,12 @@ class ImportAppointmentsRequest extends SoapRequest
     public function __construct(
         ContentSpec $content,
         string $contentType = 'text/calendar',
-        ?string $folderId = NULL
+        ?string $folderId = null
     )
     {
         $this->setContent($content)
              ->setContentType($contentType);
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
     }

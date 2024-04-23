@@ -194,7 +194,7 @@ class MailboxInfo
         int $sizeCheckPoint = 0,
         int $changeCheckPoint = 0,
         int $trackingSync = 0,
-        bool $trackingImap = FALSE,
+        bool $trackingImap = false,
         int $lastBackupAt = 0,
         int $lastSoapAccess = 0,
         int $newMessages = 0

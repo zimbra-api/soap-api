@@ -93,8 +93,8 @@ class ShareNotificationInfo
         string $status = '',
         string $id = '',
         int $date = 0,
-        ?Grantor $grantor = NULL,
-        ?LinkInfo $link = NULL
+        ?Grantor $grantor = null,
+        ?LinkInfo $link = null
     )
     {
         $this->setId($id)

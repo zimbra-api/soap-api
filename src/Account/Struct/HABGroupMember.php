@@ -44,7 +44,7 @@ class HABGroupMember extends HABMember
      */
     public function __construct(
         string $name = '',
-        ?int $seniorityIndex = NULL,
+        ?int $seniorityIndex = null,
         array $attrs = []
     )
     {

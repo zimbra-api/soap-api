@@ -36,7 +36,7 @@ class GetOutgoingFilterRulesEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetOutgoingFilterRulesBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -46,7 +46,7 @@ class GetOutgoingFilterRulesEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetOutgoingFilterRulesBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetOutgoingFilterRulesBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

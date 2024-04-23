@@ -53,7 +53,7 @@ class GetZimletStatusResponse extends SoapResponse
      * @param array $coses
      * @return self
      */
-    public function __construct(?ZimletStatusParent $zimlets = NULL, array $coses = [])
+    public function __construct(?ZimletStatusParent $zimlets = null, array $coses = [])
     {
         $this->setCoses($coses);
         $this->zimlets = $zimlets;

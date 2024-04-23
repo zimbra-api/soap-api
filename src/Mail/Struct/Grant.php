@@ -115,27 +115,27 @@ class Grant
      */
     public function __construct(
         string $perm = '',
-        ?GrantGranteeType $granteeType = NULL,
+        ?GrantGranteeType $granteeType = null,
         string $granteeId = '',
-        ?int $expiry = NULL,
-        ?string $granteeName = NULL,
-        ?string $guestPassword = NULL,
-        ?string $accessKey = NULL
+        ?int $expiry = null,
+        ?string $granteeName = null,
+        ?string $guestPassword = null,
+        ?string $accessKey = null
     )
     {
         $this->setPerm($perm)
              ->setGranteeType($granteeType ?? GrantGranteeType::ALL)
              ->setGranteeId($granteeId);
-        if (NULL !== $expiry) {
+        if (null !== $expiry) {
             $this->setExpiry($expiry);
         }
-        if (NULL !== $granteeName) {
+        if (null !== $granteeName) {
             $this->setGranteeName($granteeName);
         }
-        if (NULL !== $guestPassword) {
+        if (null !== $guestPassword) {
             $this->setGuestPassword($guestPassword);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
     }

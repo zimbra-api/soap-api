@@ -128,30 +128,30 @@ class NewSearchFolderSpec
     public function __construct(
         string $name = '',
         string $query = '',
-        ?string $searchTypes = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?string $parentFolderId = NULL
+        ?string $searchTypes = null,
+        ?SearchSortBy $sortBy = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?string $parentFolderId = null
     )
     {
         $this->setName($name)
              ->setQuery($query);
         $this->sortBy = $sortBy;
-        if (NULL !== $searchTypes) {
+        if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $parentFolderId) {
+        if (null !== $parentFolderId) {
             $this->setParentFolderId($parentFolderId);
         }
     }

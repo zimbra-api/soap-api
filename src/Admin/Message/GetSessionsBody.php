@@ -33,7 +33,7 @@ class GetSessionsBody extends SoapBody
     #[SerializedName('GetSessionsRequest')]
     #[Type(GetSessionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetSessionsBody extends SoapBody
     #[SerializedName('GetSessionsResponse')]
     #[Type(GetSessionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetSessionsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetSessionsRequest $request = NULL, ?GetSessionsResponse $response = NULL
+        ?GetSessionsRequest $request = null, ?GetSessionsResponse $response = null
     )
     {
         parent::__construct($request, $response);

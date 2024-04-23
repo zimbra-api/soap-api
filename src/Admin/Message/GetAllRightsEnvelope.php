@@ -35,7 +35,7 @@ class GetAllRightsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetAllRightsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetAllRightsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAllRightsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetAllRightsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

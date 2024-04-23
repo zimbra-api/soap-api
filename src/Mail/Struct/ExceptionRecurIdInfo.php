@@ -83,15 +83,15 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      */
     public function __construct(
         string $dateTime = '',
-        ?string $timezone = NULL,
-        ?int $recurrenceRangeType = NULL
+        ?string $timezone = null,
+        ?int $recurrenceRangeType = null
     )
     {
         $this->setDateTime($dateTime);
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
-        if (NULL !== $recurrenceRangeType) {
+        if (null !== $recurrenceRangeType) {
             $this->setRecurrenceRangeType($recurrenceRangeType);
         }
     }

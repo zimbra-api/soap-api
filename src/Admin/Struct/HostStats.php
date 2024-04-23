@@ -52,7 +52,7 @@ class HostStats
      * @param  StatsInfo $stats
      * @return self
      */
-    public function __construct(string $hostName = '', ?StatsInfo $stats = NULL)
+    public function __construct(string $hostName = '', ?StatsInfo $stats = null)
     {
         $this->setHostName($hostName);
         $this->stats = $stats;

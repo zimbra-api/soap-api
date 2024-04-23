@@ -199,54 +199,54 @@ class DocumentSpec
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $contentType = NULL,
-        ?string $description = NULL,
-        ?string $folderId = NULL,
-        ?string $id = NULL,
-        ?int $version = NULL,
-        ?string $content = NULL,
-        ?bool $descEnabled = NULL,
-        ?string $flags = NULL,
-        ?string $action = NULL,
-        ?NewFileCreationTypes $type = NULL,
-        ?Id $upload = NULL,
-        ?MessagePartSpec $messagePart = NULL,
-        ?IdVersion $docRevision = NULL
+        ?string $name = null,
+        ?string $contentType = null,
+        ?string $description = null,
+        ?string $folderId = null,
+        ?string $id = null,
+        ?int $version = null,
+        ?string $content = null,
+        ?bool $descEnabled = null,
+        ?string $flags = null,
+        ?string $action = null,
+        ?NewFileCreationTypes $type = null,
+        ?Id $upload = null,
+        ?MessagePartSpec $messagePart = null,
+        ?IdVersion $docRevision = null
     )
     {
         $this->upload = $upload;
         $this->messagePart = $messagePart;
         $this->docRevision = $docRevision;
         $this->type = $type;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $descEnabled) {
+        if (null !== $descEnabled) {
             $this->setDescEnabled($descEnabled);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $action) {
+        if (null !== $action) {
             $this->setAction($action);
         }
     }

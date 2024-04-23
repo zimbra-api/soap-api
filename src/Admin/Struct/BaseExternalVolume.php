@@ -41,10 +41,10 @@ abstract class BaseExternalVolume
      * @return self
      */
     public function __construct(
-        ?string $storageType = NULL
+        ?string $storageType = null
     )
     {
-        if (NULL !== $storageType) {
+        if (null !== $storageType) {
             $this->setStorageType($storageType);
         }
     }

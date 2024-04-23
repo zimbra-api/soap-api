@@ -40,9 +40,9 @@ class PackageSelector
      * @param string $name
      * @return self
      */
-    public function __construct(?string $name = NULL)
+    public function __construct(?string $name = null)
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

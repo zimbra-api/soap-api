@@ -35,7 +35,7 @@ class ForwardAppointmentInviteEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ForwardAppointmentInviteBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ForwardAppointmentInviteEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ForwardAppointmentInviteBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ForwardAppointmentInviteBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -42,7 +42,7 @@ class CreateDistributionListResponse extends SoapResponse
      * @param DLInfo $dl
      * @return self
      */
-    public function __construct(?DLInfo $dl = NULL)
+    public function __construct(?DLInfo $dl = null)
     {
         $this->dl = $dl;
     }

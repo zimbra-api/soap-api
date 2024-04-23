@@ -42,7 +42,7 @@ class CreateSignatureResponse extends SoapResponse
      * @param NameId $signature
      * @return self
      */
-    public function __construct(?NameId $signature = NULL)
+    public function __construct(?NameId $signature = null)
     {
         $this->signature = $signature;
     }

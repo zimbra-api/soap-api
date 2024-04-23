@@ -33,7 +33,7 @@ class RemoveAccountAliasBody extends SoapBody
     #[SerializedName('RemoveAccountAliasRequest')]
     #[Type(RemoveAccountAliasRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RemoveAccountAliasBody extends SoapBody
     #[SerializedName('RemoveAccountAliasResponse')]
     #[Type(RemoveAccountAliasResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RemoveAccountAliasBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveAccountAliasRequest $request = NULL, ?RemoveAccountAliasResponse $response = NULL
+        ?RemoveAccountAliasRequest $request = null, ?RemoveAccountAliasResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -68,7 +68,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        DtTimeInfo $exceptionId, string $id = '', ?CalTZInfo $timezone = NULL
+        DtTimeInfo $exceptionId, string $id = '', ?CalTZInfo $timezone = null
     )
     {
         $this->setId($id)

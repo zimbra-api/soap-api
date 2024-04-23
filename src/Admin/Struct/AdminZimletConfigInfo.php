@@ -99,7 +99,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName('global')]
     #[Type(AdminZimletGlobalConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?ZimletGlobalConfigInfo $global = NULL;
+    private ?ZimletGlobalConfigInfo $global = null;
 
     /**
      * Zimlet host configuration information
@@ -110,7 +110,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName('host')]
     #[Type(AdminZimletHostConfigInfo::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?ZimletHostConfigInfo $host = NULL;
+    private ?ZimletHostConfigInfo $host = null;
 
     /**
      * Constructor
@@ -124,30 +124,30 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $version = NULL,
-        ?string $description = NULL,
-        ?string $extension = NULL,
-        ?string $target = NULL,
-        ?string $label = NULL
+        ?string $name = null,
+        ?string $version = null,
+        ?string $description = null,
+        ?string $extension = null,
+        ?string $target = null,
+        ?string $label = null
     )
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $extension) {
+        if (null !== $extension) {
             $this->setExtension($extension);
         }
-        if (NULL !== $target) {
+        if (null !== $target) {
             $this->setTarget($target);
         }
-        if (NULL !== $label) {
+        if (null !== $label) {
             $this->setLabel($label);
         }
     }

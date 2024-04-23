@@ -55,15 +55,15 @@ class DateTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?DateComparison $dateComparison = NULL,
-        ?int $date = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?DateComparison $dateComparison = null,
+        ?int $date = null
     )
     {
     	parent::__construct($index, $negative);
         $this->dateComparison = $dateComparison;
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
     }

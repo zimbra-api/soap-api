@@ -35,7 +35,7 @@ class GetYahooCookieEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetYahooCookieBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetYahooCookieEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetYahooCookieBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetYahooCookieBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

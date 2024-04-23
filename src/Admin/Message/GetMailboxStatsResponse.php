@@ -42,7 +42,7 @@ class GetMailboxStatsResponse extends SoapResponse
      * @param MailboxStats $stats
      * @return self
      */
-    public function __construct(?MailboxStats $stats = NULL)
+    public function __construct(?MailboxStats $stats = null)
     {
         $this->stats = $stats;
     }

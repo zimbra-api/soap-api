@@ -63,12 +63,12 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $password = NULL, array $attrs = []
+        string $name = '', ?string $password = null, array $attrs = []
     )
     {
         $this->setName($name)
              ->setAttrs($attrs);
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
     }

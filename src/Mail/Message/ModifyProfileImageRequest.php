@@ -54,13 +54,13 @@ class ModifyProfileImageRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $uploadId = NULL, ?string $imageB64Data = NULL
+        ?string $uploadId = null, ?string $imageB64Data = null
     )
     {
-        if (NULL !== $uploadId) {
+        if (null !== $uploadId) {
             $this->setUploadId($uploadId);
         }
-        if (NULL !== $imageB64Data) {
+        if (null !== $imageB64Data) {
             $this->setImageB64Data($imageB64Data);
         }
     }

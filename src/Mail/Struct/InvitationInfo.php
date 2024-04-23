@@ -122,12 +122,12 @@ class InvitationInfo extends InviteComponent
      * @return self
      */
     public function __construct(
-        ?string $method = NULL,
-        ?int $componentNum = NULL,
-        ?bool $rsvp = NULL,
-        ?RawInvite $content = NULL,
-        ?InviteComponent $inviteComponent = NULL,
-        ?AttachmentsInfo $attachments = NULL
+        ?string $method = null,
+        ?int $componentNum = null,
+        ?bool $rsvp = null,
+        ?RawInvite $content = null,
+        ?InviteComponent $inviteComponent = null,
+        ?AttachmentsInfo $attachments = null
     )
     {
         parent::__construct($method, $componentNum, $rsvp);

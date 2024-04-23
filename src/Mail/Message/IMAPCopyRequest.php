@@ -69,7 +69,7 @@ class IMAPCopyRequest extends SoapRequest
      */
     public function __construct(
         string $ids = '',
-        ?MailItemType $type = NULL,
+        ?MailItemType $type = null,
         int $folder = 0
     )
     {

@@ -76,20 +76,20 @@ class Signature
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $id = NULL,
-        ?string $cid = NULL,
+        ?string $name = null,
+        ?string $id = null,
+        ?string $cid = null,
         array $contents = []
 	)
     {
         $this->setContents($contents);
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $cid) {
+        if (null !== $cid) {
             $this->setCid($cid);
         }
     }

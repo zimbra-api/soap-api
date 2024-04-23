@@ -47,10 +47,10 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(NamedElement $zimlet, ?string $attrs = NULL)
+    public function __construct(NamedElement $zimlet, ?string $attrs = null)
     {
         $this->setZimlet($zimlet);
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

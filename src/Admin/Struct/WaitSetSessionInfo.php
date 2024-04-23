@@ -130,9 +130,9 @@ class WaitSetSessionInfo
         int $lastAccessTime = 0,
         int $creationTime = 0,
         string $sessionId = '',
-        ?string $token = NULL,
-        ?string $folderInterests = NULL,
-        ?string $changedFolders = NULL
+        ?string $token = null,
+        ?string $folderInterests = null,
+        ?string $changedFolders = null
     )
     {
         $this->setInterestMask($interestMask)
@@ -140,13 +140,13 @@ class WaitSetSessionInfo
              ->setLastAccessTime($lastAccessTime)
              ->setCreationTime($creationTime)
              ->setSessionId($sessionId);
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $folderInterests) {
+        if (null !== $folderInterests) {
             $this->setFolderInterests($folderInterests);
         }
-        if (NULL !== $changedFolders) {
+        if (null !== $changedFolders) {
             $this->setChangedFolders($changedFolders);
         }
     }

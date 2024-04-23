@@ -33,7 +33,7 @@ class OpenIMAPFolderBody extends SoapBody
     #[SerializedName('OpenIMAPFolderRequest')]
     #[Type(OpenIMAPFolderRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class OpenIMAPFolderBody extends SoapBody
     #[SerializedName('OpenIMAPFolderResponse')]
     #[Type(OpenIMAPFolderResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class OpenIMAPFolderBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?OpenIMAPFolderRequest $request = NULL, ?OpenIMAPFolderResponse $response = NULL
+        ?OpenIMAPFolderRequest $request = null, ?OpenIMAPFolderResponse $response = null
     )
     {
         parent::__construct($request, $response);

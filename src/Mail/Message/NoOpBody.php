@@ -33,7 +33,7 @@ class NoOpBody extends SoapBody
     #[SerializedName('NoOpRequest')]
     #[Type(NoOpRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class NoOpBody extends SoapBody
     #[SerializedName('NoOpResponse')]
     #[Type(NoOpResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class NoOpBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?NoOpRequest $request = NULL, ?NoOpResponse $response = NULL
+        ?NoOpRequest $request = null, ?NoOpResponse $response = null
     )
     {
         parent::__construct($request, $response);

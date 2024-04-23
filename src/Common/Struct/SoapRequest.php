@@ -31,7 +31,7 @@ abstract class SoapRequest implements SoapRequestInterface
      * @var SoapEnvelopeInterface
      */
     #[Exclude]
-    private ?SoapEnvelopeInterface $soapEnvelope = NULL;
+    private ?SoapEnvelopeInterface $soapEnvelope = null;
 
     /**
      * {@inheritdoc}

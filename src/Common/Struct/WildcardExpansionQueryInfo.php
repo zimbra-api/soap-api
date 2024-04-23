@@ -68,7 +68,7 @@ class WildcardExpansionQueryInfo
      */
     public function __construct(
         string $str = '',
-        bool $expanded = FALSE,
+        bool $expanded = false,
         int $numExpanded = 0
     )
     {

@@ -33,7 +33,7 @@ class RecalculateMailboxCountsBody extends SoapBody
     #[SerializedName('RecalculateMailboxCountsRequest')]
     #[Type(RecalculateMailboxCountsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RecalculateMailboxCountsBody extends SoapBody
     #[SerializedName('RecalculateMailboxCountsResponse')]
     #[Type(RecalculateMailboxCountsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RecalculateMailboxCountsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RecalculateMailboxCountsRequest $request = NULL, ?RecalculateMailboxCountsResponse $response = NULL
+        ?RecalculateMailboxCountsRequest $request = null, ?RecalculateMailboxCountsResponse $response = null
     )
     {
         parent::__construct($request, $response);

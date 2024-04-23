@@ -66,7 +66,7 @@ class GetSessionsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        bool $more = FALSE,
+        bool $more = false,
         int $total = 0,
         array $sessions = []
     )

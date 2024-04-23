@@ -59,8 +59,8 @@ class GetGrantsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?EffectiveRightsTargetSelector $target = NULL,
-        ?GranteeSelector $grantee = NULL
+        ?EffectiveRightsTargetSelector $target = null,
+        ?GranteeSelector $grantee = null
     )
     {
         $this->target = $target;

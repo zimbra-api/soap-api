@@ -67,8 +67,8 @@ class RecoverAccountRequest extends SoapRequest
      */
     public function __construct(
         string $email = '',
-        ?RecoverAccountOperation $op = NULL,
-        ?Channel $channel = NULL
+        ?RecoverAccountOperation $op = null,
+        ?Channel $channel = null
     )
     {
         $this->setEmail($email)

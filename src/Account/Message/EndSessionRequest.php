@@ -82,22 +82,22 @@ class EndSessionRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $logoff = NULL,
-        ?bool $clearAllSoapSessions = NULL,
-        ?bool $excludeCurrentSession = NULL,
-        ?string $sessionId = NULL
+        ?bool $logoff = null,
+        ?bool $clearAllSoapSessions = null,
+        ?bool $excludeCurrentSession = null,
+        ?string $sessionId = null
     )
     {
-        if(NULL !== $logoff) {
+        if(null !== $logoff) {
             $this->setLogOff($logoff);
         }
-        if(NULL !== $clearAllSoapSessions) {
+        if(null !== $clearAllSoapSessions) {
             $this->setClearAllSoapSessions($clearAllSoapSessions);
         }
-        if(NULL !== $excludeCurrentSession) {
+        if(null !== $excludeCurrentSession) {
             $this->setExcludeCurrentSession($excludeCurrentSession);
         }
-        if(NULL !== $sessionId) {
+        if(null !== $sessionId) {
             $this->setSessionId($sessionId);
         }
     }

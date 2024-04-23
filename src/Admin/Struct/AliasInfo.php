@@ -59,7 +59,7 @@ class AliasInfo extends AdminObjectInfo
         string $name = '',
         string $id = '',
         string $targetName = '',
-        ?TargetType $targetType = NULL,
+        ?TargetType $targetType = null,
         array $attrs = []
     )
     {

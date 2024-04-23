@@ -33,7 +33,7 @@ class GetAlwaysOnClusterBody extends SoapBody
     #[SerializedName('GetAlwaysOnClusterRequest')]
     #[Type(GetAlwaysOnClusterRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAlwaysOnClusterBody extends SoapBody
     #[SerializedName('GetAlwaysOnClusterResponse')]
     #[Type(GetAlwaysOnClusterResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAlwaysOnClusterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAlwaysOnClusterRequest $request = NULL, ?GetAlwaysOnClusterResponse $response = NULL
+        ?GetAlwaysOnClusterRequest $request = null, ?GetAlwaysOnClusterResponse $response = null
     )
     {
         parent::__construct($request, $response);

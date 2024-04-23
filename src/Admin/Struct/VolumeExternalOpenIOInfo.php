@@ -90,28 +90,28 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
      * @return self
      */
     public function __construct(
-        ?string $storageType = NULL,
-        ?string $url = NULL,
-        ?string $account = NULL,
-        ?string $nameSpace = NULL,
-        ?int $proxyPort = NULL,
-        ?int $accountPort = NULL
+        ?string $storageType = null,
+        ?string $url = null,
+        ?string $account = null,
+        ?string $nameSpace = null,
+        ?int $proxyPort = null,
+        ?int $accountPort = null
     )
     {
         parent::__construct($storageType);
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $account) {
+        if (null !== $account) {
             $this->setAccount($account);
         }
-        if (NULL !== $nameSpace) {
+        if (null !== $nameSpace) {
             $this->setNameSpace($nameSpace);
         }
-        if (NULL !== $proxyPort) {
+        if (null !== $proxyPort) {
             $this->setProxyPort($proxyPort);
         }
-        if (NULL !== $accountPort) {
+        if (null !== $accountPort) {
             $this->setAccountPort($accountPort);
         }
     }

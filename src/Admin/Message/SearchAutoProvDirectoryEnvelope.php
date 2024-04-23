@@ -35,7 +35,7 @@ class SearchAutoProvDirectoryEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SearchAutoProvDirectoryBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SearchAutoProvDirectoryEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SearchAutoProvDirectoryBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SearchAutoProvDirectoryBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

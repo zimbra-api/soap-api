@@ -33,7 +33,7 @@ class RemoveDistributionListMemberBody extends SoapBody
     #[SerializedName('RemoveDistributionListMemberRequest')]
     #[Type(RemoveDistributionListMemberRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RemoveDistributionListMemberBody extends SoapBody
     #[SerializedName('RemoveDistributionListMemberResponse')]
     #[Type(RemoveDistributionListMemberResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RemoveDistributionListMemberBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveDistributionListMemberRequest $request = NULL, ?RemoveDistributionListMemberResponse $response = NULL
+        ?RemoveDistributionListMemberRequest $request = null, ?RemoveDistributionListMemberResponse $response = null
     )
     {
         parent::__construct($request, $response);

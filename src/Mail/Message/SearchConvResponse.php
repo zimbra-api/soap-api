@@ -119,22 +119,22 @@ class SearchConvResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?SearchSortBy $sortBy = NULL,
-        ?int $queryOffset = NULL,
-        ?bool $queryMore = NULL,
-        ?NestedSearchConversation $conversation = NULL,
+        ?SearchSortBy $sortBy = null,
+        ?int $queryOffset = null,
+        ?bool $queryMore = null,
+        ?NestedSearchConversation $conversation = null,
         array $messages = [],
-        ?SearchQueryInfo $queryInfo = NULL
+        ?SearchQueryInfo $queryInfo = null
     )
     {
         $this->setMessages($messages);
         $this->sortBy = $sortBy;
         $this->conversation = $conversation;
         $this->queryInfo = $queryInfo;
-        if (NULL !== $queryOffset) {
+        if (null !== $queryOffset) {
             $this->setQueryOffset($queryOffset);
         }
-        if (NULL !== $queryMore) {
+        if (null !== $queryMore) {
             $this->setQueryMore($queryMore);
         }
     }

@@ -44,7 +44,7 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
      * @param  NamedElement $provider
      * @return self
      */
-    public function __construct(?NamedElement $provider = NULL)
+    public function __construct(?NamedElement $provider = null)
     {
         $this->provider = $provider;
     }

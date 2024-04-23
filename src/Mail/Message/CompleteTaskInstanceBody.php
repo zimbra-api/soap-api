@@ -33,7 +33,7 @@ class CompleteTaskInstanceBody extends SoapBody
     #[SerializedName('CompleteTaskInstanceRequest')]
     #[Type(CompleteTaskInstanceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CompleteTaskInstanceBody extends SoapBody
     #[SerializedName('CompleteTaskInstanceResponse')]
     #[Type(CompleteTaskInstanceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CompleteTaskInstanceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CompleteTaskInstanceRequest $request = NULL, ?CompleteTaskInstanceResponse $response = NULL
+        ?CompleteTaskInstanceRequest $request = null, ?CompleteTaskInstanceResponse $response = null
     )
     {
         parent::__construct($request, $response);

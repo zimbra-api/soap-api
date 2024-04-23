@@ -53,10 +53,10 @@ class GetLoggerStatsResponse extends SoapResponse
      * @param string $note
      * @return self
      */
-    public function __construct(array $hostNames = [], ?string $note = NULL)
+    public function __construct(array $hostNames = [], ?string $note = null)
     {
         $this->setHostNames($hostNames);
-        if (NULL !== $note) {
+        if (null !== $note) {
             $this->setNote($note);
         }
     }

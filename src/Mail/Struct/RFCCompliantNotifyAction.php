@@ -90,28 +90,28 @@ class RFCCompliantNotifyAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?string $from = NULL,
-        ?string $importance = NULL,
-        ?string $options = NULL,
-        ?string $message = NULL,
-        ?string $method = NULL
+        ?int $index = null,
+        ?string $from = null,
+        ?string $importance = null,
+        ?string $options = null,
+        ?string $message = null,
+        ?string $method = null
     )
     {
     	parent::__construct($index);
-        if (NULL !== $from) {
+        if (null !== $from) {
             $this->setFrom($from);
         }
-        if (NULL !== $importance) {
+        if (null !== $importance) {
             $this->setImportance($importance);
         }
-        if (NULL !== $options) {
+        if (null !== $options) {
             $this->setOptions($options);
         }
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
-        if (NULL !== $method) {
+        if (null !== $method) {
             $this->setMethod($method);
         }
     }

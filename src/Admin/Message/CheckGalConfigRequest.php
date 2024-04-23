@@ -59,12 +59,12 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
      * @return self
      */
     public function __construct(
-        ?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = []
+        ?LimitedQuery $query = null, ?string $action = null, array $attrs = []
     )
     {
         $this->setAttrs($attrs);
         $this->query = $query;
-        if (NULL !== $action) {
+        if (null !== $action) {
             $this->setAction($action);
         }
     }

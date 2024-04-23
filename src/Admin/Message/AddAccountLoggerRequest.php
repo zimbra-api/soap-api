@@ -71,12 +71,12 @@ class AddAccountLoggerRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        LoggerInfo $logger, ?AccountSelector $account = NULL, ?string $id = NULL
+        LoggerInfo $logger, ?AccountSelector $account = null, ?string $id = null
     )
     {
         $this->setLogger($logger);
         $this->account = $account;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

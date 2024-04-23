@@ -33,7 +33,7 @@ class ICalReplyBody extends SoapBody
     #[SerializedName('ICalReplyRequest')]
     #[Type(ICalReplyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ICalReplyBody extends SoapBody
     #[SerializedName('ICalReplyResponse')]
     #[Type(ICalReplyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ICalReplyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ICalReplyRequest $request = NULL, ?ICalReplyResponse $response = NULL
+        ?ICalReplyRequest $request = null, ?ICalReplyResponse $response = null
     )
     {
         parent::__construct($request, $response);

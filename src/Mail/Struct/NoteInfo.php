@@ -197,60 +197,60 @@ class NoteInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $revision = NULL,
-        ?string $folder = NULL,
-        ?int $date = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $bounds = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
-        ?string $content = NULL,
+        ?string $id = null,
+        ?int $revision = null,
+        ?string $folder = null,
+        ?int $date = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $bounds = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
+        ?string $content = null,
         array $metadatas = []
     )
     {
         $this->setMetadatas($metadatas);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $bounds) {
+        if (null !== $bounds) {
             $this->setBounds($bounds);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

@@ -33,7 +33,7 @@ class GetInfoBody extends SoapBody
     #[SerializedName('GetInfoRequest')]
     #[Type(GetInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetInfoBody extends SoapBody
     #[SerializedName('GetInfoResponse')]
     #[Type(GetInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetInfoRequest $request = NULL, ?GetInfoResponse $response = NULL
+        ?GetInfoRequest $request = null, ?GetInfoResponse $response = null
     )
     {
         parent::__construct($request, $response);

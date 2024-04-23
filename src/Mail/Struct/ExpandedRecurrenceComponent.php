@@ -90,20 +90,20 @@ class ExpandedRecurrenceComponent
      * @return self
      */
     public function __construct(
-        ?InstanceRecurIdInfo $exceptionId = NULL,
-        ?int $startTime = NULL,
-        ?int $endTime = NULL,
-        ?DurationInfo $duration = NULL,
-        ?RecurrenceInfo $recurrence = NULL
+        ?InstanceRecurIdInfo $exceptionId = null,
+        ?int $startTime = null,
+        ?int $endTime = null,
+        ?DurationInfo $duration = null,
+        ?RecurrenceInfo $recurrence = null
     )
     {
         $this->exceptionId = $exceptionId;
         $this->duration = $duration;
         $this->recurrence = $recurrence;
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $endTime) {
+        if (null !== $endTime) {
             $this->setEndTime($endTime);
         }
     }

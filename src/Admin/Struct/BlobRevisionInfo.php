@@ -80,7 +80,7 @@ class BlobRevisionInfo
         string $path = '',
         int $fileSize = 0,
         int $revision = 0,
-        bool $external = FALSE
+        bool $external = false
     )
     {
         $this->setPath($path)

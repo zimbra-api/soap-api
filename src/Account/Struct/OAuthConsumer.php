@@ -77,22 +77,22 @@ class OAuthConsumer
      * @return self
      */
     public function __construct(
-        ?string $accessToken = NULL,
-        ?string $approvedOn = NULL,
-        ?string $applicationName = NULL,
-        ?string $device = NULL
+        ?string $accessToken = null,
+        ?string $approvedOn = null,
+        ?string $applicationName = null,
+        ?string $device = null
     )
     {
-        if (NULL !== $accessToken) {
+        if (null !== $accessToken) {
             $this->setAccessToken($accessToken);
         }
-        if (NULL !== $approvedOn) {
+        if (null !== $approvedOn) {
             $this->setApprovedOn($approvedOn);
         }
-        if (NULL !== $applicationName) {
+        if (null !== $applicationName) {
             $this->setApplicationName($applicationName);
         }
-        if (NULL !== $device) {
+        if (null !== $device) {
             $this->setDevice($device);
         }
     }

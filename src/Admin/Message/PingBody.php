@@ -33,7 +33,7 @@ class PingBody extends SoapBody
     #[SerializedName('PingRequest')]
     #[Type(PingRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class PingBody extends SoapBody
     #[SerializedName('PingResponse')]
     #[Type(PingResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class PingBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PingRequest $request = NULL, ?PingResponse $response = NULL
+        ?PingRequest $request = null, ?PingResponse $response = null
     )
     {
         parent::__construct($request, $response);

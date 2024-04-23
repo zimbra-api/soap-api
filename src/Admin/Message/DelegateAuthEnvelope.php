@@ -35,7 +35,7 @@ class DelegateAuthEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DelegateAuthBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DelegateAuthEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DelegateAuthBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DelegateAuthBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

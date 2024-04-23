@@ -35,7 +35,7 @@ class GetMailQueueInfoEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetMailQueueInfoBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetMailQueueInfoEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetMailQueueInfoBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetMailQueueInfoBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

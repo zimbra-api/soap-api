@@ -35,7 +35,7 @@ class ConvActionEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ConvActionBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ConvActionEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ConvActionBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ConvActionBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

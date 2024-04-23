@@ -33,7 +33,7 @@ class GetPermissionBody extends SoapBody
     #[SerializedName('GetPermissionRequest')]
     #[Type(GetPermissionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetPermissionBody extends SoapBody
     #[SerializedName('GetPermissionResponse')]
     #[Type(GetPermissionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetPermissionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetPermissionRequest $request = NULL, ?GetPermissionResponse $response = NULL
+        ?GetPermissionRequest $request = null, ?GetPermissionResponse $response = null
     )
     {
         parent::__construct($request, $response);

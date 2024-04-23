@@ -323,100 +323,100 @@ class AccountDataSource implements DataSource
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $folderId = NULL,
-        ?bool $enabled = NULL,
-        ?bool $importOnly = NULL,
-        ?string $host = NULL,
-        ?int $port = NULL,
-        ?ConnectionType $connectionType = NULL,
-        ?string $username = NULL,
-        ?string $password = NULL,
-        ?string $pollingInterval = NULL,
-        ?string $emailAddress = NULL,
-        ?bool $useAddressForForwardReply = NULL,
-        ?string $defaultSignature = NULL,
-        ?string $forwardReplySignature = NULL,
-        ?string $fromDisplay = NULL,
-        ?string $replyToAddress = NULL,
-        ?string $replyToDisplay = NULL,
-        ?string $importClass = NULL,
-        ?int $failingSince = NULL,
-        ?string $lastError = NULL,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $folderId = null,
+        ?bool $enabled = null,
+        ?bool $importOnly = null,
+        ?string $host = null,
+        ?int $port = null,
+        ?ConnectionType $connectionType = null,
+        ?string $username = null,
+        ?string $password = null,
+        ?string $pollingInterval = null,
+        ?string $emailAddress = null,
+        ?bool $useAddressForForwardReply = null,
+        ?string $defaultSignature = null,
+        ?string $forwardReplySignature = null,
+        ?string $fromDisplay = null,
+        ?string $replyToAddress = null,
+        ?string $replyToDisplay = null,
+        ?string $importClass = null,
+        ?int $failingSince = null,
+        ?string $lastError = null,
         array $attributes = [],
-        ?string $refreshToken = NULL,
-        ?string $refreshTokenUrl = NULL
+        ?string $refreshToken = null,
+        ?string $refreshTokenUrl = null
     )
     {
         $this->connectionType = $connectionType;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $enabled) {
+        if (null !== $enabled) {
             $this->setEnabled($enabled);
         }
-        if (NULL !== $importOnly) {
+        if (null !== $importOnly) {
             $this->setImportOnly($importOnly);
         }
-        if (NULL !== $host) {
+        if (null !== $host) {
             $this->setHost($host);
         }
-        if (NULL !== $port) {
+        if (null !== $port) {
             $this->setPort($port);
         }
-        if (NULL !== $username) {
+        if (null !== $username) {
             $this->setUsername($username);
         }
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $pollingInterval) {
+        if (null !== $pollingInterval) {
             $this->setPollingInterval($pollingInterval);
         }
-        if (NULL !== $emailAddress) {
+        if (null !== $emailAddress) {
             $this->setEmailAddress($emailAddress);
         }
-        if (NULL !== $useAddressForForwardReply) {
+        if (null !== $useAddressForForwardReply) {
             $this->setUseAddressForForwardReply($useAddressForForwardReply);
         }
-        if (NULL !== $defaultSignature) {
+        if (null !== $defaultSignature) {
             $this->setDefaultSignature($defaultSignature);
         }
-        if (NULL !== $forwardReplySignature) {
+        if (null !== $forwardReplySignature) {
             $this->setForwardReplySignature($forwardReplySignature);
         }
-        if (NULL !== $fromDisplay) {
+        if (null !== $fromDisplay) {
             $this->setFromDisplay($fromDisplay);
         }
-        if (NULL !== $replyToAddress) {
+        if (null !== $replyToAddress) {
             $this->setReplyToAddress($replyToAddress);
         }
-        if (NULL !== $replyToDisplay) {
+        if (null !== $replyToDisplay) {
             $this->setReplyToDisplay($replyToDisplay);
         }
-        if (NULL !== $importClass) {
+        if (null !== $importClass) {
             $this->setImportClass($importClass);
         }
-        if (NULL !== $failingSince) {
+        if (null !== $failingSince) {
             $this->setFailingSince($failingSince);
         }
-        if (NULL !== $lastError) {
+        if (null !== $lastError) {
             $this->setLastError($lastError);
         }
-        if (NULL !== $attributes) {
+        if (null !== $attributes) {
             $this->setAttributes($attributes);
         }
-        if (NULL !== $refreshToken) {
+        if (null !== $refreshToken) {
             $this->setRefreshToken($refreshToken);
         }
-        if (NULL !== $refreshTokenUrl) {
+        if (null !== $refreshTokenUrl) {
             $this->setRefreshTokenUrl($refreshTokenUrl);
         }
     }

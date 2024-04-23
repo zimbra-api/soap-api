@@ -147,13 +147,13 @@ class ConversationInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $num = NULL,
-        ?int $totalSize = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $subject = NULL,
+        ?string $id = null,
+        ?int $num = null,
+        ?int $totalSize = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $subject = null,
         array $metadatas = [],
         array $chatMessages = [],
         array $messages = []
@@ -162,25 +162,25 @@ class ConversationInfo
         $this->setMetadatas($metadatas)
              ->setChatMessages($chatMessages)
              ->setMessages($messages);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $num) {
+        if (null !== $num) {
             $this->setNum($num);
         }
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
     }

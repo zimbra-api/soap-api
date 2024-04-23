@@ -33,7 +33,7 @@ class GetFreeBusyBody extends SoapBody
     #[SerializedName('GetFreeBusyRequest')]
     #[Type(GetFreeBusyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetFreeBusyBody extends SoapBody
     #[SerializedName('GetFreeBusyResponse')]
     #[Type(GetFreeBusyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetFreeBusyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetFreeBusyRequest $request = NULL, ?GetFreeBusyResponse $response = NULL
+        ?GetFreeBusyRequest $request = null, ?GetFreeBusyResponse $response = null
     )
     {
         parent::__construct($request, $response);

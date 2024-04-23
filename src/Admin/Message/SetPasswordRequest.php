@@ -67,12 +67,12 @@ class SetPasswordRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $id = '', string $newPassword = '', ?bool $dryRun = FALSE
+        string $id = '', string $newPassword = '', ?bool $dryRun = false
     )
     {
         $this->setId($id)
              ->setNewPassword($newPassword);
-        if (NULL !== $dryRun) {
+        if (null !== $dryRun) {
             $this->setDryRun($dryRun);
         }
     }

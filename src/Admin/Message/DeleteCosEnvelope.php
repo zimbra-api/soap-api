@@ -35,7 +35,7 @@ class DeleteCosEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(DeleteCosBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class DeleteCosEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DeleteCosBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?DeleteCosBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

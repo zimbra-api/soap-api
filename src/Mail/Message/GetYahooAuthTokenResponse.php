@@ -41,9 +41,9 @@ class GetYahooAuthTokenResponse extends SoapResponse
      * @param  bool $failed
      * @return self
      */
-    public function __construct(?bool $failed = NULL)
+    public function __construct(?bool $failed = null)
     {
-        if (NULL !== $failed) {
+        if (null !== $failed) {
             $this->setFailed($failed);
         }
     }

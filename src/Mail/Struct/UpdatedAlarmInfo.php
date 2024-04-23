@@ -54,7 +54,7 @@ class UpdatedAlarmInfo
      */
     public function __construct(
         string $calItemId = '',
-        ?AlarmDataInfo $alarmData = NULL
+        ?AlarmDataInfo $alarmData = null
     )
     {
         $this->setCalItemId($calItemId);

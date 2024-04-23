@@ -80,16 +80,16 @@ class ActionResult
     public function __construct(
         string $id = '',
         string $operation = '',
-        ?string $nonExistentIds = NULL,
-        ?string $newlyCreatedIds = NULL
+        ?string $nonExistentIds = null,
+        ?string $newlyCreatedIds = null
     )
     {
         $this->setId($id)
              ->setOperation($operation);
-        if (NULL !== $nonExistentIds) {
+        if (null !== $nonExistentIds) {
             $this->setNonExistentIds($nonExistentIds);
         }
-        if (NULL !== $newlyCreatedIds) {
+        if (null !== $newlyCreatedIds) {
             $this->setNewlyCreatedIds($newlyCreatedIds);
         }
     }

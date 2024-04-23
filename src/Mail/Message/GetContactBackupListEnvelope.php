@@ -35,7 +35,7 @@ class GetContactBackupListEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetContactBackupListBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetContactBackupListEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetContactBackupListBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetContactBackupListBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

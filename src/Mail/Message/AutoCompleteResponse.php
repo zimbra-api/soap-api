@@ -55,11 +55,11 @@ class AutoCompleteResponse extends SoapResponse
      */
     public function __construct(
         array $matches = [],
-        ?bool $canBeCached = NULL
+        ?bool $canBeCached = null
     )
     {
         $this->setMatches($matches);
-        if (NULL !== $canBeCached) {
+        if (null !== $canBeCached) {
             $this->setCanBeCached($canBeCached);
         }
     }

@@ -106,11 +106,11 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?AdminFilterType $type = NULL,
-        ?AccountSelector $account = NULL,
-        ?DomainSelector $domain = NULL,
-        ?CosSelector $cos = NULL,
-        ?ServerSelector $server = NULL,
+        ?AdminFilterType $type = null,
+        ?AccountSelector $account = null,
+        ?DomainSelector $domain = null,
+        ?CosSelector $cos = null,
+        ?ServerSelector $server = null,
         array $filterRules = []
     )
     {

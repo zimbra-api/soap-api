@@ -52,12 +52,12 @@ class AccountZimletProperty implements ZimletProperty
      * @param  string $value
      * @return self
      */
-    public function __construct(?string $name = NULL, ?string $value = NULL)
+    public function __construct(?string $name = null, ?string $value = null)
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

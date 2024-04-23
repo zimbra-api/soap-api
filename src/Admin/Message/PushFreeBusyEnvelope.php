@@ -35,7 +35,7 @@ class PushFreeBusyEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(PushFreeBusyBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class PushFreeBusyEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?PushFreeBusyBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?PushFreeBusyBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

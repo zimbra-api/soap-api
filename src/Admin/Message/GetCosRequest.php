@@ -46,10 +46,10 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(CosSelector $cos, ?string $attrs = NULL)
+    public function __construct(CosSelector $cos, ?string $attrs = null)
     {
         $this->setCos($cos);
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

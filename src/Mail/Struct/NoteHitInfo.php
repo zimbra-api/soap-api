@@ -56,20 +56,20 @@ class NoteHitInfo extends NoteInfo implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?int $revision = NULL,
-        ?string $folder = NULL,
-        ?int $date = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $bounds = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
-        ?string $content = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
+        ?int $revision = null,
+        ?string $folder = null,
+        ?int $date = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $bounds = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
+        ?string $content = null,
         array $metadatas = []
     )
     {
@@ -89,7 +89,7 @@ class NoteHitInfo extends NoteInfo implements SearchHit
             $content,
             $metadatas
         );
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
     }

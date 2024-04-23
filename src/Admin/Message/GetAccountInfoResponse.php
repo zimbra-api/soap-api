@@ -103,20 +103,20 @@ class GetAccountInfoResponse extends SoapResponse
     public function __construct(
         string $name = '',
         array $attrList = [],
-        ?CosInfo $cos = NULL,
+        ?CosInfo $cos = null,
         array $soapURLList = [],
-        string $adminSoapURL = NULL,
-        string $publicMailURL = NULL
+        string $adminSoapURL = null,
+        string $publicMailURL = null
     )
     {
         $this->setName($name)
              ->setAttrList($attrList)
              ->setSoapURLList($soapURLList);
         $this->cos = $cos;
-        if (NULL !== $adminSoapURL) {
+        if (null !== $adminSoapURL) {
             $this->setAdminSoapURL($adminSoapURL);
         }
-        if (NULL !== $publicMailURL) {
+        if (null !== $publicMailURL) {
             $this->setPublicMailURL($publicMailURL);
         }
     }

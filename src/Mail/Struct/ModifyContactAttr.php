@@ -48,11 +48,11 @@ class ModifyContactAttr extends NewContactAttr
      */
     public function __construct(
         string $name = '',
-        ?string $operation = NULL,
-        ?string $attachId = NULL,
-        ?int $id = NULL,
-        ?string $part = NULL,
-        ?string $value = NULL
+        ?string $operation = null,
+        ?string $attachId = null,
+        ?int $id = null,
+        ?string $part = null,
+        ?string $value = null
     )
     {
         parent::__construct(
@@ -62,7 +62,7 @@ class ModifyContactAttr extends NewContactAttr
             $part,
             $value
         );
-        if (NULL !== $operation) {
+        if (null !== $operation) {
             $this->setOperation($operation);
         }
     }

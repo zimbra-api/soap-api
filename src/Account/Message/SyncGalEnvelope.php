@@ -35,7 +35,7 @@ class SyncGalEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(SyncGalBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class SyncGalEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?SyncGalBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?SyncGalBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

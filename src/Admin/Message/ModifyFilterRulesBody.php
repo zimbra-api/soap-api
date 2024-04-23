@@ -33,7 +33,7 @@ class ModifyFilterRulesBody extends SoapBody
     #[SerializedName('ModifyFilterRulesRequest')]
     #[Type(ModifyFilterRulesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ModifyFilterRulesBody extends SoapBody
     #[SerializedName('ModifyFilterRulesResponse')]
     #[Type(ModifyFilterRulesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ModifyFilterRulesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyFilterRulesRequest $request = NULL, ?ModifyFilterRulesResponse $response = NULL
+        ?ModifyFilterRulesRequest $request = null, ?ModifyFilterRulesResponse $response = null
     )
     {
         parent::__construct($request, $response);

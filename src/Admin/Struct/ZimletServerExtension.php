@@ -66,18 +66,18 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @return self
      */
     public function __construct(
-        ?string $hasKeyword = NULL,
-        ?string $extensionClass = NULL,
-        ?string $regex = NULL
+        ?string $hasKeyword = null,
+        ?string $extensionClass = null,
+        ?string $regex = null
     )
     {
-        if (NULL !== $hasKeyword) {
+        if (null !== $hasKeyword) {
             $this->setHasKeyword($hasKeyword);
         }
-        if (NULL !== $extensionClass) {
+        if (null !== $extensionClass) {
             $this->setExtensionClass($extensionClass);
         }
-        if (NULL !== $regex) {
+        if (null !== $regex) {
             $this->setRegex($regex);
         }
     }

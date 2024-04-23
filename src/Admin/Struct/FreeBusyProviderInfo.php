@@ -102,7 +102,7 @@ class FreeBusyProviderInfo
      */
     public function __construct(
         string $name = '',
-        bool $propagate = FALSE,
+        bool $propagate = false,
         int $start = 0,
         int $end = 0,
         string $queue = '',

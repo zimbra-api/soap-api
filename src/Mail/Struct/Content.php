@@ -52,13 +52,13 @@ class Content
      * @return self
      */
     public function __construct(
-        ?string $attachUploadId = NULL, ?string $value = NULL
+        ?string $attachUploadId = null, ?string $value = null
     )
     {
-        if (NULL !== $attachUploadId) {
+        if (null !== $attachUploadId) {
             $this->setAttachUploadId($attachUploadId);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

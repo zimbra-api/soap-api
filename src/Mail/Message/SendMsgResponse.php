@@ -45,7 +45,7 @@ class SendMsgResponse extends SoapResponse
      * @param MsgWithGroupInfo $msg
      * @return self
      */
-    public function __construct(?MsgWithGroupInfo $msg = NULL)
+    public function __construct(?MsgWithGroupInfo $msg = null)
     {
         $this->msg = $msg;
     }

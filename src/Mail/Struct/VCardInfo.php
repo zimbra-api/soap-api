@@ -77,22 +77,22 @@ class VCardInfo
      * @return self
      */
     public function __construct(
-        ?string $messageId = NULL,
-        ?string $part = NULL,
-        ?string $attachId = NULL,
-        ?string $value = NULL
+        ?string $messageId = null,
+        ?string $part = null,
+        ?string $attachId = null,
+        ?string $value = null
     )
     {
-        if (NULL !== $messageId) {
+        if (null !== $messageId) {
             $this->setMessageId($messageId);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $attachId) {
+        if (null !== $attachId) {
             $this->setAttachId($attachId);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

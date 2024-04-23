@@ -93,7 +93,7 @@ class IncorrectBlobRevisionInfo
         int $revision = 0,
         int $size = 0,
         int $volumeId = 0,
-        ?BlobRevisionInfo $blob = NULL
+        ?BlobRevisionInfo $blob = null
     )
     {
         $this->setId($id)

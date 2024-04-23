@@ -50,13 +50,13 @@ class DocumentActionGrant extends ActionGrantSelector
      */
     public function __construct(
         string $rights = '',
-        ?GranteeType $grantType = NULL,
-        ?int $expiry = NULL,
-        ?string $zimbraId = NULL,
-        ?string $displayName = NULL,
-        ?string $args = NULL,
-        ?string $password = NULL,
-        ?string $accessKey = NULL
+        ?GranteeType $grantType = null,
+        ?int $expiry = null,
+        ?string $zimbraId = null,
+        ?string $displayName = null,
+        ?string $args = null,
+        ?string $password = null,
+        ?string $accessKey = null
     )
     {
         parent::__construct(

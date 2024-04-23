@@ -78,18 +78,18 @@ class SetRecoveryAccountRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?RecoveryAccountOperation $op = NULL,
-        ?string $recoveryAccount = NULL,
-        ?string $verificationCode = NULL,
-        ?Channel $channel = NULL
+        ?RecoveryAccountOperation $op = null,
+        ?string $recoveryAccount = null,
+        ?string $verificationCode = null,
+        ?Channel $channel = null
     )
     {
         $this->setOp($op ?? RecoveryAccountOperation::SEND_CODE);
         $this->channel = $channel;
-        if (NULL !== $recoveryAccount) {
+        if (null !== $recoveryAccount) {
             $this->setRecoveryAccount($recoveryAccount);
         }
-        if (NULL !== $verificationCode) {
+        if (null !== $verificationCode) {
             $this->setVerificationCode($verificationCode);
         }
     }

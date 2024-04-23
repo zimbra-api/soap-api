@@ -82,19 +82,19 @@ class CreateContactRequest extends SoapRequest
      */
     public function __construct(
         ContactSpec $contact,
-        ?bool $verbose = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $verbose = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     )
     {
         $this->setContact($contact);
-        if (NULL !== $verbose) {
+        if (null !== $verbose) {
             $this->setVerbose($verbose);
         }
-        if (NULL !== $wantImapUid) {
+        if (null !== $wantImapUid) {
             $this->setWantImapUid($wantImapUid);
         }
-        if (NULL !== $wantModifiedSequence) {
+        if (null !== $wantModifiedSequence) {
             $this->setWantModifiedSequence($wantModifiedSequence);
         }
     }

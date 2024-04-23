@@ -42,7 +42,7 @@ class GetAccountResponse extends SoapResponse
      * @param AccountInfo $account
      * @return self
      */
-    public function __construct(?AccountInfo $account = NULL)
+    public function __construct(?AccountInfo $account = null)
     {
         $this->account = $account;
     }

@@ -40,9 +40,9 @@ class FilterAction
      * @param int $index
      * @return self
      */
-    public function __construct(?int $index = NULL)
+    public function __construct(?int $index = null)
     {
-        if (NULL !== $index) {
+        if (null !== $index) {
             $this->setIndex($index);
         }
     }

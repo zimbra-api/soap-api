@@ -35,7 +35,7 @@ class GetFolderEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetFolderBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetFolderEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetFolderBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetFolderBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

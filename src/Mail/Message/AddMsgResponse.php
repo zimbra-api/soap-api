@@ -53,7 +53,7 @@ class AddMsgResponse extends SoapResponse
      * @param  MessageSummary $message
      * @return self
      */
-    public function __construct(?MessageSummary $message = NULL)
+    public function __construct(?MessageSummary $message = null)
     {
         if ($message instanceof MessageSummary) {
             $this->setMessage($message);
@@ -68,7 +68,7 @@ class AddMsgResponse extends SoapResponse
      */
     public function setMessage(MessageSummary $message): self
     {
-        $this->message = $this->chatMessage = NULL;
+        $this->message = $this->chatMessage = null;
         if ($message instanceof ChatSummary) {
             $this->chatMessage = $message;
         }

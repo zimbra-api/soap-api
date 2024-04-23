@@ -66,16 +66,16 @@ class CalendarAttach implements CalendarAttachInterface
      * @return self
      */
     public function __construct(
-        ?string $uri = NULL, ?string $contentType = NULL, ?string $binaryB64Data = NULL
+        ?string $uri = null, ?string $contentType = null, ?string $binaryB64Data = null
     )
     {
-        if (NULL !== $uri) {
+        if (null !== $uri) {
             $this->setUri($uri);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $binaryB64Data) {
+        if (null !== $binaryB64Data) {
             $this->setBinaryB64Data($binaryB64Data);
         }
     }

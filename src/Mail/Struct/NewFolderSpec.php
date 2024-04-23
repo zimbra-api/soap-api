@@ -154,13 +154,13 @@ class NewFolderSpec
     public function __construct(
         string $name = '',
         string $parentFolderId = '',
-        ?ViewType $defaultView = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?string $url = NULL,
-        ?bool $fetchIfExists = NULL,
-        ?bool $syncToUrl = NULL,
+        ?ViewType $defaultView = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?string $url = null,
+        ?bool $fetchIfExists = null,
+        ?bool $syncToUrl = null,
         array $grants = []
     )
     {
@@ -168,22 +168,22 @@ class NewFolderSpec
              ->setParentFolderId($parentFolderId)
              ->setGrants($grants);
         $this->defaultView = $defaultView;
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $fetchIfExists) {
+        if (null !== $fetchIfExists) {
             $this->setFetchIfExists($fetchIfExists);
         }
-        if (NULL !== $syncToUrl) {
+        if (null !== $syncToUrl) {
             $this->setSyncToUrl($syncToUrl);
         }
     }

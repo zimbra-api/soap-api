@@ -43,7 +43,7 @@ class NoteActionResponse extends SoapResponse
      * @param  ActionResult $action
      * @return self
      */
-    public function __construct(?ActionResult $action = NULL)
+    public function __construct(?ActionResult $action = null)
     {
         $this->action = $action;
     }

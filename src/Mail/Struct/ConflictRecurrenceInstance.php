@@ -47,11 +47,11 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
      */
     public function __construct(
         array $freebusyUsers = [],
-        ?int $startTime = NULL,
-        ?int $duration = NULL,
-        ?bool $allDay = NULL,
-        ?int $tzOffset = NULL,
-        ?string $recurIdZ = NULL
+        ?int $startTime = null,
+        ?int $duration = null,
+        ?bool $allDay = null,
+        ?int $tzOffset = null,
+        ?string $recurIdZ = null
     )
     {
         parent::__construct($startTime, $duration, $allDay, $tzOffset, $recurIdZ);

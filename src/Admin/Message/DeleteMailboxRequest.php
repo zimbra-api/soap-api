@@ -46,7 +46,7 @@ class DeleteMailboxRequest extends SoapRequest
      * @param  Mailbox $mbox
      * @return self
      */
-    public function __construct(?Mailbox $mbox = NULL)
+    public function __construct(?Mailbox $mbox = null)
     {
         $this->mbox = $mbox;
     }

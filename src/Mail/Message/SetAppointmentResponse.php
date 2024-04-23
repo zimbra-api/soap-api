@@ -78,18 +78,18 @@ class SetAppointmentResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $calItemId = NULL,
-        ?string $deprecatedApptId = NULL,
-        ?Id $defaultId = NULL,
+        ?string $calItemId = null,
+        ?string $deprecatedApptId = null,
+        ?Id $defaultId = null,
         array $exceptions = []
     )
     {
         $this->setExceptions($exceptions);
         $this->defaultId = $defaultId;
-        if (NULL !== $calItemId) {
+        if (null !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
-        if (NULL !== $deprecatedApptId) {
+        if (null !== $deprecatedApptId) {
             $this->setDeprecatedApptId($deprecatedApptId);
         }
     }

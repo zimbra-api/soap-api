@@ -143,10 +143,10 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?int $startTime = NULL,
-        ?int $endTime = NULL,
-        ?bool $allInstances = NULL,
-        ?string $excludeUid = NULL,
+        ?int $startTime = null,
+        ?int $endTime = null,
+        ?bool $allInstances = null,
+        ?string $excludeUid = null,
         array $timezones = [],
         array $components = [],
         array $freebusyUsers = []
@@ -155,16 +155,16 @@ class CheckRecurConflictsRequest extends SoapRequest
         $this->setTimezones($timezones)
              ->setComponents($components)
              ->setFreebusyUsers($freebusyUsers);
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $endTime) {
+        if (null !== $endTime) {
             $this->setEndTime($endTime);
         }
-        if (NULL !== $allInstances) {
+        if (null !== $allInstances) {
             $this->setAllInstances($allInstances);
         }
-        if (NULL !== $excludeUid) {
+        if (null !== $excludeUid) {
             $this->setExcludeUid($excludeUid);
         }
     }

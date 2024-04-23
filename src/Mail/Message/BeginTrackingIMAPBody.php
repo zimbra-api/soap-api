@@ -33,7 +33,7 @@ class BeginTrackingIMAPBody extends SoapBody
     #[SerializedName('BeginTrackingIMAPRequest')]
     #[Type(BeginTrackingIMAPRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class BeginTrackingIMAPBody extends SoapBody
     #[SerializedName('BeginTrackingIMAPResponse')]
     #[Type(BeginTrackingIMAPResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class BeginTrackingIMAPBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?BeginTrackingIMAPRequest $request = NULL, ?BeginTrackingIMAPResponse $response = NULL
+        ?BeginTrackingIMAPRequest $request = null, ?BeginTrackingIMAPResponse $response = null
     )
     {
         parent::__construct($request, $response);

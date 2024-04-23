@@ -102,30 +102,30 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $storeManagerClass = NULL,
-        ?int $incomingTime = NULL,
-        ?int $stageTime = NULL,
-        ?int $linkTime = NULL,
-        ?int $fetchTime = NULL,
-        ?int $deleteTime = NULL
+        ?string $storeManagerClass = null,
+        ?int $incomingTime = null,
+        ?int $stageTime = null,
+        ?int $linkTime = null,
+        ?int $fetchTime = null,
+        ?int $deleteTime = null
     )
     {
-        if (NULL !== $storeManagerClass) {
+        if (null !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
         }
-        if (NULL !== $incomingTime) {
+        if (null !== $incomingTime) {
             $this->setIncomingTime($incomingTime);
         }
-        if (NULL !== $stageTime) {
+        if (null !== $stageTime) {
             $this->setStageTime($stageTime);
         }
-        if (NULL !== $linkTime) {
+        if (null !== $linkTime) {
             $this->setLinkTime($linkTime);
         }
-        if (NULL !== $fetchTime) {
+        if (null !== $fetchTime) {
             $this->setFetchTime($fetchTime);
         }
-        if (NULL !== $deleteTime) {
+        if (null !== $deleteTime) {
             $this->setDeleteTime($deleteTime);
         }
     }

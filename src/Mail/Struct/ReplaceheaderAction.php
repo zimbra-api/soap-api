@@ -57,19 +57,19 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $last = NULL,
-        ?int $offset = NULL,
-        ?EditheaderTest $test = NULL,
-        ?string $newName = NULL,
-        ?string $newValue = NULL
+        ?int $index = null,
+        ?bool $last = null,
+        ?int $offset = null,
+        ?EditheaderTest $test = null,
+        ?string $newName = null,
+        ?string $newValue = null
     )
     {
     	parent::__construct($index, $last, $offset, $test);
-        if (NULL !== $newName) {
+        if (null !== $newName) {
             $this->setNewName($newName);
         }
-        if (NULL !== $newValue) {
+        if (null !== $newValue) {
             $this->setNewValue($newValue);
         }
     }

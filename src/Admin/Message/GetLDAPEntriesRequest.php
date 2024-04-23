@@ -104,27 +104,27 @@ class GetLDAPEntriesRequest extends SoapRequest
      */
     public function __construct(
         string $ldapSearchBase = '',
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $query = NULL
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $query = null
     )
     {
         $this->setLdapSearchBase($ldapSearchBase);
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
     }

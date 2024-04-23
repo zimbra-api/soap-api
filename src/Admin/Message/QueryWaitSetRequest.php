@@ -45,9 +45,9 @@ class QueryWaitSetRequest extends SoapRequest
      * @param  string $waitSetId
      * @return self
      */
-    public function __construct(?string $waitSetId = NULL)
+    public function __construct(?string $waitSetId = null)
     {
-        if (NULL !== $waitSetId) {
+        if (null !== $waitSetId) {
             $this->setWaitSetId($waitSetId);
         }
     }

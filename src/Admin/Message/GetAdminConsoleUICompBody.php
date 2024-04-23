@@ -33,7 +33,7 @@ class GetAdminConsoleUICompBody extends SoapBody
     #[SerializedName('GetAdminConsoleUICompRequest')]
     #[Type(GetAdminConsoleUICompRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAdminConsoleUICompBody extends SoapBody
     #[SerializedName('GetAdminConsoleUICompResponse')]
     #[Type(GetAdminConsoleUICompResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAdminConsoleUICompBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAdminConsoleUICompRequest $request = NULL, ?GetAdminConsoleUICompResponse $response = NULL
+        ?GetAdminConsoleUICompRequest $request = null, ?GetAdminConsoleUICompResponse $response = null
     )
     {
         parent::__construct($request, $response);

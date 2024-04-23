@@ -52,10 +52,10 @@ class AppointmentIdAndDate
      * @param int $date
      * @return self
      */
-    public function __construct(string $id = '', ?int $date = NULL)
+    public function __construct(string $id = '', ?int $date = null)
     {
         $this->setId($id);
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
     }

@@ -223,64 +223,64 @@ class VolumeInfo
      * @return self
      */
     public function __construct(
-        ?int $id = NULL,
-        ?string $name = NULL,
-        ?string $rootPath = NULL,
-        ?int $type = NULL,
-        ?bool $compressBlobs = NULL,
-        ?int $compressionThreshold = NULL,
-        ?int $mgbits = NULL,
-        ?int $mbits = NULL,
-        ?int $fgbits = NULL,
-        ?int $fbits = NULL,
-        ?bool $isCurrent = NULL,
-        ?bool $current = NULL,
-        ?int $storeType = NULL,
-        ?string $storeManagerClass = NULL,
-        ?VolumeExternalInfo $volumeExternalInfo = NULL,
-        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = NULL
+        ?int $id = null,
+        ?string $name = null,
+        ?string $rootPath = null,
+        ?int $type = null,
+        ?bool $compressBlobs = null,
+        ?int $compressionThreshold = null,
+        ?int $mgbits = null,
+        ?int $mbits = null,
+        ?int $fgbits = null,
+        ?int $fbits = null,
+        ?bool $isCurrent = null,
+        ?bool $current = null,
+        ?int $storeType = null,
+        ?string $storeManagerClass = null,
+        ?VolumeExternalInfo $volumeExternalInfo = null,
+        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = null
     )
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $rootPath) {
+        if (null !== $rootPath) {
             $this->setRootPath($rootPath);
         }
-        if (NULL !== $type) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (NULL !== $compressBlobs) {
+        if (null !== $compressBlobs) {
             $this->setCompressBlobs($compressBlobs);
         }
-        if (NULL !== $compressionThreshold) {
+        if (null !== $compressionThreshold) {
             $this->setCompressionThreshold($compressionThreshold);
         }
-        if (NULL !== $mgbits) {
+        if (null !== $mgbits) {
             $this->setMgbits($mgbits);
         }
-        if (NULL !== $mbits) {
+        if (null !== $mbits) {
             $this->setMbits($mbits);
         }
-        if (NULL !== $fgbits) {
+        if (null !== $fgbits) {
             $this->setFgbits($fgbits);
         }
-        if (NULL !== $fbits) {
+        if (null !== $fbits) {
             $this->setFbits($fbits);
         }
-        if (NULL !== $isCurrent) {
+        if (null !== $isCurrent) {
             $this->setIsCurrent($isCurrent);
         }
-        if (NULL !== $current) {
+        if (null !== $current) {
             $this->setCurrent($current);
         }
-        if (NULL !== $storeType) {
+        if (null !== $storeType) {
             $this->setStoreType($storeType);
         }
-        if (NULL !== $storeManagerClass) {
+        if (null !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
         }
         $this->volumeExternalInfo = $volumeExternalInfo;

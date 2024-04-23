@@ -66,17 +66,17 @@ class AddheaderAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?string $headerName = NULL, ?string $headerValue = NULL, ?bool $last = NULL
+        ?int $index = null, ?string $headerName = null, ?string $headerValue = null, ?bool $last = null
     )
     {
         parent::__construct($index);
-        if (NULL !== $headerName) {
+        if (null !== $headerName) {
             $this->setHeaderName($headerName);
         }
-        if (NULL !== $headerValue) {
+        if (null !== $headerValue) {
             $this->setHeaderValue($headerValue);
         }
-        if (NULL !== $last) {
+        if (null !== $last) {
             $this->setLast($last);
         }
     }

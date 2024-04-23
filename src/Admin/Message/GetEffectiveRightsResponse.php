@@ -55,7 +55,7 @@ class GetEffectiveRightsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?GranteeInfo $grantee = NULL, ?EffectiveRightsTargetInfo $target = NULL
+        ?GranteeInfo $grantee = null, ?EffectiveRightsTargetInfo $target = null
     )
     {
         $this->grantee = $grantee;

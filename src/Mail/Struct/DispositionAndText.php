@@ -53,13 +53,13 @@ class DispositionAndText
      * @return self
      */
     public function __construct(
-        ?string $disposition = NULL, ?string $text = NULL
+        ?string $disposition = null, ?string $text = null
     )
     {
-        if (NULL !== $disposition) {
+        if (null !== $disposition) {
             $this->setDisposition($disposition);
         }
-        if (NULL !== $text) {
+        if (null !== $text) {
             $this->setText($text);
         }
     }

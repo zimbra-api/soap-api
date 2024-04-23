@@ -86,29 +86,29 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $numComponents = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $numComponents = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     )
     {
         parent::__construct($msg, $echo, $maxSize, $wantHtml, $neuter, $forceSend);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $numComponents) {
+        if (null !== $numComponents) {
             $this->setNumComponents($numComponents);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
     }

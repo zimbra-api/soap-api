@@ -56,7 +56,7 @@ class ContactBackupRequest extends SoapRequest
      * @param  ContactBackupOp $op
      * @return self
      */
-    public function __construct(array $servers = [], ?ContactBackupOp $op = NULL)
+    public function __construct(array $servers = [], ?ContactBackupOp $op = null)
     {
         $this->setServers($servers)
              ->setOp($op ?? ContactBackupOp::START);

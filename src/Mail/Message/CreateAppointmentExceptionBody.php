@@ -33,7 +33,7 @@ class CreateAppointmentExceptionBody extends SoapBody
     #[SerializedName('CreateAppointmentExceptionRequest')]
     #[Type(CreateAppointmentExceptionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CreateAppointmentExceptionBody extends SoapBody
     #[SerializedName('CreateAppointmentExceptionResponse')]
     #[Type(CreateAppointmentExceptionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CreateAppointmentExceptionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateAppointmentExceptionRequest $request = NULL, ?CreateAppointmentExceptionResponse $response = NULL
+        ?CreateAppointmentExceptionRequest $request = null, ?CreateAppointmentExceptionResponse $response = null
     )
     {
         parent::__construct($request, $response);

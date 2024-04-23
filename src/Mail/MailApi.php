@@ -100,7 +100,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function addAppointmentInvite(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
+        ?ParticipationStatus $partStat = null, ?Msg $msg = null
     ): ?Message\AddAppointmentInviteResponse
     {
         return $this->invoke(new Message\AddAppointmentInviteRequest($partStat, $msg));
@@ -117,7 +117,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function addMsg(AddMsgSpec $msg, ?bool $filterSent = NULL): ?Message\AddMsgResponse
+    public function addMsg(AddMsgSpec $msg, ?bool $filterSent = null): ?Message\AddMsgResponse
     {
         return $this->invoke(new Message\AddMsgRequest($msg, $filterSent));
     }
@@ -126,7 +126,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function addTaskInvite(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
+        ?ParticipationStatus $partStat = null, ?Msg $msg = null
     ): ?Message\AddTaskInviteResponse
     {
         return $this->invoke(new Message\AddTaskInviteRequest($partStat, $msg));
@@ -144,7 +144,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function applyFilterRules(
-        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
+        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
     ): ?Message\ApplyFilterRulesResponse
     {
         return $this->invoke(new Message\ApplyFilterRulesRequest(
@@ -156,7 +156,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function applyOutgoingFilterRules(
-        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
+        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
     ): ?Message\ApplyOutgoingFilterRulesResponse
     {
         return $this->invoke(new Message\ApplyOutgoingFilterRulesRequest(
@@ -169,10 +169,10 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function autoComplete(
         string $name,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $folderList = NULL,
-        ?bool $includeGal = NULL
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $folderList = null,
+        ?bool $includeGal = null
     ): ?Message\AutoCompleteResponse
     {
         return $this->invoke(new Message\AutoCompleteRequest(
@@ -200,7 +200,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function browse(
-        ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
+        ?BrowseBy $browseBy = null, ?string $regex = null, ?int $max = null
     ): ?Message\BrowseResponse
     {
         return $this->invoke(new Message\BrowseRequest(
@@ -212,13 +212,13 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function cancelAppointment(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?InstanceRecurIdInfo $instance = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?InstanceRecurIdInfo $instance = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\CancelAppointmentResponse
     {
         return $this->invoke(new Message\CancelAppointmentRequest(
@@ -230,13 +230,13 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function cancelTask(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?InstanceRecurIdInfo $instance = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?InstanceRecurIdInfo $instance = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\CancelTaskResponse
     {
         return $this->invoke(new Message\CancelTaskRequest(
@@ -248,7 +248,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function checkPermission(
-        ?TargetSpec $target = NULL, array $rights = []
+        ?TargetSpec $target = null, array $rights = []
     ): ?Message\CheckPermissionResponse
     {
         return $this->invoke(new Message\CheckPermissionRequest($target, $rights));
@@ -258,10 +258,10 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function checkRecurConflicts(
-        ?int $startTime = NULL,
-        ?int $endTime = NULL,
-        ?bool $allInstances = NULL,
-        ?string $excludeUid = NULL,
+        ?int $startTime = null,
+        ?int $endTime = null,
+        ?bool $allInstances = null,
+        ?string $excludeUid = null,
         array $timezones = [],
         array $components = [],
         array $freebusyUsers = []
@@ -276,7 +276,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function checkSpelling(
-        ?string $dictionary = NULL, ?string $ignoreList = NULL, ?string $text = NULL
+        ?string $dictionary = null, ?string $ignoreList = null, ?string $text = null
     ): ?Message\CheckSpellingResponse
     {
         return $this->invoke(new Message\CheckSpellingRequest(
@@ -288,7 +288,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function completeTaskInstance(
-        DtTimeInfo $exceptionId, string $id, ?CalTZInfo $timezone = NULL
+        DtTimeInfo $exceptionId, string $id, ?CalTZInfo $timezone = null
     ): ?Message\CompleteTaskInstanceResponse
     {
         return $this->invoke(new Message\CompleteTaskInstanceRequest(
@@ -316,11 +316,11 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function counterAppointment(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null
     ): ?Message\CounterAppointmentResponse
     {
         return $this->invoke(new Message\CounterAppointmentRequest(
@@ -332,16 +332,16 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function createAppointmentException(
-        ?string $id = NULL,
-        ?int $numComponents = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $numComponents = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateAppointmentExceptionResponse
     {
         return $this->invoke(new Message\CreateAppointmentExceptionRequest(
@@ -362,12 +362,12 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function createAppointment(
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateAppointmentResponse
     {
         return $this->invoke(new Message\CreateAppointmentRequest(
@@ -380,9 +380,9 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function createContact(
         ContactSpec $contact,
-        ?bool $verbose = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $verbose = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     ): ?Message\CreateContactResponse
     {
         return $this->invoke(new Message\CreateContactRequest(
@@ -393,7 +393,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function createDataSource(?MailDataSource $dataSource = NULL): ?Message\CreateDataSourceResponse
+    public function createDataSource(?MailDataSource $dataSource = null): ?Message\CreateDataSourceResponse
     {
         return $this->invoke(new Message\CreateDataSourceRequest($dataSource));
     }
@@ -433,7 +433,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function createTag(?TagSpec $tag = NULL): ?Message\CreateTagResponse
+    public function createTag(?TagSpec $tag = null): ?Message\CreateTagResponse
     {
         return $this->invoke(new Message\CreateTagRequest($tag));
     }
@@ -442,16 +442,16 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function createTaskException(
-        ?string $id = NULL,
-        ?int $numComponents = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $numComponents = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateTaskExceptionResponse
     {
         return $this->invoke(new Message\CreateTaskExceptionRequest(
@@ -472,12 +472,12 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function createTask(
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\CreateTaskResponse
     {
         return $this->invoke(new Message\CreateTaskRequest(
@@ -489,7 +489,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function createWaitSet(
-        string $defaultInterests, ?bool $allAccounts = NULL, array $accounts = []
+        string $defaultInterests, ?bool $allAccounts = null, array $accounts = []
     ): ?Message\CreateWaitSetResponse
     {
         return $this->invoke(new Message\CreateWaitSetRequest(
@@ -500,7 +500,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function declineCounterAppointment(?Msg $msg = NULL): ?Message\DeclineCounterAppointmentResponse
+    public function declineCounterAppointment(?Msg $msg = null): ?Message\DeclineCounterAppointmentResponse
     {
         return $this->invoke(new Message\DeclineCounterAppointmentRequest($msg));
     }
@@ -524,7 +524,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function diffDocument(?DiffDocumentVersionSpec $doc = NULL): ?Message\DiffDocumentResponse
+    public function diffDocument(?DiffDocumentVersionSpec $doc = null): ?Message\DiffDocumentResponse
     {
         return $this->invoke(new Message\DiffDocumentRequest($doc));
     }
@@ -581,10 +581,10 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function exportContacts(
         string $contentType,
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL,
-        ?string $csvDelimiter = NULL
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null,
+        ?string $csvDelimiter = null
     ): ?Message\ExportContactsResponse
     {
         return $this->invoke(new Message\ExportContactsRequest(
@@ -627,7 +627,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function forwardAppointmentInvite(
-        ?string $id = NULL, ?Msg $msg = NULL
+        ?string $id = null, ?Msg $msg = null
     ): ?Message\ForwardAppointmentInviteResponse
     {
         return $this->invoke(new Message\ForwardAppointmentInviteRequest($id, $msg));
@@ -637,10 +637,10 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function forwardAppointment(
-        ?string $id = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?string $id = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\ForwardAppointmentResponse
     {
         return $this->invoke(new Message\ForwardAppointmentRequest(
@@ -660,11 +660,11 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getAppointment(
-        ?bool $sync = NULL,
-        ?bool $includeContent = NULL,
-        ?bool $includeInvites = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL
+        ?bool $sync = null,
+        ?bool $includeContent = null,
+        ?bool $includeInvites = null,
+        ?string $uid = null,
+        ?string $id = null
     ): ?Message\GetAppointmentResponse
     {
         return $this->invoke(new Message\GetAppointmentRequest(
@@ -700,7 +700,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getApptSummaries(
-        int $startTime, int $endTime, ?string $folderId = NULL
+        int $startTime, int $endTime, ?string $folderId = null
     ): ?Message\GetApptSummariesResponse
     {
         return $this->invoke(new Message\GetApptSummariesRequest(
@@ -712,7 +712,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getCalendarItemSummaries(
-        int $startTime, int $endTime, ?string $folderId = NULL
+        int $startTime, int $endTime, ?string $folderId = null
     ): ?Message\GetCalendarItemSummariesResponse
     {
         return $this->invoke(new Message\GetCalendarItemSummariesRequest(
@@ -740,15 +740,15 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getContacts(
-        ?bool $sync = NULL,
-        ?string $folderId = NULL,
-        ?string $sortBy = NULL,
-        ?bool $derefGroupMember = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $returnHiddenAttrs = NULL,
-        ?bool $returnCertInfo = NULL,
-        ?bool $wantImapUid = NULL,
-        ?int $maxMembers = NULL,
+        ?bool $sync = null,
+        ?string $folderId = null,
+        ?string $sortBy = null,
+        ?bool $derefGroupMember = null,
+        ?bool $includeMemberOf = null,
+        ?bool $returnHiddenAttrs = null,
+        ?bool $returnCertInfo = null,
+        ?bool $wantImapUid = null,
+        ?int $maxMembers = null,
         array $attributes = [],
         array $memberAttributes = [],
         array $contacts = []
@@ -782,7 +782,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getCustomMetadata(
-        SectionAttr $metadata, ?string $id = NULL
+        SectionAttr $metadata, ?string $id = null
     ): ?Message\GetCustomMetadataResponse
     {
         return $this->invoke(new Message\GetCustomMetadataRequest($metadata, $id));
@@ -832,12 +832,12 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getFolder(
-        ?GetFolderSpec $folder = NULL,
-        ?bool $isVisible = NULL,
-        ?bool $needGranteeName = NULL,
-        ?string $viewConstraint = NULL,
-        ?int $treeDepth = NULL,
-        ?bool $traverseMountpoints = NULL
+        ?GetFolderSpec $folder = null,
+        ?bool $isVisible = null,
+        ?bool $needGranteeName = null,
+        ?string $viewConstraint = null,
+        ?int $treeDepth = null,
+        ?bool $traverseMountpoints = null
     ): ?Message\GetFolderResponse
     {
         return $this->invoke(new Message\GetFolderRequest(
@@ -856,10 +856,10 @@ class MailApi extends AccountApi implements MailApiInterface
     public function getFreeBusy(
         int $startTime,
         int $endTime,
-        ?string $uid = NULL,
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $excludeUid = NULL,
+        ?string $uid = null,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $excludeUid = null,
         array $freebusyUsers = []
     ): ?Message\GetFreeBusyResponse
     {
@@ -878,7 +878,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getICal(
-        ?string $id = NULL, ?int $startTime = NULL, ?int $endTime = NULL
+        ?string $id = null, ?int $startTime = null, ?int $endTime = null
     ): ?Message\GetICalResponse
     {
         return $this->invoke(new Message\GetICalRequest(
@@ -941,7 +941,7 @@ class MailApi extends AccountApi implements MailApiInterface
         int $startTime,
         int $endTime,
         array $folders = [],
-        ?CalTZInfo $timezone = NULL
+        ?CalTZInfo $timezone = null
     ): ?Message\GetMiniCalResponse
     {
         return $this->invoke(new Message\GetMiniCalRequest(
@@ -1049,11 +1049,11 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getTask(
-        ?bool $sync = NULL,
-        ?bool $includeContent = NULL,
-        ?bool $includeInvites = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL
+        ?bool $sync = null,
+        ?bool $includeContent = null,
+        ?bool $includeInvites = null,
+        ?string $uid = null,
+        ?string $id = null
     ): ?Message\GetTaskResponse
     {
         return $this->invoke(new Message\GetTaskRequest(
@@ -1065,7 +1065,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getTaskSummaries(
-        int $startTime, int $endTime, ?string $folderId = NULL
+        int $startTime, int $endTime, ?string $folderId = null
     ): ?Message\GetTaskSummariesResponse
     {
         return $this->invoke(new Message\GetTaskSummariesRequest(
@@ -1077,7 +1077,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getWorkingHours(
-        int $startTime, int $endTime, ?string $id = NULL, ?string $name = NULL
+        int $startTime, int $endTime, ?string $id = null, ?string $name = null
     ): ?Message\GetWorkingHoursResponse
     {
         return $this->invoke(new Message\GetWorkingHoursRequest(
@@ -1120,7 +1120,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function imapCopy(string $ids, ?MailItemType $type = NULL, int $folder = 0): ?Message\IMAPCopyResponse
+    public function imapCopy(string $ids, ?MailItemType $type = null, int $folder = 0): ?Message\IMAPCopyResponse
     {
         return $this->invoke(new Message\IMAPCopyRequest(
             $ids, $type, $folder
@@ -1133,7 +1133,7 @@ class MailApi extends AccountApi implements MailApiInterface
     public function importAppointments(
         ContentSpec $content,
         string $contentType = 'text/calendar',
-        ?string $folderId = NULL
+        ?string $folderId = null
     ): ?Message\ImportAppointmentsResponse
     {
         return $this->invoke(new Message\ImportAppointmentsRequest(
@@ -1147,9 +1147,9 @@ class MailApi extends AccountApi implements MailApiInterface
     public function importContacts(
         Content $content,
         string $contentType = 'text/csv',
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null
     ): ?Message\ImportContactsResponse
     {
         return $this->invoke(new Message\ImportContactsRequest(
@@ -1203,16 +1203,16 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function modifyAppointment(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\ModifyAppointmentResponse
     {
         return $this->invoke(new Message\ModifyAppointmentRequest(
@@ -1234,10 +1234,10 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function modifyContact(
         ModifyContactSpec $contact,
-        ?bool $replace = NULL,
-        ?bool $verbose = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $replace = null,
+        ?bool $verbose = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     ): ?Message\ModifyContactResponse
     {
         return $this->invoke(new Message\ModifyContactRequest(
@@ -1248,7 +1248,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyDataSource(?MailDataSource $dataSource = NULL): ?Message\ModifyDataSourceResponse
+    public function modifyDataSource(?MailDataSource $dataSource = null): ?Message\ModifyDataSourceResponse
     {
         return $this->invoke(new Message\ModifyDataSourceRequest($dataSource));
     }
@@ -1265,7 +1265,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function modifyMailboxMetadata(
-        ?MailCustomMetadata $metadata = NULL
+        ?MailCustomMetadata $metadata = null
     ): ?Message\ModifyMailboxMetadataResponse
     {
         return $this->invoke(new Message\ModifyMailboxMetadataRequest($metadata));
@@ -1285,7 +1285,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function modifyProfileImage(
-        ?string $uploadId = NULL, ?string $imageB64Data = NULL
+        ?string $uploadId = null, ?string $imageB64Data = null
     ): ?Message\ModifyProfileImageResponse
     {
         return $this->invoke(new Message\ModifyProfileImageRequest(
@@ -1307,16 +1307,16 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function modifyTask(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
     ): ?Message\ModifyTaskResponse
     {
         return $this->invoke(new Message\ModifyTaskRequest(
@@ -1345,10 +1345,10 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function noOp(
-        ?bool $wait = NULL,
-        ?bool $includeDelegates = NULL,
-        ?bool $enforceLimit = NULL,
-        ?int $timeout = NULL
+        ?bool $wait = null,
+        ?bool $includeDelegates = null,
+        ?bool $enforceLimit = null,
+        ?int $timeout = null
     ): ?Message\NoOpResponse
     {
         return $this->invoke(new Message\NoOpRequest(
@@ -1368,7 +1368,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function openIMAPFolder(
-        string $folderId, int $limit, ?ImapCursorInfo $cursor = NULL
+        string $folderId, int $limit, ?ImapCursorInfo $cursor = null
     ): ?Message\OpenIMAPFolderResponse
     {
         return $this->invoke(new Message\OpenIMAPFolderRequest(
@@ -1405,8 +1405,8 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function recoverAccount(
         string $email,
-        ?RecoverAccountOperation $op = NULL,
-        ?Channel $channel = NULL
+        ?RecoverAccountOperation $op = null,
+        ?Channel $channel = null
     ): ?Message\RecoverAccountResponse
     {
         return $this->invoke(new Message\RecoverAccountRequest(
@@ -1434,7 +1434,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function restoreContacts(
-        string $fileName, ?RestoreResolve $resolve = NULL
+        string $fileName, ?RestoreResolve $resolve = null
     ): ?Message\RestoreContactsResponse
     {
         return $this->invoke(new Message\RestoreContactsRequest(
@@ -1463,8 +1463,8 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function saveDraft(
         SaveDraftMsg $msg,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null
     ): ?Message\SaveDraftResponse
     {
         return $this->invoke(new Message\SaveDraftRequest(
@@ -1497,37 +1497,37 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     function searchConv(
         string $conversationId = '',
-        ?string $query = NULL,
-        ?bool $inDumpster = NULL,
-        ?string $searchTypes = NULL,
-        ?string $groupBy = NULL,
-        ?int $calItemExpandStart = NULL,
-        ?int $calItemExpandEnd = NULL,
-        ?bool $quick = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?bool $includeTagDeleted = NULL,
-        ?bool $includeTagMuted = NULL,
-        ?string $taskStatus = NULL,
-        ?string $fetch = NULL,
-        ?bool $markRead = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $neuterImages = NULL,
-        ?WantRecipsSetting $wantRecipients = NULL,
-        ?bool $prefetch = NULL,
-        ?string $resultMode = NULL,
-        ?bool $fullConversation = NULL,
-        ?string $field = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
+        ?string $query = null,
+        ?bool $inDumpster = null,
+        ?string $searchTypes = null,
+        ?string $groupBy = null,
+        ?int $calItemExpandStart = null,
+        ?int $calItemExpandEnd = null,
+        ?bool $quick = null,
+        ?SearchSortBy $sortBy = null,
+        ?bool $includeTagDeleted = null,
+        ?bool $includeTagMuted = null,
+        ?string $taskStatus = null,
+        ?string $fetch = null,
+        ?bool $markRead = null,
+        ?int $maxInlinedLength = null,
+        ?bool $wantHtml = null,
+        ?bool $needCanExpand = null,
+        ?bool $neuterImages = null,
+        ?WantRecipsSetting $wantRecipients = null,
+        ?bool $prefetch = null,
+        ?string $resultMode = null,
+        ?bool $fullConversation = null,
+        ?string $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         array $headers = [],
-        ?CalTZInfo $calTz = NULL,
-        ?string $locale = NULL,
-        ?CursorInfo $cursor = NULL,
-        ?MsgContent $wantContent = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $nestMessages = NULL
+        ?CalTZInfo $calTz = null,
+        ?string $locale = null,
+        ?CursorInfo $cursor = null,
+        ?MsgContent $wantContent = null,
+        ?bool $includeMemberOf = null,
+        ?bool $nestMessages = null
     ): ?Message\SearchConvResponse
     {
         return $this->invoke(new Message\SearchConvRequest(
@@ -1570,37 +1570,37 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function search(
-        ?string $query = NULL,
-        ?bool $inDumpster = NULL,
-        ?string $searchTypes = NULL,
-        ?string $groupBy = NULL,
-        ?int $calItemExpandStart = NULL,
-        ?int $calItemExpandEnd = NULL,
-        ?bool $quick = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?bool $includeTagDeleted = NULL,
-        ?bool $includeTagMuted = NULL,
-        ?string $taskStatus = NULL,
-        ?string $fetch = NULL,
-        ?bool $markRead = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $neuterImages = NULL,
-        ?WantRecipsSetting $wantRecipients = NULL,
-        ?bool $prefetch = NULL,
-        ?string $resultMode = NULL,
-        ?bool $fullConversation = NULL,
-        ?string $field = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
+        ?string $query = null,
+        ?bool $inDumpster = null,
+        ?string $searchTypes = null,
+        ?string $groupBy = null,
+        ?int $calItemExpandStart = null,
+        ?int $calItemExpandEnd = null,
+        ?bool $quick = null,
+        ?SearchSortBy $sortBy = null,
+        ?bool $includeTagDeleted = null,
+        ?bool $includeTagMuted = null,
+        ?string $taskStatus = null,
+        ?string $fetch = null,
+        ?bool $markRead = null,
+        ?int $maxInlinedLength = null,
+        ?bool $wantHtml = null,
+        ?bool $needCanExpand = null,
+        ?bool $neuterImages = null,
+        ?WantRecipsSetting $wantRecipients = null,
+        ?bool $prefetch = null,
+        ?string $resultMode = null,
+        ?bool $fullConversation = null,
+        ?string $field = null,
+        ?int $limit = null,
+        ?int $offset = null,
         array $headers = [],
-        ?CalTZInfo $calTz = NULL,
-        ?string $locale = NULL,
-        ?CursorInfo $cursor = NULL,
-        ?MsgContent $wantContent = NULL,
-        ?bool $includeMemberOf = NULL,
-        ?bool $warmup = NULL
+        ?CalTZInfo $calTz = null,
+        ?string $locale = null,
+        ?CursorInfo $cursor = null,
+        ?MsgContent $wantContent = null,
+        ?bool $includeMemberOf = null,
+        ?bool $warmup = null
     ): ?Message\SearchResponse
     {
         return $this->invoke(new Message\SearchRequest(
@@ -1652,12 +1652,12 @@ class MailApi extends AccountApi implements MailApiInterface
     public function sendInviteReply(
         string $id,
         int $componentNum,
-        ?VerbType $verb = NULL,
-        ?bool $updateOrganizer = NULL,
-        ?string $identityId = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
+        ?VerbType $verb = null,
+        ?bool $updateOrganizer = null,
+        ?string $identityId = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
     ): ?Message\SendInviteReplyResponse
     {
         return $this->invoke(new Message\SendInviteReplyRequest(
@@ -1677,12 +1677,12 @@ class MailApi extends AccountApi implements MailApiInterface
      */
     public function sendMsg(
         MsgToSend $msg,
-        ?bool $needCalendarSentbyFixup = NULL,
-        ?bool $isCalendarForward = NULL,
-        ?bool $noSaveToSent = NULL,
-        ?bool $fetchSavedMsg = NULL,
-        ?string $sendUid = NULL,
-        ?bool $deliveryReport = NULL
+        ?bool $needCalendarSentbyFixup = null,
+        ?bool $isCalendarForward = null,
+        ?bool $noSaveToSent = null,
+        ?bool $fetchSavedMsg = null,
+        ?string $sendUid = null,
+        ?bool $deliveryReport = null
     ): ?Message\SendMsgResponse
     {
         return $this->invoke(new Message\SendMsgRequest(
@@ -1700,7 +1700,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function sendShareNotification(
-        Id $item, array $emailAddresses = [], ?ShareAction $action = NULL, ?string $notes = NULL
+        Id $item, array $emailAddresses = [], ?ShareAction $action = null, ?string $notes = null
     ): ?Message\SendShareNotificationResponse
     {
         return $this->invoke(new Message\SendShareNotificationRequest(
@@ -1711,7 +1711,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function sendVerificationCode(?string $address = NULL): ?Message\SendVerificationCodeResponse
+    public function sendVerificationCode(?string $address = null): ?Message\SendVerificationCodeResponse
     {
         return $this->invoke(new Message\SendVerificationCodeRequest($address));
     }
@@ -1720,13 +1720,13 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function setAppointment(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?bool $noNextAlarm = NULL,
-        ?int $nextAlarm = NULL,
-        ?SetCalendarItemInfo $defaultId = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?bool $noNextAlarm = null,
+        ?int $nextAlarm = null,
+        ?SetCalendarItemInfo $defaultId = null,
         array $exceptions = [],
         array $cancellations = [],
         array $replies = []
@@ -1770,10 +1770,10 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function setRecoveryAccount(
-        ?RecoveryAccountOperation $op = NULL,
-        ?string $recoveryAccount = NULL,
-        ?string $verificationCode = NULL,
-        ?Channel $channel = NULL
+        ?RecoveryAccountOperation $op = null,
+        ?string $recoveryAccount = null,
+        ?string $verificationCode = null,
+        ?Channel $channel = null
     ): ?Message\SetRecoveryAccountResponse
     {
         return $this->invoke(new Message\SetRecoveryAccountRequest(
@@ -1785,13 +1785,13 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function setTask(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?bool $noNextAlarm = NULL,
-        ?int $nextAlarm = NULL,
-        ?SetCalendarItemInfo $defaultId = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?bool $noNextAlarm = null,
+        ?int $nextAlarm = null,
+        ?SetCalendarItemInfo $defaultId = null,
         array $exceptions = [],
         array $cancellations = [],
         array $replies = []
@@ -1823,13 +1823,13 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function sync(
-        ?string $token = NULL,
-        ?int $calendarCutoff = NULL,
-        ?int $msgCutoff = NULL,
-        ?string $folderId = NULL,
-        ?bool $typedDeletes = NULL,
-        ?int $deleteLimit = NULL,
-        ?int $changeLimit = NULL
+        ?string $token = null,
+        ?int $calendarCutoff = null,
+        ?int $msgCutoff = null,
+        ?string $folderId = null,
+        ?bool $typedDeletes = null,
+        ?int $deleteLimit = null,
+        ?int $changeLimit = null
     ): ?Message\SyncResponse
     {
         return $this->invoke(new Message\SyncRequest(
@@ -1854,7 +1854,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function testDataSource(?MailDataSource $dataSource = NULL): ?Message\TestDataSourceResponse
+    public function testDataSource(?MailDataSource $dataSource = null): ?Message\TestDataSourceResponse
     {
         return $this->invoke(new Message\TestDataSourceRequest($dataSource));
     }
@@ -1863,7 +1863,7 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function verifyCode(
-        ?string $address = NULL, ?string $verificationCode = NULL
+        ?string $address = null, ?string $verificationCode = null
     ): ?Message\VerifyCodeResponse
     {
         return $this->invoke(new Message\VerifyCodeRequest(
@@ -1877,10 +1877,10 @@ class MailApi extends AccountApi implements MailApiInterface
     public function waitSet(
         string $waitSetId,
         string $lastKnownSeqNo,
-        ?bool $block = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $timeout = NULL,
-        ?bool $expand = NULL,
+        ?bool $block = null,
+        ?string $defaultInterests = null,
+        ?int $timeout = null,
+        ?bool $expand = null,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []

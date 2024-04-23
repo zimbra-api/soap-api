@@ -33,7 +33,7 @@ class ContactBackupBody extends SoapBody
     #[SerializedName('ContactBackupRequest')]
     #[Type(ContactBackupRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ContactBackupBody extends SoapBody
     #[SerializedName('ContactBackupResponse')]
     #[Type(ContactBackupResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ContactBackupBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL
+        ?ContactBackupRequest $request = null, ?ContactBackupResponse $response = null
     )
     {
         parent::__construct($request, $response);

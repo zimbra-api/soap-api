@@ -41,7 +41,7 @@ class CompactIndexResponse extends SoapResponse
      * @param Status  $status
      * @return self
      */
-    public function __construct(?Status $status = NULL)
+    public function __construct(?Status $status = null)
     {
         $this->status = $status;
     }

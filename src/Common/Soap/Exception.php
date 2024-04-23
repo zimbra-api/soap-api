@@ -29,7 +29,9 @@ class Exception extends \RuntimeException implements ExceptionInterface
      * @param SoapFaultInterface $soapFault
      * @param int $code
      */
-    public function __construct(private SoapFaultInterface $soapFault, int $code = 0)
+    public function __construct(
+        private readonly SoapFaultInterface $soapFault, int $code = 0
+    )
     {
         parent::__construct($soapFault->faultString(), $code);
     }

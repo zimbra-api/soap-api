@@ -33,7 +33,7 @@ class IMAPCopyBody extends SoapBody
     #[SerializedName('IMAPCopyRequest')]
     #[Type(IMAPCopyRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class IMAPCopyBody extends SoapBody
     #[SerializedName('IMAPCopyResponse')]
     #[Type(IMAPCopyResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class IMAPCopyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?IMAPCopyRequest $request = NULL, ?IMAPCopyResponse $response = NULL
+        ?IMAPCopyRequest $request = null, ?IMAPCopyResponse $response = null
     )
     {
         parent::__construct($request, $response);

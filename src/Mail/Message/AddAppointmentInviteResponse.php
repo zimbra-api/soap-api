@@ -66,16 +66,16 @@ class AddAppointmentInviteResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?int $calItemId = NULL, ?int $invId = NULL, ?int $componentNum = NULL
+        ?int $calItemId = null, ?int $invId = null, ?int $componentNum = null
     )
     {
-        if (NULL !== $calItemId) {
+        if (null !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
-        if (NULL !== $invId) {
+        if (null !== $invId) {
             $this->setInvId($invId);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
     }

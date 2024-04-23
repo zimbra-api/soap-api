@@ -52,10 +52,10 @@ class StoreManagerRuntimeSwitchResult
      * @param  string $message
      * @return self
      */
-    public function __construct(?RuntimeSwitchStatus $status = NULL, ?string $message = NULL)
+    public function __construct(?RuntimeSwitchStatus $status = null, ?string $message = null)
     {
         $this->setStatus($status ?? RuntimeSwitchStatus::SUCCESS);
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

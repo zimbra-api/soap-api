@@ -33,7 +33,7 @@ class RunUnitTestsBody extends SoapBody
     #[SerializedName('RunUnitTestsRequest')]
     #[Type(RunUnitTestsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RunUnitTestsBody extends SoapBody
     #[SerializedName('RunUnitTestsResponse')]
     #[Type(RunUnitTestsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RunUnitTestsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL
+        ?RunUnitTestsRequest $request = null, ?RunUnitTestsResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -113,12 +113,12 @@ class RightInfo
      */
     public function __construct(
         string $name = '',
-        ?RightType $type = NULL,
-        ?RightClass $rightClass = NULL,
+        ?RightType $type = null,
+        ?RightClass $rightClass = null,
         string $desc = '',
-        ?string $targetType = NULL,
-        ?RightsAttrs $attrs = NULL,
-        ?ComboRights $rights = NULL
+        ?string $targetType = null,
+        ?RightsAttrs $attrs = null,
+        ?ComboRights $rights = null
     )
     {
         $this->setName($name)
@@ -127,7 +127,7 @@ class RightInfo
              ->setDesc($desc);
         $this->attrs = $attrs;
         $this->rights = $rights;
-        if (NULL !== $targetType) {
+        if (null !== $targetType) {
             $this->setTargetType($targetType);
         }
     }

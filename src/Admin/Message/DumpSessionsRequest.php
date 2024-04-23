@@ -54,12 +54,12 @@ class DumpSessionsRequest extends SoapRequest
      * @param  bool $groupByAccount
      * @return self
      */
-    public function __construct(?bool $includeAccounts = NULL, ?bool $groupByAccount = NULL)
+    public function __construct(?bool $includeAccounts = null, ?bool $groupByAccount = null)
     {
-        if (NULL !== $includeAccounts) {
+        if (null !== $includeAccounts) {
             $this->setIncludeAccounts($includeAccounts);
         }
-        if (NULL !== $groupByAccount) {
+        if (null !== $groupByAccount) {
             $this->setGroupByAccount($groupByAccount);
         }
     }

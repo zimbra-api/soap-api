@@ -61,14 +61,14 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
      * @return self
      */
     public function __construct(
-        ?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL
+        ?CalendarResourceSelector $calResource = null, ?bool $applyCos = null, ?string $attrs = null
     )
     {
         $this->calResource = $calResource;
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

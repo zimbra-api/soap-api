@@ -43,11 +43,11 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
      * @return self
      */
     public function __construct(
-        ?string $section = NULL, array $keyValuePairs = []
+        ?string $section = null, array $keyValuePairs = []
     )
     {
     	parent::__construct($keyValuePairs);
-        if (NULL !== $section) {
+        if (null !== $section) {
             $this->setSection($section);
         }
     }

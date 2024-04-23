@@ -35,7 +35,7 @@ class GetAllSkinsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetAllSkinsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetAllSkinsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAllSkinsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetAllSkinsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -66,16 +66,16 @@ class FreeBusyUserSpec
      * @return self
      */
     public function __construct(
-        ?int $folderId = NULL, ?string $id = NULL, ?string $name = NULL
+        ?int $folderId = null, ?string $id = null, ?string $name = null
     )
     {
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

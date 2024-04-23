@@ -43,7 +43,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
      * @param  CosSelector $cos
      * @return self
      */
-    public function __construct(?CosSelector $cos = NULL)
+    public function __construct(?CosSelector $cos = null)
     {
         $this->cos = $cos;
     }

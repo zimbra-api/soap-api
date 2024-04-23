@@ -54,13 +54,13 @@ class RedirectAction extends FilterAction
      * @param bool $copy
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $address = NULL, ?bool $copy = NULL)
+    public function __construct(?int $index = null, ?string $address = null, ?bool $copy = null)
     {
     	parent::__construct($index);
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $copy) {
+        if (null !== $copy) {
             $this->setCopy($copy);
         }
     }

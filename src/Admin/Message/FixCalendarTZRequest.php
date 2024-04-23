@@ -82,15 +82,15 @@ class FixCalendarTZRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL
+        ?bool $sync = null, ?int $after = null, array $accounts = [], ?TzFixup $tzFixup = null
     )
     {
         $this->setAccounts($accounts);
         $this->tzFixup = $tzFixup;
-        if (NULL !== $sync) {
+        if (null !== $sync) {
             $this->setSync($sync);
         }
-        if (NULL !== $after) {
+        if (null !== $after) {
             $this->setAfter($after);
         }
     }

@@ -52,12 +52,12 @@ class NameOrId
      * @param string $id
      * @return self
      */
-    public function __construct(?string $name = NULL, ?string $id = NULL)
+    public function __construct(?string $name = null, ?string $id = null)
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }
@@ -113,6 +113,6 @@ class NameOrId
 
     public static function createForId(string $id): NameOrId
     {
-        return new self(NULL, $id);
+        return new self(null, $id);
     }
 }

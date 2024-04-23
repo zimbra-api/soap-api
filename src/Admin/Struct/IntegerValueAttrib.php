@@ -40,9 +40,9 @@ class IntegerValueAttrib
      * @param  int $value
      * @return self
      */
-    public function __construct(?int $value = NULL)
+    public function __construct(?int $value = null)
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

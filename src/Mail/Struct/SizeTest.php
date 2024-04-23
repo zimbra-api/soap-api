@@ -55,15 +55,15 @@ class SizeTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?NumberComparison $numberComparison = NULL,
-        ?string $size = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?NumberComparison $numberComparison = null,
+        ?string $size = null
     )
     {
     	parent::__construct($index, $negative);
         $this->numberComparison = $numberComparison;
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
     }

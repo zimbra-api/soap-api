@@ -123,7 +123,7 @@ class SearchAccountsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        bool $more = FALSE,
+        bool $more = false,
         int $searchTotal = 0,
         array $calResources = [],
         array $dls = [],

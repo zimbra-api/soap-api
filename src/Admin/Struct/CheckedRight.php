@@ -39,9 +39,9 @@ class CheckedRight
      * @param string $value
      * @return self
      */
-    public function __construct(?string $value = NULL)
+    public function __construct(?string $value = null)
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

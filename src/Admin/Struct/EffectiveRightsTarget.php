@@ -75,8 +75,8 @@ class EffectiveRightsTarget
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL,
-        ?EffectiveRightsInfo $all = NULL,
+        ?TargetType $type = null,
+        ?EffectiveRightsInfo $all = null,
         array $inDomainLists = [],
         array $entriesLists = []
     )

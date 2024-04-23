@@ -53,13 +53,13 @@ class ImportContact
      * @return self
      */
     public function __construct(
-        ?string $listOfCreatedIds = NULL, ?int $numImported = NULL
+        ?string $listOfCreatedIds = null, ?int $numImported = null
     )
     {
-        if (NULL !== $listOfCreatedIds) {
+        if (null !== $listOfCreatedIds) {
             $this->setListOfCreatedIds($listOfCreatedIds);
         }
-        if (NULL !== $numImported) {
+        if (null !== $numImported) {
             $this->setNumImported($numImported);
         }
     }

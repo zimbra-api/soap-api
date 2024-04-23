@@ -63,13 +63,13 @@ class QueueQuery
      * @param  int $offset
      * @return self
      */
-    public function __construct(array $fields = [], ?int $limit = NULL, ?int $offset = NULL)
+    public function __construct(array $fields = [], ?int $limit = null, ?int $offset = null)
     {
         $this->setFields($fields);
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
     }

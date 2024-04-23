@@ -216,58 +216,58 @@ class MsgSpec
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $part = NULL,
-        ?bool $raw = NULL,
-        ?bool $markRead = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $useContentUrl = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $wantImapUid = NULL,
-        ?bool $wantModifiedSequence = NULL,
-        ?bool $neuter = NULL,
-        ?string $recurIdZ = NULL,
-        ?bool $needCanExpand = NULL,
-        ?MsgContent $wantContent = NULL,
+        ?string $id = null,
+        ?string $part = null,
+        ?bool $raw = null,
+        ?bool $markRead = null,
+        ?int $maxInlinedLength = null,
+        ?bool $useContentUrl = null,
+        ?bool $wantHtml = null,
+        ?bool $wantImapUid = null,
+        ?bool $wantModifiedSequence = null,
+        ?bool $neuter = null,
+        ?string $recurIdZ = null,
+        ?bool $needCanExpand = null,
+        ?MsgContent $wantContent = null,
         array $headers = []
     )
     {
         $this->setHeaders($headers);
         $this->wantContent = $wantContent;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $raw) {
+        if (null !== $raw) {
             $this->setRaw($raw);
         }
-        if (NULL !== $markRead) {
+        if (null !== $markRead) {
             $this->setMarkRead($markRead);
         }
-        if (NULL !== $maxInlinedLength) {
+        if (null !== $maxInlinedLength) {
             $this->setMaxInlinedLength($maxInlinedLength);
         }
-        if (NULL !== $useContentUrl) {
+        if (null !== $useContentUrl) {
             $this->setUseContentUrl($useContentUrl);
         }
-        if (NULL !== $wantHtml) {
+        if (null !== $wantHtml) {
             $this->setWantHtml($wantHtml);
         }
-        if (NULL !== $wantImapUid) {
+        if (null !== $wantImapUid) {
             $this->setWantImapUid($wantImapUid);
         }
-        if (NULL !== $wantModifiedSequence) {
+        if (null !== $wantModifiedSequence) {
             $this->setWantModifiedSequence($wantModifiedSequence);
         }
-        if (NULL !== $neuter) {
+        if (null !== $neuter) {
             $this->setNeuter($neuter);
         }
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
     }

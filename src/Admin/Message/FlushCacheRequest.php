@@ -53,7 +53,7 @@ class FlushCacheRequest extends SoapRequest
      * @param  CacheSelector $cache
      * @return self
      */
-    public function __construct(?CacheSelector $cache = NULL)
+    public function __construct(?CacheSelector $cache = null)
     {
         $this->cache = $cache;
     }

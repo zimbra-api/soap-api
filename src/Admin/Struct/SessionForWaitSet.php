@@ -114,25 +114,25 @@ class SessionForWaitSet
     public function __construct(
         string $account = '',
         string $interests = '',
-        ?string $token = NULL,
-        ?int $mboxSyncToken = NULL,
-        ?int $mboxSyncTokenDiff = NULL,
-        ?string $acctIdError = NULL,
-        ?WaitSetSessionInfo $waitSetSession = NULL
+        ?string $token = null,
+        ?int $mboxSyncToken = null,
+        ?int $mboxSyncTokenDiff = null,
+        ?string $acctIdError = null,
+        ?WaitSetSessionInfo $waitSetSession = null
     )
     {
         $this->setAccount($account)
              ->setInterests($interests);
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $mboxSyncToken) {
+        if (null !== $mboxSyncToken) {
             $this->setMboxSyncToken($mboxSyncToken);
         }
-        if (NULL !== $mboxSyncTokenDiff) {
+        if (null !== $mboxSyncTokenDiff) {
             $this->setMboxSyncTokenDiff($mboxSyncTokenDiff);
         }
-        if (NULL !== $acctIdError) {
+        if (null !== $acctIdError) {
             $this->setAcctIdError($acctIdError);
         }
         $this->waitSetSession = $waitSetSession;

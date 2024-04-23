@@ -33,7 +33,7 @@ class GetYahooAuthTokenBody extends SoapBody
     #[SerializedName('GetYahooAuthTokenRequest')]
     #[Type(GetYahooAuthTokenRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetYahooAuthTokenBody extends SoapBody
     #[SerializedName('GetYahooAuthTokenResponse')]
     #[Type(GetYahooAuthTokenResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetYahooAuthTokenBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetYahooAuthTokenRequest $request = NULL, ?GetYahooAuthTokenResponse $response = NULL
+        ?GetYahooAuthTokenRequest $request = null, ?GetYahooAuthTokenResponse $response = null
     )
     {
         parent::__construct($request, $response);

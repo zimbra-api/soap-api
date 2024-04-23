@@ -42,7 +42,7 @@ class ModifySearchFolderResponse extends SoapResponse
      * @param  SearchFolder $searchFolder
      * @return self
      */
-    public function __construct(?SearchFolder $searchFolder = NULL)
+    public function __construct(?SearchFolder $searchFolder = null)
     {
         $this->searchFolder = $searchFolder;
     }

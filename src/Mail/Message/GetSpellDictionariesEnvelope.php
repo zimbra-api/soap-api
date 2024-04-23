@@ -35,7 +35,7 @@ class GetSpellDictionariesEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetSpellDictionariesBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetSpellDictionariesEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetSpellDictionariesBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetSpellDictionariesBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

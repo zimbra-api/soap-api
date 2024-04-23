@@ -68,12 +68,12 @@ class CheckAuthConfigResponse extends SoapResponse
     public function __construct(
         string $code = '',
         string $bindDn = '',
-        ?string $message = NULL
+        ?string $message = null
     )
     {
         $this->setCode($code)
              ->setBindDn($bindDn);
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

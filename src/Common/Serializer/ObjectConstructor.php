@@ -11,7 +11,8 @@
 namespace Zimbra\Common\Serializer;
 
 use JMS\Serializer\Construction\{
-    ObjectConstructorInterface, UnserializeObjectConstructor
+    ObjectConstructorInterface,
+    UnserializeObjectConstructor
 };
 use JMS\Serializer\DeserializationContext as Context;
 use JMS\Serializer\Metadata\ClassMetadata;
@@ -33,7 +34,7 @@ class ObjectConstructor implements ObjectConstructorInterface
      * 
      * @var ObjectConstructorInterface
      */
-    private ObjectConstructorInterface $fallbackConstructor;
+    private readonly ObjectConstructorInterface $fallbackConstructor;
 
     /**
      * Constructor
@@ -41,9 +42,9 @@ class ObjectConstructor implements ObjectConstructorInterface
      * @param ObjectConstructorInterface $fallbackConstructor
      */
     public function __construct(
-        ?ObjectConstructorInterface $fallbackConstructor = NULL
+        ?ObjectConstructorInterface $fallbackConstructor = null
     ) {
-        $this->fallbackConstructor = $fallbackConstructor ?: new UnserializeObjectConstructor();
+        $this->fallbackConstructor = $fallbackConstructor ?? new UnserializeObjectConstructor();
     }
 
     /**
@@ -64,10 +65,10 @@ class ObjectConstructor implements ObjectConstructorInterface
                 return $reflection->newInstanceArgs();
             }
             else {
-                $isDefaultConstructor = TRUE;
+                $isDefaultConstructor = true;
                 foreach ($parameters as $parameter) {
                     if (!$parameter->isOptional()) {
-                        $isDefaultConstructor = FALSE;
+                        $isDefaultConstructor = false;
                         break;
                     }
                 }

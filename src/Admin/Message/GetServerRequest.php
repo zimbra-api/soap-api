@@ -60,16 +60,16 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
      * @return self
      */
     public function __construct(
-        ?ServerSelector $server = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $attrs = NULL
+        ?ServerSelector $server = null,
+        ?bool $applyConfig = null,
+        ?string $attrs = null
     )
     {
         $this->server = $server;
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

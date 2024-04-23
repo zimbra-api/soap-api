@@ -33,7 +33,7 @@ class ModifyVolumeBody extends SoapBody
     #[SerializedName('ModifyVolumeRequest')]
     #[Type(ModifyVolumeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ModifyVolumeBody extends SoapBody
     #[SerializedName('ModifyVolumeResponse')]
     #[Type(ModifyVolumeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ModifyVolumeBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyVolumeRequest $request = NULL, ?ModifyVolumeResponse $response = NULL
+        ?ModifyVolumeRequest $request = null, ?ModifyVolumeResponse $response = null
     )
     {
         parent::__construct($request, $response);

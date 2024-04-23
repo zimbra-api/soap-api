@@ -33,7 +33,7 @@ class DeleteXMPPComponentBody extends SoapBody
     #[SerializedName('DeleteXMPPComponentRequest')]
     #[Type(DeleteXMPPComponentRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteXMPPComponentBody extends SoapBody
     #[SerializedName('DeleteXMPPComponentResponse')]
     #[Type(DeleteXMPPComponentResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteXMPPComponentBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteXMPPComponentRequest $request = NULL, ?DeleteXMPPComponentResponse $response = NULL
+        ?DeleteXMPPComponentRequest $request = null, ?DeleteXMPPComponentResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -54,7 +54,7 @@ class GetShareInfoRequest extends SoapRequest
      * @param  GranteeChooser $grantee
      * @return self
      */
-    public function __construct(AccountSelector $owner, ?GranteeChooser $grantee = NULL)
+    public function __construct(AccountSelector $owner, ?GranteeChooser $grantee = null)
     {
         $this->setOwner($owner);
         $this->grantee = $grantee;

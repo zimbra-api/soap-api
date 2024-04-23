@@ -35,7 +35,7 @@ class CreateTagEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(CreateTagBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class CreateTagEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?CreateTagBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?CreateTagBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -92,21 +92,21 @@ class AutoCompleteRequest extends SoapRequest
      */
     public function __construct(
         string $name = '',
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $folderList = NULL,
-        ?bool $includeGal = NULL
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $folderList = null,
+        ?bool $includeGal = null
     )
     {
         $this->setName($name);
         $this->type = $type;
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if (NULL !== $folderList) {
+        if (null !== $folderList) {
             $this->setFolderList($folderList);
         }
-        if (NULL !== $includeGal) {
+        if (null !== $includeGal) {
             $this->setIncludeGal($includeGal);
         }
     }

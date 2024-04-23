@@ -35,7 +35,7 @@ class GrantRightEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GrantRightBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GrantRightEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GrantRightBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GrantRightBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

@@ -84,16 +84,16 @@ class GetWorkingHoursRequest extends SoapRequest
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $id = NULL,
-        ?string $name = NULL
+        ?string $id = null,
+        ?string $name = null
     )
     {
         $this->setStartTime($startTime)
              ->setEndTime($endTime);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

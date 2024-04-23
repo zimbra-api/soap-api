@@ -88,22 +88,22 @@ class GranteeSelector
      * @return self
      */
     public function __construct(
-        ?string $value = NULL,
-        ?GranteeType $type = NULL,
-        ?GranteeBy $by = NULL,
-        ?string $secret = NULL,
-        ?bool $all = NULL
+        ?string $value = null,
+        ?GranteeType $type = null,
+        ?GranteeBy $by = null,
+        ?string $secret = null,
+        ?bool $all = null
     )
     {
         $this->type = $type;
         $this->by = $by;
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $secret) {
+        if (null !== $secret) {
             $this->setSecret($secret);
         }
-        if (NULL !== $all) {
+        if (null !== $all) {
             $this->setAll($all);
         }
     }

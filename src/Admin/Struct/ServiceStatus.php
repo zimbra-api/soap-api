@@ -76,7 +76,7 @@ class ServiceStatus
      * @return self
      */
     public function __construct(
-        string $server = '', string $service = '', int $time = 0, ?ZeroOrOne $status = NULL
+        string $server = '', string $service = '', int $time = 0, ?ZeroOrOne $status = null
     )
     {
         $this->setServer($server)

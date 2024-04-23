@@ -120,36 +120,36 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @return self
      */
     public function __construct(
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?string $attrs = NULL
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?string $attrs = null
     )
     {
         $this->searchFilter = $searchFilter;
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $domain) {
+        if (null !== $domain) {
             $this->setDomain($domain);
         }
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

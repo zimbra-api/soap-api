@@ -53,7 +53,7 @@ class GetAllEffectiveRightsResponse extends SoapResponse
      * @param array $targets
      * @return self
      */
-    public function __construct(?GranteeInfo $grantee = NULL, array $targets = [])
+    public function __construct(?GranteeInfo $grantee = null, array $targets = [])
     {
         $this->setTargets($targets);
         $this->grantee = $grantee;

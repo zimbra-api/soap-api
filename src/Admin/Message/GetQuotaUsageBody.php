@@ -33,7 +33,7 @@ class GetQuotaUsageBody extends SoapBody
     #[SerializedName('GetQuotaUsageRequest')]
     #[Type(GetQuotaUsageRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetQuotaUsageBody extends SoapBody
     #[SerializedName('GetQuotaUsageResponse')]
     #[Type(GetQuotaUsageResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetQuotaUsageBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL
+        ?GetQuotaUsageRequest $request = null, ?GetQuotaUsageResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -42,7 +42,7 @@ class CopyCosResponse extends SoapResponse
      * @param CosInfo $cos
      * @return self
      */
-    public function __construct(?CosInfo $cos = NULL)
+    public function __construct(?CosInfo $cos = null)
     {
         $this->cos = $cos;
     }

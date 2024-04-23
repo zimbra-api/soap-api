@@ -43,13 +43,13 @@ class ConversationTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $where = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $where = null
     )
     {
     	parent::__construct($index, $negative);
-        if (NULL !== $where) {
+        if (null !== $where) {
             $this->setWhere($where);
         }
     }

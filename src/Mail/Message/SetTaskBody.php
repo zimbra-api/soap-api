@@ -33,7 +33,7 @@ class SetTaskBody extends SoapBody
     #[SerializedName('SetTaskRequest')]
     #[Type(SetTaskRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SetTaskBody extends SoapBody
     #[SerializedName('SetTaskResponse')]
     #[Type(SetTaskResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SetTaskBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SetTaskRequest $request = NULL, ?SetTaskResponse $response = NULL
+        ?SetTaskRequest $request = null, ?SetTaskResponse $response = null
     )
     {
         parent::__construct($request, $response);

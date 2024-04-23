@@ -53,7 +53,7 @@ class TzReplaceInfo
      * @param CalTZInfo $calTz
      * @return self
      */
-    public function __construct(?Id $wellKnownTz = NULL, ?CalTZInfo $calTz = NULL)
+    public function __construct(?Id $wellKnownTz = null, ?CalTZInfo $calTz = null)
     {
         $this->wellKnownTz = $wellKnownTz;
         $this->calTz = $calTz;

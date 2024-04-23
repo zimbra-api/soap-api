@@ -77,28 +77,28 @@ class Policy
      * @return self
      */
     public function __construct(
-        ?EnumType $type = NULL, ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL
+        ?EnumType $type = null, ?string $id = null, ?string $name = null, ?string $lifetime = null
     )
     {
         $this->type = $type;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $lifetime) {
+        if (null !== $lifetime) {
             $this->setLifetime($lifetime);
         }
     }
 
-    public static function newUserPolicy(?string $lifetime = NULL): Policy
+    public static function newUserPolicy(?string $lifetime = null): Policy
     {
-        return new self(EnumType::USER, NULL, NULL, $lifetime);
+        return new self(EnumType::USER, null, null, $lifetime);
     }
 
     public static function newSystemPolicy(
-        ?string $id = NULL, ?string $name = NULL, ?string $lifetime = NULL
+        ?string $id = null, ?string $name = null, ?string $lifetime = null
     ): Policy
     {
         return new self(EnumType::SYSTEM, $id, $name, $lifetime);

@@ -47,7 +47,7 @@ class CosCountInfo
 
     /**
      * Account count.
-     * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, 
+     * Note, it doesn't include any account with zimbraIsSystemResource=true, 
      * nor does it include any calendar resources.
      * 
      * @var int
@@ -66,12 +66,12 @@ class CosCountInfo
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?int $value = NULL
+        string $name = '', string $id = '', ?int $value = null
     )
     {
         $this->setName($name)
              ->setId($id);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

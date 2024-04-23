@@ -69,7 +69,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     public function __construct(
         string $folderId = '',
         int $limit = 0,
-        ?ImapCursorInfo $cursor = NULL
+        ?ImapCursorInfo $cursor = null
     )
     {
         $this->setFolderId($folderId)

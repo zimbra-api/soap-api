@@ -66,12 +66,12 @@ class PurgeRevisionSpec
      * @return self
      */
     public function __construct(
-        string $id = '', int $version = 0, ?bool $includeOlderRevisions = NULL
+        string $id = '', int $version = 0, ?bool $includeOlderRevisions = null
     )
     {
         $this->setId($id)
              ->setVersion($version);
-        if (NULL !== $includeOlderRevisions) {
+        if (null !== $includeOlderRevisions) {
             $this->setIncludeOlderRevisions($includeOlderRevisions);
         }
     }

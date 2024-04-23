@@ -51,10 +51,10 @@ class UcServiceSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(?UcServiceBy $by = NULL, ?string $value = NULL)
+    public function __construct(?UcServiceBy $by = null, ?string $value = null)
     {
         $this->setBy($by ?? UcServiceBy::ID);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

@@ -57,10 +57,10 @@ class FixCalendarEndTimeRequest extends SoapRequest
      * @param  array $accounts
      * @return self
      */
-    public function __construct(?bool $sync = NULL, array $accounts = [])
+    public function __construct(?bool $sync = null, array $accounts = [])
     {
         $this->setAccounts($accounts);
-        if (NULL !== $sync) {
+        if (null !== $sync) {
             $this->setSync($sync);
         }
     }

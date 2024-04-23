@@ -52,10 +52,10 @@ class ZimletAcl
      * @param  AclType $acl
      * @return self
      */
-    public function __construct(?string $cos = NULL, ?AclType $acl = NULL)
+    public function __construct(?string $cos = null, ?AclType $acl = null)
     {
         $this->acl = $acl;
-        if (NULL !== $cos) {
+        if (null !== $cos) {
             $this->setCos($cos);
         }
     }

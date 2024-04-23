@@ -99,40 +99,40 @@ class MessageHitInfo extends MessageInfo implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?bool $contentMatched = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
+        ?bool $contentMatched = null,
         array $messagePartHits = [],
-        ?int $imapUid = NULL,
-        ?string $calendarIntendedFor = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $draftReplyType = NULL,
-        ?string $identityId = NULL,
-        ?string $draftAccountId = NULL,
-        ?int $draftAutoSendTime = NULL,
-        ?int $sentDate = NULL,
-        ?int $resentDate = NULL,
-        ?string $part = NULL,
-        ?string $fragment = NULL,
+        ?int $imapUid = null,
+        ?string $calendarIntendedFor = null,
+        ?string $origId = null,
+        ?ReplyType $draftReplyType = null,
+        ?string $identityId = null,
+        ?string $draftAccountId = null,
+        ?int $draftAutoSendTime = null,
+        ?int $sentDate = null,
+        ?int $resentDate = null,
+        ?string $part = null,
+        ?string $fragment = null,
         array $emails = [],
-        ?string $subject = NULL,
-        ?string $messageIdHeader = NULL,
-        ?string $inReplyTo = NULL,
-        ?InviteInfo $invite = NULL,
+        ?string $subject = null,
+        ?string $messageIdHeader = null,
+        ?string $inReplyTo = null,
+        ?InviteInfo $invite = null,
         array $headers = [],
         array $partInfos = [],
         array $shareNotifications = [],
         array $dlSubs = [],
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?string $folder = NULL,
-        ?string $conversationId = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $revision = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?int $size = null,
+        ?int $date = null,
+        ?string $folder = null,
+        ?string $conversationId = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $revision = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = []
     )
     {
@@ -171,10 +171,10 @@ class MessageHitInfo extends MessageInfo implements SearchHit
             $metadatas
         );
         $this->setMessagePartHits($messagePartHits);
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
-        if (NULL !== $contentMatched) {
+        if (null !== $contentMatched) {
             $this->setContentMatched($contentMatched);
         }
     }

@@ -42,9 +42,9 @@ class GetAllAdminAccountsRequest extends SoapRequest
      * @param  bool $applyCos
      * @return self
      */
-    public function __construct(?bool $applyCos = NULL)
+    public function __construct(?bool $applyCos = null)
     {
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
     }

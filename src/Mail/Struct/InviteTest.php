@@ -42,8 +42,8 @@ class InviteTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
+        ?int $index = null,
+        ?bool $negative = null,
         array $methods = []
     )
     {

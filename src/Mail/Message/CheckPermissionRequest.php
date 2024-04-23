@@ -55,7 +55,7 @@ class CheckPermissionRequest extends SoapRequest
      * @param  array $rights
      * @return self
      */
-    public function __construct(?TargetSpec $target = NULL, array $rights = [])
+    public function __construct(?TargetSpec $target = null, array $rights = [])
     {
         $this->setRights($rights);
         $this->target = $target;

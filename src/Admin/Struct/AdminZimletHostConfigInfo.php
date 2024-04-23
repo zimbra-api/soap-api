@@ -53,9 +53,9 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * @param  array $properties
      * @return self
      */
-    public function __construct(?string $name = NULL, array $properties = [])
+    public function __construct(?string $name = null, array $properties = [])
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
         $this->setZimletProperties($properties);

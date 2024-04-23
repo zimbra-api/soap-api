@@ -81,10 +81,10 @@ class AttachmentsInfo
      * @param array $attachments
      * @return self
      */
-    public function __construct(?string $attachmentId = NULL, array $attachments = [])
+    public function __construct(?string $attachmentId = null, array $attachments = [])
     {
         $this->setAttachments($attachments);
-        if (NULL !== $attachmentId) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
     }

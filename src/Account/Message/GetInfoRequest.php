@@ -57,12 +57,12 @@ class GetInfoRequest extends SoapRequest
      * @param string $rights
      * @return self
      */
-    public function __construct(?string $sections = NULL, ?string $rights = NULL)
+    public function __construct(?string $sections = null, ?string $rights = null)
     {
-        if (NULL !== $sections) {
+        if (null !== $sections) {
             $this->setSections($sections);
         }
-        if (NULL !== $rights) {
+        if (null !== $rights) {
             $this->setRights($rights);
         }
     }
@@ -74,7 +74,7 @@ class GetInfoRequest extends SoapRequest
      */
     public function getSections(): ?string
     {
-        return !empty($this->sections) ? implode(',', $this->sections) : NULL;
+        return !empty($this->sections) ? implode(',', $this->sections) : null;
     }
 
     /**
@@ -117,7 +117,7 @@ class GetInfoRequest extends SoapRequest
      */
     public function getRights(): ?string
     {
-        return !empty($this->rights) ? implode(',', $this->rights) : NULL;
+        return !empty($this->rights) ? implode(',', $this->rights) : null;
     }
 
     /**

@@ -55,11 +55,11 @@ class GetCustomMetadataRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        SectionAttr $metadata, ?string $id = NULL
+        SectionAttr $metadata, ?string $id = null
     )
     {
         $this->setMetadata($metadata);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

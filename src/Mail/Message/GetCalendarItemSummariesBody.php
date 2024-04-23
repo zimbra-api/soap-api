@@ -33,7 +33,7 @@ class GetCalendarItemSummariesBody extends SoapBody
     #[SerializedName('GetCalendarItemSummariesRequest')]
     #[Type(GetCalendarItemSummariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetCalendarItemSummariesBody extends SoapBody
     #[SerializedName('GetCalendarItemSummariesResponse')]
     #[Type(GetCalendarItemSummariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetCalendarItemSummariesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetCalendarItemSummariesRequest $request = NULL, ?GetCalendarItemSummariesResponse $response = NULL
+        ?GetCalendarItemSummariesRequest $request = null, ?GetCalendarItemSummariesResponse $response = null
     )
     {
         parent::__construct($request, $response);

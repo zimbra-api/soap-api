@@ -42,7 +42,7 @@ class GetXMPPComponentResponse extends SoapResponse
      * @param XMPPComponentInfo $component
      * @return self
      */
-    public function __construct(?XMPPComponentInfo $component = NULL)
+    public function __construct(?XMPPComponentInfo $component = null)
     {
         $this->component = $component;
     }

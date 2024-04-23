@@ -11,7 +11,10 @@
 namespace Zimbra\Common\Soap;
 
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
-use Psr\Http\Message\{RequestInterface, ResponseInterface};
+use Psr\Http\Message\{
+    RequestInterface,
+    ResponseInterface
+};
 
 /**
  * ClientInterface is a interface which provides a client for Zimbra SOAP service

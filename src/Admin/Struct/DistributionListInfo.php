@@ -73,13 +73,13 @@ class DistributionListInfo extends AdminObjectInfo
         array $members = [],
         array $attrs = [],
         array $owners = [],
-        ?bool $dynamic = NULL
+        ?bool $dynamic = null
     )
     {
         parent::__construct($name, $id, $attrs);
         $this->setMembers($members)
              ->setOwners($owners);
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }

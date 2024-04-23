@@ -33,7 +33,7 @@ class GetRightBody extends SoapBody
     #[SerializedName('GetRightRequest')]
     #[Type(GetRightRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetRightBody extends SoapBody
     #[SerializedName('GetRightResponse')]
     #[Type(GetRightResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetRightBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetRightRequest $request = NULL, ?GetRightResponse $response = NULL
+        ?GetRightRequest $request = null, ?GetRightResponse $response = null
     )
     {
         parent::__construct($request, $response);

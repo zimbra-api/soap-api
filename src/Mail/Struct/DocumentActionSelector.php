@@ -67,20 +67,20 @@ class DocumentActionSelector extends ActionSelector
      */
     public function __construct(
         string $operation = '',
-        ?string $ids = NULL,
-        ?string $zimbraId = NULL,
-        ?DocumentActionGrant $grant = NULL,
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
+        ?string $ids = null,
+        ?string $zimbraId = null,
+        ?DocumentActionGrant $grant = null,
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
     )
     {
         parent::__construct(
@@ -98,7 +98,7 @@ class DocumentActionSelector extends ActionSelector
             $nonExistentIds,
             $newlyCreatedIds
         );
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
         $this->grant = $grant;

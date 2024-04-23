@@ -65,14 +65,14 @@ class ListDocumentRevisionsSpec
      * @return self
      */
     public function __construct(
-        string $id = '', ?int $version = NULL, ?int $count = NULL
+        string $id = '', ?int $version = null, ?int $count = null
     )
     {
         $this->setId($id);
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $count) {
+        if (null !== $count) {
             $this->setCount($count);
         }
     }

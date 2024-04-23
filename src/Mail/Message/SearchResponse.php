@@ -237,10 +237,10 @@ class SearchResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?SearchSortBy $sortBy = NULL,
-        ?int $queryOffset = NULL,
-        ?bool $queryMore = NULL,
-        ?int $totalSize = NULL,
+        ?SearchSortBy $sortBy = null,
+        ?int $queryOffset = null,
+        ?bool $queryMore = null,
+        ?int $totalSize = null,
         array $simpleHits = [],
         array $conversationHits = [],
         array $messageHits = [],
@@ -252,7 +252,7 @@ class SearchResponse extends SoapResponse
         array $wikiHits = [],
         array $appointmentHits = [],
         array $taskHits = [],
-        ?SearchQueryInfo $queryInfo = NULL
+        ?SearchQueryInfo $queryInfo = null
     )
     {
         $this->setSimpleHits($simpleHits)
@@ -268,13 +268,13 @@ class SearchResponse extends SoapResponse
              ->setTaskHits($taskHits);
         $this->sortBy = $sortBy;
         $this->queryInfo = $queryInfo;
-        if (NULL !== $queryOffset) {
+        if (null !== $queryOffset) {
             $this->setQueryOffset($queryOffset);
         }
-        if (NULL !== $queryMore) {
+        if (null !== $queryMore) {
             $this->setQueryMore($queryMore);
         }
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
     }

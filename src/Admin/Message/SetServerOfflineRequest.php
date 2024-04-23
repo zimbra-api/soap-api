@@ -46,10 +46,10 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(?ServerSelector $server = NULL, ?string $attrs = NULL)
+    public function __construct(?ServerSelector $server = null, ?string $attrs = null)
     {
         $this->server = $server;
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

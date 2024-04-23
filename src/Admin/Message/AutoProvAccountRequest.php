@@ -70,12 +70,12 @@ class AutoProvAccountRequest extends SoapRequest
     public function __construct(
         DomainSelector $domain,
         PrincipalSelector $principal,
-        ?string $password = NULL
+        ?string $password = null
     )
     {
         $this->setDomain($domain)
         	 ->setPrincipal($principal);
-        if (NULL !== $password){
+        if (null !== $password){
             $this->setPassword($password);
         }
     }

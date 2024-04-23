@@ -42,7 +42,7 @@ class GetLicenseInfoResponse extends SoapResponse
      * @param LicenseExpirationInfo $expiration
      * @return self
      */
-    public function __construct(?LicenseExpirationInfo $expiration = NULL)
+    public function __construct(?LicenseExpirationInfo $expiration = null)
     {
         $this->expiration = $expiration;
     }

@@ -54,10 +54,10 @@ class UndeployZimletRequest extends SoapRequest
      * @param  string $action
      * @return self
      */
-    public function __construct(string $name = '', ?string $action = NULL)
+    public function __construct(string $name = '', ?string $action = null)
     {
         $this->setName($name);
-        if (NULL !== $action) {
+        if (null !== $action) {
             $this->setAction($action);
         }
     }

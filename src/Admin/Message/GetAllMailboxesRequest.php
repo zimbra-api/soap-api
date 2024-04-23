@@ -54,12 +54,12 @@ class GetAllMailboxesRequest extends SoapRequest
      * @param  int $offset
      * @return self
      */
-    public function __construct(?int $limit = NULL, ?int $offset = NULL)
+    public function __construct(?int $limit = null, ?int $offset = null)
     {
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
     }

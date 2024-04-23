@@ -69,12 +69,12 @@ class GetApptSummariesRequest extends SoapRequest
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $folderId = NULL
+        ?string $folderId = null
     )
     {
         $this->setStartTime($startTime)
              ->setEndTime($endTime);
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
     }

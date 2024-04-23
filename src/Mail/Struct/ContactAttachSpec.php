@@ -41,7 +41,7 @@ class ContactAttachSpec extends AttachSpec
      * @param bool $optional
      * @return self
      */
-    public function __construct(string $id = '', ?bool $optional = NULL)
+    public function __construct(string $id = '', ?bool $optional = null)
     {
         parent::__construct($optional);
         $this->setId($id);

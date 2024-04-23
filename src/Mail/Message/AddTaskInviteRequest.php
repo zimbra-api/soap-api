@@ -38,7 +38,7 @@ class AddTaskInviteRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
+        ?ParticipationStatus $partStat = null, ?Msg $msg = null
     )
     {
         $this->__traitConstruct($partStat, $msg);

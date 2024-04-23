@@ -42,7 +42,7 @@ class ModifyLDAPEntryResponse extends SoapResponse
      * @param LDAPEntryInfo $LDAPEntry
      * @return self
      */
-    public function __construct(?LDAPEntryInfo $LDAPEntry = NULL)
+    public function __construct(?LDAPEntryInfo $LDAPEntry = null)
     {
         $this->LDAPEntry = $LDAPEntry;
     }

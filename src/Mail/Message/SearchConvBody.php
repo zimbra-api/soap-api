@@ -33,7 +33,7 @@ class SearchConvBody extends SoapBody
     #[SerializedName('SearchConvRequest')]
     #[Type(SearchConvRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SearchConvBody extends SoapBody
     #[SerializedName('SearchConvResponse')]
     #[Type(SearchConvResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SearchConvBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SearchConvRequest $request = NULL, ?SearchConvResponse $response = NULL
+        ?SearchConvRequest $request = null, ?SearchConvResponse $response = null
     )
     {
         parent::__construct($request, $response);

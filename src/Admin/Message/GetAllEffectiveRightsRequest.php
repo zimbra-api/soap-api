@@ -60,15 +60,15 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?GranteeSelector $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
+        ?GranteeSelector $grantee = null, ?bool $expandSetAttrs = null, ?bool $expandGetAttrs = null
     )
     {
         $this->grantee = $grantee;
         $attrs = [];
-        if (NULL !== $expandSetAttrs) {
+        if (null !== $expandSetAttrs) {
             $attrs[self::EXPAND_SET_ATTRS] = self::EXPAND_SET_ATTRS;
         }
-        if (NULL !== $expandGetAttrs) {
+        if (null !== $expandGetAttrs) {
             $attrs[self::EXPAND_GET_ATTRS] = self::EXPAND_GET_ATTRS;
         }
         if (!empty($attrs)) {

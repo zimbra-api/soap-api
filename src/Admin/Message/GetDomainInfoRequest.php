@@ -60,12 +60,12 @@ class GetDomainInfoRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?DomainSelector $domain = NULL,
-        ?bool $applyConfig = NULL
+        ?DomainSelector $domain = null,
+        ?bool $applyConfig = null
     )
     {
         $this->domain = $domain;
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
     }

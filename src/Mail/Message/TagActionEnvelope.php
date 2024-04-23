@@ -35,7 +35,7 @@ class TagActionEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(TagActionBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class TagActionEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?TagActionBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?TagActionBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

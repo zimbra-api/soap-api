@@ -35,7 +35,7 @@ class GetCalendarResourceEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetCalendarResourceBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetCalendarResourceEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetCalendarResourceBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetCalendarResourceBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

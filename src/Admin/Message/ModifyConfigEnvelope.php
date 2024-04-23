@@ -35,7 +35,7 @@ class ModifyConfigEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(ModifyConfigBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class ModifyConfigEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?ModifyConfigBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?ModifyConfigBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

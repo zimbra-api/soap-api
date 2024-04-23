@@ -70,14 +70,14 @@ class ExportAndDeleteItemsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        Mailbox $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL
+        Mailbox $mailbox, ?string $exportDir = null, ?string $exportFilenamePrefix = null
     )
     {
         $this->setMailbox($mailbox);
-        if (NULL !== $exportDir) {
+        if (null !== $exportDir) {
             $this->setExportDir($exportDir);
         }
-        if (NULL !== $exportFilenamePrefix) {
+        if (null !== $exportFilenamePrefix) {
             $this->setExportFilenamePrefix($exportFilenamePrefix);
         }
     }

@@ -33,7 +33,7 @@ class GetIndexStatsBody extends SoapBody
     #[SerializedName('GetIndexStatsRequest')]
     #[Type(GetIndexStatsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetIndexStatsBody extends SoapBody
     #[SerializedName('GetIndexStatsResponse')]
     #[Type(GetIndexStatsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetIndexStatsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetIndexStatsRequest $request = NULL, ?GetIndexStatsResponse $response = NULL
+        ?GetIndexStatsRequest $request = null, ?GetIndexStatsResponse $response = null
     )
     {
         parent::__construct($request, $response);

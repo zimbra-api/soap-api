@@ -33,7 +33,7 @@ class TagActionBody extends SoapBody
     #[SerializedName('TagActionRequest')]
     #[Type(TagActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class TagActionBody extends SoapBody
     #[SerializedName('TagActionResponse')]
     #[Type(TagActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class TagActionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?TagActionRequest $request = NULL, ?TagActionResponse $response = NULL
+        ?TagActionRequest $request = null, ?TagActionResponse $response = null
     )
     {
         parent::__construct($request, $response);

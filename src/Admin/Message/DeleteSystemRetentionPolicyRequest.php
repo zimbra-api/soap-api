@@ -56,7 +56,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
      * @param  CosSelector $cos
      * @return self
      */
-    public function __construct(Policy $policy, ?CosSelector $cos = NULL)
+    public function __construct(Policy $policy, ?CosSelector $cos = null)
     {
         $this->setPolicy($policy);
         $this->cos = $cos;

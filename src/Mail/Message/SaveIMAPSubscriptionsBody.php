@@ -33,7 +33,7 @@ class SaveIMAPSubscriptionsBody extends SoapBody
     #[SerializedName('SaveIMAPSubscriptionsRequest')]
     #[Type(SaveIMAPSubscriptionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class SaveIMAPSubscriptionsBody extends SoapBody
     #[SerializedName('SaveIMAPSubscriptionsResponse')]
     #[Type(SaveIMAPSubscriptionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class SaveIMAPSubscriptionsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SaveIMAPSubscriptionsRequest $request = NULL, ?SaveIMAPSubscriptionsResponse $response = NULL
+        ?SaveIMAPSubscriptionsRequest $request = null, ?SaveIMAPSubscriptionsResponse $response = null
     )
     {
         parent::__construct($request, $response);

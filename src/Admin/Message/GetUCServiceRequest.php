@@ -46,10 +46,10 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(UcServiceSelector $ucService, ?string $attrs = NULL)
+    public function __construct(UcServiceSelector $ucService, ?string $attrs = null)
     {
         $this->setUCService($ucService);
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

@@ -33,7 +33,7 @@ class ListDocumentRevisionsBody extends SoapBody
     #[SerializedName('ListDocumentRevisionsRequest')]
     #[Type(ListDocumentRevisionsRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ListDocumentRevisionsBody extends SoapBody
     #[SerializedName('ListDocumentRevisionsResponse')]
     #[Type(ListDocumentRevisionsResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ListDocumentRevisionsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ListDocumentRevisionsRequest $request = NULL, ?ListDocumentRevisionsResponse $response = NULL
+        ?ListDocumentRevisionsRequest $request = null, ?ListDocumentRevisionsResponse $response = null
     )
     {
         parent::__construct($request, $response);

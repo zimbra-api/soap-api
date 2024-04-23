@@ -33,7 +33,7 @@ class GetImportStatusBody extends SoapBody
     #[SerializedName('GetImportStatusRequest')]
     #[Type(GetImportStatusRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetImportStatusBody extends SoapBody
     #[SerializedName('GetImportStatusResponse')]
     #[Type(GetImportStatusResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetImportStatusBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetImportStatusRequest $request = NULL, ?GetImportStatusResponse $response = NULL
+        ?GetImportStatusRequest $request = null, ?GetImportStatusResponse $response = null
     )
     {
         parent::__construct($request, $response);

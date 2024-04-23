@@ -215,55 +215,55 @@ class ActionSelector
      */
     public function __construct(
         string $operation = '',
-        ?string $ids = NULL,
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
+        ?string $ids = null,
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
     )
     {
         $this->setOperation($operation);
-        if (NULL !== $ids) {
+        if (null !== $ids) {
             $this->setIds($ids);
         }
-        if (NULL !== $constraint) {
+        if (null !== $constraint) {
             $this->setConstraint($constraint);
         }
-        if (NULL !== $tag) {
+        if (null !== $tag) {
             $this->setTag($tag);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $nonExistentIds) {
+        if (null !== $nonExistentIds) {
             $this->setNonExistentIds($nonExistentIds);
         }
-        if (NULL !== $newlyCreatedIds) {
+        if (null !== $newlyCreatedIds) {
             $this->setNewlyCreatedIds($newlyCreatedIds);
         }
     }

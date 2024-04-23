@@ -33,7 +33,7 @@ class PurgeMessagesBody extends SoapBody
     #[SerializedName('PurgeMessagesRequest')]
     #[Type(PurgeMessagesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class PurgeMessagesBody extends SoapBody
     #[SerializedName('PurgeMessagesResponse')]
     #[Type(PurgeMessagesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class PurgeMessagesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL
+        ?PurgeMessagesRequest $request = null, ?PurgeMessagesResponse $response = null
     )
     {
         parent::__construct($request, $response);

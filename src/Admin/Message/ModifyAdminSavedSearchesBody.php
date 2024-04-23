@@ -33,7 +33,7 @@ class ModifyAdminSavedSearchesBody extends SoapBody
     #[SerializedName('ModifyAdminSavedSearchesRequest')]
     #[Type(ModifyAdminSavedSearchesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ModifyAdminSavedSearchesBody extends SoapBody
     #[SerializedName('ModifyAdminSavedSearchesResponse')]
     #[Type(ModifyAdminSavedSearchesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ModifyAdminSavedSearchesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyAdminSavedSearchesRequest $request = NULL, ?ModifyAdminSavedSearchesResponse $response = NULL
+        ?ModifyAdminSavedSearchesRequest $request = null, ?ModifyAdminSavedSearchesResponse $response = null
     )
     {
         parent::__construct($request, $response);

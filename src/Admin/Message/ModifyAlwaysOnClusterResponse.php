@@ -42,7 +42,7 @@ class ModifyAlwaysOnClusterResponse extends SoapResponse
      * @param AlwaysOnClusterInfo $cluster
      * @return self
      */
-    public function __construct(?AlwaysOnClusterInfo $cluster = NULL)
+    public function __construct(?AlwaysOnClusterInfo $cluster = null)
     {
         $this->cluster = $cluster;
     }

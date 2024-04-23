@@ -65,9 +65,9 @@ class TzFixupRule
      * @return self
      */
     public function __construct(
-        ?TzFixupRuleMatch $match = NULL,
-        ?SimpleElement $touch = NULL,
-        ?TzReplaceInfo $replace = NULL
+        ?TzFixupRuleMatch $match = null,
+        ?SimpleElement $touch = null,
+        ?TzReplaceInfo $replace = null
     )
     {
         $this->match = $match;

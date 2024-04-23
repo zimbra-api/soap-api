@@ -33,7 +33,7 @@ class VerifyIndexBody extends SoapBody
     #[SerializedName('VerifyIndexRequest')]
     #[Type(VerifyIndexRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class VerifyIndexBody extends SoapBody
     #[SerializedName('VerifyIndexResponse')]
     #[Type(VerifyIndexResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class VerifyIndexBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?VerifyIndexRequest $request = NULL, ?VerifyIndexResponse $response = NULL
+        ?VerifyIndexRequest $request = null, ?VerifyIndexResponse $response = null
     )
     {
         parent::__construct($request, $response);

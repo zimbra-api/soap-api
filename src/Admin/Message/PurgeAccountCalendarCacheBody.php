@@ -33,7 +33,7 @@ class PurgeAccountCalendarCacheBody extends SoapBody
     #[SerializedName('PurgeAccountCalendarCacheRequest')]
     #[Type(PurgeAccountCalendarCacheRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class PurgeAccountCalendarCacheBody extends SoapBody
     #[SerializedName('PurgeAccountCalendarCacheResponse')]
     #[Type(PurgeAccountCalendarCacheResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class PurgeAccountCalendarCacheBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PurgeAccountCalendarCacheRequest $request = NULL, ?PurgeAccountCalendarCacheResponse $response = NULL
+        ?PurgeAccountCalendarCacheRequest $request = null, ?PurgeAccountCalendarCacheResponse $response = null
     )
     {
         parent::__construct($request, $response);

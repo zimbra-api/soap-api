@@ -64,14 +64,14 @@ class Pref
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $value = NULL, ?int $modified = NULL
+        string $name = '', ?string $value = null, ?int $modified = null
     )
     {
         $this->setName($name);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $modified) {
+        if (null !== $modified) {
             $this->setModified($modified);
         }
     }

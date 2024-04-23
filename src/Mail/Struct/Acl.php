@@ -65,16 +65,16 @@ class Acl
      * @return self
      */
     public function __construct(
-        ?int $internalGrantExpiry = NULL,
-        ?int $guestGrantExpiry = NULL,
+        ?int $internalGrantExpiry = null,
+        ?int $guestGrantExpiry = null,
         array $grants = []
     )
     {
         $this->setGrants($grants);
-        if (NULL !== $internalGrantExpiry) {
+        if (null !== $internalGrantExpiry) {
             $this->setInternalGrantExpiry($internalGrantExpiry);
         }
-        if (NULL !== $guestGrantExpiry) {
+        if (null !== $guestGrantExpiry) {
             $this->setGuestGrantExpiry($guestGrantExpiry);
         }
     }

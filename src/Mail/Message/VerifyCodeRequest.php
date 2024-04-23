@@ -56,13 +56,13 @@ class VerifyCodeRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $address = NULL, ?string $verificationCode = NULL
+        ?string $address = null, ?string $verificationCode = null
     )
     {
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $verificationCode) {
+        if (null !== $verificationCode) {
             $this->setVerificationCode($verificationCode);
         }
     }

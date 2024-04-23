@@ -52,12 +52,12 @@ class FilterTest
      * @param bool $negative
      * @return self
      */
-    public function __construct(?int $index = NULL, ?bool $negative = NULL)
+    public function __construct(?int $index = null, ?bool $negative = null)
     {
-        if (NULL !== $index) {
+        if (null !== $index) {
             $this->setIndex($index);
         }
-        if (NULL !== $negative) {
+        if (null !== $negative) {
             $this->setNegative($negative);
         }
     }

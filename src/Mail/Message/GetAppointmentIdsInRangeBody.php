@@ -33,7 +33,7 @@ class GetAppointmentIdsInRangeBody extends SoapBody
     #[SerializedName('GetAppointmentIdsInRangeRequest')]
     #[Type(GetAppointmentIdsInRangeRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetAppointmentIdsInRangeBody extends SoapBody
     #[SerializedName('GetAppointmentIdsInRangeResponse')]
     #[Type(GetAppointmentIdsInRangeResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetAppointmentIdsInRangeBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAppointmentIdsInRangeRequest $request = NULL, ?GetAppointmentIdsInRangeResponse $response = NULL
+        ?GetAppointmentIdsInRangeRequest $request = null, ?GetAppointmentIdsInRangeResponse $response = null
     )
     {
         parent::__construct($request, $response);

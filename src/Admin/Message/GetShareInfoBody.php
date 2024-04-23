@@ -33,7 +33,7 @@ class GetShareInfoBody extends SoapBody
     #[SerializedName('GetShareInfoRequest')]
     #[Type(GetShareInfoRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetShareInfoBody extends SoapBody
     #[SerializedName('GetShareInfoResponse')]
     #[Type(GetShareInfoResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetShareInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL
+        ?GetShareInfoRequest $request = null, ?GetShareInfoResponse $response = null
     )
     {
         parent::__construct($request, $response);

@@ -97,7 +97,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('serverExtension')]
     #[Type(ZimletServerExtension::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?ZimletServerExtension $serverExtension = NULL;
+    private ?ZimletServerExtension $serverExtension = null;
 
     /**
      * @var AdminZimletInclude
@@ -106,7 +106,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('include')]
     #[Type(AdminZimletInclude::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?AdminZimletInclude $include = NULL;
+    private ?AdminZimletInclude $include = null;
 
     /**
      * @var AdminZimletIncludeCSS
@@ -115,7 +115,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('includeCSS')]
     #[Type(AdminZimletIncludeCSS::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?AdminZimletIncludeCSS $includeCSS = NULL;
+    private ?AdminZimletIncludeCSS $includeCSS = null;
 
     /**
      * @var AdminZimletTarget
@@ -124,7 +124,7 @@ class AdminZimletDesc implements ZimletDesc
     #[SerializedName('zimletTarget')]
     #[Type(AdminZimletTarget::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?AdminZimletTarget $zimletTarget = NULL;
+    private ?AdminZimletTarget $zimletTarget = null;
 
     /**
      * Constructor
@@ -138,30 +138,30 @@ class AdminZimletDesc implements ZimletDesc
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $version = NULL,
-        ?string $description = NULL,
-        ?string $extension = NULL,
-        ?string $target = NULL,
-        ?string $label = NULL
+        ?string $name = null,
+        ?string $version = null,
+        ?string $description = null,
+        ?string $extension = null,
+        ?string $target = null,
+        ?string $label = null
     )
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $extension) {
+        if (null !== $extension) {
             $this->setExtension($extension);
         }
-        if (NULL !== $target) {
+        if (null !== $target) {
             $this->setTarget($target);
         }
-        if (NULL !== $label) {
+        if (null !== $label) {
             $this->setLabel($label);
         }
     }

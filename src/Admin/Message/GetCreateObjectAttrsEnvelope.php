@@ -35,7 +35,7 @@ class GetCreateObjectAttrsEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(GetCreateObjectAttrsBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class GetCreateObjectAttrsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetCreateObjectAttrsBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?GetCreateObjectAttrsBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);

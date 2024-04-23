@@ -40,9 +40,9 @@ class AuthTokenControl
      * @param bool $voidOnExpired
      * @return self
      */
-    public function __construct(?bool $voidOnExpired = NULL)
+    public function __construct(?bool $voidOnExpired = null)
     {
-        if (NULL !== $voidOnExpired) {
+        if (null !== $voidOnExpired) {
             $this->setVoidOnExpired($voidOnExpired);
         }
     }

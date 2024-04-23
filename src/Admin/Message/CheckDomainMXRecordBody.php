@@ -33,7 +33,7 @@ class CheckDomainMXRecordBody extends SoapBody
     #[SerializedName('CheckDomainMXRecordRequest')]
     #[Type(CheckDomainMXRecordRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class CheckDomainMXRecordBody extends SoapBody
     #[SerializedName('CheckDomainMXRecordResponse')]
     #[Type(CheckDomainMXRecordResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class CheckDomainMXRecordBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckDomainMXRecordRequest $request = NULL, ?CheckDomainMXRecordResponse $response = NULL
+        ?CheckDomainMXRecordRequest $request = null, ?CheckDomainMXRecordResponse $response = null
     )
     {
         parent::__construct($request, $response);

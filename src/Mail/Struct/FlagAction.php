@@ -41,10 +41,10 @@ class FlagAction extends FilterAction
      * @param string $flag
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $flag = NULL)
+    public function __construct(?int $index = null, ?string $flag = null)
     {
     	parent::__construct($index);
-        if (NULL !== $flag) {
+        if (null !== $flag) {
             $this->setFlag($flag);
         }
     }

@@ -33,7 +33,7 @@ class ConfigureZimletBody extends SoapBody
     #[SerializedName('ConfigureZimletRequest')]
     #[Type(ConfigureZimletRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ConfigureZimletBody extends SoapBody
     #[SerializedName('ConfigureZimletResponse')]
     #[Type(ConfigureZimletResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ConfigureZimletBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ConfigureZimletRequest $request = NULL, ?ConfigureZimletResponse $response = NULL
+        ?ConfigureZimletRequest $request = null, ?ConfigureZimletResponse $response = null
     )
     {
         parent::__construct($request, $response);

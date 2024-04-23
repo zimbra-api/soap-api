@@ -42,7 +42,7 @@ class DeleteMailboxResponse extends SoapResponse
      * @param MailboxId $mbox
      * @return self
      */
-    public function __construct(?MailboxId $mbox = NULL)
+    public function __construct(?MailboxId $mbox = null)
     {
         $this->mbox = $mbox;
     }

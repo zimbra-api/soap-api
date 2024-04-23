@@ -54,7 +54,7 @@ class MimePartAttachSpec extends AttachSpec
      * @return self
      */
     public function __construct(
-        string $messageId = '', string $part = '', ?bool $optional = NULL
+        string $messageId = '', string $part = '', ?bool $optional = null
     )
     {
         parent::__construct($optional);

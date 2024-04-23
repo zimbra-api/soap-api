@@ -33,7 +33,7 @@ class GetSpellDictionariesBody extends SoapBody
     #[SerializedName('GetSpellDictionariesRequest')]
     #[Type(GetSpellDictionariesRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class GetSpellDictionariesBody extends SoapBody
     #[SerializedName('GetSpellDictionariesResponse')]
     #[Type(GetSpellDictionariesResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class GetSpellDictionariesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetSpellDictionariesRequest $request = NULL, ?GetSpellDictionariesResponse $response = NULL
+        ?GetSpellDictionariesRequest $request = null, ?GetSpellDictionariesResponse $response = null
     )
     {
         parent::__construct($request, $response);

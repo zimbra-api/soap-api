@@ -33,7 +33,7 @@ class DeleteUCServiceBody extends SoapBody
     #[SerializedName('DeleteUCServiceRequest')]
     #[Type(DeleteUCServiceRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class DeleteUCServiceBody extends SoapBody
     #[SerializedName('DeleteUCServiceResponse')]
     #[Type(DeleteUCServiceResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class DeleteUCServiceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteUCServiceRequest $request = NULL, ?DeleteUCServiceResponse $response = NULL
+        ?DeleteUCServiceRequest $request = null, ?DeleteUCServiceResponse $response = null
     )
     {
         parent::__construct($request, $response);

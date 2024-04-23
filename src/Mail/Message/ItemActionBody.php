@@ -33,7 +33,7 @@ class ItemActionBody extends SoapBody
     #[SerializedName('ItemActionRequest')]
     #[Type(ItemActionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class ItemActionBody extends SoapBody
     #[SerializedName('ItemActionResponse')]
     #[Type(ItemActionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class ItemActionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ItemActionRequest $request = NULL, ?ItemActionResponse $response = NULL
+        ?ItemActionRequest $request = null, ?ItemActionResponse $response = null
     )
     {
         parent::__construct($request, $response);

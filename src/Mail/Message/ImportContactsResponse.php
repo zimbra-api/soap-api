@@ -43,7 +43,7 @@ class ImportContactsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?ImportContact $contact = NULL
+        ?ImportContact $contact = null
     )
     {
         $this->contact = $contact;

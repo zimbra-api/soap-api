@@ -88,22 +88,22 @@ class DiscoverRightsTarget
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL,
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $displayName = NULL,
+        ?TargetType $type = null,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $displayName = null,
         array $emails = []
     )
     {
         $this->setType($type ?? TargetType::ACCOUNT)
              ->setEmails($emails);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
     }

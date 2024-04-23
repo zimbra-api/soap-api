@@ -332,30 +332,30 @@ class CommonInstanceDataAttrs
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = NULL,
-        ?string $recurIdZ = NULL,
-        ?int $tzOffset = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?string $taskPercentComplete = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $hasExceptions = NULL,
-        ?string $priority = NULL,
-        ?FreeBusyStatus $freeBusyIntended = NULL,
-        ?Transparency $transparency = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?bool $hasOtherAttendees = NULL,
-        ?bool $hasAlarm = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $invId = NULL,
-        ?int $componentNum = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?bool $allDay = NULL,
-        ?bool $draft = NULL,
-        ?bool $neverSent = NULL,
-        ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL
+        ?ParticipationStatus $partStat = null,
+        ?string $recurIdZ = null,
+        ?int $tzOffset = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?string $taskPercentComplete = null,
+        ?bool $isRecurring = null,
+        ?bool $hasExceptions = null,
+        ?string $priority = null,
+        ?FreeBusyStatus $freeBusyIntended = null,
+        ?Transparency $transparency = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?bool $hasOtherAttendees = null,
+        ?bool $hasAlarm = null,
+        ?bool $isOrganizer = null,
+        ?string $invId = null,
+        ?int $componentNum = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?bool $allDay = null,
+        ?bool $draft = null,
+        ?bool $neverSent = null,
+        ?int $taskDueDate = null,
+        ?int $taskTzOffsetDue = null
     )
     {
         $this->partStat = $partStat;
@@ -364,58 +364,58 @@ class CommonInstanceDataAttrs
         $this->transparency = $transparency;
         $this->status = $status;
         $this->calClass = $calClass;
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
-        if (NULL !== $tzOffset) {
+        if (null !== $tzOffset) {
             $this->setTzOffset($tzOffset);
         }
-        if (NULL !== $taskPercentComplete) {
+        if (null !== $taskPercentComplete) {
             $this->setTaskPercentComplete($taskPercentComplete);
         }
-        if (NULL !== $isRecurring) {
+        if (null !== $isRecurring) {
             $this->setIsRecurring($isRecurring);
         }
-        if (NULL !== $hasExceptions) {
+        if (null !== $hasExceptions) {
             $this->setHasExceptions($hasExceptions);
         }
-        if (NULL !== $priority) {
+        if (null !== $priority) {
             $this->setPriority($priority);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
-        if (NULL !== $hasOtherAttendees) {
+        if (null !== $hasOtherAttendees) {
             $this->setHasOtherAttendees($hasOtherAttendees);
         }
-        if (NULL !== $hasAlarm) {
+        if (null !== $hasAlarm) {
             $this->setHasAlarm($hasAlarm);
         }
-        if (NULL !== $isOrganizer) {
+        if (null !== $isOrganizer) {
             $this->setIsOrganizer($isOrganizer);
         }
-        if (NULL !== $invId) {
+        if (null !== $invId) {
             $this->setInvId($invId);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
-        if (NULL !== $allDay) {
+        if (null !== $allDay) {
             $this->setAllDay($allDay);
         }
-        if (NULL !== $draft) {
+        if (null !== $draft) {
             $this->setDraft($draft);
         }
-        if (NULL !== $neverSent) {
+        if (null !== $neverSent) {
             $this->setNeverSent($neverSent);
         }
-        if (NULL !== $taskDueDate) {
+        if (null !== $taskDueDate) {
             $this->setTaskDueDate($taskDueDate);
         }
-        if (NULL !== $taskTzOffsetDue) {
+        if (null !== $taskTzOffsetDue) {
             $this->setTaskTzOffsetDue($taskTzOffsetDue);
         }
     }

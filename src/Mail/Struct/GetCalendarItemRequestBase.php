@@ -92,26 +92,26 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $sync = NULL,
-        ?bool $includeContent = NULL,
-        ?bool $includeInvites = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL
+        ?bool $sync = null,
+        ?bool $includeContent = null,
+        ?bool $includeInvites = null,
+        ?string $uid = null,
+        ?string $id = null
     )
     {
-        if (NULL !== $sync) {
+        if (null !== $sync) {
             $this->setSync($sync);
         }
-        if (NULL !== $includeContent) {
+        if (null !== $includeContent) {
             $this->setIncludeContent($includeContent);
         }
-        if (NULL !== $includeInvites) {
+        if (null !== $includeInvites) {
             $this->setIncludeInvites($includeInvites);
         }
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

@@ -41,7 +41,7 @@ class AddCommentResponse extends SoapResponse
      * @param  Id $comment
      * @return self
      */
-    public function __construct(?Id $comment = NULL)
+    public function __construct(?Id $comment = null)
     {
         $this->comment = $comment;
     }

@@ -44,8 +44,8 @@ class ModifyContactGroupMember extends NewContactGroupMember
      * @return self
      */
     public function __construct(
-        ?ModifyGroupMemberOperation $operation = NULL,
-        ?MemberType $type = NULL,
+        ?ModifyGroupMemberOperation $operation = null,
+        ?MemberType $type = null,
         string $value = ''
     )
     {

@@ -43,9 +43,9 @@ class ImportanceTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?Importance $importance = NULL
+        ?int $index = null,
+        ?bool $negative = null,
+        ?Importance $importance = null
     )
     {
     	parent::__construct($index, $negative);

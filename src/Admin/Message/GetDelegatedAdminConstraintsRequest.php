@@ -81,15 +81,15 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+        ?TargetType $type = null, ?string $id = null, ?string $name = null, array $attrs = []
     )
     {
         $this->setType($type ?? TargetType::ACCOUNT)
              ->setAttrs($attrs);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

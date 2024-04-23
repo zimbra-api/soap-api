@@ -33,7 +33,7 @@ class RevokePermissionBody extends SoapBody
     #[SerializedName('RevokePermissionRequest')]
     #[Type(RevokePermissionRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class RevokePermissionBody extends SoapBody
     #[SerializedName('RevokePermissionResponse')]
     #[Type(RevokePermissionResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class RevokePermissionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RevokePermissionRequest $request = NULL, ?RevokePermissionResponse $response = NULL
+        ?RevokePermissionRequest $request = null, ?RevokePermissionResponse $response = null
     )
     {
         parent::__construct($request, $response);

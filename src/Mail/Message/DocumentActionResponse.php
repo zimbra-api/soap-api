@@ -42,7 +42,7 @@ class DocumentActionResponse extends SoapResponse
      * @param  DocumentActionResult $action
      * @return self
      */
-    public function __construct(?DocumentActionResult $action = NULL)
+    public function __construct(?DocumentActionResult $action = null)
     {
         $this->action = $action;
     }

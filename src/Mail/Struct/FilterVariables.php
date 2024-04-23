@@ -40,7 +40,7 @@ class FilterVariables extends FilterAction
      * @param array $variables
      * @return self
      */
-    public function __construct(?int $index = NULL, array $variables = [])
+    public function __construct(?int $index = null, array $variables = [])
     {
     	parent::__construct($index);
         $this->setVariables($variables);

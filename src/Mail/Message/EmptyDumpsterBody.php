@@ -33,7 +33,7 @@ class EmptyDumpsterBody extends SoapBody
     #[SerializedName('EmptyDumpsterRequest')]
     #[Type(EmptyDumpsterRequest::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
@@ -44,7 +44,7 @@ class EmptyDumpsterBody extends SoapBody
     #[SerializedName('EmptyDumpsterResponse')]
     #[Type(EmptyDumpsterResponse::class)]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -54,7 +54,7 @@ class EmptyDumpsterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?EmptyDumpsterRequest $request = NULL, ?EmptyDumpsterResponse $response = NULL
+        ?EmptyDumpsterRequest $request = null, ?EmptyDumpsterResponse $response = null
     )
     {
         parent::__construct($request, $response);

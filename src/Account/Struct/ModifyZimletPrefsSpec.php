@@ -53,7 +53,7 @@ class ModifyZimletPrefsSpec
      * @param  ZimletStatus $presence
      * @return self
      */
-    public function __construct(string $name = '', ?ZimletStatus $presence = NULL)
+    public function __construct(string $name = '', ?ZimletStatus $presence = null)
     {
         $this->setName($name)
              ->setPresence($presence ?? ZimletStatus::ENABLED);

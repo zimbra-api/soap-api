@@ -35,7 +35,7 @@ class EnableSharedReminderEnvelope extends SoapEnvelope
     #[SerializedName('Body')]
     #[Type(EnableSharedReminderBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
-    private ?SoapBodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -45,7 +45,7 @@ class EnableSharedReminderEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?EnableSharedReminderBody $body = NULL, ?SoapHeaderInterface $header = NULL
+        ?EnableSharedReminderBody $body = null, ?SoapHeaderInterface $header = null
     )
     {
         parent::__construct($body, $header);
