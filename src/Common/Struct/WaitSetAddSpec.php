@@ -190,7 +190,7 @@ class WaitSetAddSpec
     {
         $types = array_filter(
             explode(',', $interests),
-            static fn ($type) => InterestType::tryFrom($type)
+            static fn ($type) => InterestType::tryFrom($type) !== null
         );
         $this->interests = !empty($types) ? implode(',', array_unique($types)) : null;
         return $this;

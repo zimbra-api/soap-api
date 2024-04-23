@@ -286,7 +286,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     public function setDefaultInterests(string $defaultInterests): self
     {
         $types = array_filter(
-            explode(',', $defaultInterests), static fn ($type) => InterestType::tryFrom($type)
+            explode(',', $defaultInterests),
+            static fn ($type) => InterestType::tryFrom($type) !== null
         );
         $this->defaultInterests = implode(',', array_unique($types));
         return $this;

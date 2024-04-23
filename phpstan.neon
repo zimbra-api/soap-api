@@ -4,5 +4,7 @@ parameters:
         - src/Account/AccountApi.php
         - src/Admin/AdminApi.php
         - src/Mail/MailApi.php
+    ignoreErrors:
+        - '~has invalid type Doctrine\\Common\\Annotations\\Reader~'
     paths:
         - src
