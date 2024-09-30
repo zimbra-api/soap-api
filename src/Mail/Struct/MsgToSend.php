@@ -27,49 +27,49 @@ class MsgToSend extends Msg
 {
     /**
      * Saved draft ID
-     * 
+     *
      * @Accessor(getter="getDraftId", setter="setDraftId")
      * @SerializedName("did")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDraftId', setter: 'setDraftId')]
-    #[SerializedName('did')]
-    #[Type('string')]
+    #[Accessor(getter: "getDraftId", setter: "setDraftId")]
+    #[SerializedName("did")]
+    #[Type("string")]
     #[XmlAttribute]
     private $draftId;
 
     /**
      * If set, message gets constructed based on the "did" (id of the draft).
-     * 
+     *
      * @Accessor(getter="getSendFromDraft", setter="setSendFromDraft")
      * @SerializedName("sfd")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSendFromDraft', setter: 'setSendFromDraft')]
-    #[SerializedName('sfd')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSendFromDraft", setter: "setSendFromDraft")]
+    #[SerializedName("sfd")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sendFromDraft;
 
     /**
      * Id of the data source in case SMTP settings of that data source must be used for sending the message.
-     * 
+     *
      * @Accessor(getter="getDataSourceId", setter="setDataSourceId")
      * @SerializedName("dsId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDataSourceId', setter: 'setDataSourceId')]
-    #[SerializedName('dsId')]
-    #[Type('string')]
+    #[Accessor(getter: "getDataSourceId", setter: "setDataSourceId")]
+    #[SerializedName("dsId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dataSourceId;
 
@@ -98,27 +98,26 @@ class MsgToSend extends Msg
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $replyType = NULL,
-        ?string $identityId = NULL,
-        ?string $subject = NULL,
+        ?string $attachmentId = null,
+        ?string $origId = null,
+        ?ReplyType $replyType = null,
+        ?string $identityId = null,
+        ?string $subject = null,
         array $headers = [],
-        ?string $inReplyTo = NULL,
-        ?string $folderId = NULL,
-        ?string $flags = NULL,
-        ?string $content = NULL,
-        ?MimePartInfo $mimePart = NULL,
-        ?AttachmentsInfo $attachments = NULL,
-        ?InvitationInfo $invite = NULL,
+        ?string $inReplyTo = null,
+        ?string $folderId = null,
+        ?string $flags = null,
+        ?string $content = null,
+        ?MimePartInfo $mimePart = null,
+        ?AttachmentsInfo $attachments = null,
+        ?InvitationInfo $invite = null,
         array $emailAddresses = [],
         array $timezones = [],
-        ?string $fragment = NULL,
-        ?string $draftId = NULL,
-        ?bool $sendFromDraft = NULL,
-        ?string $dataSourceId = NULL
-    )
-    {
+        ?string $fragment = null,
+        ?string $draftId = null,
+        ?bool $sendFromDraft = null,
+        ?string $dataSourceId = null
+    ) {
         parent::__construct(
             $attachmentId,
             $origId,
@@ -137,13 +136,13 @@ class MsgToSend extends Msg
             $timezones,
             $fragment
         );
-        if (NULL !== $draftId) {
+        if (null !== $draftId) {
             $this->setDraftId($draftId);
         }
-        if (NULL !== $sendFromDraft) {
+        if (null !== $sendFromDraft) {
             $this->setSendFromDraft($sendFromDraft);
         }
-        if (NULL !== $dataSourceId) {
+        if (null !== $dataSourceId) {
             $this->setDataSourceId($dataSourceId);
         }
     }

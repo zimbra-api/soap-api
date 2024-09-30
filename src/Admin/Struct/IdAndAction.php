@@ -25,47 +25,46 @@ class IdAndAction
 {
     /**
      * Zimbra ID of account
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * bug72174 or wiki or contactGroup
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('string')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("string")]
     #[XmlAttribute]
     private $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $action
      * @return self
      */
-    public function __construct(string $id = '', string $action = '')
+    public function __construct(string $id = "", string $action = "")
     {
-        $this->setId($id)
-             ->setAction($action);
+        $this->setId($id)->setAction($action);
     }
 
     /**
@@ -109,7 +108,7 @@ class IdAndAction
     public function setAction(string $action): self
     {
         $action = trim($action);
-        if (in_array($action, ['bug72174', 'wiki', 'contactGroup'])) {
+        if (in_array($action, ["bug72174", "wiki", "contactGroup"])) {
             $this->action = $action;
         }
         return $this;

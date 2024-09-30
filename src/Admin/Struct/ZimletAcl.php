@@ -26,47 +26,47 @@ class ZimletAcl
 {
     /**
      * Name of Class Of Service (COS)
-     * 
+     *
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
-    #[Type('string')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
+    #[Type("string")]
     #[XmlAttribute]
     private $cos;
 
     /**
      * ACL
-     * 
+     *
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Enum<Zimbra\Common\Enum\AclType>")
      * @XmlAttribute
-     * 
+     *
      * @var AclType
      */
-    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName('acl')]
-    #[Type('Enum<Zimbra\Common\Enum\AclType>')]
+    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[SerializedName("acl")]
+    #[Type("Enum<Zimbra\Common\Enum\AclType>")]
     #[XmlAttribute]
     private ?AclType $acl;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $cos
      * @param  AclType $acl
      * @return self
      */
-    public function __construct(?string $cos = NULL, ?AclType $acl = NULL)
+    public function __construct(?string $cos = null, ?AclType $acl = null)
     {
         $this->acl = $acl;
-        if (NULL !== $cos) {
+        if (null !== $cos) {
             $this->setCos($cos);
         }
     }

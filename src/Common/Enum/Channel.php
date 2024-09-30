@@ -27,5 +27,5 @@ class Channel extends Enum
      * Constant for value 'email'
      * @return string 'email'
      */
-    protected const EMAIL = 'email';
+    protected const EMAIL = "email";
 }

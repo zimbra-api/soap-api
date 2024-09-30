@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetSpellDictionariesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,16 +26,16 @@ class GetSpellDictionariesResponse extends SoapResponse
 {
     /**
      * Dictionaries
-     * 
+     *
      * @Accessor(getter="getDictionaries", setter="setDictionaries")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dictionary", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDictionaries', setter: 'setDictionaries')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'dictionary', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDictionaries", setter: "setDictionaries")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "dictionary", namespace: "urn:zimbraMail")]
     private $dictionaries = [];
 
     /**

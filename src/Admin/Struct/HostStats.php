@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * HostStats class
@@ -25,34 +31,34 @@ class HostStats
 {
     /**
      * Hostname
-     * 
+     *
      * @Accessor(getter="getHostName", setter="setHostName")
      * @SerializedName("hn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHostName', setter: 'setHostName')]
-    #[SerializedName('hn')]
-    #[Type('string')]
+    #[Accessor(getter: "getHostName", setter: "setHostName")]
+    #[SerializedName("hn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hostName;
 
     /**
      * Stats information
-     * 
+     *
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var StatsInfo
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName('stats')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[SerializedName("stats")]
     #[Type(StatsInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?StatsInfo $stats;
 
     /**
@@ -62,7 +68,7 @@ class HostStats
      * @param  StatsInfo $stats
      * @return self
      */
-    public function __construct(string $hostName = '', ?StatsInfo $stats = NULL)
+    public function __construct(string $hostName = "", ?StatsInfo $stats = null)
     {
         $this->setHostName($hostName);
         $this->stats = $stats;

@@ -10,14 +10,25 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetServerRequest class
  * Get Server
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,57 +40,56 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     use AttributeSelectorTrait;
 
     /**
-     * If {apply-config} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
+     * If {apply-config} is 1 (true), then certain unset attrs on a server will get their values from the global config.
      * if {apply-config} is 0 (false), then only attributes directly set on the server will be returned
-     * 
+     *
      * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName('applyConfig')]
-    #[Type('bool')]
+    #[Accessor(getter: "isApplyConfig", setter: "setApplyConfig")]
+    #[SerializedName("applyConfig")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyConfig;
 
     /**
      * Server
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ServerSelector
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ServerSelector $server;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ServerSelector $server
      * @param  bool $applyConfig
      * @param  string $attrs
      * @return self
      */
     public function __construct(
-        ?ServerSelector $server = NULL,
-        ?bool $applyConfig = NULL,
-        ?string $attrs = NULL
-    )
-    {
+        ?ServerSelector $server = null,
+        ?bool $applyConfig = null,
+        ?string $attrs = null
+    ) {
         $this->server = $server;
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }
@@ -133,8 +143,6 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetServerEnvelope(
-            new GetServerBody($this)
-        );
+        return new GetServerEnvelope(new GetServerBody($this));
     }
 }

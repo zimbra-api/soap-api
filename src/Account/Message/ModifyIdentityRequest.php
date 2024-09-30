@@ -29,23 +29,23 @@ class ModifyIdentityRequest extends SoapRequest
     /**
      * Specify identity to be modified
      * Must specify either "name" or "id" attribute
-     * 
+     *
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var Identity
      */
-    #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName('identity')]
+    #[Accessor(getter: "getIdentity", setter: "setIdentity")]
+    #[SerializedName("identity")]
     #[Type(Identity::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private Identity $identity;
 
     /**
      * Constructor
-     * 
+     *
      * @param Identity $identity
      * @return self
      */
@@ -81,8 +81,6 @@ class ModifyIdentityRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyIdentityEnvelope(
-            new ModifyIdentityBody($this)
-        );
+        return new ModifyIdentityEnvelope(new ModifyIdentityBody($this));
     }
 }

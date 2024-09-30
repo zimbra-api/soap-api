@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CounterAppointmentBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class CounterAppointmentBody extends SoapBody
      * @SerializedName("CounterAppointmentRequest")
      * @Type("Zimbra\Mail\Message\CounterAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CounterAppointmentRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CounterAppointmentRequest")]
     #[Type(CounterAppointmentRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CounterAppointmentResponse")
      * @Type("Zimbra\Mail\Message\CounterAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CounterAppointmentResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CounterAppointmentResponse")]
     #[Type(CounterAppointmentResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CounterAppointmentBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CounterAppointmentRequest $request = NULL, ?CounterAppointmentResponse $response = NULL
-    )
-    {
+        ?CounterAppointmentRequest $request = null,
+        ?CounterAppointmentResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

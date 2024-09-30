@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{NamedValue, SoapResponse};
 
 /**
  * GetAdminSavedSearchesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,16 +26,16 @@ class GetAdminSavedSearchesResponse extends SoapResponse
 {
     /**
      * Information on saved searches
-     * 
+     *
      * @Accessor(getter="getSearches", setter="setSearches")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSearches', setter: 'setSearches')]
-    #[Type('array<Zimbra\Common\Struct\NamedValue>')]
-    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSearches", setter: "setSearches")]
+    #[Type("array<Zimbra\Common\Struct\NamedValue>")]
+    #[XmlList(inline: true, entry: "search", namespace: "urn:zimbraAdmin")]
     private $searches = [];
 
     /**
@@ -58,7 +58,8 @@ class GetAdminSavedSearchesResponse extends SoapResponse
     public function setSearches(array $searches): self
     {
         $this->searches = array_filter(
-            $searches, static fn ($search) => $search instanceof NamedValue
+            $searches,
+            static fn($search) => $search instanceof NamedValue
         );
         return $this;
     }

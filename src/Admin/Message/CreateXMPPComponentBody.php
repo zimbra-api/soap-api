@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CreateXMPPComponentBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class CreateXMPPComponentBody extends SoapBody
      * @SerializedName("CreateXMPPComponentRequest")
      * @Type("Zimbra\Admin\Message\CreateXMPPComponentRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CreateXMPPComponentRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CreateXMPPComponentRequest")]
     #[Type(CreateXMPPComponentRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CreateXMPPComponentResponse")
      * @Type("Zimbra\Admin\Message\CreateXMPPComponentResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CreateXMPPComponentResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CreateXMPPComponentResponse")]
     #[Type(CreateXMPPComponentResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CreateXMPPComponentBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateXMPPComponentRequest $request = NULL, ?CreateXMPPComponentResponse $response = NULL
-    )
-    {
+        ?CreateXMPPComponentRequest $request = null,
+        ?CreateXMPPComponentResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

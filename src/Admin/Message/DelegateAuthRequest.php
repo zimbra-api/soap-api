@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -29,48 +35,48 @@ class DelegateAuthRequest extends SoapRequest
 {
     /**
      * Details of target account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * Lifetime in seconds of the newly-created authtoken. defaults to 1 hour.
      * Can't be longer then zimbraAuthTokenLifetime.
-     * 
+     *
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("duration")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('duration')]
-    #[Type('int')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("duration")]
+    #[Type("int")]
     #[XmlAttribute]
     private $duration;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountSelector $account
      * @param  int $duration
      * @return self
      */
-    public function __construct(AccountSelector $account, ?int $duration = NULL)
+    public function __construct(AccountSelector $account, ?int $duration = null)
     {
         $this->setAccount($account);
-        if (NULL !== $duration) {
+        if (null !== $duration) {
             $this->setDuration($duration);
         }
     }
@@ -124,8 +130,6 @@ class DelegateAuthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DelegateAuthEnvelope(
-            new DelegateAuthBody($this)
-        );
+        return new DelegateAuthEnvelope(new DelegateAuthBody($this));
     }
 }

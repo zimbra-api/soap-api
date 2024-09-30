@@ -25,47 +25,47 @@ class CheckDirSelector
 {
     /**
      * Full path to the directory
-     * 
+     *
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Whether to create the directory or not if it doesn't exist
-     * 
+     *
      * @Accessor(getter="isCreate", setter="setCreate")
      * @SerializedName("create")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCreate', setter: 'setCreate')]
-    #[SerializedName('create')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCreate", setter: "setCreate")]
+    #[SerializedName("create")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $create;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $path
      * @param bool   $create
      * @return self
      */
-    public function __construct(string $path = '', ?bool $create = NULL)
+    public function __construct(string $path = "", ?bool $create = null)
     {
         $this->setPath($path);
-        if (NULL !== $create) {
+        if (null !== $create) {
             $this->setCreate($create);
         }
     }

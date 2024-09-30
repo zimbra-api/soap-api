@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\NewFileCreationTypes;
 use Zimbra\Common\Struct\Id;
 
@@ -27,227 +33,227 @@ class DocumentSpec
 {
     /**
      * File name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Content Type
-     * 
+     *
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Absolute Folder path
-     * 
+     *
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('desc')]
-    #[Type('string')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("desc")]
+    #[Type("string")]
     #[XmlAttribute]
     private $description;
 
     /**
      * Folder ID
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Last known version
-     * 
+     *
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('ver')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("ver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Inlined document content string
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
     #[XmlAttribute]
     private $content;
 
     /**
      * Active sync status
-     * 
+     *
      * @Accessor(getter="getDescEnabled", setter="setDescEnabled")
      * @SerializedName("descEnabled")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDescEnabled', setter: 'setDescEnabled')]
-    #[SerializedName('descEnabled')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDescEnabled", setter: "setDescEnabled")]
+    #[SerializedName("descEnabled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $descEnabled;
 
     /**
      * Flags - Any of the flags specified in soap.txt, with the addition of "t",
      * which specifies that the document is a note.
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Action on the Document
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('string')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("string")]
     #[XmlAttribute]
     private $action;
 
     /**
      * Type of document that can be created
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\NewFileCreationTypes>")
      * @XmlAttribute
-     * 
+     *
      * @var NewFileCreationTypes
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\NewFileCreationTypes>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\NewFileCreationTypes>")]
     #[XmlAttribute]
     private ?NewFileCreationTypes $type;
 
     /**
      * Upload specification
-     * 
+     *
      * @Accessor(getter="getUpload", setter="setUpload")
      * @SerializedName("upload")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getUpload', setter: 'setUpload')]
-    #[SerializedName('upload')]
+    #[Accessor(getter: "getUpload", setter: "setUpload")]
+    #[SerializedName("upload")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Id $upload;
 
     /**
      * Message part specification
-     * 
+     *
      * @Accessor(getter="getMessagePart", setter="setMessagePart")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessagePartSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MessagePartSpec
      */
-    #[Accessor(getter: 'getMessagePart', setter: 'setMessagePart')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMessagePart", setter: "setMessagePart")]
+    #[SerializedName("m")]
     #[Type(MessagePartSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MessagePartSpec $messagePart;
 
     /**
      * Information on document version to restore to
-     * 
+     *
      * @Accessor(getter="getDocRevision", setter="setDocRevision")
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\IdVersion")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var IdVersion
      */
-    #[Accessor(getter: 'getDocRevision', setter: 'setDocRevision')]
-    #[SerializedName('doc')]
+    #[Accessor(getter: "getDocRevision", setter: "setDocRevision")]
+    #[SerializedName("doc")]
     #[Type(IdVersion::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?IdVersion $docRevision;
 
     /**
@@ -270,54 +276,53 @@ class DocumentSpec
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $contentType = NULL,
-        ?string $description = NULL,
-        ?string $folderId = NULL,
-        ?string $id = NULL,
-        ?int $version = NULL,
-        ?string $content = NULL,
-        ?bool $descEnabled = NULL,
-        ?string $flags = NULL,
-        ?string $action = NULL,
-        ?NewFileCreationTypes $type = NULL,
-        ?Id $upload = NULL,
-        ?MessagePartSpec $messagePart = NULL,
-        ?IdVersion $docRevision = NULL
-    )
-    {
+        ?string $name = null,
+        ?string $contentType = null,
+        ?string $description = null,
+        ?string $folderId = null,
+        ?string $id = null,
+        ?int $version = null,
+        ?string $content = null,
+        ?bool $descEnabled = null,
+        ?string $flags = null,
+        ?string $action = null,
+        ?NewFileCreationTypes $type = null,
+        ?Id $upload = null,
+        ?MessagePartSpec $messagePart = null,
+        ?IdVersion $docRevision = null
+    ) {
         $this->upload = $upload;
         $this->messagePart = $messagePart;
         $this->docRevision = $docRevision;
         $this->type = $type;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $descEnabled) {
+        if (null !== $descEnabled) {
             $this->setDescEnabled($descEnabled);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $action) {
+        if (null !== $action) {
             $this->setAction($action);
         }
     }

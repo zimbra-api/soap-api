@@ -10,12 +10,12 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Common\Struct\{SoapEnvelopeInterface};
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * GetTaskSummariesRequest class
  * Get Task summaries
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class GetTaskSummariesRequest extends GetApptSummariesRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetTaskSummariesEnvelope(
-            new GetTaskSummariesBody($this)
-        );
+        return new GetTaskSummariesEnvelope(new GetTaskSummariesBody($this));
     }
 }

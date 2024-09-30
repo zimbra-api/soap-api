@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * VerifyStoreManagerResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,103 +26,103 @@ class VerifyStoreManagerResponse extends SoapResponse
 {
     /**
      * Store manager class
-     * 
+     *
      * @Accessor(getter="getStoreManagerClass", setter="setStoreManagerClass")
      * @SerializedName("storeManagerClass")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStoreManagerClass', setter: 'setStoreManagerClass')]
-    #[SerializedName('storeManagerClass')]
-    #[Type('string')]
+    #[Accessor(getter: "getStoreManagerClass", setter: "setStoreManagerClass")]
+    #[SerializedName("storeManagerClass")]
+    #[Type("string")]
     #[XmlAttribute]
     private $storeManagerClass;
 
     /**
      * Incoming time
-     * 
+     *
      * @Accessor(getter="getIncomingTime", setter="setIncomingTime")
      * @SerializedName("incomingTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getIncomingTime', setter: 'setIncomingTime')]
-    #[SerializedName('incomingTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getIncomingTime", setter: "setIncomingTime")]
+    #[SerializedName("incomingTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $incomingTime;
 
     /**
      * Stage time
-     * 
+     *
      * @Accessor(getter="getStageTime", setter="setStageTime")
      * @SerializedName("stageTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStageTime', setter: 'setStageTime')]
-    #[SerializedName('stageTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getStageTime", setter: "setStageTime")]
+    #[SerializedName("stageTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $stageTime;
 
     /**
      * Link time
-     * 
+     *
      * @Accessor(getter="getLinkTime", setter="setLinkTime")
      * @SerializedName("linkTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLinkTime', setter: 'setLinkTime')]
-    #[SerializedName('linkTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getLinkTime", setter: "setLinkTime")]
+    #[SerializedName("linkTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $linkTime;
 
     /**
      * Fetch time
-     * 
+     *
      * @Accessor(getter="getFetchTime", setter="setFetchTime")
      * @SerializedName("fetchTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFetchTime', setter: 'setFetchTime')]
-    #[SerializedName('fetchTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getFetchTime", setter: "setFetchTime")]
+    #[SerializedName("fetchTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fetchTime;
 
     /**
      * Delete time
-     * 
+     *
      * @Accessor(getter="getDeleteTime", setter="setDeleteTime")
      * @SerializedName("deleteTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDeleteTime', setter: 'setDeleteTime')]
-    #[SerializedName('deleteTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getDeleteTime", setter: "setDeleteTime")]
+    #[SerializedName("deleteTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $deleteTime;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $storeManagerClass
      * @param int $incomingTime
      * @param int $stageTime
@@ -132,30 +132,29 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $storeManagerClass = NULL,
-        ?int $incomingTime = NULL,
-        ?int $stageTime = NULL,
-        ?int $linkTime = NULL,
-        ?int $fetchTime = NULL,
-        ?int $deleteTime = NULL
-    )
-    {
-        if (NULL !== $storeManagerClass) {
+        ?string $storeManagerClass = null,
+        ?int $incomingTime = null,
+        ?int $stageTime = null,
+        ?int $linkTime = null,
+        ?int $fetchTime = null,
+        ?int $deleteTime = null
+    ) {
+        if (null !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
         }
-        if (NULL !== $incomingTime) {
+        if (null !== $incomingTime) {
             $this->setIncomingTime($incomingTime);
         }
-        if (NULL !== $stageTime) {
+        if (null !== $stageTime) {
             $this->setStageTime($stageTime);
         }
-        if (NULL !== $linkTime) {
+        if (null !== $linkTime) {
             $this->setLinkTime($linkTime);
         }
-        if (NULL !== $fetchTime) {
+        if (null !== $fetchTime) {
             $this->setFetchTime($fetchTime);
         }
-        if (NULL !== $deleteTime) {
+        if (null !== $deleteTime) {
             $this->setDeleteTime($deleteTime);
         }
     }

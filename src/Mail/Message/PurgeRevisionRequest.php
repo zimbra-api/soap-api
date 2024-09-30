@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * PurgeRevisionRequest class
  * Purge revision
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class PurgeRevisionRequest extends SoapRequest
 {
     /**
      * Specification of revision to purge
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("revision")
      * @Type("Zimbra\Mail\Struct\PurgeRevisionSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var PurgeRevisionSpec
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('revision')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("revision")]
     #[Type(PurgeRevisionSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private PurgeRevisionSpec $revision;
 
     /**
@@ -80,8 +80,6 @@ class PurgeRevisionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new PurgeRevisionEnvelope(
-            new PurgeRevisionBody($this)
-        );
+        return new PurgeRevisionEnvelope(new PurgeRevisionBody($this));
     }
 }

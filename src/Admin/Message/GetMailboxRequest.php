@@ -28,18 +28,18 @@ class GetMailboxRequest extends SoapRequest
 {
     /**
      * Mailbox by account selector
-     * 
+     *
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**
@@ -48,9 +48,7 @@ class GetMailboxRequest extends SoapRequest
      * @param  Mailbox $mbox
      * @return self
      */
-    public function __construct(
-        ?Mailbox $mbox = NULL
-    )
+    public function __construct(?Mailbox $mbox = null)
     {
         $this->mbox = $mbox;
         if ($mbox instanceof Mailbox) {
@@ -85,8 +83,6 @@ class GetMailboxRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetMailboxEnvelope(
-            new GetMailboxBody($this)
-        );
+        return new GetMailboxEnvelope(new GetMailboxBody($this));
     }
 }

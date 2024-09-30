@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\{CalReply, SetCalendarItemInfo};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -21,7 +28,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Need to specify folder for appointment
  * Need way to add message WITHOUT processing it for calendar parts.
  * Need to generate and patch-in the iCalendar for the <inv> but w/o actually processing the <inv> as a new request
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,81 +39,81 @@ class SetAppointmentRequest extends SoapRequest
 {
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags (Deprecated - use {tag-names} instead)
-     * 
+     *
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma separated list of tag names
-     * 
+     *
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * ID of folder to create appointment in
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
-     * 
+     *
      * @Accessor(getter="getNoNextAlarm", setter="setNoNextAlarm")
      * @SerializedName("noNextAlarm")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNoNextAlarm', setter: 'setNoNextAlarm')]
-    #[SerializedName('noNextAlarm')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNoNextAlarm", setter: "setNoNextAlarm")]
+    #[SerializedName("noNextAlarm")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $noNextAlarm;
 
@@ -115,62 +122,62 @@ class SetAppointmentRequest extends SoapRequest
      * If missing, two possibilities:
      * - if noNextAlarm isn't set, keep current next alarm time (this is a backward compatibility case)
      * - if noNextAlarm is set, indicates all alarms have been dismissed
-     * 
+     *
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName('nextAlarm')]
-    #[Type('int')]
+    #[Accessor(getter: "getNextAlarm", setter: "setNextAlarm")]
+    #[SerializedName("nextAlarm")]
+    #[Type("int")]
     #[XmlAttribute]
     private $nextAlarm;
 
     /**
      * Default calendar item information
-     * 
+     *
      * @Accessor(getter="getDefaultId", setter="setDefaultId")
      * @SerializedName("default")
      * @Type("Zimbra\Mail\Struct\SetCalendarItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SetCalendarItemInfo
      */
-    #[Accessor(getter: 'getDefaultId', setter: 'setDefaultId')]
-    #[SerializedName('default')]
+    #[Accessor(getter: "getDefaultId", setter: "setDefaultId")]
+    #[SerializedName("default")]
     #[Type(SetCalendarItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SetCalendarItemInfo $defaultId;
 
     /**
      * Calendar item information for exceptions
-     * 
+     *
      * @Accessor(getter="getExceptions", setter="setExceptions")
      * @Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")
      * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getExceptions', setter: 'setExceptions')]
-    #[Type('array<Zimbra\Mail\Struct\SetCalendarItemInfo>')]
-    #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getExceptions", setter: "setExceptions")]
+    #[Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")]
+    #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
     private $exceptions = [];
 
     /**
      * Calendar item information for cancellations
-     * 
+     *
      * @Accessor(getter="getCancellations", setter="setCancellations")
      * @Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")
      * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCancellations', setter: 'setCancellations')]
-    #[Type('array<Zimbra\Mail\Struct\SetCalendarItemInfo>')]
-    #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCancellations", setter: "setCancellations")]
+    #[Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")]
+    #[XmlList(inline: true, entry: "cancel", namespace: "urn:zimbraMail")]
     private $cancellations = [];
 
     /**
@@ -179,20 +186,20 @@ class SetAppointmentRequest extends SoapRequest
      * If <replies> element is provided with no <reply> elements inside,
      * existing replies will be removed, replaced with an empty set.
      * If <replies> contains one or more <reply> elements, existing replies are replaced with the ones provided.
-     * 
+     *
      * @Accessor(getter="getReplies", setter="setReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalReply>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getReplies', setter: 'setReplies')]
-    #[SerializedName('replies')]
-    #[Type('array<Zimbra\Mail\Struct\CalReply>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getReplies", setter: "setReplies")]
+    #[SerializedName("replies")]
+    #[Type("array<Zimbra\Mail\Struct\CalReply>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
     private $replies = [];
 
     /**
@@ -211,38 +218,37 @@ class SetAppointmentRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?bool $noNextAlarm = NULL,
-        ?int $nextAlarm = NULL,
-        ?SetCalendarItemInfo $defaultId = NULL,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?bool $noNextAlarm = null,
+        ?int $nextAlarm = null,
+        ?SetCalendarItemInfo $defaultId = null,
         array $exceptions = [],
         array $cancellations = [],
         array $replies = []
-    )
-    {
+    ) {
         $this->setExceptions($exceptions)
-             ->setCancellations($cancellations)
-             ->setReplies($replies);
+            ->setCancellations($cancellations)
+            ->setReplies($replies);
         $this->defaultId = $defaultId;
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $noNextAlarm) {
+        if (null !== $noNextAlarm) {
             $this->setNoNextAlarm($noNextAlarm);
         }
-        if (NULL !== $nextAlarm) {
+        if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
     }
@@ -422,7 +428,8 @@ class SetAppointmentRequest extends SoapRequest
     public function setExceptions(array $exceptions): self
     {
         $this->exceptions = array_filter(
-            $exceptions, static fn ($except) => $except instanceof SetCalendarItemInfo
+            $exceptions,
+            static fn($except) => $except instanceof SetCalendarItemInfo
         );
         return $this;
     }
@@ -458,7 +465,8 @@ class SetAppointmentRequest extends SoapRequest
     public function setCancellations(array $cancellations): self
     {
         $this->cancellations = array_filter(
-            $cancellations, static fn ($cancel) => $cancel instanceof SetCalendarItemInfo
+            $cancellations,
+            static fn($cancel) => $cancel instanceof SetCalendarItemInfo
         );
         return $this;
     }
@@ -494,7 +502,8 @@ class SetAppointmentRequest extends SoapRequest
     public function setReplies(array $replies): self
     {
         $this->replies = array_filter(
-            $replies, static fn ($reply) => $reply instanceof CalReply
+            $replies,
+            static fn($reply) => $reply instanceof CalReply
         );
         return $this;
     }
@@ -514,8 +523,6 @@ class SetAppointmentRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetAppointmentEnvelope(
-            new SetAppointmentBody($this)
-        );
+        return new SetAppointmentEnvelope(new SetAppointmentBody($this));
     }
 }

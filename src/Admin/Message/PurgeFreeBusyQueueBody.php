@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * PurgeFreeBusyQueueBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class PurgeFreeBusyQueueBody extends SoapBody
      * @SerializedName("PurgeFreeBusyQueueRequest")
      * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('PurgeFreeBusyQueueRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("PurgeFreeBusyQueueRequest")]
     #[Type(PurgeFreeBusyQueueRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("PurgeFreeBusyQueueResponse")
      * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('PurgeFreeBusyQueueResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("PurgeFreeBusyQueueResponse")]
     #[Type(PurgeFreeBusyQueueResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class PurgeFreeBusyQueueBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PurgeFreeBusyQueueRequest $request = NULL, ?PurgeFreeBusyQueueResponse $response = NULL
-    )
-    {
+        ?PurgeFreeBusyQueueRequest $request = null,
+        ?PurgeFreeBusyQueueResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

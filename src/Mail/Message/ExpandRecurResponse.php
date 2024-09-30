@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ExpandRecurResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,16 +27,16 @@ class ExpandRecurResponse extends SoapResponse
 {
     /**
      * Expanded recurrence instances
-     * 
+     *
      * @Accessor(getter="getInstances", setter="setInstances")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type('array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>')]
-    #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInstances", setter: "setInstances")]
+    #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>")]
+    #[XmlList(inline: true, entry: "inst", namespace: "urn:zimbraMail")]
     private $instances = [];
 
     /**
@@ -59,7 +59,8 @@ class ExpandRecurResponse extends SoapResponse
     public function setInstances(array $instances): self
     {
         $this->instances = array_filter(
-            $instances, static fn ($inst) => $inst instanceof ExpandedRecurrenceInstance
+            $instances,
+            static fn($inst) => $inst instanceof ExpandedRecurrenceInstance
         );
         return $this;
     }

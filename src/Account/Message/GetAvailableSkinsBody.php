@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAvailableSkinsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class GetAvailableSkinsBody extends SoapBody
      * @SerializedName("GetAvailableSkinsRequest")
      * @Type("Zimbra\Account\Message\GetAvailableSkinsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAvailableSkinsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAvailableSkinsRequest")]
     #[Type(GetAvailableSkinsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetAvailableSkinsResponse")
      * @Type("Zimbra\Account\Message\GetAvailableSkinsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAvailableSkinsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAvailableSkinsResponse")]
     #[Type(GetAvailableSkinsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetAvailableSkinsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAvailableSkinsRequest $request = NULL, ?GetAvailableSkinsResponse $response = NULL
-    )
-    {
+        ?GetAvailableSkinsRequest $request = null,
+        ?GetAvailableSkinsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

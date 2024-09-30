@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * PushFreeBusyBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class PushFreeBusyBody extends SoapBody
      * @SerializedName("PushFreeBusyRequest")
      * @Type("Zimbra\Admin\Message\PushFreeBusyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('PushFreeBusyRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("PushFreeBusyRequest")]
     #[Type(PushFreeBusyRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("PushFreeBusyResponse")
      * @Type("Zimbra\Admin\Message\PushFreeBusyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('PushFreeBusyResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("PushFreeBusyResponse")]
     #[Type(PushFreeBusyResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class PushFreeBusyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PushFreeBusyRequest $request = NULL, ?PushFreeBusyResponse $response = NULL
-    )
-    {
+        ?PushFreeBusyRequest $request = null,
+        ?PushFreeBusyResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

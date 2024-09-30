@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CheckPasswordStrengthBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class CheckPasswordStrengthBody extends SoapBody
      * @SerializedName("CheckPasswordStrengthRequest")
      * @Type("Zimbra\Admin\Message\CheckPasswordStrengthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CheckPasswordStrengthRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CheckPasswordStrengthRequest")]
     #[Type(CheckPasswordStrengthRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CheckPasswordStrengthResponse")
      * @Type("Zimbra\Admin\Message\CheckPasswordStrengthResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CheckPasswordStrengthResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CheckPasswordStrengthResponse")]
     #[Type(CheckPasswordStrengthResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CheckPasswordStrengthBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckPasswordStrengthRequest $request = NULL, ?CheckPasswordStrengthResponse $response = NULL
-    )
-    {
+        ?CheckPasswordStrengthRequest $request = null,
+        ?CheckPasswordStrengthResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

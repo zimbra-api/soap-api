@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{CalOrganizerInterface, XParamInterface};
 
 /**
@@ -27,112 +33,112 @@ class CalOrganizer implements CalOrganizerInterface
 {
     /**
      * Email address (without "MAILTO:")
-     * 
+     *
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * URL - has same value as email-address.
-     * 
+     *
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Friendly name - "CN" in iCalendar
-     * 
+     *
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * iCalendar SENT-BY
-     * 
+     *
      * @Accessor(getter="getSentBy", setter="setSentBy")
      * @SerializedName("sentBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
-    #[SerializedName('sentBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSentBy", setter: "setSentBy")]
+    #[SerializedName("sentBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sentBy;
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user.
-     * 
+     *
      * @Accessor(getter="getDir", setter="setDir")
      * @SerializedName("dir")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDir', setter: 'setDir')]
-    #[SerializedName('dir')]
-    #[Type('string')]
+    #[Accessor(getter: "getDir", setter: "setDir")]
+    #[SerializedName("dir")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dir;
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
-     * 
+     *
      * @Accessor(getter="getLanguage", setter="setLanguage")
      * @SerializedName("lang")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLanguage', setter: 'setLanguage')]
-    #[SerializedName('lang')]
-    #[Type('string')]
+    #[Accessor(getter: "getLanguage", setter: "setLanguage")]
+    #[SerializedName("lang")]
+    #[Type("string")]
     #[XmlAttribute]
     private $language;
 
     /**
      * Non-standard parameters (XPARAMs)
-     * 
+     *
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getXParams', setter: 'setXParams')]
-    #[Type('array<Zimbra\Mail\Struct\XParam>')]
-    #[XmlList(inline: true, entry: 'xparam', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getXParams", setter: "setXParams")]
+    #[Type("array<Zimbra\Mail\Struct\XParam>")]
+    #[XmlList(inline: true, entry: "xparam", namespace: "urn:zimbraMail")]
     private $xParams = [];
 
     /**
@@ -148,32 +154,31 @@ class CalOrganizer implements CalOrganizerInterface
      * @return self
      */
     public function __construct(
-        ?string $address = NULL,
-        ?string $url = NULL,
-        ?string $displayName = NULL,
-        ?string $sentBy = NULL,
-        ?string $dir = NULL,
-        ?string $language = NULL,
+        ?string $address = null,
+        ?string $url = null,
+        ?string $displayName = null,
+        ?string $sentBy = null,
+        ?string $dir = null,
+        ?string $language = null,
         array $xParams = []
-    )
-    {
+    ) {
         $this->setXParams($xParams);
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $sentBy) {
+        if (null !== $sentBy) {
             $this->setSentBy($sentBy);
         }
-        if (NULL !== $dir) {
+        if (null !== $dir) {
             $this->setDir($dir);
         }
-        if (NULL !== $language) {
+        if (null !== $language) {
             $this->setLanguage($language);
         }
     }
@@ -331,7 +336,8 @@ class CalOrganizer implements CalOrganizerInterface
     public function setXParams(array $xParams): self
     {
         $this->xParams = array_filter(
-            $xParams, static fn ($xParam) => $xParam instanceof XParamInterface
+            $xParams,
+            static fn($xParam) => $xParam instanceof XParamInterface
         );
         return $this;
     }

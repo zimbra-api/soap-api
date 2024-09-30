@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DeleteServerResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

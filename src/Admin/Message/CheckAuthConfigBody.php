@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CheckAuthConfigBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class CheckAuthConfigBody extends SoapBody
      * @SerializedName("CheckAuthConfigRequest")
      * @Type("Zimbra\Admin\Message\CheckAuthConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CheckAuthConfigRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CheckAuthConfigRequest")]
     #[Type(CheckAuthConfigRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CheckAuthConfigResponse")
      * @Type("Zimbra\Admin\Message\CheckAuthConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CheckAuthConfigResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CheckAuthConfigResponse")]
     #[Type(CheckAuthConfigResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CheckAuthConfigBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckAuthConfigRequest $request = NULL, ?CheckAuthConfigResponse $response = NULL
-    )
-    {
+        ?CheckAuthConfigRequest $request = null,
+        ?CheckAuthConfigResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

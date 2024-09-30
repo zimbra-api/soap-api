@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * ServerWithQueueAction struct class
@@ -25,47 +31,46 @@ class ServerWithQueueAction
 {
     /**
      * Mail queue query details
-     * 
+     *
      * @Accessor(getter="getQueue", setter="setQueue")
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var MailQueueWithAction
      */
-    #[Accessor(getter: 'getQueue', setter: 'setQueue')]
-    #[SerializedName('queue')]
+    #[Accessor(getter: "getQueue", setter: "setQueue")]
+    #[SerializedName("queue")]
     #[Type(MailQueueWithAction::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private MailQueueWithAction $queue;
 
     /**
      * MTA Server
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param  MailQueueWithAction $queue
      * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueWithAction $queue, string $name = '')
+    public function __construct(MailQueueWithAction $queue, string $name = "")
     {
-        $this->setQueue($queue)
-             ->setName($name);
+        $this->setQueue($queue)->setName($name);
     }
 
     /**

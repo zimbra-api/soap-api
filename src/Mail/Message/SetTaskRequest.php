@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * SetTaskRequest class
  * Directly set status of an entire task.
  * See SetAppointment for more information.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,8 +30,6 @@ class SetTaskRequest extends SetAppointmentRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetTaskEnvelope(
-            new SetTaskBody($this)
-        );
+        return new SetTaskEnvelope(new SetTaskBody($this));
     }
 }

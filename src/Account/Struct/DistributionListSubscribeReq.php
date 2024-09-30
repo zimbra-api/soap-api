@@ -10,12 +10,18 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\DistributionListSubscribeOp;
 
 /**
  * DistributionListSubscribeReq struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,17 +32,17 @@ class DistributionListSubscribeReq
 {
     /**
      * operation
-     * 
+     *
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
-     * 
+     *
      * @var DistributionListSubscribeOp
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")]
     #[XmlAttribute]
     private DistributionListSubscribeOp $op;
 
@@ -44,48 +50,49 @@ class DistributionListSubscribeReq
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Flag whether to bcc all other owners on the accept/reject notification emails.
-     * 
+     *
      * @Accessor(getter="getBccOwners", setter="setBccOwners")
      * @SerializedName("bccOwners")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBccOwners', setter: 'setBccOwners')]
-    #[SerializedName('bccOwners')]
-    #[Type('bool')]
+    #[Accessor(getter: "getBccOwners", setter: "setBccOwners")]
+    #[SerializedName("bccOwners")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $bccOwners;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DistributionListSubscribeOp $op
      * @param  string $value
      * @param  bool   $bccOwners
      * @return self
      */
     public function __construct(
-        ?DistributionListSubscribeOp $op = NULL, ?string $value = NULL, ?bool $bccOwners = NULL
-    )
-    {
-		$this->setOp($op ?? new DistributionListSubscribeOp('subscribe'));
-        if (NULL !== $value) {
+        ?DistributionListSubscribeOp $op = null,
+        ?string $value = null,
+        ?bool $bccOwners = null
+    ) {
+        $this->setOp($op ?? new DistributionListSubscribeOp("subscribe"));
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $bccOwners) {
-			$this->setBccOwners($bccOwners);
+        if (null !== $bccOwners) {
+            $this->setBccOwners($bccOwners);
         }
     }
 

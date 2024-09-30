@@ -27,17 +27,17 @@ class ShareAction extends Enum
      * Constant for value 'edit'
      * @return string 'edit'
      */
-    protected const EDIT = 'edit';
+    protected const EDIT = "edit";
 
     /**
      * Constant for value 'revoke'
      * @return string 'revoke'
      */
-    protected const REVOKE = 'revoke';
+    protected const REVOKE = "revoke";
 
     /**
      * Constant for value 'expire'
      * @return string 'expire'
      */
-    protected const EXPIRE = 'expire';
+    protected const EXPIRE = "expire";
 }

@@ -11,11 +11,16 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface};
+use Zimbra\Common\Struct\{
+    ZimletConfigInfo,
+    ZimletContextInterface,
+    ZimletDesc,
+    ZimletInterface
+};
 
 /**
  * AdminZimletInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,66 +31,65 @@ class AdminZimletInfo implements ZimletInterface
 {
     /**
      * Zimlet context
-     * 
+     *
      * @Accessor(getter="getZimletContext", setter="setZimletContext")
      * @SerializedName("zimletContext")
      * @Type("Zimbra\Admin\Struct\AdminZimletContext")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ZimletContextInterface
      */
-    #[Accessor(getter: 'getZimletContext', setter: 'setZimletContext')]
-    #[SerializedName('zimletContext')]
+    #[Accessor(getter: "getZimletContext", setter: "setZimletContext")]
+    #[SerializedName("zimletContext")]
     #[Type(AdminZimletContext::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletContextInterface $zimletContext;
 
     /**
      * Zimlet description
-     * 
+     *
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\AdminZimletDesc")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ZimletDesc
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
     #[Type(AdminZimletDesc::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletDesc $zimlet;
 
     /**
      * Zimlet config
-     * 
+     *
      * @Accessor(getter="getZimletConfig", setter="setZimletConfig")
      * @SerializedName("zimletConfig")
      * @Type("Zimbra\Admin\Struct\AdminZimletConfigInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ZimletConfigInfo
      */
-    #[Accessor(getter: 'getZimletConfig', setter: 'setZimletConfig')]
-    #[SerializedName('zimletConfig')]
+    #[Accessor(getter: "getZimletConfig", setter: "setZimletConfig")]
+    #[SerializedName("zimletConfig")]
     #[Type(AdminZimletConfigInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletConfigInfo $zimletConfig;
 
     /**
      * Constructor
-     * 
+     *
      * @param AdminZimletContext $zimletContext
      * @param AdminZimletDesc $zimlet
      * @param AdminZimletConfigInfo $zimletConfig
      * @return self
      */
     public function __construct(
-        ?AdminZimletContext $zimletContext = NULL,
-        ?AdminZimletDesc $zimlet = NULL,
-        ?AdminZimletConfigInfo $zimletConfig = NULL
-    )
-    {
+        ?AdminZimletContext $zimletContext = null,
+        ?AdminZimletDesc $zimlet = null,
+        ?AdminZimletConfigInfo $zimletConfig = null
+    ) {
         $this->zimletContext = $zimletContext;
         $this->zimlet = $zimlet;
         $this->zimletConfig = $zimletConfig;
@@ -107,8 +111,9 @@ class AdminZimletInfo implements ZimletInterface
      * @param  ZimletContextInterface $zimletContext
      * @return self
      */
-    public function setZimletContext(ZimletContextInterface $zimletContext): self
-    {
+    public function setZimletContext(
+        ZimletContextInterface $zimletContext
+    ): self {
         if ($zimletContext instanceof AdminZimletContext) {
             $this->zimletContext = $zimletContext;
         }

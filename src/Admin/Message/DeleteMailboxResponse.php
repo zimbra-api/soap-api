@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DeleteMailboxResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,18 @@ class DeleteMailboxResponse extends SoapResponse
 {
     /**
      * Details of the deleted mailbox.
-     * 
+     *
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var MailboxId
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(MailboxId::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?MailboxId $mbox;
 
     /**
@@ -47,7 +47,7 @@ class DeleteMailboxResponse extends SoapResponse
      * @param MailboxId $mbox
      * @return self
      */
-    public function __construct(?MailboxId $mbox = NULL)
+    public function __construct(?MailboxId $mbox = null)
     {
         $this->mbox = $mbox;
     }

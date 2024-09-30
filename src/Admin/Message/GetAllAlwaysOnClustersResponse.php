@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllAlwaysOnClustersResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,27 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
 {
     /**
      * Information about alwaysOnClusters
-     * 
+     *
      * @Accessor(getter="getAlwaysOnClusterList", setter="setAlwaysOnClusterList")
      * @Type("array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>")
      * @XmlList(inline=true, entry="alwaysOnCluster", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAlwaysOnClusterList', setter: 'setAlwaysOnClusterList')]
-    #[Type('array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>')]
-    #[XmlList(inline: true, entry: 'alwaysOnCluster', namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getAlwaysOnClusterList",
+            setter: "setAlwaysOnClusterList"
+        )
+    ]
+    #[Type("array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "alwaysOnCluster",
+            namespace: "urn:zimbraAdmin"
+        )
+    ]
     private $clusterList = [];
 
     /**
@@ -59,7 +70,8 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
     public function setAlwaysOnClusterList(array $list): self
     {
         $this->clusterList = array_filter(
-            $list, static fn ($item) => $item instanceof AlwaysOnClusterInfo
+            $list,
+            static fn($item) => $item instanceof AlwaysOnClusterInfo
         );
         return $this;
     }

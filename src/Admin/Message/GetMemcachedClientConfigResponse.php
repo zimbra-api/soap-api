@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetMemcachedClientConfigResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,87 +26,102 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 {
     /**
      * Comma separated list of host:port for memcached servers
-     * 
+     *
      * @Accessor(getter="getServerList", setter="setServerList")
      * @SerializedName("serverList")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServerList', setter: 'setServerList')]
-    #[SerializedName('serverList')]
-    #[Type('string')]
+    #[Accessor(getter: "getServerList", setter: "setServerList")]
+    #[SerializedName("serverList")]
+    #[Type("string")]
     #[XmlAttribute]
     private $serverList;
 
     /**
      * KETAMA_HASH, etc.
-     * 
+     *
      * @Accessor(getter="getHashAlgorithm", setter="setHashAlgorithm")
      * @SerializedName("hashAlgorithm")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHashAlgorithm', setter: 'setHashAlgorithm')]
-    #[SerializedName('hashAlgorithm')]
-    #[Type('string')]
+    #[Accessor(getter: "getHashAlgorithm", setter: "setHashAlgorithm")]
+    #[SerializedName("hashAlgorithm")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hashAlgorithm;
 
     /**
      * Flags whether memcached binary protocol is in use or not
-     * 
+     *
      * @Accessor(getter="getBinaryProtocolEnabled", setter="setBinaryProtocolEnabled")
      * @SerializedName("binaryProtocol")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBinaryProtocolEnabled', setter: 'setBinaryProtocolEnabled')]
-    #[SerializedName('binaryProtocol')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getBinaryProtocolEnabled",
+            setter: "setBinaryProtocolEnabled"
+        )
+    ]
+    #[SerializedName("binaryProtocol")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $binaryProtocolEnabled;
 
     /**
      * Default entry expiry in seconds
-     * 
+     *
      * @Accessor(getter="getDefaultExpirySeconds", setter="setDefaultExpirySeconds")
      * @SerializedName("defaultExpirySeconds")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDefaultExpirySeconds', setter: 'setDefaultExpirySeconds')]
-    #[SerializedName('defaultExpirySeconds')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getDefaultExpirySeconds",
+            setter: "setDefaultExpirySeconds"
+        )
+    ]
+    #[SerializedName("defaultExpirySeconds")]
+    #[Type("int")]
     #[XmlAttribute]
     private $defaultExpirySeconds;
 
     /**
      * Default timeout in milliseconds
-     * 
+     *
      * @Accessor(getter="getDefaultTimeoutMillis", setter="setDefaultTimeoutMillis")
      * @SerializedName("defaultTimeoutMillis")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDefaultTimeoutMillis', setter: 'setDefaultTimeoutMillis')]
-    #[SerializedName('defaultTimeoutMillis')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getDefaultTimeoutMillis",
+            setter: "setDefaultTimeoutMillis"
+        )
+    ]
+    #[SerializedName("defaultTimeoutMillis")]
+    #[Type("int")]
     #[XmlAttribute]
     private $defaultTimeoutMillis;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $serverList
      * @param string $hashAlgorithm
      * @param bool $binaryProtocolEnabled
@@ -115,26 +130,25 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $serverList = NULL,
-        ?string $hashAlgorithm = NULL,
-        ?bool $binaryProtocolEnabled = NULL,
-        ?int $defaultExpirySeconds = NULL,
-        ?int $defaultTimeoutMillis = NULL
-    )
-    {
-        if (NULL !== $serverList) {
+        ?string $serverList = null,
+        ?string $hashAlgorithm = null,
+        ?bool $binaryProtocolEnabled = null,
+        ?int $defaultExpirySeconds = null,
+        ?int $defaultTimeoutMillis = null
+    ) {
+        if (null !== $serverList) {
             $this->setServerList($serverList);
         }
-        if (NULL !== $hashAlgorithm) {
+        if (null !== $hashAlgorithm) {
             $this->setHashAlgorithm($hashAlgorithm);
         }
-        if (NULL !== $binaryProtocolEnabled) {
+        if (null !== $binaryProtocolEnabled) {
             $this->setBinaryProtocolEnabled($binaryProtocolEnabled);
         }
-        if (NULL !== $defaultExpirySeconds) {
+        if (null !== $defaultExpirySeconds) {
             $this->setDefaultExpirySeconds($defaultExpirySeconds);
         }
-        if (NULL !== $defaultTimeoutMillis) {
+        if (null !== $defaultTimeoutMillis) {
             $this->setDefaultTimeoutMillis($defaultTimeoutMillis);
         }
     }

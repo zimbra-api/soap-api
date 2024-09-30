@@ -26,39 +26,39 @@ class SizeTest extends FilterTest
 {
     /**
      * Number comparison setting - over|under
-     * 
+     *
      * @Accessor(getter="getNumberComparison", setter="setNumberComparison")
      * @SerializedName("numberComparison")
      * @Type("Enum<Zimbra\Common\Enum\NumberComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var NumberComparison
      */
-    #[Accessor(getter: 'getNumberComparison', setter: 'setNumberComparison')]
-    #[SerializedName('numberComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\NumberComparison>')]
+    #[Accessor(getter: "getNumberComparison", setter: "setNumberComparison")]
+    #[SerializedName("numberComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\NumberComparison>")]
     #[XmlAttribute]
     private ?NumberComparison $numberComparison;
 
     /**
      * Size value. Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
-     * 
+     *
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('string')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("string")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param NumberComparison $numberComparison
@@ -66,15 +66,14 @@ class SizeTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?NumberComparison $numberComparison = NULL,
-        ?string $size = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
+        ?int $index = null,
+        ?bool $negative = null,
+        ?NumberComparison $numberComparison = null,
+        ?string $size = null
+    ) {
+        parent::__construct($index, $negative);
         $this->numberComparison = $numberComparison;
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
     }

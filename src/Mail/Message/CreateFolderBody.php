@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CreateFolderBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class CreateFolderBody extends SoapBody
      * @SerializedName("CreateFolderRequest")
      * @Type("Zimbra\Mail\Message\CreateFolderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CreateFolderRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CreateFolderRequest")]
     #[Type(CreateFolderRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CreateFolderResponse")
      * @Type("Zimbra\Mail\Message\CreateFolderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CreateFolderResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CreateFolderResponse")]
     #[Type(CreateFolderResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CreateFolderBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateFolderRequest $request = NULL, ?CreateFolderResponse $response = NULL
-    )
-    {
+        ?CreateFolderRequest $request = null,
+        ?CreateFolderResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteUCServiceRequest class
  * Delete a UC service
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,27 +27,27 @@ class DeleteUCServiceRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }
@@ -79,8 +79,6 @@ class DeleteUCServiceRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteUCServiceEnvelope(
-            new DeleteUCServiceBody($this)
-        );
+        return new DeleteUCServiceEnvelope(new DeleteUCServiceBody($this));
     }
 }

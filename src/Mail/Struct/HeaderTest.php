@@ -11,7 +11,12 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\{ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use Zimbra\Common\Enum\{
+    ComparisonComparator,
+    CountComparison,
+    StringComparison,
+    ValueComparison
+};
 
 /**
  * HeaderTest struct class
@@ -26,119 +31,124 @@ class HeaderTest extends FilterTest
 {
     /**
      * Comma separated list of header names
-     * 
+     *
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[SerializedName('header')]
-    #[Type('string')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[SerializedName("header")]
+    #[Type("string")]
     #[XmlAttribute]
     private $headers;
 
     /**
      * String comparison type - is|contains|matches
-     * 
+     *
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var StringComparison
      */
-    #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
-    #[SerializedName('stringComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
+    #[Accessor(getter: "getStringComparison", setter: "setStringComparison")]
+    #[SerializedName("stringComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\StringComparison>")]
     #[XmlAttribute]
     private ?StringComparison $stringComparison;
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
-     * 
+     *
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
      * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var ValueComparison
      */
-    #[Accessor(getter: 'getValueComparison', setter: 'setValueComparison')]
-    #[SerializedName('valueComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\ValueComparison>')]
+    #[Accessor(getter: "getValueComparison", setter: "setValueComparison")]
+    #[SerializedName("valueComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\ValueComparison>")]
     #[XmlAttribute]
     private ?ValueComparison $valueComparison;
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
-     * 
+     *
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
      * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var CountComparison
      */
-    #[Accessor(getter: 'getCountComparison', setter: 'setCountComparison')]
-    #[SerializedName('countComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\CountComparison>')]
+    #[Accessor(getter: "getCountComparison", setter: "setCountComparison")]
+    #[SerializedName("countComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\CountComparison>")]
     #[XmlAttribute]
     private ?CountComparison $countComparison;
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
-     * 
+     *
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
-     * 
+     *
      * @var ComparisonComparator
      */
-    #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
-    #[SerializedName('valueComparisonComparator')]
-    #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
+    #[
+        Accessor(
+            getter: "getValueComparisonComparator",
+            setter: "setValueComparisonComparator"
+        )
+    ]
+    #[SerializedName("valueComparisonComparator")]
+    #[Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")]
     #[XmlAttribute]
     private ?ComparisonComparator $valueComparisonComparator;
 
     /**
      * Value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Case sensitive setting
-     * 
+     *
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName('caseSensitive')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCaseSensitive", setter: "setCaseSensitive")]
+    #[SerializedName("caseSensitive")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $caseSensitive;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $headers
@@ -151,29 +161,28 @@ class HeaderTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $headers = NULL,
-        ?StringComparison $stringComparison = NULL,
-        ?ValueComparison $valueComparison = NULL,
-        ?CountComparison $countComparison = NULL,
-        ?ComparisonComparator $valueComparisonComparator = NULL,
-        ?string $value = NULL,
-        ?bool $caseSensitive = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $headers = null,
+        ?StringComparison $stringComparison = null,
+        ?ValueComparison $valueComparison = null,
+        ?CountComparison $countComparison = null,
+        ?ComparisonComparator $valueComparisonComparator = null,
+        ?string $value = null,
+        ?bool $caseSensitive = null
+    ) {
+        parent::__construct($index, $negative);
         $this->stringComparison = $stringComparison;
         $this->valueComparison = $valueComparison;
         $this->countComparison = $countComparison;
         $this->valueComparisonComparator = $valueComparisonComparator;
-        if (NULL !== $headers) {
+        if (null !== $headers) {
             $this->setHeaders($headers);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $caseSensitive) {
+        if (null !== $caseSensitive) {
             $this->setCaseSensitive($caseSensitive);
         }
     }
@@ -326,8 +335,9 @@ class HeaderTest extends FilterTest
      * @param  ComparisonComparator $valueComparisonComparator
      * @return self
      */
-    public function setValueComparisonComparator(ComparisonComparator $valueComparisonComparator)
-    {
+    public function setValueComparisonComparator(
+        ComparisonComparator $valueComparisonComparator
+    ) {
         $this->valueComparisonComparator = $valueComparisonComparator;
         return $this;
     }

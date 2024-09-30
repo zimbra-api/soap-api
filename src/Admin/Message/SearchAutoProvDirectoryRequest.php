@@ -10,23 +10,35 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SearchAutoProvDirectoryRequest class
  * Search Auto Prov Directory
  * Only one of <name> or <query> can be provided.
- * If neither is provided, the configured search filter for auto provision will be used. 
- * 
+ * If neither is provided, the configured search filter for auto provision will be used.
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSelector
+class SearchAutoProvDirectoryRequest extends SoapRequest implements
+    AttributeSelector
 {
     use AttributeSelectorTrait;
 
@@ -36,136 +48,136 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * It is recommended to pick a key attribute that is single-valued and can unique identify an entry in the external auto provision directory.
      * If the key attribute contains multiple values then multiple <key> elements will appear in the response.
      * Entries are returned in ascending key order.
-     * 
+     *
      * @Accessor(getter="getKeyAttr", setter="setKeyAttr")
      * @SerializedName("keyAttr")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getKeyAttr', setter: 'setKeyAttr')]
-    #[SerializedName('keyAttr')]
-    #[Type('string')]
+    #[Accessor(getter: "getKeyAttr", setter: "setKeyAttr")]
+    #[SerializedName("keyAttr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $keyAttr;
 
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
-     * Name to fill the auto provisioning search template configured on the domain 
-     * 
+     * Name to fill the auto provisioning search template configured on the domain
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
-     * 
+     *
      * @Accessor(getter="getMaxResults", setter="setMaxResults")
      * @SerializedName("maxResults")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxResults', setter: 'setMaxResults')]
-    #[SerializedName('maxResults')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxResults", setter: "setMaxResults")]
+    #[SerializedName("maxResults")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxResults;
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
-     * Refresh - whether to always re-search in LDAP even when 
+     * Refresh - whether to always re-search in LDAP even when
      * cached entries are available.  0 (false) is the default.
-     * 
+     *
      * @Accessor(getter="isRefresh", setter="setRefresh")
      * @SerializedName("refresh")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
-    #[SerializedName('refresh')]
-    #[Type('bool')]
+    #[Accessor(getter: "isRefresh", setter: "setRefresh")]
+    #[SerializedName("refresh")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $refresh;
 
     /**
      * The domain name to limit the search to
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private DomainSelector $domain;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DomainSelector $domain
      * @param  string $keyAttr
      * @param  string $query
@@ -179,37 +191,35 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      */
     public function __construct(
         DomainSelector $domain,
-        string $keyAttr = '',
-        ?string $query = NULL,
-        ?string $name = NULL,
-        ?int $maxResults = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?bool $refresh = NULL,
-        ?string $attrs = NULL
-    )
-    {
-        $this->setKeyAttr($keyAttr)
-             ->setDomain($domain);
-        if (NULL !== $query) {
+        string $keyAttr = "",
+        ?string $query = null,
+        ?string $name = null,
+        ?int $maxResults = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?bool $refresh = null,
+        ?string $attrs = null
+    ) {
+        $this->setKeyAttr($keyAttr)->setDomain($domain);
+        if (null !== $query) {
             $this->setQuery($query);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $maxResults) {
+        if (null !== $maxResults) {
             $this->setMaxResults($maxResults);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $refresh) {
+        if (null !== $refresh) {
             $this->setRefresh($refresh);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

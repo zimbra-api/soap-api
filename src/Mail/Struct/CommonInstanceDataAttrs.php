@@ -36,33 +36,33 @@ class CommonInstanceDataAttrs
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
+     *
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var ParticipationStatus
      */
-    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName('ptst')]
-    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[Accessor(getter: "getPartStat", setter: "setPartStat")]
+    #[SerializedName("ptst")]
+    #[Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")]
     #[XmlAttribute]
     private ?ParticipationStatus $partStat;
 
     /**
      * Recurrence-id string in UTC timezone
-     * 
+     *
      * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
      * @SerializedName("ridZ")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName('ridZ')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurIdZ", setter: "setRecurIdZ")]
+    #[SerializedName("ridZ")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -71,17 +71,17 @@ class CommonInstanceDataAttrs
      * this is useful because the instance time zone may not be the same as the time zone of the requesting client;
      * when rendering an all-day appointment, the client must shift the appointment by the difference between the instance
      * time zone and its local time zone to determine the correct date to render the all-day block
-     * 
+     *
      * @Accessor(getter="getTzOffset", setter="setTzOffset")
      * @SerializedName("tzo")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
-    #[SerializedName('tzo')]
-    #[Type('int')]
+    #[Accessor(getter: "getTzOffset", setter: "setTzOffset")]
+    #[SerializedName("tzo")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tzOffset;
 
@@ -91,225 +91,230 @@ class CommonInstanceDataAttrs
      * status is the true free-busy state that depends on appt/invite free-busy, event scheduling status
      * (confirmed vs. tentative vs. cancel), and more importantly, the attendee's participation status. For example,
      * actual free-busy is busy-Tentative for an event with Busy free-busy value until the attendee has acted on the invite.
-     * 
+     *
      * @Accessor(getter="getFreeBusyActual", setter="setFreeBusyActual")
      * @SerializedName("fba")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var FreeBusyStatus
      */
-    #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
-    #[SerializedName('fba')]
-    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[Accessor(getter: "getFreeBusyActual", setter: "setFreeBusyActual")]
+    #[SerializedName("fba")]
+    #[Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")]
     #[XmlAttribute]
     private ?FreeBusyStatus $freeBusyActual;
 
     /**
      * Percent complete - only for tasks
-     * 
+     *
      * @Accessor(getter="getTaskPercentComplete", setter="setTaskPercentComplete")
      * @SerializedName("percentComplete")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTaskPercentComplete', setter: 'setTaskPercentComplete')]
-    #[SerializedName('percentComplete')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getTaskPercentComplete",
+            setter: "setTaskPercentComplete"
+        )
+    ]
+    #[SerializedName("percentComplete")]
+    #[Type("string")]
     #[XmlAttribute]
     private $taskPercentComplete;
 
     /**
      * If set, this is a recurring appointment
-     * 
+     *
      * @Accessor(getter="getIsRecurring", setter="setIsRecurring")
      * @SerializedName("recur")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsRecurring', setter: 'setIsRecurring')]
-    #[SerializedName('recur')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsRecurring", setter: "setIsRecurring")]
+    #[SerializedName("recur")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isRecurring;
 
     /**
      * If set, this is a recurring appointment with exceptions
-     * 
+     *
      * @Accessor(getter="getHasExceptions", setter="setHasExceptions")
      * @SerializedName("hasEx")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getHasExceptions', setter: 'setHasExceptions')]
-    #[SerializedName('hasEx')]
-    #[Type('bool')]
+    #[Accessor(getter: "getHasExceptions", setter: "setHasExceptions")]
+    #[SerializedName("hasEx")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasExceptions;
 
     /**
      * Priority
-     * 
+     *
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName('priority')]
-    #[Type('string')]
+    #[Accessor(getter: "getPriority", setter: "setPriority")]
+    #[SerializedName("priority")]
+    #[Type("string")]
     #[XmlAttribute]
     private $priority;
 
     /**
      * Intended Free/Busy
-     * 
+     *
      * @Accessor(getter="getFreeBusyIntended", setter="setFreeBusyIntended")
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var FreeBusyStatus
      */
-    #[Accessor(getter: 'getFreeBusyIntended', setter: 'setFreeBusyIntended')]
-    #[SerializedName('fb')]
-    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[Accessor(getter: "getFreeBusyIntended", setter: "setFreeBusyIntended")]
+    #[SerializedName("fb")]
+    #[Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")]
     #[XmlAttribute]
     private ?FreeBusyStatus $freeBusyIntended;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
-     * 
+     *
      * @Accessor(getter="getTransparency", setter="setTransparency")
      * @SerializedName("transp")
      * @Type("Enum<Zimbra\Common\Enum\Transparency>")
      * @XmlAttribute
-     * 
+     *
      * @var Transparency
      */
-    #[Accessor(getter: 'getTransparency', setter: 'setTransparency')]
-    #[SerializedName('transp')]
-    #[Type('Enum<Zimbra\Common\Enum\Transparency>')]
+    #[Accessor(getter: "getTransparency", setter: "setTransparency")]
+    #[SerializedName("transp")]
+    #[Type("Enum<Zimbra\Common\Enum\Transparency>")]
     #[XmlAttribute]
     private ?Transparency $transparency;
 
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Location
-     * 
+     *
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("loc")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName('loc')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocation", setter: "setLocation")]
+    #[SerializedName("loc")]
+    #[Type("string")]
     #[XmlAttribute]
     private $location;
 
     /**
      * If set, this appointment has other attendees
-     * 
+     *
      * @Accessor(getter="getHasOtherAttendees", setter="setHasOtherAttendees")
      * @SerializedName("otherAtt")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getHasOtherAttendees', setter: 'setHasOtherAttendees')]
-    #[SerializedName('otherAtt')]
-    #[Type('bool')]
+    #[Accessor(getter: "getHasOtherAttendees", setter: "setHasOtherAttendees")]
+    #[SerializedName("otherAtt")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasOtherAttendees;
 
     /**
      * Set if has alarm
-     * 
+     *
      * @Accessor(getter="getHasAlarm", setter="setHasAlarm")
      * @SerializedName("alarm")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getHasAlarm', setter: 'setHasAlarm')]
-    #[SerializedName('alarm')]
-    #[Type('bool')]
+    #[Accessor(getter: "getHasAlarm", setter: "setHasAlarm")]
+    #[SerializedName("alarm")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasAlarm;
 
     /**
      * Default invite "am I organizer" flag
-     * 
+     *
      * @Accessor(getter="getIsOrganizer", setter="setIsOrganizer")
      * @SerializedName("isOrg")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsOrganizer', setter: 'setIsOrganizer')]
-    #[SerializedName('isOrg')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsOrganizer", setter: "setIsOrganizer")]
+    #[SerializedName("isOrg")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isOrganizer;
 
     /**
      * Default invite mail item ID
-     * 
+     *
      * @Accessor(getter="getInvId", setter="setInvId")
      * @SerializedName("invId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName('invId')]
-    #[Type('string')]
+    #[Accessor(getter: "getInvId", setter: "setInvId")]
+    #[SerializedName("invId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $invId;
 
     /**
      * Default invite component number
-     * 
+     *
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('compNum')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("compNum")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
@@ -317,114 +322,114 @@ class CommonInstanceDataAttrs
      * Status - TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
      * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED
      * where waiting and Deferred are custom values not found in the iCalendar spec.
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var InviteStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\InviteStatus>")]
     #[XmlAttribute]
     private ?InviteStatus $status;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
-     * 
+     *
      * @Accessor(getter="getCalClass", setter="setCalClass")
      * @SerializedName("class")
      * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
      * @XmlAttribute
-     * 
+     *
      * @var InviteClass
      */
-    #[Accessor(getter: 'getCalClass', setter: 'setCalClass')]
-    #[SerializedName('class')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteClass>')]
+    #[Accessor(getter: "getCalClass", setter: "setCalClass")]
+    #[SerializedName("class")]
+    #[Type("Enum<Zimbra\Common\Enum\InviteClass>")]
     #[XmlAttribute]
     private ?InviteClass $calClass;
 
     /**
      * If set, this is an "all day" appointment
-     * 
+     *
      * @Accessor(getter="getAllDay", setter="setAllDay")
      * @SerializedName("allDay")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
-    #[SerializedName('allDay')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllDay", setter: "setAllDay")]
+    #[SerializedName("allDay")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allDay;
 
     /**
      * Set if invite has changes that haven't been sent to attendees; for organizer only
-     * 
+     *
      * @Accessor(getter="getDraft", setter="setDraft")
      * @SerializedName("draft")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDraft', setter: 'setDraft')]
-    #[SerializedName('draft')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDraft", setter: "setDraft")]
+    #[SerializedName("draft")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $draft;
 
     /**
      * Set if attendees were never notified of this invite; for organizer only
-     * 
+     *
      * @Accessor(getter="getNeverSent", setter="setNeverSent")
      * @SerializedName("neverSent")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeverSent', setter: 'setNeverSent')]
-    #[SerializedName('neverSent')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeverSent", setter: "setNeverSent")]
+    #[SerializedName("neverSent")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $neverSent;
 
     /**
      * Due date in milliseconds. For tasks only
-     * 
+     *
      * @Accessor(getter="getTaskDueDate", setter="setTaskDueDate")
      * @SerializedName("dueDate")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTaskDueDate', setter: 'setTaskDueDate')]
-    #[SerializedName('dueDate')]
-    #[Type('int')]
+    #[Accessor(getter: "getTaskDueDate", setter: "setTaskDueDate")]
+    #[SerializedName("dueDate")]
+    #[Type("int")]
     #[XmlAttribute]
     private $taskDueDate;
 
     /**
      * Similar to the "tzo" attribute but for "dueDate". "tzoDue" can be different from
      * "tzo" if start date and due date lie on different sides of a daylight savings transition
-     * 
+     *
      * @Accessor(getter="getTaskTzOffsetDue", setter="setTaskTzOffsetDue")
      * @SerializedName("tzoDue")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTaskTzOffsetDue', setter: 'setTaskTzOffsetDue')]
-    #[SerializedName('tzoDue')]
-    #[Type('int')]
+    #[Accessor(getter: "getTaskTzOffsetDue", setter: "setTaskTzOffsetDue")]
+    #[SerializedName("tzoDue")]
+    #[Type("int")]
     #[XmlAttribute]
     private $taskTzOffsetDue;
 
@@ -458,90 +463,89 @@ class CommonInstanceDataAttrs
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = NULL,
-        ?string $recurIdZ = NULL,
-        ?int $tzOffset = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?string $taskPercentComplete = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $hasExceptions = NULL,
-        ?string $priority = NULL,
-        ?FreeBusyStatus $freeBusyIntended = NULL,
-        ?Transparency $transparency = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?bool $hasOtherAttendees = NULL,
-        ?bool $hasAlarm = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $invId = NULL,
-        ?int $componentNum = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?bool $allDay = NULL,
-        ?bool $draft = NULL,
-        ?bool $neverSent = NULL,
-        ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL
-    )
-    {
+        ?ParticipationStatus $partStat = null,
+        ?string $recurIdZ = null,
+        ?int $tzOffset = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?string $taskPercentComplete = null,
+        ?bool $isRecurring = null,
+        ?bool $hasExceptions = null,
+        ?string $priority = null,
+        ?FreeBusyStatus $freeBusyIntended = null,
+        ?Transparency $transparency = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?bool $hasOtherAttendees = null,
+        ?bool $hasAlarm = null,
+        ?bool $isOrganizer = null,
+        ?string $invId = null,
+        ?int $componentNum = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?bool $allDay = null,
+        ?bool $draft = null,
+        ?bool $neverSent = null,
+        ?int $taskDueDate = null,
+        ?int $taskTzOffsetDue = null
+    ) {
         $this->partStat = $partStat;
         $this->freeBusyActual = $freeBusyActual;
         $this->freeBusyIntended = $freeBusyIntended;
         $this->transparency = $transparency;
         $this->status = $status;
         $this->calClass = $calClass;
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
-        if (NULL !== $tzOffset) {
+        if (null !== $tzOffset) {
             $this->setTzOffset($tzOffset);
         }
-        if (NULL !== $taskPercentComplete) {
+        if (null !== $taskPercentComplete) {
             $this->setTaskPercentComplete($taskPercentComplete);
         }
-        if (NULL !== $isRecurring) {
+        if (null !== $isRecurring) {
             $this->setIsRecurring($isRecurring);
         }
-        if (NULL !== $hasExceptions) {
+        if (null !== $hasExceptions) {
             $this->setHasExceptions($hasExceptions);
         }
-        if (NULL !== $priority) {
+        if (null !== $priority) {
             $this->setPriority($priority);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
-        if (NULL !== $hasOtherAttendees) {
+        if (null !== $hasOtherAttendees) {
             $this->setHasOtherAttendees($hasOtherAttendees);
         }
-        if (NULL !== $hasAlarm) {
+        if (null !== $hasAlarm) {
             $this->setHasAlarm($hasAlarm);
         }
-        if (NULL !== $isOrganizer) {
+        if (null !== $isOrganizer) {
             $this->setIsOrganizer($isOrganizer);
         }
-        if (NULL !== $invId) {
+        if (null !== $invId) {
             $this->setInvId($invId);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
-        if (NULL !== $allDay) {
+        if (null !== $allDay) {
             $this->setAllDay($allDay);
         }
-        if (NULL !== $draft) {
+        if (null !== $draft) {
             $this->setDraft($draft);
         }
-        if (NULL !== $neverSent) {
+        if (null !== $neverSent) {
             $this->setNeverSent($neverSent);
         }
-        if (NULL !== $taskDueDate) {
+        if (null !== $taskDueDate) {
             $this->setTaskDueDate($taskDueDate);
         }
-        if (NULL !== $taskTzOffsetDue) {
+        if (null !== $taskTzOffsetDue) {
             $this->setTaskTzOffsetDue($taskTzOffsetDue);
         }
     }

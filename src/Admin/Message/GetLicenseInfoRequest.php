@@ -29,8 +29,6 @@ class GetLicenseInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetLicenseInfoEnvelope(
-            new GetLicenseInfoBody($this)
-        );
+        return new GetLicenseInfoEnvelope(new GetLicenseInfoBody($this));
     }
 }

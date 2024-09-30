@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\AlarmAction;
 use Zimbra\Common\Struct\{
     AlarmInfoInterface,
@@ -36,50 +43,50 @@ class AlarmInfo implements AlarmInfoInterface
     /**
      * Alarm action
      * Possible values: DISPLAY|AUDIO|EMAIL|PROCEDURE|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AlarmAction>")
      * @XmlAttribute
-     * 
+     *
      * @var AlarmAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\AlarmAction>')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("Enum<Zimbra\Common\Enum\AlarmAction>")]
     #[XmlAttribute]
     private AlarmAction $action;
 
     /**
      * Alarm trigger information
-     * 
+     *
      * @Accessor(getter="getTrigger", setter="setTrigger")
      * @SerializedName("trigger")
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var AlarmTriggerInfoInterface
      */
-    #[Accessor(getter: 'getTrigger', setter: 'setTrigger')]
-    #[SerializedName('trigger')]
+    #[Accessor(getter: "getTrigger", setter: "setTrigger")]
+    #[SerializedName("trigger")]
     #[Type(AlarmTriggerInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AlarmTriggerInfoInterface $trigger;
 
     /**
      * Alarm repeat information
-     * 
+     *
      * @Accessor(getter="getRepeat", setter="setRepeat")
      * @SerializedName("repeat")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: 'getRepeat', setter: 'setRepeat')]
-    #[SerializedName('repeat')]
+    #[Accessor(getter: "getRepeat", setter: "setRepeat")]
+    #[SerializedName("repeat")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfoInterface $repeat;
 
     /**
@@ -87,78 +94,78 @@ class AlarmInfo implements AlarmInfoInterface
      * action=DISPLAY: Reminder text to display
      * action=EMAIL|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE: EMail body
      * action=PROCEDURE: Description text
-     * 
+     *
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('desc')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("desc")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $description;
 
     /**
      * Information on attachment
-     * 
+     *
      * @Accessor(getter="getAttach", setter="setAttach")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalendarAttachInterface
      */
-    #[Accessor(getter: 'getAttach', setter: 'setAttach')]
-    #[SerializedName('attach')]
+    #[Accessor(getter: "getAttach", setter: "setAttach")]
+    #[SerializedName("attach")]
     #[Type(CalendarAttach::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalendarAttachInterface $attach;
 
     /**
      * Alarm summary
-     * 
+     *
      * @Accessor(getter="getSummary", setter="setSummary")
      * @SerializedName("summary")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSummary', setter: 'setSummary')]
-    #[SerializedName('summary')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSummary", setter: "setSummary")]
+    #[SerializedName("summary")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $summary;
 
     /**
      * Attendee information
-     * 
+     *
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttendees', setter: 'setAttendees')]
-    #[Type('array<Zimbra\Mail\Struct\CalendarAttendee>')]
-    #[XmlList(inline: true, entry: 'at', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttendees", setter: "setAttendees")]
+    #[Type("array<Zimbra\Mail\Struct\CalendarAttendee>")]
+    #[XmlList(inline: true, entry: "at", namespace: "urn:zimbraMail")]
     private $attendees = [];
 
     /**
      * Non-standard properties (see RFC2445 section 4.8.8.1)
-     * 
+     *
      * @Accessor(getter="getXProps", setter="setXProps")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getXProps', setter: 'setXProps')]
-    #[Type('array<Zimbra\Mail\Struct\XProp>')]
-    #[XmlList(inline: true, entry: 'xprop', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getXProps", setter: "setXProps")]
+    #[Type("array<Zimbra\Mail\Struct\XProp>")]
+    #[XmlList(inline: true, entry: "xprop", namespace: "urn:zimbraMail")]
     private $xProps = [];
 
     /**
@@ -175,26 +182,25 @@ class AlarmInfo implements AlarmInfoInterface
      * @return self
      */
     public function __construct(
-        ?AlarmAction $action = NULL,
-        ?AlarmTriggerInfo $trigger = NULL,
-        ?DurationInfo $repeat = NULL,
-        ?string $description = NULL,
-        ?CalendarAttach $attach = NULL,
-        ?string $summary = NULL,
+        ?AlarmAction $action = null,
+        ?AlarmTriggerInfo $trigger = null,
+        ?DurationInfo $repeat = null,
+        ?string $description = null,
+        ?CalendarAttach $attach = null,
+        ?string $summary = null,
         array $attendees = [],
         array $xProps = []
-    )
-    {
-        $this->setAction($action ?? new AlarmAction('DISPLAY'))
-             ->setAttendees($attendees)
-             ->setXProps($xProps);
+    ) {
+        $this->setAction($action ?? new AlarmAction("DISPLAY"))
+            ->setAttendees($attendees)
+            ->setXProps($xProps);
         $this->trigger = $trigger;
         $this->repeat = $repeat;
         $this->attach = $attach;
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $summary) {
+        if (null !== $summary) {
             $this->setSummary($summary);
         }
     }
@@ -352,7 +358,9 @@ class AlarmInfo implements AlarmInfoInterface
     public function setAttendees(array $attendees): self
     {
         $this->attendees = array_filter(
-            $attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface
+            $attendees,
+            static fn($attendee) => $attendee instanceof
+                CalendarAttendeeInterface
         );
         return $this;
     }
@@ -388,7 +396,8 @@ class AlarmInfo implements AlarmInfoInterface
     public function setXProps(array $xProps): self
     {
         $this->xProps = array_filter(
-            $xProps, static fn ($xProp) => $xProp instanceof XPropInterface
+            $xProps,
+            static fn($xProp) => $xProp instanceof XPropInterface
         );
         return $this;
     }

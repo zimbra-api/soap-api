@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ModifyWhiteBlackListBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class ModifyWhiteBlackListBody extends SoapBody
      * @SerializedName("ModifyWhiteBlackListRequest")
      * @Type("Zimbra\Account\Message\ModifyWhiteBlackListRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ModifyWhiteBlackListRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ModifyWhiteBlackListRequest")]
     #[Type(ModifyWhiteBlackListRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("ModifyWhiteBlackListResponse")
      * @Type("Zimbra\Account\Message\ModifyWhiteBlackListResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ModifyWhiteBlackListResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ModifyWhiteBlackListResponse")]
     #[Type(ModifyWhiteBlackListResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class ModifyWhiteBlackListBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyWhiteBlackListRequest $request = NULL, ?ModifyWhiteBlackListResponse $response = NULL
-    )
-    {
+        ?ModifyWhiteBlackListRequest $request = null,
+        ?ModifyWhiteBlackListResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * Identity struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,33 +25,33 @@ class Identity extends AttrsImpl
 {
     /**
      * Identity name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Identity ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -64,14 +64,15 @@ class Identity extends AttrsImpl
      * @return self
      */
     public function __construct(
-        ?string $name = NULL, ?string $id = NULL, array $attrs = []
-    )
-    {
+        ?string $name = null,
+        ?string $id = null,
+        array $attrs = []
+    ) {
         parent::__construct($attrs);
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

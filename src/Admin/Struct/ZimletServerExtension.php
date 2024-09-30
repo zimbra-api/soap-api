@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\ZimletServerExtensionInterface;
 
 /**
  * ZimletServerExtension class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,73 +26,72 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
 {
     /**
      * Keyword
-     * 
+     *
      * @Accessor(getter="getHasKeyword", setter="setHasKeyword")
      * @SerializedName("hasKeyword")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHasKeyword', setter: 'setHasKeyword')]
-    #[SerializedName('hasKeyword')]
-    #[Type('string')]
+    #[Accessor(getter: "getHasKeyword", setter: "setHasKeyword")]
+    #[SerializedName("hasKeyword")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hasKeyword;
 
     /**
      * Extension class
-     * 
+     *
      * @Accessor(getter="getExtensionClass", setter="setExtensionClass")
      * @SerializedName("extensionClass")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExtensionClass', setter: 'setExtensionClass')]
-    #[SerializedName('extensionClass')]
-    #[Type('string')]
+    #[Accessor(getter: "getExtensionClass", setter: "setExtensionClass")]
+    #[SerializedName("extensionClass")]
+    #[Type("string")]
     #[XmlAttribute]
     private $extensionClass;
 
     /**
      * Regex
-     * 
+     *
      * @Accessor(getter="getRegex", setter="setRegex")
      * @SerializedName("regex")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRegex', setter: 'setRegex')]
-    #[SerializedName('regex')]
-    #[Type('string')]
+    #[Accessor(getter: "getRegex", setter: "setRegex")]
+    #[SerializedName("regex")]
+    #[Type("string")]
     #[XmlAttribute]
     private $regex;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $hasKeyword
      * @param string $extensionClass
      * @param string $regex
      * @return self
      */
     public function __construct(
-        ?string $hasKeyword = NULL,
-        ?string $extensionClass = NULL,
-        ?string $regex = NULL
-    )
-    {
-        if (NULL !== $hasKeyword) {
+        ?string $hasKeyword = null,
+        ?string $extensionClass = null,
+        ?string $regex = null
+    ) {
+        if (null !== $hasKeyword) {
             $this->setHasKeyword($hasKeyword);
         }
-        if (NULL !== $extensionClass) {
+        if (null !== $extensionClass) {
             $this->setExtensionClass($extensionClass);
         }
-        if (NULL !== $regex) {
+        if (null !== $regex) {
             $this->setRegex($regex);
         }
     }

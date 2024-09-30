@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetCommentsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,30 +27,30 @@ class GetCommentsResponse extends SoapResponse
 {
     /**
      * Users
-     * 
+     *
      * @Accessor(getter="getUsers", setter="setUsers")
      * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
      * @XmlList(inline=true, entry="user", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUsers', setter: 'setUsers')]
-    #[Type('array<Zimbra\Mail\Struct\IdEmailName>')]
-    #[XmlList(inline: true, entry: 'user', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getUsers", setter: "setUsers")]
+    #[Type("array<Zimbra\Mail\Struct\IdEmailName>")]
+    #[XmlList(inline: true, entry: "user", namespace: "urn:zimbraMail")]
     private $users = [];
 
     /**
      * Comment information
-     * 
+     *
      * @Accessor(getter="getComments", setter="setComments")
      * @Type("array<Zimbra\Mail\Struct\CommentInfo>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getComments', setter: 'setComments')]
-    #[Type('array<Zimbra\Mail\Struct\CommentInfo>')]
-    #[XmlList(inline: true, entry: 'comment', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getComments", setter: "setComments")]
+    #[Type("array<Zimbra\Mail\Struct\CommentInfo>")]
+    #[XmlList(inline: true, entry: "comment", namespace: "urn:zimbraMail")]
     private $comments = [];
 
     /**
@@ -60,13 +60,9 @@ class GetCommentsResponse extends SoapResponse
      * @param  array $comments
      * @return self
      */
-    public function __construct(
-        array $users = [],
-        array $comments = []
-    )
+    public function __construct(array $users = [], array $comments = [])
     {
-        $this->setUsers($users)
-             ->setComments($comments);
+        $this->setUsers($users)->setComments($comments);
     }
 
     /**
@@ -78,7 +74,8 @@ class GetCommentsResponse extends SoapResponse
     public function setUsers(array $entries): self
     {
         $this->users = array_filter(
-            $entries, static fn ($entry) => $entry instanceof IdEmailName
+            $entries,
+            static fn($entry) => $entry instanceof IdEmailName
         );
         return $this;
     }
@@ -102,7 +99,8 @@ class GetCommentsResponse extends SoapResponse
     public function setComments(array $entries): self
     {
         $this->comments = array_filter(
-            $entries, static fn ($entry) => $entry instanceof CommentInfo
+            $entries,
+            static fn($entry) => $entry instanceof CommentInfo
         );
         return $this;
     }

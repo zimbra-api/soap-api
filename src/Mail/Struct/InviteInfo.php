@@ -10,10 +10,20 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\InviteType;
 use Zimbra\Common\Struct\{
-    CalendarReplyInterface, CalTZInfoInterface, InviteComponentInterface, InviteInfoInterface
+    CalendarReplyInterface,
+    CalTZInfoInterface,
+    InviteComponentInterface,
+    InviteInfoInterface
 };
 
 /**
@@ -30,66 +40,66 @@ class InviteInfo implements InviteInfoInterface
 {
     /**
      * Invite type - appt|task
-     * 
+     *
      * @Accessor(getter="getCalItemType", setter="setCalItemType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\InviteType>")
      * @XmlAttribute
-     * 
+     *
      * @var InviteType
      */
-    #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\InviteType>')]
+    #[Accessor(getter: "getCalItemType", setter: "setCalItemType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\InviteType>")]
     #[XmlAttribute]
     private InviteType $calItemType;
 
     /**
      * Timezones
-     * 
+     *
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
-    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTimezones", setter: "setTimezones")]
+    #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
+    #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
     private $timezones = [];
 
     /**
      * Invite components
-     * 
+     *
      * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InviteComponentInterface
      */
-    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
-    #[SerializedName('comp')]
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName("comp")]
     #[Type(InviteComponent::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteComponentInterface $inviteComponent;
 
     /**
      * List of replies received from attendees.
-     * 
+     *
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
-    #[SerializedName('replies')]
-    #[Type('array<Zimbra\Mail\Struct\CalendarReply>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCalendarReplies", setter: "setCalendarReplies")]
+    #[SerializedName("replies")]
+    #[Type("array<Zimbra\Mail\Struct\CalendarReply>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
     private $calendarReplies = [];
 
     /**
@@ -102,15 +112,14 @@ class InviteInfo implements InviteInfoInterface
      * @return self
      */
     public function __construct(
-        ?InviteType $calItemType = NULL,
+        ?InviteType $calItemType = null,
         array $timezones = [],
-        ?InviteComponent $inviteComponent = NULL,
+        ?InviteComponent $inviteComponent = null,
         array $calendarReplies = []
-    )
-    {
-        $this->setCalItemType($calItemType ?? new InviteType('appt'))
-             ->setTimezones($timezones)
-             ->setCalendarReplies($calendarReplies);
+    ) {
+        $this->setCalItemType($calItemType ?? new InviteType("appt"))
+            ->setTimezones($timezones)
+            ->setCalendarReplies($calendarReplies);
         $this->inviteComponent = $inviteComponent;
     }
 
@@ -145,7 +154,8 @@ class InviteInfo implements InviteInfoInterface
     public function setTimezones(array $timezones): self
     {
         $this->timezones = array_filter(
-            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfoInterface
+            $timezones,
+            static fn($timezone) => $timezone instanceof CalTZInfoInterface
         );
         return $this;
     }
@@ -188,8 +198,9 @@ class InviteInfo implements InviteInfoInterface
      * @param  InviteComponentInterface $inviteComponent
      * @return self
      */
-    public function setInviteComponent(InviteComponentInterface $inviteComponent): self
-    {
+    public function setInviteComponent(
+        InviteComponentInterface $inviteComponent
+    ): self {
         $this->inviteComponent = $inviteComponent;
         return $this;
     }
@@ -203,7 +214,8 @@ class InviteInfo implements InviteInfoInterface
     public function setCalendarReplies(array $replies): self
     {
         $this->calendarReplies = array_filter(
-            $replies, static fn ($reply) => $reply instanceof CalendarReplyInterface
+            $replies,
+            static fn($reply) => $reply instanceof CalendarReplyInterface
         );
         return $this;
     }
@@ -224,8 +236,9 @@ class InviteInfo implements InviteInfoInterface
      * @param  CalendarReplyInterface $calendarReply
      * @return self
      */
-    public function addCalendarReply(CalendarReplyInterface $calendarReply): self
-    {
+    public function addCalendarReply(
+        CalendarReplyInterface $calendarReply
+    ): self {
         $this->calendarReplies[] = $calendarReply;
         return $this;
     }

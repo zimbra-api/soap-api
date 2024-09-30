@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetDataSourcesBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class GetDataSourcesBody extends SoapBody
      * @SerializedName("GetDataSourcesRequest")
      * @Type("Zimbra\Mail\Message\GetDataSourcesRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetDataSourcesRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetDataSourcesRequest")]
     #[Type(GetDataSourcesRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetDataSourcesResponse")
      * @Type("Zimbra\Mail\Message\GetDataSourcesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetDataSourcesResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetDataSourcesResponse")]
     #[Type(GetDataSourcesResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetDataSourcesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDataSourcesRequest $request = NULL, ?GetDataSourcesResponse $response = NULL
-    )
-    {
+        ?GetDataSourcesRequest $request = null,
+        ?GetDataSourcesResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

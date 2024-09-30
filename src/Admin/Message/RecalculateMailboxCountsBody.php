@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RecalculateMailboxCountsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class RecalculateMailboxCountsBody extends SoapBody
      * @SerializedName("RecalculateMailboxCountsRequest")
      * @Type("Zimbra\Admin\Message\RecalculateMailboxCountsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RecalculateMailboxCountsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RecalculateMailboxCountsRequest")]
     #[Type(RecalculateMailboxCountsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RecalculateMailboxCountsResponse")
      * @Type("Zimbra\Admin\Message\RecalculateMailboxCountsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RecalculateMailboxCountsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RecalculateMailboxCountsResponse")]
     #[Type(RecalculateMailboxCountsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RecalculateMailboxCountsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RecalculateMailboxCountsRequest $request = NULL, ?RecalculateMailboxCountsResponse $response = NULL
-    )
-    {
+        ?RecalculateMailboxCountsRequest $request = null,
+        ?RecalculateMailboxCountsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

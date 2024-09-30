@@ -25,47 +25,46 @@ class DismissAlarm
 {
     /**
      * Calendar item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Time alarm was dismissed, in millis
-     * 
+     *
      * @Accessor(getter="getDismissedAt", setter="setDismissedAt")
      * @SerializedName("dismissedAt")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDismissedAt', setter: 'setDismissedAt')]
-    #[SerializedName('dismissedAt')]
-    #[Type('int')]
+    #[Accessor(getter: "getDismissedAt", setter: "setDismissedAt")]
+    #[SerializedName("dismissedAt")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dismissedAt;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $dismissedAt
      * @return self
      */
-    public function __construct(string $id = '', int $dismissedAt = 0)
+    public function __construct(string $id = "", int $dismissedAt = 0)
     {
-        $this->setId($id)
-             ->setDismissedAt($dismissedAt);
+        $this->setId($id)->setDismissedAt($dismissedAt);
     }
 
     /**

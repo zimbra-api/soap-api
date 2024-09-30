@@ -11,7 +11,11 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{DtTimeInfoInterface, DtValInterface, DurationInfoInterface};
+use Zimbra\Common\Struct\{
+    DtTimeInfoInterface,
+    DtValInterface,
+    DurationInfoInterface
+};
 
 /**
  * DtVal struct class
@@ -27,50 +31,50 @@ class DtVal implements DtValInterface
 {
     /**
      * Start DATE-TIME
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfoInterface $startTime;
 
     /**
      * Start DATE-TIME
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfoInterface $endTime;
 
     /**
      * Duration information
-     * 
+     *
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfoInterface $duration;
 
     /**
@@ -82,11 +86,10 @@ class DtVal implements DtValInterface
      * @return self
      */
     public function __construct(
-        ?DtTimeInfo $startTime = NULL,
-        ?DtTimeInfo $endTime = NULL,
-        ?DurationInfo $duration = NULL
-    )
-    {
+        ?DtTimeInfo $startTime = null,
+        ?DtTimeInfo $endTime = null,
+        ?DurationInfo $duration = null
+    ) {
         $this->startTime = $startTime;
         $this->endTime = $endTime;
         $this->duration = $duration;

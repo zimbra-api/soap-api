@@ -27,11 +27,11 @@ class Type extends Enum
      * Constant for value 'user'
      * @return string 'user'
      */
-    protected const USER = 'user';
+    protected const USER = "user";
 
     /**
      * Constant for value 'system'
      * @return string 'system'
      */
-    protected const SYSTEM = 'system';
+    protected const SYSTEM = "system";
 }

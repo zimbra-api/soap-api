@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAppointmentResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,34 +27,34 @@ class GetAppointmentResponse extends SoapResponse
 {
     /**
      * Appointment information
-     * 
+     *
      * @Accessor(getter="getApptItem", setter="setApptItem")
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalendarItemInfo
      */
-    #[Accessor(getter: 'getApptItem', setter: 'setApptItem')]
-    #[SerializedName('appt')]
+    #[Accessor(getter: "getApptItem", setter: "setApptItem")]
+    #[SerializedName("appt")]
     #[Type(CalendarItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalendarItemInfo $appt;
 
     /**
      * Task information
-     * 
+     *
      * @Accessor(getter="getTaskItem", setter="setTaskItem")
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var TaskItemInfo
      */
-    #[Accessor(getter: 'getTaskItem', setter: 'setTaskItem')]
-    #[SerializedName('task')]
+    #[Accessor(getter: "getTaskItem", setter: "setTaskItem")]
+    #[SerializedName("task")]
     #[Type(TaskItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TaskItemInfo $task;
 
     /**
@@ -64,10 +64,9 @@ class GetAppointmentResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?CalendarItemInfo $appt = NULL,
-        ?TaskItemInfo $task = NULL
-    )
-    {
+        ?CalendarItemInfo $appt = null,
+        ?TaskItemInfo $task = null
+    ) {
         $this->appt = $appt;
         $this->task = $task;
     }

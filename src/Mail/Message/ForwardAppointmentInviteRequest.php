@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\Msg;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * ForwardAppointmentInviteRequest class
  * Used by an attendee to forward an appointment invite email to another user who is not already an attendee.
  * To forward an appointment item, use ForwardAppointmentRequest instead.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,34 +35,34 @@ class ForwardAppointmentInviteRequest extends SoapRequest
 {
     /**
      * Invite message item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Details of the invite
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -66,10 +72,10 @@ class ForwardAppointmentInviteRequest extends SoapRequest
      * @param  Msg $msg
      * @return self
      */
-    public function __construct(?string $id = NULL, ?Msg $msg = NULL)
+    public function __construct(?string $id = null, ?Msg $msg = null)
     {
         $this->msg = $msg;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

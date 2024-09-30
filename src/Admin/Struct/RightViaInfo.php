@@ -25,67 +25,66 @@ class RightViaInfo
 {
     /**
      * Target
-     * 
+     *
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TargetWithType
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(TargetWithType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private TargetWithType $target;
 
     /**
      * Target
-     * 
+     *
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var GranteeWithType
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeWithType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private GranteeWithType $grantee;
 
     /**
      * Target
-     * 
+     *
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CheckedRight
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
     #[Type(CheckedRight::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private CheckedRight $right;
 
     /**
      * Constructor
-     * 
+     *
      * @param TargetWithType $target
      * @param GranteeWithType $grantee
      * @param CheckedRight $right
      * @return self
      */
     public function __construct(
-        TargetWithType $target, GranteeWithType $grantee, CheckedRight $right
-    )
-    {
-        $this->setTarget($target)
-             ->setGrantee($grantee)
-             ->setRight($right);
+        TargetWithType $target,
+        GranteeWithType $grantee,
+        CheckedRight $right
+    ) {
+        $this->setTarget($target)->setGrantee($grantee)->setRight($right);
     }
 
     /**

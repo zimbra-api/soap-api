@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetInfoBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class GetInfoBody extends SoapBody
      * @SerializedName("GetInfoRequest")
      * @Type("Zimbra\Account\Message\GetInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetInfoRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetInfoRequest")]
     #[Type(GetInfoRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetInfoResponse")
      * @Type("Zimbra\Account\Message\GetInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetInfoResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetInfoResponse")]
     #[Type(GetInfoResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetInfoRequest $request = NULL, ?GetInfoResponse $response = NULL
-    )
-    {
+        ?GetInfoRequest $request = null,
+        ?GetInfoResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

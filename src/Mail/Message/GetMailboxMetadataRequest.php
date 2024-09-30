@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SectionAttr, SoapEnvelopeInterface, SoapRequest};
 /**
  * GetMailboxMetadataRequest class
  * Get Mailbox metadata
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class GetMailboxMetadataRequest extends SoapRequest
 {
     /**
      * Metadata section specification
-     * 
+     *
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Common\Struct\SectionAttr")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SectionAttr
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(SectionAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private SectionAttr $metadata;
 
     /**

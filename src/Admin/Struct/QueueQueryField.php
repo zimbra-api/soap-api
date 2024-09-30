@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * QueueQueryField struct class
@@ -25,45 +31,44 @@ class QueueQueryField
 {
     /**
      * Field name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Match specifications
-     * 
+     *
      * @Accessor(getter="getMatches", setter="setMatches")
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
      * @XmlList(inline=true, entry="match", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMatches', setter: 'setMatches')]
-    #[Type('array<Zimbra\Admin\Struct\ValueAttrib>')]
-    #[XmlList(inline: true, entry: 'match', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMatches", setter: "setMatches")]
+    #[Type("array<Zimbra\Admin\Struct\ValueAttrib>")]
+    #[XmlList(inline: true, entry: "match", namespace: "urn:zimbraAdmin")]
     private $matches = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  array $matches
      * @return self
      */
-    public function __construct(string $name = '', array $matches = [])
+    public function __construct(string $name = "", array $matches = [])
     {
-        $this->setName($name)
-             ->setMatches($matches);
+        $this->setName($name)->setMatches($matches);
     }
 
     /**
@@ -109,7 +114,8 @@ class QueueQueryField
     public function setMatches(array $matches): self
     {
         $this->matches = array_filter(
-            $matches, static fn ($match) => $match instanceof ValueAttrib
+            $matches,
+            static fn($match) => $match instanceof ValueAttrib
         );
         return $this;
     }

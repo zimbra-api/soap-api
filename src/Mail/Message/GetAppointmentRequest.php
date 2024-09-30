@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 /**
  * GetAppointmentRequest class
  * Get Appointment. Returns the metadata info for each Invite that makes up this appointment.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,7 @@ class GetAppointmentRequest extends GetCalendarItemRequestBase
         string $uid,
         bool $includeInvites,
         bool $includeContent
-    ): GetAppointmentRequest
-    {
+    ): GetAppointmentRequest {
         $request = new GetAppointmentRequest();
         $request->setUid($uid);
         $request->setIncludeContent($includeContent);
@@ -43,8 +42,6 @@ class GetAppointmentRequest extends GetCalendarItemRequestBase
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAppointmentEnvelope(
-            new GetAppointmentBody($this)
-        );
+        return new GetAppointmentEnvelope(new GetAppointmentBody($this));
     }
 }

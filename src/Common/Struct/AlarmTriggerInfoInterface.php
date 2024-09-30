@@ -22,7 +22,7 @@ namespace Zimbra\Common\Struct;
 interface AlarmTriggerInfoInterface
 {
     function setAbsolute(DateAttrInterface $absolute): self;
-    function setRelative(DurationInfoInterface $relative): self ;
+    function setRelative(DurationInfoInterface $relative): self;
     function getAbsolute(): ?DateAttrInterface;
     function getRelative(): ?DurationInfoInterface;
 }

@@ -25,47 +25,46 @@ class AttributeDescription
 {
     /**
      * Attribute name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Attribute description
-     * 
+     *
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('desc')]
-    #[Type('string')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("desc")]
+    #[Type("string")]
     #[XmlAttribute]
     private $description;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $description
      * @return self
      */
-    public function __construct(string $name = '', string $description = '')
+    public function __construct(string $name = "", string $description = "")
     {
-        $this->setName($name)
-             ->setDescription($description);
+        $this->setName($name)->setDescription($description);
     }
 
     /**

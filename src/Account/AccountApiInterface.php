@@ -12,8 +12,6 @@ namespace Zimbra\Account;
 
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Account\Struct\{
-    AuthAttrs,
-    AuthPrefs,
     AuthToken,
     DistributionListAction,
     EntrySearchFilterInfo,
@@ -52,7 +50,7 @@ interface AccountApiInterface extends ApiInterface
      * If {verifyAccount}="1", <account> is required and the account in the auth token is compared to the named account.
      * Mismatch results in auth failure.
      * An external app that relies on ZCS for user identification can use this to test if the auth token provided by the user belongs to that user.
-     * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored. 
+     * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored.
      *
      * @param  AccountSelector   $account
      * @param  string    $password
@@ -76,25 +74,25 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\AuthResponse
      */
     function auth(
-        ?AccountSelector $account = NULL,
-        ?string $password = NULL,
-        ?string $recoveryCode = NULL,
-        ?PreAuth $preauth = NULL,
-        ?AuthToken $authToken = NULL,
-        ?string $jwtToken = NULL,
-        ?string $virtualHost = NULL,
+        ?AccountSelector $account = null,
+        ?string $password = null,
+        ?string $recoveryCode = null,
+        ?PreAuth $preauth = null,
+        ?AuthToken $authToken = null,
+        ?string $jwtToken = null,
+        ?string $virtualHost = null,
         array $prefs = [],
         array $attrs = [],
-        ?string $requestedSkin = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL,
-        ?bool $deviceTrusted = NULL,
-        ?string $trustedDeviceToken = NULL,
-        ?string $deviceId = NULL,
-        ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL,
-        ?bool $ignoreSameSite = NULL
+        ?string $requestedSkin = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null,
+        ?bool $deviceTrusted = null,
+        ?string $trustedDeviceToken = null,
+        ?string $deviceId = null,
+        ?bool $generateDeviceId = null,
+        ?string $tokenType = null,
+        ?bool $ignoreSameSite = null
     ): ?Message\AuthResponse;
 
     /**
@@ -104,7 +102,10 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $password
      * @return Message\AuthResponse
      */
-    function authByAccountName(string $name, string $password): ?Message\AuthResponse;
+    function authByAccountName(
+        string $name,
+        string $password
+    ): ?Message\AuthResponse;
 
     /**
      * Authenticate by account id
@@ -113,7 +114,10 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $password
      * @return Message\AuthResponse
      */
-    function authByAccountId(string $id, string $password): ?Message\AuthResponse;
+    function authByAccountId(
+        string $id,
+        string $password
+    ): ?Message\AuthResponse;
 
     /**
      * Authenticate by auth token
@@ -130,7 +134,10 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $preauthKey
      * @return Message\AuthResponse
      */
-    function authByPreauth(string $name, string $preauthKey): ?Message\AuthResponse;
+    function authByPreauth(
+        string $name,
+        string $preauthKey
+    ): ?Message\AuthResponse;
 
     /**
      * Perform an autocomplete for a name against the Global Address List
@@ -146,10 +153,10 @@ interface AccountApiInterface extends ApiInterface
      */
     function autoCompleteGal(
         string $name,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $galAccountId = NULL,
-        ?int $limit = NULL
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $galAccountId = null,
+        ?int $limit = null
     ): ?Message\AutoCompleteGalResponse;
 
     /**
@@ -166,8 +173,8 @@ interface AccountApiInterface extends ApiInterface
         AccountSelector $account,
         string $oldPassword,
         string $newPassword,
-        ?string $virtualHost = NULL,
-        ?bool $dryRun = NULL
+        ?string $virtualHost = null,
+        ?bool $dryRun = null
     ): ?Message\ChangePasswordResponse;
 
     /**
@@ -187,9 +194,9 @@ interface AccountApiInterface extends ApiInterface
     function clientInfo(DomainSelector $domain): ?Message\ClientInfoResponse;
 
     /**
-     * Create a Distribution List 
+     * Create a Distribution List
      * Notes:
-     * authed account must have the privilege to create dist lists in the domain 
+     * authed account must have the privilege to create dist lists in the domain
      *
      * @param  string $name
      * @param  bool $dynamic
@@ -197,7 +204,9 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\CreateDistributionListResponse
      */
     function createDistributionList(
-        string $name, ?bool $dynamic = NULL, array $attrs = []
+        string $name,
+        ?bool $dynamic = null,
+        array $attrs = []
     ): ?Message\CreateDistributionListResponse;
 
     /**
@@ -208,19 +217,23 @@ interface AccountApiInterface extends ApiInterface
      * @param  Identity $identity
      * @return Message\CreateIdentityResponse
      */
-    function createIdentity(Identity $identity): ?Message\CreateIdentityResponse;
+    function createIdentity(
+        Identity $identity
+    ): ?Message\CreateIdentityResponse;
 
     /**
      * Create a signature.
-     * If an id is provided it will be honored as the id for the signature. 
+     * If an id is provided it will be honored as the id for the signature.
      * CreateSignature will set account default signature to the signature being created
      * if there is currently no default signature for the account.
-     * There can be at most one text/plain signatue and one text/html signature. 
+     * There can be at most one text/plain signatue and one text/html signature.
      *
      * @param  Signature $signature
      * @return Message\CreateSignatureResponse
      */
-    function createSignature(Signature $signature): ?Message\CreateSignatureResponse;
+    function createSignature(
+        Signature $signature
+    ): ?Message\CreateSignatureResponse;
 
     /**
      * Delete an Identity
@@ -238,13 +251,15 @@ interface AccountApiInterface extends ApiInterface
      * @param  NameId $signature
      * @return Message\DeleteSignatureResponse
      */
-    function deleteSignature(NameId $signature): ?Message\DeleteSignatureResponse;
+    function deleteSignature(
+        NameId $signature
+    ): ?Message\DeleteSignatureResponse;
 
     /**
      * Return all targets of the specified rights applicable to the requested account.
      * Notes:
      * 1. This call only discovers grants granted on the designated target type of the specified rights.
-     *    It does not return grants granted on target types the rights can inherit from. 
+     *    It does not return grants granted on target types the rights can inherit from.
      * 2. For sendAs, sendOnBehalfOf, sendAsDistList, sendOnBehalfOfDistList rights, name attribute
      *    is not returned on <target> elements.
      *    Instead, addresses in the target entry's zimbraPrefAllowAddressForDelegatedSender are returned
@@ -258,12 +273,14 @@ interface AccountApiInterface extends ApiInterface
      * @param  array $rights
      * @return Message\DiscoverRightsResponse
      */
-    function discoverRights(array $rights = []): ?Message\DiscoverRightsResponse;
+    function discoverRights(
+        array $rights = []
+    ): ?Message\DiscoverRightsResponse;
 
     /**
      * Perform an action on a Distribution List
      * Notes:
-     *  - Authorized account must be one of the list owners 
+     *  - Authorized account must be one of the list owners
      *  - For owners/rights, only grants on the group itself will be modified,
      *    grants on domain and globalgrant (from which the right can be inherited) will not be touched.
      *    Only admins can modify grants on domains and globalgrant, owners of groups
@@ -274,13 +291,14 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\DistributionListActionResponse
      */
     function distributionListAction(
-        DistributionListSelector $dl, DistributionListAction $action
+        DistributionListSelector $dl,
+        DistributionListAction $action
     ): ?Message\DistributionListActionResponse;
 
     /**
      * End the current session, removing it from all caches.
      * Called when the browser app (or other session-using app) shuts down.
-     * Has no effect if called in a <nosession> context. 
+     * Has no effect if called in a <nosession> context.
      *
      * @param  bool $logoff
      * @param  bool $clearAllSoapSessions
@@ -289,14 +307,14 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\EndSessionResponse
      */
     function endSession(
-        ?bool $logoff = NULL,
-        ?bool $clearAllSoapSessions = NULL,
-        ?bool $excludeCurrentSession = NULL,
-        ?string $sessionId = NULL
+        ?bool $logoff = null,
+        ?bool $clearAllSoapSessions = null,
+        ?bool $excludeCurrentSession = null,
+        ?string $sessionId = null
     ): ?Message\EndSessionResponse;
 
     /**
-     * Returns groups the user is either a member or an owner of. 
+     * Returns groups the user is either a member or an owner of.
      * Notes:
      *  - isOwner is returned only if ownerOf on the request is 1 (true).
      *  - isMember is returned only if memberOf on the request is not "none".
@@ -307,9 +325,9 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\GetAccountDistributionListsResponse
      */
     function getAccountDistributionLists(
-        ?bool $ownerOf = NULL,
-        ?MemberOfSelector $memberOf = NULL,
-        ?string $attrs = NULL
+        ?bool $ownerOf = null,
+        ?MemberOfSelector $memberOf = null,
+        ?string $attrs = null
     ): ?Message\GetAccountDistributionListsResponse;
 
     /**
@@ -318,11 +336,13 @@ interface AccountApiInterface extends ApiInterface
      * @param  AccountSelector $account
      * @return Message\GetAccountInfoResponse
      */
-    function getAccountInfo(AccountSelector $account): ?Message\GetAccountInfoResponse;
+    function getAccountInfo(
+        AccountSelector $account
+    ): ?Message\GetAccountInfoResponse;
 
     /**
      * Returns all locales defined in the system.  This is the same list returned by
-     * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute). 
+     * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute).
      *
      * @return Message\GetAllLocalesResponse
      */
@@ -363,8 +383,8 @@ interface AccountApiInterface extends ApiInterface
      */
     function getDistributionListMembers(
         string $dl,
-        ?int $limit = NULL,
-        ?int $offset = NULL
+        ?int $limit = null,
+        ?int $offset = null
     ): ?Message\GetDistributionListMembersResponse;
 
     /**
@@ -378,8 +398,8 @@ interface AccountApiInterface extends ApiInterface
      */
     function getDistributionList(
         DistributionListSelector $dl,
-        ?bool $needOwners = NULL,
-        ?string $needRights = NULL,
+        ?bool $needOwners = null,
+        ?string $needRights = null,
         array $attrs = []
     ): ?Message\GetDistributionListResponse;
 
@@ -400,7 +420,8 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\GetInfoResponse
      */
     function getInfo(
-        ?string $sections = NULL, ?string $rights = NULL
+        ?string $sections = null,
+        ?string $rights = null
     ): ?Message\GetInfoResponse;
 
     /**
@@ -440,10 +461,10 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\GetShareInfoResponse
      */
     function getShareInfo(
-        ?GranteeChooser $grantee = NULL,
-        ?AccountSelector $owner = NULL,
-        ?bool $internal = NULL,
-        ?bool $includeSelf = NULL
+        ?GranteeChooser $grantee = null,
+        ?AccountSelector $owner = null,
+        ?bool $internal = null,
+        ?bool $includeSelf = null
     ): ?Message\GetShareInfoResponse;
 
     /**
@@ -481,7 +502,9 @@ interface AccountApiInterface extends ApiInterface
      * @param  Identity $identity
      * @return Message\ModifyIdentityResponse
      */
-    function modifyIdentity(Identity $identity): ?Message\ModifyIdentityResponse;
+    function modifyIdentity(
+        Identity $identity
+    ): ?Message\ModifyIdentityResponse;
 
     /**
      * Modify Preferences
@@ -501,19 +524,23 @@ interface AccountApiInterface extends ApiInterface
      * @param  array $props
      * @return Message\ModifyPropertiesResponse
      */
-    function modifyProperties(array $props = []): ?Message\ModifyPropertiesResponse;
+    function modifyProperties(
+        array $props = []
+    ): ?Message\ModifyPropertiesResponse;
 
     /**
      * Create a signature.
-     * If an id is provided it will be honored as the id for the signature. 
+     * If an id is provided it will be honored as the id for the signature.
      * CreateSignature will set account default signature to the signature being created
      * if there is currently no default signature for the account.
-     * There can be at most one text/plain signatue and one text/html signature. 
+     * There can be at most one text/plain signatue and one text/html signature.
      *
      * @param  Signature $signature
      * @return Message\ModifySignatureResponse
      */
-    function modifySignature(Signature $signature): ?Message\ModifySignatureResponse;
+    function modifySignature(
+        Signature $signature
+    ): ?Message\ModifySignatureResponse;
 
     /**
      * Modify the anti-spam WhiteList and BlackList addresses
@@ -523,7 +550,8 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\ModifyWhiteBlackListResponse
      */
     function modifyWhiteBlackList(
-        array $whiteListEntries = [], array $blackListEntries = []
+        array $whiteListEntries = [],
+        array $blackListEntries = []
     ): ?Message\ModifyWhiteBlackListResponse;
 
     /**
@@ -532,7 +560,9 @@ interface AccountApiInterface extends ApiInterface
      * @param  array $zimlets
      * @return Message\ModifyZimletPrefsResponse
      */
-    function modifyZimletPrefs(array $zimlets = []): ?Message\ModifyZimletPrefsResponse;
+    function modifyZimletPrefs(
+        array $zimlets = []
+    ): ?Message\ModifyZimletPrefsResponse;
 
     /**
      * Reset password
@@ -548,7 +578,9 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $accessToken
      * @return Message\RevokeOAuthConsumerResponse
      */
-    function revokeOAuthConsumer(string $accessToken): ?Message\RevokeOAuthConsumerResponse;
+    function revokeOAuthConsumer(
+        string $accessToken
+    ): ?Message\RevokeOAuthConsumerResponse;
 
     /**
      * Revoke account level rights
@@ -575,16 +607,16 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\SearchCalendarResourcesResponse
      */
     function searchCalendarResources(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL,
-        ?string $galAccountId = NULL,
-        ?string $name = NULL,
-        ?string $attrs = NULL
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null,
+        ?string $galAccountId = null,
+        ?string $name = null,
+        ?string $attrs = null
     ): ?Message\SearchCalendarResourcesResponse;
 
     /**
@@ -608,32 +640,33 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\SearchGalResponse
      */
     function searchGal(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?string $ref = NULL,
-        ?string $name = NULL,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $needIsOwner = NULL,
-        ?MemberOfSelector $needIsMember = NULL,
-        ?bool $needSMIMECerts = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?string $ref = null,
+        ?string $name = null,
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?bool $needIsOwner = null,
+        ?MemberOfSelector $needIsMember = null,
+        ?bool $needSMIMECerts = null,
+        ?string $galAccountId = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null
     ): ?Message\SearchGalResponse;
 
     /**
-     * Subscribe to or unsubscribe from a distribution list 
+     * Subscribe to or unsubscribe from a distribution list
      *
      * @param  DistributionListSelector $dl
      * @param  DistributionListSubscribeOp $op
      * @return Message\SubscribeDistributionListResponse
      */
     function subscribeDistributionList(
-        DistributionListSelector $dl, DistributionListSubscribeOp $op
+        DistributionListSelector $dl,
+        DistributionListSubscribeOp $op
     ): ?Message\SubscribeDistributionListResponse;
 
     /**
@@ -647,10 +680,10 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\SyncGalResponse
      */
     function syncGal(
-        ?string $token = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $idOnly = NULL,
-        ?bool $getCount = NULL,
-        ?int $limit = NULL
+        ?string $token = null,
+        ?string $galAccountId = null,
+        ?bool $idOnly = null,
+        ?bool $getCount = null,
+        ?int $limit = null
     ): ?Message\SyncGalResponse;
 }

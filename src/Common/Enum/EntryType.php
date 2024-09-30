@@ -27,119 +27,119 @@ class EntryType extends Enum
      * Constant for value 'account'
      * @return string 'account'
      */
-    protected const ACCOUNT = 'account';
+    protected const ACCOUNT = "account";
 
     /**
      * Constant for value 'alias'
      * @return string 'alias'
      */
-    protected const ALIAS = 'alias';
+    protected const ALIAS = "alias";
 
     /**
      * Constant for value 'distributionList'
      * @return string 'distributionList'
      */
-    protected const DISTRIBUTION_LIST = 'distributionList';
+    protected const DISTRIBUTION_LIST = "distributionList";
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    protected const COS = 'cos';
+    protected const COS = "cos";
 
     /**
      * Constant for value 'globalConfig'
      * @return string 'globalConfig'
      */
-    protected const GLOBAL_CONFIG = 'globalConfig';
+    protected const GLOBAL_CONFIG = "globalConfig";
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    protected const DOMAIN = 'domain';
+    protected const DOMAIN = "domain";
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    protected const SERVER = 'server';
+    protected const SERVER = "server";
 
     /**
      * Constant for value 'mimeEntry'
      * @return string 'mimeEntry'
      */
-    protected const MIME_ENTRY = 'mimeEntry';
+    protected const MIME_ENTRY = "mimeEntry";
 
     /**
      * Constant for value 'zimletEntry'
      * @return string 'zimletEntry'
      */
-    protected const ZIMLET_ENTRY = 'zimletEntry';
+    protected const ZIMLET_ENTRY = "zimletEntry";
 
     /**
      * Constant for value 'calendarResource'
      * @return string 'calendarResource'
      */
-    protected const CALENDAR_RESOURCE = 'calendarResource';
+    protected const CALENDAR_RESOURCE = "calendarResource";
 
     /**
      * Constant for value 'identity'
      * @return string 'identity'
      */
-    protected const IDENTITY = 'identity';
+    protected const IDENTITY = "identity";
 
     /**
      * Constant for value 'dataSource'
      * @return string 'dataSource'
      */
-    protected const DATA_SOURCE = 'dataSource';
+    protected const DATA_SOURCE = "dataSource";
 
     /**
      * Constant for value 'pop3DataSource'
      * @return string 'pop3DataSource'
      */
-    protected const POP3_DATA_SOURCE = 'pop3DataSource';
+    protected const POP3_DATA_SOURCE = "pop3DataSource";
 
     /**
      * Constant for value 'imapDataSource'
      * @return string 'imapDataSource'
      */
-    protected const IMAP_DATA_SOURCE = 'imapDataSource';
+    protected const IMAP_DATA_SOURCE = "imapDataSource";
 
     /**
      * Constant for value 'rssDataSource'
      * @return string 'rssDataSource'
      */
-    protected const RSS_DATA_SOURCE = 'rssDataSource';
+    protected const RSS_DATA_SOURCE = "rssDataSource";
 
     /**
      * Constant for value 'liveDataSource'
      * @return string 'liveDataSource'
      */
-    protected const LIVE_DATA_SOURCE = 'liveDataSource';
+    protected const LIVE_DATA_SOURCE = "liveDataSource";
 
     /**
      * Constant for value 'galDataSource'
      * @return string 'galDataSource'
      */
-    protected const GAL_DATA_SOURCE = 'galDataSource';
+    protected const GAL_DATA_SOURCE = "galDataSource";
 
     /**
      * Constant for value 'signature'
      * @return string 'signature'
      */
-    protected const SIGNATURE = 'signature';
+    protected const SIGNATURE = "signature";
 
     /**
      * Constant for value 'xmppComponent'
      * @return string 'xmppComponent'
      */
-    protected const XMPP_COMPONENT = 'xmppComponent';
+    protected const XMPP_COMPONENT = "xmppComponent";
 
     /**
      * Constant for value 'aclTarget'
      * @return string 'aclTarget'
      */
-    protected const ACL_TARGET = 'aclTarget';
+    protected const ACL_TARGET = "aclTarget";
 }

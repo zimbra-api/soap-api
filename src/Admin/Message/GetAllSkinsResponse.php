@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllSkinsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllSkinsResponse extends SoapResponse
 {
     /**
      * Skins
-     * 
+     *
      * @Accessor(getter="getSkins", setter="setSkins")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="skin", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSkins', setter: 'setSkins')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'skin', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSkins", setter: "setSkins")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "skin", namespace: "urn:zimbraAdmin")]
     private $skins = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllSkinsResponse extends SoapResponse
     public function setSkins(array $skins): self
     {
         $this->skins = array_filter(
-            $skins, static fn ($skin) => $skin instanceof NamedElement
+            $skins,
+            static fn($skin) => $skin instanceof NamedElement
         );
         return $this;
     }

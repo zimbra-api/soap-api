@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\{
     NestedSearchConversation,
     MessageHitInfo,
@@ -21,7 +28,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchConvResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -40,81 +47,81 @@ class SearchConvResponse extends SoapResponse
      * Server will throw an IllegalArgumentException if the search is invalid.
      * ADDITIONAL SORT MODES FOR TASKS: valid only if types="task" (and task alone):
      * taskDueAsc|taskDueDesc|taskStatusAsc|taskStatusDesc|taskPercCompletedAsc|taskPercCompletedDesc
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("Enum<Zimbra\Common\Enum\SearchSortBy>")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
     /**
      * Offset - an int specifying the 0-based offset into the results list returned as
      * the first result for this search operation.
-     * 
+     *
      * @Accessor(getter="getQueryOffset", setter="setQueryOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getQueryOffset', setter: 'setQueryOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getQueryOffset", setter: "setQueryOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $queryOffset;
 
     /**
      * Set if there are more search results remaining.
-     * 
+     *
      * @Accessor(getter="getQueryMore", setter="setQueryMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getQueryMore', setter: 'setQueryMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getQueryMore", setter: "setQueryMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $queryMore;
 
     /**
      * Nested Search Conversation (Only returned if request had "nest" attribute set)
-     * 
+     *
      * @Accessor(getter="getConversation", setter="setConversation")
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\NestedSearchConversation")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var NestedSearchConversation
      */
-    #[Accessor(getter: 'getConversation', setter: 'setConversation')]
-    #[SerializedName('c')]
+    #[Accessor(getter: "getConversation", setter: "setConversation")]
+    #[SerializedName("c")]
     #[Type(NestedSearchConversation::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?NestedSearchConversation $conversation;
 
     /**
      * Message search hits
-     * 
+     *
      * @Accessor(getter="getMessages", setter="setMessages")
      * @Type("array<Zimbra\Mail\Struct\MessageHitInfo>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessages', setter: 'setMessages')]
-    #[Type('array<Zimbra\Mail\Struct\MessageHitInfo>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessages", setter: "setMessages")]
+    #[Type("array<Zimbra\Mail\Struct\MessageHitInfo>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $messages = [];
 
     /**
@@ -123,18 +130,18 @@ class SearchConvResponse extends SoapResponse
      * If expanded is set, then the wildcard was expanded and the matches are included in the search.
      * If expanded is unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
-     * 
+     *
      * @Accessor(getter="getQueryInfo", setter="setQueryInfo")
      * @SerializedName("info")
      * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SearchQueryInfo
      */
-    #[Accessor(getter: 'getQueryInfo', setter: 'setQueryInfo')]
-    #[SerializedName('info')]
+    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[SerializedName("info")]
     #[Type(SearchQueryInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SearchQueryInfo $queryInfo;
 
     /**
@@ -149,22 +156,21 @@ class SearchConvResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?SearchSortBy $sortBy = NULL,
-        ?int $queryOffset = NULL,
-        ?bool $queryMore = NULL,
-        ?NestedSearchConversation $conversation = NULL,
+        ?SearchSortBy $sortBy = null,
+        ?int $queryOffset = null,
+        ?bool $queryMore = null,
+        ?NestedSearchConversation $conversation = null,
         array $messages = [],
-        ?SearchQueryInfo $queryInfo = NULL
-    )
-    {
+        ?SearchQueryInfo $queryInfo = null
+    ) {
         $this->setMessages($messages);
         $this->sortBy = $sortBy;
         $this->conversation = $conversation;
         $this->queryInfo = $queryInfo;
-        if (NULL !== $queryOffset) {
+        if (null !== $queryOffset) {
             $this->setQueryOffset($queryOffset);
         }
-        if (NULL !== $queryMore) {
+        if (null !== $queryMore) {
             $this->setQueryMore($queryMore);
         }
     }
@@ -251,8 +257,9 @@ class SearchConvResponse extends SoapResponse
      * @param  NestedSearchConversation $conversation
      * @return self
      */
-    public function setConversation(NestedSearchConversation $conversation): self
-    {
+    public function setConversation(
+        NestedSearchConversation $conversation
+    ): self {
         $this->conversation = $conversation;
         return $this;
     }
@@ -266,7 +273,8 @@ class SearchConvResponse extends SoapResponse
     public function setMessages(array $messages): self
     {
         $this->messages = array_filter(
-            $messages, static fn($message) => $message instanceof MessageHitInfo
+            $messages,
+            static fn($message) => $message instanceof MessageHitInfo
         );
         return $this;
     }

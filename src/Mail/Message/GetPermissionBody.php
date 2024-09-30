@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetPermissionBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class GetPermissionBody extends SoapBody
      * @SerializedName("GetPermissionRequest")
      * @Type("Zimbra\Mail\Message\GetPermissionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetPermissionRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetPermissionRequest")]
     #[Type(GetPermissionRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetPermissionResponse")
      * @Type("Zimbra\Mail\Message\GetPermissionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetPermissionResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetPermissionResponse")]
     #[Type(GetPermissionResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetPermissionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetPermissionRequest $request = NULL, ?GetPermissionResponse $response = NULL
-    )
-    {
+        ?GetPermissionRequest $request = null,
+        ?GetPermissionResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

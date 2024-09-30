@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\DataSourceBy;
 
 /**
@@ -26,70 +32,70 @@ class SyncGalAccountDataSourceSpec
 {
     /**
      * The by
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceBy>")
      * @XmlAttribute
-     * 
+     *
      * @var DataSourceBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\DataSourceBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\DataSourceBy>")]
     #[XmlAttribute]
     private DataSourceBy $by;
 
     /**
      * If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync.
      * If fullSync is set to 1 (true), then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
-     * 
+     *
      * @Accessor(getter="getFullSync", setter="setFullSync")
      * @SerializedName("fullSync")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFullSync', setter: 'setFullSync')]
-    #[SerializedName('fullSync')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFullSync", setter: "setFullSync")]
+    #[SerializedName("fullSync")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $fullSync;
 
     /**
      * Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
-     * 
+     *
      * @Accessor(getter="getReset", setter="setReset")
      * @SerializedName("reset")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReset', setter: 'setReset')]
-    #[SerializedName('reset')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReset", setter: "setReset")]
+    #[SerializedName("reset")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $reset;
 
     /**
      * The value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param DataSourceBy $by
      * @param string $value
      * @param bool $fullSync
@@ -97,20 +103,19 @@ class SyncGalAccountDataSourceSpec
      * @return self
      */
     public function __construct(
-        ?DataSourceBy $by = NULL,
-        ?string $value = NULL,
-        ?bool $fullSync = NULL,
-        ?bool $reset = NULL
-    )
-    {
-        $this->setBy($by ?? new DataSourceBy('id'));
-        if (NULL !== $value) {
+        ?DataSourceBy $by = null,
+        ?string $value = null,
+        ?bool $fullSync = null,
+        ?bool $reset = null
+    ) {
+        $this->setBy($by ?? new DataSourceBy("id"));
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $fullSync) {
+        if (null !== $fullSync) {
             $this->setFullSync($fullSync);
         }
-        if (NULL !== $reset) {
+        if (null !== $reset) {
             $this->setReset($reset);
         }
     }

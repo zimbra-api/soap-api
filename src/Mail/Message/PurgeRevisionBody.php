@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * PurgeRevisionBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class PurgeRevisionBody extends SoapBody
      * @SerializedName("PurgeRevisionRequest")
      * @Type("Zimbra\Mail\Message\PurgeRevisionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('PurgeRevisionRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("PurgeRevisionRequest")]
     #[Type(PurgeRevisionRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("PurgeRevisionResponse")
      * @Type("Zimbra\Mail\Message\PurgeRevisionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('PurgeRevisionResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("PurgeRevisionResponse")]
     #[Type(PurgeRevisionResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class PurgeRevisionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PurgeRevisionRequest $request = NULL, ?PurgeRevisionResponse $response = NULL
-    )
-    {
+        ?PurgeRevisionRequest $request = null,
+        ?PurgeRevisionResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

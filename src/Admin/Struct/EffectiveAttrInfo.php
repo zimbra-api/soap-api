@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * EffectiveAttrInfo struct class
@@ -25,68 +32,68 @@ class EffectiveAttrInfo
 {
     /**
      * Attribute name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constraint information
-     * 
+     *
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ConstraintInfo
      */
-    #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
-    #[SerializedName('constraint')]
+    #[Accessor(getter: "getConstraint", setter: "setConstraint")]
+    #[SerializedName("constraint")]
     #[Type(ConstraintInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ConstraintInfo $constraint;
 
     /**
      * Inherited default value(or values if the attribute is multi-valued)
-     * 
+     *
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("default")
      * @Type("array<string>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName('default')]
-    #[Type('array<string>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'v', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[SerializedName("default")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "v", namespace: "urn:zimbraAdmin")]
     private $values = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param ConstraintInfo $constraint
      * @param array $values
      * @return self
      */
     public function __construct(
-        string $name = '', ?ConstraintInfo $constraint = NULL, array $values = []
-    )
-    {
-        $this->setName($name)
-             ->setValues($values);
+        string $name = "",
+        ?ConstraintInfo $constraint = null,
+        array $values = []
+    ) {
+        $this->setName($name)->setValues($values);
         $this->constraint = $constraint;
     }
 
@@ -153,7 +160,7 @@ class EffectiveAttrInfo
     public function setValues(array $values): self
     {
         $this->values = array_unique(
-            array_map(static fn ($value) => trim($value), $values)
+            array_map(static fn($value) => trim($value), $values)
         );
         return $this;
     }

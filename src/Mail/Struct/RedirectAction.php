@@ -25,52 +25,55 @@ class RedirectAction extends FilterAction
 {
     /**
      * Email address
-     * 
+     *
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * If true, item's copy will be redirected, leaving the original in place.
      * See https://tools.ietf.org/html/rfc3894 "Sieve Extension: Copying Without Side Effects"
-     * 
+     *
      * @Accessor(getter="isCopy", setter="setCopy")
      * @SerializedName("copy")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCopy', setter: 'setCopy')]
-    #[SerializedName('copy')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCopy", setter: "setCopy")]
+    #[SerializedName("copy")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $copy;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $address
      * @param bool $copy
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $address = NULL, ?bool $copy = NULL)
-    {
-    	parent::__construct($index);
-        if (NULL !== $address) {
+    public function __construct(
+        ?int $index = null,
+        ?string $address = null,
+        ?bool $copy = null
+    ) {
+        parent::__construct($index);
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $copy) {
+        if (null !== $copy) {
             $this->setCopy($copy);
         }
     }
@@ -91,7 +94,7 @@ class RedirectAction extends FilterAction
      * @param  string $address
      * @return self
      */
-    public function setAddress(string $address)
+    public function setAddress(string $address): self
     {
         $this->address = $address;
         return $this;
@@ -113,7 +116,7 @@ class RedirectAction extends FilterAction
      * @param  bool $copy
      * @return self
      */
-    public function setCopy(bool $copy)
+    public function setCopy(bool $copy): self
     {
         $this->copy = $copy;
         return $this;

@@ -25,50 +25,50 @@ class DistributionListMembershipInfo
 {
     /**
      * Distribution list ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Distribution list name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Present if the dl is a member of the returned list because they are either a direct
      * or indirect member of another list that is a member of the returned list.
-     * 
+     *
      * @Accessor(getter="getVia", setter="setVia")
      * @SerializedName("via")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName('via')]
-    #[Type('string')]
+    #[Accessor(getter: "getVia", setter: "setVia")]
+    #[SerializedName("via")]
+    #[Type("string")]
     #[XmlAttribute]
     private $via;
 
@@ -81,12 +81,12 @@ class DistributionListMembershipInfo
      * @return self
      */
     public function __construct(
-        string $id = '', string $name = '', ?string $via = NULL
-    )
-    {
-        $this->setId($id)
-             ->setName($name);
-        if (NULL !== $via) {
+        string $id = "",
+        string $name = "",
+        ?string $via = null
+    ) {
+        $this->setId($id)->setName($name);
+        if (null !== $via) {
             $this->setVia($via);
         }
     }

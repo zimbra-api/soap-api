@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Common\Enum\IpType;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -31,44 +37,44 @@ class GetServerNIfsRequest extends SoapRequest
 {
     /**
      * specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\IpType>")
      * @XmlAttribute
-     * 
+     *
      * @var IpType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\IpType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\IpType>")]
     #[XmlAttribute]
     private ?IpType $type;
 
     /**
      * Server
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Server
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(Server::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Server $server;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Server $server
      * @param  IpType $type
      * @return self
      */
-    public function __construct(Server $server, ?IpType $type = NULL)
+    public function __construct(Server $server, ?IpType $type = null)
     {
         $this->setServer($server);
         $this->type = $type;
@@ -123,8 +129,6 @@ class GetServerNIfsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetServerNIfsEnvelope(
-            new GetServerNIfsBody($this)
-        );
+        return new GetServerNIfsEnvelope(new GetServerNIfsBody($this));
     }
 }

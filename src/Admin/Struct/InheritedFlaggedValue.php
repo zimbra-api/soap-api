@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * InheritedFlaggedValue struct class
@@ -27,17 +33,17 @@ class InheritedFlaggedValue
      * Inherited flag
      * 1 (true): inherited from a group
      * 0 (false): set directly on the entry
-     * 
+     *
      * @Accessor(getter="getInherited", setter="setInherited")
      * @SerializedName("inherited")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getInherited', setter: 'setInherited')]
-    #[SerializedName('inherited')]
-    #[Type('bool')]
+    #[Accessor(getter: "getInherited", setter: "setInherited")]
+    #[SerializedName("inherited")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $inherited;
 
@@ -45,25 +51,25 @@ class InheritedFlaggedValue
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool   $inherited
      * @param  string $value
      * @return self
      */
-    public function __construct(bool $inherited = FALSE, ?string $value = NULL)
+    public function __construct(bool $inherited = false, ?string $value = null)
     {
         $this->setInherited($inherited);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

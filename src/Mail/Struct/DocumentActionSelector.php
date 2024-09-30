@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * DocumentActionSelector class
@@ -25,34 +31,34 @@ class DocumentActionSelector extends ActionSelector
 {
     /**
      * Zimbra ID of the grant to revoke (Used for "!grant" operation)
-     * 
+     *
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Used for "grant" operation
-     * 
+     *
      * @Accessor(getter="getGrant", setter="setGrant")
      * @SerializedName("grant")
      * @Type("Zimbra\Mail\Struct\DocumentActionGrant")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DocumentActionGrant
      */
-    #[Accessor(getter: 'getGrant', setter: 'setGrant')]
-    #[SerializedName('grant')]
-    #[Type('Zimbra\Mail\Struct\DocumentActionGrant')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGrant", setter: "setGrant")]
+    #[SerializedName("grant")]
+    #[Type("Zimbra\Mail\Struct\DocumentActionGrant")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private $grant;
 
     /**
@@ -76,23 +82,22 @@ class DocumentActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
-        ?string $ids = NULL,
-        ?string $zimbraId = NULL,
-        ?DocumentActionGrant $grant = NULL,
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
-    )
-    {
+        string $operation = "",
+        ?string $ids = null,
+        ?string $zimbraId = null,
+        ?DocumentActionGrant $grant = null,
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
+    ) {
         parent::__construct(
             $operation,
             $ids,
@@ -108,7 +113,7 @@ class DocumentActionSelector extends ActionSelector
             $nonExistentIds,
             $newlyCreatedIds
         );
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
         if ($grant instanceof DocumentActionGrant) {

@@ -29,23 +29,23 @@ class CountAccountRequest extends SoapRequest
 {
     /**
      * Domain
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private DomainSelector $domain;
 
     /**
      * Constructor
-     * 
+     *
      * @param DomainSelector $domain
      * @return self
      */
@@ -81,8 +81,6 @@ class CountAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CountAccountEnvelope(
-            new CountAccountBody($this)
-        );
+        return new CountAccountEnvelope(new CountAccountBody($this));
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * OpValue class
@@ -28,12 +34,12 @@ class OpValue
      * @SerializedName("op")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('string')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("string")]
     #[XmlAttribute]
     private $op;
 
@@ -41,25 +47,25 @@ class OpValue
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $op
      * @param  string $value
      * @return self
      */
-    public function __construct(string $op = '+', ?string $value = NULL)
+    public function __construct(string $op = "+", ?string $value = null)
     {
         $this->setOp($op);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }
@@ -80,13 +86,12 @@ class OpValue
      * @param  string $op
      * @return self
      */
-    public function setOp(string $op = '+'): self
+    public function setOp(string $op = "+"): self
     {
-        if (in_array(trim($op), ['+', '-'])) {
+        if (in_array(trim($op), ["+", "-"])) {
             $this->op = $op;
-        }
-        else {
-            $this->op = '+';
+        } else {
+            $this->op = "+";
         }
         return $this;
     }

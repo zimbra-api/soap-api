@@ -25,87 +25,107 @@ class VolumeExternalInfo extends BaseExternalVolume
 {
     /**
      * Prefix for bucket location e.g. server1_primary
-     * 
+     *
      * @Accessor(getter="getVolumePrefix", setter="setVolumePrefix")
      * @SerializedName("volumePrefix")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVolumePrefix', setter: 'setVolumePrefix')]
-    #[SerializedName('volumePrefix')]
-    #[Type('string')]
+    #[Accessor(getter: "getVolumePrefix", setter: "setVolumePrefix")]
+    #[SerializedName("volumePrefix")]
+    #[Type("string")]
     #[XmlAttribute]
     private $volumePrefix;
 
     /**
      * Specifies global bucket configuration Id
-     * 
+     *
      * @Accessor(getter="getGlobalBucketConfigurationId", setter="setGlobalBucketConfigurationId")
      * @SerializedName("globalBucketConfigId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGlobalBucketConfigurationId', setter: 'setGlobalBucketConfigurationId')]
-    #[SerializedName('globalBucketConfigId')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getGlobalBucketConfigurationId",
+            setter: "setGlobalBucketConfigurationId"
+        )
+    ]
+    #[SerializedName("globalBucketConfigId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $globalBucketConfigId;
 
     /**
      * Specifies frequent access enabled or not
-     * 
+     *
      * @Accessor(getter="isUseInFrequentAccess", setter="setUseInFrequentAccess")
      * @SerializedName("useInFrequentAccess")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isUseInFrequentAccess', setter: 'setUseInFrequentAccess')]
-    #[SerializedName('useInFrequentAccess')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "isUseInFrequentAccess",
+            setter: "setUseInFrequentAccess"
+        )
+    ]
+    #[SerializedName("useInFrequentAccess")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $useInFrequentAccess;
 
     /**
      * Specifies threshold value of useInFrequentAccess
-     * 
+     *
      * @Accessor(getter="getUseInFrequentAccessThreshold", setter="setUseInFrequentAccessThreshold")
      * @SerializedName("useInFrequentAccessThreshold")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getUseInFrequentAccessThreshold', setter: 'setUseInFrequentAccessThreshold')]
-    #[SerializedName('useInFrequentAccessThreshold')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getUseInFrequentAccessThreshold",
+            setter: "setUseInFrequentAccessThreshold"
+        )
+    ]
+    #[SerializedName("useInFrequentAccessThreshold")]
+    #[Type("int")]
     #[XmlAttribute]
     private $useInFrequentAccessThreshold;
 
     /**
      * Specifies intelligent tiering enabled or not
-     * 
+     *
      * @Accessor(getter="isUseIntelligentTiering", setter="setUseIntelligentTiering")
      * @SerializedName("useIntelligentTiering")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isUseIntelligentTiering', setter: 'setUseIntelligentTiering')]
-    #[SerializedName('useIntelligentTiering')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "isUseIntelligentTiering",
+            setter: "setUseIntelligentTiering"
+        )
+    ]
+    #[SerializedName("useIntelligentTiering")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $useIntelligentTiering;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $storageType
      * @param string $volumePrefix
      * @param string $globalBucketConfigId
@@ -115,28 +135,29 @@ class VolumeExternalInfo extends BaseExternalVolume
      * @return self
      */
     public function __construct(
-        ?string $storageType = NULL,
-        ?string $volumePrefix = NULL,
-        ?string $globalBucketConfigId = NULL,
-        ?bool $useInFrequentAccess = NULL,
-        ?int $useInFrequentAccessThreshold = NULL,
-        ?bool $useIntelligentTiering = NULL
-    )
-    {
+        ?string $storageType = null,
+        ?string $volumePrefix = null,
+        ?string $globalBucketConfigId = null,
+        ?bool $useInFrequentAccess = null,
+        ?int $useInFrequentAccessThreshold = null,
+        ?bool $useIntelligentTiering = null
+    ) {
         parent::__construct($storageType);
-        if (NULL !== $volumePrefix) {
+        if (null !== $volumePrefix) {
             $this->setVolumePrefix($volumePrefix);
         }
-        if (NULL !== $globalBucketConfigId) {
+        if (null !== $globalBucketConfigId) {
             $this->setGlobalBucketConfigurationId($globalBucketConfigId);
         }
-        if (NULL !== $useInFrequentAccess) {
+        if (null !== $useInFrequentAccess) {
             $this->setUseInFrequentAccess($useInFrequentAccess);
         }
-        if (NULL !== $useInFrequentAccessThreshold) {
-            $this->setUseInFrequentAccessThreshold($useInFrequentAccessThreshold);
+        if (null !== $useInFrequentAccessThreshold) {
+            $this->setUseInFrequentAccessThreshold(
+                $useInFrequentAccessThreshold
+            );
         }
-        if (NULL !== $useIntelligentTiering) {
+        if (null !== $useIntelligentTiering) {
             $this->setUseIntelligentTiering($useIntelligentTiering);
         }
     }
@@ -179,8 +200,9 @@ class VolumeExternalInfo extends BaseExternalVolume
      * @param  string $globalBucketConfigId
      * @return self
      */
-    public function setGlobalBucketConfigurationId(string $globalBucketConfigId): self
-    {
+    public function setGlobalBucketConfigurationId(
+        string $globalBucketConfigId
+    ): self {
         $this->globalBucketConfigId = $globalBucketConfigId;
         return $this;
     }
@@ -245,8 +267,9 @@ class VolumeExternalInfo extends BaseExternalVolume
      * @param  int $useInFrequentAccessThreshold
      * @return self
      */
-    public function setUseInFrequentAccessThreshold(int $useInFrequentAccessThreshold): self
-    {
+    public function setUseInFrequentAccessThreshold(
+        int $useInFrequentAccessThreshold
+    ): self {
         $this->useInFrequentAccessThreshold = $useInFrequentAccessThreshold;
         return $this;
     }

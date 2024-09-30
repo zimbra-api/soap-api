@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -22,7 +28,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * - {metadata-section-key} must be no more than 36 characters long
  *   and must be in the format of {namespace}:{section-name}.
  *   currently the only valid namespace is "zwc".
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -33,18 +39,18 @@ class SetMailboxMetadataRequest extends SoapRequest
 {
     /**
      * New metadata information
-     * 
+     *
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailCustomMetadata
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(MailCustomMetadata::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private MailCustomMetadata $metadata;
 
     /**
@@ -57,7 +63,6 @@ class SetMailboxMetadataRequest extends SoapRequest
     {
         $this->setMetadata($metadata);
     }
-
 
     /**
      * Get metadata

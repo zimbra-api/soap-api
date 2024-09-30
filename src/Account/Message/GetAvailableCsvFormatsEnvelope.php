@@ -10,12 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace,
+    XmlRoot
+};
 use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * GetAvailableCsvFormatsEnvelope class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -24,8 +31,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
-#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: 'urn')]
-#[XmlRoot(name: 'soap:Envelope')]
+#[XmlNamespace(uri: "urn:zimbraAccount", prefix: "urn")]
+#[XmlRoot(name: "soap:Envelope")]
 class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
 {
     /**
@@ -33,14 +40,14 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
      * @SerializedName("Body")
      * @Type("Zimbra\Account\Message\GetAvailableCsvFormatsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var SoapBodyInterface
      */
-    #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName('Body')]
+    #[Accessor(getter: "getBody", setter: "setBody")]
+    #[SerializedName("Body")]
     #[Type(GetAvailableCsvFormatsBody::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private ?SoapBodyInterface $body = NULL;
+    #[XmlElement(namespace: "http://www.w3.org/2003/05/soap-envelope")]
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -50,9 +57,9 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAvailableCsvFormatsBody $body = NULL, ?SoapHeaderInterface $header = NULL
-    )
-    {
+        ?GetAvailableCsvFormatsBody $body = null,
+        ?SoapHeaderInterface $header = null
+    ) {
         parent::__construct($body, $header);
     }
 

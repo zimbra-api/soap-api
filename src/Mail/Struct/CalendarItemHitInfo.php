@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\SearchHit;
 
 /**
@@ -22,194 +29,195 @@ use Zimbra\Common\Struct\SearchHit;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-abstract class CalendarItemHitInfo extends CommonCalendaringData implements SearchHit
+abstract class CalendarItemHitInfo extends CommonCalendaringData implements
+    SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Date
-     * 
+     *
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Set if the message matched the specified query string
-     * 
+     *
      * @Accessor(getter="getContentMatched", setter="setContentMatched")
      * @SerializedName("cm")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getContentMatched', setter: 'setContentMatched')]
-    #[SerializedName('cm')]
-    #[Type('bool')]
+    #[Accessor(getter: "getContentMatched", setter: "setContentMatched")]
+    #[SerializedName("cm")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $contentMatched;
 
     /**
      * Time in millis to show the alarm
-     * 
+     *
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName('nextAlarm')]
-    #[Type('int')]
+    #[Accessor(getter: "getNextAlarm", setter: "setNextAlarm")]
+    #[SerializedName("nextAlarm")]
+    #[Type("int")]
     #[XmlAttribute]
     private $nextAlarm;
 
     /**
      * Organizer
-     * 
+     *
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalOrganizer
      */
-    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
-    #[SerializedName('or')]
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName("or")]
     #[Type(CalOrganizer::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalOrganizer $organizer;
 
     /**
      * Categories
-     * 
+     *
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCategories", setter: "setCategories")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
     private $categories;
 
     /**
      * Information for iCalendar GEO property
-     * 
+     *
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var GeoInfo
      */
-    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
-    #[SerializedName('geo')]
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName("geo")]
     #[Type(GeoInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Data for instances
-     * 
+     *
      * @Accessor(getter="getInstances", setter="setInstances")
      * @Type("array<Zimbra\Mail\Struct\InstanceDataInfo>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type('array<Zimbra\Mail\Struct\InstanceDataInfo>')]
-    #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInstances", setter: "setInstances")]
+    #[Type("array<Zimbra\Mail\Struct\InstanceDataInfo>")]
+    #[XmlList(inline: true, entry: "inst", namespace: "urn:zimbraMail")]
     private $instances = [];
 
     /**
      * Alarm information
-     * 
+     *
      * @Accessor(getter="getAlarmData", setter="setAlarmData")
      * @SerializedName("alarmData")
      * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var AlarmDataInfo
      */
-    #[Accessor(getter: 'getAlarmData', setter: 'setAlarmData')]
-    #[SerializedName('alarmData')]
+    #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
+    #[SerializedName("alarmData")]
     #[Type(AlarmDataInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AlarmDataInfo $alarmData;
 
     /**
      * Invites
-     * 
+     *
      * @Accessor(getter="getInvites", setter="setInvites")
      * @Type("array<Zimbra\Mail\Struct\Invitation>")
      * @XmlList(inline=true, entry="inv", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInvites', setter: 'setInvites')]
-    #[Type('array<Zimbra\Mail\Struct\Invitation>')]
-    #[XmlList(inline: true, entry: 'inv', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInvites", setter: "setInvites")]
+    #[Type("array<Zimbra\Mail\Struct\Invitation>")]
+    #[XmlList(inline: true, entry: "inv", namespace: "urn:zimbraMail")]
     private $invites = [];
 
     /**
      * Replies
-     * 
+     *
      * @Accessor(getter="getReplies", setter="setReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalReply>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getReplies', setter: 'setReplies')]
-    #[SerializedName('replies')]
-    #[Type('array<Zimbra\Mail\Struct\CalReply>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getReplies", setter: "setReplies")]
+    #[SerializedName("replies")]
+    #[Type("array<Zimbra\Mail\Struct\CalReply>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
     private $replies = [];
 
     /**
@@ -231,45 +239,44 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?int $date = NULL,
-        ?bool $contentMatched = NULL,
-        ?int $nextAlarm = NULL,
-        ?CalOrganizer $organizer = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
+        ?int $date = null,
+        ?bool $contentMatched = null,
+        ?int $nextAlarm = null,
+        ?CalOrganizer $organizer = null,
         array $categories = [],
-        ?GeoInfo $geo = NULL,
-        ?string $fragment = NULL,
+        ?GeoInfo $geo = null,
+        ?string $fragment = null,
         array $instances = [],
-        ?AlarmDataInfo $alarmData = NULL,
+        ?AlarmDataInfo $alarmData = null,
         array $invites = [],
         array $replies = []
-    )
-    {
+    ) {
         parent::__construct();
         $this->setCategories($categories)
-             ->setInstances($instances)
-             ->setInvites($invites)
-             ->setReplies($replies);
-        if (NULL !== $id) {
+            ->setInstances($instances)
+            ->setInvites($invites)
+            ->setReplies($replies);
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $contentMatched) {
+        if (null !== $contentMatched) {
             $this->setContentMatched($contentMatched);
         }
-        if (NULL !== $nextAlarm) {
+        if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);
         }
         $this->organizer = $organizer;
         $this->geo = $geo;
         $this->alarmData = $alarmData;
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }
@@ -409,7 +416,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     public function setCategories(array $categories)
     {
         $this->categories = array_unique(
-            array_map(static fn ($category) => trim($category), $categories)
+            array_map(static fn($category) => trim($category), $categories)
         );
         return $this;
     }
@@ -467,7 +474,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     public function setInstances(array $instances): self
     {
         $this->instances = array_filter(
-            $instances, static fn($instance) => $instance instanceof InstanceDataInfo
+            $instances,
+            static fn($instance) => $instance instanceof InstanceDataInfo
         );
         return $this;
     }
@@ -513,7 +521,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     public function setInvites(array $invites): self
     {
         $this->invites = array_filter(
-            $invites, static fn($invite) => $invite instanceof Invitation
+            $invites,
+            static fn($invite) => $invite instanceof Invitation
         );
         return $this;
     }
@@ -537,7 +546,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     public function setReplies(array $replies): self
     {
         $this->replies = array_filter(
-            $replies, static fn($reply) => $reply instanceof CalReply
+            $replies,
+            static fn($reply) => $reply instanceof CalReply
         );
         return $this;
     }

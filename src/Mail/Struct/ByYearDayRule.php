@@ -29,17 +29,17 @@ class ByYearDayRule implements ByYearDayRuleInterface
      * BYYEARDAY yearday list.
      * Format : [[+]|-]num[,...] where num is between 1 and 366
      * e.g. yrdaylist="1,+2,-1" means January 1st, January 2nd, and December 31st.
-     * 
+     *
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("yrdaylist")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('yrdaylist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("yrdaylist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -49,7 +49,7 @@ class ByYearDayRule implements ByYearDayRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -73,15 +73,19 @@ class ByYearDayRule implements ByYearDayRuleInterface
     public function setList(string $list): self
     {
         $yrdaylist = [];
-        foreach (explode(',', $list) as $yrday) {
+        foreach (explode(",", $list) as $yrday) {
             if (is_numeric($yrday)) {
                 $day = (int) $yrday;
-                if($day != 0 && abs($day) < 367 && !in_array($yrday, $yrdaylist)) {
+                if (
+                    $day != 0 &&
+                    abs($day) < 367 &&
+                    !in_array($yrday, $yrdaylist)
+                ) {
                     $yrdaylist[] = $yrday;
                 }
             }
         }
-        $this->list = implode(',', $yrdaylist);
+        $this->list = implode(",", $yrdaylist);
         return $this;
     }
 }

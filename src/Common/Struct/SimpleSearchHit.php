@@ -25,52 +25,49 @@ class SimpleSearchHit implements SearchHit
 {
     /**
      * Id
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Sort field value
-     * 
+     *
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $sortField
      * @return self
      */
-    public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL
-    )
+    public function __construct(?string $id = null, ?string $sortField = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
     }

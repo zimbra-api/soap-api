@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\{
     SyncDeletedInfo,
     SyncFolder,
@@ -29,7 +36,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SyncResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -40,237 +47,237 @@ class SyncResponse extends SoapResponse
 {
     /**
      * Change date
-     * 
+     *
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * New sync token
-     * 
+     *
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * size
-     * 
+     *
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * If set, the response does not bring the client completely up to date.
      * More changes are still queued, and another SyncRequest (using the new returned token) is necessary.
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Information on deletes
-     * 
+     *
      * @Accessor(getter="getDeleted", setter="setDeleted")
      * @SerializedName("deleted")
      * @Type("Zimbra\Mail\Struct\SyncDeletedInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SyncDeletedInfo
      */
-    #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
-    #[SerializedName('deleted')]
+    #[Accessor(getter: "getDeleted", setter: "setDeleted")]
+    #[SerializedName("deleted")]
     #[Type(SyncDeletedInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SyncDeletedInfo $deleted;
 
     /**
      * Sync folder items
-     * 
+     *
      * @Accessor(getter="getFolderItems", setter="setFolderItems")
      * @Type("array<Zimbra\Mail\Struct\SyncFolder>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFolderItems', setter: 'setFolderItems')]
-    #[Type('array<Zimbra\Mail\Struct\SyncFolder>')]
-    #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFolderItems", setter: "setFolderItems")]
+    #[Type("array<Zimbra\Mail\Struct\SyncFolder>")]
+    #[XmlList(inline: true, entry: "folder", namespace: "urn:zimbraMail")]
     private $folderItems = [];
 
     /**
      * Tag items
-     * 
+     *
      * @Accessor(getter="getTagItems", setter="setTagItems")
      * @Type("array<Zimbra\Mail\Struct\TagInfo>")
      * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTagItems', setter: 'setTagItems')]
-    #[Type('array<Zimbra\Mail\Struct\TagInfo>')]
-    #[XmlList(inline: true, entry: 'tag', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTagItems", setter: "setTagItems")]
+    #[Type("array<Zimbra\Mail\Struct\TagInfo>")]
+    #[XmlList(inline: true, entry: "tag", namespace: "urn:zimbraMail")]
     private $tagItems = [];
 
     /**
      * Note items
-     * 
+     *
      * @Accessor(getter="getNoteItems", setter="setNoteItems")
      * @Type("array<Zimbra\Mail\Struct\NoteInfo>")
      * @XmlList(inline=true, entry="note", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNoteItems', setter: 'setNoteItems')]
-    #[Type('array<Zimbra\Mail\Struct\NoteInfo>')]
-    #[XmlList(inline: true, entry: 'note', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNoteItems", setter: "setNoteItems")]
+    #[Type("array<Zimbra\Mail\Struct\NoteInfo>")]
+    #[XmlList(inline: true, entry: "note", namespace: "urn:zimbraMail")]
     private $noteItems = [];
 
     /**
      * Contact items
-     * 
+     *
      * @Accessor(getter="getContactItems", setter="setContactItems")
      * @Type("array<Zimbra\Mail\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactItems', setter: 'setContactItems')]
-    #[Type('array<Zimbra\Mail\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContactItems", setter: "setContactItems")]
+    #[Type("array<Zimbra\Mail\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
     private $contactItems = [];
 
     /**
      * Calendar items
-     * 
+     *
      * @Accessor(getter="getApptItems", setter="setApptItems")
      * @Type("array<Zimbra\Mail\Struct\CalendarItemInfo>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getApptItems', setter: 'setApptItems')]
-    #[Type('array<Zimbra\Mail\Struct\CalendarItemInfo>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getApptItems", setter: "setApptItems")]
+    #[Type("array<Zimbra\Mail\Struct\CalendarItemInfo>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $apptItems = [];
 
     /**
      * Task items
-     * 
+     *
      * @Accessor(getter="getTaskItems", setter="setTaskItems")
      * @Type("array<Zimbra\Mail\Struct\TaskItemInfo>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskItems', setter: 'setTaskItems')]
-    #[Type('array<Zimbra\Mail\Struct\TaskItemInfo>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskItems", setter: "setTaskItems")]
+    #[Type("array<Zimbra\Mail\Struct\TaskItemInfo>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskItems = [];
 
     /**
      * Conversation items
-     * 
+     *
      * @Accessor(getter="getConvItems", setter="setConvItems")
      * @Type("array<Zimbra\Mail\Struct\ConversationSummary>")
      * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getConvItems', setter: 'setConvItems')]
-    #[Type('array<Zimbra\Mail\Struct\ConversationSummary>')]
-    #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getConvItems", setter: "setConvItems")]
+    #[Type("array<Zimbra\Mail\Struct\ConversationSummary>")]
+    #[XmlList(inline: true, entry: "c", namespace: "urn:zimbraMail")]
     private $convItems = [];
 
     /**
      * Wiki items
-     * 
+     *
      * @Accessor(getter="getWikiItems", setter="setWikiItems")
      * @Type("array<Zimbra\Mail\Struct\CommonDocumentInfo>")
      * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWikiItems', setter: 'setWikiItems')]
-    #[Type('array<Zimbra\Mail\Struct\CommonDocumentInfo>')]
-    #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getWikiItems", setter: "setWikiItems")]
+    #[Type("array<Zimbra\Mail\Struct\CommonDocumentInfo>")]
+    #[XmlList(inline: true, entry: "w", namespace: "urn:zimbraMail")]
     private $wikiItems = [];
 
     /**
      * Document items
-     * 
+     *
      * @Accessor(getter="getDocItems", setter="setDocItems")
      * @Type("array<Zimbra\Mail\Struct\DocumentInfo>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDocItems', setter: 'setDocItems')]
-    #[Type('array<Zimbra\Mail\Struct\DocumentInfo>')]
-    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDocItems", setter: "setDocItems")]
+    #[Type("array<Zimbra\Mail\Struct\DocumentInfo>")]
+    #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
     private $docItems = [];
 
     /**
      * Message items
-     * 
+     *
      * @Accessor(getter="getMsgItems", setter="setMsgItems")
      * @Type("array<Zimbra\Mail\Struct\MessageSummary>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMsgItems', setter: 'setMsgItems')]
-    #[Type('array<Zimbra\Mail\Struct\MessageSummary>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMsgItems", setter: "setMsgItems")]
+    #[Type("array<Zimbra\Mail\Struct\MessageSummary>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $msgItems = [];
 
     /**
      * Chat items
-     * 
+     *
      * @Accessor(getter="getChatItems", setter="setChatItems")
      * @Type("array<Zimbra\Mail\Struct\ChatSummary>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getChatItems', setter: 'setChatItems')]
-    #[Type('array<Zimbra\Mail\Struct\ChatSummary>')]
-    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getChatItems", setter: "setChatItems")]
+    #[Type("array<Zimbra\Mail\Struct\ChatSummary>")]
+    #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
     private $chatItems = [];
 
     /**
@@ -286,23 +293,21 @@ class SyncResponse extends SoapResponse
      */
     public function __construct(
         int $changeDate = 0,
-        ?string $token = NULL,
-        ?int $size = NULL,
-        ?bool $more = NULL,
-        ?SyncDeletedInfo $deleted = NULL,
+        ?string $token = null,
+        ?int $size = null,
+        ?bool $more = null,
+        ?SyncDeletedInfo $deleted = null,
         array $items = []
-    )
-    {
-        $this->setChangeDate($changeDate)
-             ->setItems($items);
+    ) {
+        $this->setChangeDate($changeDate)->setItems($items);
         $this->deleted = $deleted;
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
     }
@@ -425,16 +430,16 @@ class SyncResponse extends SoapResponse
     public function setItems(array $items = []): self
     {
         $this->setFolderItems($items)
-             ->setTagItems($items)
-             ->setNoteItems($items)
-             ->setContactItems($items)
-             ->setApptItems($items)
-             ->setTaskItems($items)
-             ->setConvItems($items)
-             ->setWikiItems($items)
-             ->setDocItems($items)
-             ->setMsgItems($items)
-             ->setChatItems($items);
+            ->setTagItems($items)
+            ->setNoteItems($items)
+            ->setContactItems($items)
+            ->setApptItems($items)
+            ->setTaskItems($items)
+            ->setConvItems($items)
+            ->setWikiItems($items)
+            ->setDocItems($items)
+            ->setMsgItems($items)
+            ->setChatItems($items);
         return $this;
     }
 
@@ -469,7 +474,10 @@ class SyncResponse extends SoapResponse
     public function setFolderItems(array $items): self
     {
         $this->folderItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof SyncFolder)
+            array_filter(
+                $items,
+                static fn($item) => $item instanceof SyncFolder
+            )
         );
         return $this;
     }
@@ -493,7 +501,7 @@ class SyncResponse extends SoapResponse
     public function setTagItems(array $items): self
     {
         $this->tagItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof TagInfo)
+            array_filter($items, static fn($item) => $item instanceof TagInfo)
         );
         return $this;
     }
@@ -517,7 +525,7 @@ class SyncResponse extends SoapResponse
     public function setNoteItems(array $items): self
     {
         $this->noteItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof NoteInfo)
+            array_filter($items, static fn($item) => $item instanceof NoteInfo)
         );
         return $this;
     }
@@ -541,7 +549,10 @@ class SyncResponse extends SoapResponse
     public function setContactItems(array $items): self
     {
         $this->contactItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof ContactInfo)
+            array_filter(
+                $items,
+                static fn($item) => $item instanceof ContactInfo
+            )
         );
         return $this;
     }
@@ -565,7 +576,10 @@ class SyncResponse extends SoapResponse
     public function setApptItems(array $items): self
     {
         $this->apptItems = array_values(
-            array_filter($items, static fn ($item) => get_class($item) === CalendarItemInfo::class)
+            array_filter(
+                $items,
+                static fn($item) => get_class($item) === CalendarItemInfo::class
+            )
         );
         return $this;
     }
@@ -589,7 +603,10 @@ class SyncResponse extends SoapResponse
     public function setTaskItems(array $items): self
     {
         $this->taskItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof TaskItemInfo)
+            array_filter(
+                $items,
+                static fn($item) => $item instanceof TaskItemInfo
+            )
         );
         return $this;
     }
@@ -613,7 +630,10 @@ class SyncResponse extends SoapResponse
     public function setConvItems(array $items): self
     {
         $this->convItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof ConversationSummary)
+            array_filter(
+                $items,
+                static fn($item) => $item instanceof ConversationSummary
+            )
         );
         return $this;
     }
@@ -637,7 +657,11 @@ class SyncResponse extends SoapResponse
     public function setWikiItems(array $items): self
     {
         $this->wikiItems = array_values(
-            array_filter($items, static fn ($item) => get_class($item) === CommonDocumentInfo::class)
+            array_filter(
+                $items,
+                static fn($item) => get_class($item) ===
+                    CommonDocumentInfo::class
+            )
         );
         return $this;
     }
@@ -661,7 +685,10 @@ class SyncResponse extends SoapResponse
     public function setDocItems(array $items): self
     {
         $this->docItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof DocumentInfo)
+            array_filter(
+                $items,
+                static fn($item) => $item instanceof DocumentInfo
+            )
         );
         return $this;
     }
@@ -685,7 +712,10 @@ class SyncResponse extends SoapResponse
     public function setMsgItems(array $items): self
     {
         $this->msgItems = array_values(
-            array_filter($items, static fn ($item) => get_class($item) === MessageSummary::class)
+            array_filter(
+                $items,
+                static fn($item) => get_class($item) === MessageSummary::class
+            )
         );
         return $this;
     }
@@ -709,7 +739,10 @@ class SyncResponse extends SoapResponse
     public function setChatItems(array $items): self
     {
         $this->chatItems = array_values(
-            array_filter($items, static fn ($item) => $item instanceof ChatSummary)
+            array_filter(
+                $items,
+                static fn($item) => $item instanceof ChatSummary
+            )
         );
         return $this;
     }

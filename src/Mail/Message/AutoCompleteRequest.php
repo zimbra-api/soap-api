@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * AutoCompleteRequest class
  * Auto complete
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,23 +28,23 @@ class AutoCompleteRequest extends SoapRequest
 {
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * type of addresses to auto-complete on
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
@@ -52,57 +52,57 @@ class AutoCompleteRequest extends SoapRequest
      * Enum<Zimbra\Common\Enum\GalSearchType>
      * @var GalSearchType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('t')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("t")]
+    #[Type("Enum<Zimbra\Common\Enum\GalSearchType>")]
     #[XmlAttribute]
     private ?GalSearchType $type;
 
     /**
      * Set if the "exp" flag is needed in the response for group entries.  Default is unset.
-     * 
+     *
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName('needExp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedCanExpand", setter: "setNeedCanExpand")]
+    #[SerializedName("needExp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needCanExpand;
 
     /**
      * Comma separated list of folder IDs
-     * 
+     *
      * @Accessor(getter="getFolderList", setter="setFolderList")
      * @SerializedName("folders")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderList', setter: 'setFolderList')]
-    #[SerializedName('folders')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderList", setter: "setFolderList")]
+    #[SerializedName("folders")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderList;
 
     /**
      * Flag whether to include Global Address Book (GAL)
-     * 
+     *
      * @Accessor(getter="getIncludeGal", setter="setIncludeGal")
      * @SerializedName("includeGal")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeGal', setter: 'setIncludeGal')]
-    #[SerializedName('includeGal')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeGal", setter: "setIncludeGal")]
+    #[SerializedName("includeGal")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeGal;
 
@@ -117,22 +117,21 @@ class AutoCompleteRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $name = '',
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $folderList = NULL,
-        ?bool $includeGal = NULL
-    )
-    {
+        string $name = "",
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $folderList = null,
+        ?bool $includeGal = null
+    ) {
         $this->setName($name);
         $this->type = $type;
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if (NULL !== $folderList) {
+        if (null !== $folderList) {
             $this->setFolderList($folderList);
         }
-        if (NULL !== $includeGal) {
+        if (null !== $includeGal) {
             $this->setIncludeGal($includeGal);
         }
     }
@@ -252,8 +251,6 @@ class AutoCompleteRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AutoCompleteEnvelope(
-            new AutoCompleteBody($this)
-        );
+        return new AutoCompleteEnvelope(new AutoCompleteBody($this));
     }
 }

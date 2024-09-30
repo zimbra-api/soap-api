@@ -28,24 +28,24 @@ class IntegerValueAttrib
      * @SerializedName("value")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('int')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("int")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $value
      * @return self
      */
-    public function __construct(?int $value = NULL)
+    public function __construct(?int $value = null)
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

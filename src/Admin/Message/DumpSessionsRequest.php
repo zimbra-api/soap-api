@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DumpSessionsRequest class
  * Dump sessions
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,49 +27,51 @@ class DumpSessionsRequest extends SoapRequest
 {
     /**
      * List Sessions flag
-     * 
+     *
      * @Accessor(getter="getIncludeAccounts", setter="setIncludeAccounts")
      * @SerializedName("listSessions")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeAccounts', setter: 'setIncludeAccounts')]
-    #[SerializedName('listSessions')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeAccounts", setter: "setIncludeAccounts")]
+    #[SerializedName("listSessions")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeAccounts;
 
     /**
      * Group by account flag
-     * 
+     *
      * @Accessor(getter="getGroupByAccount", setter="setGroupByAccount")
      * @SerializedName("groupByAccount")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getGroupByAccount', setter: 'setGroupByAccount')]
-    #[SerializedName('groupByAccount')]
-    #[Type('bool')]
+    #[Accessor(getter: "getGroupByAccount", setter: "setGroupByAccount")]
+    #[SerializedName("groupByAccount")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $groupByAccount;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $includeAccounts
      * @param  bool $groupByAccount
      * @return self
      */
-    public function __construct(?bool $includeAccounts = NULL, ?bool $groupByAccount = NULL)
-    {
-        if (NULL !== $includeAccounts) {
+    public function __construct(
+        ?bool $includeAccounts = null,
+        ?bool $groupByAccount = null
+    ) {
+        if (null !== $includeAccounts) {
             $this->setIncludeAccounts($includeAccounts);
         }
-        if (NULL !== $groupByAccount) {
+        if (null !== $groupByAccount) {
             $this->setGroupByAccount($groupByAccount);
         }
     }
@@ -123,8 +125,6 @@ class DumpSessionsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DumpSessionsEnvelope(
-            new DumpSessionsBody($this)
-        );
+        return new DumpSessionsEnvelope(new DumpSessionsBody($this));
     }
 }

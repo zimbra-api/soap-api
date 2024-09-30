@@ -25,31 +25,29 @@ abstract class BaseExternalVolume
 {
     /**
      * Set to 1 for Internal and 2 for External.
-     * 
+     *
      * @Accessor(getter="getStorageType", setter="setStorageType")
      * @SerializedName("storageType")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStorageType', setter: 'setStorageType')]
-    #[SerializedName('storageType')]
-    #[Type('string')]
+    #[Accessor(getter: "getStorageType", setter: "setStorageType")]
+    #[SerializedName("storageType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $storageType;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $storageType
      * @return self
      */
-    public function __construct(
-        ?string $storageType = NULL
-    )
+    public function __construct(?string $storageType = null)
     {
-        if (NULL !== $storageType) {
+        if (null !== $storageType) {
             $this->setStorageType($storageType);
         }
     }

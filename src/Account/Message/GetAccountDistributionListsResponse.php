@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAccountDistributionListsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,21 +27,21 @@ class GetAccountDistributionListsResponse extends SoapResponse
 {
     /**
      * Information on distribution lists
-     * 
+     *
      * @Accessor(getter="getDlList", setter="setDlList")
      * @Type("array<Zimbra\Account\Struct\DLInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDlList', setter: 'setDlList')]
-    #[Type('array<Zimbra\Account\Struct\DLInfo>')]
-    #[XmlList(inline: true, entry: 'dl', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getDlList", setter: "setDlList")]
+    #[Type("array<Zimbra\Account\Struct\DLInfo>")]
+    #[XmlList(inline: true, entry: "dl", namespace: "urn:zimbraAccount")]
     private $dlList = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $dlList
      * @return self
      */
@@ -59,7 +59,8 @@ class GetAccountDistributionListsResponse extends SoapResponse
     public function setDlList(array $dlList): self
     {
         $this->dlList = array_filter(
-            $dlList, static fn ($dl) => $dl instanceof DLInfo
+            $dlList,
+            static fn($dl) => $dl instanceof DLInfo
         );
         return $this;
     }

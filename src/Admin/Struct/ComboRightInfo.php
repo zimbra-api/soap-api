@@ -29,12 +29,12 @@ class ComboRightInfo
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -43,12 +43,12 @@ class ComboRightInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RightType>")
      * @XmlAttribute
-     * 
+     *
      * @var RightType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\RightType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\RightType>")]
     #[XmlAttribute]
     private RightType $type;
 
@@ -57,30 +57,30 @@ class ComboRightInfo
      * @SerializedName("targetType")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('targetType')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("targetType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetType;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  RightType $type
      * @param  string $targetType
      * @return self
      */
     public function __construct(
-        string $name = '', ?RightType $type = NULL, ?string $targetType = NULL
-    )
-    {
-        $this->setName($name)
-             ->setType($type ?? new RightType('preset'));
-        if (NULL !== $targetType) {
+        string $name = "",
+        ?RightType $type = null,
+        ?string $targetType = null
+    ) {
+        $this->setName($name)->setType($type ?? new RightType("preset"));
+        if (null !== $targetType) {
             $this->setTargetType($targetType);
         }
     }

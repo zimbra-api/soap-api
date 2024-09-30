@@ -29,8 +29,6 @@ class GetServiceStatusRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetServiceStatusEnvelope(
-            new GetServiceStatusBody($this)
-        );
+        return new GetServiceStatusEnvelope(new GetServiceStatusBody($this));
     }
 }

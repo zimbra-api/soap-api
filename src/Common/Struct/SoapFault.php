@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\Fault\{Code, Reason};
 
 /**
  * Soap fault class
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct
@@ -26,47 +26,47 @@ class SoapFault implements SoapFaultInterface
 {
     /**
      * Fault code
-     * 
+     *
      * @Accessor(getter="getFaultCode", setter="setFaultCode")
      * @SerializedName("Code")
      * @Type("Zimbra\Common\Struct\Fault\Code")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var Code
      */
-    #[Accessor(getter: 'getFaultCode', setter: 'setFaultCode')]
-    #[SerializedName('Code')]
+    #[Accessor(getter: "getFaultCode", setter: "setFaultCode")]
+    #[SerializedName("Code")]
     #[Type(Code::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: "http://www.w3.org/2003/05/soap-envelope")]
     private ?Code $faultCode;
 
     /**
      * Fault reason
-     * 
+     *
      * @Accessor(getter="getFaultReason", setter="setFaultReason")
      * @SerializedName("Reason")
      * @Type("Zimbra\Common\Struct\Fault\Reason")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var Reason
      */
-    #[Accessor(getter: 'getFaultReason', setter: 'setFaultReason')]
-    #[SerializedName('Reason')]
+    #[Accessor(getter: "getFaultReason", setter: "setFaultReason")]
+    #[SerializedName("Reason")]
     #[Type(Reason::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: "http://www.w3.org/2003/05/soap-envelope")]
     private ?Reason $faultReason;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Code $faultCode
      * @param  Reason $faultReason
      * @return self
      */
     public function __construct(
-        ?Code $faultCode = NULL, ?Reason $faultReason = NULL
-    )
-    {
+        ?Code $faultCode = null,
+        ?Reason $faultReason = null
+    ) {
         $this->faultCode = $faultCode;
         $this->faultReason = $faultReason;
     }

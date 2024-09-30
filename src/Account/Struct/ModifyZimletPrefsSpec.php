@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\ZimletStatus;
 
 /**
  * ModifyZimletPrefsSpec struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,48 +26,51 @@ class ModifyZimletPrefsSpec
 {
     /**
      * Zimlet name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Zimlet presence setting
      * Valid values : "enabled" | "disabled"
-     * 
+     *
      * @Accessor(getter="getPresence", setter="setPresence")
      * @SerializedName("presence")
      * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var ZimletStatus
      */
-    #[Accessor(getter: 'getPresence', setter: 'setPresence')]
-    #[SerializedName('presence')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletStatus>')]
+    #[Accessor(getter: "getPresence", setter: "setPresence")]
+    #[SerializedName("presence")]
+    #[Type("Enum<Zimbra\Common\Enum\ZimletStatus>")]
     #[XmlAttribute]
     private ZimletStatus $presence;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  ZimletStatus $presence
      * @return self
      */
-    public function __construct(string $name = '', ?ZimletStatus $presence = NULL)
-    {
-        $this->setName($name)
-             ->setPresence($presence ?? new ZimletStatus('enabled'));
+    public function __construct(
+        string $name = "",
+        ?ZimletStatus $presence = null
+    ) {
+        $this->setName($name)->setPresence(
+            $presence ?? new ZimletStatus("enabled")
+        );
     }
 
     /**

@@ -10,13 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ResetPasswordResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,20 +33,20 @@ class ResetPasswordResponse extends SoapResponse
 {
     /**
      * Attrs
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('array<Zimbra\Account\Struct\Attr>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("array<Zimbra\Account\Struct\Attr>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
     private $attrs = [];
 
     /**
@@ -49,9 +55,7 @@ class ResetPasswordResponse extends SoapResponse
      * @param  array   $attrs
      * @return self
      */
-    public function __construct(
-        array $attrs = []
-    )
+    public function __construct(array $attrs = [])
     {
         $this->setAttrs($attrs);
     }
@@ -65,7 +69,8 @@ class ResetPasswordResponse extends SoapResponse
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof Attr
+            $attrs,
+            static fn($attr) => $attr instanceof Attr
         );
         return $this;
     }

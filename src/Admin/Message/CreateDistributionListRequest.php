@@ -33,51 +33,51 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name for distribution list
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * If 1 (true) then create a dynamic distribution list
-     * 
+     *
      * @Accessor(getter="getDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param bool   $dynamic
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '', ?bool $dynamic = NULL, array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setAttrs($attrs);
-        if (NULL !== $dynamic) {
+        string $name = "",
+        ?bool $dynamic = null,
+        array $attrs = []
+    ) {
+        $this->setName($name)->setAttrs($attrs);
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }

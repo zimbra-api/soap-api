@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * TargetWithType struct class
@@ -25,45 +31,45 @@ class TargetWithType
 {
     /**
      * Target type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Value matching target type if this is part of a response (otherwise blank)
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $type Target type
      * @param  string $value Value matching
      * @return self
      */
-    public function __construct(string $type = '', ?string $value = NULL)
+    public function __construct(string $type = "", ?string $value = null)
     {
         $this->setType($type);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Returns {num} number of revisions starting from {version} of the requested document.
  * {num} defaults to 1.  {version} defaults to the current version.
  * Documents that have multiple revisions have the flag "/", which indicates that the document is versioned.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,18 +30,18 @@ class ListDocumentRevisionsRequest extends SoapRequest
 {
     /**
      * Specification for the list of document revisions
-     * 
+     *
      * @Accessor(getter="getDoc", setter="setDoc")
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\ListDocumentRevisionsSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ListDocumentRevisionsSpec
      */
-    #[Accessor(getter: 'getDoc', setter: 'setDoc')]
-    #[SerializedName('doc')]
+    #[Accessor(getter: "getDoc", setter: "setDoc")]
+    #[SerializedName("doc")]
     #[Type(ListDocumentRevisionsSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ListDocumentRevisionsSpec $doc;
 
     /**

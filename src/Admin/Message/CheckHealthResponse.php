@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CheckHealthResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,27 +26,27 @@ class CheckHealthResponse extends SoapResponse
 {
     /**
      * Flags whether healthy or not
-     * 
+     *
      * @Accessor(getter="isHealthy", setter="setHealthy")
      * @SerializedName("healthy")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isHealthy', setter: 'setHealthy')]
-    #[SerializedName('healthy')]
-    #[Type('bool')]
+    #[Accessor(getter: "isHealthy", setter: "setHealthy")]
+    #[SerializedName("healthy")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $healthy;
 
     /**
      * Constructor
-     * 
+     *
      * @param bool $healthy
      * @return self
      */
-    public function __construct(bool $healthy = FALSE)
+    public function __construct(bool $healthy = false)
     {
         $this->setHealthy($healthy);
     }

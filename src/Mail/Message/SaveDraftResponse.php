@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SaveDraftResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,34 +27,34 @@ class SaveDraftResponse extends SoapResponse
 {
     /**
      * Information on saved draft
-     * 
+     *
      * @Accessor(getter="getMsgMessage", setter="setMsgMessage")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MessageInfo
      */
-    #[Accessor(getter: 'getMsgMessage', setter: 'setMsgMessage')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsgMessage", setter: "setMsgMessage")]
+    #[SerializedName("m")]
     #[Type(MessageInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MessageInfo $msgMessage;
 
     /**
      * Information on saved chat draft
-     * 
+     *
      * @Accessor(getter="getChatMessage", setter="setChatMessage")
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatMessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ChatMessageInfo
      */
-    #[Accessor(getter: 'getChatMessage', setter: 'setChatMessage')]
-    #[SerializedName('chat')]
+    #[Accessor(getter: "getChatMessage", setter: "setChatMessage")]
+    #[SerializedName("chat")]
     #[Type(ChatMessageInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ChatMessageInfo $chatMessage;
 
     /**
@@ -63,17 +63,17 @@ class SaveDraftResponse extends SoapResponse
      * @param  MessageInfo $message
      * @return self
      */
-    public function __construct(?MessageInfo $message = NULL)
+    public function __construct(?MessageInfo $message = null)
     {
-        $this->msgMessage = $this->chatMessage = NULL;
-        if (NULL !== $message) {
+        $this->msgMessage = $this->chatMessage = null;
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }
 
     /**
      * Get msg message
-     * 
+     *
      * @return MessageInfo
      */
     public function getMsgMessage(): ?MessageInfo
@@ -83,7 +83,7 @@ class SaveDraftResponse extends SoapResponse
 
     /**
      * Set msg message
-     * 
+     *
      * @param  MessageInfo $message
      * @return self
      */
@@ -95,7 +95,7 @@ class SaveDraftResponse extends SoapResponse
 
     /**
      * Get chat message
-     * 
+     *
      * @return ChatMessageInfo
      */
     public function getChatMessage(): ?ChatMessageInfo
@@ -104,7 +104,7 @@ class SaveDraftResponse extends SoapResponse
     }
     /**
      * Set chat message
-     * 
+     *
      * @param  ChatMessageInfo $message
      * @return self
      */
@@ -116,15 +116,14 @@ class SaveDraftResponse extends SoapResponse
 
     /**
      * Set message
-     * 
+     *
      * @return self
      */
     private function setMessage(MessageInfo $message): self
     {
         if ($message instanceof ChatMessageInfo) {
             $this->chatMessage = $message;
-        }
-        else {
+        } else {
             $this->msgMessage = $message;
         }
         return $this;

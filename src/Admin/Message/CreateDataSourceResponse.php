@@ -27,18 +27,18 @@ class CreateDataSourceResponse extends SoapResponse
 {
     /**
      * Details of created data source
-     * 
+     *
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DataSourceInfo
      */
-    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
-    #[SerializedName('dataSource')]
+    #[Accessor(getter: "getDataSource", setter: "setDataSource")]
+    #[SerializedName("dataSource")]
     #[Type(DataSourceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DataSourceInfo $dataSource;
 
     /**
@@ -47,7 +47,7 @@ class CreateDataSourceResponse extends SoapResponse
      * @param DataSourceInfo $dataSource
      * @return self
      */
-    public function __construct(?DataSourceInfo $dataSource = NULL)
+    public function __construct(?DataSourceInfo $dataSource = null)
     {
         $this->dataSource = $dataSource;
     }

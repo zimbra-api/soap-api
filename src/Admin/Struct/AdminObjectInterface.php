@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Struct;
 
 /**
  * AdminObjectInterface interface
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct

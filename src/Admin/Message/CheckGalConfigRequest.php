@@ -30,51 +30,52 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Query
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\LimitedQuery")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var LimitedQuery
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
     #[Type(LimitedQuery::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?LimitedQuery $query;
 
     /**
      * GAL action
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param  LimitedQuery $query
      * @param  string $action
      * @param  array  $attrs
      * @return self
      */
     public function __construct(
-        ?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = []
-    )
-    {
+        ?LimitedQuery $query = null,
+        ?string $action = null,
+        array $attrs = []
+    ) {
         $this->setAttrs($attrs);
         $this->query = $query;
-        if (NULL !== $action) {
+        if (null !== $action) {
             $this->setAction($action);
         }
     }
@@ -128,8 +129,6 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckGalConfigEnvelope(
-            new CheckGalConfigBody($this)
-        );
+        return new CheckGalConfigEnvelope(new CheckGalConfigBody($this));
     }
 }

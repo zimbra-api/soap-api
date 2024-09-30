@@ -29,27 +29,27 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
 {
     /**
      * Provider
-     * 
+     *
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var NamedElement
      */
-    #[Accessor(getter: 'getProvider', setter: 'setProvider')]
-    #[SerializedName('provider')]
+    #[Accessor(getter: "getProvider", setter: "setProvider")]
+    #[SerializedName("provider")]
     #[Type(NamedElement::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?NamedElement $provider;
 
     /**
      * Constructor
-     * 
+     *
      * @param  NamedElement $provider
      * @return self
      */
-    public function __construct(?NamedElement $provider = NULL)
+    public function __construct(?NamedElement $provider = null)
     {
         $this->provider = $provider;
     }

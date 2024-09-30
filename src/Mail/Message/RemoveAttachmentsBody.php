@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RemoveAttachmentsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class RemoveAttachmentsBody extends SoapBody
      * @SerializedName("RemoveAttachmentsRequest")
      * @Type("Zimbra\Mail\Message\RemoveAttachmentsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RemoveAttachmentsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RemoveAttachmentsRequest")]
     #[Type(RemoveAttachmentsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RemoveAttachmentsResponse")
      * @Type("Zimbra\Mail\Message\RemoveAttachmentsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RemoveAttachmentsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RemoveAttachmentsResponse")]
     #[Type(RemoveAttachmentsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RemoveAttachmentsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveAttachmentsRequest $request = NULL, ?RemoveAttachmentsResponse $response = NULL
-    )
-    {
+        ?RemoveAttachmentsRequest $request = null,
+        ?RemoveAttachmentsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

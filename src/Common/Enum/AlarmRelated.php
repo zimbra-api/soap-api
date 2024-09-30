@@ -27,11 +27,11 @@ class AlarmRelated extends Enum
      * Constant for value 'START'
      * @return string 'START'
      */
-    protected const START = 'START';
+    protected const START = "START";
 
     /**
      * Constant for value 'END'
      * @return string 'END'
      */
-    protected const END = 'END';
+    protected const END = "END";
 }

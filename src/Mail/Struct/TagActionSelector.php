@@ -25,18 +25,18 @@ class TagActionSelector extends ActionSelector
 {
     /**
      * Retention policy
-     * 
+     *
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var RetentionPolicy
      */
-    #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
-    #[SerializedName('retentionPolicy')]
+    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[SerializedName("retentionPolicy")]
     #[Type(RetentionPolicy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RetentionPolicy $retentionPolicy;
 
     /**
@@ -59,22 +59,21 @@ class TagActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
-        ?RetentionPolicy $retentionPolicy = NULL,
-        ?string $ids = NULL,
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
-    )
-    {
+        string $operation = "",
+        ?RetentionPolicy $retentionPolicy = null,
+        ?string $ids = null,
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
+    ) {
         parent::__construct(
             $operation,
             $ids,

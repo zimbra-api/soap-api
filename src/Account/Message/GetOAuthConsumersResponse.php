@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetOAuthConsumersResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,16 +27,22 @@ class GetOAuthConsumersResponse extends SoapResponse
 {
     /**
      * Consumers
-     * 
+     *
      * @Accessor(getter="getConsumers", setter="setConsumers")
      * @Type("array<Zimbra\Account\Struct\OAuthConsumer>")
      * @XmlList(inline=true, entry="OAuthConsumer", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getConsumers', setter: 'setConsumers')]
-    #[Type('array<Zimbra\Account\Struct\OAuthConsumer>')]
-    #[XmlList(inline: true, entry: 'OAuthConsumer', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getConsumers", setter: "setConsumers")]
+    #[Type("array<Zimbra\Account\Struct\OAuthConsumer>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "OAuthConsumer",
+            namespace: "urn:zimbraAccount"
+        )
+    ]
     private $consumers = [];
 
     /**
@@ -59,7 +65,8 @@ class GetOAuthConsumersResponse extends SoapResponse
     public function setConsumers(array $consumers): self
     {
         $this->consumers = array_filter(
-            $consumers, static fn ($consumer) => $consumer instanceof OAuthConsumer
+            $consumers,
+            static fn($consumer) => $consumer instanceof OAuthConsumer
         );
         return $this;
     }

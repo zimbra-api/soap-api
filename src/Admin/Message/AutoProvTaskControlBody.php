@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * AutoProvTaskControlBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class AutoProvTaskControlBody extends SoapBody
      * @SerializedName("AutoProvTaskControlRequest")
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('AutoProvTaskControlRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("AutoProvTaskControlRequest")]
     #[Type(AutoProvTaskControlRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("AutoProvTaskControlResponse")
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('AutoProvTaskControlResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("AutoProvTaskControlResponse")]
     #[Type(AutoProvTaskControlResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class AutoProvTaskControlBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AutoProvTaskControlRequest $request = NULL, ?AutoProvTaskControlResponse $response = NULL
-    )
-    {
+        ?AutoProvTaskControlRequest $request = null,
+        ?AutoProvTaskControlResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

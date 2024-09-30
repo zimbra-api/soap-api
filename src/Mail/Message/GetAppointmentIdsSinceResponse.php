@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAppointmentIdsSinceResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,30 +26,30 @@ class GetAppointmentIdsSinceResponse extends SoapResponse
 {
     /**
      * Appointment data
-     * 
+     *
      * @Accessor(getter="getMids", setter="setMids")
      * @Type("array<int>")
      * @XmlList(inline=true, entry="mids", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMids', setter: 'setMids')]
-    #[Type('array<int>')]
-    #[XmlList(inline: true, entry: 'mids', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMids", setter: "setMids")]
+    #[Type("array<int>")]
+    #[XmlList(inline: true, entry: "mids", namespace: "urn:zimbraMail")]
     private $mids = [];
 
     /**
      * Appointment data
-     * 
+     *
      * @Accessor(getter="getDids", setter="setDids")
      * @Type("array<int>")
      * @XmlList(inline=true, entry="dids", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDids', setter: 'setDids')]
-    #[Type('array<int>')]
-    #[XmlList(inline: true, entry: 'dids', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDids", setter: "setDids")]
+    #[Type("array<int>")]
+    #[XmlList(inline: true, entry: "dids", namespace: "urn:zimbraMail")]
     private $dids = [];
 
     /**
@@ -59,13 +59,9 @@ class GetAppointmentIdsSinceResponse extends SoapResponse
      * @param  array $mids
      * @return self
      */
-    public function __construct(
-        array $mids = [],
-        array $dids = []
-    )
+    public function __construct(array $mids = [], array $dids = [])
     {
-        $this->setMids($mids)
-             ->setDids($dids);
+        $this->setMids($mids)->setDids($dids);
     }
 
     /**

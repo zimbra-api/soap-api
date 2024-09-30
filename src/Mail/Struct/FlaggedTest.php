@@ -25,36 +25,35 @@ class FlaggedTest extends FilterTest
 {
     /**
      * Flag name - flagged|read|priority
-     * 
+     *
      * @Accessor(getter="getFlag", setter="setFlag")
      * @SerializedName("flagName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlag', setter: 'setFlag')]
-    #[SerializedName('flagName')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlag", setter: "setFlag")]
+    #[SerializedName("flagName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flag;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $flag
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $flag = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
-        if (NULL !== $flag) {
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $flag = null
+    ) {
+        parent::__construct($index, $negative);
+        if (null !== $flag) {
             $this->setFlag($flag);
         }
     }

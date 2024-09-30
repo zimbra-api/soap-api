@@ -25,47 +25,47 @@ class AppointmentIdAndDate
 {
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Date
-     * 
+     *
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $date
      * @return self
      */
-    public function __construct(string $id = '', ?int $date = NULL)
+    public function __construct(string $id = "", ?int $date = null)
     {
         $this->setId($id);
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
     }

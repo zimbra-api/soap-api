@@ -25,119 +25,119 @@ class TzOnsetInfo
 {
     /**
      * Month; 1=January, 2=February, etc.
-     * 
+     *
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
-    #[SerializedName('mon')]
-    #[Type('int')]
+    #[Accessor(getter: "getMonth", setter: "setMonth")]
+    #[SerializedName("mon")]
+    #[Type("int")]
     #[XmlAttribute]
     private $month;
 
     /**
      * Transition hour (0..23)
-     * 
+     *
      * @Accessor(getter="getHour", setter="setHour")
      * @SerializedName("hour")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getHour', setter: 'setHour')]
-    #[SerializedName('hour')]
-    #[Type('int')]
+    #[Accessor(getter: "getHour", setter: "setHour")]
+    #[SerializedName("hour")]
+    #[Type("int")]
     #[XmlAttribute]
     private $hour;
 
     /**
      * Transition minute (0..59)
-     * 
+     *
      * @Accessor(getter="getMinute", setter="setMinute")
      * @SerializedName("min")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMinute', setter: 'setMinute')]
-    #[SerializedName('min')]
-    #[Type('int')]
+    #[Accessor(getter: "getMinute", setter: "setMinute")]
+    #[SerializedName("min")]
+    #[Type("int")]
     #[XmlAttribute]
     private $minute;
 
     /**
      * Transition second; 0..59, usually 0
-     * 
+     *
      * @Accessor(getter="getSecond", setter="setSecond")
      * @SerializedName("sec")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSecond', setter: 'setSecond')]
-    #[SerializedName('sec')]
-    #[Type('int')]
+    #[Accessor(getter: "getSecond", setter: "setSecond")]
+    #[SerializedName("sec")]
+    #[Type("int")]
     #[XmlAttribute]
     private $second;
 
     /**
      * Day of month (1..31)
-     * 
+     *
      * @Accessor(getter="getDayOfMonth", setter="setDayOfMonth")
      * @SerializedName("mday")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDayOfMonth', setter: 'setDayOfMonth')]
-    #[SerializedName('mday')]
-    #[Type('int')]
+    #[Accessor(getter: "getDayOfMonth", setter: "setDayOfMonth")]
+    #[SerializedName("mday")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dayOfMonth;
 
     /**
      * Week number; 1=first, 2=second, 3=third, 4=fourth, -1=last
-     * 
+     *
      * @Accessor(getter="getWeek", setter="setWeek")
      * @SerializedName("week")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getWeek', setter: 'setWeek')]
-    #[SerializedName('week')]
-    #[Type('int')]
+    #[Accessor(getter: "getWeek", setter: "setWeek")]
+    #[SerializedName("week")]
+    #[Type("int")]
     #[XmlAttribute]
     private $week;
 
     /**
      * Day of week; 1=Sunday, 2=Monday, etc.
-     * 
+     *
      * @Accessor(getter="getDayOfWeek", setter="setDayOfWeek")
      * @SerializedName("wkday")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDayOfWeek', setter: 'setDayOfWeek')]
-    #[SerializedName('wkday')]
-    #[Type('int')]
+    #[Accessor(getter: "getDayOfWeek", setter: "setDayOfWeek")]
+    #[SerializedName("wkday")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dayOfWeek;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $month
      * @param int $hour
      * @param int $minute
@@ -152,23 +152,22 @@ class TzOnsetInfo
         int $hour = 0,
         int $minute = 0,
         int $second = 0,
-        ?int $dayOfMonth = NULL,
-        ?int $week = NULL,
-        ?int $dayOfWeek = NULL
-    )
-    {
+        ?int $dayOfMonth = null,
+        ?int $week = null,
+        ?int $dayOfWeek = null
+    ) {
         $this->setMonth($month)
-             ->setHour($hour)
-             ->setMinute($minute)
-             ->setSecond($second);
+            ->setHour($hour)
+            ->setMinute($minute)
+            ->setSecond($second);
 
-        if (NULL !== $dayOfMonth) {
+        if (null !== $dayOfMonth) {
             $this->setDayOfMonth($dayOfMonth);
         }
-        if (NULL !== $week) {
+        if (null !== $week) {
             $this->setWeek($week);
         }
-        if (NULL !== $dayOfWeek) {
+        if (null !== $dayOfWeek) {
             $this->setDayOfWeek($dayOfWeek);
         }
     }

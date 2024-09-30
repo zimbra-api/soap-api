@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\VolumeType;
 
 /**
@@ -26,264 +32,279 @@ class VolumeInfo
 {
     /**
      * Volume ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Name or description of volume
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
-     * 
+     *
      * @Accessor(getter="getRootPath", setter="setRootPath")
      * @SerializedName("rootpath")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRootPath', setter: 'setRootPath')]
-    #[SerializedName('rootpath')]
-    #[Type('string')]
+    #[Accessor(getter: "getRootPath", setter: "setRootPath")]
+    #[SerializedName("rootpath")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rootPath;
 
     /**
      * Volume type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('int')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("int")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Specifies whether blobs in this volume are compressed
-     * 
+     *
      * @Accessor(getter="getCompressBlobs", setter="setCompressBlobs")
      * @SerializedName("compressBlobs")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCompressBlobs', setter: 'setCompressBlobs')]
-    #[SerializedName('compressBlobs')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCompressBlobs", setter: "setCompressBlobs")]
+    #[SerializedName("compressBlobs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $compressBlobs;
 
     /**
      * Long value that specifies the maximum uncompressed file size, in bytes, of blobs
      * that will not be compressed (in other words blobs larger than this threshold are compressed)
-     * 
+     *
      * @Accessor(getter="getCompressionThreshold", setter="setCompressionThreshold")
      * @SerializedName("compressionThreshold")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCompressionThreshold', setter: 'setCompressionThreshold')]
-    #[SerializedName('compressionThreshold')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getCompressionThreshold",
+            setter: "setCompressionThreshold"
+        )
+    ]
+    #[SerializedName("compressionThreshold")]
+    #[Type("int")]
     #[XmlAttribute]
     private $compressionThreshold;
 
     /**
      * The mgbits
-     * 
+     *
      * @Accessor(getter="getMgbits", setter="setMgbits")
      * @SerializedName("mgbits")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMgbits', setter: 'setMgbits')]
-    #[SerializedName('mgbits')]
-    #[Type('int')]
+    #[Accessor(getter: "getMgbits", setter: "setMgbits")]
+    #[SerializedName("mgbits")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mgbits;
 
     /**
      * The mbits
-     * 
+     *
      * @Accessor(getter="getMbits", setter="setMbits")
      * @SerializedName("mbits")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMbits', setter: 'setMbits')]
-    #[SerializedName('mbits')]
-    #[Type('int')]
+    #[Accessor(getter: "getMbits", setter: "setMbits")]
+    #[SerializedName("mbits")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mbits;
 
     /**
      * The fgbits
-     * 
+     *
      * @Accessor(getter="getFgbits", setter="setFgbits")
      * @SerializedName("fgbits")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFgbits', setter: 'setFgbits')]
-    #[SerializedName('fgbits')]
-    #[Type('int')]
+    #[Accessor(getter: "getFgbits", setter: "setFgbits")]
+    #[SerializedName("fgbits")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fgbits;
 
     /**
      * The fbits
-     * 
+     *
      * @Accessor(getter="getFbits", setter="setFbits")
      * @SerializedName("fbits")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFbits', setter: 'setFbits')]
-    #[SerializedName('fbits')]
-    #[Type('int')]
+    #[Accessor(getter: "getFbits", setter: "setFbits")]
+    #[SerializedName("fbits")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fbits;
 
     /**
      * Set if the volume is current.
-     * 
+     *
      * @Accessor(getter="getIsCurrent", setter="setIsCurrent")
      * @SerializedName("isCurrent")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsCurrent', setter: 'setIsCurrent')]
-    #[SerializedName('isCurrent')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsCurrent", setter: "setIsCurrent")]
+    #[SerializedName("isCurrent")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isCurrent;
 
     /**
      * Set if the volume is current.
-     * 
+     *
      * @Accessor(getter="getCurrent", setter="setCurrent")
      * @SerializedName("current")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCurrent', setter: 'setCurrent')]
-    #[SerializedName('current')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCurrent", setter: "setCurrent")]
+    #[SerializedName("current")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $current;
 
     /**
      * Set to 1 for internal volumes and 2 for external volumes
-     * 
+     *
      * @Accessor(getter="getStoreType", setter="setStoreType")
      * @SerializedName("storeType")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStoreType', setter: 'setStoreType')]
-    #[SerializedName('storeType')]
-    #[Type('int')]
+    #[Accessor(getter: "getStoreType", setter: "setStoreType")]
+    #[SerializedName("storeType")]
+    #[Type("int")]
     #[XmlAttribute]
     private $storeType;
 
     /**
      * Store Manager Class
-     * 
+     *
      * @Accessor(getter="getStoreManagerClass", setter="setStoreManagerClass")
      * @SerializedName("storeManagerClass")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStoreManagerClass', setter: 'setStoreManagerClass')]
-    #[SerializedName('storeManagerClass')]
-    #[Type('string')]
+    #[Accessor(getter: "getStoreManagerClass", setter: "setStoreManagerClass")]
+    #[SerializedName("storeManagerClass")]
+    #[Type("string")]
     #[XmlAttribute]
     private $storeManagerClass;
 
     /**
      * Volume external information for S3
-     * 
+     *
      * @Accessor(getter="getVolumeExternalInfo", setter="setVolumeExternalInfo")
      * @SerializedName("volumeExternalInfo")
      * @Type("Zimbra\Admin\Struct\VolumeExternalInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var VolumeExternalInfo
      */
-    #[Accessor(getter: 'getVolumeExternalInfo', setter: 'setVolumeExternalInfo')]
-    #[SerializedName('volumeExternalInfo')]
+    #[
+        Accessor(
+            getter: "getVolumeExternalInfo",
+            setter: "setVolumeExternalInfo"
+        )
+    ]
+    #[SerializedName("volumeExternalInfo")]
     #[Type(VolumeExternalInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?VolumeExternalInfo $volumeExternalInfo;
 
     /**
      * Volume external information for OpenIO
-     * 
+     *
      * @Accessor(getter="getVolumeExternalOpenIOInfo", setter="setVolumeExternalOpenIOInfo")
      * @SerializedName("volumeExternalOpenIOInfo")
      * @Type("Zimbra\Admin\Struct\VolumeExternalOpenIOInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var VolumeExternalOpenIOInfo
      */
-    #[Accessor(getter: 'getVolumeExternalOpenIOInfo', setter: 'setVolumeExternalOpenIOInfo')]
-    #[SerializedName('volumeExternalOpenIOInfo')]
+    #[
+        Accessor(
+            getter: "getVolumeExternalOpenIOInfo",
+            setter: "setVolumeExternalOpenIOInfo"
+        )
+    ]
+    #[SerializedName("volumeExternalOpenIOInfo")]
     #[Type(VolumeExternalOpenIOInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo;
 
     /**
      * Constructor
-     * 
+     *
      * @param int    $id
      * @param string $name
      * @param string $rootPath
@@ -303,66 +324,65 @@ class VolumeInfo
      * @return self
      */
     public function __construct(
-        ?int $id = NULL,
-        ?string $name = NULL,
-        ?string $rootPath = NULL,
-        ?int $type = NULL,
-        ?bool $compressBlobs = NULL,
-        ?int $compressionThreshold = NULL,
-        ?int $mgbits = NULL,
-        ?int $mbits = NULL,
-        ?int $fgbits = NULL,
-        ?int $fbits = NULL,
-        ?bool $isCurrent = NULL,
-        ?bool $current = NULL,
-        ?int $storeType = NULL,
-        ?string $storeManagerClass = NULL,
-        ?VolumeExternalInfo $volumeExternalInfo = NULL,
-        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = NULL
-    )
-    {
+        ?int $id = null,
+        ?string $name = null,
+        ?string $rootPath = null,
+        ?int $type = null,
+        ?bool $compressBlobs = null,
+        ?int $compressionThreshold = null,
+        ?int $mgbits = null,
+        ?int $mbits = null,
+        ?int $fgbits = null,
+        ?int $fbits = null,
+        ?bool $isCurrent = null,
+        ?bool $current = null,
+        ?int $storeType = null,
+        ?string $storeManagerClass = null,
+        ?VolumeExternalInfo $volumeExternalInfo = null,
+        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = null
+    ) {
         $this->volumeExternalInfo = $volumeExternalInfo;
         $this->volumeExternalOpenIOInfo = $volumeExternalOpenIOInfo;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $rootPath) {
+        if (null !== $rootPath) {
             $this->setRootPath($rootPath);
         }
-        if (NULL !== $type) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (NULL !== $compressBlobs) {
+        if (null !== $compressBlobs) {
             $this->setCompressBlobs($compressBlobs);
         }
-        if (NULL !== $compressionThreshold) {
+        if (null !== $compressionThreshold) {
             $this->setCompressionThreshold($compressionThreshold);
         }
-        if (NULL !== $mgbits) {
+        if (null !== $mgbits) {
             $this->setMgbits($mgbits);
         }
-        if (NULL !== $mbits) {
+        if (null !== $mbits) {
             $this->setMbits($mbits);
         }
-        if (NULL !== $fgbits) {
+        if (null !== $fgbits) {
             $this->setFgbits($fgbits);
         }
-        if (NULL !== $fbits) {
+        if (null !== $fbits) {
             $this->setFbits($fbits);
         }
-        if (NULL !== $isCurrent) {
+        if (null !== $isCurrent) {
             $this->setIsCurrent($isCurrent);
         }
-        if (NULL !== $current) {
+        if (null !== $current) {
             $this->setCurrent($current);
         }
-        if (NULL !== $storeType) {
+        if (null !== $storeType) {
             $this->setStoreType($storeType);
         }
-        if (NULL !== $storeManagerClass) {
+        if (null !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
         }
     }
@@ -609,7 +629,6 @@ class VolumeInfo
         return $this;
     }
 
-
     /**
      * Get is current
      *
@@ -692,8 +711,9 @@ class VolumeInfo
      * @param  VolumeExternalInfo $volumeExternalInfo
      * @return self
      */
-    public function setVolumeExternalInfo(VolumeExternalInfo $volumeExternalInfo): self
-    {
+    public function setVolumeExternalInfo(
+        VolumeExternalInfo $volumeExternalInfo
+    ): self {
         $this->volumeExternalInfo = $volumeExternalInfo;
         return $this;
     }
@@ -714,8 +734,9 @@ class VolumeInfo
      * @param  VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo
      * @return self
      */
-    public function setVolumeExternalOpenIOInfo(VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo): self
-    {
+    public function setVolumeExternalOpenIOInfo(
+        VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo
+    ): self {
         $this->volumeExternalOpenIOInfo = $volumeExternalOpenIOInfo;
         return $this;
     }

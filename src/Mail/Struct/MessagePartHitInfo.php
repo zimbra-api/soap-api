@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\SearchHit;
 
 /**
@@ -26,176 +32,176 @@ class MessagePartHitInfo implements SearchHit
 {
     /**
      * Message ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Sort field value
-     * 
+     *
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Size in bytes
-     * 
+     *
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Secs since epoch, from date header in message
-     * 
+     *
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Converstation id. only present if <m> is not enclosed within a <c> element
-     * 
+     *
      * @Accessor(getter="getConversationId", setter="setConversationId")
      * @SerializedName("cid")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
-    #[SerializedName('cid')]
-    #[Type('int')]
+    #[Accessor(getter: "getConversationId", setter: "setConversationId")]
+    #[SerializedName("cid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $conversationId;
 
     /**
      * Message item ID
-     * 
+     *
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('int')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Content type
-     * 
+     *
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * File name
-     * 
+     *
      * @Accessor(getter="getContentName", setter="setContentName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentName', setter: 'setContentName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentName", setter: "setContentName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentName;
 
     /**
      * MIME part name
-     * 
+     *
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Email address information
-     * 
+     *
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\EmailInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var EmailInfo
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('e')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("e")]
     #[Type(EmailInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?EmailInfo $email;
 
     /**
      * Subject
-     * 
+     *
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $subject;
 
     /**
@@ -215,48 +221,47 @@ class MessagePartHitInfo implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?int $conversationId = NULL,
-        ?int $messageId = NULL,
-        ?string $contentType = NULL,
-        ?string $contentName = NULL,
-        ?string $part = NULL,
-        ?EmailInfo $email = NULL,
-        ?string $subject = NULL
-    )
-    {
+        ?string $id = null,
+        ?string $sortField = null,
+        ?int $size = null,
+        ?int $date = null,
+        ?int $conversationId = null,
+        ?int $messageId = null,
+        ?string $contentType = null,
+        ?string $contentName = null,
+        ?string $part = null,
+        ?EmailInfo $email = null,
+        ?string $subject = null
+    ) {
         $this->email = $email;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $conversationId) {
+        if (null !== $conversationId) {
             $this->setConversationId($conversationId);
         }
-        if (NULL !== $messageId) {
+        if (null !== $messageId) {
             $this->setMessageId($messageId);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $contentName) {
+        if (null !== $contentName) {
             $this->setContentName($contentName);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
     }

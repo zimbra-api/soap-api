@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * AddCommentResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,18 +26,18 @@ class AddCommentResponse extends SoapResponse
 {
     /**
      * Item ID for the comment
-     * 
+     *
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getComment', setter: 'setComment')]
-    #[SerializedName('comment')]
+    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[SerializedName("comment")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Id $comment;
 
     /**
@@ -46,7 +46,7 @@ class AddCommentResponse extends SoapResponse
      * @param  Id $comment
      * @return self
      */
-    public function __construct(?Id $comment = NULL)
+    public function __construct(?Id $comment = null)
     {
         $this->comment = $comment;
     }

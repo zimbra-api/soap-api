@@ -9,7 +9,13 @@
  */
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace
+};
 
 /**
  * Soap envelope class
@@ -21,7 +27,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNa
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  * @XmlNamespace(uri="http://www.w3.org/2003/05/soap-envelope", prefix="soap")
  */
-#[XmlNamespace(uri: 'http://www.w3.org/2003/05/soap-envelope', prefix: 'soap')]
+#[XmlNamespace(uri: "http://www.w3.org/2003/05/soap-envelope", prefix: "soap")]
 abstract class SoapEnvelope implements SoapEnvelopeInterface
 {
     /**
@@ -29,26 +35,26 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
      * @SerializedName("Header")
      * @Type("Zimbra\Common\Struct\SoapHeader")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var SoapHeaderInterface
      */
-    #[Accessor(getter: 'getHeader', setter: 'setHeader')]
-    #[SerializedName('Header')]
+    #[Accessor(getter: "getHeader", setter: "setHeader")]
+    #[SerializedName("Header")]
     #[Type(SoapHeader::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: "http://www.w3.org/2003/05/soap-envelope")]
     private ?SoapHeaderInterface $header;
 
     /**
      * Constructor
-     * 
+     *
      * @param  SoapBodyInterface $body
      * @param  SoapHeaderInterface $header
      * @return self
      */
     public function __construct(
-        ?SoapBodyInterface $body = NULL, ?SoapHeaderInterface $header = NULL
-    )
-    {
+        ?SoapBodyInterface $body = null,
+        ?SoapHeaderInterface $header = null
+    ) {
         $this->header = $header;
         if ($body instanceof SoapBodyInterface) {
             $this->setBody($body);

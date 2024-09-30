@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllFreeBusyProvidersRequest class
  * Get all free/busy providers
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

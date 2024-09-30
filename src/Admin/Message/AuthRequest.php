@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -27,130 +33,135 @@ class AuthRequest extends SoapRequest
 {
     /**
      * Name. Only one of {auth-name} or <account> can be specified
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Password - must be present if not using AuthToken
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * An authToken can be passed instead of account/password/name to validate an existing auth authToken.
-     * 
+     *
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $authToken;
 
     /**
      * The account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * Virtual host
-     * 
+     *
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName('virtualHost')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getVirtualHost", setter: "setVirtualHost")]
+    #[SerializedName("virtualHost")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $virtualHost;
 
     /**
      * Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
-     * 
+     *
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
-    #[SerializedName('persistAuthTokenCookie')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getPersistAuthTokenCookie",
+            setter: "setPersistAuthTokenCookie"
+        )
+    ]
+    #[SerializedName("persistAuthTokenCookie")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $persistAuthTokenCookie;
 
     /**
      * Controls whether the client supports CSRF token
-     * 
+     *
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
-    #[SerializedName('csrfTokenSecured')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCsrfSupported", setter: "setCsrfSupported")]
+    #[SerializedName("csrfTokenSecured")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $csrfSupported;
 
     /**
      * The TOTP code used for two-factor authentication
-     * 
+     *
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
-    #[SerializedName('twoFactorCode')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getTwoFactorCode", setter: "setTwoFactorCode")]
+    #[SerializedName("twoFactorCode")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $twoFactorCode;
 
     /**
@@ -167,36 +178,35 @@ class AuthRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $password = NULL,
-        ?string $authToken = NULL,
-        ?AccountSelector $account = NULL,
-        ?string $virtualHost = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL
-    )
-    {
+        ?string $name = null,
+        ?string $password = null,
+        ?string $authToken = null,
+        ?AccountSelector $account = null,
+        ?string $virtualHost = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null
+    ) {
         $this->account = $account;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $password){
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $authToken) {
+        if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if (NULL !== $virtualHost) {
+        if (null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
-        if (NULL !== $persistAuthTokenCookie) {
+        if (null !== $persistAuthTokenCookie) {
             $this->setPersistAuthTokenCookie($persistAuthTokenCookie);
         }
-        if (NULL !== $csrfSupported) {
+        if (null !== $csrfSupported) {
             $this->setCsrfSupported($csrfSupported);
         }
-        if (NULL !== $twoFactorCode) {
+        if (null !== $twoFactorCode) {
             $this->setTwoFactorCode($twoFactorCode);
         }
     }
@@ -327,8 +337,9 @@ class AuthRequest extends SoapRequest
      * @param  bool $persistAuthTokenCookie
      * @return self
      */
-    public function setPersistAuthTokenCookie(bool $persistAuthTokenCookie): self
-    {
+    public function setPersistAuthTokenCookie(
+        bool $persistAuthTokenCookie
+    ): self {
         $this->persistAuthTokenCookie = $persistAuthTokenCookie;
         return $this;
     }
@@ -382,8 +393,6 @@ class AuthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AuthEnvelope(
-            new AuthBody($this)
-        );
+        return new AuthEnvelope(new AuthBody($this));
     }
 }

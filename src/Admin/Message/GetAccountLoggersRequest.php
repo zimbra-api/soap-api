@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
  * GetAccountLoggersRequest class
  * Returns custom loggers created for the given account since the last server start.
  * If the request is sent to a server other than the one that the account resides on, it is proxied to the correct server.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,47 +28,49 @@ class GetAccountLoggersRequest extends SoapRequest
 {
     /**
      * Deprecated - use account instead
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $id;
 
     /**
      * Use to select account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  AccountSelector $account
      * @return self
      */
-    public function __construct(?string $id = NULL, ?AccountSelector $account = NULL)
-    {
+    public function __construct(
+        ?string $id = null,
+        ?AccountSelector $account = null
+    ) {
         $this->account = $account;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }
@@ -122,8 +124,6 @@ class GetAccountLoggersRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAccountLoggersEnvelope(
-            new GetAccountLoggersBody($this)
-        );
+        return new GetAccountLoggersEnvelope(new GetAccountLoggersBody($this));
     }
 }

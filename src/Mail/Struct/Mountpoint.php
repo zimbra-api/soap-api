@@ -25,119 +25,119 @@ class Mountpoint extends Folder
 {
     /**
      * Primary email address of the owner of the linked-to resource
-     * 
+     *
      * @Accessor(getter="getOwnerEmail", setter="setOwnerEmail")
      * @SerializedName("owner")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
-    #[SerializedName('owner')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerEmail", setter: "setOwnerEmail")]
+    #[SerializedName("owner")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerEmail;
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
-     * 
+     *
      * @Accessor(getter="getOwnerAccountId", setter="setOwnerAccountId")
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerAccountId", setter: "setOwnerAccountId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerAccountId;
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
-     * 
+     *
      * @Accessor(getter="getRemoteFolderId", setter="setRemoteFolderId")
      * @SerializedName("rid")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRemoteFolderId', setter: 'setRemoteFolderId')]
-    #[SerializedName('rid')]
-    #[Type('int')]
+    #[Accessor(getter: "getRemoteFolderId", setter: "setRemoteFolderId")]
+    #[SerializedName("rid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $remoteFolderId;
 
     /**
      * UUID of the linked-to resource in the remote mailbox
-     * 
+     *
      * @Accessor(getter="getRemoteUuid", setter="setRemoteUuid")
      * @SerializedName("ruuid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRemoteUuid', setter: 'setRemoteUuid')]
-    #[SerializedName('ruuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getRemoteUuid", setter: "setRemoteUuid")]
+    #[SerializedName("ruuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $remoteUuid;
 
     /**
      * The name presently used for the item by the owner
-     * 
+     *
      * @Accessor(getter="getRemoteFolderName", setter="setRemoteFolderName")
      * @SerializedName("oname")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRemoteFolderName', setter: 'setRemoteFolderName')]
-    #[SerializedName('oname')]
-    #[Type('string')]
+    #[Accessor(getter: "getRemoteFolderName", setter: "setRemoteFolderName")]
+    #[SerializedName("oname")]
+    #[Type("string")]
     #[XmlAttribute]
     private $remoteFolderName;
 
     /**
      * If set, client should display reminders for shared appointments/tasks
-     * 
+     *
      * @Accessor(getter="getReminderEnabled", setter="setReminderEnabled")
      * @SerializedName("reminder")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
-    #[SerializedName('reminder')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReminderEnabled", setter: "setReminderEnabled")]
+    #[SerializedName("reminder")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $reminderEnabled;
 
     /**
      * If "tr" is true in the request, broken is set if this is a broken link
-     * 
+     *
      * @Accessor(getter="getBroken", setter="setBroken")
      * @SerializedName("broken")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBroken', setter: 'setBroken')]
-    #[SerializedName('broken')]
-    #[Type('bool')]
+    #[Accessor(getter: "getBroken", setter: "setBroken")]
+    #[SerializedName("broken")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $broken;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $uuid
      * @param  string $ownerEmail
@@ -150,37 +150,36 @@ class Mountpoint extends Folder
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $uuid = '',
-        ?string $ownerEmail = NULL,
-        ?string $ownerAccountId = NULL,
-        ?int $remoteFolderId = NULL,
-        ?string $remoteUuid = NULL,
-        ?string $remoteFolderName = NULL,
-        ?bool $reminderEnabled = NULL,
-        ?bool $broken = NULL
-    )
-    {
-    	parent::__construct($id, $uuid);
-        if (NULL !== $ownerEmail) {
+        string $id = "",
+        string $uuid = "",
+        ?string $ownerEmail = null,
+        ?string $ownerAccountId = null,
+        ?int $remoteFolderId = null,
+        ?string $remoteUuid = null,
+        ?string $remoteFolderName = null,
+        ?bool $reminderEnabled = null,
+        ?bool $broken = null
+    ) {
+        parent::__construct($id, $uuid);
+        if (null !== $ownerEmail) {
             $this->setOwnerEmail($ownerEmail);
         }
-        if (NULL !== $ownerAccountId) {
+        if (null !== $ownerAccountId) {
             $this->setOwnerAccountId($ownerAccountId);
         }
-        if (NULL !== $remoteFolderId) {
+        if (null !== $remoteFolderId) {
             $this->setRemoteFolderId($remoteFolderId);
         }
-        if (NULL !== $remoteUuid) {
+        if (null !== $remoteUuid) {
             $this->setRemoteUuid($remoteUuid);
         }
-        if (NULL !== $remoteFolderName) {
+        if (null !== $remoteFolderName) {
             $this->setRemoteFolderName($remoteFolderName);
         }
-        if (NULL !== $reminderEnabled) {
+        if (null !== $reminderEnabled) {
             $this->setReminderEnabled($reminderEnabled);
         }
-        if (NULL !== $broken) {
+        if (null !== $broken) {
             $this->setBroken($broken);
         }
     }

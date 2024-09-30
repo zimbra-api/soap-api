@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllServersRequest class
  * Get all servers defined in the system or all servers that have a particular service enabled (eg, mta, antispam, spell).
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,72 +27,73 @@ class GetAllServersRequest extends SoapRequest
 {
     /**
      * Service name.  e.g. mta, antispam, spell.
-     * 
+     *
      * @Accessor(getter="getService", setter="setService")
      * @SerializedName("service")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getService', setter: 'setService')]
-    #[SerializedName('service')]
-    #[Type('string')]
+    #[Accessor(getter: "getService", setter: "setService")]
+    #[SerializedName("service")]
+    #[Type("string")]
     #[XmlAttribute]
     private $service;
 
     /**
      * alwaysOnClusterId
-     * 
+     *
      * @Accessor(getter="getAlwaysOnClusterId", setter="setAlwaysOnClusterId")
      * @SerializedName("alwaysOnClusterId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAlwaysOnClusterId', setter: 'setAlwaysOnClusterId')]
-    #[SerializedName('alwaysOnClusterId')]
-    #[Type('string')]
+    #[Accessor(getter: "getAlwaysOnClusterId", setter: "setAlwaysOnClusterId")]
+    #[SerializedName("alwaysOnClusterId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $alwaysOnClusterId;
 
     /**
      * if {apply-config} is 1 (true), then certain unset attrs on a server will get their value from the global config.
      * if {apply-config} is 0 (false), then only attributes directly set on the server will be returned
-     * 
+     *
      * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName('applyConfig')]
-    #[Type('bool')]
+    #[Accessor(getter: "isApplyConfig", setter: "setApplyConfig")]
+    #[SerializedName("applyConfig")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyConfig;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $service
      * @param  string $alwaysOnClusterId
      * @param  bool $applyConfig
      * @return self
      */
     public function __construct(
-        ?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL
-    )
-    {
-        if (NULL !== $service) {
+        ?string $service = null,
+        ?string $alwaysOnClusterId = null,
+        ?bool $applyConfig = null
+    ) {
+        if (null !== $service) {
             $this->setService($service);
         }
-        if (NULL !== $alwaysOnClusterId) {
+        if (null !== $alwaysOnClusterId) {
             $this->setAlwaysOnClusterId($alwaysOnClusterId);
         }
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
     }
@@ -168,8 +169,6 @@ class GetAllServersRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllServersEnvelope(
-            new GetAllServersBody($this)
-        );
+        return new GetAllServersEnvelope(new GetAllServersBody($this));
     }
 }

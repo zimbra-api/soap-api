@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\Names;
 use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 
@@ -19,8 +25,8 @@ use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
  * Push Free/Busy.
  * The request must include either <domain/> or <account/>.
  * When <domain/> is specified in the request, the server will push the free/busy for all the accounts in the domain to the configured free/busy providers.
- * When <account/> list is specified, the server will push the free/busy for the listed accounts to the providers. 
- * 
+ * When <account/> list is specified, the server will push the free/busy for the listed accounts to the providers.
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -31,32 +37,32 @@ class PushFreeBusyRequest extends SoapRequest
 {
     /**
      * Domain names specification
-     * 
+     *
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\Names")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Names
      */
-    #[Accessor(getter: 'getDomains', setter: 'setDomains')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomains", setter: "setDomains")]
+    #[SerializedName("domain")]
     #[Type(Names::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Names $domains;
 
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<Zimbra\Common\Struct\Id>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<Zimbra\Common\Struct\Id>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
@@ -66,7 +72,7 @@ class PushFreeBusyRequest extends SoapRequest
      * @param  array $accounts
      * @return self
      */
-    public function __construct(?Names $domains = NULL, array $accounts = [])
+    public function __construct(?Names $domains = null, array $accounts = [])
     {
         $this->setAccounts($accounts);
         $this->domains = $domains;
@@ -115,7 +121,8 @@ class PushFreeBusyRequest extends SoapRequest
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof Id
+            $accounts,
+            static fn($account) => $account instanceof Id
         );
         return $this;
     }
@@ -135,8 +142,6 @@ class PushFreeBusyRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new PushFreeBusyEnvelope(
-            new PushFreeBusyBody($this)
-        );
+        return new PushFreeBusyEnvelope(new PushFreeBusyBody($this));
     }
 }

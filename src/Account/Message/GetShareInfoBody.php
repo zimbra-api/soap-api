@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetShareInfoBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class GetShareInfoBody extends SoapBody
      * @SerializedName("GetShareInfoRequest")
      * @Type("Zimbra\Account\Message\GetShareInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetShareInfoRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetShareInfoRequest")]
     #[Type(GetShareInfoRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetShareInfoResponse")
      * @Type("Zimbra\Account\Message\GetShareInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetShareInfoResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetShareInfoResponse")]
     #[Type(GetShareInfoResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetShareInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetShareInfoRequest $request = NULL, ?GetShareInfoResponse $response = NULL
-    )
-    {
+        ?GetShareInfoRequest $request = null,
+        ?GetShareInfoResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

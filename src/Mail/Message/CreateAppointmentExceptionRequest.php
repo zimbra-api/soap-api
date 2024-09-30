@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 /**
  * CreateAppointmentExceptionRequest class
  * Create Appointment Exception.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,65 +28,65 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 {
     /**
      * ID of default invite
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component of default invite
-     * 
+     *
      * @Accessor(getter="getNumComponents", setter="setNumComponents")
      * @SerializedName("comp")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumComponents', setter: 'setNumComponents')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumComponents", setter: "setNumComponents")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numComponents;
 
     /**
      * Change sequence of fetched series
-     * 
+     *
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision of fetched series
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
@@ -106,29 +106,35 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $numComponents = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL,
-        ?bool $echo = NULL,
-        ?int $maxSize = NULL,
-        ?bool $wantHtml = NULL,
-        ?bool $neuter = NULL,
-        ?bool $forceSend = NULL
-    )
-    {
-        parent::__construct($msg, $echo, $maxSize, $wantHtml, $neuter, $forceSend);
-        if (NULL !== $id) {
+        ?string $id = null,
+        ?int $numComponents = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null,
+        ?bool $echo = null,
+        ?int $maxSize = null,
+        ?bool $wantHtml = null,
+        ?bool $neuter = null,
+        ?bool $forceSend = null
+    ) {
+        parent::__construct(
+            $msg,
+            $echo,
+            $maxSize,
+            $wantHtml,
+            $neuter,
+            $forceSend
+        );
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $numComponents) {
+        if (null !== $numComponents) {
             $this->setNumComponents($numComponents);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
     }

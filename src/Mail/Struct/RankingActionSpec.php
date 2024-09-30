@@ -28,50 +28,49 @@ class RankingActionSpec
      * Action to perform - reset|delete.
      * reset: resets the contact ranking table for the account
      * delete: delete the ranking information for the email address
-     * 
+     *
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RankingActionOp>")
      * @XmlAttribute
-     * 
+     *
      * @var RankingActionOp
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\RankingActionOp>')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\RankingActionOp>")]
     #[XmlAttribute]
     private RankingActionOp $operation;
 
     /**
      * Email
-     * 
+     *
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Constructor
-     * 
+     *
      * @param RankingActionOp $operation
      * @param string $email
      * @return self
      */
     public function __construct(
-        ?RankingActionOp $operation = NULL,
-        ?string $email = NULL
-    )
-    {
-        $this->setOperation($operation ?? new RankingActionOp('reset'));
-        if (NULL !== $email) {
+        ?RankingActionOp $operation = null,
+        ?string $email = null
+    ) {
+        $this->setOperation($operation ?? new RankingActionOp("reset"));
+        if (null !== $email) {
             $this->setEmail($email);
         }
     }

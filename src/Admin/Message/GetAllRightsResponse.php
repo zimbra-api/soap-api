@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllRightsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllRightsResponse extends SoapResponse
 {
     /**
      * Information for rights
-     * 
+     *
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<Zimbra\Admin\Struct\RightInfo>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<Zimbra\Admin\Struct\RightInfo>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<Zimbra\Admin\Struct\RightInfo>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAdmin")]
     private $rights = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllRightsResponse extends SoapResponse
     public function setRights(array $rights): self
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof RightInfo
+            $rights,
+            static fn($right) => $right instanceof RightInfo
         );
         return $this;
     }

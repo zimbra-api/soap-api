@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\ZimletTarget;
 
 /**
  * AdminZimletTarget class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,27 +26,27 @@ class AdminZimletTarget implements ZimletTarget
 {
     /**
      * Zimlet target
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @return self
      */
-    public function __construct(?string $value = NULL)
+    public function __construct(?string $value = null)
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

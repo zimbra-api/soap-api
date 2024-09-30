@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * AddheaderAction struct class
@@ -25,55 +31,55 @@ class AddheaderAction extends FilterAction
 {
     /**
      * New header name
-     * 
+     *
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaderName', setter: 'setHeaderName')]
-    #[SerializedName('headerName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[SerializedName("headerName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $headerName;
 
     /**
      * New header value
-     * 
+     *
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @SerializedName("headerValue")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaderValue', setter: 'setHeaderValue')]
-    #[SerializedName('headerValue')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
+    #[SerializedName("headerValue")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $headerValue;
 
     /**
      * Last header
-     * 
+     *
      * @Accessor(getter="getLast", setter="setLast")
      * @SerializedName("last")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getLast', setter: 'setLast')]
-    #[SerializedName('last')]
-    #[Type('bool')]
+    #[Accessor(getter: "getLast", setter: "setLast")]
+    #[SerializedName("last")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $last;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $headerName
      * @param string $headerValue
@@ -81,17 +87,19 @@ class AddheaderAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?string $headerName = NULL, ?string $headerValue = NULL, ?bool $last = NULL
-    )
-    {
+        ?int $index = null,
+        ?string $headerName = null,
+        ?string $headerValue = null,
+        ?bool $last = null
+    ) {
         parent::__construct($index);
-        if (NULL !== $headerName) {
+        if (null !== $headerName) {
             $this->setHeaderName($headerName);
         }
-        if (NULL !== $headerValue) {
+        if (null !== $headerValue) {
             $this->setHeaderValue($headerValue);
         }
-        if (NULL !== $last) {
+        if (null !== $last) {
             $this->setLast($last);
         }
     }

@@ -27,18 +27,18 @@ class GetMailboxStatsResponse extends SoapResponse
 {
     /**
      * Statistics about mailboxes
-     * 
+     *
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\MailboxStats")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var MailboxStats
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName('stats')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[SerializedName("stats")]
     #[Type(MailboxStats::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?MailboxStats $stats;
 
     /**
@@ -47,7 +47,7 @@ class GetMailboxStatsResponse extends SoapResponse
      * @param MailboxStats $stats
      * @return self
      */
-    public function __construct(?MailboxStats $stats = NULL)
+    public function __construct(?MailboxStats $stats = null)
     {
         $this->stats = $stats;
     }

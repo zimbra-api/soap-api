@@ -25,29 +25,29 @@ class RejectAction extends FilterAction
 {
     /**
      * Reject content
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $content
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $content = NULL)
+    public function __construct(?int $index = null, ?string $content = null)
     {
-    	parent::__construct($index);
-        if (NULL !== $content) {
+        parent::__construct($index);
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

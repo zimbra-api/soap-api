@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\ZimletContextInterface;
 
 /**
  * AccountZimletContext class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -27,70 +27,70 @@ class AccountZimletContext implements ZimletContextInterface
 {
     /**
      * Zimlet Base URL
-     * 
+     *
      * @Accessor(getter="getZimletBaseUrl", setter="setZimletBaseUrl")
      * @SerializedName("baseUrl")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimletBaseUrl', setter: 'setZimletBaseUrl')]
-    #[SerializedName('baseUrl')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimletBaseUrl", setter: "setZimletBaseUrl")]
+    #[SerializedName("baseUrl")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimletBaseUrl;
 
     /**
      * Zimlet Priority
-     * 
+     *
      * @Accessor(getter="getZimletPriority", setter="setZimletPriority")
      * @SerializedName("priority")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getZimletPriority', setter: 'setZimletPriority')]
-    #[SerializedName('priority')]
-    #[Type('int')]
+    #[Accessor(getter: "getZimletPriority", setter: "setZimletPriority")]
+    #[SerializedName("priority")]
+    #[Type("int")]
     #[XmlAttribute]
     private $zimletPriority;
 
     /**
      * Zimlet presence
-     * 
+     *
      * Valid values: mandatory | enabled | disabled
      * @Accessor(getter="getZimletPresence", setter="setZimletPresence")
      * @SerializedName("presence")
      * @Type("Enum<Zimbra\Common\Enum\ZimletPresence>")
      * @XmlAttribute
-     * 
+     *
      * @var ZimletPresence
      */
-    #[Accessor(getter: 'getZimletPresence', setter: 'setZimletPresence')]
-    #[SerializedName('presence')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletPresence>')]
+    #[Accessor(getter: "getZimletPresence", setter: "setZimletPresence")]
+    #[SerializedName("presence")]
+    #[Type("Enum<Zimbra\Common\Enum\ZimletPresence>")]
     #[XmlAttribute]
     private ZimletPresence $zimletPresence;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $baseUrl
      * @param ZimletPresence $presence
      * @param int $priority
      * @return self
      */
     public function __construct(
-        string $baseUrl = '',
-        ?ZimletPresence $presence = NULL,
-        ?int $priority = NULL
-    )
-    {
-        $this->setZimletBaseUrl($baseUrl)
-             ->setZimletPresence($presence ?? new ZimletPresence('enabled'));
-        if (NULL !== $priority) {
+        string $baseUrl = "",
+        ?ZimletPresence $presence = null,
+        ?int $priority = null
+    ) {
+        $this->setZimletBaseUrl($baseUrl)->setZimletPresence(
+            $presence ?? new ZimletPresence("enabled")
+        );
+        if (null !== $priority) {
             $this->setZimletPriority($priority);
         }
     }

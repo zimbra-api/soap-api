@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GrantRightsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,21 +27,21 @@ class GrantRightsResponse extends SoapResponse
 {
     /**
      * Access Control Entries
-     * 
+     *
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Account\Struct\AccountACEInfo>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAces", setter: "setAces")]
+    #[Type("array<Zimbra\Account\Struct\AccountACEInfo>")]
+    #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraAccount")]
     private $aces = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $aces
      * @return self
      */
@@ -59,7 +59,8 @@ class GrantRightsResponse extends SoapResponse
     public function setAces(array $aces): self
     {
         $this->aces = array_filter(
-            $aces, static fn ($ace) => $ace instanceof AccountACEInfo
+            $aces,
+            static fn($ace) => $ace instanceof AccountACEInfo
         );
         return $this;
     }

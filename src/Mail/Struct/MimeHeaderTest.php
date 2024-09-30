@@ -26,71 +26,71 @@ class MimeHeaderTest extends FilterTest
 {
     /**
      * Comma separated list of header names
-     * 
+     *
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[SerializedName('header')]
-    #[Type('string')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[SerializedName("header")]
+    #[Type("string")]
     #[XmlAttribute]
     private $headers;
 
     /**
      * String comparison type - is|contains|matches
-     * 
+     *
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var StringComparison
      */
-    #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
-    #[SerializedName('stringComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\StringComparison>')]
+    #[Accessor(getter: "getStringComparison", setter: "setStringComparison")]
+    #[SerializedName("stringComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\StringComparison>")]
     #[XmlAttribute]
     private ?StringComparison $stringComparison;
 
     /**
      * Value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Case sensitive setting
-     * 
+     *
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName('caseSensitive')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCaseSensitive", setter: "setCaseSensitive")]
+    #[SerializedName("caseSensitive")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $caseSensitive;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $headers
@@ -100,23 +100,22 @@ class MimeHeaderTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $headers = NULL,
-        ?StringComparison $stringComparison = NULL,
-        ?string $value = NULL,
-        ?bool $caseSensitive = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $headers = null,
+        ?StringComparison $stringComparison = null,
+        ?string $value = null,
+        ?bool $caseSensitive = null
+    ) {
+        parent::__construct($index, $negative);
         $this->stringComparison = $stringComparison;
-        if (NULL !== $headers) {
+        if (null !== $headers) {
             $this->setHeaders($headers);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $caseSensitive) {
+        if (null !== $caseSensitive) {
             $this->setCaseSensitive($caseSensitive);
         }
     }

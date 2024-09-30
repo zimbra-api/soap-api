@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * EmptyDumpsterBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class EmptyDumpsterBody extends SoapBody
      * @SerializedName("EmptyDumpsterRequest")
      * @Type("Zimbra\Mail\Message\EmptyDumpsterRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('EmptyDumpsterRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("EmptyDumpsterRequest")]
     #[Type(EmptyDumpsterRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("EmptyDumpsterResponse")
      * @Type("Zimbra\Mail\Message\EmptyDumpsterResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('EmptyDumpsterResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("EmptyDumpsterResponse")]
     #[Type(EmptyDumpsterResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class EmptyDumpsterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?EmptyDumpsterRequest $request = NULL, ?EmptyDumpsterResponse $response = NULL
-    )
-    {
+        ?EmptyDumpsterRequest $request = null,
+        ?EmptyDumpsterResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

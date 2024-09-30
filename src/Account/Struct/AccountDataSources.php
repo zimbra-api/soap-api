@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * AccountDataSources struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,119 +25,124 @@ class AccountDataSources
 {
     /**
      * Imap data sources
-     * 
+     *
      * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountImapDataSource>")
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountImapDataSource>')]
-    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getImapDataSources", setter: "setImapDataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountImapDataSource>")]
+    #[XmlList(inline: true, entry: "imap", namespace: "urn:zimbraAccount")]
     private $imapDataSources = [];
 
     /**
      * Pop3 data sources
-     * 
+     *
      * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
      * @Type("array<Zimbra\Account\Struct\AccountPop3DataSource>")
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountPop3DataSource>')]
-    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPop3DataSources", setter: "setPop3DataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountPop3DataSource>")]
+    #[XmlList(inline: true, entry: "pop3", namespace: "urn:zimbraAccount")]
     private $pop3DataSources = [];
 
     /**
      * Caldav data sources
-     * 
+     *
      * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountCaldavDataSource>")
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountCaldavDataSource>')]
-    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCaldavDataSources", setter: "setCaldavDataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountCaldavDataSource>")]
+    #[XmlList(inline: true, entry: "caldav", namespace: "urn:zimbraAccount")]
     private $caldavDataSources = [];
 
     /**
      * Yab data sources
-     * 
+     *
      * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountYabDataSource>")
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountYabDataSource>')]
-    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getYabDataSources", setter: "setYabDataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountYabDataSource>")]
+    #[XmlList(inline: true, entry: "yab", namespace: "urn:zimbraAccount")]
     private $yabDataSources = [];
 
     /**
      * Rss data sources
-     * 
+     *
      * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountRssDataSource>")
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountRssDataSource>')]
-    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRssDataSources", setter: "setRssDataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountRssDataSource>")]
+    #[XmlList(inline: true, entry: "rss", namespace: "urn:zimbraAccount")]
     private $rssDataSources = [];
 
     /**
      * Gal data sources
-     * 
+     *
      * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountGalDataSource>")
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountGalDataSource>')]
-    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getGalDataSources", setter: "setGalDataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountGalDataSource>")]
+    #[XmlList(inline: true, entry: "gal", namespace: "urn:zimbraAccount")]
     private $galDataSources = [];
 
     /**
      * Cal data sources
-     * 
+     *
      * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountCalDataSource>")
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountCalDataSource>')]
-    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCalDataSources", setter: "setCalDataSources")]
+    #[Type("array<Zimbra\Account\Struct\AccountCalDataSource>")]
+    #[XmlList(inline: true, entry: "cal", namespace: "urn:zimbraAccount")]
     private $calDataSources = [];
 
     /**
      * Unknown data sources
-     * 
+     *
      * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountUnknownDataSource>")
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
-    #[Type('array<Zimbra\Account\Struct\AccountUnknownDataSource>')]
-    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraAccount')]
+    #[
+        Accessor(
+            getter: "getUnknownDataSources",
+            setter: "setUnknownDataSources"
+        )
+    ]
+    #[Type("array<Zimbra\Account\Struct\AccountUnknownDataSource>")]
+    #[XmlList(inline: true, entry: "unknown", namespace: "urn:zimbraAccount")]
     private $unknownDataSources = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $dataSources
      * @return self
      */
@@ -165,7 +170,10 @@ class AccountDataSources
     public function setImapDataSources(array $dataSources): self
     {
         $this->imapDataSources = array_values(
-            array_filter($dataSources, static fn ($imap) => $imap instanceof AccountImapDataSource)
+            array_filter(
+                $dataSources,
+                static fn($imap) => $imap instanceof AccountImapDataSource
+            )
         );
         return $this;
     }
@@ -189,7 +197,10 @@ class AccountDataSources
     public function setPop3DataSources(array $dataSources): self
     {
         $this->pop3DataSources = array_values(
-            array_filter($dataSources, static fn ($pop3) => $pop3 instanceof AccountPop3DataSource)
+            array_filter(
+                $dataSources,
+                static fn($pop3) => $pop3 instanceof AccountPop3DataSource
+            )
         );
         return $this;
     }
@@ -213,7 +224,10 @@ class AccountDataSources
     public function setCaldavDataSources(array $dataSources): self
     {
         $this->caldavDataSources = array_values(
-            array_filter($dataSources, static fn ($caldav) => $caldav instanceof AccountCaldavDataSource)
+            array_filter(
+                $dataSources,
+                static fn($caldav) => $caldav instanceof AccountCaldavDataSource
+            )
         );
         return $this;
     }
@@ -237,7 +251,10 @@ class AccountDataSources
     public function setYabDataSources(array $dataSources): self
     {
         $this->yabDataSources = array_values(
-            array_filter($dataSources, static fn ($yab) => $yab instanceof AccountYabDataSource)
+            array_filter(
+                $dataSources,
+                static fn($yab) => $yab instanceof AccountYabDataSource
+            )
         );
         return $this;
     }
@@ -261,7 +278,10 @@ class AccountDataSources
     public function setRssDataSources(array $dataSources): self
     {
         $this->rssDataSources = array_values(
-            array_filter($dataSources, static fn ($rss) => $rss instanceof AccountRssDataSource)
+            array_filter(
+                $dataSources,
+                static fn($rss) => $rss instanceof AccountRssDataSource
+            )
         );
         return $this;
     }
@@ -285,7 +305,10 @@ class AccountDataSources
     public function setGalDataSources(array $dataSources): self
     {
         $this->galDataSources = array_values(
-            array_filter($dataSources, static fn ($gal) => $gal instanceof AccountGalDataSource)
+            array_filter(
+                $dataSources,
+                static fn($gal) => $gal instanceof AccountGalDataSource
+            )
         );
         return $this;
     }
@@ -309,7 +332,10 @@ class AccountDataSources
     public function setCalDataSources(array $dataSources): self
     {
         $this->calDataSources = array_values(
-            array_filter($dataSources, static fn ($cal) => $cal instanceof AccountCalDataSource)
+            array_filter(
+                $dataSources,
+                static fn($cal) => $cal instanceof AccountCalDataSource
+            )
         );
         return $this;
     }
@@ -333,7 +359,11 @@ class AccountDataSources
     public function setUnknownDataSources(array $dataSources): self
     {
         $this->unknownDataSources = array_values(
-            array_filter($dataSources, static fn ($unknown) => $unknown instanceof AccountUnknownDataSource)
+            array_filter(
+                $dataSources,
+                static fn($unknown) => $unknown instanceof
+                    AccountUnknownDataSource
+            )
         );
         return $this;
     }
@@ -347,13 +377,13 @@ class AccountDataSources
     public function setDataSources(array $dataSources): self
     {
         $this->setImapDataSources($dataSources)
-             ->setPop3DataSources($dataSources)
-             ->setCaldavDataSources($dataSources)
-             ->setYabDataSources($dataSources)
-             ->setRssDataSources($dataSources)
-             ->setGalDataSources($dataSources)
-             ->setCalDataSources($dataSources)
-             ->setUnknownDataSources($dataSources);
+            ->setPop3DataSources($dataSources)
+            ->setCaldavDataSources($dataSources)
+            ->setYabDataSources($dataSources)
+            ->setRssDataSources($dataSources)
+            ->setGalDataSources($dataSources)
+            ->setCalDataSources($dataSources)
+            ->setUnknownDataSources($dataSources);
         return $this;
     }
 

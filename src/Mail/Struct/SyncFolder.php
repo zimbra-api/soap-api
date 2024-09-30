@@ -26,142 +26,142 @@ class SyncFolder extends Folder
 {
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getTagItemIds", setter="setTagItemIds")
      * @Type("array<Zimbra\Mail\Struct\TagIdsAttr>")
      * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTagItemIds', setter: 'setTagItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\TagIdsAttr>')]
-    #[XmlList(inline: true, entry: 'tag', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTagItemIds", setter: "setTagItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\TagIdsAttr>")]
+    #[XmlList(inline: true, entry: "tag", namespace: "urn:zimbraMail")]
     private $tagItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getConvItemIds", setter="setConvItemIds")
      * @Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")
      * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getConvItemIds', setter: 'setConvItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\ConvIdsAttr>')]
-    #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getConvItemIds", setter: "setConvItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")]
+    #[XmlList(inline: true, entry: "c", namespace: "urn:zimbraMail")]
     private $convItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getChatItemIds", setter="setChatItemIds")
      * @Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getChatItemIds', setter: 'setChatItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\ChatIdsAttr>')]
-    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getChatItemIds", setter: "setChatItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")]
+    #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
     private $chatItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getMsgItemIds", setter="setMsgItemIds")
      * @Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMsgItemIds', setter: 'setMsgItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\MsgIdsAttr>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMsgItemIds", setter: "setMsgItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $msgItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getContactItemIds", setter="setContactItemIds")
      * @Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactItemIds', setter: 'setContactItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\ContactIdsAttr>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContactItemIds", setter: "setContactItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
     private $contactItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getApptItemIds", setter="setApptItemIds")
      * @Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getApptItemIds', setter: 'setApptItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\ApptIdsAttr>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getApptItemIds", setter: "setApptItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $apptItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getTaskItemIds", setter="setTaskItemIds")
      * @Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskItemIds', setter: 'setTaskItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\TaskIdsAttr>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskItemIds", setter: "setTaskItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getNoteItemIds", setter="setNoteItemIds")
      * @Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")
      * @XmlList(inline=true, entry="notes", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNoteItemIds', setter: 'setNoteItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\NoteIdsAttr>')]
-    #[XmlList(inline: true, entry: 'notes', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNoteItemIds", setter: "setNoteItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")]
+    #[XmlList(inline: true, entry: "notes", namespace: "urn:zimbraMail")]
     private $noteItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getWikiItemIds", setter="setWikiItemIds")
      * @Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")
      * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWikiItemIds', setter: 'setWikiItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\WikiIdsAttr>')]
-    #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getWikiItemIds", setter: "setWikiItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")]
+    #[XmlList(inline: true, entry: "w", namespace: "urn:zimbraMail")]
     private $wikiItemIds = [];
 
     /**
      * list of item ids in the folder
-     * 
+     *
      * @Accessor(getter="getDocItemIds", setter="setDocItemIds")
      * @Type("array<Zimbra\Mail\Struct\DocIdsAttr>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDocItemIds', setter: 'setDocItemIds')]
-    #[Type('array<Zimbra\Mail\Struct\DocIdsAttr>')]
-    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDocItemIds", setter: "setDocItemIds")]
+    #[Type("array<Zimbra\Mail\Struct\DocIdsAttr>")]
+    #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
     private $docItemIds = [];
 
     /**
@@ -204,42 +204,41 @@ class SyncFolder extends Folder
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $uuid = '',
+        string $id = "",
+        string $uuid = "",
         array $itemIds = [],
-        ?string $name = NULL,
-        ?string $absoluteFolderPath = NULL,
-        ?string $parentId = NULL,
-        ?string $folderUuid = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $unreadCount = NULL,
-        ?int $imapUnreadCount = NULL,
-        ?ViewType $view = NULL,
-        ?int $revision = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $changeDate = NULL,
-        ?int $itemCount = NULL,
-        ?int $imapItemCount = NULL,
-        ?int $totalSize = NULL,
-        ?int $imapModifiedSequence = NULL,
-        ?int $imapUidNext = NULL,
-        ?string $url = NULL,
-        ?bool $activeSyncDisabled = NULL,
-        ?int $webOfflineSyncDays = NULL,
-        ?string $perm = NULL,
-        ?bool $recursive = NULL,
-        ?string $restUrl = NULL,
-        ?bool $deletable = NULL,
+        ?string $name = null,
+        ?string $absoluteFolderPath = null,
+        ?string $parentId = null,
+        ?string $folderUuid = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $unreadCount = null,
+        ?int $imapUnreadCount = null,
+        ?ViewType $view = null,
+        ?int $revision = null,
+        ?int $modifiedSequence = null,
+        ?int $changeDate = null,
+        ?int $itemCount = null,
+        ?int $imapItemCount = null,
+        ?int $totalSize = null,
+        ?int $imapModifiedSequence = null,
+        ?int $imapUidNext = null,
+        ?string $url = null,
+        ?bool $activeSyncDisabled = null,
+        ?int $webOfflineSyncDays = null,
+        ?string $perm = null,
+        ?bool $recursive = null,
+        ?string $restUrl = null,
+        ?bool $deletable = null,
         array $metadatas = [],
-        ?Acl $acl = NULL,
+        ?Acl $acl = null,
         array $subFolders = [],
         array $mountpoints = [],
         array $searchFolders = [],
-        ?RetentionPolicy $retentionPolicy = NULL
-    )
-    {
+        ?RetentionPolicy $retentionPolicy = null
+    ) {
         parent::__construct(
             $id,
             $uuid,
@@ -287,15 +286,15 @@ class SyncFolder extends Folder
     public function setItemIds(array $itemIds = []): self
     {
         $this->setTagItemIds($itemIds)
-             ->setConvItemIds($itemIds)
-             ->setChatItemIds($itemIds)
-             ->setMsgItemIds($itemIds)
-             ->setContactItemIds($itemIds)
-             ->setApptItemIds($itemIds)
-             ->setTaskItemIds($itemIds)
-             ->setNoteItemIds($itemIds)
-             ->setWikiItemIds($itemIds)
-             ->setDocItemIds($itemIds);
+            ->setConvItemIds($itemIds)
+            ->setChatItemIds($itemIds)
+            ->setMsgItemIds($itemIds)
+            ->setContactItemIds($itemIds)
+            ->setApptItemIds($itemIds)
+            ->setTaskItemIds($itemIds)
+            ->setNoteItemIds($itemIds)
+            ->setWikiItemIds($itemIds)
+            ->setDocItemIds($itemIds);
         return $this;
     }
 
@@ -329,7 +328,10 @@ class SyncFolder extends Folder
     public function setTagItemIds(array $itemIds): self
     {
         $this->tagItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof TagIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof TagIdsAttr
+            )
         );
         return $this;
     }
@@ -353,7 +355,10 @@ class SyncFolder extends Folder
     public function setConvItemIds(array $itemIds): self
     {
         $this->convItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof ConvIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof ConvIdsAttr
+            )
         );
         return $this;
     }
@@ -377,7 +382,10 @@ class SyncFolder extends Folder
     public function setChatItemIds(array $itemIds): self
     {
         $this->chatItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof ChatIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof ChatIdsAttr
+            )
         );
         return $this;
     }
@@ -401,7 +409,10 @@ class SyncFolder extends Folder
     public function setMsgItemIds(array $itemIds): self
     {
         $this->msgItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof MsgIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof MsgIdsAttr
+            )
         );
         return $this;
     }
@@ -425,7 +436,10 @@ class SyncFolder extends Folder
     public function setContactItemIds(array $itemIds): self
     {
         $this->contactItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof ContactIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof ContactIdsAttr
+            )
         );
         return $this;
     }
@@ -449,7 +463,10 @@ class SyncFolder extends Folder
     public function setApptItemIds(array $itemIds): self
     {
         $this->apptItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof ApptIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof ApptIdsAttr
+            )
         );
         return $this;
     }
@@ -473,7 +490,10 @@ class SyncFolder extends Folder
     public function setTaskItemIds(array $itemIds): self
     {
         $this->taskItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof TaskIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof TaskIdsAttr
+            )
         );
         return $this;
     }
@@ -497,7 +517,10 @@ class SyncFolder extends Folder
     public function setNoteItemIds(array $itemIds): self
     {
         $this->noteItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof NoteIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof NoteIdsAttr
+            )
         );
         return $this;
     }
@@ -521,7 +544,10 @@ class SyncFolder extends Folder
     public function setWikiItemIds(array $itemIds): self
     {
         $this->wikiItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof WikiIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof WikiIdsAttr
+            )
         );
         return $this;
     }
@@ -545,7 +571,10 @@ class SyncFolder extends Folder
     public function setDocItemIds(array $itemIds): self
     {
         $this->docItemIds = array_values(
-            array_filter($itemIds, static fn ($item) => $item instanceof DocIdsAttr)
+            array_filter(
+                $itemIds,
+                static fn($item) => $item instanceof DocIdsAttr
+            )
         );
         return $this;
     }

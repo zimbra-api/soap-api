@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * OAuthConsumer struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -28,12 +28,12 @@ class OAuthConsumer
      * @SerializedName("accessToken")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessToken', setter: 'setAccessToken')]
-    #[SerializedName('accessToken')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessToken", setter: "setAccessToken")]
+    #[SerializedName("accessToken")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessToken;
 
@@ -42,12 +42,12 @@ class OAuthConsumer
      * @SerializedName("approvedOn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getApprovedOn', setter: 'setApprovedOn')]
-    #[SerializedName('approvedOn')]
-    #[Type('string')]
+    #[Accessor(getter: "getApprovedOn", setter: "setApprovedOn")]
+    #[SerializedName("approvedOn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $approvedOn;
 
@@ -56,12 +56,12 @@ class OAuthConsumer
      * @SerializedName("appName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getApplicationName', setter: 'setApplicationName')]
-    #[SerializedName('appName')]
-    #[Type('string')]
+    #[Accessor(getter: "getApplicationName", setter: "setApplicationName")]
+    #[SerializedName("appName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $applicationName;
 
@@ -70,12 +70,12 @@ class OAuthConsumer
      * @SerializedName("device")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDevice', setter: 'setDevice')]
-    #[SerializedName('device')]
-    #[Type('string')]
+    #[Accessor(getter: "getDevice", setter: "setDevice")]
+    #[SerializedName("device")]
+    #[Type("string")]
     #[XmlAttribute]
     private $device;
 
@@ -89,22 +89,21 @@ class OAuthConsumer
      * @return self
      */
     public function __construct(
-        ?string $accessToken = NULL,
-        ?string $approvedOn = NULL,
-        ?string $applicationName = NULL,
-        ?string $device = NULL
-    )
-    {
-        if (NULL !== $accessToken) {
+        ?string $accessToken = null,
+        ?string $approvedOn = null,
+        ?string $applicationName = null,
+        ?string $device = null
+    ) {
+        if (null !== $accessToken) {
             $this->setAccessToken($accessToken);
         }
-        if (NULL !== $approvedOn) {
+        if (null !== $approvedOn) {
             $this->setApprovedOn($approvedOn);
         }
-        if (NULL !== $applicationName) {
+        if (null !== $applicationName) {
             $this->setApplicationName($applicationName);
         }
-        if (NULL !== $device) {
+        if (null !== $device) {
             $this->setDevice($device);
         }
     }

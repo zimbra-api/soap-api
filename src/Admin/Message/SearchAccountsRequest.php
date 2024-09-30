@@ -15,9 +15,9 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchAccountsRequest class
- * Search Accounts 
+ * Search Accounts
  * Note: SearchAccountsRequest is deprecated. See SearchDirectoryRequest.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,152 +28,152 @@ class SearchAccountsRequest extends SoapRequest
 {
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * The domain name to limit the search to
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * Flag whether or not to apply the COS policy to account.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
-     * 
+     *
      * @Accessor(getter="getApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName('applyCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "getApplyCos", setter: "setApplyCos")]
+    #[SerializedName("applyCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyCos;
 
     /**
      * Comma-seperated list of attrs to return ("displayName", "zimbraId", "zimbraAccountStatus")
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attrs;
 
     /**
      * Name of attribute to sort on. Default is the account name.
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * Comma-separated list of types to return. Legal values are: accounts|resources (default is accounts)
-     * 
+     *
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getTypes", setter: "setTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $types;
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
-     * 
+     *
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName('sortAscending')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSortAscending", setter: "setSortAscending")]
+    #[SerializedName("sortAscending")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sortAscending;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $query
      * @param  int $limit
      * @param  int $offset
@@ -186,40 +186,39 @@ class SearchAccountsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $query = '',
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?string $attrs = NULL,
-        ?string $sortBy = NULL,
-        ?string $types = NULL,
-        ?bool $sortAscending = NULL
-    )
-    {
+        string $query = "",
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?string $attrs = null,
+        ?string $sortBy = null,
+        ?string $types = null,
+        ?bool $sortAscending = null
+    ) {
         $this->setQuery($query);
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $domain) {
+        if (null !== $domain) {
             $this->setDomain($domain);
         }
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $types) {
+        if (null !== $types) {
             $this->setTypes($types);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
     }
@@ -427,8 +426,6 @@ class SearchAccountsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchAccountsEnvelope(
-            new SearchAccountsBody($this)
-        );
+        return new SearchAccountsEnvelope(new SearchAccountsBody($this));
     }
 }

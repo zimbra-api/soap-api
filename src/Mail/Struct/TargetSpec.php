@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{AccountBy, TargetType};
 
 /**
@@ -27,48 +33,48 @@ class TargetSpec
 {
     /**
      * Target type
-     * 
+     *
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private TargetType $targetType;
 
     /**
      * Select the meaning of {value}
-     * 
+     *
      * @Accessor(getter="getAccountBy", setter="setAccountBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
-     * 
+     *
      * @var AccountBy
      */
-    #[Accessor(getter: 'getAccountBy', setter: 'setAccountBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
+    #[Accessor(getter: "getAccountBy", setter: "setAccountBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\AccountBy>")]
     #[XmlAttribute]
     private AccountBy $accountBy;
 
     /**
      * The key used to identify the target
      * Meaning determined by {accountBy}
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -81,12 +87,14 @@ class TargetSpec
      * @return self
      */
     public function __construct(
-        ?TargetType $targetType = NULL, ?AccountBy $accountBy = NULL, ?string $value = NULL
-    )
-    {
-        $this->setTargetType($targetType ?? new TargetType('account'))
-             ->setAccountBy($accountBy ?? new AccountBy('name'));
-        if (NULL !== $value) {
+        ?TargetType $targetType = null,
+        ?AccountBy $accountBy = null,
+        ?string $value = null
+    ) {
+        $this->setTargetType(
+            $targetType ?? new TargetType("account")
+        )->setAccountBy($accountBy ?? new AccountBy("name"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

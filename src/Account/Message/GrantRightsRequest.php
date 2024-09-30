@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GrantRightsRequest class
  * Grant account level rights
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,16 +28,16 @@ class GrantRightsRequest extends SoapRequest
 {
     /**
      * Specify Access Control Entries
-     * 
+     *
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Account\Struct\AccountACEInfo>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAces", setter: "setAces")]
+    #[Type("array<Zimbra\Account\Struct\AccountACEInfo>")]
+    #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraAccount")]
     private $aces = [];
 
     /**
@@ -72,7 +72,8 @@ class GrantRightsRequest extends SoapRequest
     public function setAces(array $aces): self
     {
         $this->aces = array_filter(
-            $aces, static fn ($ace) => $ace instanceof AccountACEInfo
+            $aces,
+            static fn($ace) => $ace instanceof AccountACEInfo
         );
         return $this;
     }
@@ -92,8 +93,6 @@ class GrantRightsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GrantRightsEnvelope(
-            new GrantRightsBody($this)
-        );
+        return new GrantRightsEnvelope(new GrantRightsBody($this));
     }
 }

@@ -30,65 +30,65 @@ class GetWorkingHoursRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds since the epoch
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end in milliseconds since the epoch
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Comma-separated list of Zimbra IDs
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Comma-separated list of email addresses
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -104,16 +104,14 @@ class GetWorkingHoursRequest extends SoapRequest
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $id = NULL,
-        ?string $name = NULL
-    )
-    {
-        $this->setStartTime($startTime)
-             ->setEndTime($endTime);
-        if (NULL !== $id) {
+        ?string $id = null,
+        ?string $name = null
+    ) {
+        $this->setStartTime($startTime)->setEndTime($endTime);
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }
@@ -211,8 +209,6 @@ class GetWorkingHoursRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetWorkingHoursEnvelope(
-            new GetWorkingHoursBody($this)
-        );
+        return new GetWorkingHoursEnvelope(new GetWorkingHoursBody($this));
     }
 }

@@ -11,11 +11,16 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{AccountSelector, GranteeChooser, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AccountSelector,
+    GranteeChooser,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetShareInfoRequest request class
- * Iterate through all folders of the owner's mailbox and return shares that match grantees specified by the <grantee> specifier. 
+ * Iterate through all folders of the owner's mailbox and return shares that match grantees specified by the <grantee> specifier.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -27,34 +32,34 @@ class GetShareInfoRequest extends SoapRequest
 {
     /**
      * Grantee
-     * 
+     *
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var GranteeChooser
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeChooser::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeChooser $grantee;
 
     /**
      * Owner
-     * 
+     *
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getOwner', setter: 'setOwner')]
-    #[SerializedName('owner')]
+    #[Accessor(getter: "getOwner", setter: "setOwner")]
+    #[SerializedName("owner")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $owner;
 
     /**
@@ -64,8 +69,10 @@ class GetShareInfoRequest extends SoapRequest
      * @param  GranteeChooser $grantee
      * @return self
      */
-    public function __construct(AccountSelector $owner, ?GranteeChooser $grantee = NULL)
-    {
+    public function __construct(
+        AccountSelector $owner,
+        ?GranteeChooser $grantee = null
+    ) {
         $this->setOwner($owner);
         $this->grantee = $grantee;
     }
@@ -119,8 +126,6 @@ class GetShareInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetShareInfoEnvelope(
-            new GetShareInfoBody($this)
-        );
+        return new GetShareInfoEnvelope(new GetShareInfoBody($this));
     }
 }

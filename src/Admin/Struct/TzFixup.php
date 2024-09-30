@@ -27,17 +27,17 @@ class TzFixup
      * @Accessor(getter="getFixupRules", setter="setFixupRules")
      * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
      * @XmlList(inline=true, entry="fixupRule", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFixupRules', setter: 'setFixupRules')]
-    #[Type('array<Zimbra\Admin\Struct\TzFixupRule>')]
-    #[XmlList(inline: true, entry: 'fixupRule', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getFixupRules", setter: "setFixupRules")]
+    #[Type("array<Zimbra\Admin\Struct\TzFixupRule>")]
+    #[XmlList(inline: true, entry: "fixupRule", namespace: "urn:zimbraAdmin")]
     private $fixupRules = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $fixupRules
      * @return self
      */
@@ -67,7 +67,8 @@ class TzFixup
     public function setFixupRules(array $fixupRules): self
     {
         $this->fixupRules = array_filter(
-            $fixupRules, static fn ($fixupRule) => $fixupRule instanceof TzFixupRule
+            $fixupRules,
+            static fn($fixupRule) => $fixupRule instanceof TzFixupRule
         );
         return $this;
     }

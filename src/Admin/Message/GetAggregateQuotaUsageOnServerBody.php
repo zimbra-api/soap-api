@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAggregateQuotaUsageOnServerBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @SerializedName("GetAggregateQuotaUsageOnServerRequest")
      * @Type("Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAggregateQuotaUsageOnServerRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAggregateQuotaUsageOnServerRequest")]
     #[Type(GetAggregateQuotaUsageOnServerRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetAggregateQuotaUsageOnServerResponse")
      * @Type("Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAggregateQuotaUsageOnServerResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAggregateQuotaUsageOnServerResponse")]
     #[Type(GetAggregateQuotaUsageOnServerResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,10 +64,9 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAggregateQuotaUsageOnServerRequest $request = NULL,
-        ?GetAggregateQuotaUsageOnServerResponse $response = NULL
-    )
-    {
+        ?GetAggregateQuotaUsageOnServerRequest $request = null,
+        ?GetAggregateQuotaUsageOnServerResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

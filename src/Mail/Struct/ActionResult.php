@@ -26,65 +26,65 @@ class ActionResult
 {
     /**
      * Comma-separated list of ids which have been successfully processed
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Operation
-     * 
+     *
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('string')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("string")]
     #[XmlAttribute]
     private $operation;
 
     /**
      * Comma-separated list of non-existent ids (if requested)
-     * 
+     *
      * @Accessor(getter="getNonExistentIds", setter="setNonExistentIds")
      * @SerializedName("nei")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
-    #[SerializedName('nei')]
-    #[Type('string')]
+    #[Accessor(getter: "getNonExistentIds", setter: "setNonExistentIds")]
+    #[SerializedName("nei")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nonExistentIds;
 
     /**
      * Comma-separated list of newly created ids (if requested)
-     * 
+     *
      * @Accessor(getter="getNewlyCreatedIds", setter="setNewlyCreatedIds")
      * @SerializedName("nci")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewlyCreatedIds', setter: 'setNewlyCreatedIds')]
-    #[SerializedName('nci')]
-    #[Type('string')]
+    #[Accessor(getter: "getNewlyCreatedIds", setter: "setNewlyCreatedIds")]
+    #[SerializedName("nci")]
+    #[Type("string")]
     #[XmlAttribute]
     private $newlyCreatedIds;
 
@@ -98,18 +98,16 @@ class ActionResult
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $operation = '',
-        ?string $nonExistentIds = NULL,
-        ?string $newlyCreatedIds = NULL
-    )
-    {
-        $this->setId($id)
-             ->setOperation($operation);
-        if (NULL !== $nonExistentIds) {
+        string $id = "",
+        string $operation = "",
+        ?string $nonExistentIds = null,
+        ?string $newlyCreatedIds = null
+    ) {
+        $this->setId($id)->setOperation($operation);
+        if (null !== $nonExistentIds) {
             $this->setNonExistentIds($nonExistentIds);
         }
-        if (NULL !== $newlyCreatedIds) {
+        if (null !== $newlyCreatedIds) {
             $this->setNewlyCreatedIds($newlyCreatedIds);
         }
     }

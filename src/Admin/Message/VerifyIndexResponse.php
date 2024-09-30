@@ -26,34 +26,34 @@ class VerifyIndexResponse extends SoapResponse
 {
     /**
      * Result status of verification.  Valid values "true" and "false" (Not "1" and "0")
-     * 
+     *
      * @Accessor(getter="isStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("bool")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('bool')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "isStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("bool")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $status;
 
     /**
      * Verification output
-     * 
+     *
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $message;
 
     /**
@@ -63,10 +63,9 @@ class VerifyIndexResponse extends SoapResponse
      * @param string $message
      * @return self
      */
-    public function __construct(bool $status = FALSE, string $message = '')
+    public function __construct(bool $status = false, string $message = "")
     {
-        $this->setStatus($status)
-             ->setMessage($message);
+        $this->setStatus($status)->setMessage($message);
     }
 
     /**

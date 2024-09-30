@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AccountWithModifications struct class
@@ -24,69 +30,73 @@ class AccountWithModifications
 {
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Serialized pending modifications per folder
-     * 
+     *
      * @Accessor(getter="getPendingFolderModifications", setter="setPendingFolderModifications")
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
      * @XmlList(inline=true, entry="mods", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPendingFolderModifications', setter: 'setPendingFolderModifications')]
-    #[Type('array<Zimbra\Mail\Struct\PendingFolderModifications>')]
-    #[XmlList(inline: true, entry: 'mods', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getPendingFolderModifications",
+            setter: "setPendingFolderModifications"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")]
+    #[XmlList(inline: true, entry: "mods", namespace: "urn:zimbraMail")]
     private $mods = [];
 
     /**
      * ID of the last change
-     * 
+     *
      * @Accessor(getter="getLastChangeId", setter="setLastChangeId")
      * @SerializedName("changeid")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastChangeId', setter: 'setLastChangeId')]
-    #[SerializedName('changeid')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastChangeId", setter: "setLastChangeId")]
+    #[SerializedName("changeid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastChangeId;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id
      * @param  array $mods
      * @param  int $lastChangeId
      * @return self
      */
     public function __construct(
-        ?int $id = NULL,
+        ?int $id = null,
         array $mods = [],
-        ?int $lastChangeId = NULL
-    )
-    {
+        ?int $lastChangeId = null
+    ) {
         $this->setPendingFolderModifications($mods);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $lastChangeId) {
+        if (null !== $lastChangeId) {
             $this->setLastChangeId($lastChangeId);
         }
     }
@@ -144,7 +154,8 @@ class AccountWithModifications
     public function setPendingFolderModifications(array $mods): self
     {
         $this->mods = array_filter(
-            $mods, static fn ($mod) => $mod instanceof PendingFolderModifications
+            $mods,
+            static fn($mod) => $mod instanceof PendingFolderModifications
         );
         return $this;
     }

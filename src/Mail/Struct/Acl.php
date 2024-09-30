@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * Acl class
@@ -26,48 +32,53 @@ class Acl
 {
     /**
      * Time when grants to internal grantees expire.
-     * 
+     *
      * @Accessor(getter="getInternalGrantExpiry", setter="setInternalGrantExpiry")
      * @SerializedName("internalGrantExpiry")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getInternalGrantExpiry', setter: 'setInternalGrantExpiry')]
-    #[SerializedName('internalGrantExpiry')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getInternalGrantExpiry",
+            setter: "setInternalGrantExpiry"
+        )
+    ]
+    #[SerializedName("internalGrantExpiry")]
+    #[Type("int")]
     #[XmlAttribute]
     private $internalGrantExpiry;
 
     /**
      * Time when grants to guest grantees expire.
-     * 
+     *
      * @Accessor(getter="getGuestGrantExpiry", setter="setGuestGrantExpiry")
      * @SerializedName("guestGrantExpiry")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getGuestGrantExpiry', setter: 'setGuestGrantExpiry')]
-    #[SerializedName('guestGrantExpiry')]
-    #[Type('int')]
+    #[Accessor(getter: "getGuestGrantExpiry", setter: "setGuestGrantExpiry")]
+    #[SerializedName("guestGrantExpiry")]
+    #[Type("int")]
     #[XmlAttribute]
     private $guestGrantExpiry;
 
     /**
      * Grants
-     * 
+     *
      * @Accessor(getter="getGrants", setter="setGrants")
      * @Type("array<Zimbra\Mail\Struct\Grant>")
      * @XmlList(inline=true, entry="grant", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[Type('array<Zimbra\Mail\Struct\Grant>')]
-    #[XmlList(inline: true, entry: 'grant', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGrants", setter: "setGrants")]
+    #[Type("array<Zimbra\Mail\Struct\Grant>")]
+    #[XmlList(inline: true, entry: "grant", namespace: "urn:zimbraMail")]
     private $grants = [];
 
     /**
@@ -79,16 +90,15 @@ class Acl
      * @return self
      */
     public function __construct(
-        ?int $internalGrantExpiry = NULL,
-        ?int $guestGrantExpiry = NULL,
+        ?int $internalGrantExpiry = null,
+        ?int $guestGrantExpiry = null,
         array $grants = []
-    )
-    {
+    ) {
         $this->setGrants($grants);
-        if (NULL !== $internalGrantExpiry) {
+        if (null !== $internalGrantExpiry) {
             $this->setInternalGrantExpiry($internalGrantExpiry);
         }
-        if (NULL !== $guestGrantExpiry) {
+        if (null !== $guestGrantExpiry) {
             $this->setGuestGrantExpiry($guestGrantExpiry);
         }
     }
@@ -146,7 +156,8 @@ class Acl
     public function setGrants(array $grants): self
     {
         $this->grants = array_filter(
-            $grants, static fn ($grant) => $grant instanceof Grant
+            $grants,
+            static fn($grant) => $grant instanceof Grant
         );
         return $this;
     }

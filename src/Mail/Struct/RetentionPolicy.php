@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 
 /**
  * RetentionPolicy struct class
@@ -25,38 +31,38 @@ class RetentionPolicy
 {
     /**
      * "Keep" retention policies
-     * 
+     *
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
      * @SerializedName("keep")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeepPolicy', setter: 'setKeepPolicy')]
-    #[SerializedName('keep')]
-    #[Type('array<Zimbra\Mail\Struct\Policy>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'policy', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getKeepPolicy", setter: "setKeepPolicy")]
+    #[SerializedName("keep")]
+    #[Type("array<Zimbra\Mail\Struct\Policy>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "policy", namespace: "urn:zimbraMail")]
     private $keep = [];
 
     /**
      * "Purge" retention policies
-     * 
+     *
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
      * @SerializedName("purge")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPurgePolicy', setter: 'setPurgePolicy')]
-    #[SerializedName('purge')]
-    #[Type('array<Zimbra\Mail\Struct\Policy>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'policy', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getPurgePolicy", setter: "setPurgePolicy")]
+    #[SerializedName("purge")]
+    #[Type("array<Zimbra\Mail\Struct\Policy>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "policy", namespace: "urn:zimbraMail")]
     private $purge = [];
 
     /**
@@ -68,8 +74,7 @@ class RetentionPolicy
      */
     public function __construct(array $keep = [], array $purge = [])
     {
-        $this->setKeepPolicy($keep)
-             ->setPurgePolicy($purge);
+        $this->setKeepPolicy($keep)->setPurgePolicy($purge);
     }
 
     /**
@@ -91,7 +96,8 @@ class RetentionPolicy
     public function setKeepPolicy(array $policies): self
     {
         $this->keep = array_filter(
-            $policies, static fn ($policy) => $policy instanceof Policy
+            $policies,
+            static fn($policy) => $policy instanceof Policy
         );
         return $this;
     }
@@ -115,7 +121,8 @@ class RetentionPolicy
     public function setPurgePolicy(array $policies): self
     {
         $this->purge = array_filter(
-            $policies, static fn ($policy) => $policy instanceof Policy
+            $policies,
+            static fn($policy) => $policy instanceof Policy
         );
         return $this;
     }

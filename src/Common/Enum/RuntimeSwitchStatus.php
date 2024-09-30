@@ -27,17 +27,17 @@ class RuntimeSwitchStatus extends Enum
      * Constant for value 'SUCCESS'
      * @return string 'SUCCESS'
      */
-    protected const SUCCESS = 'SUCCESS';
+    protected const SUCCESS = "SUCCESS";
 
     /**
      * Constant for value 'FAIL'
      * @return string 'FAIL'
      */
-    protected const FAIL = 'FAIL';
+    protected const FAIL = "FAIL";
 
     /**
      * Constant for value 'NO_OPERATION'
      * @return string 'NO_OPERATION'
      */
-    protected const NO_OPERATION = 'NO_OPERATION';
+    protected const NO_OPERATION = "NO_OPERATION";
 }

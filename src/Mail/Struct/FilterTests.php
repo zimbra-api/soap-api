@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\FilterCondition;
 
 /**
@@ -26,422 +32,528 @@ class FilterTests
 {
     /**
      * Condition - allof|anyof
-     * 
+     *
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("condition")
      * @Type("Enum<Zimbra\Common\Enum\FilterCondition>")
      * @XmlAttribute
-     * 
+     *
      * @var FilterCondition
      */
-    #[Accessor(getter: 'getCondition', setter: 'setCondition')]
-    #[SerializedName('condition')]
-    #[Type('Enum<Zimbra\Common\Enum\FilterCondition>')]
+    #[Accessor(getter: "getCondition", setter: "setCondition")]
+    #[SerializedName("condition")]
+    #[Type("Enum<Zimbra\Common\Enum\FilterCondition>")]
     #[XmlAttribute]
     private FilterCondition $condition;
 
     /**
      * Address book filter tests
-     * 
+     *
      * @Accessor(getter="getAddressBookTests", setter="setAddressBookTests")
      * @Type("array<Zimbra\Mail\Struct\AddressBookTest>")
      * @XmlList(inline=true, entry="addressBookTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAddressBookTests', setter: 'setAddressBookTests')]
-    #[Type('array<Zimbra\Mail\Struct\AddressBookTest>')]
-    #[XmlList(inline: true, entry: 'addressBookTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAddressBookTests", setter: "setAddressBookTests")]
+    #[Type("array<Zimbra\Mail\Struct\AddressBookTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "addressBookTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $addressBookTests = [];
 
     /**
      * Address filter tests
-     * 
+     *
      * @Accessor(getter="getAddressTests", setter="setAddressTests")
      * @Type("array<Zimbra\Mail\Struct\AddressTest>")
      * @XmlList(inline=true, entry="addressTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAddressTests', setter: 'setAddressTests')]
-    #[Type('array<Zimbra\Mail\Struct\AddressTest>')]
-    #[XmlList(inline: true, entry: 'addressTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAddressTests", setter: "setAddressTests")]
+    #[Type("array<Zimbra\Mail\Struct\AddressTest>")]
+    #[XmlList(inline: true, entry: "addressTest", namespace: "urn:zimbraMail")]
     private $addressTests = [];
 
     /**
      * Envelope filter tests
-     * 
+     *
      * @Accessor(getter="getEnvelopeTests", setter="setEnvelopeTests")
      * @Type("array<Zimbra\Mail\Struct\EnvelopeTest>")
      * @XmlList(inline=true, entry="envelopeTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEnvelopeTests', setter: 'setEnvelopeTests')]
-    #[Type('array<Zimbra\Mail\Struct\EnvelopeTest>')]
-    #[XmlList(inline: true, entry: 'envelopeTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEnvelopeTests", setter: "setEnvelopeTests")]
+    #[Type("array<Zimbra\Mail\Struct\EnvelopeTest>")]
+    #[XmlList(inline: true, entry: "envelopeTest", namespace: "urn:zimbraMail")]
     private $envelopeTests = [];
 
     /**
      * Attachment filter tests
-     * 
+     *
      * @Accessor(getter="getAttachmentTests", setter="setAttachmentTests")
      * @Type("array<Zimbra\Mail\Struct\AttachmentTest>")
      * @XmlList(inline=true, entry="attachmentTest", namespace="urn:zimbraMail")
      * @var array
      */
-    #[Accessor(getter: 'getAttachmentTests', setter: 'setAttachmentTests')]
-    #[Type('array<Zimbra\Mail\Struct\AttachmentTest>')]
-    #[XmlList(inline: true, entry: 'attachmentTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttachmentTests", setter: "setAttachmentTests")]
+    #[Type("array<Zimbra\Mail\Struct\AttachmentTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "attachmentTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $attachmentTests = [];
 
     /**
      * Body filter tests
-     * 
+     *
      * @Accessor(getter="getBodyTests", setter="setBodyTests")
      * @Type("array<Zimbra\Mail\Struct\BodyTest>")
      * @XmlList(inline=true, entry="bodyTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBodyTests', setter: 'setBodyTests')]
-    #[Type('array<Zimbra\Mail\Struct\BodyTest>')]
-    #[XmlList(inline: true, entry: 'bodyTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getBodyTests", setter: "setBodyTests")]
+    #[Type("array<Zimbra\Mail\Struct\BodyTest>")]
+    #[XmlList(inline: true, entry: "bodyTest", namespace: "urn:zimbraMail")]
     private $bodyTests = [];
 
     /**
      * Bulk filter tests
-     * 
+     *
      * @Accessor(getter="getBulkTests", setter="setBulkTests")
      * @Type("array<Zimbra\Mail\Struct\BulkTest>")
      * @XmlList(inline=true, entry="bulkTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBulkTests', setter: 'setBulkTests')]
-    #[Type('array<Zimbra\Mail\Struct\BulkTest>')]
-    #[XmlList(inline: true, entry: 'bulkTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getBulkTests", setter: "setBulkTests")]
+    #[Type("array<Zimbra\Mail\Struct\BulkTest>")]
+    #[XmlList(inline: true, entry: "bulkTest", namespace: "urn:zimbraMail")]
     private $bulkTests = [];
 
     /**
      * Contact ranking filter tests
-     * 
+     *
      * @Accessor(getter="getContactRankingTests", setter="setContactRankingTests")
      * @Type("array<Zimbra\Mail\Struct\ContactRankingTest>")
      * @XmlList(inline=true, entry="contactRankingTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactRankingTests', setter: 'setContactRankingTests')]
-    #[Type('array<Zimbra\Mail\Struct\ContactRankingTest>')]
-    #[XmlList(inline: true, entry: 'contactRankingTest', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getContactRankingTests",
+            setter: "setContactRankingTests"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\ContactRankingTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "contactRankingTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $contactRankingTests = [];
 
     /**
      * Conversation filter tests
-     * 
+     *
      * @Accessor(getter="getConversationTests", setter="setConversationTests")
      * @Type("array<Zimbra\Mail\Struct\ConversationTest>")
      * @XmlList(inline=true, entry="conversationTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getConversationTests', setter: 'setConversationTests')]
-    #[Type('array<Zimbra\Mail\Struct\ConversationTest>')]
-    #[XmlList(inline: true, entry: 'conversationTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getConversationTests", setter: "setConversationTests")]
+    #[Type("array<Zimbra\Mail\Struct\ConversationTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "conversationTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $conversationTests = [];
 
     /**
      * Current day of week filter tests
-     * 
+     *
      * @Accessor(getter="getCurrentDayOfWeekTests", setter="setCurrentDayOfWeekTests")
      * @Type("array<Zimbra\Mail\Struct\CurrentDayOfWeekTest>")
      * @XmlList(inline=true, entry="currentDayOfWeekTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCurrentDayOfWeekTests', setter: 'setCurrentDayOfWeekTests')]
-    #[Type('array<Zimbra\Mail\Struct\CurrentDayOfWeekTest>')]
-    #[XmlList(inline: true, entry: 'currentDayOfWeekTest', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getCurrentDayOfWeekTests",
+            setter: "setCurrentDayOfWeekTests"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\CurrentDayOfWeekTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "currentDayOfWeekTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $currentDayOfWeekTests = [];
 
     /**
      * Current time filter tests
-     * 
+     *
      * @Accessor(getter="getCurrentTimeTests", setter="setCurrentTimeTests")
      * @Type("array<Zimbra\Mail\Struct\CurrentTimeTest>")
      * @XmlList(inline=true, entry="currentTimeTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCurrentTimeTests', setter: 'setCurrentTimeTests')]
-    #[Type('array<Zimbra\Mail\Struct\CurrentTimeTest>')]
-    #[XmlList(inline: true, entry: 'currentTimeTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCurrentTimeTests", setter: "setCurrentTimeTests")]
+    #[Type("array<Zimbra\Mail\Struct\CurrentTimeTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "currentTimeTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $currentTimeTests = [];
 
     /**
      * Date filter tests
-     * 
+     *
      * @Accessor(getter="getDateTests", setter="setDateTests")
      * @Type("array<Zimbra\Mail\Struct\DateTest>")
      * @XmlList(inline=true, entry="dateTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDateTests', setter: 'setDateTests')]
-    #[Type('array<Zimbra\Mail\Struct\DateTest>')]
-    #[XmlList(inline: true, entry: 'dateTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDateTests", setter: "setDateTests")]
+    #[Type("array<Zimbra\Mail\Struct\DateTest>")]
+    #[XmlList(inline: true, entry: "dateTest", namespace: "urn:zimbraMail")]
     private $dateTests = [];
 
     /**
      * Facebook filter tests
-     * 
+     *
      * @Accessor(getter="getFacebookTests", setter="setFacebookTests")
      * @Type("array<Zimbra\Mail\Struct\FacebookTest>")
      * @XmlList(inline=true, entry="facebookTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFacebookTests', setter: 'setFacebookTests')]
-    #[Type('array<Zimbra\Mail\Struct\FacebookTest>')]
-    #[XmlList(inline: true, entry: 'facebookTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFacebookTests", setter: "setFacebookTests")]
+    #[Type("array<Zimbra\Mail\Struct\FacebookTest>")]
+    #[XmlList(inline: true, entry: "facebookTest", namespace: "urn:zimbraMail")]
     private $facebookTests = [];
 
     /**
      * Flagged filter tests
-     * 
+     *
      * @Accessor(getter="getFlaggedTests", setter="setFlaggedTests")
      * @Type("array<Zimbra\Mail\Struct\FlaggedTest>")
      * @XmlList(inline=true, entry="flaggedTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFlaggedTests', setter: 'setFlaggedTests')]
-    #[Type('array<Zimbra\Mail\Struct\FlaggedTest>')]
-    #[XmlList(inline: true, entry: 'flaggedTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFlaggedTests", setter: "setFlaggedTests")]
+    #[Type("array<Zimbra\Mail\Struct\FlaggedTest>")]
+    #[XmlList(inline: true, entry: "flaggedTest", namespace: "urn:zimbraMail")]
     private $flaggedTests = [];
 
     /**
      * Header exists filter tests
-     * 
+     *
      * @Accessor(getter="getHeaderExistsTests", setter="setHeaderExistsTests")
      * @Type("array<Zimbra\Mail\Struct\HeaderExistsTest>")
      * @XmlList(inline=true, entry="headerExistsTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaderExistsTests', setter: 'setHeaderExistsTests')]
-    #[Type('array<Zimbra\Mail\Struct\HeaderExistsTest>')]
-    #[XmlList(inline: true, entry: 'headerExistsTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderExistsTests", setter: "setHeaderExistsTests")]
+    #[Type("array<Zimbra\Mail\Struct\HeaderExistsTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "headerExistsTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $headerExistsTests = [];
 
     /**
      * Header filter tests
-     * 
+     *
      * @Accessor(getter="getHeaderTests", setter="setHeaderTests")
      * @Type("array<Zimbra\Mail\Struct\HeaderTest>")
      * @XmlList(inline=true, entry="headerTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaderTests', setter: 'setHeaderTests')]
-    #[Type('array<Zimbra\Mail\Struct\HeaderTest>')]
-    #[XmlList(inline: true, entry: 'headerTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderTests", setter: "setHeaderTests")]
+    #[Type("array<Zimbra\Mail\Struct\HeaderTest>")]
+    #[XmlList(inline: true, entry: "headerTest", namespace: "urn:zimbraMail")]
     private $headerTests = [];
 
     /**
      * Importance filter tests
-     * 
+     *
      * @Accessor(getter="getImportanceTests", setter="setImportanceTests")
      * @Type("array<Zimbra\Mail\Struct\ImportanceTest>")
      * @XmlList(inline=true, entry="importanceTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getImportanceTests', setter: 'setImportanceTests')]
-    #[Type('array<Zimbra\Mail\Struct\ImportanceTest>')]
-    #[XmlList(inline: true, entry: 'importanceTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getImportanceTests", setter: "setImportanceTests")]
+    #[Type("array<Zimbra\Mail\Struct\ImportanceTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "importanceTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $importanceTests = [];
 
     /**
      * Invite filter tests
-     * 
+     *
      * @Accessor(getter="getInviteTests", setter="setInviteTests")
      * @Type("array<Zimbra\Mail\Struct\InviteTest>")
      * @XmlList(inline=true, entry="inviteTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInviteTests', setter: 'setInviteTests')]
-    #[Type('array<Zimbra\Mail\Struct\InviteTest>')]
-    #[XmlList(inline: true, entry: 'inviteTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInviteTests", setter: "setInviteTests")]
+    #[Type("array<Zimbra\Mail\Struct\InviteTest>")]
+    #[XmlList(inline: true, entry: "inviteTest", namespace: "urn:zimbraMail")]
     private $inviteTests = [];
 
     /**
      * LinkedIn filter tests
-     * 
+     *
      * @Accessor(getter="getLinkedInTests", setter="setLinkedInTests")
      * @Type("array<Zimbra\Mail\Struct\LinkedInTest>")
      * @XmlList(inline=true, entry="linkedinTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLinkedInTests', setter: 'setLinkedInTests')]
-    #[Type('array<Zimbra\Mail\Struct\LinkedInTest>')]
-    #[XmlList(inline: true, entry: 'linkedinTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getLinkedInTests", setter: "setLinkedInTests")]
+    #[Type("array<Zimbra\Mail\Struct\LinkedInTest>")]
+    #[XmlList(inline: true, entry: "linkedinTest", namespace: "urn:zimbraMail")]
     private $linkedinTests = [];
 
     /**
      * List filter tests
-     * 
+     *
      * @Accessor(getter="getListTests", setter="setListTests")
      * @Type("array<Zimbra\Mail\Struct\ListTest>")
      * @XmlList(inline=true, entry="listTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getListTests', setter: 'setListTests')]
-    #[Type('array<Zimbra\Mail\Struct\ListTest>')]
-    #[XmlList(inline: true, entry: 'listTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getListTests", setter: "setListTests")]
+    #[Type("array<Zimbra\Mail\Struct\ListTest>")]
+    #[XmlList(inline: true, entry: "listTest", namespace: "urn:zimbraMail")]
     private $listTests = [];
 
     /**
      * Me filter tests
-     * 
+     *
      * @Accessor(getter="getMeTests", setter="setMeTests")
      * @Type("array<Zimbra\Mail\Struct\MeTest>")
      * @XmlList(inline=true, entry="meTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMeTests', setter: 'setMeTests')]
-    #[Type('array<Zimbra\Mail\Struct\MeTest>')]
-    #[XmlList(inline: true, entry: 'meTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMeTests", setter: "setMeTests")]
+    #[Type("array<Zimbra\Mail\Struct\MeTest>")]
+    #[XmlList(inline: true, entry: "meTest", namespace: "urn:zimbraMail")]
     private $meTests = [];
 
     /**
      * Mime header filter tests
-     * 
+     *
      * @Accessor(getter="getMimeHeaderTests", setter="setMimeHeaderTests")
      * @Type("array<Zimbra\Mail\Struct\MimeHeaderTest>")
      * @XmlList(inline=true, entry="mimeHeaderTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMimeHeaderTests', setter: 'setMimeHeaderTests')]
-    #[Type('array<Zimbra\Mail\Struct\MimeHeaderTest>')]
-    #[XmlList(inline: true, entry: 'mimeHeaderTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMimeHeaderTests", setter: "setMimeHeaderTests")]
+    #[Type("array<Zimbra\Mail\Struct\MimeHeaderTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "mimeHeaderTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $mimeHeaderTests = [];
 
     /**
      * Size filter tests
-     * 
+     *
      * @Accessor(getter="getSizeTests", setter="setSizeTests")
      * @Type("array<Zimbra\Mail\Struct\SizeTest>")
      * @XmlList(inline=true, entry="sizeTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSizeTests', setter: 'setSizeTests')]
-    #[Type('array<Zimbra\Mail\Struct\SizeTest>')]
-    #[XmlList(inline: true, entry: 'sizeTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSizeTests", setter: "setSizeTests")]
+    #[Type("array<Zimbra\Mail\Struct\SizeTest>")]
+    #[XmlList(inline: true, entry: "sizeTest", namespace: "urn:zimbraMail")]
     private $sizeTests = [];
 
     /**
      * Socialcast filter tests
-     * 
+     *
      * @Accessor(getter="getSocialcastTests", setter="setSocialcastTests")
      * @Type("array<Zimbra\Mail\Struct\SocialcastTest>")
      * @XmlList(inline=true, entry="socialcastTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSocialcastTests', setter: 'setSocialcastTests')]
-    #[Type('array<Zimbra\Mail\Struct\SocialcastTest>')]
-    #[XmlList(inline: true, entry: 'socialcastTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSocialcastTests", setter: "setSocialcastTests")]
+    #[Type("array<Zimbra\Mail\Struct\SocialcastTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "socialcastTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $socialcastTests = [];
 
     /**
      * True filter tests
-     * 
+     *
      * @Accessor(getter="getTrueTests", setter="setTrueTests")
      * @Type("array<Zimbra\Mail\Struct\TrueTest>")
      * @XmlList(inline=true, entry="trueTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTrueTests', setter: 'setTrueTests')]
-    #[Type('array<Zimbra\Mail\Struct\TrueTest>')]
-    #[XmlList(inline: true, entry: 'trueTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTrueTests", setter: "setTrueTests")]
+    #[Type("array<Zimbra\Mail\Struct\TrueTest>")]
+    #[XmlList(inline: true, entry: "trueTest", namespace: "urn:zimbraMail")]
     private $trueTests = [];
 
     /**
      * Twitter filter tests
-     * 
+     *
      * @Accessor(getter="getTwitterTests", setter="setTwitterTests")
      * @Type("array<Zimbra\Mail\Struct\TwitterTest>")
      * @XmlList(inline=true, entry="twitterTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTwitterTests', setter: 'setTwitterTests')]
-    #[Type('array<Zimbra\Mail\Struct\TwitterTest>')]
-    #[XmlList(inline: true, entry: 'twitterTest', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTwitterTests", setter: "setTwitterTests")]
+    #[Type("array<Zimbra\Mail\Struct\TwitterTest>")]
+    #[XmlList(inline: true, entry: "twitterTest", namespace: "urn:zimbraMail")]
     private $twitterTests = [];
 
     /**
      * Community requests filter tests
-     * 
+     *
      * @Accessor(getter="getCommunityRequestsTests", setter="setCommunityRequestsTests")
      * @Type("array<Zimbra\Mail\Struct\CommunityRequestsTest>")
      * @XmlList(inline=true, entry="communityRequestsTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCommunityRequestsTests', setter: 'setCommunityRequestsTests')]
-    #[Type('array<Zimbra\Mail\Struct\CommunityRequestsTest>')]
-    #[XmlList(inline: true, entry: 'communityRequestsTest', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getCommunityRequestsTests",
+            setter: "setCommunityRequestsTests"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\CommunityRequestsTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "communityRequestsTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $communityRequestsTests = [];
 
     /**
      * Community content filter tests
-     * 
+     *
      * @Accessor(getter="getCommunityContentTests", setter="setCommunityContentTests")
      * @Type("array<Zimbra\Mail\Struct\CommunityContentTest>")
      * @XmlList(inline=true, entry="communityContentTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCommunityContentTests', setter: 'setCommunityContentTests')]
-    #[Type('array<Zimbra\Mail\Struct\CommunityContentTest>')]
-    #[XmlList(inline: true, entry: 'communityContentTest', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getCommunityContentTests",
+            setter: "setCommunityContentTests"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\CommunityContentTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "communityContentTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $communityContentTests = [];
 
     /**
      * Community connections filter tests
-     * 
+     *
      * @Accessor(getter="getCommunityConnectionsTests", setter="setCommunityConnectionsTests")
      * @Type("array<Zimbra\Mail\Struct\CommunityConnectionsTest>")
      * @XmlList(inline=true, entry="communityConnectionsTest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCommunityConnectionsTests', setter: 'setCommunityConnectionsTests')]
-    #[Type('array<Zimbra\Mail\Struct\CommunityConnectionsTest>')]
-    #[XmlList(inline: true, entry: 'communityConnectionsTest', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getCommunityConnectionsTests",
+            setter: "setCommunityConnectionsTests"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\CommunityConnectionsTest>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "communityConnectionsTest",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $communityConnectionsTests = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param FilterCondition $condition
      * @param array $tests
      * @return self
      */
-    public function __construct(?FilterCondition $condition = NULL, array $tests = [])
-    {
-        $this->setTests($tests)
-             ->setCondition($condition ?? new FilterCondition('allof'));
+    public function __construct(
+        ?FilterCondition $condition = null,
+        array $tests = []
+    ) {
+        $this->setTests($tests)->setCondition(
+            $condition ?? new FilterCondition("allof")
+        );
     }
 
     /**
@@ -484,7 +596,10 @@ class FilterTests
     public function setAddressBookTests(array $tests): self
     {
         $this->addressBookTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof AddressBookTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof AddressBookTest
+            )
         );
         return $this;
     }
@@ -507,7 +622,10 @@ class FilterTests
     public function setAddressTests(array $tests): self
     {
         $this->addressTests = array_values(
-            array_filter($tests, static fn ($test) => get_class($test) === AddressTest::class)
+            array_filter(
+                $tests,
+                static fn($test) => get_class($test) === AddressTest::class
+            )
         );
         return $this;
     }
@@ -530,7 +648,10 @@ class FilterTests
     public function setEnvelopeTests(array $tests): self
     {
         $this->envelopeTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof EnvelopeTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof EnvelopeTest
+            )
         );
         return $this;
     }
@@ -553,7 +674,10 @@ class FilterTests
     public function setAttachmentTests(array $tests): self
     {
         $this->attachmentTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof AttachmentTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof AttachmentTest
+            )
         );
         return $this;
     }
@@ -576,7 +700,7 @@ class FilterTests
     public function setBodyTests(array $tests): self
     {
         $this->bodyTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof BodyTest)
+            array_filter($tests, static fn($test) => $test instanceof BodyTest)
         );
         return $this;
     }
@@ -599,7 +723,7 @@ class FilterTests
     public function setBulkTests(array $tests): self
     {
         $this->bulkTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof BulkTest)
+            array_filter($tests, static fn($test) => $test instanceof BulkTest)
         );
         return $this;
     }
@@ -622,7 +746,10 @@ class FilterTests
     public function setContactRankingTests(array $tests): self
     {
         $this->contactRankingTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof ContactRankingTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof ContactRankingTest
+            )
         );
         return $this;
     }
@@ -645,7 +772,10 @@ class FilterTests
     public function setConversationTests(array $tests): self
     {
         $this->conversationTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof ConversationTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof ConversationTest
+            )
         );
         return $this;
     }
@@ -668,7 +798,10 @@ class FilterTests
     public function setCurrentDayOfWeekTests(array $tests): self
     {
         $this->currentDayOfWeekTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof CurrentDayOfWeekTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof CurrentDayOfWeekTest
+            )
         );
         return $this;
     }
@@ -691,7 +824,10 @@ class FilterTests
     public function setCurrentTimeTests(array $tests): self
     {
         $this->currentTimeTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof CurrentTimeTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof CurrentTimeTest
+            )
         );
         return $this;
     }
@@ -714,7 +850,7 @@ class FilterTests
     public function setDateTests(array $tests): self
     {
         $this->dateTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof DateTest)
+            array_filter($tests, static fn($test) => $test instanceof DateTest)
         );
         return $this;
     }
@@ -737,7 +873,10 @@ class FilterTests
     public function setFacebookTests(array $tests): self
     {
         $this->facebookTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof FacebookTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof FacebookTest
+            )
         );
         return $this;
     }
@@ -760,7 +899,10 @@ class FilterTests
     public function setFlaggedTests(array $tests): self
     {
         $this->flaggedTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof FlaggedTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof FlaggedTest
+            )
         );
         return $this;
     }
@@ -783,7 +925,10 @@ class FilterTests
     public function setHeaderExistsTests(array $tests): self
     {
         $this->headerExistsTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof HeaderExistsTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof HeaderExistsTest
+            )
         );
         return $this;
     }
@@ -806,7 +951,10 @@ class FilterTests
     public function setHeaderTests(array $tests): self
     {
         $this->headerTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof HeaderTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof HeaderTest
+            )
         );
         return $this;
     }
@@ -829,7 +977,10 @@ class FilterTests
     public function setImportanceTests(array $tests): self
     {
         $this->importanceTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof ImportanceTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof ImportanceTest
+            )
         );
         return $this;
     }
@@ -852,7 +1003,10 @@ class FilterTests
     public function setInviteTests(array $tests): self
     {
         $this->inviteTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof InviteTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof InviteTest
+            )
         );
         return $this;
     }
@@ -875,7 +1029,10 @@ class FilterTests
     public function setLinkedInTests(array $tests): self
     {
         $this->linkedinTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof LinkedInTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof LinkedInTest
+            )
         );
         return $this;
     }
@@ -898,7 +1055,7 @@ class FilterTests
     public function setListTests(array $tests): self
     {
         $this->listTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof ListTest)
+            array_filter($tests, static fn($test) => $test instanceof ListTest)
         );
         return $this;
     }
@@ -921,7 +1078,7 @@ class FilterTests
     public function setMeTests(array $tests): self
     {
         $this->meTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof MeTest)
+            array_filter($tests, static fn($test) => $test instanceof MeTest)
         );
         return $this;
     }
@@ -944,7 +1101,10 @@ class FilterTests
     public function setMimeHeaderTests(array $tests): self
     {
         $this->mimeHeaderTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof MimeHeaderTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof MimeHeaderTest
+            )
         );
         return $this;
     }
@@ -967,7 +1127,7 @@ class FilterTests
     public function setSizeTests(array $tests): self
     {
         $this->sizeTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof SizeTest)
+            array_filter($tests, static fn($test) => $test instanceof SizeTest)
         );
         return $this;
     }
@@ -990,7 +1150,10 @@ class FilterTests
     public function setSocialcastTests(array $tests): self
     {
         $this->socialcastTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof SocialcastTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof SocialcastTest
+            )
         );
         return $this;
     }
@@ -1013,7 +1176,7 @@ class FilterTests
     public function setTrueTests(array $tests): self
     {
         $this->trueTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof TrueTest)
+            array_filter($tests, static fn($test) => $test instanceof TrueTest)
         );
         return $this;
     }
@@ -1036,7 +1199,10 @@ class FilterTests
     public function setTwitterTests(array $tests): self
     {
         $this->twitterTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof TwitterTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof TwitterTest
+            )
         );
         return $this;
     }
@@ -1059,7 +1225,10 @@ class FilterTests
     public function setCommunityRequestsTests(array $tests): self
     {
         $this->communityRequestsTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof CommunityRequestsTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof CommunityRequestsTest
+            )
         );
         return $this;
     }
@@ -1082,7 +1251,10 @@ class FilterTests
     public function setCommunityContentTests(array $tests): self
     {
         $this->communityContentTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof CommunityContentTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof CommunityContentTest
+            )
         );
         return $this;
     }
@@ -1105,7 +1277,10 @@ class FilterTests
     public function setCommunityConnectionsTests(array $tests): self
     {
         $this->communityConnectionsTests = array_values(
-            array_filter($tests, static fn ($test) => $test instanceof CommunityConnectionsTest)
+            array_filter(
+                $tests,
+                static fn($test) => $test instanceof CommunityConnectionsTest
+            )
         );
         return $this;
     }
@@ -1158,33 +1333,33 @@ class FilterTests
     public function setTests(array $tests): self
     {
         $this->setAddressBookTests($tests)
-             ->setAddressTests($tests)
-             ->setEnvelopeTests($tests)
-             ->setAttachmentTests($tests)
-             ->setBodyTests($tests)
-             ->setBulkTests($tests)
-             ->setContactRankingTests($tests)
-             ->setConversationTests($tests)
-             ->setCurrentDayOfWeekTests($tests)
-             ->setCurrentTimeTests($tests)
-             ->setDateTests($tests)
-             ->setFacebookTests($tests)
-             ->setFlaggedTests($tests)
-             ->setHeaderExistsTests($tests)
-             ->setHeaderTests($tests)
-             ->setImportanceTests($tests)
-             ->setInviteTests($tests)
-             ->setLinkedInTests($tests)
-             ->setListTests($tests)
-             ->setMeTests($tests)
-             ->setMimeHeaderTests($tests)
-             ->setSizeTests($tests)
-             ->setSocialcastTests($tests)
-             ->setTrueTests($tests)
-             ->setTwitterTests($tests)
-             ->setCommunityRequestsTests($tests)
-             ->setCommunityContentTests($tests)
-             ->setCommunityConnectionsTests($tests);
+            ->setAddressTests($tests)
+            ->setEnvelopeTests($tests)
+            ->setAttachmentTests($tests)
+            ->setBodyTests($tests)
+            ->setBulkTests($tests)
+            ->setContactRankingTests($tests)
+            ->setConversationTests($tests)
+            ->setCurrentDayOfWeekTests($tests)
+            ->setCurrentTimeTests($tests)
+            ->setDateTests($tests)
+            ->setFacebookTests($tests)
+            ->setFlaggedTests($tests)
+            ->setHeaderExistsTests($tests)
+            ->setHeaderTests($tests)
+            ->setImportanceTests($tests)
+            ->setInviteTests($tests)
+            ->setLinkedInTests($tests)
+            ->setListTests($tests)
+            ->setMeTests($tests)
+            ->setMimeHeaderTests($tests)
+            ->setSizeTests($tests)
+            ->setSocialcastTests($tests)
+            ->setTrueTests($tests)
+            ->setTwitterTests($tests)
+            ->setCommunityRequestsTests($tests)
+            ->setCommunityContentTests($tests)
+            ->setCommunityConnectionsTests($tests);
         return $this;
     }
 

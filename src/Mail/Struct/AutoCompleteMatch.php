@@ -27,242 +27,247 @@ class AutoCompleteMatch
 {
     /**
      * Comma-separated email addresses in case of group
-     * 
+     *
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Match type - gal|contact|rankingTable
-     * 
+     *
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AutoCompleteMatchType>")
      * @XmlAttribute
-     * 
+     *
      * @var MatchType
      */
-    #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\AutoCompleteMatchType>')]
+    #[Accessor(getter: "getMatchType", setter: "setMatchType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\AutoCompleteMatchType>")]
     #[XmlAttribute]
     private ?MatchType $matchType;
 
     /**
      * Ranking
-     * 
+     *
      * @Accessor(getter="getRanking", setter="setRanking")
      * @SerializedName("ranking")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRanking', setter: 'setRanking')]
-    #[SerializedName('ranking')]
-    #[Type('int')]
+    #[Accessor(getter: "getRanking", setter: "setRanking")]
+    #[SerializedName("ranking")]
+    #[Type("int")]
     #[XmlAttribute]
     private $ranking;
 
     /**
      * Set if the entry is a group
-     * 
+     *
      * @Accessor(getter="getGroup", setter="setGroup")
      * @SerializedName("isGroup")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getGroup', setter: 'setGroup')]
-    #[SerializedName('isGroup')]
-    #[Type('bool')]
+    #[Accessor(getter: "getGroup", setter: "setGroup")]
+    #[SerializedName("isGroup")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $group;
 
     /**
      * Set if the user has the right to expand group members.  Returned only if
      * needExp is set in the request and only on group entries (isGroup is set).
-     * 
+     *
      * @Accessor(getter="getCanExpandGroupMembers", setter="setCanExpandGroupMembers")
      * @SerializedName("exp")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
-    #[SerializedName('exp')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getCanExpandGroupMembers",
+            setter: "setCanExpandGroupMembers"
+        )
+    ]
+    #[SerializedName("exp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canExpandGroupMembers;
 
     /**
      * Id
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Folder ID
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * String that should be displayed by the client
-     * 
+     *
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("display")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('display')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("display")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * First Name
-     * 
+     *
      * @Accessor(getter="getFirstName", setter="setFirstName")
      * @SerializedName("first")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFirstName', setter: 'setFirstName')]
-    #[SerializedName('first')]
-    #[Type('string')]
+    #[Accessor(getter: "getFirstName", setter: "setFirstName")]
+    #[SerializedName("first")]
+    #[Type("string")]
     #[XmlAttribute]
     private $firstName;
 
     /**
      * Middle Name
-     * 
+     *
      * @Accessor(getter="getMiddleName", setter="setMiddleName")
      * @SerializedName("middle")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMiddleName', setter: 'setMiddleName')]
-    #[SerializedName('middle')]
-    #[Type('string')]
+    #[Accessor(getter: "getMiddleName", setter: "setMiddleName")]
+    #[SerializedName("middle")]
+    #[Type("string")]
     #[XmlAttribute]
     private $middleName;
 
     /**
      * Last Name
-     * 
+     *
      * @Accessor(getter="getLastName", setter="setLastName")
      * @SerializedName("last")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLastName', setter: 'setLastName')]
-    #[SerializedName('last')]
-    #[Type('string')]
+    #[Accessor(getter: "getLastName", setter: "setLastName")]
+    #[SerializedName("last")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lastName;
 
     /**
      * Full Name
-     * 
+     *
      * @Accessor(getter="getFullName", setter="setFullName")
      * @SerializedName("full")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFullName', setter: 'setFullName')]
-    #[SerializedName('full')]
-    #[Type('string')]
+    #[Accessor(getter: "getFullName", setter: "setFullName")]
+    #[SerializedName("full")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fullName;
 
     /**
      * Nick Name
-     * 
+     *
      * @Accessor(getter="getNickname", setter="setNickname")
      * @SerializedName("nick")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNickname', setter: 'setNickname')]
-    #[SerializedName('nick')]
-    #[Type('string')]
+    #[Accessor(getter: "getNickname", setter: "setNickname")]
+    #[SerializedName("nick")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nickname;
 
     /**
      * Company Name
-     * 
+     *
      * @Accessor(getter="getCompany", setter="setCompany")
      * @SerializedName("company")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCompany', setter: 'setCompany')]
-    #[SerializedName('company')]
-    #[Type('string')]
+    #[Accessor(getter: "getCompany", setter: "setCompany")]
+    #[SerializedName("company")]
+    #[Type("string")]
     #[XmlAttribute]
     private $company;
 
     /**
      * FileAs
-     * 
+     *
      * @Accessor(getter="getFileAs", setter="setFileAs")
      * @SerializedName("fileas")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
-    #[SerializedName('fileas')]
-    #[Type('string')]
+    #[Accessor(getter: "getFileAs", setter: "setFileAs")]
+    #[SerializedName("fileas")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fileAs;
 
@@ -287,64 +292,63 @@ class AutoCompleteMatch
      * @return self
      */
     public function __construct(
-        ?string $email = NULL,
-        ?MatchType $matchType = NULL,
-        ?int $ranking = NULL,
-        ?bool $group = NULL,
-        ?bool $canExpandGroupMembers = NULL,
-        ?string $id = NULL,
-        ?string $folder = NULL,
-        ?string $displayName = NULL,
-        ?string $firstName = NULL,
-        ?string $middleName = NULL,
-        ?string $lastName = NULL,
-        ?string $fullName = NULL,
-        ?string $nickname = NULL,
-        ?string $company = NULL,
-        ?string $fileAs = NULL
-    )
-    {
+        ?string $email = null,
+        ?MatchType $matchType = null,
+        ?int $ranking = null,
+        ?bool $group = null,
+        ?bool $canExpandGroupMembers = null,
+        ?string $id = null,
+        ?string $folder = null,
+        ?string $displayName = null,
+        ?string $firstName = null,
+        ?string $middleName = null,
+        ?string $lastName = null,
+        ?string $fullName = null,
+        ?string $nickname = null,
+        ?string $company = null,
+        ?string $fileAs = null
+    ) {
         $this->matchType = $matchType;
-        if (NULL !== $email) {
+        if (null !== $email) {
             $this->setEmail($email);
         }
-        if (NULL !== $ranking) {
+        if (null !== $ranking) {
             $this->setRanking($ranking);
         }
-        if (NULL !== $group) {
+        if (null !== $group) {
             $this->setGroup($group);
         }
-        if (NULL !== $canExpandGroupMembers) {
+        if (null !== $canExpandGroupMembers) {
             $this->setCanExpandGroupMembers($canExpandGroupMembers);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $firstName) {
+        if (null !== $firstName) {
             $this->setFirstName($firstName);
         }
-        if (NULL !== $middleName) {
+        if (null !== $middleName) {
             $this->setMiddleName($middleName);
         }
-        if (NULL !== $lastName) {
+        if (null !== $lastName) {
             $this->setLastName($lastName);
         }
-        if (NULL !== $fullName) {
+        if (null !== $fullName) {
             $this->setFullName($fullName);
         }
-        if (NULL !== $nickname) {
+        if (null !== $nickname) {
             $this->setNickname($nickname);
         }
-        if (NULL !== $company) {
+        if (null !== $company) {
             $this->setCompany($company);
         }
-        if (NULL !== $fileAs) {
+        if (null !== $fileAs) {
             $this->setFileAs($fileAs);
         }
     }

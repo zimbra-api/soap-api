@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CreateSearchFolderResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class CreateSearchFolderResponse extends SoapResponse
 {
     /**
      * Details of newly created search folder
-     * 
+     *
      * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SearchFolder
      */
-    #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]
-    #[SerializedName('search')]
+    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[SerializedName("search")]
     #[Type(SearchFolder::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SearchFolder $searchFolder;
 
     /**
@@ -47,7 +47,7 @@ class CreateSearchFolderResponse extends SoapResponse
      * @param  SearchFolder $searchFolder
      * @return self
      */
-    public function __construct(?SearchFolder $searchFolder = NULL)
+    public function __construct(?SearchFolder $searchFolder = null)
     {
         $this->searchFolder = $searchFolder;
     }

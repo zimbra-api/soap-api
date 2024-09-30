@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * DeleteGalSyncAccountBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @SerializedName("DeleteGalSyncAccountRequest")
      * @Type("Zimbra\Admin\Message\DeleteGalSyncAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('DeleteGalSyncAccountRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("DeleteGalSyncAccountRequest")]
     #[Type(DeleteGalSyncAccountRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("DeleteGalSyncAccountResponse")
      * @Type("Zimbra\Admin\Message\DeleteGalSyncAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('DeleteGalSyncAccountResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("DeleteGalSyncAccountResponse")]
     #[Type(DeleteGalSyncAccountResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteGalSyncAccountRequest $request = NULL, ?DeleteGalSyncAccountResponse $response = NULL
-    )
-    {
+        ?DeleteGalSyncAccountRequest $request = null,
+        ?DeleteGalSyncAccountResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

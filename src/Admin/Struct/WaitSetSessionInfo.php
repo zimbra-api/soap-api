@@ -25,135 +25,135 @@ class WaitSetSessionInfo
 {
     /**
      * Interest bitmask
-     * 
+     *
      * @Accessor(getter="getInterestMask", setter="setInterestMask")
      * @SerializedName("interestMask")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInterestMask', setter: 'setInterestMask')]
-    #[SerializedName('interestMask')]
-    #[Type('string')]
+    #[Accessor(getter: "getInterestMask", setter: "setInterestMask")]
+    #[SerializedName("interestMask")]
+    #[Type("string")]
     #[XmlAttribute]
     private $interestMask;
 
     /**
      * Mailbox change ID
-     * 
+     *
      * @Accessor(getter="getHighestChangeId", setter="setHighestChangeId")
      * @SerializedName("highestChangeId")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getHighestChangeId', setter: 'setHighestChangeId')]
-    #[SerializedName('highestChangeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getHighestChangeId", setter: "setHighestChangeId")]
+    #[SerializedName("highestChangeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $highestChangeId;
 
     /**
      * Last access time
-     * 
+     *
      * @Accessor(getter="getLastAccessTime", setter="setLastAccessTime")
      * @SerializedName("lastAccessTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastAccessTime', setter: 'setLastAccessTime')]
-    #[SerializedName('lastAccessTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastAccessTime", setter: "setLastAccessTime")]
+    #[SerializedName("lastAccessTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastAccessTime;
 
     /**
      * Creation time
-     * 
+     *
      * @Accessor(getter="getCreationTime", setter="setCreationTime")
      * @SerializedName("creationTime")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCreationTime', setter: 'setCreationTime')]
-    #[SerializedName('creationTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getCreationTime", setter: "setCreationTime")]
+    #[SerializedName("creationTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $creationTime;
 
     /**
      * Session ID
-     * 
+     *
      * @Accessor(getter="getSessionId", setter="setSessionId")
      * @SerializedName("sessionId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName('sessionId')]
-    #[Type('string')]
+    #[Accessor(getter: "getSessionId", setter: "setSessionId")]
+    #[SerializedName("sessionId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sessionId;
 
     /**
      * Sync Token
-     * 
+     *
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * Comma separated list of IDs for folders.
-     * 
+     *
      * @Accessor(getter="getFolderInterests", setter="setFolderInterests")
      * @SerializedName("folderInterests")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderInterests', setter: 'setFolderInterests')]
-    #[SerializedName('folderInterests')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderInterests", setter: "setFolderInterests")]
+    #[SerializedName("folderInterests")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderInterests;
 
     /**
      * Comma separated list of IDs for folders.
-     * 
+     *
      * @Accessor(getter="getChangedFolders", setter="setChangedFolders")
      * @SerializedName("changedFolders")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getChangedFolders', setter: 'setChangedFolders')]
-    #[SerializedName('changedFolders')]
-    #[Type('string')]
+    #[Accessor(getter: "getChangedFolders", setter: "setChangedFolders")]
+    #[SerializedName("changedFolders")]
+    #[Type("string")]
     #[XmlAttribute]
     private $changedFolders;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $interestMask
      * @param int    $highestChangeId
      * @param int    $lastAccessTime
@@ -165,28 +165,27 @@ class WaitSetSessionInfo
      * @return self
      */
     public function __construct(
-        string $interestMask = '',
+        string $interestMask = "",
         int $highestChangeId = 0,
         int $lastAccessTime = 0,
         int $creationTime = 0,
-        string $sessionId = '',
-        ?string $token = NULL,
-        ?string $folderInterests = NULL,
-        ?string $changedFolders = NULL
-    )
-    {
+        string $sessionId = "",
+        ?string $token = null,
+        ?string $folderInterests = null,
+        ?string $changedFolders = null
+    ) {
         $this->setInterestMask($interestMask)
-             ->setHighestChangeId($highestChangeId)
-             ->setLastAccessTime($lastAccessTime)
-             ->setCreationTime($creationTime)
-             ->setSessionId($sessionId);
-        if (NULL !== $token) {
+            ->setHighestChangeId($highestChangeId)
+            ->setLastAccessTime($lastAccessTime)
+            ->setCreationTime($creationTime)
+            ->setSessionId($sessionId);
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $folderInterests) {
+        if (null !== $folderInterests) {
             $this->setFolderInterests($folderInterests);
         }
-        if (NULL !== $changedFolders) {
+        if (null !== $changedFolders) {
             $this->setChangedFolders($changedFolders);
         }
     }

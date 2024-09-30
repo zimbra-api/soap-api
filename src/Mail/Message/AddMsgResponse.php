@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AddMsgResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,13 +31,13 @@ class AddMsgResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MessageSummary
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("m")]
     #[Type(MessageSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MessageSummary $message;
 
     /**
@@ -46,13 +46,13 @@ class AddMsgResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ChatSummary
      */
-    #[Accessor(getter: 'getChatMessage', setter: 'setMessage')]
-    #[SerializedName('chat')]
+    #[Accessor(getter: "getChatMessage", setter: "setMessage")]
+    #[SerializedName("chat")]
     #[Type(ChatSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ChatSummary $chatMessage;
 
     /**
@@ -61,7 +61,7 @@ class AddMsgResponse extends SoapResponse
      * @param  MessageSummary $message
      * @return self
      */
-    public function __construct(?MessageSummary $message = NULL)
+    public function __construct(?MessageSummary $message = null)
     {
         if ($message instanceof MessageSummary) {
             $this->setMessage($message);
@@ -76,11 +76,10 @@ class AddMsgResponse extends SoapResponse
      */
     public function setMessage(MessageSummary $message): self
     {
-        $this->message = $this->chatMessage = NULL;
+        $this->message = $this->chatMessage = null;
         if ($message instanceof ChatSummary) {
             $this->chatMessage = $message;
-        }
-        else {
+        } else {
             $this->message = $message;
         }
         return $this;

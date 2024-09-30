@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAllAlwaysOnClustersBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetAllAlwaysOnClustersBody extends SoapBody
      * @SerializedName("GetAllAlwaysOnClustersRequest")
      * @Type("Zimbra\Admin\Message\GetAllAlwaysOnClustersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAllAlwaysOnClustersRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAllAlwaysOnClustersRequest")]
     #[Type(GetAllAlwaysOnClustersRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetAllAlwaysOnClustersResponse")
      * @Type("Zimbra\Admin\Message\GetAllAlwaysOnClustersResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAllAlwaysOnClustersResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAllAlwaysOnClustersResponse")]
     #[Type(GetAllAlwaysOnClustersResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetAllAlwaysOnClustersBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAllAlwaysOnClustersRequest $request = NULL, ?GetAllAlwaysOnClustersResponse $response = NULL
-    )
-    {
+        ?GetAllAlwaysOnClustersRequest $request = null,
+        ?GetAllAlwaysOnClustersResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

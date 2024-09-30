@@ -10,14 +10,21 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\TzFixup;
 use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * FixCalendarTZRequest class
  * Fix timezone definitions in appointments and tasks to reflect changes in daylight savings time rules in various timezones.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,71 +36,71 @@ class FixCalendarTZRequest extends SoapRequest
     /**
      * Sync flag
      * 1 (true) command blocks until processing finishes
-     * 0 (false) [default]  command returns right away 
-     * 
+     * 0 (false) [default]  command returns right away
+     *
      * @Accessor(getter="getSync", setter="setSync")
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName('sync')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSync", setter: "setSync")]
+    #[SerializedName("sync")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sync;
 
     /**
      * Fix appts/tasks that have instances after this time
      * default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
-     * 
+     *
      * @Accessor(getter="getAfter", setter="setAfter")
      * @SerializedName("after")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAfter', setter: 'setAfter')]
-    #[SerializedName('after')]
-    #[Type('int')]
+    #[Accessor(getter: "getAfter", setter: "setAfter")]
+    #[SerializedName("after")]
+    #[Type("int")]
     #[XmlAttribute]
     private $after;
 
     /**
      * Accounts
-     * 
+     *
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
      * Fixup rules wrapper
-     * 
+     *
      * @Accessor(getter="getTzFixup", setter="setTzFixup")
      * @SerializedName("tzfixup")
      * @Type("Zimbra\Admin\Struct\TzFixup")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TzFixup
      */
-    #[Accessor(getter: 'getTzFixup', setter: 'setTzFixup')]
-    #[SerializedName('tzfixup')]
+    #[Accessor(getter: "getTzFixup", setter: "setTzFixup")]
+    #[SerializedName("tzfixup")]
     #[Type(TzFixup::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TzFixup $tzFixup;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $sync
      * @param  int $after
      * @param  array $accounts
@@ -101,15 +108,17 @@ class FixCalendarTZRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL
-    )
-    {
+        ?bool $sync = null,
+        ?int $after = null,
+        array $accounts = [],
+        ?TzFixup $tzFixup = null
+    ) {
         $this->setAccounts($accounts);
         $this->tzFixup = $tzFixup;
-        if (NULL !== $sync) {
+        if (null !== $sync) {
             $this->setSync($sync);
         }
-        if (NULL !== $after) {
+        if (null !== $after) {
             $this->setAfter($after);
         }
     }
@@ -177,7 +186,8 @@ class FixCalendarTZRequest extends SoapRequest
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof NamedElement
+            $accounts,
+            static fn($account) => $account instanceof NamedElement
         );
         return $this;
     }
@@ -221,8 +231,6 @@ class FixCalendarTZRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new FixCalendarTZEnvelope(
-            new FixCalendarTZBody($this)
-        );
+        return new FixCalendarTZEnvelope(new FixCalendarTZBody($this));
     }
 }

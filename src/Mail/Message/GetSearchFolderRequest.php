@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetSearchFolderRequest class
  * Get all search folders
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class GetSearchFolderRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetSearchFolderEnvelope(
-            new GetSearchFolderBody($this)
-        );
+        return new GetSearchFolderEnvelope(new GetSearchFolderBody($this));
     }
 }

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetIdentitiesRequest class
  * Get the identities for the authed account.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,8 +29,6 @@ class GetIdentitiesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetIdentitiesEnvelope(
-            new GetIdentitiesBody($this)
-        );
+        return new GetIdentitiesEnvelope(new GetIdentitiesBody($this));
     }
 }

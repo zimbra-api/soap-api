@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * SessionForWaitSet struct class
@@ -25,66 +31,66 @@ class SessionForWaitSet
 {
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
+    #[Type("string")]
     #[XmlAttribute]
     private $account;
 
     /**
-     * Interest types - Either all or some combination of the letters: 
+     * Interest types - Either all or some combination of the letters:
      * mcatd Which stand for Message, Contact, Appointment, Task and Document respectively
-     * 
+     *
      * @Accessor(getter="getInterests", setter="setInterests")
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInterests', setter: 'setInterests')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getInterests", setter: "setInterests")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $interests;
 
     /**
      * Last known sync token
-     * 
+     *
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * Mailbox sync token
-     * 
+     *
      * @Accessor(getter="getMboxSyncToken", setter="setMboxSyncToken")
      * @SerializedName("mboxSyncToken")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMboxSyncToken', setter: 'setMboxSyncToken')]
-    #[SerializedName('mboxSyncToken')]
-    #[Type('int')]
+    #[Accessor(getter: "getMboxSyncToken", setter: "setMboxSyncToken")]
+    #[SerializedName("mboxSyncToken")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mboxSyncToken;
 
@@ -93,50 +99,50 @@ class SessionForWaitSet
      * @SerializedName("mboxSyncTokenDiff")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMboxSyncTokenDiff', setter: 'setMboxSyncTokenDiff')]
-    #[SerializedName('mboxSyncTokenDiff')]
-    #[Type('int')]
+    #[Accessor(getter: "getMboxSyncTokenDiff", setter: "setMboxSyncTokenDiff")]
+    #[SerializedName("mboxSyncTokenDiff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mboxSyncTokenDiff;
 
     /**
      * Account ID stored in WaitSetAccount object.  Differs from account value.
-     * 
+     *
      * @Accessor(getter="getAcctIdError", setter="setAcctIdError")
      * @SerializedName("acctIdError")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAcctIdError', setter: 'setAcctIdError')]
-    #[SerializedName('acctIdError')]
-    #[Type('string')]
+    #[Accessor(getter: "getAcctIdError", setter: "setAcctIdError")]
+    #[SerializedName("acctIdError")]
+    #[Type("string")]
     #[XmlAttribute]
     private $acctIdError;
 
     /**
      * WaitSet session Information
-     * 
+     *
      * @Accessor(getter="getWaitSetSession", setter="setWaitSetSession")
      * @SerializedName("WaitSetSession")
      * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var WaitSetSessionInfo
      */
-    #[Accessor(getter: 'getWaitSetSession', setter: 'setWaitSetSession')]
-    #[SerializedName('WaitSetSession')]
+    #[Accessor(getter: "getWaitSetSession", setter: "setWaitSetSession")]
+    #[SerializedName("WaitSetSession")]
     #[Type(WaitSetSessionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?WaitSetSessionInfo $waitSetSession;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $account
      * @param string $interests
      * @param string $token
@@ -147,28 +153,26 @@ class SessionForWaitSet
      * @return self
      */
     public function __construct(
-        string $account = '',
-        string $interests = '',
-        ?string $token = NULL,
-        ?int $mboxSyncToken = NULL,
-        ?int $mboxSyncTokenDiff = NULL,
-        ?string $acctIdError = NULL,
-        ?WaitSetSessionInfo $waitSetSession = NULL
-    )
-    {
-        $this->setAccount($account)
-             ->setInterests($interests);
+        string $account = "",
+        string $interests = "",
+        ?string $token = null,
+        ?int $mboxSyncToken = null,
+        ?int $mboxSyncTokenDiff = null,
+        ?string $acctIdError = null,
+        ?WaitSetSessionInfo $waitSetSession = null
+    ) {
+        $this->setAccount($account)->setInterests($interests);
         $this->waitSetSession = $waitSetSession;
-        if (NULL !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if (NULL !== $mboxSyncToken) {
+        if (null !== $mboxSyncToken) {
             $this->setMboxSyncToken($mboxSyncToken);
         }
-        if (NULL !== $mboxSyncTokenDiff) {
+        if (null !== $mboxSyncTokenDiff) {
             $this->setMboxSyncTokenDiff($mboxSyncTokenDiff);
         }
-        if (NULL !== $acctIdError) {
+        if (null !== $acctIdError) {
             $this->setAcctIdError($acctIdError);
         }
     }

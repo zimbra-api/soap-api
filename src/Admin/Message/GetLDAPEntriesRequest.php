@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetLDAPEntriesRequest class
  * fetches ldap entry (or entries) by a search-base ({ldap-search-base}) and a search query ({query}).
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,103 +33,103 @@ class GetLDAPEntriesRequest extends SoapRequest
 {
     /**
      * LDAP search base.  An LDAP-style filter string that defines an LDAP search base (RFC 2254)
-     * 
+     *
      * @Accessor(getter="getLdapSearchBase", setter="setLdapSearchBase")
      * @SerializedName("ldapSearchBase")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLdapSearchBase', setter: 'setLdapSearchBase')]
-    #[SerializedName('ldapSearchBase')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLdapSearchBase", setter: "setLdapSearchBase")]
+    #[SerializedName("ldapSearchBase")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $ldapSearchBase;
 
     /**
      * Name of attribute to sort on. default is null
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * Flag whether to sort in ascending order 1 (true) is default
-     * 
+     *
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName('sortAscending')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSortAscending", setter: "setSortAscending")]
+    #[SerializedName("sortAscending")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sortAscending;
 
     /**
      * The number of mailboxes to return (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Query string. Should be an LDAP-style filter string (RFC 2254)
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $ldapSearchBase
      * @param  string $sortBy
      * @param  bool $sortAscending
@@ -133,28 +139,27 @@ class GetLDAPEntriesRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $ldapSearchBase = '',
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $query = NULL
-    )
-    {
+        string $ldapSearchBase = "",
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $query = null
+    ) {
         $this->setLdapSearchBase($ldapSearchBase);
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
     }
@@ -296,8 +301,6 @@ class GetLDAPEntriesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetLDAPEntriesEnvelope(
-            new GetLDAPEntriesBody($this)
-        );
+        return new GetLDAPEntriesEnvelope(new GetLDAPEntriesBody($this));
     }
 }

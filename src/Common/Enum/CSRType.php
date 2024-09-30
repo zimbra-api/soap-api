@@ -27,11 +27,11 @@ class CSRType extends Enum
      * Constant for value 'self'
      * @return string 'self'
      */
-    protected const SELF = 'self';
+    protected const SELF = "self";
 
     /**
      * Constant for value 'comm'
      * @return string 'comm'
      */
-    protected const COMM = 'comm';
+    protected const COMM = "comm";
 }

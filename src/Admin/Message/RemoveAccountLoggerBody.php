@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RemoveAccountLoggerBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class RemoveAccountLoggerBody extends SoapBody
      * @SerializedName("RemoveAccountLoggerRequest")
      * @Type("Zimbra\Admin\Message\RemoveAccountLoggerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RemoveAccountLoggerRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RemoveAccountLoggerRequest")]
     #[Type(RemoveAccountLoggerRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RemoveAccountLoggerResponse")
      * @Type("Zimbra\Admin\Message\RemoveAccountLoggerResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RemoveAccountLoggerResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RemoveAccountLoggerResponse")]
     #[Type(RemoveAccountLoggerResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RemoveAccountLoggerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveAccountLoggerRequest $request = NULL, ?RemoveAccountLoggerResponse $response = NULL
-    )
-    {
+        ?RemoveAccountLoggerRequest $request = null,
+        ?RemoveAccountLoggerResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

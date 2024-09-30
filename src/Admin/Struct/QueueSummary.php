@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * QueueSummary struct class
@@ -25,45 +31,44 @@ class QueueSummary
 {
     /**
      * Queue summary type - reason|to|from|todomain|fromdomain|addr|host
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Queue summary items
-     * 
+     *
      * @Accessor(getter="getItems", setter="setItems")
      * @Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")
      * @XmlList(inline=true, entry="qsi", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getItems', setter: 'setItems')]
-    #[Type('array<Zimbra\Admin\Struct\QueueSummaryItem>')]
-    #[XmlList(inline: true, entry: 'qsi', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getItems", setter: "setItems")]
+    #[Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")]
+    #[XmlList(inline: true, entry: "qsi", namespace: "urn:zimbraAdmin")]
     private $items = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $type
      * @param  array  $items
      * @return self
      */
-    public function __construct(string $type = '', array $items = [])
+    public function __construct(string $type = "", array $items = [])
     {
-        $this->setType($type)
-             ->setItems($items);
+        $this->setType($type)->setItems($items);
     }
 
     /**
@@ -109,7 +114,8 @@ class QueueSummary
     public function setItems(array $items): self
     {
         $this->items = array_filter(
-            $items, static fn ($qsi) => $qsi instanceof QueueSummaryItem
+            $items,
+            static fn($qsi) => $qsi instanceof QueueSummaryItem
         );
         return $this;
     }

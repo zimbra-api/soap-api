@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * SearchGalRequest class
  * Search Global Address Book (GAL)
  * Notes: admin verison of mail equiv. Used for testing via zmprov.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,87 +29,87 @@ class SearchGalRequest extends SoapRequest
 {
     /**
      * Domain name
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * The maximum number of entries to return (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Type of addresses to search.
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
-     * 
+     *
      * @var GalSearchType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GalSearchType>")]
     #[XmlAttribute]
     private ?GalSearchType $type;
 
     /**
      * GAL account ID
-     * 
+     *
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName('galAcctId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGalAccountId", setter: "setGalAccountId")]
+    #[SerializedName("galAcctId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galAccountId;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $domain
      * @param  string $name
      * @param  int $limit
@@ -118,22 +118,21 @@ class SearchGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $domain = '',
-        ?string $name = NULL,
-        ?int $limit = NULL,
-        ?GalSearchType $type = NULL,
-        ?string $galAccountId = NULL
-    )
-    {
+        string $domain = "",
+        ?string $name = null,
+        ?int $limit = null,
+        ?GalSearchType $type = null,
+        ?string $galAccountId = null
+    ) {
         $this->setDomain($domain);
         $this->type = $type;
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
     }
@@ -253,8 +252,6 @@ class SearchGalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchGalEnvelope(
-            new SearchGalBody($this)
-        );
+        return new SearchGalEnvelope(new SearchGalBody($this));
     }
 }

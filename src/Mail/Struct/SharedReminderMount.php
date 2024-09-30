@@ -25,47 +25,47 @@ class SharedReminderMount
 {
     /**
      * Mountpoint ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Set to enable (or unset to disable) reminders for shared appointments/tasks
-     * 
+     *
      * @Accessor(getter="getShowReminders", setter="setShowReminders")
      * @SerializedName("reminder")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getShowReminders', setter: 'setShowReminders')]
-    #[SerializedName('reminder')]
-    #[Type('bool')]
+    #[Accessor(getter: "getShowReminders", setter: "setShowReminders")]
+    #[SerializedName("reminder")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $showReminders;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param bool $showReminders
      * @return self
      */
-    public function __construct(string $id = '', ?bool $showReminders = NULL)
+    public function __construct(string $id = "", ?bool $showReminders = null)
     {
         $this->setId($id);
-        if (NULL !== $showReminders) {
+        if (null !== $showReminders) {
             $this->setShowReminders($showReminders);
         }
     }

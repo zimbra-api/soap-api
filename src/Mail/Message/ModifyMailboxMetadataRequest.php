@@ -21,7 +21,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * - Existing keys' values will be replaced by new values
  * - Empty or null value will remove a key
  * - New keys can be added
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,18 +32,18 @@ class ModifyMailboxMetadataRequest extends SoapRequest
 {
     /**
      * Metadata changes
-     * 
+     *
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailCustomMetadata
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(MailCustomMetadata::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailCustomMetadata $metadata;
 
     /**
@@ -52,7 +52,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
      * @param  MailCustomMetadata $metadata
      * @return self
      */
-    public function __construct(?MailCustomMetadata $metadata = NULL)
+    public function __construct(?MailCustomMetadata $metadata = null)
     {
         $this->metadata = $metadata;
     }

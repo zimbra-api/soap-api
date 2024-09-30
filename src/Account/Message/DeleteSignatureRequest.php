@@ -29,23 +29,23 @@ class DeleteSignatureRequest extends SoapRequest
 {
     /**
      * The signature to delete
-     * 
+     *
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var NameId
      */
-    #[Accessor(getter: 'getSignature', setter: 'setSignature')]
-    #[SerializedName('signature')]
+    #[Accessor(getter: "getSignature", setter: "setSignature")]
+    #[SerializedName("signature")]
     #[Type(NameId::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private NameId $signature;
 
     /**
      * Constructor
-     * 
+     *
      * @param NameId $signature
      * @return self
      */
@@ -81,8 +81,6 @@ class DeleteSignatureRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteSignatureEnvelope(
-            new DeleteSignatureBody($this)
-        );
+        return new DeleteSignatureEnvelope(new DeleteSignatureBody($this));
     }
 }

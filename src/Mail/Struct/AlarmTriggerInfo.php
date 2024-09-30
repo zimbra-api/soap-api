@@ -11,7 +11,11 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{AlarmTriggerInfoInterface, DateAttrInterface, DurationInfoInterface};
+use Zimbra\Common\Struct\{
+    AlarmTriggerInfoInterface,
+    DateAttrInterface,
+    DurationInfoInterface
+};
 
 /**
  * AlarmTriggerInfo struct class
@@ -27,34 +31,34 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
 {
     /**
      * Absolute trigger information
-     * 
+     *
      * @Accessor(getter="getAbsolute", setter="setAbsolute")
      * @SerializedName("abs")
      * @Type("Zimbra\Mail\Struct\DateAttr")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DateAttrInterface
      */
-    #[Accessor(getter: 'getAbsolute', setter: 'setAbsolute')]
-    #[SerializedName('abs')]
+    #[Accessor(getter: "getAbsolute", setter: "setAbsolute")]
+    #[SerializedName("abs")]
     #[Type(DateAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DateAttrInterface $absolute;
 
     /**
      * Relative trigger information
-     * 
+     *
      * @Accessor(getter="getRelative", setter="setRelative")
      * @SerializedName("rel")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: 'getRelative', setter: 'setRelative')]
-    #[SerializedName('rel')]
+    #[Accessor(getter: "getRelative", setter: "setRelative")]
+    #[SerializedName("rel")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfoInterface $relative;
 
     /**
@@ -65,10 +69,9 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @return self
      */
     public function __construct(
-        ?DateAttr $absolute = NULL,
-        ?DurationInfo $relative = NULL
-    )
-    {
+        ?DateAttr $absolute = null,
+        ?DurationInfo $relative = null
+    ) {
         $this->absolute = $absolute;
         $this->relative = $relative;
     }

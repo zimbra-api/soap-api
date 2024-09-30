@@ -28,27 +28,27 @@ class CheckExchangeAuthRequest extends SoapRequest
 {
     /**
      * Exchange auth details
-     * 
+     *
      * @Accessor(getter="getAuth", setter="setAuth")
      * @SerializedName("auth")
      * @Type("Zimbra\Admin\Struct\ExchangeAuthSpec")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ExchangeAuthSpec
      */
-    #[Accessor(getter: 'getAuth', setter: 'setAuth')]
-    #[SerializedName('auth')]
+    #[Accessor(getter: "getAuth", setter: "setAuth")]
+    #[SerializedName("auth")]
     #[Type(ExchangeAuthSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ExchangeAuthSpec $auth;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ExchangeAuthSpec  $auth
      * @return self
      */
-    public function __construct(?ExchangeAuthSpec $auth = NULL)
+    public function __construct(?ExchangeAuthSpec $auth = null)
     {
         $this->auth = $auth;
     }
@@ -80,8 +80,6 @@ class CheckExchangeAuthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckExchangeAuthEnvelope(
-            new CheckExchangeAuthBody($this)
-        );
+        return new CheckExchangeAuthEnvelope(new CheckExchangeAuthBody($this));
     }
 }

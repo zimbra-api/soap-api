@@ -11,7 +11,12 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
 };
 use Zimbra\Mail\Struct\EmailAddrInfo;
 use Zimbra\Common\Enum\ShareAction;
@@ -32,70 +37,70 @@ class SendShareNotificationRequest extends SoapRequest
 {
     /**
      * Item ID
-     * 
+     *
      * @Accessor(getter="getItem", setter="setItem")
      * @SerializedName("item")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getItem', setter: 'setItem')]
-    #[SerializedName('item')]
+    #[Accessor(getter: "getItem", setter: "setItem")]
+    #[SerializedName("item")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private Id $item;
 
     /**
      * Email addresses
-     * 
+     *
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmailAddresses', setter: 'setEmailAddresses')]
-    #[Type('array<Zimbra\Mail\Struct\EmailAddrInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmailAddresses", setter: "setEmailAddresses")]
+    #[Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emailAddresses = [];
 
     /**
      * Set to "revoke" if it is a grant revoke notification. It is set to "expire"
      * by the system to send notification for a grant expiry.
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\ShareAction>")
      * @XmlAttribute
-     * 
+     *
      * @var ShareAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\ShareAction>')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("Enum<Zimbra\Common\Enum\ShareAction>")]
     #[XmlAttribute]
     private ?ShareAction $action;
 
     /**
      * Notes
-     * 
+     *
      * @Accessor(getter="getNotes", setter="setNotes")
      * @SerializedName("notes")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNotes', setter: 'setNotes')]
-    #[SerializedName('notes')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNotes", setter: "setNotes")]
+    #[SerializedName("notes")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $notes;
 
     /**
      * Constructor
-     * 
+     *
      * @param Id $item
      * @param array $emailAddresses
      * @param ShareAction $action
@@ -103,13 +108,14 @@ class SendShareNotificationRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        Id $item, array $emailAddresses = [], ?ShareAction $action = NULL, ?string $notes = NULL
-    )
-    {
-        $this->setItem($item)
-             ->setEmailAddresses($emailAddresses);
+        Id $item,
+        array $emailAddresses = [],
+        ?ShareAction $action = null,
+        ?string $notes = null
+    ) {
+        $this->setItem($item)->setEmailAddresses($emailAddresses);
         $this->action = $action;
-        if (NULL !== $notes) {
+        if (null !== $notes) {
             $this->setNotes($notes);
         }
     }
@@ -157,7 +163,8 @@ class SendShareNotificationRequest extends SoapRequest
     public function setEmailAddresses(array $addresses): self
     {
         $this->emailAddresses = array_filter(
-            $addresses, static fn($address) => $address instanceof EmailAddrInfo
+            $addresses,
+            static fn($address) => $address instanceof EmailAddrInfo
         );
         return $this;
     }

@@ -28,12 +28,12 @@ class GranteeChooser
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
@@ -42,12 +42,12 @@ class GranteeChooser
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -56,34 +56,35 @@ class GranteeChooser
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $type
      * @param string $id
      * @param string $name
      * @return self
      */
     public function __construct(
-        ?string $type = NULL, ?string $id = NULL, ?string $name = NULL
-    )
-    {
-        if (NULL !== $type) {
+        ?string $type = null,
+        ?string $id = null,
+        ?string $name = null
+    ) {
+        if (null !== $type) {
             $this->setType($type);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

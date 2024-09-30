@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AutoProvPrincipalBy;
 
 /**
@@ -26,45 +32,47 @@ class PrincipalSelector
 {
     /**
      * Meaning determined by {principal-selector-by}
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>")
      * @XmlAttribute
-     * 
+     *
      * @var AutoProvPrincipalBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>")]
     #[XmlAttribute]
     private AutoProvPrincipalBy $by;
 
     /**
      * The key used to identify the principal
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AutoProvPrincipalBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?AutoProvPrincipalBy $by = NULL, ?string $value = NULL)
-    {
-        $this->setBy($by ?? new AutoProvPrincipalBy('dn'));
-        if (NULL !== $value) {
+    public function __construct(
+        ?AutoProvPrincipalBy $by = null,
+        ?string $value = null
+    ) {
+        $this->setBy($by ?? new AutoProvPrincipalBy("dn"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

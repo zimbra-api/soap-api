@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * DeleteCalendarResourceBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class DeleteCalendarResourceBody extends SoapBody
      * @SerializedName("DeleteCalendarResourceRequest")
      * @Type("Zimbra\Admin\Message\DeleteCalendarResourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('DeleteCalendarResourceRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("DeleteCalendarResourceRequest")]
     #[Type(DeleteCalendarResourceRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("DeleteCalendarResourceResponse")
      * @Type("Zimbra\Admin\Message\DeleteCalendarResourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('DeleteCalendarResourceResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("DeleteCalendarResourceResponse")]
     #[Type(DeleteCalendarResourceResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class DeleteCalendarResourceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteCalendarResourceRequest $request = NULL, ?DeleteCalendarResourceResponse $response = NULL
-    )
-    {
+        ?DeleteCalendarResourceRequest $request = null,
+        ?DeleteCalendarResourceResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

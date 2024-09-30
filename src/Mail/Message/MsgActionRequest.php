@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * For op="update", caller can specify any or all of:
  * l="{folder}", name="{name}", color="{color}", tn="{tag-names}", f="{flags}".
  * For op="!spam", can optionally specify a destination folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,18 +31,18 @@ class MsgActionRequest extends SoapRequest
 {
     /**
      * Specify the action to perform
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ActionSelector
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(ActionSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ActionSelector $action;
 
     /**
@@ -83,8 +83,6 @@ class MsgActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new MsgActionEnvelope(
-            new MsgActionBody($this)
-        );
+        return new MsgActionEnvelope(new MsgActionBody($this));
     }
 }

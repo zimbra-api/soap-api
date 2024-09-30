@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Create a system retention policy.
  * The system retention policy SOAP APIs allow the administrator to edit named system retention policies that users
  * can apply to folders and tags.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -34,13 +34,13 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
@@ -48,13 +48,13 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("keep")
      * @Type("Zimbra\Admin\Struct\PolicyHolder")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var PolicyHolder
      */
-    #[Accessor(getter: 'getKeepPolicy', setter: 'setKeepPolicy')]
-    #[SerializedName('keep')]
+    #[Accessor(getter: "getKeepPolicy", setter: "setKeepPolicy")]
+    #[SerializedName("keep")]
     #[Type(PolicyHolder::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?PolicyHolder $keep;
 
     /**
@@ -62,40 +62,43 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("purge")
      * @Type("Zimbra\Admin\Struct\PolicyHolder")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var PolicyHolder
      */
-    #[Accessor(getter: 'getPurgePolicy', setter: 'setPurgePolicy')]
-    #[SerializedName('purge')]
+    #[Accessor(getter: "getPurgePolicy", setter: "setPurgePolicy")]
+    #[SerializedName("purge")]
     #[Type(PolicyHolder::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?PolicyHolder $purge;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CosSelector  $cos
      * @param  PolicyHolder $keep
      * @param  PolicyHolder $purge
      * @return self
      */
     public function __construct(
-        ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
-    )
-    {
+        ?CosSelector $cos = null,
+        ?PolicyHolder $keep = null,
+        ?PolicyHolder $purge = null
+    ) {
         $this->cos = $cos;
         $this->keep = $keep;
         $this->purge = $purge;
     }
 
-    public static function newKeepRequest(Policy $policy): CreateSystemRetentionPolicyRequest
-    {
-        return new self(NULL, new PolicyHolder($policy));
+    public static function newKeepRequest(
+        Policy $policy
+    ): CreateSystemRetentionPolicyRequest {
+        return new self(null, new PolicyHolder($policy));
     }
 
-    public static function newPurgeRequest(Policy $policy): CreateSystemRetentionPolicyRequest
-    {
-        return new self(NULL, NULL, new PolicyHolder($policy));
+    public static function newPurgeRequest(
+        Policy $policy
+    ): CreateSystemRetentionPolicyRequest {
+        return new self(null, null, new PolicyHolder($policy));
     }
 
     /**

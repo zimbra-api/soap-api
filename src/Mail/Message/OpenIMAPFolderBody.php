@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * OpenIMAPFolderBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class OpenIMAPFolderBody extends SoapBody
      * @SerializedName("OpenIMAPFolderRequest")
      * @Type("Zimbra\Mail\Message\OpenIMAPFolderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('OpenIMAPFolderRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("OpenIMAPFolderRequest")]
     #[Type(OpenIMAPFolderRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("OpenIMAPFolderResponse")
      * @Type("Zimbra\Mail\Message\OpenIMAPFolderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('OpenIMAPFolderResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("OpenIMAPFolderResponse")]
     #[Type(OpenIMAPFolderResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class OpenIMAPFolderBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?OpenIMAPFolderRequest $request = NULL, ?OpenIMAPFolderResponse $response = NULL
-    )
-    {
+        ?OpenIMAPFolderRequest $request = null,
+        ?OpenIMAPFolderResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

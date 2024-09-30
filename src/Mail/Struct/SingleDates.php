@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{DtValInterface, SingleDatesInterface};
 
 /**
@@ -27,32 +33,32 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
 {
     /**
      * TZID
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
-    #[Type('string')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
+    #[Type("string")]
     #[XmlAttribute]
     private $timezone;
 
     /**
      * Information on start date/time and end date/time or duration
-     * 
+     *
      * @Accessor(getter="getDtVals", setter="setDtVals")
      * @Type("array<Zimbra\Mail\Struct\DtVal>")
      * @XmlList(inline=true, entry="dtval", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDtVals', setter: 'setDtVals')]
-    #[Type('array<Zimbra\Mail\Struct\DtVal>')]
-    #[XmlList(inline: true, entry: 'dtval', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDtVals", setter: "setDtVals")]
+    #[Type("array<Zimbra\Mail\Struct\DtVal>")]
+    #[XmlList(inline: true, entry: "dtval", namespace: "urn:zimbraMail")]
     private $dtVals = [];
 
     /**
@@ -62,10 +68,10 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      * @param  array $dtVals
      * @return self
      */
-    public function __construct(?string $timezone = NULL, array $dtVals = [])
+    public function __construct(?string $timezone = null, array $dtVals = [])
     {
         $this->setDtVals($dtVals);
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
     }
@@ -113,7 +119,8 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     public function setDtVals(array $dtVals): self
     {
         $this->dtVals = array_filter(
-            $dtVals, static fn ($dtVal) => $dtVal instanceof DtValInterface
+            $dtVals,
+            static fn($dtVal) => $dtVal instanceof DtValInterface
         );
         return $this;
     }

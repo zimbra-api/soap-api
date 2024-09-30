@@ -30,12 +30,12 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("attr")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttr', setter: 'setAttr')]
-    #[SerializedName('attr')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttr", setter: "setAttr")]
+    #[SerializedName("attr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attr;
 
@@ -44,12 +44,12 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ConditionOperator>")
      * @XmlAttribute
-     * 
+     *
      * @var ConditionOperator
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\ConditionOperator>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\ConditionOperator>")]
     #[XmlAttribute]
     private ConditionOperator $op;
 
@@ -58,12 +58,12 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
@@ -72,18 +72,18 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("not")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isNot', setter: 'setNot')]
-    #[SerializedName('not')]
-    #[Type('bool')]
+    #[Accessor(getter: "isNot", setter: "setNot")]
+    #[SerializedName("not")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $not;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $attr
      * @param ConditionOperator $op
      * @param string $value
@@ -91,16 +91,15 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        string $attr = '',
-        ?ConditionOperator $op = NULL,
-        string $value = '',
-        ?bool $not = NULL
-    )
-    {
+        string $attr = "",
+        ?ConditionOperator $op = null,
+        string $value = "",
+        ?bool $not = null
+    ) {
         $this->setAttr($attr)
-             ->setOp($op ?? new ConditionOperator('eq'))
-             ->setValue($value);
-        if (NULL !== $not) {
+            ->setOp($op ?? new ConditionOperator("eq"))
+            ->setValue($value);
+        if (null !== $not) {
             $this->setNot($not);
         }
     }

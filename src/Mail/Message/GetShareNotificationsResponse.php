@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetShareNotificationsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,16 +27,16 @@ class GetShareNotificationsResponse extends SoapResponse
 {
     /**
      * Share notification information
-     * 
+     *
      * @Accessor(getter="getShares", setter="setShares")
      * @Type("array<Zimbra\Mail\Struct\ShareNotificationInfo>")
      * @XmlList(inline=true, entry="share", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getShares', setter: 'setShares')]
-    #[Type('array<Zimbra\Mail\Struct\ShareNotificationInfo>')]
-    #[XmlList(inline: true, entry: 'share', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getShares", setter: "setShares")]
+    #[Type("array<Zimbra\Mail\Struct\ShareNotificationInfo>")]
+    #[XmlList(inline: true, entry: "share", namespace: "urn:zimbraMail")]
     private $shares = [];
 
     /**
@@ -59,7 +59,8 @@ class GetShareNotificationsResponse extends SoapResponse
     public function setShares(array $shares): self
     {
         $this->shares = array_filter(
-            $shares, static fn ($share) => $share instanceof ShareNotificationInfo
+            $shares,
+            static fn($share) => $share instanceof ShareNotificationInfo
         );
         return $this;
     }

@@ -27,65 +27,65 @@ class ModifySearchFolderSpec
 {
     /**
      * Search folder id to be edited
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * New search query
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * New type for the search folder
-     * 
+     *
      * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getSearchTypes", setter: "setSearchTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $searchTypes;
 
     /**
      * New sort order for
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("Enum<Zimbra\Common\Enum\SearchSortBy>")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
@@ -99,16 +99,14 @@ class ModifySearchFolderSpec
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $query = '',
-        ?string $searchTypes = NULL,
-        ?SearchSortBy $sortBy = NULL
-    )
-    {
-        $this->setId($id)
-             ->setQuery($query);
+        string $id = "",
+        string $query = "",
+        ?string $searchTypes = null,
+        ?SearchSortBy $sortBy = null
+    ) {
+        $this->setId($id)->setQuery($query);
         $this->sortBy = $sortBy;
-        if (NULL !== $searchTypes) {
+        if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
         }
     }
@@ -176,12 +174,12 @@ class ModifySearchFolderSpec
     public function setSearchTypes(string $searchTypes): self
     {
         $validTypes = [];
-        foreach (explode(',', $searchTypes) as $type) {
+        foreach (explode(",", $searchTypes) as $type) {
             if (ItemType::isValid($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }
-        $this->searchTypes = implode(',', $validTypes);
+        $this->searchTypes = implode(",", $validTypes);
         return $this;
     }
 

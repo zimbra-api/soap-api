@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchGalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,49 +33,49 @@ class SearchGalResponse extends SoapResponse
 {
     /**
      * Name of attribute sorted on.
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * The 0-based offset into the results list returned as the first result for this search operation.
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Set if the results are truncated
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
@@ -77,34 +83,34 @@ class SearchGalResponse extends SoapResponse
      * Valid values: and|or
      * Not present if the search key was not tokenized.
      * Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more
-     *      generic key, and it checks cached results instead of issuing another SOAP request to the server.  
+     *      generic key, and it checks cached results instead of issuing another SOAP request to the server.
      *      If search key was tokenized and expanded with AND or OR, this cannot be assumed.
-     * 
+     *
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName('tokenizeKey')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTokenizeKey", setter: "setTokenizeKey")]
+    #[SerializedName("tokenizeKey")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $tokenizeKey;
 
     /**
      * Matching contacts
-     * 
+     *
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Admin\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Admin\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Admin\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAdmin")]
     private $contacts = [];
 
     /**
@@ -118,24 +124,23 @@ class SearchGalResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $sortBy = NULL,
-        ?int $offset = NULL,
-        ?bool $more = NULL,
-        ?bool $tokenizeKey = NULL,
+        ?string $sortBy = null,
+        ?int $offset = null,
+        ?bool $more = null,
+        ?bool $tokenizeKey = null,
         array $contacts = []
-    )
-    {
+    ) {
         $this->setContacts($contacts);
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if (NULL !== $tokenizeKey) {
+        if (null !== $tokenizeKey) {
             $this->setTokenizeKey($tokenizeKey);
         }
     }
@@ -237,7 +242,8 @@ class SearchGalResponse extends SoapResponse
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof ContactInfo
         );
         return $this;
     }

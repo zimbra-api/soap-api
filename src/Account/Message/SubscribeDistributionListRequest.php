@@ -10,14 +10,24 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\DistributionListSubscribeOp;
-use Zimbra\Common\Struct\{DistributionListSelector, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    DistributionListSelector,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SubscribeDistributionListRequest class
- * Subscribe to or unsubscribe from a distribution list 
- * 
+ * Subscribe to or unsubscribe from a distribution list
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,34 +38,34 @@ class SubscribeDistributionListRequest extends SoapRequest
 {
     /**
      * The operation to perform.
-     * 
+     *
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
-     * 
+     *
      * @var DistributionListSubscribeOp
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")]
     #[XmlAttribute]
     private DistributionListSubscribeOp $op;
 
     /**
      * Selector for the distribution list
-     * 
+     *
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var DistributionListSelector
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionListSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private DistributionListSelector $dl;
 
     /**
@@ -66,11 +76,12 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        DistributionListSelector $dl, ?DistributionListSubscribeOp $op = NULL
-    )
-    {
-        $this->setDl($dl)
-             ->setOp($op ?? new DistributionListSubscribeOp('subscribe'));
+        DistributionListSelector $dl,
+        ?DistributionListSubscribeOp $op = null
+    ) {
+        $this->setDl($dl)->setOp(
+            $op ?? new DistributionListSubscribeOp("subscribe")
+        );
     }
 
     /**

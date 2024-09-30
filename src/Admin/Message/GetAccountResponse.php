@@ -27,18 +27,18 @@ class GetAccountResponse extends SoapResponse
 {
     /**
      * Account information
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountInfo
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountInfo $account;
 
     /**
@@ -47,7 +47,7 @@ class GetAccountResponse extends SoapResponse
      * @param AccountInfo $account
      * @return self
      */
-    public function __construct(?AccountInfo $account = NULL)
+    public function __construct(?AccountInfo $account = null)
     {
         $this->account = $account;
     }

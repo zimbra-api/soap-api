@@ -27,86 +27,86 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
 {
     /**
      * Recurrence rules for adding
-     * 
+     *
      * @Accessor(getter="getAddRules", setter="setAddRules")
      * @Type("array<Zimbra\Mail\Struct\AddRecurrenceInfo>")
      * @XmlList(inline=true, entry="add", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAddRules', setter: 'setAddRules')]
-    #[Type('array<Zimbra\Mail\Struct\AddRecurrenceInfo>')]
-    #[XmlList(inline: true, entry: 'add', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAddRules", setter: "setAddRules")]
+    #[Type("array<Zimbra\Mail\Struct\AddRecurrenceInfo>")]
+    #[XmlList(inline: true, entry: "add", namespace: "urn:zimbraMail")]
     private $add = [];
 
     /**
      * Recurrence rules for excluding
-     * 
+     *
      * @Accessor(getter="getExcludeRules", setter="setExcludeRules")
      * @Type("array<Zimbra\Mail\Struct\ExcludeRecurrenceInfo>")
      * @XmlList(inline=true, entry="exclude", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getExcludeRules', setter: 'setExcludeRules')]
-    #[Type('array<Zimbra\Mail\Struct\ExcludeRecurrenceInfo>')]
-    #[XmlList(inline: true, entry: 'exclude', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getExcludeRules", setter: "setExcludeRules")]
+    #[Type("array<Zimbra\Mail\Struct\ExcludeRecurrenceInfo>")]
+    #[XmlList(inline: true, entry: "exclude", namespace: "urn:zimbraMail")]
     private $exclude = [];
 
     /**
      * Recurrence rules for excepting
-     * 
+     *
      * @Accessor(getter="getExceptRules", setter="setExceptRules")
      * @Type("array<Zimbra\Mail\Struct\ExceptionRuleInfo>")
      * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getExceptRules', setter: 'setExceptRules')]
-    #[Type('array<Zimbra\Mail\Struct\ExceptionRuleInfo>')]
-    #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getExceptRules", setter: "setExceptRules")]
+    #[Type("array<Zimbra\Mail\Struct\ExceptionRuleInfo>")]
+    #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
     private $except = [];
 
     /**
      * Recurrence rules for canceling
-     * 
+     *
      * @Accessor(getter="getCancelRules", setter="setCancelRules")
      * @Type("array<Zimbra\Mail\Struct\CancelRuleInfo>")
      * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCancelRules', setter: 'setCancelRules')]
-    #[Type('array<Zimbra\Mail\Struct\CancelRuleInfo>')]
-    #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCancelRules", setter: "setCancelRules")]
+    #[Type("array<Zimbra\Mail\Struct\CancelRuleInfo>")]
+    #[XmlList(inline: true, entry: "cancel", namespace: "urn:zimbraMail")]
     private $cancel = [];
 
     /**
      * Recurrence rules for dates
-     * 
+     *
      * @Accessor(getter="getDatesRules", setter="setDatesRules")
      * @Type("array<Zimbra\Mail\Struct\SingleDates>")
      * @XmlList(inline=true, entry="dates", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDatesRules', setter: 'setDatesRules')]
-    #[Type('array<Zimbra\Mail\Struct\SingleDates>')]
-    #[XmlList(inline: true, entry: 'dates', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDatesRules", setter: "setDatesRules")]
+    #[Type("array<Zimbra\Mail\Struct\SingleDates>")]
+    #[XmlList(inline: true, entry: "dates", namespace: "urn:zimbraMail")]
     private $dates = [];
 
     /**
      * Simple recurrence rules
-     * 
+     *
      * @Accessor(getter="getSimpleRules", setter="setSimpleRules")
      * @Type("array<Zimbra\Mail\Struct\SimpleRepeatingRule>")
      * @XmlList(inline=true, entry="rule", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSimpleRules', setter: 'setSimpleRules')]
-    #[Type('array<Zimbra\Mail\Struct\SimpleRepeatingRule>')]
-    #[XmlList(inline: true, entry: 'rule', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSimpleRules", setter: "setSimpleRules")]
+    #[Type("array<Zimbra\Mail\Struct\SimpleRepeatingRule>")]
+    #[XmlList(inline: true, entry: "rule", namespace: "urn:zimbraMail")]
     private $simple = [];
 
     /**
@@ -159,9 +159,10 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     {
         $this->add = $this->exclude = $this->except = $this->cancel = $this->dates = $this->simple = [];
         $rules = array_filter(
-            $rules, static fn ($rule) => $rule instanceof RecurRuleBaseInterface
+            $rules,
+            static fn($rule) => $rule instanceof RecurRuleBaseInterface
         );
-        array_walk($rules, fn ($rule) => $this->addRule($rule));
+        array_walk($rules, fn($rule) => $this->addRule($rule));
         return $this;
     }
 
@@ -173,7 +174,12 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function getRules(): array
     {
         return array_merge(
-            $this->add, $this->exclude, $this->except, $this->cancel, $this->dates, $this->simple
+            $this->add,
+            $this->exclude,
+            $this->except,
+            $this->cancel,
+            $this->dates,
+            $this->simple
         );
     }
 
@@ -186,7 +192,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setAddRules(array $rules): self
     {
         $this->add = array_filter(
-            $rules, static fn ($rule) => $rule instanceof AddRecurrenceInfo
+            $rules,
+            static fn($rule) => $rule instanceof AddRecurrenceInfo
         );
         return $this;
     }
@@ -210,7 +217,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setExcludeRules(array $rules): self
     {
         $this->exclude = array_filter(
-            $rules, static fn ($rule) => $rule instanceof ExcludeRecurrenceInfo
+            $rules,
+            static fn($rule) => $rule instanceof ExcludeRecurrenceInfo
         );
         return $this;
     }
@@ -234,7 +242,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setExceptRules(array $rules): self
     {
         $this->except = array_filter(
-            $rules, static fn ($rule) => $rule instanceof ExceptionRuleInfo
+            $rules,
+            static fn($rule) => $rule instanceof ExceptionRuleInfo
         );
         return $this;
     }
@@ -258,7 +267,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setCancelRules(array $rules): self
     {
         $this->cancel = array_filter(
-            $rules, static fn ($rule) => $rule instanceof CancelRuleInfo
+            $rules,
+            static fn($rule) => $rule instanceof CancelRuleInfo
         );
         return $this;
     }
@@ -282,7 +292,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setDatesRules(array $rules): self
     {
         $this->dates = array_filter(
-            $rules, static fn ($rule) => $rule instanceof SingleDates
+            $rules,
+            static fn($rule) => $rule instanceof SingleDates
         );
         return $this;
     }
@@ -306,7 +317,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setSimpleRules(array $rules): self
     {
         $this->simple = array_filter(
-            $rules, static fn ($rule) => $rule instanceof SimpleRepeatingRule
+            $rules,
+            static fn($rule) => $rule instanceof SimpleRepeatingRule
         );
         return $this;
     }

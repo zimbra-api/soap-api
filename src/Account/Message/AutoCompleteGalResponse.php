@@ -10,13 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AutoCompleteGalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,17 +33,17 @@ class AutoCompleteGalResponse extends SoapResponse
 {
     /**
      * Set to 1 if the results were truncated
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
@@ -46,49 +52,49 @@ class AutoCompleteGalResponse extends SoapResponse
      * - Not present if the search key was not tokenized.
      * - Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more generic key,
      *   and it checks cached results instead of issuing another SOAP request to the server.
-     *   If search key was tokenized and expanded with AND or OR, this cannot be assumed. 
-     * 
+     *   If search key was tokenized and expanded with AND or OR, this cannot be assumed.
+     *
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName('tokenizeKey')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTokenizeKey", setter: "setTokenizeKey")]
+    #[SerializedName("tokenizeKey")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $tokenizeKey;
 
     /**
      * Flag if pagination is supported
-     * 
+     *
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
      * @SerializedName("paginationSupported")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
-    #[SerializedName('paginationSupported')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPagingSupported", setter: "setPagingSupported")]
+    #[SerializedName("paginationSupported")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $pagingSupported;
 
     /**
      * Contacts matching the autocomplete request
-     * 
+     *
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Account\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Account\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAccount")]
     private $contacts = [];
 
     /**
@@ -101,20 +107,19 @@ class AutoCompleteGalResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?bool $more = NULL,
-        ?bool $tokenizeKey = NULL,
-        ?bool $pagingSupported = NULL,
+        ?bool $more = null,
+        ?bool $tokenizeKey = null,
+        ?bool $pagingSupported = null,
         array $contacts = []
-    )
-    {
+    ) {
         $this->setContacts($contacts);
-        if(NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if(NULL !== $tokenizeKey) {
+        if (null !== $tokenizeKey) {
             $this->setTokenizeKey($tokenizeKey);
         }
-        if(NULL !== $pagingSupported) {
+        if (null !== $pagingSupported) {
             $this->setPagingSupported($pagingSupported);
         }
     }
@@ -198,13 +203,14 @@ class AutoCompleteGalResponse extends SoapResponse
     /**
      * Set contacts matching the autocomplete request
      *
-     * @param  array $contacts 
+     * @param  array $contacts
      * @return self
      */
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof ContactInfo
         );
         return $this;
     }

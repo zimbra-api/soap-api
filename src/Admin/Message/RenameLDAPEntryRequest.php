@@ -27,47 +27,46 @@ class RenameLDAPEntryRequest extends SoapRequest
 {
     /**
      * A valid LDAP DN String (RFC 2253) that identifies the LDAP object
-     * 
+     *
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDn', setter: 'setDn')]
-    #[SerializedName('dn')]
-    #[Type('string')]
+    #[Accessor(getter: "getDn", setter: "setDn")]
+    #[SerializedName("dn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dn;
 
     /**
      * New DN - a valid LDAP DN String (RFC 2253) that describes the new DN to be given to the LDAP object
-     * 
+     *
      * @Accessor(getter="getNewDn", setter="setNewDn")
      * @SerializedName("new_dn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewDn', setter: 'setNewDn')]
-    #[SerializedName('new_dn')]
-    #[Type('string')]
+    #[Accessor(getter: "getNewDn", setter: "setNewDn")]
+    #[SerializedName("new_dn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $newDn;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $dn
      * @param string $newDn
      * @return self
      */
-    public function __construct(string $dn = '', string $newDn = '')
+    public function __construct(string $dn = "", string $newDn = "")
     {
-        $this->setDn($dn)
-             ->setNewDn($newDn);
+        $this->setDn($dn)->setNewDn($newDn);
     }
 
     /**
@@ -119,8 +118,6 @@ class RenameLDAPEntryRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RenameLDAPEntryEnvelope(
-            new RenameLDAPEntryBody($this)
-        );
+        return new RenameLDAPEntryEnvelope(new RenameLDAPEntryBody($this));
     }
 }

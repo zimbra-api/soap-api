@@ -27,59 +27,59 @@ class GranteeType extends Enum
      * Constant for value 'usr'
      * @return string 'usr'
      */
-    protected const USR = 'usr';
+    protected const USR = "usr";
 
     /**
      * Constant for value 'grp'
      * @return string 'grp'
      */
-    protected const GRP = 'grp';
+    protected const GRP = "grp";
 
     /**
      * Constant for value 'egp'
      * @return string 'egp'
      */
-    protected const EGP = 'egp';
+    protected const EGP = "egp";
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    protected const ALL = "all";
 
     /**
      * Constant for value 'dom'
      * @return string 'dom'
      */
-    protected const DOM = 'dom';
+    protected const DOM = "dom";
 
     /**
      * Constant for value 'edom'
      * @return string 'edom'
      */
-    protected const EDOM = 'edom';
+    protected const EDOM = "edom";
 
     /**
      * Constant for value 'gst'
      * @return string 'gst'
      */
-    protected const GST = 'gst';
+    protected const GST = "gst";
 
     /**
      * Constant for value 'key'
      * @return string 'key'
      */
-    protected const KEY = 'key';
+    protected const KEY = "key";
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    protected const PUB = 'pub';
+    protected const PUB = "pub";
 
     /**
      * Constant for value 'email'
      * @return string 'email'
      */
-    protected const EMAIL = 'email';
+    protected const EMAIL = "email";
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Enum\{GalSearchType, MemberOfSelector};
 use Zimbra\Common\Struct\{CursorInfo, SoapEnvelopeInterface, SoapRequest};
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{CursorInfo, SoapEnvelopeInterface, SoapRequest};
 /**
  * SearchGalRequest class
  * Search Global Address List (GAL)
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -30,34 +36,34 @@ class SearchGalRequest extends SoapRequest
     /**
      * If set then search GAL by this ref, which is a dn.
      * If specified then "name" attribute is ignored.
-     * 
+     *
      * @Accessor(getter="getRef", setter="setRef")
      * @SerializedName("ref")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRef', setter: 'setRef')]
-    #[SerializedName('ref')]
-    #[Type('string')]
+    #[Accessor(getter: "getRef", setter: "setRef")]
+    #[SerializedName("ref")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ref;
 
     /**
      * Query string.
      * Note: ignored if <ref> is specified
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -68,51 +74,51 @@ class SearchGalRequest extends SoapRequest
      * - "group" for groups
      * - "all" for combination of all types
      * if omitted, defaults to "all"
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
-     * 
+     *
      * @var GalSearchType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GalSearchType>")]
     #[XmlAttribute]
     private ?GalSearchType $type;
 
     /**
      * flag whether the <exp> flag is needed in the response for group entries.
      * Default is unset.
-     * 
+     *
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName('needExp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedCanExpand", setter: "setNeedCanExpand")]
+    #[SerializedName("needExp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needCanExpand;
 
     /**
      * Set this if the "isOwner" flag is needed in the response for group entries.
      * Default is unset.
-     * 
+     *
      * @Accessor(getter="getNeedIsOwner", setter="setNeedIsOwner")
      * @SerializedName("needIsOwner")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedIsOwner', setter: 'setNeedIsOwner')]
-    #[SerializedName('needIsOwner')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedIsOwner", setter: "setNeedIsOwner")]
+    #[SerializedName("needIsOwner")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needIsOwner;
 
@@ -121,49 +127,49 @@ class SearchGalRequest extends SoapRequest
      * - all: the isMember flag returned is set if the user is a direct or indirect member ofthe group, otherwise it is unset
      * - directOnly: the isMember flag returned is set if the user is a direct member of the group, otherwise it is unset
      * - none (default): The isMember flag is not returned
-     * 
+     *
      * @Accessor(getter="getNeedIsMember", setter="setNeedIsMember")
      * @SerializedName("needIsMember")
      * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
      * @XmlAttribute
-     * 
+     *
      * @var MemberOfSelector
      */
-    #[Accessor(getter: 'getNeedIsMember', setter: 'setNeedIsMember')]
-    #[SerializedName('needIsMember')]
-    #[Type('Enum<Zimbra\Common\Enum\MemberOfSelector>')]
+    #[Accessor(getter: "getNeedIsMember", setter: "setNeedIsMember")]
+    #[SerializedName("needIsMember")]
+    #[Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")]
     #[XmlAttribute]
     private ?MemberOfSelector $needIsMember;
 
     /**
      * Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
-     * 
+     *
      * @Accessor(getter="getNeedSMIMECerts", setter="setNeedSMIMECerts")
      * @SerializedName("needSMIMECerts")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedSMIMECerts', setter: 'setNeedSMIMECerts')]
-    #[SerializedName('needSMIMECerts')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedSMIMECerts", setter: "setNeedSMIMECerts")]
+    #[SerializedName("needSMIMECerts")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needSMIMECerts;
 
     /**
      * GAL Account ID
-     * 
+     *
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName('galAcctId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGalAccountId", setter: "setGalAccountId")]
+    #[SerializedName("galAcctId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galAccountId;
 
@@ -174,135 +180,135 @@ class SearchGalRequest extends SoapRequest
      * pending messages right before a search. To lower latencies, this option gives a hint to the index system not to
      * trigger this catch-up index prior to the search by giving up the freshness of the search results, i.e. recent
      * messages may not be included in the search results.
-     * 
+     *
      * @Accessor(getter="getQuick", setter="setQuick")
      * @SerializedName("quick")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getQuick', setter: 'setQuick')]
-    #[SerializedName('quick')]
-    #[Type('bool')]
+    #[Accessor(getter: "getQuick", setter: "setQuick")]
+    #[SerializedName("quick")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $quick;
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Client locale identification.
-     * 
+     *
      * @Accessor(getter="getLocale", setter="setLocale")
      * @SerializedName("locale")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocale', setter: 'setLocale')]
-    #[SerializedName('locale')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getLocale", setter: "setLocale")]
+    #[SerializedName("locale")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $locale;
 
     /**
      * Cursor specification
-     * 
+     *
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var CursorInfo
      */
-    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
-    #[SerializedName('cursor')]
+    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[SerializedName("cursor")]
     #[Type(CursorInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?CursorInfo $cursor;
 
     /**
      * query string
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $query;
 
     /**
      * Search Filter
-     * 
+     *
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var EntrySearchFilterInfo
      */
-    #[Accessor(getter: 'getSearchFilter', setter: 'setSearchFilter')]
-    #[SerializedName('searchFilter')]
+    #[Accessor(getter: "getSearchFilter", setter: "setSearchFilter")]
+    #[SerializedName("searchFilter")]
     #[Type(EntrySearchFilterInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?EntrySearchFilterInfo $searchFilter;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CursorInfo $cursor
      * @param  EntrySearchFilterInfo $searchFilter
      * @param  string $ref
@@ -322,62 +328,61 @@ class SearchGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?string $ref = NULL,
-        ?string $name = NULL,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $needIsOwner = NULL,
-        ?MemberOfSelector $needIsMember = NULL,
-        ?bool $needSMIMECerts = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL,
-        ?string $query = NULL
-    )
-    {
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?string $ref = null,
+        ?string $name = null,
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?bool $needIsOwner = null,
+        ?MemberOfSelector $needIsMember = null,
+        ?bool $needSMIMECerts = null,
+        ?string $galAccountId = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null,
+        ?string $query = null
+    ) {
         $this->cursor = $cursor;
         $this->searchFilter = $searchFilter;
         $this->type = $type;
         $this->needIsMember = $needIsMember;
-        if (NULL !== $ref) {
+        if (null !== $ref) {
             $this->setRef($ref);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if (NULL !== $needIsOwner) {
+        if (null !== $needIsOwner) {
             $this->setNeedIsOwner($needIsOwner);
         }
-        if (NULL !== $needSMIMECerts) {
+        if (null !== $needSMIMECerts) {
             $this->setNeedSMIMECerts($needSMIMECerts);
         }
-        if (NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if (NULL !== $quick) {
+        if (null !== $quick) {
             $this->setQuick($quick);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $locale) {
+        if (null !== $locale) {
             $this->setLocale($locale);
         }
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
     }
@@ -739,8 +744,6 @@ class SearchGalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchGalEnvelope(
-            new SearchGalBody($this)
-        );
+        return new SearchGalEnvelope(new SearchGalBody($this));
     }
 }

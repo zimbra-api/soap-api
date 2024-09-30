@@ -32,33 +32,30 @@ class CreateDomainRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name of new domain
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $name = '', array $attrs = []
-    )
+    public function __construct(string $name = "", array $attrs = [])
     {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        $this->setName($name)->setAttrs($attrs);
     }
 
     /**
@@ -88,8 +85,6 @@ class CreateDomainRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateDomainEnvelope(
-            new CreateDomainBody($this)
-        );
+        return new CreateDomainEnvelope(new CreateDomainBody($this));
     }
 }

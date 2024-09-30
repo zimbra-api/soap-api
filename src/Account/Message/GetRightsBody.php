@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetRightsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class GetRightsBody extends SoapBody
      * @SerializedName("GetRightsRequest")
      * @Type("Zimbra\Account\Message\GetRightsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetRightsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetRightsRequest")]
     #[Type(GetRightsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetRightsResponse")
      * @Type("Zimbra\Account\Message\GetRightsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetRightsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetRightsResponse")]
     #[Type(GetRightsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetRightsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetRightsRequest $request = NULL, ?GetRightsResponse $response = NULL
-    )
-    {
+        ?GetRightsRequest $request = null,
+        ?GetRightsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

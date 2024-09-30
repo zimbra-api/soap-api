@@ -25,33 +25,33 @@ class NoteActionSelector extends ActionSelector
 {
     /**
      * Content
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
     #[XmlAttribute]
     private $content;
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
-     * 
+     *
      * @Accessor(getter="getBounds", setter="setBounds")
      * @SerializedName("pos")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
-    #[SerializedName('pos')]
-    #[Type('string')]
+    #[Accessor(getter: "getBounds", setter: "setBounds")]
+    #[SerializedName("pos")]
+    #[Type("string")]
     #[XmlAttribute]
     private $bounds;
 
@@ -76,23 +76,22 @@ class NoteActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
-        ?string $ids = NULL,
-        ?string $content = NULL,
-        ?string $bounds = NULL,
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
-    )
-    {
+        string $operation = "",
+        ?string $ids = null,
+        ?string $content = null,
+        ?string $bounds = null,
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
+    ) {
         parent::__construct(
             $operation,
             $ids,
@@ -108,10 +107,10 @@ class NoteActionSelector extends ActionSelector
             $nonExistentIds,
             $newlyCreatedIds
         );
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $bounds) {
+        if (null !== $bounds) {
             $this->setBounds($bounds);
         }
     }

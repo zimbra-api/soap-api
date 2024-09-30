@@ -28,12 +28,12 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -42,12 +42,12 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -56,12 +56,12 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @SerializedName("x-domainName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomainName', setter: 'setDomainName')]
-    #[SerializedName('x-domainName')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomainName", setter: "setDomainName")]
+    #[SerializedName("x-domainName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domainName;
 
@@ -70,18 +70,18 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @SerializedName("x-serverName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServerName', setter: 'setServerName')]
-    #[SerializedName('x-serverName')]
-    #[Type('string')]
+    #[Accessor(getter: "getServerName", setter: "setServerName")]
+    #[SerializedName("x-serverName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $serverName;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  string $domainName
@@ -90,20 +90,18 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $id = '',
-        ?string $domainName = NULL,
-        ?string $serverName = NULL,
+        string $name = "",
+        string $id = "",
+        ?string $domainName = null,
+        ?string $serverName = null,
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($attrs);
-        $this->setName($name)
-             ->setId($id);
-        if (NULL !== $domainName) {
+        $this->setName($name)->setId($id);
+        if (null !== $domainName) {
             $this->setDomainName($domainName);
         }
-        if (NULL !== $serverName) {
+        if (null !== $serverName) {
             $this->setServerName($serverName);
         }
     }

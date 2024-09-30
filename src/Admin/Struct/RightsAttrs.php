@@ -27,30 +27,30 @@ class RightsAttrs
 
     /**
      * All flag
-     * 
+     *
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAll', setter: 'setAll')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAll", setter: "setAll")]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $all;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $all
      * @param  array $attrs
      * @return self
      */
-    public function __construct(?bool $all = NULL, array $attrs = [])
+    public function __construct(?bool $all = null, array $attrs = [])
     {
-        if (NULL !== $all) {
+        if (null !== $all) {
             $this->setAll($all);
         }
         $this->setAttrs($attrs);

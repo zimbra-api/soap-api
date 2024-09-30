@@ -28,22 +28,22 @@ class AttributeName
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @return self
      */
-    public function __construct(string $name = '')
+    public function __construct(string $name = "")
     {
         $this->setName($name);
     }

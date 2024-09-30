@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct\Header;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AccountBy;
 
 /**
@@ -29,12 +35,12 @@ class AccountInfo
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
-     * 
+     *
      * @var AccountBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AccountBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\AccountBy>")]
     #[XmlAttribute]
     private AccountBy $by;
 
@@ -43,12 +49,17 @@ class AccountInfo
      * @SerializedName("link")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMountpointTraversed', setter: 'setMountpointTraversed')]
-    #[SerializedName('link')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getMountpointTraversed",
+            setter: "setMountpointTraversed"
+        )
+    ]
+    #[SerializedName("link")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $mountpointTraversed;
 
@@ -56,31 +67,32 @@ class AccountInfo
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountBy $by
      * @param  string $value
      * @param  bool $mountpointTraversed
      * @return self
      */
     public function __construct(
-        ?AccountBy $by = NULL, ?string $value = NULL, ?bool $mountpointTraversed = NULL
-    )
-    {
-        $this->setBy($by ?? new AccountBy('name'));
-        if (NULL !== $value) {
+        ?AccountBy $by = null,
+        ?string $value = null,
+        ?bool $mountpointTraversed = null
+    ) {
+        $this->setBy($by ?? new AccountBy("name"));
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $mountpointTraversed) {
+        if (null !== $mountpointTraversed) {
             $this->setMountpointTraversed($mountpointTraversed);
         }
     }

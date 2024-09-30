@@ -27,23 +27,23 @@ class RestoreResolve extends Enum
      * Constant for value 'ignore'
      * @return string 'ignore'
      */
-    protected const IGNORE = 'ignore';
+    protected const IGNORE = "ignore";
 
     /**
      * Constant for value 'modify'
      * @return string 'modify'
      */
-    protected const MODIFY = 'modify';
+    protected const MODIFY = "modify";
 
     /**
      * Constant for value 'replace'
      * @return string 'replace'
      */
-    protected const REPLACE = 'replace';
+    protected const REPLACE = "replace";
 
     /**
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    protected const RESET = 'reset';
+    protected const RESET = "reset";
 }

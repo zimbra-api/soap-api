@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * EnableSharedReminderBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class EnableSharedReminderBody extends SoapBody
      * @SerializedName("EnableSharedReminderRequest")
      * @Type("Zimbra\Mail\Message\EnableSharedReminderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('EnableSharedReminderRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("EnableSharedReminderRequest")]
     #[Type(EnableSharedReminderRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("EnableSharedReminderResponse")
      * @Type("Zimbra\Mail\Message\EnableSharedReminderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('EnableSharedReminderResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("EnableSharedReminderResponse")]
     #[Type(EnableSharedReminderResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class EnableSharedReminderBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?EnableSharedReminderRequest $request = NULL, ?EnableSharedReminderResponse $response = NULL
-    )
-    {
+        ?EnableSharedReminderRequest $request = null,
+        ?EnableSharedReminderResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

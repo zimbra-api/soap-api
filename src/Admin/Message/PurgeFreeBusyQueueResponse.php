@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * PurgeFreeBusyQueueResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

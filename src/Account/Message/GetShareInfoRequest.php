@@ -10,13 +10,24 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\{AccountSelector, GranteeChooser, SoapEnvelopeInterface, SoapRequest};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
+use Zimbra\Common\Struct\{
+    AccountSelector,
+    GranteeChooser,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetShareInfoRequest class
  * Get information about published shares
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,68 +39,68 @@ class GetShareInfoRequest extends SoapRequest
     /**
      * Flags that have been proxied to this server because the specified "owner account" is
      * homed here.  Do not proxy in this case. (Used internally by ZCS)
-     * 
+     *
      * @Accessor(getter="getInternal", setter="setInternal")
      * @SerializedName("internal")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getInternal', setter: 'setInternal')]
-    #[SerializedName('internal')]
-    #[Type('bool')]
+    #[Accessor(getter: "getInternal", setter: "setInternal")]
+    #[SerializedName("internal")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $internal;
 
     /**
      * Flag whether own shares should be included:
      * - 0: if shares owned by the requested account should not be included in the response
-     * - 1: (default) include shares owned by the requested account 
-     * 
+     * - 1: (default) include shares owned by the requested account
+     *
      * @Accessor(getter="getIncludeSelf", setter="setIncludeSelf")
      * @SerializedName("includeSelf")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeSelf', setter: 'setIncludeSelf')]
-    #[SerializedName('includeSelf')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeSelf", setter: "setIncludeSelf")]
+    #[SerializedName("includeSelf")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeSelf;
 
     /**
      * Filter by the specified grantee type
-     * 
+     *
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var GranteeChooser
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeChooser::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?GranteeChooser $grantee;
 
     /**
      * Specifies the owner of the share
-     * 
+     *
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getOwner', setter: 'setOwner')]
-    #[SerializedName('owner')]
+    #[Accessor(getter: "getOwner", setter: "setOwner")]
+    #[SerializedName("owner")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?AccountSelector $owner;
 
     /**
@@ -102,18 +113,17 @@ class GetShareInfoRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?GranteeChooser $grantee = NULL,
-        ?AccountSelector $owner = NULL,
-        ?bool $internal = NULL,
-        ?bool $includeSelf = NULL
-    )
-    {
+        ?GranteeChooser $grantee = null,
+        ?AccountSelector $owner = null,
+        ?bool $internal = null,
+        ?bool $includeSelf = null
+    ) {
         $this->grantee = $grantee;
         $this->owner = $owner;
-        if(NULL !== $internal) {
+        if (null !== $internal) {
             $this->setInternal($internal);
         }
-        if(NULL !== $includeSelf) {
+        if (null !== $includeSelf) {
             $this->setIncludeSelf($includeSelf);
         }
     }
@@ -211,8 +221,6 @@ class GetShareInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetShareInfoEnvelope(
-            new GetShareInfoBody($this)
-        );
+        return new GetShareInfoEnvelope(new GetShareInfoBody($this));
     }
 }

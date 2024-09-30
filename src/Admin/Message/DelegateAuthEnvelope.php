@@ -10,12 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace,
+    XmlRoot
+};
 use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * DelegateAuthEnvelope class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -24,8 +31,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
-#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
-#[XmlRoot(name: 'soap:Envelope')]
+#[XmlNamespace(uri: "urn:zimbraAdmin", prefix: "urn")]
+#[XmlRoot(name: "soap:Envelope")]
 class DelegateAuthEnvelope extends SoapEnvelope
 {
     /**
@@ -33,14 +40,14 @@ class DelegateAuthEnvelope extends SoapEnvelope
      * @SerializedName("Body")
      * @Type("Zimbra\Admin\Message\DelegateAuthBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var SoapBodyInterface
      */
-    #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName('Body')]
+    #[Accessor(getter: "getBody", setter: "setBody")]
+    #[SerializedName("Body")]
     #[Type(DelegateAuthBody::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
-    private ?SoapBodyInterface $body = NULL;
+    #[XmlElement(namespace: "http://www.w3.org/2003/05/soap-envelope")]
+    private ?SoapBodyInterface $body = null;
 
     /**
      * Constructor
@@ -50,9 +57,9 @@ class DelegateAuthEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DelegateAuthBody $body = NULL, ?SoapHeaderInterface $header = NULL
-    )
-    {
+        ?DelegateAuthBody $body = null,
+        ?SoapHeaderInterface $header = null
+    ) {
         parent::__construct($body, $header);
     }
 

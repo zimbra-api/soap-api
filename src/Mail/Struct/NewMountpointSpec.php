@@ -27,210 +27,210 @@ class NewMountpointSpec
 {
     /**
      * Mountpoint name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * (optional) Default type for the folder; used by web client to decide which view to use;
      * possible values are the same as <SearchRequest>'s {types}: conversation|message|contact|etc
-     * 
+     *
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
-     * 
+     *
      * @var ViewType
      */
-    #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName('view')]
-    #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
+    #[Accessor(getter: "getDefaultView", setter: "setDefaultView")]
+    #[SerializedName("view")]
+    #[Type("Enum<Zimbra\Common\Enum\ViewType>")]
     #[XmlAttribute]
     private ?ViewType $defaultView;
 
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
-     * 
+     *
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Parent folder ID
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
-     * 
+     *
      * @Accessor(getter="getFetchIfExists", setter="setFetchIfExists")
      * @SerializedName("fie")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFetchIfExists', setter: 'setFetchIfExists')]
-    #[SerializedName('fie')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFetchIfExists", setter: "setFetchIfExists")]
+    #[SerializedName("fie")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $fetchIfExists;
 
     /**
      * If set, client should display reminders for shared appointments/tasks
-     * 
+     *
      * @Accessor(getter="getReminderEnabled", setter="setReminderEnabled")
      * @SerializedName("reminder")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
-    #[SerializedName('reminder')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReminderEnabled", setter: "setReminderEnabled")]
+    #[SerializedName("reminder")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $reminderEnabled;
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
-     * 
+     *
      * @Accessor(getter="getOwnerId", setter="setOwnerId")
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerId', setter: 'setOwnerId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerId", setter: "setOwnerId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerId;
 
     /**
      * Primary email address of the owner of the linked-to resource
-     * 
+     *
      * @Accessor(getter="getOwnerName", setter="setOwnerName")
      * @SerializedName("owner")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerName', setter: 'setOwnerName')]
-    #[SerializedName('owner')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerName", setter: "setOwnerName")]
+    #[SerializedName("owner")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerName;
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
-     * 
+     *
      * @Accessor(getter="getRemoteId", setter="setRemoteId")
      * @SerializedName("rid")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRemoteId', setter: 'setRemoteId')]
-    #[SerializedName('rid')]
-    #[Type('int')]
+    #[Accessor(getter: "getRemoteId", setter: "setRemoteId")]
+    #[SerializedName("rid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $remoteId;
 
     /**
      * Path to shared item
-     * 
+     *
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
@@ -253,52 +253,50 @@ class NewMountpointSpec
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $folderId = '',
-        ?ViewType $defaultView = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?string $url = NULL,
-        ?bool $fetchIfExists = NULL,
-        ?bool $reminderEnabled = NULL,
-        ?string $ownerId = NULL,
-        ?string $ownerName = NULL,
-        ?int $remoteId = NULL,
-        ?string $path = NULL
-    )
-    {
-        $this->setName($name)
-             ->setFolderId($folderId);
+        string $name = "",
+        string $folderId = "",
+        ?ViewType $defaultView = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?string $url = null,
+        ?bool $fetchIfExists = null,
+        ?bool $reminderEnabled = null,
+        ?string $ownerId = null,
+        ?string $ownerName = null,
+        ?int $remoteId = null,
+        ?string $path = null
+    ) {
+        $this->setName($name)->setFolderId($folderId);
         $this->defaultView = $defaultView;
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $fetchIfExists) {
+        if (null !== $fetchIfExists) {
             $this->setFetchIfExists($fetchIfExists);
         }
-        if (NULL !== $reminderEnabled) {
+        if (null !== $reminderEnabled) {
             $this->setReminderEnabled($reminderEnabled);
         }
-        if (NULL !== $ownerId) {
+        if (null !== $ownerId) {
             $this->setOwnerId($ownerId);
         }
-        if (NULL !== $ownerName) {
+        if (null !== $ownerName) {
             $this->setOwnerName($ownerName);
         }
-        if (NULL !== $remoteId) {
+        if (null !== $remoteId) {
             $this->setRemoteId($remoteId);
         }
-        if (NULL !== $path) {
+        if (null !== $path) {
             $this->setPath($path);
         }
     }

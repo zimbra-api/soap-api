@@ -10,13 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\ExceptIdInfo;
 use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * SetAppointmentResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,63 +34,63 @@ class SetAppointmentResponse extends SoapResponse
 {
     /**
      * Appointment ID
-     * 
+     *
      * @Accessor(getter="getCalItemId", setter="setCalItemId")
      * @SerializedName("calItemId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName('calItemId')]
-    #[Type('string')]
+    #[Accessor(getter: "getCalItemId", setter: "setCalItemId")]
+    #[SerializedName("calItemId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $calItemId;
 
     /**
      * Deprecated - appointment ID
-     * 
+     *
      * @Accessor(getter="getDeprecatedApptId", setter="setDeprecatedApptId")
      * @SerializedName("apptId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDeprecatedApptId', setter: 'setDeprecatedApptId')]
-    #[SerializedName('apptId')]
-    #[Type('string')]
+    #[Accessor(getter: "getDeprecatedApptId", setter: "setDeprecatedApptId")]
+    #[SerializedName("apptId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $deprecatedApptId;
 
     /**
      * Information about default invite
-     * 
+     *
      * @Accessor(getter="getDefaultId", setter="setDefaultId")
      * @SerializedName("default")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
      * @var Id
      */
-    #[Accessor(getter: 'getDefaultId', setter: 'setDefaultId')]
-    #[SerializedName('default')]
+    #[Accessor(getter: "getDefaultId", setter: "setDefaultId")]
+    #[SerializedName("default")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Id $defaultId;
 
     /**
      * Information about exceptions
-     * 
+     *
      * @Accessor(getter="getExceptions", setter="setExceptions")
      * @Type("array<Zimbra\Mail\Struct\ExceptIdInfo>")
      * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getExceptions', setter: 'setExceptions')]
-    #[Type('array<Zimbra\Mail\Struct\ExceptIdInfo>')]
-    #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getExceptions", setter: "setExceptions")]
+    #[Type("array<Zimbra\Mail\Struct\ExceptIdInfo>")]
+    #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
     private $exceptions = [];
 
     /**
@@ -96,18 +103,17 @@ class SetAppointmentResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $calItemId = NULL,
-        ?string $deprecatedApptId = NULL,
-        ?Id $defaultId = NULL,
+        ?string $calItemId = null,
+        ?string $deprecatedApptId = null,
+        ?Id $defaultId = null,
         array $exceptions = []
-    )
-    {
+    ) {
         $this->setExceptions($exceptions);
         $this->defaultId = $defaultId;
-        if (NULL !== $calItemId) {
+        if (null !== $calItemId) {
             $this->setCalItemId($calItemId);
         }
-        if (NULL !== $deprecatedApptId) {
+        if (null !== $deprecatedApptId) {
             $this->setDeprecatedApptId($deprecatedApptId);
         }
     }
@@ -187,7 +193,8 @@ class SetAppointmentResponse extends SoapResponse
     public function setExceptions(array $exceptions): self
     {
         $this->exceptions = array_filter(
-            $exceptions, static fn ($except) => $except instanceof ExceptIdInfo
+            $exceptions,
+            static fn($except) => $except instanceof ExceptIdInfo
         );
         return $this;
     }

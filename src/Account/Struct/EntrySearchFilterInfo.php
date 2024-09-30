@@ -28,45 +28,45 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
 {
     /**
      * Search filter simple condition
-     * 
+     *
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("cond")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterSingleCond")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SearchFilterCondition
      */
-    #[Accessor(getter: 'getCondition', setter: 'setCondition')]
-    #[SerializedName('cond')]
+    #[Accessor(getter: "getCondition", setter: "setCondition")]
+    #[SerializedName("cond")]
     #[Type(EntrySearchFilterSingleCond::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SearchFilterCondition $condition;
 
     /**
      * Search filter compound condition
-     * 
+     *
      * @Accessor(getter="getConditions", setter="setConditions")
      * @SerializedName("conds")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterMultiCond")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SearchFilterCondition
      */
-    #[Accessor(getter: 'getConditions', setter: 'setConditions')]
-    #[SerializedName('conds')]
+    #[Accessor(getter: "getConditions", setter: "setConditions")]
+    #[SerializedName("conds")]
     #[Type(EntrySearchFilterMultiCond::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SearchFilterCondition $conditions;
 
     /**
      * Constructor
-     * 
+     *
      * @param SearchFilterCondition $condition
      * @return self
      */
-    public function __construct(?SearchFilterCondition $condition = NULL)
+    public function __construct(?SearchFilterCondition $condition = null)
     {
-        $this->condition = $this->conditions = NULL;
+        $this->condition = $this->conditions = null;
         if ($condition instanceof MultiCond) {
             $this->setConditions($condition);
         }

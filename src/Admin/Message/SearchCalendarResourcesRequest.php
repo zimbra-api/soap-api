@@ -10,140 +10,152 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\EntrySearchFilterInfo;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SearchCalendarResourcesRequest class
  * Search for Calendar Resources
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSelector
+class SearchCalendarResourcesRequest extends SoapRequest implements
+    AttributeSelector
 {
     use AttributeSelectorTrait;
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * The domain name to limit the search to
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * applyCos - Flag whether or not to apply the COS policy to calendar resource.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
-     * 
+     *
      * @Accessor(getter="getApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName('applyCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "getApplyCos", setter: "setApplyCos")]
+    #[SerializedName("applyCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyCos;
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
-     * 
+     *
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName('sortAscending')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSortAscending", setter: "setSortAscending")]
+    #[SerializedName("sortAscending")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sortAscending;
 
     /**
      * Search Filter
-     * 
+     *
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var EntrySearchFilterInfo
      */
-    #[Accessor(getter: 'getSearchFilter', setter: 'setSearchFilter')]
-    #[SerializedName('searchFilter')]
+    #[Accessor(getter: "getSearchFilter", setter: "setSearchFilter")]
+    #[SerializedName("searchFilter")]
     #[Type(EntrySearchFilterInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?EntrySearchFilterInfo $searchFilter;
 
     /**
      * Constructor
-     * 
+     *
      * @param  EntrySearchFilterInfo $searchFilter
      * @param  int $limit
      * @param  int $offset
@@ -155,36 +167,35 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @return self
      */
     public function __construct(
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $domain = NULL,
-        ?bool $applyCos = NULL,
-        ?string $sortBy = NULL,
-        ?bool $sortAscending = NULL,
-        ?string $attrs = NULL
-    )
-    {
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $domain = null,
+        ?bool $applyCos = null,
+        ?string $sortBy = null,
+        ?bool $sortAscending = null,
+        ?string $attrs = null
+    ) {
         $this->searchFilter = $searchFilter;
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $domain) {
+        if (null !== $domain) {
             $this->setDomain($domain);
         }
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $sortBy) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $sortAscending) {
+        if (null !== $sortAscending) {
             $this->setSortAscending($sortAscending);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

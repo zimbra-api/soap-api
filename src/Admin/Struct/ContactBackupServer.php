@@ -29,12 +29,12 @@ class ContactBackupServer
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -43,26 +43,29 @@ class ContactBackupServer
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ContactBackupStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var ContactBackupStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\ContactBackupStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\ContactBackupStatus>")]
     #[XmlAttribute]
     private ContactBackupStatus $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param ContactBackupStatus $status
      * @return self
      */
-    public function __construct(string $name = '', ?ContactBackupStatus $status = NULL)
-    {
-        $this->setName($name)
-             ->setStatus($status ?? new ContactBackupStatus('stopped'));
+    public function __construct(
+        string $name = "",
+        ?ContactBackupStatus $status = null
+    ) {
+        $this->setName($name)->setStatus(
+            $status ?? new ContactBackupStatus("stopped")
+        );
     }
 
     /**

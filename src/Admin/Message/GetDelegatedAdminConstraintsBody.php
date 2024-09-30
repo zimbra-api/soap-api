@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetDelegatedAdminConstraintsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetDelegatedAdminConstraintsBody extends SoapBody
      * @SerializedName("GetDelegatedAdminConstraintsRequest")
      * @Type("Zimbra\Admin\Message\GetDelegatedAdminConstraintsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetDelegatedAdminConstraintsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetDelegatedAdminConstraintsRequest")]
     #[Type(GetDelegatedAdminConstraintsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetDelegatedAdminConstraintsResponse")
      * @Type("Zimbra\Admin\Message\GetDelegatedAdminConstraintsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetDelegatedAdminConstraintsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetDelegatedAdminConstraintsResponse")]
     #[Type(GetDelegatedAdminConstraintsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,10 +64,9 @@ class GetDelegatedAdminConstraintsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDelegatedAdminConstraintsRequest $request = NULL,
-        ?GetDelegatedAdminConstraintsResponse $response = NULL
-    )
-    {
+        ?GetDelegatedAdminConstraintsRequest $request = null,
+        ?GetDelegatedAdminConstraintsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

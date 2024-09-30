@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\TargetType;
 use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
@@ -20,7 +26,7 @@ use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
  * none or several attributes can be specified for which constraints are to be returned.
  * If no attribute is specified, all constraints on the global config/cos will be returned.
  * If there is no constraint for a requested attribute, <a> element for the attribute will not appear in the response.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -31,70 +37,70 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
 {
     /**
      * Target type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private TargetType $type;
 
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Attrs
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  TargetType $type
      * @param  string $id
      * @param  string $name
@@ -102,15 +108,16 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
-    )
-    {
-        $this->setType($type ?? new TargetType('account'))
-             ->setAttrs($attrs);
-        if (NULL !== $id) {
+        ?TargetType $type = null,
+        ?string $id = null,
+        ?string $name = null,
+        array $attrs = []
+    ) {
+        $this->setType($type ?? new TargetType("account"))->setAttrs($attrs);
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }
@@ -200,7 +207,8 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof NamedElement
+            $attrs,
+            static fn($attr) => $attr instanceof NamedElement
         );
         return $this;
     }

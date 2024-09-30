@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetNoteResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class GetNoteResponse extends SoapResponse
 {
     /**
      * Note information
-     * 
+     *
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NoteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var NoteInfo
      */
-    #[Accessor(getter: 'getNote', setter: 'setNote')]
-    #[SerializedName('note')]
+    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[SerializedName("note")]
     #[Type(NoteInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?NoteInfo $note;
 
     /**
@@ -47,7 +47,7 @@ class GetNoteResponse extends SoapResponse
      * @param  NoteInfo $note
      * @return self
      */
-    public function __construct(?NoteInfo $note = NULL)
+    public function __construct(?NoteInfo $note = null)
     {
         $this->note = $note;
     }

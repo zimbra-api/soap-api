@@ -25,49 +25,49 @@ class CompletedTestInfo
 {
     /**
      * Test name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Number of seconds to execute the test
-     * 
+     *
      * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
      * @SerializedName("execSeconds")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getExecSeconds', setter: 'setExecSeconds')]
-    #[SerializedName('execSeconds')]
-    #[Type('int')]
+    #[Accessor(getter: "getExecSeconds", setter: "setExecSeconds")]
+    #[SerializedName("execSeconds")]
+    #[Type("int")]
     #[XmlAttribute]
     private $execSeconds;
 
     /**
      * Test class
-     * 
+     *
      * @Accessor(getter="getClassName", setter="setClassName")
      * @SerializedName("class")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getClassName', setter: 'setClassName')]
-    #[SerializedName('class')]
-    #[Type('string')]
+    #[Accessor(getter: "getClassName", setter: "setClassName")]
+    #[SerializedName("class")]
+    #[Type("string")]
     #[XmlAttribute]
     private $className;
 
@@ -80,12 +80,13 @@ class CompletedTestInfo
      * @return self
      */
     public function __construct(
-        string $name = '', int $execSeconds = 0, string $className = ''
-    )
-    {
+        string $name = "",
+        int $execSeconds = 0,
+        string $className = ""
+    ) {
         $this->setName($name)
-             ->setExecSeconds($execSeconds)
-             ->setClassName($className);
+            ->setExecSeconds($execSeconds)
+            ->setClassName($className);
     }
 
     /**

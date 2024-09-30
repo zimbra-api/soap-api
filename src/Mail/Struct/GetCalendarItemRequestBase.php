@@ -26,83 +26,83 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
 {
     /**
      * Set this to return the modified date (md) on the appointment.
-     * 
+     *
      * @Accessor(getter="getSync", setter="setSync")
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName('sync')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSync", setter: "setSync")]
+    #[SerializedName("sync")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sync;
 
     /**
      * If set, MIME parts for body content are returned; default unset
-     * 
+     *
      * @Accessor(getter="getIncludeContent", setter="setIncludeContent")
      * @SerializedName("includeContent")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeContent', setter: 'setIncludeContent')]
-    #[SerializedName('includeContent')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeContent", setter: "setIncludeContent")]
+    #[SerializedName("includeContent")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeContent;
 
     /**
      * If set, information for each invite is included; default set
-     * 
+     *
      * @Accessor(getter="getIncludeInvites", setter="setIncludeInvites")
      * @SerializedName("includeInvites")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeInvites', setter: 'setIncludeInvites')]
-    #[SerializedName('includeInvites')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeInvites", setter: "setIncludeInvites")]
+    #[SerializedName("includeInvites")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeInvites;
 
     /**
      * iCalendar UID
      * Either id or uid should be specified, but not both
-     * 
+     *
      * @Accessor(getter="getUid", setter="setUid")
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Appointment ID.
      * Either id or uid should be specified, but not both
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -117,26 +117,25 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $sync = NULL,
-        ?bool $includeContent = NULL,
-        ?bool $includeInvites = NULL,
-        ?string $uid = NULL,
-        ?string $id = NULL
-    )
-    {
-        if (NULL !== $sync) {
+        ?bool $sync = null,
+        ?bool $includeContent = null,
+        ?bool $includeInvites = null,
+        ?string $uid = null,
+        ?string $id = null
+    ) {
+        if (null !== $sync) {
             $this->setSync($sync);
         }
-        if (NULL !== $includeContent) {
+        if (null !== $includeContent) {
             $this->setIncludeContent($includeContent);
         }
-        if (NULL !== $includeInvites) {
+        if (null !== $includeInvites) {
             $this->setIncludeInvites($includeInvites);
         }
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

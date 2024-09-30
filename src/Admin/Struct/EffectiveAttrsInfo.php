@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * EffectiveAttrsInfo struct class
@@ -26,45 +32,45 @@ class EffectiveAttrsInfo
     /**
      * Flags whether all attributes on the target entry are accessible.
      * if set, no <a> elements will appear under the <setAttrs>/<getAttrs>
-     * 
+     *
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAll', setter: 'setAll')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAll", setter: "setAll")]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $all;
 
     /**
      * Attributes
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Admin\Struct\EffectiveAttrInfo>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param bool $all
      * @param array $attrs
      * @return self
      */
-    public function __construct(?bool $all = NULL, array $attrs = [])
+    public function __construct(?bool $all = null, array $attrs = [])
     {
         $this->setAttrs($attrs);
-        if (NULL !== $all) {
+        if (null !== $all) {
             $this->setAll($all);
         }
     }
@@ -110,7 +116,8 @@ class EffectiveAttrsInfo
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof EffectiveAttrInfo
+            $attrs,
+            static fn($attr) => $attr instanceof EffectiveAttrInfo
         );
         return $this;
     }

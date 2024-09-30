@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * A message is considered "recent" if:
  * - (a) it's not a draft or a sent message, and
  * - (b) it was added since the last write operation associated with any SOAP session.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

@@ -15,8 +15,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAppointmentIdsInRangeRequest class
- * Get appointment ids for given range 
- * 
+ * Get appointment ids for given range
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,49 +27,49 @@ class GetAppointmentIdsInRangeRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds since the epoch GMT
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end in milliseconds since the epoch GMT
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Folder ID.
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
@@ -84,12 +84,11 @@ class GetAppointmentIdsInRangeRequest extends SoapRequest
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        string $folderId = ''
-    )
-    {
+        string $folderId = ""
+    ) {
         $this->setStartTime($startTime)
-             ->setEndTime($endTime)
-             ->setFolderId($folderId);
+            ->setEndTime($endTime)
+            ->setFolderId($folderId);
     }
 
     /**

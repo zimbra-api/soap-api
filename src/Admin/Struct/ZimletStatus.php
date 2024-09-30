@@ -26,65 +26,65 @@ class ZimletStatus
 {
     /**
      * Zimlet name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Status
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
      * @XmlAttribute
-     * 
+     *
      * @var ZimletStatusSetting
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletStatusSetting>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")]
     #[XmlAttribute]
     private ZimletStatusSetting $status;
 
     /**
      * Extension
-     * 
+     *
      * @Accessor(getter="getExtension", setter="setExtension")
      * @SerializedName("extension")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName('extension')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExtension", setter: "setExtension")]
+    #[SerializedName("extension")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $extension;
 
     /**
      * Priority
-     * 
+     *
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName('priority')]
-    #[Type('int')]
+    #[Accessor(getter: "getPriority", setter: "setPriority")]
+    #[SerializedName("priority")]
+    #[Type("int")]
     #[XmlAttribute]
     private $priority;
 
@@ -98,16 +98,15 @@ class ZimletStatus
      * @return self
      */
     public function __construct(
-        string $name = '',
-        ?ZimletStatusSetting $status = NULL,
-        bool $extension = FALSE,
-        ?int $priority = NULL
-    )
-    {
+        string $name = "",
+        ?ZimletStatusSetting $status = null,
+        bool $extension = false,
+        ?int $priority = null
+    ) {
         $this->setName($name)
-             ->setStatus($status ?? new ZimletStatusSetting('enabled'))
-             ->setExtension($extension);
-        if (NULL !== $priority) {
+            ->setStatus($status ?? new ZimletStatusSetting("enabled"))
+            ->setExtension($extension);
+        if (null !== $priority) {
             $this->setPriority($priority);
         }
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Enum\GalMode;
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
@@ -31,87 +37,87 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * The account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * Name of the data source
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Name of pre-existing domain
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * GalMode type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalMode>")
      * @XmlAttribute
-     * 
+     *
      * @var GalMode
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalMode>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GalMode>")]
     #[XmlAttribute]
     private GalMode $type;
 
     /**
      * Contact folder name
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Constructor
-     * 
+     *
      * @param AccountSelector $account
      * @param string  $name
      * @param string  $domain
@@ -121,18 +127,17 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      */
     public function __construct(
         AccountSelector $account,
-        string $name = '',
-        string $domain = '',
-        ?GalMode $type = NULL,
-        ?string $folder = NULL,
+        string $name = "",
+        string $domain = "",
+        ?GalMode $type = null,
+        ?string $folder = null,
         array $attrs = []
-    )
-    {
+    ) {
         $this->setAccount($account)
-             ->setName($name)
-             ->setDomain($domain)
-             ->setType($type ?? new GalMode('both'));
-        if (NULL !== $folder) {
+            ->setName($name)
+            ->setDomain($domain)
+            ->setType($type ?? new GalMode("both"));
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
         $this->setAttrs($attrs);

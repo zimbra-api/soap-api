@@ -26,66 +26,68 @@ class ZimletDeploymentStatus
 {
     /**
      * Server name
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
-    #[Type('string')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
+    #[Type("string")]
     #[XmlAttribute]
     private $server;
 
     /**
      * Status - valid values succeeded|failed|pending
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")
      * @XmlAttribute
      * @var ZimletDeployStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\ZimletDeployStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")]
     #[XmlAttribute]
     private ZimletDeployStatus $status;
 
     /**
      * Error message
-     * 
+     *
      * @Accessor(getter="getError", setter="setError")
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName('error')]
-    #[Type('string')]
+    #[Accessor(getter: "getError", setter: "setError")]
+    #[SerializedName("error")]
+    #[Type("string")]
     #[XmlAttribute]
     private $error;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $server
      * @param  ZimletDeployStatus $status
      * @param  string $error
      * @return self
      */
     public function __construct(
-        string $server = '', ?ZimletDeployStatus $status = NULL, ?string $error = NULL
-    )
-    {
-        $this->setServer($server)
-             ->setStatus($status ?? new ZimletDeployStatus('succeeded'));
-        if (NULL !== $error) {
+        string $server = "",
+        ?ZimletDeployStatus $status = null,
+        ?string $error = null
+    ) {
+        $this->setServer($server)->setStatus(
+            $status ?? new ZimletDeployStatus("succeeded")
+        );
+        if (null !== $error) {
             $this->setError($error);
         }
     }

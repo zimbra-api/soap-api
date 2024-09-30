@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetConvResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class GetConvResponse extends SoapResponse
 {
     /**
      * Conversation information
-     * 
+     *
      * @Accessor(getter="getConversation", setter="setConversation")
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ConversationInfo
      */
-    #[Accessor(getter: 'getConversation', setter: 'setConversation')]
-    #[SerializedName('c')]
+    #[Accessor(getter: "getConversation", setter: "setConversation")]
+    #[SerializedName("c")]
     #[Type(ConversationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ConversationInfo $conversation;
 
     /**
@@ -47,7 +47,7 @@ class GetConvResponse extends SoapResponse
      * @param  ConversationInfo $conversation
      * @return self
      */
-    public function __construct(?ConversationInfo $conversation = NULL)
+    public function __construct(?ConversationInfo $conversation = null)
     {
         $this->conversation = $conversation;
     }

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetSessionsRequest class
  * Get Sessions
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,81 +28,81 @@ class GetSessionsRequest extends SoapRequest
 {
     /**
      * Type - valid values soap|imap|admin
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\SessionType>")
      * @XmlAttribute
-     * 
+     *
      * @var SessionType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\SessionType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\SessionType>")]
     #[XmlAttribute]
     private SessionType $type;
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\GetSessionsSortBy>")
      * @XmlAttribute
-     * 
+     *
      * @var GetSessionsSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\GetSessionsSortBy>')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("Enum<Zimbra\Common\Enum\GetSessionsSortBy>")]
     #[XmlAttribute]
     private ?GetSessionsSortBy $sortBy;
 
     /**
      * Offset - the starting offset (0, 25, etc)
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Limit - the number of sessions to return per page (0 is default and means all)
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Refresh. If 1 (true), ignore any cached results and start fresh.
-     * 
+     *
      * @Accessor(getter="getRefresh", setter="setRefresh")
      * @SerializedName("refresh")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getRefresh', setter: 'setRefresh')]
-    #[SerializedName('refresh')]
-    #[Type('bool')]
+    #[Accessor(getter: "getRefresh", setter: "setRefresh")]
+    #[SerializedName("refresh")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $refresh;
 
@@ -117,22 +117,21 @@ class GetSessionsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?SessionType $type = NULL,
-        ?GetSessionsSortBy $sortBy = NULL,
-        ?int $offset = NULL,
-        ?int $limit = NULL,
-        ?bool $refresh = NULL
-    )
-    {
-        $this->setType($type ?? new SessionType('soap'));
+        ?SessionType $type = null,
+        ?GetSessionsSortBy $sortBy = null,
+        ?int $offset = null,
+        ?int $limit = null,
+        ?bool $refresh = null
+    ) {
+        $this->setType($type ?? new SessionType("soap"));
         $this->sortBy = $sortBy;
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
-        if (NULL !== $refresh) {
+        if (null !== $refresh) {
             $this->setRefresh($refresh);
         }
     }
@@ -252,8 +251,6 @@ class GetSessionsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetSessionsEnvelope(
-            new GetSessionsBody($this)
-        );
+        return new GetSessionsEnvelope(new GetSessionsBody($this));
     }
 }

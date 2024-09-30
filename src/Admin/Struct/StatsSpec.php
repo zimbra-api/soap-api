@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * StatsSpec struct class
@@ -28,13 +34,13 @@ class StatsSpec
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var StatsValueWrapper
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName('values')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[SerializedName("values")]
     #[Type(StatsValueWrapper::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private StatsValueWrapper $values;
 
     /**
@@ -42,12 +48,12 @@ class StatsSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -56,32 +62,33 @@ class StatsSpec
      * @SerializedName("limit")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('string')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("string")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Constructor
-     * 
+     *
      * @param  StatsValueWrapper $values
      * @param  string $name
      * @param  string $limit
      * @return self
      */
     public function __construct(
-        StatsValueWrapper $values, ?string $name = NULL, ?string $limit = NULL
-    )
-    {
+        StatsValueWrapper $values,
+        ?string $name = null,
+        ?string $limit = null
+    ) {
         $this->setValues($values);
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * ICalContent struct class
@@ -25,47 +31,47 @@ class ICalContent
 {
     /**
      * Item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * ICAL
-     * 
+     *
      * @Accessor(getter="getIcal", setter="setIcal")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIcal', setter: 'setIcal')]
-    #[Type('string')]
+    #[Accessor(getter: "getIcal", setter: "setIcal")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $ical;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $ical
      * @return self
      */
-    public function __construct(?string $id = NULL, ?string $ical = NULL)
+    public function __construct(?string $id = null, ?string $ical = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $ical) {
+        if (null !== $ical) {
             $this->setIcal($ical);
         }
     }

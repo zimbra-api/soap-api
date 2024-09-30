@@ -12,7 +12,7 @@ namespace Zimbra\Account\Struct;
 
 /**
  * Attrs interface
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

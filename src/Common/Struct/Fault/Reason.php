@@ -28,24 +28,29 @@ class Reason
      * @SerializedName("Text")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getText', setter: 'setText')]
-    #[SerializedName('Text')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[Accessor(getter: "getText", setter: "setText")]
+    #[SerializedName("Text")]
+    #[Type("string")]
+    #[
+        XmlElement(
+            cdata: false,
+            namespace: "http://www.w3.org/2003/05/soap-envelope"
+        )
+    ]
     private $text;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $text
      * @return self
      */
-    public function __construct(?string $text = NULL)
+    public function __construct(?string $text = null)
     {
-        if (NULL !== $text) {
+        if (null !== $text) {
             $this->setText($text);
         }
     }

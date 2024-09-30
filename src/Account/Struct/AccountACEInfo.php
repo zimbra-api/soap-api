@@ -13,9 +13,10 @@ namespace Zimbra\Account\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\GranteeType;
 
+
 /**
  * AccountACEInfo struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -29,7 +30,7 @@ class AccountACEInfo
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
-     * 
+     *
      * @var GranteeType
      */
     #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
@@ -43,7 +44,7 @@ class AccountACEInfo
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
@@ -57,7 +58,7 @@ class AccountACEInfo
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -71,7 +72,7 @@ class AccountACEInfo
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -85,7 +86,7 @@ class AccountACEInfo
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
     #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
@@ -99,7 +100,7 @@ class AccountACEInfo
      * @SerializedName("pw")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -113,7 +114,7 @@ class AccountACEInfo
      * @SerializedName("deny")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
     #[Accessor(getter: 'getDeny', setter: 'setDeny')]
@@ -127,7 +128,7 @@ class AccountACEInfo
      * @SerializedName("chkgt")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
     #[Accessor(getter: 'getCheckGranteeType', setter: 'setCheckGranteeType')]
@@ -138,7 +139,7 @@ class AccountACEInfo
 
     /**
      * Constructor
-     * 
+     *
      * @param GranteeType $granteeType
      * @param string $right
      * @param string $zimbraId

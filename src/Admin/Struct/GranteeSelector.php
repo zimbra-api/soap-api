@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{GranteeType, GranteeBy};
 
 /**
@@ -26,86 +32,86 @@ class GranteeSelector
 {
     /**
      * Grantee type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GranteeType>")]
     #[XmlAttribute]
     private ?GranteeType $type;
 
     /**
      * Grantee by
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\GranteeBy>")
      * @XmlAttribute
-     * 
+     *
      * @var GranteeBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\GranteeBy>")]
     #[XmlAttribute]
     private ?GranteeBy $by;
 
     /**
      * The key used to secretentify the grantee
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Password for guest grantee or the access key for key grantee For user right only
-     * 
+     *
      * @Accessor(getter="getSecret", setter="setSecret")
      * @SerializedName("secret")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSecret', setter: 'setSecret')]
-    #[SerializedName('secret')]
-    #[Type('string')]
+    #[Accessor(getter: "getSecret", setter: "setSecret")]
+    #[SerializedName("secret")]
+    #[Type("string")]
     #[XmlAttribute]
     private $secret;
 
     /**
      * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to.
      * Default is 1 (true)
-     * 
+     *
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAll', setter: 'setAll')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAll", setter: "setAll")]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $all;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @param GranteeType $type
      * @param GranteeBy $by
@@ -114,22 +120,21 @@ class GranteeSelector
      * @return self
      */
     public function __construct(
-        ?string $value = NULL,
-        ?GranteeType $type = NULL,
-        ?GranteeBy $by = NULL,
-        ?string $secret = NULL,
-        ?bool $all = NULL
-    )
-    {
+        ?string $value = null,
+        ?GranteeType $type = null,
+        ?GranteeBy $by = null,
+        ?string $secret = null,
+        ?bool $all = null
+    ) {
         $this->type = $type;
         $this->by = $by;
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $secret) {
+        if (null !== $secret) {
             $this->setSecret($secret);
         }
-        if (NULL !== $all) {
+        if (null !== $all) {
             $this->setAll($all);
         }
     }

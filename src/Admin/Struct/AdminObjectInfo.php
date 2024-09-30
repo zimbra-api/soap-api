@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AdminObjectInfo struct class
@@ -28,12 +34,12 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -42,12 +48,12 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -55,29 +61,28 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type('array<Zimbra\Admin\Struct\Attr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrList", setter: "setAttrList")]
+    #[Type("array<Zimbra\Admin\Struct\Attr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrList = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name Name
      * @param  string $id ID
      * @param  array  $attrs Attributes
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setAttrList($attrs);
+        string $name = "",
+        string $id = "",
+        array $attrs = []
+    ) {
+        $this->setName($name)->setId($id)->setAttrList($attrs);
     }
 
     /**
@@ -133,7 +138,8 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     public function setAttrList(array $attrs): self
     {
         $this->attrList = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof Attr
+            $attrs,
+            static fn($attr) => $attr instanceof Attr
         );
         return $this;
     }

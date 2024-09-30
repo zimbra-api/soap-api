@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 
 /**
  * AdminKeyValuePairs struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -28,21 +28,21 @@ class AdminKeyValuePairs implements KeyValuePairs
 
     /**
      * Key value pairs
-     * 
+     *
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     protected $keyValuePairs = [];
 
     /**
      * constructor.
-     * 
+     *
      * @param array $keyValuePairs
      * @return self
      */

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ChangePasswordResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,34 +26,34 @@ class ChangePasswordResponse extends SoapResponse
 {
     /**
      * New authToken, as old authToken is invalidated on password change.
-     * 
+     *
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $authToken;
 
     /**
      * Life time associated with {new-auth-token}
-     * 
+     *
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName('lifetime')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getLifetime", setter: "setLifetime")]
+    #[SerializedName("lifetime")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $lifetime;
 
     /**
@@ -63,10 +63,9 @@ class ChangePasswordResponse extends SoapResponse
      * @param  int $lifetime
      * @return self
      */
-    public function __construct(string $authToken = '', int $lifetime = 0)
+    public function __construct(string $authToken = "", int $lifetime = 0)
     {
-        $this->setAuthToken($authToken)
-             ->setLifetime($lifetime);
+        $this->setAuthToken($authToken)->setLifetime($lifetime);
     }
 
     /**

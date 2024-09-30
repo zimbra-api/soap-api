@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\{TargetBy, TargetType};
 
 /**
@@ -29,12 +35,12 @@ class CheckRightsTargetInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private TargetType $targetType;
 
@@ -43,12 +49,12 @@ class CheckRightsTargetInfo
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetBy
      */
-    #[Accessor(getter: 'getTargetBy', setter: 'setTargetBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetBy>')]
+    #[Accessor(getter: "getTargetBy", setter: "setTargetBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetBy>")]
     #[XmlAttribute]
     private TargetBy $targetBy;
 
@@ -57,12 +63,12 @@ class CheckRightsTargetInfo
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetKey', setter: 'setTargetKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetKey", setter: "setTargetKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetKey;
 
@@ -71,12 +77,12 @@ class CheckRightsTargetInfo
      * @SerializedName("allow")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName('allow')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllow", setter: "setAllow")]
+    #[SerializedName("allow")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allow;
 
@@ -84,17 +90,17 @@ class CheckRightsTargetInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<Zimbra\Account\Struct\CheckRightsRightInfo>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
     private $rights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  TargetType $type
      * @param  TargetBy $by
      * @param  string $key
@@ -103,14 +109,17 @@ class CheckRightsTargetInfo
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', bool $allow = FALSE, array $rights = []
-    )
-    {
-        $this->setTargetType($type ?? new TargetType('account'))
-             ->setTargetBy($by ?? new TargetBy('name'))
-             ->setTargetKey($key)
-             ->setAllow($allow)
-             ->setRights($rights);
+        ?TargetType $type = null,
+        ?TargetBy $by = null,
+        string $key = "",
+        bool $allow = false,
+        array $rights = []
+    ) {
+        $this->setTargetType($type ?? new TargetType("account"))
+            ->setTargetBy($by ?? new TargetBy("name"))
+            ->setTargetKey($key)
+            ->setAllow($allow)
+            ->setRights($rights);
     }
 
     /**
@@ -210,7 +219,8 @@ class CheckRightsTargetInfo
     public function setRights(array $rights): self
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof CheckRightsRightInfo
+            $rights,
+            static fn($right) => $right instanceof CheckRightsRightInfo
         );
         return $this;
     }

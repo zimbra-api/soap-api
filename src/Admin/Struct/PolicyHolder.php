@@ -29,22 +29,22 @@ class PolicyHolder
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Policy
      */
-    #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
-    #[SerializedName('policy')]
+    #[Accessor(getter: "getPolicy", setter: "setPolicy")]
+    #[SerializedName("policy")]
     #[Type(Policy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Policy $policy;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Policy $policy
      * @return self
      */
-    public function __construct(?Policy $policy = NULL)
+    public function __construct(?Policy $policy = null)
     {
         $this->policy = $policy;
     }

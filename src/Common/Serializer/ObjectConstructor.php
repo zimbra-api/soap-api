@@ -11,7 +11,8 @@
 namespace Zimbra\Common\Serializer;
 
 use JMS\Serializer\Construction\{
-    ObjectConstructorInterface, UnserializeObjectConstructor
+    ObjectConstructorInterface,
+    UnserializeObjectConstructor
 };
 use JMS\Serializer\DeserializationContext as Context;
 use JMS\Serializer\Metadata\ClassMetadata;
@@ -19,7 +20,7 @@ use JMS\Serializer\Visitor\DeserializationVisitorInterface as Visitor;
 
 /**
  * Object constructor class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -30,44 +31,46 @@ class ObjectConstructor implements ObjectConstructorInterface
 {
     /**
      * Fallback object constructor
-     * 
+     *
      * @var ObjectConstructorInterface
      */
     private ObjectConstructorInterface $fallbackConstructor;
 
     /**
      * Constructor
-     * 
+     *
      * @param ObjectConstructorInterface $fallbackConstructor
      */
     public function __construct(
-        ?ObjectConstructorInterface $fallbackConstructor = NULL
+        ?ObjectConstructorInterface $fallbackConstructor = null
     ) {
-        $this->fallbackConstructor = $fallbackConstructor ?: new UnserializeObjectConstructor();
+        $this->fallbackConstructor =
+            $fallbackConstructor ?: new UnserializeObjectConstructor();
     }
 
     /**
      * {@inheritdoc}
      */
     public function construct(
-        Visitor $visitor, ClassMetadata $metadata, $data, array $type, Context $context
-    ): ?object
-    {
+        Visitor $visitor,
+        ClassMetadata $metadata,
+        $data,
+        array $type,
+        Context $context
+    ): ?object {
         $reflection = new \ReflectionClass($metadata->name);
         $constructor = $reflection->getConstructor();
         if (empty($constructor)) {
             return $reflection->newInstanceArgs();
-        }
-        else {
+        } else {
             $parameters = $constructor->getParameters();
             if (empty($parameters)) {
                 return $reflection->newInstanceArgs();
-            }
-            else {
-                $isDefaultConstructor = TRUE;
+            } else {
+                $isDefaultConstructor = true;
                 foreach ($parameters as $parameter) {
                     if (!$parameter->isOptional()) {
-                        $isDefaultConstructor = FALSE;
+                        $isDefaultConstructor = false;
                         break;
                     }
                 }
@@ -76,6 +79,12 @@ class ObjectConstructor implements ObjectConstructorInterface
                 }
             }
         }
-        return $this->fallbackConstructor->construct($visitor, $metadata, $data, $type, $context);
+        return $this->fallbackConstructor->construct(
+            $visitor,
+            $metadata,
+            $data,
+            $type,
+            $context
+        );
     }
 }

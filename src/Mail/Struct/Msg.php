@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\ReplyType;
 
 /**
@@ -27,252 +34,252 @@ class Msg
 {
     /**
      * Uploaded MIME body ID
-     * 
+     *
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachmentId;
 
     /**
      * Original ID
-     * 
+     *
      * @Accessor(getter="getOrigId", setter="setOrigId")
      * @SerializedName("origid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOrigId', setter: 'setOrigId')]
-    #[SerializedName('origid')]
-    #[Type('string')]
+    #[Accessor(getter: "getOrigId", setter: "setOrigId")]
+    #[SerializedName("origid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $origId;
 
     /**
      * Reply type - r|w.  (r)eplied or for(w)arded.
-     * 
+     *
      * @Accessor(getter="getReplyType", setter="setReplyType")
      * @SerializedName("rt")
      * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
      * @XmlAttribute
-     * 
+     *
      * @var ReplyType
      */
-    #[Accessor(getter: 'getReplyType', setter: 'setReplyType')]
-    #[SerializedName('rt')]
-    #[Type('Enum<Zimbra\Common\Enum\ReplyType>')]
+    #[Accessor(getter: "getReplyType", setter: "setReplyType")]
+    #[SerializedName("rt")]
+    #[Type("Enum<Zimbra\Common\Enum\ReplyType>")]
     #[XmlAttribute]
     private ?ReplyType $replyType;
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
-     * 
+     *
      * @Accessor(getter="getIdentityId", setter="setIdentityId")
      * @SerializedName("idnt")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIdentityId', setter: 'setIdentityId')]
-    #[SerializedName('idnt')]
-    #[Type('string')]
+    #[Accessor(getter: "getIdentityId", setter: "setIdentityId")]
+    #[SerializedName("idnt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $identityId;
 
     /**
      * Subject
-     * 
+     *
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
     #[XmlAttribute]
     private $subject;
 
     /**
      * Headers
-     * 
+     *
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Mail\Struct\Header>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type('array<Zimbra\Mail\Struct\Header>')]
-    #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[Type("array<Zimbra\Mail\Struct\Header>")]
+    #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
     private $headers = [];
 
     /**
      * Message-ID header for message being replied to
-     * 
+     *
      * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
      * @SerializedName("irt")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInReplyTo', setter: 'setInReplyTo')]
-    #[SerializedName('irt')]
-    #[Type('string')]
+    #[Accessor(getter: "getInReplyTo", setter: "setInReplyTo")]
+    #[SerializedName("irt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $inReplyTo;
 
     /**
      * Folder ID
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Content
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
      * Mime part information
-     * 
+     *
      * @Accessor(getter="getMimePart", setter="setMimePart")
      * @SerializedName("mp")
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MimePartInfo
      */
-    #[Accessor(getter: 'getMimePart', setter: 'setMimePart')]
-    #[SerializedName('mp')]
+    #[Accessor(getter: "getMimePart", setter: "setMimePart")]
+    #[SerializedName("mp")]
     #[Type(MimePartInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MimePartInfo $mimePart;
 
     /**
      * Attachments information
-     * 
+     *
      * @Accessor(getter="getAttachments", setter="setAttachments")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var AttachmentsInfo
      */
-    #[Accessor(getter: 'getAttachments', setter: 'setAttachments')]
-    #[SerializedName('attach')]
+    #[Accessor(getter: "getAttachments", setter: "setAttachments")]
+    #[SerializedName("attach")]
     #[Type(AttachmentsInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AttachmentsInfo $attachments;
 
     /**
      * Invite information
-     * 
+     *
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InvitationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InvitationInfo
      */
-    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
-    #[SerializedName('inv')]
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName("inv")]
     #[Type(InvitationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InvitationInfo $invite;
 
     /**
      * Email address information
-     * 
+     *
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmailAddresses', setter: 'setEmailAddresses')]
-    #[Type('array<Zimbra\Mail\Struct\EmailAddrInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmailAddresses", setter: "setEmailAddresses")]
+    #[Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emailAddresses = [];
 
     /**
      * Timezones
-     * 
+     *
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
-    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTimezones", setter: "setTimezones")]
+    #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
+    #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
     private $timezones = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
@@ -297,56 +304,55 @@ class Msg
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = NULL,
-        ?string $origId = NULL,
-        ?ReplyType $replyType = NULL,
-        ?string $identityId = NULL,
-        ?string $subject = NULL,
+        ?string $attachmentId = null,
+        ?string $origId = null,
+        ?ReplyType $replyType = null,
+        ?string $identityId = null,
+        ?string $subject = null,
         array $headers = [],
-        ?string $inReplyTo = NULL,
-        ?string $folderId = NULL,
-        ?string $flags = NULL,
-        ?string $content = NULL,
-        ?MimePartInfo $mimePart = NULL,
-        ?AttachmentsInfo $attachments = NULL,
-        ?InvitationInfo $invite = NULL,
+        ?string $inReplyTo = null,
+        ?string $folderId = null,
+        ?string $flags = null,
+        ?string $content = null,
+        ?MimePartInfo $mimePart = null,
+        ?AttachmentsInfo $attachments = null,
+        ?InvitationInfo $invite = null,
         array $emailAddresses = [],
         array $timezones = [],
-        ?string $fragment = NULL
-    )
-    {
+        ?string $fragment = null
+    ) {
         $this->setHeaders($headers)
-             ->setEmailAddresses($emailAddresses)
-             ->setTimezones($timezones);
+            ->setEmailAddresses($emailAddresses)
+            ->setTimezones($timezones);
         $this->replyType = $replyType;
         $this->mimePart = $mimePart;
         $this->attachments = $attachments;
         $this->invite = $invite;
-        if (NULL !== $attachmentId) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
-        if (NULL !== $origId) {
+        if (null !== $origId) {
             $this->setOrigId($origId);
         }
-        if (NULL !== $identityId) {
+        if (null !== $identityId) {
             $this->setIdentityId($identityId);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $inReplyTo) {
+        if (null !== $inReplyTo) {
             $this->setInReplyTo($inReplyTo);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }
@@ -470,7 +476,8 @@ class Msg
     public function setHeaders(array $headers): self
     {
         $this->headers = array_filter(
-            $headers, static fn ($header) => $header instanceof Header
+            $headers,
+            static fn($header) => $header instanceof Header
         );
         return $this;
     }
@@ -660,7 +667,8 @@ class Msg
     public function setEmailAddresses(array $addresses): self
     {
         $this->emailAddresses = array_filter(
-            $addresses, static fn ($address) => $address instanceof EmailAddrInfo
+            $addresses,
+            static fn($address) => $address instanceof EmailAddrInfo
         );
         return $this;
     }
@@ -696,7 +704,8 @@ class Msg
     public function setTimezones(array $timezones): self
     {
         $this->timezones = array_filter(
-            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+            $timezones,
+            static fn($timezone) => $timezone instanceof CalTZInfo
         );
         return $this;
     }

@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * DismissCalendarItemAlarmBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @SerializedName("DismissCalendarItemAlarmRequest")
      * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('DismissCalendarItemAlarmRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("DismissCalendarItemAlarmRequest")]
     #[Type(DismissCalendarItemAlarmRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("DismissCalendarItemAlarmResponse")
      * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('DismissCalendarItemAlarmResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("DismissCalendarItemAlarmResponse")]
     #[Type(DismissCalendarItemAlarmResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DismissCalendarItemAlarmRequest $request = NULL, ?DismissCalendarItemAlarmResponse $response = NULL
-    )
-    {
+        ?DismissCalendarItemAlarmRequest $request = null,
+        ?DismissCalendarItemAlarmResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

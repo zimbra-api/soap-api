@@ -10,16 +10,15 @@
 
 namespace Zimbra\Common\Serializer;
 
-use JMS\Serializer\{
-    Handler\HandlerRegistryInterface,
-    Handler\SubscribingHandlerInterface,
-    SerializerBuilder,
-    SerializerInterface,
+use JMS\Serializer\Handler\{
+    HandlerRegistryInterface,
+    SubscribingHandlerInterface
 };
+use JMS\Serializer\{SerializerBuilder, SerializerInterface};
 
 /**
  * Serializer factory class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -33,21 +32,21 @@ final class SerializerFactory
      *
      * @var SerializerBuilder
      */
-    private static ?SerializerBuilder $builder = NULL;
+    private static ?SerializerBuilder $builder = null;
 
     /**
      * Debug mode
      *
      * @var bool
      */
-    private static bool $debug = FALSE;
+    private static bool $debug = false;
 
     /**
      * Cache dir
-     * 
+     *
      * @var string
      */
-    private static ?string $cacheDir = NULL;
+    private static ?string $cacheDir = null;
 
     /**
      * List of serializer handlers.
@@ -62,7 +61,7 @@ final class SerializerFactory
      * @param  bool $debug
      * @return bool
      */
-    public static function setDebugMode(bool $debug = FALSE): bool
+    public static function setDebugMode(bool $debug = false): bool
     {
         return self::$debug = $debug;
     }
@@ -73,7 +72,7 @@ final class SerializerFactory
      * @param  string $cacheDir
      * @return string
      */
-    public static function setCacheDir(?string $cacheDir = NULL): ?string
+    public static function setCacheDir(?string $cacheDir = null): ?string
     {
         return self::$cacheDir = $cacheDir;
     }
@@ -84,8 +83,9 @@ final class SerializerFactory
      * @param  SubscribingHandlerInterface $handler
      * @return array
      */
-    public static function addSerializerHandler(SubscribingHandlerInterface $handler): array
-    {
+    public static function addSerializerHandler(
+        SubscribingHandlerInterface $handler
+    ): array {
         self::$serializerHandlers[] = $handler;
         return self::$serializerHandlers;
     }
@@ -99,7 +99,9 @@ final class SerializerFactory
     public static function setSerializerHandlers(array $handlers = []): array
     {
         self::$serializerHandlers = array_filter(
-            $handlers, static fn ($handler) => $handler instanceof SubscribingHandlerInterface
+            $handlers,
+            static fn($handler) => $handler instanceof
+                SubscribingHandlerInterface
         );
         return self::$serializerHandlers;
     }
@@ -119,22 +121,27 @@ final class SerializerFactory
         if (self::$debug) {
             self::$builder->setDebug(self::$debug);
         }
-        if (NULL !== self::$cacheDir) {
+        if (null !== self::$cacheDir) {
             self::$builder->setCacheDir(self::$cacheDir);
         }
         if (PHP_VERSION_ID >= 80000) {
-            self::$builder->setMetadataDriverFactory(new AttributeDriverFactory());
+            self::$builder->setMetadataDriverFactory(
+                new AttributeDriverFactory()
+            );
         }
 
-        return self::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
-            if (!empty(self::$serializerHandlers)) {
-                foreach (self::$serializerHandlers as $key => $handler) {
-                    $registry->registerSubscribingHandler($handler);
-                    unset(self::$serializerHandlers[$key]);
+        return self::$builder
+            ->configureHandlers(static function (
+                HandlerRegistryInterface $registry
+            ) {
+                if (!empty(self::$serializerHandlers)) {
+                    foreach (self::$serializerHandlers as $key => $handler) {
+                        $registry->registerSubscribingHandler($handler);
+                        unset(self::$serializerHandlers[$key]);
+                    }
                 }
-            }
-        })
-        ->setObjectConstructor(new ObjectConstructor())
-        ->build();
+            })
+            ->setObjectConstructor(new ObjectConstructor())
+            ->build();
     }
 }

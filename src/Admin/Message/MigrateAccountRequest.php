@@ -28,18 +28,18 @@ class MigrateAccountRequest extends SoapRequest
 {
     /**
      * Specification for the migration
-     * 
+     *
      * @Accessor(getter="getMigrate", setter="setMigrate")
      * @SerializedName("migrate")
      * @Type("Zimbra\Admin\Struct\IdAndAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var IdAndAction
      */
-    #[Accessor(getter: 'getMigrate', setter: 'setMigrate')]
-    #[SerializedName('migrate')]
+    #[Accessor(getter: "getMigrate", setter: "setMigrate")]
+    #[SerializedName("migrate")]
     #[Type(IdAndAction::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private IdAndAction $migrate;
 
     /**
@@ -80,8 +80,6 @@ class MigrateAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new MigrateAccountEnvelope(
-            new MigrateAccountBody($this)
-        );
+        return new MigrateAccountEnvelope(new MigrateAccountBody($this));
     }
 }

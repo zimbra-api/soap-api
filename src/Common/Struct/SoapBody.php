@@ -25,34 +25,33 @@ abstract class SoapBody implements SoapBodyInterface
 {
     /**
      * Soap fault
-     * 
+     *
      * @Accessor(getter="getSoapFault", setter="setSoapFault")
      * @SerializedName("Fault")
      * @Type("Zimbra\Common\Struct\SoapFault")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var SoapFaultInterface
      */
-    #[Accessor(getter: 'getSoapFault', setter: 'setSoapFault')]
-    #[SerializedName('Fault')]
+    #[Accessor(getter: "getSoapFault", setter: "setSoapFault")]
+    #[SerializedName("Fault")]
     #[Type(SoapFault::class)]
-    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[XmlElement(namespace: "http://www.w3.org/2003/05/soap-envelope")]
     private ?SoapFaultInterface $soapFault;
 
     /**
      * Constructor
-     * 
+     *
      * @param  SoapRequestInterface $request
      * @param  SoapResponseInterface $response
      * @param  SoapFaultInterface $soapFault
      * @return self
      */
     public function __construct(
-        ?SoapRequestInterface $request = NULL,
-        ?SoapResponseInterface $response = NULL,
-        ?SoapFaultInterface $soapFault = NULL
-    )
-    {
+        ?SoapRequestInterface $request = null,
+        ?SoapResponseInterface $response = null,
+        ?SoapFaultInterface $soapFault = null
+    ) {
         $this->soapFault = $soapFault;
         if ($request instanceof SoapRequestInterface) {
             $this->setRequest($request);

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
 use Zimbra\Common\Enum\CompactIndexAction as Action;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -29,46 +35,46 @@ class CompactIndexRequest extends SoapRequest
 {
     /**
      * Mailbox by account id selector
-     * 
+     *
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Mailbox $mbox;
 
     /**
      * Action to perform
      * start: start compact indexing
      * status: show compact indexing status
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")
      * @XmlAttribute
-     * 
+     *
      * @var Action
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\CompactIndexAction>')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")]
     #[XmlAttribute]
     private ?Action $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mailbox $mbox
      * @param  Action $action
      * @return self
      */
-    public function __construct(Mailbox $mbox, ?Action $action = NULL)
+    public function __construct(Mailbox $mbox, ?Action $action = null)
     {
         $this->setMbox($mbox);
         $this->action = $action;
@@ -123,8 +129,6 @@ class CompactIndexRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CompactIndexEnvelope(
-            new CompactIndexBody($this)
-        );
+        return new CompactIndexEnvelope(new CompactIndexBody($this));
     }
 }

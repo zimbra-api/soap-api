@@ -27,67 +27,67 @@ class SetPasswordRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * New password
-     * 
+     *
      * @Accessor(getter="getNewPassword", setter="setNewPassword")
      * @SerializedName("newPassword")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewPassword', setter: 'setNewPassword')]
-    #[SerializedName('newPassword')]
-    #[Type('string')]
+    #[Accessor(getter: "getNewPassword", setter: "setNewPassword")]
+    #[SerializedName("newPassword")]
+    #[Type("string")]
     #[XmlAttribute]
     private $newPassword;
 
     /**
      * dry run
-     * 
+     *
      * @Accessor(getter="isDryRun", setter="setDryRun")
      * @SerializedName("dryRun")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDryRun', setter: 'setDryRun')]
-    #[SerializedName('dryRun')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDryRun", setter: "setDryRun")]
+    #[SerializedName("dryRun")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dryRun;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $newPassword
      * @param bool $dryRun
      * @return self
      */
     public function __construct(
-        string $id = '', string $newPassword = '', ?bool $dryRun = FALSE
-    )
-    {
-        $this->setId($id)
-             ->setNewPassword($newPassword);
-        if (NULL !== $dryRun) {
+        string $id = "",
+        string $newPassword = "",
+        ?bool $dryRun = false
+    ) {
+        $this->setId($id)->setNewPassword($newPassword);
+        if (null !== $dryRun) {
             $this->setDryRun($dryRun);
         }
     }
@@ -163,8 +163,6 @@ class SetPasswordRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetPasswordEnvelope(
-            new SetPasswordBody($this)
-        );
+        return new SetPasswordEnvelope(new SetPasswordBody($this));
     }
 }

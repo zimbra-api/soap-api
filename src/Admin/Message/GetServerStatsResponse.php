@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetServerStatsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetServerStatsResponse extends SoapResponse
 {
     /**
      * Details of server monitoring statistics
-     * 
+     *
      * @Accessor(getter="getStats", setter="setStats")
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[Type('array<Zimbra\Admin\Struct\Stat>')]
-    #[XmlList(inline: true, entry: 'stat', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[Type("array<Zimbra\Admin\Struct\Stat>")]
+    #[XmlList(inline: true, entry: "stat", namespace: "urn:zimbraAdmin")]
     private $stats = [];
 
     /**
@@ -59,7 +59,8 @@ class GetServerStatsResponse extends SoapResponse
     public function setStats(array $stats): self
     {
         $this->stats = array_filter(
-            $stats, static fn ($stat) => $stat instanceof Stat
+            $stats,
+            static fn($stat) => $stat instanceof Stat
         );
         return $this;
     }

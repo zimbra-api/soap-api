@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllAccountLoggersResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,22 @@ class GetAllAccountLoggersResponse extends SoapResponse
 {
     /**
      * Account loggers that have been created on the given server since the last server start
-     * 
+     *
      * @Accessor(getter="getLoggers", setter="setLoggers")
      * @Type("array<Zimbra\Admin\Struct\AccountLoggerInfo>")
      * @XmlList(inline=true, entry="accountLogger", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]
-    #[Type('array<Zimbra\Admin\Struct\AccountLoggerInfo>')]
-    #[XmlList(inline: true, entry: 'accountLogger', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLoggers", setter: "setLoggers")]
+    #[Type("array<Zimbra\Admin\Struct\AccountLoggerInfo>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "accountLogger",
+            namespace: "urn:zimbraAdmin"
+        )
+    ]
     private $loggers = [];
 
     /**
@@ -59,7 +65,8 @@ class GetAllAccountLoggersResponse extends SoapResponse
     public function setLoggers(array $loggers): self
     {
         $this->loggers = array_filter(
-            $loggers, static fn ($logger) => $logger instanceof AccountLoggerInfo
+            $loggers,
+            static fn($logger) => $logger instanceof AccountLoggerInfo
         );
         return $this;
     }

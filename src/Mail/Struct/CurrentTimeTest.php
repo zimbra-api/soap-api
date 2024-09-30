@@ -26,39 +26,39 @@ class CurrentTimeTest extends FilterTest
 {
     /**
      * Date comparison setting - before|after
-     * 
+     *
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
      * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var DateComparison
      */
-    #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
-    #[SerializedName('dateComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
+    #[Accessor(getter: "getDateComparison", setter: "setDateComparison")]
+    #[SerializedName("dateComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\DateComparison>")]
     #[XmlAttribute]
     private ?DateComparison $dateComparison;
 
     /**
      * Time in HHmm format
-     * 
+     *
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName('time')]
-    #[Type('string')]
+    #[Accessor(getter: "getTime", setter: "setTime")]
+    #[SerializedName("time")]
+    #[Type("string")]
     #[XmlAttribute]
     private $time;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param DateComparison $dateComparison
@@ -66,15 +66,14 @@ class CurrentTimeTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?DateComparison $dateComparison = NULL,
-        ?string $time = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
+        ?int $index = null,
+        ?bool $negative = null,
+        ?DateComparison $dateComparison = null,
+        ?string $time = null
+    ) {
+        parent::__construct($index, $negative);
         $this->dateComparison = $dateComparison;
-        if (NULL !== $time) {
+        if (null !== $time) {
             $this->setTime($time);
         }
     }

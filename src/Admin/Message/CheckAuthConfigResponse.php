@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    AccessType,
+    SerializedName,
+    Type,
+    XmlElement
+};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -26,50 +32,50 @@ class CheckAuthConfigResponse extends SoapResponse
 {
     /**
      * Code
-     * 
+     *
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName('code')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCode", setter: "setCode")]
+    #[SerializedName("code")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $code;
 
     /**
      * DN computed from supplied bind DN and name
-     * 
+     *
      * @Accessor(getter="getBindDn", setter="setBindDn")
      * @SerializedName("bindDn")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBindDn', setter: 'setBindDn')]
-    #[SerializedName('bindDn')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getBindDn", setter: "setBindDn")]
+    #[SerializedName("bindDn")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $bindDn;
 
     /**
      * Message
-     * 
+     *
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $message;
 
     /**
@@ -81,14 +87,12 @@ class CheckAuthConfigResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        string $code = '',
-        string $bindDn = '',
-        ?string $message = NULL
-    )
-    {
-        $this->setCode($code)
-             ->setBindDn($bindDn);
-        if (NULL !== $message) {
+        string $code = "",
+        string $bindDn = "",
+        ?string $message = null
+    ) {
+        $this->setCode($code)->setBindDn($bindDn);
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

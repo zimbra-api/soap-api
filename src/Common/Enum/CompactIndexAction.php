@@ -27,11 +27,11 @@ class CompactIndexAction extends Enum
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    protected const START = "start";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    protected const STATUS = "status";
 }

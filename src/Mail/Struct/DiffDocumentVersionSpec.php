@@ -25,69 +25,70 @@ class DiffDocumentVersionSpec
 {
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Revision 1
-     * 
+     *
      * @Accessor(getter="getVersion1", setter="setVersion1")
      * @SerializedName("v1")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion1', setter: 'setVersion1')]
-    #[SerializedName('v1')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion1", setter: "setVersion1")]
+    #[SerializedName("v1")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version1;
 
     /**
      * Revision 2
-     * 
+     *
      * @Accessor(getter="getVersion2", setter="setVersion2")
      * @SerializedName("v2")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion2', setter: 'setVersion2')]
-    #[SerializedName('v2')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion2", setter: "setVersion2")]
+    #[SerializedName("v2")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version2;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $version1
      * @param int $version2
      * @return self
      */
     public function __construct(
-        string $id = '', ?int $version1 = NULL, ?int $version2 = NULL
-    )
-    {
+        string $id = "",
+        ?int $version1 = null,
+        ?int $version2 = null
+    ) {
         $this->setId($id);
-        if (NULL !== $version1) {
+        if (null !== $version1) {
             $this->setVersion1($version1);
         }
-        if (NULL !== $version2) {
+        if (null !== $version2) {
             $this->setVersion2($version2);
         }
     }

@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * QueueItem class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,199 +25,199 @@ class QueueItem
 {
     /**
      * id
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Arrival time
-     * 
+     *
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName('time')]
-    #[Type('string')]
+    #[Accessor(getter: "getTime", setter: "setTime")]
+    #[SerializedName("time")]
+    #[Type("string")]
     #[XmlAttribute]
     private $time;
 
     /**
      * From domain
-     * 
+     *
      * @Accessor(getter="getFromdomain", setter="setFromdomain")
      * @SerializedName("fromdomain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFromdomain', setter: 'setFromdomain')]
-    #[SerializedName('fromdomain')]
-    #[Type('string')]
+    #[Accessor(getter: "getFromdomain", setter: "setFromdomain")]
+    #[SerializedName("fromdomain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fromdomain;
 
     /**
      * Size
-     * 
+     *
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("size")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('size')]
-    #[Type('string')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("size")]
+    #[Type("string")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Sender
-     * 
+     *
      * @Accessor(getter="getFrom", setter="setFrom")
      * @SerializedName("from")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFrom', setter: 'setFrom')]
-    #[SerializedName('from')]
-    #[Type('string')]
+    #[Accessor(getter: "getFrom", setter: "setFrom")]
+    #[SerializedName("from")]
+    #[Type("string")]
     #[XmlAttribute]
     private $from;
 
     /**
      * Comma separated list of recipients
-     * 
+     *
      * @Accessor(getter="getTo", setter="setTo")
      * @SerializedName("to")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTo', setter: 'setTo')]
-    #[SerializedName('to')]
-    #[Type('string')]
+    #[Accessor(getter: "getTo", setter: "setTo")]
+    #[SerializedName("to")]
+    #[Type("string")]
     #[XmlAttribute]
     private $to;
 
     /**
      * Hostname of origin
-     * 
+     *
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName('host')]
-    #[Type('string')]
+    #[Accessor(getter: "getHost", setter: "setHost")]
+    #[SerializedName("host")]
+    #[Type("string")]
     #[XmlAttribute]
     private $host;
 
     /**
      * IP address of origin
-     * 
+     *
      * @Accessor(getter="getAddr", setter="setAddr")
      * @SerializedName("addr")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddr', setter: 'setAddr')]
-    #[SerializedName('addr')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddr", setter: "setAddr")]
+    #[SerializedName("addr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $addr;
 
     /**
      * Reason
-     * 
+     *
      * @Accessor(getter="getReason", setter="setReason")
      * @SerializedName("reason")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getReason', setter: 'setReason')]
-    #[SerializedName('reason')]
-    #[Type('string')]
+    #[Accessor(getter: "getReason", setter: "setReason")]
+    #[SerializedName("reason")]
+    #[Type("string")]
     #[XmlAttribute]
     private $reason;
 
     /**
      * Content filter
-     * 
+     *
      * @Accessor(getter="getFilter", setter="setFilter")
      * @SerializedName("filter")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFilter', setter: 'setFilter')]
-    #[SerializedName('filter')]
-    #[Type('string')]
+    #[Accessor(getter: "getFilter", setter: "setFilter")]
+    #[SerializedName("filter")]
+    #[Type("string")]
     #[XmlAttribute]
     private $filter;
 
     /**
      * To domain
-     * 
+     *
      * @Accessor(getter="getTodomain", setter="setTodomain")
      * @SerializedName("todomain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTodomain', setter: 'setTodomain')]
-    #[SerializedName('todomain')]
-    #[Type('string')]
+    #[Accessor(getter: "getTodomain", setter: "setTodomain")]
+    #[SerializedName("todomain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $todomain;
 
     /**
      * IP address message received from
-     * 
+     *
      * @Accessor(getter="getReceived", setter="setReceived")
      * @SerializedName("received")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getReceived', setter: 'setReceived')]
-    #[SerializedName('received')]
-    #[Type('string')]
+    #[Accessor(getter: "getReceived", setter: "setReceived")]
+    #[SerializedName("received")]
+    #[Type("string")]
     #[XmlAttribute]
     private $received;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $time
      * @param string $fromdomain
@@ -233,32 +233,31 @@ class QueueItem
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $time = '',
-        string $fromdomain = '',
-        string $size = '',
-        string $from = '',
-        string $to = '',
-        string $host = '',
-        string $addr = '',
-        string $reason = '',
-        string $filter = '',
-        string $todomain = '',
-        string $received = ''
-    )
-    {
+        string $id = "",
+        string $time = "",
+        string $fromdomain = "",
+        string $size = "",
+        string $from = "",
+        string $to = "",
+        string $host = "",
+        string $addr = "",
+        string $reason = "",
+        string $filter = "",
+        string $todomain = "",
+        string $received = ""
+    ) {
         $this->setId($id)
-             ->setTime($time)
-             ->setFromdomain($fromdomain)
-             ->setSize($size)
-             ->setFrom($from)
-             ->setTo($to)
-             ->setHost($host)
-             ->setAddr($addr)
-             ->setReason($reason)
-             ->setFilter($filter)
-             ->setTodomain($todomain)
-             ->setReceived($received);
+            ->setTime($time)
+            ->setFromdomain($fromdomain)
+            ->setSize($size)
+            ->setFrom($from)
+            ->setTo($to)
+            ->setHost($host)
+            ->setAddr($addr)
+            ->setReason($reason)
+            ->setFilter($filter)
+            ->setTodomain($todomain)
+            ->setReceived($received);
     }
 
     /**

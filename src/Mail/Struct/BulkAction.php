@@ -29,51 +29,50 @@ class BulkAction
      * - move: move the search result to specified folder location
      * - read: mark the search result as read
      * - unread: mark the search result as unread
-     * 
+     *
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\BulkOperation>")
      * @XmlAttribute
-     * 
+     *
      * @var BulkOperation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\BulkOperation>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\BulkOperation>")]
     #[XmlAttribute]
     private BulkOperation $op;
 
     /**
      * Folder
      * Required if op="move". Folder pathname where all matching items should be moved.
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Constructor
-     * 
+     *
      * @param BulkOperation $op
      * @param string $folder
      * @return self
      */
     public function __construct(
-        ?BulkOperation $op = NULL,
-        ?string $folder = NULL
-    )
-    {
-        $this->setOp($op ?? new BulkOperation('read'));
-        if (NULL !== $folder) {
+        ?BulkOperation $op = null,
+        ?string $folder = null
+    ) {
+        $this->setOp($op ?? new BulkOperation("read"));
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
     }

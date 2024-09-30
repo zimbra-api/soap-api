@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{XParamInterface, XPropInterface};
 
 /**
@@ -27,48 +33,48 @@ class XProp implements XPropInterface
 {
     /**
      * XPROP Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * XPROP value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * XPARAMs
-     * 
+     *
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getXParams', setter: 'setXParams')]
-    #[Type('array<Zimbra\Mail\Struct\XParam>')]
-    #[XmlList(inline: true, entry: 'xparam', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getXParams", setter: "setXParams")]
+    #[Type("array<Zimbra\Mail\Struct\XParam>")]
+    #[XmlList(inline: true, entry: "xparam", namespace: "urn:zimbraMail")]
     private $xParams = [];
 
     /**
@@ -79,11 +85,12 @@ class XProp implements XPropInterface
      * @param  array $xParams
      * @return self
      */
-    public function __construct(string $name = '', string $value = '', array $xParams = [])
-    {
-        $this->setName($name)
-             ->setValue($value)
-             ->setXParams($xParams);
+    public function __construct(
+        string $name = "",
+        string $value = "",
+        array $xParams = []
+    ) {
+        $this->setName($name)->setValue($value)->setXParams($xParams);
     }
 
     /**
@@ -151,7 +158,8 @@ class XProp implements XPropInterface
     public function setXParams(array $xParams): self
     {
         $this->xParams = array_filter(
-            $xParams, static fn ($xParam) => $xParam instanceof XParamInterface
+            $xParams,
+            static fn($xParam) => $xParam instanceof XParamInterface
         );
         return $this;
     }

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetTagRequest class
  * Get information about Tags
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class GetTagRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetTagEnvelope(
-            new GetTagBody($this)
-        );
+        return new GetTagEnvelope(new GetTagBody($this));
     }
 }

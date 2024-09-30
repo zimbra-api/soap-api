@@ -27,29 +27,29 @@ class MatchType extends Enum
      * Constant for value 'is'
      * @return string 'is'
      */
-    protected const IS = 'is';
+    protected const IS = "is";
 
     /**
      * Constant for value 'contains'
      * @return string 'contains'
      */
-    protected const CONTAINS = 'contains';
+    protected const CONTAINS = "contains";
 
     /**
      * Constant for value 'matches'
      * @return string 'matches'
      */
-    protected const MATCHES = 'matches';
+    protected const MATCHES = "matches";
 
     /**
      * Constant for value 'count'
      * @return string 'count'
      */
-    protected const COUNT = 'count';
+    protected const COUNT = "count";
 
     /**
      * Constant for value 'value'
      * @return string 'value'
      */
-    protected const VALUE = 'value';
+    protected const VALUE = "value";
 }

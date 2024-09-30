@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait, DataSourceInfo};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * ModifyDataSourceRequest class
  * Changes attributes of the given data source.
  * Only the attributes specified in the request are modified.
- * To change the name, specify "zimbraDataSourceName" as an attribute. 
+ * To change the name, specify "zimbraDataSourceName" as an attribute.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -32,49 +38,50 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Data source specification
-     * 
+     *
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DataSourceInfo
      */
-    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
-    #[SerializedName('dataSource')]
+    #[Accessor(getter: "getDataSource", setter: "setDataSource")]
+    #[SerializedName("dataSource")]
     #[Type(DataSourceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private DataSourceInfo $dataSource;
 
     /**
      * Constructor
-     * 
+     *
      * @param DataSourceInfo $dataSource
      * @param string $id
      * @param array  $attrs
      * @return self
      */
-    public function __construct(DataSourceInfo $dataSource, string $id = '', array $attrs = [])
-    {
-        $this->setId($id)
-             ->setDataSource($dataSource)
-             ->setAttrs($attrs);
+    public function __construct(
+        DataSourceInfo $dataSource,
+        string $id = "",
+        array $attrs = []
+    ) {
+        $this->setId($id)->setDataSource($dataSource)->setAttrs($attrs);
     }
 
     /**
@@ -126,8 +133,6 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyDataSourceEnvelope(
-            new ModifyDataSourceBody($this)
-        );
+        return new ModifyDataSourceEnvelope(new ModifyDataSourceBody($this));
     }
 }

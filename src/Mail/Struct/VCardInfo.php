@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * VCardInfo class
@@ -26,63 +32,63 @@ class VCardInfo
 {
     /**
      * Message ID.  Use in conjunction with part-identifier
-     * 
+     *
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Part identifier.  Use in conjunction with message-id
-     * 
+     *
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Uploaded attachment ID
-     * 
+     *
      * @Accessor(getter="getAttachId", setter="setAttachId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachId', setter: 'setAttachId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachId", setter: "setAttachId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachId;
 
     /**
      * inlined VCARD data
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -96,22 +102,21 @@ class VCardInfo
      * @return self
      */
     public function __construct(
-        ?string $messageId = NULL,
-        ?string $part = NULL,
-        ?string $attachId = NULL,
-        ?string $value = NULL
-    )
-    {
-        if (NULL !== $messageId) {
+        ?string $messageId = null,
+        ?string $part = null,
+        ?string $attachId = null,
+        ?string $value = null
+    ) {
+        if (null !== $messageId) {
             $this->setMessageId($messageId);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $attachId) {
+        if (null !== $attachId) {
             $this->setAttachId($attachId);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

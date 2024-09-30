@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 /**
  * GetIMAPRecentResponse class
  * Return the count of recent items in the folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,17 +27,17 @@ class GetIMAPRecentResponse extends SoapResponse
 {
     /**
      * Number of recent items
-     * 
+     *
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 

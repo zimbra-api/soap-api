@@ -25,15 +25,20 @@ class SuggestedQueryString
 {
     /**
      * Suggested query string
-     * 
+     *
      * @Accessor(getter="getSuggestedQueryString", setter="setSuggestedQueryString")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSuggestedQueryString', setter: 'setSuggestedQueryString')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getSuggestedQueryString",
+            setter: "setSuggestedQueryString"
+        )
+    ]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $suggestedQueryString;
 
@@ -43,7 +48,7 @@ class SuggestedQueryString
      * @param  string $suggestedQueryString
      * @return self
      */
-    public function __construct(string $suggestedQueryString = '')
+    public function __construct(string $suggestedQueryString = "")
     {
         $this->setSuggestedQueryString($suggestedQueryString);
     }

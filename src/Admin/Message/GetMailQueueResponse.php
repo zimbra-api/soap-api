@@ -27,18 +27,18 @@ class GetMailQueueResponse extends SoapResponse
 {
     /**
      * Server Mail Queue details
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Server
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(Server::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Server $server;
 
     /**
@@ -47,7 +47,7 @@ class GetMailQueueResponse extends SoapResponse
      * @param Server $server
      * @return self
      */
-    public function __construct(?Server $server = NULL)
+    public function __construct(?Server $server = null)
     {
         $this->server = $server;
         if ($server instanceof Server) {

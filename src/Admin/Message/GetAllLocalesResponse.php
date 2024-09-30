@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllLocalesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllLocalesResponse extends SoapResponse
 {
     /**
      * Information for system locales
-     * 
+     *
      * @Accessor(getter="getLocales", setter="setLocales")
      * @Type("array<Zimbra\Admin\Struct\LocaleInfo>")
      * @XmlList(inline=true, entry="locale", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLocales', setter: 'setLocales')]
-    #[Type('array<Zimbra\Admin\Struct\LocaleInfo>')]
-    #[XmlList(inline: true, entry: 'locale', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLocales", setter: "setLocales")]
+    #[Type("array<Zimbra\Admin\Struct\LocaleInfo>")]
+    #[XmlList(inline: true, entry: "locale", namespace: "urn:zimbraAdmin")]
     private $locales = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllLocalesResponse extends SoapResponse
     public function setLocales(array $locales): self
     {
         $this->locales = array_filter(
-            $locales, static fn ($locale) => $locale instanceof LocaleInfo
+            $locales,
+            static fn($locale) => $locale instanceof LocaleInfo
         );
         return $this;
     }

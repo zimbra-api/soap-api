@@ -28,12 +28,12 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
@@ -42,12 +42,12 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
@@ -56,12 +56,12 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
@@ -70,18 +70,18 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("filename")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]
-    #[SerializedName('filename')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentFilename", setter: "setContentFilename")]
+    #[SerializedName("filename")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentFilename;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $key
      * @param  string $value
      * @param  string $part
@@ -91,25 +91,24 @@ class ContactAttr extends KeyValuePair
      * @return self
      */
     public function __construct(
-        string $key = '',
-        ?string$value = NULL,
-        ?string $part = NULL,
-        ?string $contentType = NULL,
-        ?int $size = NULL,
-        ?string $contentFilename = NULL
-    )
-    {
+        string $key = "",
+        ?string $value = null,
+        ?string $part = null,
+        ?string $contentType = null,
+        ?int $size = null,
+        ?string $contentFilename = null
+    ) {
         parent::__construct($key, $value);
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $contentFilename) {
+        if (null !== $contentFilename) {
             $this->setContentFilename($contentFilename);
         }
     }

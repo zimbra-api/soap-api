@@ -27,47 +27,47 @@ class CacheType extends Enum
      * Constant for value 'skin'
      * @return string 'skin'
      */
-    protected const ALL = 'all';
+    protected const ALL = "all";
 
     /**
      * Constant for value 'skin'
      * @return string 'skin'
      */
-    protected const SKIN = 'skin';
+    protected const SKIN = "skin";
 
     /**
      * Constant for value 'locale'
      * @return string 'locale'
      */
-    protected const LOCALE = 'locale';
+    protected const LOCALE = "locale";
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    protected const ACCOUNT = 'account';
+    protected const ACCOUNT = "account";
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    protected const COS = 'cos';
+    protected const COS = "cos";
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    protected const DOMAIN = 'domain';
+    protected const DOMAIN = "domain";
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    protected const SERVER = 'server';
+    protected const SERVER = "server";
 
     /**
      * Constant for value 'zimlet'
      * @return string 'zimlet'
      */
-    protected const ZIMLET = 'zimlet';
+    protected const ZIMLET = "zimlet";
 }

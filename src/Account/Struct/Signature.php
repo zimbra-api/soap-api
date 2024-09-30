@@ -10,7 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * Signature struct class
@@ -28,12 +35,12 @@ class Signature
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -42,12 +49,12 @@ class Signature
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -56,32 +63,32 @@ class Signature
      * @SerializedName("cid")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCid', setter: 'setCid')]
-    #[SerializedName('cid')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCid", setter: "setCid")]
+    #[SerializedName("cid")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $cid;
 
     /**
      * Content of the signature
-     * 
+     *
      * @Accessor(getter="getContents", setter="setContents")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
      * @XmlList(inline=true, entry="content", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContents', setter: 'setContents')]
-    #[Type('array<Zimbra\Account\Struct\SignatureContent>')]
-    #[XmlList(inline: true, entry: 'content', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getContents", setter: "setContents")]
+    #[Type("array<Zimbra\Account\Struct\SignatureContent>")]
+    #[XmlList(inline: true, entry: "content", namespace: "urn:zimbraAccount")]
     private $contents = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @param string $cid
@@ -89,20 +96,19 @@ class Signature
      * @return self
      */
     public function __construct(
-        ?string $name = NULL,
-        ?string $id = NULL,
-        ?string $cid = NULL,
+        ?string $name = null,
+        ?string $id = null,
+        ?string $cid = null,
         array $contents = []
-	)
-    {
+    ) {
         $this->setContents($contents);
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $cid) {
+        if (null !== $cid) {
             $this->setCid($cid);
         }
     }
@@ -194,7 +200,8 @@ class Signature
     public function setContents(array $contents): self
     {
         $this->contents = array_filter(
-            $contents, static fn ($content) => $content instanceof SignatureContent
+            $contents,
+            static fn($content) => $content instanceof SignatureContent
         );
         return $this;
     }

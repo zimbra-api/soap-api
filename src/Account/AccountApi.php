@@ -12,8 +12,6 @@ namespace Zimbra\Account;
 
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Account\Struct\{
-    AuthAttrs,
-    AuthPrefs,
     AuthToken,
     DistributionListAction,
     EntrySearchFilterInfo,
@@ -50,65 +48,70 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function auth(
-        ?AccountSelector $account = NULL,
-        ?string $password = NULL,
-        ?string $recoveryCode = NULL,
-        ?PreAuth $preauth = NULL,
-        ?AuthToken $authToken = NULL,
-        ?string $jwtToken = NULL,
-        ?string $virtualHost = NULL,
+        ?AccountSelector $account = null,
+        ?string $password = null,
+        ?string $recoveryCode = null,
+        ?PreAuth $preauth = null,
+        ?AuthToken $authToken = null,
+        ?string $jwtToken = null,
+        ?string $virtualHost = null,
         array $prefs = [],
         array $attrs = [],
-        ?string $requestedSkin = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL,
-        ?bool $deviceTrusted = NULL,
-        ?string $trustedDeviceToken = NULL,
-        ?string $deviceId = NULL,
-        ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL,
-        ?bool $ignoreSameSite = NULL
-    ): ?Message\AuthResponse
-    {
-        return $this->invoke(new Message\AuthRequest(
-            $account,
-            $password,
-            $recoveryCode,
-            $preauth,
-            $authToken,
-            $jwtToken,
-            $virtualHost,
-            $prefs,
-            $attrs,
-            $requestedSkin,
-            $persistAuthTokenCookie,
-            $csrfSupported,
-            $twoFactorCode,
-            $deviceTrusted,
-            $trustedDeviceToken,
-            $deviceId,
-            $generateDeviceId,
-            $tokenType,
-            $ignoreSameSite
-        ));
+        ?string $requestedSkin = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null,
+        ?bool $deviceTrusted = null,
+        ?string $trustedDeviceToken = null,
+        ?string $deviceId = null,
+        ?bool $generateDeviceId = null,
+        ?string $tokenType = null,
+        ?bool $ignoreSameSite = null
+    ): ?Message\AuthResponse {
+        return $this->invoke(
+            new Message\AuthRequest(
+                $account,
+                $password,
+                $recoveryCode,
+                $preauth,
+                $authToken,
+                $jwtToken,
+                $virtualHost,
+                $prefs,
+                $attrs,
+                $requestedSkin,
+                $persistAuthTokenCookie,
+                $csrfSupported,
+                $twoFactorCode,
+                $deviceTrusted,
+                $trustedDeviceToken,
+                $deviceId,
+                $generateDeviceId,
+                $tokenType,
+                $ignoreSameSite
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function authByAccountName(string $name, string $password): ?Message\AuthResponse
-    {
-        $account = new AccountSelector(new AccountBy('name'), $name);
+    public function authByAccountName(
+        string $name,
+        string $password
+    ): ?Message\AuthResponse {
+        $account = new AccountSelector(new AccountBy("name"), $name);
         return $this->auth($account, $password);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function authByAccountId(string $id, string $password): ?Message\AuthResponse
-    {
-        $account = new AccountSelector(new AccountBy('id'), $id);
+    public function authByAccountId(
+        string $id,
+        string $password
+    ): ?Message\AuthResponse {
+        $account = new AccountSelector(new AccountBy("id"), $id);
         return $this->auth($account, $password);
     }
 
@@ -117,16 +120,23 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByToken(string $authToken): ?Message\AuthResponse
     {
-        return $this->auth(NULL, NULL, NULL, NULL, new AuthToken($authToken));
+        return $this->auth(null, null, null, null, new AuthToken($authToken));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function authByPreauth(string $name, string $preauthKey): ?Message\AuthResponse
-    {
-        $account = new AccountSelector(new AccountBy('name'), $name);
-        return $this->auth($account, NULL, NULL, new PreAuth($account, $preauthKey));
+    public function authByPreauth(
+        string $name,
+        string $preauthKey
+    ): ?Message\AuthResponse {
+        $account = new AccountSelector(new AccountBy("name"), $name);
+        return $this->auth(
+            $account,
+            null,
+            null,
+            new PreAuth($account, $preauthKey)
+        );
     }
 
     /**
@@ -134,15 +144,20 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function autoCompleteGal(
         string $name,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $galAccountId = NULL,
-        ?int $limit = NULL
-    ): ?Message\AutoCompleteGalResponse
-    {
-        return $this->invoke(new Message\AutoCompleteGalRequest(
-            $name, $type, $needCanExpand, $galAccountId, $limit
-        ));
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $galAccountId = null,
+        ?int $limit = null
+    ): ?Message\AutoCompleteGalResponse {
+        return $this->invoke(
+            new Message\AutoCompleteGalRequest(
+                $name,
+                $type,
+                $needCanExpand,
+                $galAccountId,
+                $limit
+            )
+        );
     }
 
     /**
@@ -152,28 +167,35 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         AccountSelector $account,
         string $oldPassword,
         string $newPassword,
-        ?string $virtualHost = NULL,
-        ?bool $dryRun = NULL
-    ): ?Message\ChangePasswordResponse
-    {
-        return $this->invoke(new Message\ChangePasswordRequest(
-            $account, $oldPassword, $newPassword, $virtualHost, $dryRun
-        ));
+        ?string $virtualHost = null,
+        ?bool $dryRun = null
+    ): ?Message\ChangePasswordResponse {
+        return $this->invoke(
+            new Message\ChangePasswordRequest(
+                $account,
+                $oldPassword,
+                $newPassword,
+                $virtualHost,
+                $dryRun
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function checkRights(array $targets = []): ?Message\CheckRightsResponse
-    {
+    public function checkRights(
+        array $targets = []
+    ): ?Message\CheckRightsResponse {
         return $this->invoke(new Message\CheckRightsRequest($targets));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function clientInfo(DomainSelector $domain): ?Message\ClientInfoResponse
-    {
+    public function clientInfo(
+        DomainSelector $domain
+    ): ?Message\ClientInfoResponse {
         return $this->invoke(new Message\ClientInfoRequest($domain));
     }
 
@@ -181,51 +203,57 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function createDistributionList(
-        string $name, ?bool $dynamic = NULL, array $attrs = []
-    ): ?Message\CreateDistributionListResponse
-    {
-        return $this->invoke(new Message\CreateDistributionListRequest(
-            $name, $dynamic, $attrs
-        ));
+        string $name,
+        ?bool $dynamic = null,
+        array $attrs = []
+    ): ?Message\CreateDistributionListResponse {
+        return $this->invoke(
+            new Message\CreateDistributionListRequest($name, $dynamic, $attrs)
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function createIdentity(Identity $identity): ?Message\CreateIdentityResponse
-    {
+    public function createIdentity(
+        Identity $identity
+    ): ?Message\CreateIdentityResponse {
         return $this->invoke(new Message\CreateIdentityRequest($identity));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function createSignature(Signature $signature): ?Message\CreateSignatureResponse
-    {
+    public function createSignature(
+        Signature $signature
+    ): ?Message\CreateSignatureResponse {
         return $this->invoke(new Message\CreateSignatureRequest($signature));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function deleteIdentity(NameId $identity): ?Message\DeleteIdentityResponse
-    {
+    public function deleteIdentity(
+        NameId $identity
+    ): ?Message\DeleteIdentityResponse {
         return $this->invoke(new Message\DeleteIdentityRequest($identity));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function deleteSignature(NameId $signature): ?Message\DeleteSignatureResponse
-    {
+    public function deleteSignature(
+        NameId $signature
+    ): ?Message\DeleteSignatureResponse {
         return $this->invoke(new Message\DeleteSignatureRequest($signature));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function discoverRights(array $rights = []): ?Message\DiscoverRightsResponse
-    {
+    public function discoverRights(
+        array $rights = []
+    ): ?Message\DiscoverRightsResponse {
         return $this->invoke(new Message\DiscoverRightsRequest($rights));
     }
 
@@ -233,46 +261,56 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function distributionListAction(
-        DistributionListSelector $dl, DistributionListAction $action
-    ): ?Message\DistributionListActionResponse
-    {
-        return $this->invoke(new Message\DistributionListActionRequest($dl, $action));
+        DistributionListSelector $dl,
+        DistributionListAction $action
+    ): ?Message\DistributionListActionResponse {
+        return $this->invoke(
+            new Message\DistributionListActionRequest($dl, $action)
+        );
     }
 
     /**
      * {@inheritdoc}
      */
     public function endSession(
-        ?bool $logoff = NULL,
-        ?bool $clearAllSoapSessions = NULL,
-        ?bool $excludeCurrentSession = NULL,
-        ?string $sessionId = NULL
-    ): ?Message\EndSessionResponse
-    {
-        return $this->invoke(new Message\EndSessionRequest(
-            $logoff, $clearAllSoapSessions, $excludeCurrentSession, $sessionId
-        ));
+        ?bool $logoff = null,
+        ?bool $clearAllSoapSessions = null,
+        ?bool $excludeCurrentSession = null,
+        ?string $sessionId = null
+    ): ?Message\EndSessionResponse {
+        return $this->invoke(
+            new Message\EndSessionRequest(
+                $logoff,
+                $clearAllSoapSessions,
+                $excludeCurrentSession,
+                $sessionId
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
     public function getAccountDistributionLists(
-        ?bool $ownerOf = NULL,
-        ?MemberOfSelector $memberOf = NULL,
-        ?string $attrs = NULL
-    ): ?Message\GetAccountDistributionListsResponse
-    {
-        return $this->invoke(new Message\GetAccountDistributionListsRequest(
-            $ownerOf, $memberOf, $attrs
-        ));
+        ?bool $ownerOf = null,
+        ?MemberOfSelector $memberOf = null,
+        ?string $attrs = null
+    ): ?Message\GetAccountDistributionListsResponse {
+        return $this->invoke(
+            new Message\GetAccountDistributionListsRequest(
+                $ownerOf,
+                $memberOf,
+                $attrs
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getAccountInfo(AccountSelector $account): ?Message\GetAccountInfoResponse
-    {
+    public function getAccountInfo(
+        AccountSelector $account
+    ): ?Message\GetAccountInfoResponse {
         return $this->invoke(new Message\GetAccountInfoRequest($account));
     }
 
@@ -313,13 +351,12 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getDistributionListMembers(
         string $dl,
-        ?int $limit = NULL,
-        ?int $offset = NULL
-    ): ?Message\GetDistributionListMembersResponse
-    {
-        return $this->invoke(new Message\GetDistributionListMembersRequest(
-            $dl, $limit, $offset
-        ));
+        ?int $limit = null,
+        ?int $offset = null
+    ): ?Message\GetDistributionListMembersResponse {
+        return $this->invoke(
+            new Message\GetDistributionListMembersRequest($dl, $limit, $offset)
+        );
     }
 
     /**
@@ -327,14 +364,18 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getDistributionList(
         DistributionListSelector $dl,
-        ?bool $needOwners = NULL,
-        ?string $needRights = NULL,
+        ?bool $needOwners = null,
+        ?string $needRights = null,
         array $attrs = []
-    ): ?Message\GetDistributionListResponse
-    {
-        return $this->invoke(new Message\GetDistributionListRequest(
-            $dl, $needOwners, $needRights, $attrs
-        ));
+    ): ?Message\GetDistributionListResponse {
+        return $this->invoke(
+            new Message\GetDistributionListRequest(
+                $dl,
+                $needOwners,
+                $needRights,
+                $attrs
+            )
+        );
     }
 
     /**
@@ -349,12 +390,10 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function getInfo(
-        ?string $sections = NULL, ?string $rights = NULL
-    ): ?Message\GetInfoResponse
-    {
-        return $this->invoke(new Message\GetInfoRequest(
-            $sections, $rights
-        ));
+        ?string $sections = null,
+        ?string $rights = null
+    ): ?Message\GetInfoResponse {
+        return $this->invoke(new Message\GetInfoRequest($sections, $rights));
     }
 
     /**
@@ -385,15 +424,19 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function getShareInfo(
-        ?GranteeChooser $grantee = NULL,
-        ?AccountSelector $owner = NULL,
-        ?bool $internal = NULL,
-        ?bool $includeSelf = NULL
-    ): ?Message\GetShareInfoResponse
-    {
-        return $this->invoke(new Message\GetShareInfoRequest(
-            $grantee, $owner, $internal, $includeSelf
-        ));
+        ?GranteeChooser $grantee = null,
+        ?AccountSelector $owner = null,
+        ?bool $internal = null,
+        ?bool $includeSelf = null
+    ): ?Message\GetShareInfoResponse {
+        return $this->invoke(
+            new Message\GetShareInfoRequest(
+                $grantee,
+                $owner,
+                $internal,
+                $includeSelf
+            )
+        );
     }
 
     /**
@@ -431,8 +474,9 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyIdentity(Identity $identity): ?Message\ModifyIdentityResponse
-    {
+    public function modifyIdentity(
+        Identity $identity
+    ): ?Message\ModifyIdentityResponse {
         return $this->invoke(new Message\ModifyIdentityRequest($identity));
     }
 
@@ -447,16 +491,18 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyProperties(array $props = []): ?Message\ModifyPropertiesResponse
-    {
+    public function modifyProperties(
+        array $props = []
+    ): ?Message\ModifyPropertiesResponse {
         return $this->invoke(new Message\ModifyPropertiesRequest($props));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function modifySignature(Signature $signature): ?Message\ModifySignatureResponse
-    {
+    public function modifySignature(
+        Signature $signature
+    ): ?Message\ModifySignatureResponse {
         return $this->invoke(new Message\ModifySignatureRequest($signature));
     }
 
@@ -464,43 +510,52 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function modifyWhiteBlackList(
-        array $whiteListEntries = [], array $blackListEntries = []
-    ): ?Message\ModifyWhiteBlackListResponse
-    {
-        return $this->invoke(new Message\ModifyWhiteBlackListRequest(
-            $whiteListEntries, $blackListEntries
-        ));
+        array $whiteListEntries = [],
+        array $blackListEntries = []
+    ): ?Message\ModifyWhiteBlackListResponse {
+        return $this->invoke(
+            new Message\ModifyWhiteBlackListRequest(
+                $whiteListEntries,
+                $blackListEntries
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function modifyZimletPrefs(array $zimlets = []): ?Message\ModifyZimletPrefsResponse
-    {
+    public function modifyZimletPrefs(
+        array $zimlets = []
+    ): ?Message\ModifyZimletPrefsResponse {
         return $this->invoke(new Message\ModifyZimletPrefsRequest($zimlets));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function resetPassword(string $password): ?Message\ResetPasswordResponse
-    {
+    public function resetPassword(
+        string $password
+    ): ?Message\ResetPasswordResponse {
         return $this->invoke(new Message\ResetPasswordRequest($password));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function revokeOAuthConsumer(string $accessToken): ?Message\RevokeOAuthConsumerResponse
-    {
-        return $this->invoke(new Message\RevokeOAuthConsumerRequest($accessToken));
+    public function revokeOAuthConsumer(
+        string $accessToken
+    ): ?Message\RevokeOAuthConsumerResponse {
+        return $this->invoke(
+            new Message\RevokeOAuthConsumerRequest($accessToken)
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function revokeRights(array $aces = []): ?Message\RevokeRightsResponse
-    {
+    public function revokeRights(
+        array $aces = []
+    ): ?Message\RevokeRightsResponse {
         return $this->invoke(new Message\RevokeRightsRequest($aces));
     }
 
@@ -508,95 +563,104 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function searchCalendarResources(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL,
-        ?string $galAccountId = NULL,
-        ?string $name = NULL,
-        ?string $attrs = NULL
-    ): ?Message\SearchCalendarResourcesResponse
-    {
-        return $this->invoke(new Message\SearchCalendarResourcesRequest(
-            $cursor,
-            $searchFilter,
-            $quick,
-            $sortBy,
-            $limit,
-            $offset,
-            $locale,
-            $galAccountId,
-            $name,
-            $attrs
-        ));
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null,
+        ?string $galAccountId = null,
+        ?string $name = null,
+        ?string $attrs = null
+    ): ?Message\SearchCalendarResourcesResponse {
+        return $this->invoke(
+            new Message\SearchCalendarResourcesRequest(
+                $cursor,
+                $searchFilter,
+                $quick,
+                $sortBy,
+                $limit,
+                $offset,
+                $locale,
+                $galAccountId,
+                $name,
+                $attrs
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
     public function searchGal(
-        ?CursorInfo $cursor = NULL,
-        ?EntrySearchFilterInfo $searchFilter = NULL,
-        ?string $ref = NULL,
-        ?string $name = NULL,
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?bool $needIsOwner = NULL,
-        ?MemberOfSelector $needIsMember = NULL,
-        ?bool $needSMIMECerts = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $quick = NULL,
-        ?string $sortBy = NULL,
-        ?int $limit = NULL,
-        ?int $offset = NULL,
-        ?string $locale = NULL
-    ): ?Message\SearchGalResponse
-    {
-        return $this->invoke(new Message\SearchGalRequest(
-            $cursor,
-            $searchFilter,
-            $ref,
-            $name,
-            $type,
-            $needCanExpand,
-            $needIsOwner,
-            $needIsMember,
-            $needSMIMECerts,
-            $galAccountId,
-            $quick,
-            $sortBy,
-            $limit,
-            $offset,
-            $locale
-        ));
+        ?CursorInfo $cursor = null,
+        ?EntrySearchFilterInfo $searchFilter = null,
+        ?string $ref = null,
+        ?string $name = null,
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?bool $needIsOwner = null,
+        ?MemberOfSelector $needIsMember = null,
+        ?bool $needSMIMECerts = null,
+        ?string $galAccountId = null,
+        ?bool $quick = null,
+        ?string $sortBy = null,
+        ?int $limit = null,
+        ?int $offset = null,
+        ?string $locale = null
+    ): ?Message\SearchGalResponse {
+        return $this->invoke(
+            new Message\SearchGalRequest(
+                $cursor,
+                $searchFilter,
+                $ref,
+                $name,
+                $type,
+                $needCanExpand,
+                $needIsOwner,
+                $needIsMember,
+                $needSMIMECerts,
+                $galAccountId,
+                $quick,
+                $sortBy,
+                $limit,
+                $offset,
+                $locale
+            )
+        );
     }
 
     /**
      * {@inheritdoc}
      */
     public function subscribeDistributionList(
-        DistributionListSelector $dl, DistributionListSubscribeOp $op
-    ): ?Message\SubscribeDistributionListResponse
-    {
-        return $this->invoke(new Message\SubscribeDistributionListRequest($dl, $op));
+        DistributionListSelector $dl,
+        DistributionListSubscribeOp $op
+    ): ?Message\SubscribeDistributionListResponse {
+        return $this->invoke(
+            new Message\SubscribeDistributionListRequest($dl, $op)
+        );
     }
 
     /**
      * {@inheritdoc}
      */
     public function syncGal(
-        ?string $token = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $idOnly = NULL,
-        ?bool $getCount = NULL,
-        ?int $limit = NULL
-    ): ?Message\SyncGalResponse
-    {
-        return $this->invoke(new Message\SyncGalRequest(
-            $token, $galAccountId, $idOnly, $getCount, $limit
-        ));
+        ?string $token = null,
+        ?string $galAccountId = null,
+        ?bool $idOnly = null,
+        ?bool $getCount = null,
+        ?int $limit = null
+    ): ?Message\SyncGalResponse {
+        return $this->invoke(
+            new Message\SyncGalRequest(
+                $token,
+                $galAccountId,
+                $idOnly,
+                $getCount,
+                $limit
+            )
+        );
     }
 }

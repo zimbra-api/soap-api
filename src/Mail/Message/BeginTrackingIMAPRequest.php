@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * BeginTrackingIMAPRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,8 +28,6 @@ class BeginTrackingIMAPRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new BeginTrackingIMAPEnvelope(
-            new BeginTrackingIMAPBody($this)
-        );
+        return new BeginTrackingIMAPEnvelope(new BeginTrackingIMAPBody($this));
     }
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CompactIndexResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,27 +27,27 @@ class CompactIndexResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|idle
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var Status
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\CompactIndexStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\CompactIndexStatus>")]
     #[XmlAttribute]
     private ?Status $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param Status  $status
      * @return self
      */
-    public function __construct(?Status $status = NULL)
+    public function __construct(?Status $status = null)
     {
         $this->status = $status;
     }

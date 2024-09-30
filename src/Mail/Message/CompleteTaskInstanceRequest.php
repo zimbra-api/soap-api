@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\{CalTZInfo, DtTimeInfo};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CompleteTaskInstanceRequest class
  * Complete a task instance
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,50 +34,50 @@ class CompleteTaskInstanceRequest extends SoapRequest
 {
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Exception ID
-     * 
+     *
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DtTimeInfo
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private DtTimeInfo $exceptionId;
 
     /**
      * Timezone information
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
@@ -83,11 +89,11 @@ class CompleteTaskInstanceRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        DtTimeInfo $exceptionId, string $id = '', ?CalTZInfo $timezone = NULL
-    )
-    {
-        $this->setId($id)
-             ->setExceptionId($exceptionId);
+        DtTimeInfo $exceptionId,
+        string $id = "",
+        ?CalTZInfo $timezone = null
+    ) {
+        $this->setId($id)->setExceptionId($exceptionId);
         $this->timezone = $timezone;
     }
 

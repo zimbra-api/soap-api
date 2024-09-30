@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ModifyContactResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class ModifyContactResponse extends SoapResponse
 {
     /**
      * Information about modified contact
-     * 
+     *
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ContactInfo
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ContactInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ContactInfo $contact;
 
     /**
@@ -47,7 +47,7 @@ class ModifyContactResponse extends SoapResponse
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(?ContactInfo $contact = NULL)
+    public function __construct(?ContactInfo $contact = null)
     {
         $this->contact = $contact;
     }

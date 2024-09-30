@@ -29,17 +29,17 @@ class DestroyWaitSetRequest extends SoapRequest
 {
     /**
      * Waitset ID
-     * 
+     *
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -49,7 +49,7 @@ class DestroyWaitSetRequest extends SoapRequest
      * @param  string $waitSetId
      * @return self
      */
-    public function __construct(string $waitSetId = '')
+    public function __construct(string $waitSetId = "")
     {
         $this->setWaitSetId($waitSetId);
     }
@@ -81,8 +81,6 @@ class DestroyWaitSetRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DestroyWaitSetEnvelope(
-            new DestroyWaitSetBody($this)
-        );
+        return new DestroyWaitSetEnvelope(new DestroyWaitSetBody($this));
     }
 }

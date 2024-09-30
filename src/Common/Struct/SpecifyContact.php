@@ -28,7 +28,9 @@ interface SpecifyContact
     function setAttrs(array $attrs): self;
     function addAttr(NewContactAttr $attr): self;
     function setContactGroupMembers(array $contactGroupMembers): self;
-    function addContactGroupMember(NewContactGroupMember $contactGroupMember): self;
+    function addContactGroupMember(
+        NewContactGroupMember $contactGroupMember
+    ): self;
 
     function getId(): ?int;
     function getTagNames(): ?string;

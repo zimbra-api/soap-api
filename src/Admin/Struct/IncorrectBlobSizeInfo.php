@@ -10,11 +10,17 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * IncorrectBlobSizeInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,87 +31,87 @@ class IncorrectBlobSizeInfo
 {
     /**
      * Item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Revision
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Size
-     * 
+     *
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Volume ID
-     * 
+     *
      * @Accessor(getter="getVolumeId", setter="setVolumeId")
      * @SerializedName("volumeId")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName('volumeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getVolumeId", setter: "setVolumeId")]
+    #[SerializedName("volumeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $volumeId;
 
     /**
      * Blob size information
-     * 
+     *
      * @Accessor(getter="getBlob", setter="setBlob")
      * @SerializedName("blob")
      * @Type("Zimbra\Admin\Struct\BlobSizeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var BlobSizeInfo
      */
-    #[Accessor(getter: 'getBlob', setter: 'setBlob')]
-    #[SerializedName('blob')]
+    #[Accessor(getter: "getBlob", setter: "setBlob")]
+    #[SerializedName("blob")]
     #[Type(BlobSizeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?BlobSizeInfo $blob;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $id
      * @param int $revision
      * @param int $size
@@ -118,13 +124,12 @@ class IncorrectBlobSizeInfo
         int $revision = 0,
         int $size = 0,
         int $volumeId = 0,
-        ?BlobSizeInfo $blob = NULL
-    )
-    {
+        ?BlobSizeInfo $blob = null
+    ) {
         $this->setId($id)
-             ->setRevision($revision)
-             ->setSize($size)
-             ->setVolumeId($volumeId);
+            ->setRevision($revision)
+            ->setSize($size)
+            ->setVolumeId($volumeId);
         $this->blob = $blob;
     }
 

@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetOAuthConsumersRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,8 +28,6 @@ class GetOAuthConsumersRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetOAuthConsumersEnvelope(
-            new GetOAuthConsumersBody($this)
-        );
+        return new GetOAuthConsumersEnvelope(new GetOAuthConsumersBody($this));
     }
 }

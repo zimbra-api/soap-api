@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * ExpandedRecurrenceComponent class
@@ -26,82 +32,82 @@ class ExpandedRecurrenceComponent
 {
     /**
      * Recurrence ID
-     * 
+     *
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InstanceRecurIdInfo
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(InstanceRecurIdInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InstanceRecurIdInfo $exceptionId;
 
     /**
      * DTSTART time in milliseconds since the Epoch
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * DTEND time in milliseconds since the Epoch
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Duration
-     * 
+     *
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DurationInfo
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfo $duration;
 
     /**
      * RRULE/RDATE/EXDATE information
-     * 
+     *
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var RecurrenceInfo
      */
-    #[Accessor(getter: 'getRecurrence', setter: 'setRecurrence')]
-    #[SerializedName('recur')]
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName("recur")]
     #[Type(RecurrenceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RecurrenceInfo $recurrence;
 
     /**
@@ -115,20 +121,19 @@ class ExpandedRecurrenceComponent
      * @return self
      */
     public function __construct(
-        ?InstanceRecurIdInfo $exceptionId = NULL,
-        ?int $startTime = NULL,
-        ?int $endTime = NULL,
-        ?DurationInfo $duration = NULL,
-        ?RecurrenceInfo $recurrence = NULL
-    )
-    {
+        ?InstanceRecurIdInfo $exceptionId = null,
+        ?int $startTime = null,
+        ?int $endTime = null,
+        ?DurationInfo $duration = null,
+        ?RecurrenceInfo $recurrence = null
+    ) {
         $this->exceptionId = $exceptionId;
         $this->duration = $duration;
         $this->recurrence = $recurrence;
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $endTime) {
+        if (null !== $endTime) {
             $this->setEndTime($endTime);
         }
     }

@@ -27,35 +27,35 @@ class VoiceSortBy extends Enum
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    protected const DATE_DESC = 'dateDesc';
+    protected const DATE_DESC = "dateDesc";
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    protected const DATE_ASC = 'dateAsc';
+    protected const DATE_ASC = "dateAsc";
 
     /**
      * Constant for value 'durDesc'
      * @return string 'durDesc'
      */
-    protected const DUR_DESC = 'durDesc';
+    protected const DUR_DESC = "durDesc";
 
     /**
      * Constant for value 'durAsc'
      * @return string 'durAsc'
      */
-    protected const DUR_ASC = 'durAsc';
+    protected const DUR_ASC = "durAsc";
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    protected const NAME_DESC = 'nameDesc';
+    protected const NAME_DESC = "nameDesc";
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    protected const NAME_ASC = 'nameAsc';
+    protected const NAME_ASC = "nameAsc";
 }

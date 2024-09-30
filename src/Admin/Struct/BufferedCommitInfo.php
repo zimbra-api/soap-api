@@ -25,33 +25,33 @@ class BufferedCommitInfo
 {
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getAid", setter="setAid")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAid', setter: 'setAid')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAid", setter: "setAid")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $aid;
 
     /**
      * Commit ID
-     * 
+     *
      * @Accessor(getter="getCid", setter="setCid")
      * @SerializedName("cid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCid', setter: 'setCid')]
-    #[SerializedName('cid')]
-    #[Type('string')]
+    #[Accessor(getter: "getCid", setter: "setCid")]
+    #[SerializedName("cid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $cid;
 
@@ -62,10 +62,9 @@ class BufferedCommitInfo
      * @param string $cid
      * @return self
      */
-    public function __construct(string $aid = '', string $cid = '')
+    public function __construct(string $aid = "", string $cid = "")
     {
-        $this->setAid($aid)
-             ->setCid($cid);
+        $this->setAid($aid)->setCid($cid);
     }
 
     /**

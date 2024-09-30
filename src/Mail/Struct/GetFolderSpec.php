@@ -26,71 +26,72 @@ class GetFolderSpec
 {
     /**
      * Base folder UUID
-     * 
+     *
      * @Accessor(getter="getUuid", setter="setUuid")
      * @SerializedName("uuid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName('uuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUuid", setter: "setUuid")]
+    #[SerializedName("uuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uuid;
 
     /**
      * Base folder ID
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Base folder fully qualified path
-     * 
+     *
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $uuid
      * @param string $folderId
      * @param string $path
      * @return self
      */
     public function __construct(
-        ?string $uuid = NULL, ?string $folderId = NULL, ?string $path = NULL
-    )
-    {
-        if (NULL !== $uuid) {
+        ?string $uuid = null,
+        ?string $folderId = null,
+        ?string $path = null
+    ) {
+        if (null !== $uuid) {
             $this->setUuid($uuid);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $path) {
+        if (null !== $path) {
             $this->setPath($path);
         }
     }

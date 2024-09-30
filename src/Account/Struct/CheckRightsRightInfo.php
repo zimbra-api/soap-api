@@ -10,11 +10,17 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * CheckRightsRightInfo struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,45 +31,44 @@ class CheckRightsRightInfo
 {
     /**
      * Flags whether the authed user has the right on the target
-     * 
+     *
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName('allow')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllow", setter: "setAllow")]
+    #[SerializedName("allow")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allow;
 
     /**
      * Name of right
-     * 
+     *
      * @Accessor(getter="getRight", setter="setRight")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[Type('string')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $right;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $right
      * @param  bool   $allow
      * @return self
      */
-    public function __construct(string $right = '', bool $allow = FALSE)
+    public function __construct(string $right = "", bool $allow = false)
     {
-        $this->setRight($right)
-             ->setAllow($allow);
+        $this->setRight($right)->setAllow($allow);
     }
 
     /**

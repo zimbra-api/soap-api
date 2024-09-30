@@ -28,12 +28,12 @@ class IdStatus
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -42,28 +42,28 @@ class IdStatus
      * @SerializedName("status")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('string')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("string")]
     #[XmlAttribute]
     private $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $status
      * @return self
      */
-    public function __construct(?string $id = NULL, ?string $status = NULL)
+    public function __construct(?string $id = null, ?string $status = null)
     {
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $status) {
+        if (null !== $status) {
             $this->setStatus($status);
         }
     }

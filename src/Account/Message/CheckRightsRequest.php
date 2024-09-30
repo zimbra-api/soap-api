@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CheckRightsRequest class
  * Check if the authed user has the specified right(s) on a target.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,16 +28,16 @@ class CheckRightsRequest extends SoapRequest
 {
     /**
      * The targets
-     * 
+     *
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTargets', setter: 'setTargets')]
-    #[Type('array<Zimbra\Account\Struct\CheckRightsTargetSpec>')]
-    #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getTargets", setter: "setTargets")]
+    #[Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")]
+    #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAccount")]
     private $targets = [];
 
     /**
@@ -72,7 +72,8 @@ class CheckRightsRequest extends SoapRequest
     public function setTargets(array $targets): self
     {
         $this->targets = array_filter(
-            $targets, static fn ($target) => $target instanceof CheckRightsTargetSpec
+            $targets,
+            static fn($target) => $target instanceof CheckRightsTargetSpec
         );
         return $this;
     }
@@ -92,8 +93,6 @@ class CheckRightsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckRightsEnvelope(
-            new CheckRightsBody($this)
-        );
+        return new CheckRightsEnvelope(new CheckRightsBody($this));
     }
 }

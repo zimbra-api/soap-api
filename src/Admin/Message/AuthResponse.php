@@ -27,66 +27,71 @@ class AuthResponse extends SoapResponse
 {
     /**
      * Auth token
-     * 
+     *
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $authToken;
 
     /**
      * If client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
-     * 
+     *
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
      * @SerializedName("csrfToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
-    #[SerializedName('csrfToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCsrfToken", setter: "setCsrfToken")]
+    #[SerializedName("csrfToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $csrfToken;
 
     /**
      * Life time for the authorization
-     * 
+     *
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName('lifetime')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLifetime", setter: "setLifetime")]
+    #[SerializedName("lifetime")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $lifetime;
 
     /**
      * Two Factor Auth Required
-     * 
+     *
      * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
      * @SerializedName("twoFactorAuthRequired")
      * @Type("bool")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTwoFactorAuthRequired', setter: 'setTwoFactorAuthRequired')]
-    #[SerializedName('twoFactorAuthRequired')]
-    #[Type('bool')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getTwoFactorAuthRequired",
+            setter: "setTwoFactorAuthRequired"
+        )
+    ]
+    #[SerializedName("twoFactorAuthRequired")]
+    #[Type("bool")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $twoFactorAuthRequired;
 
     /**
@@ -99,22 +104,21 @@ class AuthResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $authToken = NULL,
-        ?string $csrfToken = NULL,
-        ?int $lifetime = NULL,
-        ?bool $twoFactorAuthRequired = NULL
-    )
-    {
-        if (NULL !== $authToken) {
+        ?string $authToken = null,
+        ?string $csrfToken = null,
+        ?int $lifetime = null,
+        ?bool $twoFactorAuthRequired = null
+    ) {
+        if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if (NULL !== $csrfToken) {
+        if (null !== $csrfToken) {
             $this->setCsrfToken($csrfToken);
         }
-        if (NULL !== $lifetime) {
+        if (null !== $lifetime) {
             $this->setLifetime($lifetime);
         }
-        if (NULL !== $twoFactorAuthRequired) {
+        if (null !== $twoFactorAuthRequired) {
             $this->setTwoFactorAuthRequired($twoFactorAuthRequired);
         }
     }
@@ -203,7 +207,7 @@ class AuthResponse extends SoapResponse
      */
     public function setTwoFactorAuthRequired(bool $twoFactorAuthRequired): self
     {
-            $this->twoFactorAuthRequired = $twoFactorAuthRequired;
+        $this->twoFactorAuthRequired = $twoFactorAuthRequired;
         return $this;
     }
 }

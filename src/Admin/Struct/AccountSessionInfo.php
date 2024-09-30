@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AccountSessionInfo struct class
@@ -25,65 +31,64 @@ class AccountSessionInfo
 {
     /**
      * Account name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Information on sessions
-     * 
+     *
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSessions', setter: 'setSessions')]
-    #[Type('array<Zimbra\Admin\Struct\SessionInfo>')]
-    #[XmlList(inline: true, entry: 's', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSessions", setter: "setSessions")]
+    #[Type("array<Zimbra\Admin\Struct\SessionInfo>")]
+    #[XmlList(inline: true, entry: "s", namespace: "urn:zimbraAdmin")]
     private $sessions = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  array  $sessions
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $sessions = []
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setSessions($sessions);
+        string $name = "",
+        string $id = "",
+        array $sessions = []
+    ) {
+        $this->setName($name)->setId($id)->setSessions($sessions);
     }
 
     /**
@@ -151,7 +156,8 @@ class AccountSessionInfo
     public function setSessions(array $sessions): self
     {
         $this->sessions = array_filter(
-            $sessions, static fn ($session) => $session instanceof SessionInfo
+            $sessions,
+            static fn($session) => $session instanceof SessionInfo
         );
         return $this;
     }

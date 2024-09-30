@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\AutoProvDirectoryEntry;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchAutoProvDirectoryResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,48 +33,48 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
 {
     /**
      * 1 (true) if more entries to return
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
-     * 
+     *
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName('searchTotal')]
-    #[Type('int')]
+    #[Accessor(getter: "getSearchTotal", setter: "setSearchTotal")]
+    #[SerializedName("searchTotal")]
+    #[Type("int")]
     #[XmlAttribute]
     private $searchTotal;
 
     /**
      * Entries
-     * 
+     *
      * @Accessor(getter="getEntries", setter="setEntries")
      * @Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEntries', setter: 'setEntries')]
-    #[Type('array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>')]
-    #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getEntries", setter: "setEntries")]
+    #[Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")]
+    #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
     private $entries = [];
 
     /**
@@ -80,14 +86,13 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        bool $more = FALSE,
+        bool $more = false,
         int $searchTotal = 0,
         array $entries = []
-    )
-    {
+    ) {
         $this->setMore($more)
-             ->setSearchTotal($searchTotal)
-             ->setEntries($entries);
+            ->setSearchTotal($searchTotal)
+            ->setEntries($entries);
     }
 
     /**
@@ -143,7 +148,8 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     public function setEntries(array $entries): self
     {
         $this->entries = array_filter(
-            $entries, static fn ($entry) => $entry instanceof AutoProvDirectoryEntry
+            $entries,
+            static fn($entry) => $entry instanceof AutoProvDirectoryEntry
         );
         return $this;
     }

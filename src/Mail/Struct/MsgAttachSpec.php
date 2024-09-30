@@ -25,28 +25,28 @@ class MsgAttachSpec extends AttachSpec
 {
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param bool $optional
      * @return self
      */
-    public function __construct(string $id = '', ?bool $optional = NULL)
+    public function __construct(string $id = "", ?bool $optional = null)
     {
         parent::__construct($optional);
         $this->setId($id);

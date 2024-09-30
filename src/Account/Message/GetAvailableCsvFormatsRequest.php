@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAvailableCsvFormatsRequest class
  * Returns the known CSV formats that can be used for import and export of addressbook.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message

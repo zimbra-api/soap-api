@@ -27,33 +27,33 @@ class RemoveDistributionListAliasRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Alias
-     * 
+     *
      * @Accessor(getter="getAlias", setter="setAlias")
      * @SerializedName("alias")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAlias', setter: 'setAlias')]
-    #[SerializedName('alias')]
-    #[Type('string')]
+    #[Accessor(getter: "getAlias", setter: "setAlias")]
+    #[SerializedName("alias")]
+    #[Type("string")]
     #[XmlAttribute]
     private $alias;
 
@@ -64,10 +64,9 @@ class RemoveDistributionListAliasRequest extends SoapRequest
      * @param  string $alias
      * @return self
      */
-    public function __construct(string $id = '', string $alias = '')
+    public function __construct(string $id = "", string $alias = "")
     {
-        $this->setId($id)
-             ->setAlias($alias);
+        $this->setId($id)->setAlias($alias);
     }
 
     /**

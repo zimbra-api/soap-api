@@ -28,22 +28,22 @@ class HostName
      * @SerializedName("hn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHostName', setter: 'setHostName')]
-    #[SerializedName('hn')]
-    #[Type('string')]
+    #[Accessor(getter: "getHostName", setter: "setHostName")]
+    #[SerializedName("hn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hostName;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $hostName
      * @return self
      */
-    public function __construct(string $hostName = '')
+    public function __construct(string $hostName = "")
     {
         $this->setHostName($hostName);
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\SearchHit;
 
 /**
@@ -27,32 +33,32 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Hits
-     * 
+     *
      * @Accessor(getter="getMessageHits", setter="setMessageHits")
      * @Type("array<Zimbra\Mail\Struct\ConversationMsgHitInfo>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessageHits', setter: 'setMessageHits')]
-    #[Type('array<Zimbra\Mail\Struct\ConversationMsgHitInfo>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessageHits", setter: "setMessageHits")]
+    #[Type("array<Zimbra\Mail\Struct\ConversationMsgHitInfo>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $messageHits = [];
 
     /**
@@ -78,25 +84,24 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
         array $messageHits = [],
-        ?int $num = NULL,
-        ?int $numUnread = NULL,
-        ?int $totalSize = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $date = NULL,
-        ?bool $elided = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?int $num = null,
+        ?int $numUnread = null,
+        ?int $totalSize = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $date = null,
+        ?bool $elided = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = [],
-        ?string $subject = NULL,
-        ?string $fragment = NULL,
+        ?string $subject = null,
+        ?string $fragment = null,
         array $emails = []
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $num,
@@ -115,7 +120,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
             $emails
         );
         $this->setMessageHits($messageHits);
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
     }
@@ -157,7 +162,8 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     public function setMessageHits(array $hits): self
     {
         $this->messageHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof ConversationMsgHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof ConversationMsgHitInfo
         );
         return $this;
     }

@@ -26,177 +26,177 @@ class FreeBusySlot
 {
     /**
      * GMT Start time for slot in milliseconds
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * GMT End time for slot in milliseconds
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Calendar event id
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("eventId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('eventId')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("eventId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Appointment subject
-     * 
+     *
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("subject")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('subject')]
-    #[Type('string')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("subject")]
+    #[Type("string")]
     #[XmlAttribute]
     private $subject;
 
     /**
      * Location of meeting
-     * 
+     *
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("location")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName('location')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocation", setter: "setLocation")]
+    #[SerializedName("location")]
+    #[Type("string")]
     #[XmlAttribute]
     private $location;
 
     /**
      * Returns a bool value whether this calendar event is a meeting or not.
-     * 
+     *
      * @Accessor(getter="isMeeting", setter="setMeeting")
      * @SerializedName("isMeeting")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMeeting', setter: 'setMeeting')]
-    #[SerializedName('isMeeting')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMeeting", setter: "setMeeting")]
+    #[SerializedName("isMeeting")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isMeeting;
 
     /**
      * Returns a bool indicating whether it is continuous or not.
-     * 
+     *
      * @Accessor(getter="isRecurring", setter="setRecurring")
      * @SerializedName("isRecurring")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isRecurring', setter: 'setRecurring')]
-    #[SerializedName('isRecurring')]
-    #[Type('bool')]
+    #[Accessor(getter: "isRecurring", setter: "setRecurring")]
+    #[SerializedName("isRecurring")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isRecurring;
 
     /**
      * Returns a bool indicating whether there is any exception or not.
-     * 
+     *
      * @Accessor(getter="isException", setter="setException")
      * @SerializedName("isException")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isException', setter: 'setException')]
-    #[SerializedName('isException')]
-    #[Type('bool')]
+    #[Accessor(getter: "isException", setter: "setException")]
+    #[SerializedName("isException")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isException;
 
     /**
      * Returns a bool indicating whether any reminder has been set or not.
-     * 
+     *
      * @Accessor(getter="isReminderSet", setter="setReminderSet")
      * @SerializedName("isReminderSet")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isReminderSet', setter: 'setReminderSet')]
-    #[SerializedName('isReminderSet')]
-    #[Type('bool')]
+    #[Accessor(getter: "isReminderSet", setter: "setReminderSet")]
+    #[SerializedName("isReminderSet")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isReminderSet;
 
     /**
      * Returns a bool indicating whether this meeting is private or not.
-     * 
+     *
      * @Accessor(getter="isPrivate", setter="setPrivate")
      * @SerializedName("isPrivate")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isPrivate', setter: 'setPrivate')]
-    #[SerializedName('isPrivate')]
-    #[Type('bool')]
+    #[Accessor(getter: "isPrivate", setter: "setPrivate")]
+    #[SerializedName("isPrivate")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isPrivate;
 
     /**
      * Returns a bool indicating hasPermission to view FreeBusy information
-     * 
+     *
      * @Accessor(getter="hasPermission", setter="setHasPermission")
      * @SerializedName("hasPermission")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'hasPermission', setter: 'setHasPermission')]
-    #[SerializedName('hasPermission')]
-    #[Type('bool')]
+    #[Accessor(getter: "hasPermission", setter: "setHasPermission")]
+    #[SerializedName("hasPermission")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasPermission;
 
@@ -219,44 +219,42 @@ class FreeBusySlot
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $id = NULL,
-        ?string $subject = NULL,
-        ?string $location = NULL,
-        ?bool $isMeeting = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $isException = NULL,
-        ?bool $isReminderSet = NULL,
-        ?bool $isPrivate = NULL,
-        ?bool $hasPermission = NULL
-    )
-    {
-        $this->setStartTime($startTime)
-             ->setEndTime($endTime);
-        if (NULL !== $id) {
+        ?string $id = null,
+        ?string $subject = null,
+        ?string $location = null,
+        ?bool $isMeeting = null,
+        ?bool $isRecurring = null,
+        ?bool $isException = null,
+        ?bool $isReminderSet = null,
+        ?bool $isPrivate = null,
+        ?bool $hasPermission = null
+    ) {
+        $this->setStartTime($startTime)->setEndTime($endTime);
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $location) {
+        if (null !== $location) {
             $this->setLocation($location);
         }
-        if (NULL !== $isMeeting) {
+        if (null !== $isMeeting) {
             $this->setMeeting($isMeeting);
         }
-        if (NULL !== $isRecurring) {
+        if (null !== $isRecurring) {
             $this->setRecurring($isRecurring);
         }
-        if (NULL !== $isException) {
+        if (null !== $isException) {
             $this->setException($isException);
         }
-        if (NULL !== $isReminderSet) {
+        if (null !== $isReminderSet) {
             $this->setReminderSet($isReminderSet);
         }
-        if (NULL !== $isPrivate) {
+        if (null !== $isPrivate) {
             $this->setPrivate($isPrivate);
         }
-        if (NULL !== $hasPermission) {
+        if (null !== $hasPermission) {
             $this->setHasPermission($hasPermission);
         }
     }

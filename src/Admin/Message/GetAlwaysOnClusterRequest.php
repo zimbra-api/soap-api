@@ -12,12 +12,17 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetAlwaysOnClusterRequest class
  * Get Server
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,31 +35,33 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Server
-     * 
+     *
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AlwaysOnClusterSelector
      */
-    #[Accessor(getter: 'getAlwaysOnCluster', setter: 'setAlwaysOnCluster')]
-    #[SerializedName('alwaysOnCluster')]
+    #[Accessor(getter: "getAlwaysOnCluster", setter: "setAlwaysOnCluster")]
+    #[SerializedName("alwaysOnCluster")]
     #[Type(AlwaysOnClusterSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AlwaysOnClusterSelector $cluster;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AlwaysOnClusterSelector $cluster
      * @param  string $attrs
      * @return self
      */
-    public function __construct(?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL)
-    {
+    public function __construct(
+        ?AlwaysOnClusterSelector $cluster = null,
+        ?string $attrs = null
+    ) {
         $this->cluster = $cluster;
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

@@ -27,73 +27,72 @@ class VerifyStoreManagerRequest extends SoapRequest
 {
     /**
      * fileSize
-     * 
+     *
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName('fileSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getFileSize", setter: "setFileSize")]
+    #[SerializedName("fileSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fileSize;
 
     /**
      * num
-     * 
+     *
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('num')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("num")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
     /**
      * checkBlobs
-     * 
+     *
      * @Accessor(getter="getCheckBlobs", setter="setCheckBlobs")
      * @SerializedName("checkBlobs")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCheckBlobs', setter: 'setCheckBlobs')]
-    #[SerializedName('checkBlobs')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCheckBlobs", setter: "setCheckBlobs")]
+    #[SerializedName("checkBlobs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $checkBlobs;
 
     /**
      * Constructor
-     * 
+     *
      * @param int  $fileSize
      * @param int  $num
      * @param bool  $checkBlobs
      * @return self
      */
     public function __construct(
-        ?int $fileSize = NULL,
-        ?int $num = NULL,
-        ?bool $checkBlobs = NULL
-    )
-    {
-        if (NULL !== $fileSize) {
+        ?int $fileSize = null,
+        ?int $num = null,
+        ?bool $checkBlobs = null
+    ) {
+        if (null !== $fileSize) {
             $this->setFileSize($fileSize);
         }
-        if (NULL !== $num) {
+        if (null !== $num) {
             $this->setNum($num);
         }
-        if (NULL !== $checkBlobs) {
+        if (null !== $checkBlobs) {
             $this->setCheckBlobs($checkBlobs);
         }
     }

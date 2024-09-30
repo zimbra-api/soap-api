@@ -25,67 +25,63 @@ class TzFixupRuleMatchRule
 {
     /**
      * Match month. Value between 1 (January) and 12 (December)
-     * 
+     *
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
-    #[SerializedName('mon')]
-    #[Type('int')]
+    #[Accessor(getter: "getMonth", setter: "setMonth")]
+    #[SerializedName("mon")]
+    #[Type("int")]
     #[XmlAttribute]
     private $month;
 
     /**
      * Match week. -1 means last week of month else between 1 and 4
-     * 
+     *
      * @Accessor(getter="getWeek", setter="setWeek")
      * @SerializedName("week")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getWeek', setter: 'setWeek')]
-    #[SerializedName('week')]
-    #[Type('int')]
+    #[Accessor(getter: "getWeek", setter: "setWeek")]
+    #[SerializedName("week")]
+    #[Type("int")]
     #[XmlAttribute]
     private $week;
 
     /**
      * Match week day. Value between 1 (Sunday) and 7 (Saturday)
-     * 
+     *
      * @Accessor(getter="getWeekDay", setter="setWeekDay")
      * @SerializedName("wkday")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getWeekDay', setter: 'setWeekDay')]
-    #[SerializedName('wkday')]
-    #[Type('int')]
+    #[Accessor(getter: "getWeekDay", setter: "setWeekDay")]
+    #[SerializedName("wkday")]
+    #[Type("int")]
     #[XmlAttribute]
     private $weekDay;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $mon
      * @param int $week
      * @param int $wkday
      * @return self
      */
-    public function __construct(
-        int $mon = 0, int $week = 0, int $wkday = 0
-    )
+    public function __construct(int $mon = 0, int $week = 0, int $wkday = 0)
     {
-        $this->setMonth($mon)
-             ->setWeek($week)
-             ->setWeekDay($wkday);
+        $this->setMonth($mon)->setWeek($week)->setWeekDay($wkday);
     }
 
     /**

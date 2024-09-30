@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ResetAllLoggersRequest class
  * Removes all account loggers and reloads /opt/zimbra/conf/log4j.properties.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class ResetAllLoggersRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ResetAllLoggersEnvelope(
-            new ResetAllLoggersBody($this)
-        );
+        return new ResetAllLoggersEnvelope(new ResetAllLoggersBody($this));
     }
 }

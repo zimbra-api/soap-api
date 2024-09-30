@@ -26,47 +26,49 @@ class StoreManagerRuntimeSwitchResult
 {
     /**
      * Status
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var RuntimeSwitchStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\RuntimeSwitchStatus>")]
     #[XmlAttribute]
     private RuntimeSwitchStatus $status;
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
-     * 
+     *
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
     #[XmlAttribute]
     private $message;
 
     /**
      * Constructor
-     * 
+     *
      * @param  RuntimeSwitchStatus $status
      * @param  string $message
      * @return self
      */
-    public function __construct(?RuntimeSwitchStatus $status = NULL, ?string $message = NULL)
-    {
-        $this->setStatus($status ?? new RuntimeSwitchStatus('SUCCESS'));
-        if (NULL !== $message) {
+    public function __construct(
+        ?RuntimeSwitchStatus $status = null,
+        ?string $message = null
+    ) {
+        $this->setStatus($status ?? new RuntimeSwitchStatus("SUCCESS"));
+        if (null !== $message) {
             $this->setMessage($message);
         }
     }

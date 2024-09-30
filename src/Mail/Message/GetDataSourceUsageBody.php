@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetDataSourceUsageBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class GetDataSourceUsageBody extends SoapBody
      * @SerializedName("GetDataSourceUsageRequest")
      * @Type("Zimbra\Mail\Message\GetDataSourceUsageRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetDataSourceUsageRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetDataSourceUsageRequest")]
     #[Type(GetDataSourceUsageRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetDataSourceUsageResponse")
      * @Type("Zimbra\Mail\Message\GetDataSourceUsageResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetDataSourceUsageResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetDataSourceUsageResponse")]
     #[Type(GetDataSourceUsageResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetDataSourceUsageBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDataSourceUsageRequest $request = NULL, ?GetDataSourceUsageResponse $response = NULL
-    )
-    {
+        ?GetDataSourceUsageRequest $request = null,
+        ?GetDataSourceUsageResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

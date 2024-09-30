@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllDomainsRequest class
  * Get all domains
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,29 +27,29 @@ class GetAllDomainsRequest extends SoapRequest
 {
     /**
      * Apply config flag
-     * 
+     *
      * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName('applyConfig')]
-    #[Type('bool')]
+    #[Accessor(getter: "isApplyConfig", setter: "setApplyConfig")]
+    #[SerializedName("applyConfig")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyConfig;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $applyConfig
      * @return self
      */
-    public function __construct(?bool $applyConfig = NULL)
+    public function __construct(?bool $applyConfig = null)
     {
-        if (NULL !== $applyConfig) {
+        if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
         }
     }
@@ -81,8 +81,6 @@ class GetAllDomainsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllDomainsEnvelope(
-            new GetAllDomainsBody($this)
-        );
+        return new GetAllDomainsEnvelope(new GetAllDomainsBody($this));
     }
 }

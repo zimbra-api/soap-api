@@ -25,36 +25,35 @@ class CurrentDayOfWeekTest extends FilterTest
 {
     /**
      * Comma separated day of week indices
-     * 
+     *
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $values;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $values
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $values = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
-        if (NULL !== $values) {
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $values = null
+    ) {
+        parent::__construct($index, $negative);
+        if (null !== $values) {
             $this->setValues($values);
         }
     }

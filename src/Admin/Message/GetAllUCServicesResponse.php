@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllUCServicesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllUCServicesResponse extends SoapResponse
 {
     /**
      * Information about uc services
-     * 
+     *
      * @Accessor(getter="getUCServiceList", setter="setUCServiceList")
      * @Type("array<Zimbra\Admin\Struct\UCServiceInfo>")
      * @XmlList(inline=true, entry="ucservice", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUCServiceList', setter: 'setUCServiceList')]
-    #[Type('array<Zimbra\Admin\Struct\UCServiceInfo>')]
-    #[XmlList(inline: true, entry: 'ucservice', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getUCServiceList", setter: "setUCServiceList")]
+    #[Type("array<Zimbra\Admin\Struct\UCServiceInfo>")]
+    #[XmlList(inline: true, entry: "ucservice", namespace: "urn:zimbraAdmin")]
     private $ucServiceList = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllUCServicesResponse extends SoapResponse
     public function setUCServiceList(array $list): self
     {
         $this->ucServiceList = array_filter(
-            $list, static fn ($item) => $item instanceof UCServiceInfo
+            $list,
+            static fn($item) => $item instanceof UCServiceInfo
         );
         return $this;
     }

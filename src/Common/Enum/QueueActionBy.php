@@ -27,10 +27,10 @@ class QueueActionBy extends Enum
      * Constant for value 'id'
      * @return string 'id'
      */
-    protected const ID = 'id';
+    protected const ID = "id";
     /**
      * Constant for value 'query'
      * @return string 'query'
      */
-    protected const QUERY = 'query';
+    protected const QUERY = "query";
 }

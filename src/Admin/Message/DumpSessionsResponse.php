@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\InfoForSessionType;
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -27,114 +33,124 @@ class DumpSessionsResponse extends SoapResponse
 {
     /**
      * Count of active sessions
-     * 
+     *
      * @Accessor(getter="getTotalActiveSessions", setter="setTotalActiveSessions")
      * @SerializedName("activeSessions")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalActiveSessions', setter: 'setTotalActiveSessions')]
-    #[SerializedName('activeSessions')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getTotalActiveSessions",
+            setter: "setTotalActiveSessions"
+        )
+    ]
+    #[SerializedName("activeSessions")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalActiveSessions;
 
     /**
      * Information about SOAP sessions
-     * 
+     *
      * @Accessor(getter="getSoapSessions", setter="setSoapSessions")
      * @SerializedName("soap")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var InfoForSessionType
      */
-    #[Accessor(getter: 'getSoapSessions', setter: 'setSoapSessions')]
-    #[SerializedName('soap')]
+    #[Accessor(getter: "getSoapSessions", setter: "setSoapSessions")]
+    #[SerializedName("soap")]
     #[Type(InfoForSessionType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?InfoForSessionType $soapSessions;
 
     /**
      * Information about IMAP sessions
-     * 
+     *
      * @Accessor(getter="getImapSessions", setter="setImapSessions")
      * @SerializedName("imap")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var InfoForSessionType
      */
-    #[Accessor(getter: 'getImapSessions', setter: 'setImapSessions')]
-    #[SerializedName('imap')]
+    #[Accessor(getter: "getImapSessions", setter: "setImapSessions")]
+    #[SerializedName("imap")]
     #[Type(InfoForSessionType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?InfoForSessionType $imapSessions;
 
     /**
      * Information about ADMIN sessions
-     * 
+     *
      * @Accessor(getter="getAdminSessions", setter="setAdminSessions")
      * @SerializedName("admin")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var InfoForSessionType
      */
-    #[Accessor(getter: 'getAdminSessions', setter: 'setAdminSessions')]
-    #[SerializedName('admin')]
+    #[Accessor(getter: "getAdminSessions", setter: "setAdminSessions")]
+    #[SerializedName("admin")]
     #[Type(InfoForSessionType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?InfoForSessionType $adminSessions;
 
     /**
      * Information about WIKI sessions
-     * 
+     *
      * @Accessor(getter="getWikiSessions", setter="setWikiSessions")
      * @SerializedName("wiki")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var InfoForSessionType
      */
-    #[Accessor(getter: 'getWikiSessions', setter: 'setWikiSessions')]
-    #[SerializedName('wiki')]
+    #[Accessor(getter: "getWikiSessions", setter: "setWikiSessions")]
+    #[SerializedName("wiki")]
     #[Type(InfoForSessionType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?InfoForSessionType $wikiSessions;
 
     /**
      * Information about SYNCLISTENER sessions
-     * 
+     *
      * @Accessor(getter="getSynclistenerSessions", setter="setSynclistenerSessions")
      * @SerializedName("synclistener")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var InfoForSessionType
      */
-    #[Accessor(getter: 'getSynclistenerSessions', setter: 'setSynclistenerSessions')]
-    #[SerializedName('synclistener')]
+    #[
+        Accessor(
+            getter: "getSynclistenerSessions",
+            setter: "setSynclistenerSessions"
+        )
+    ]
+    #[SerializedName("synclistener")]
     #[Type(InfoForSessionType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?InfoForSessionType $synclistenerSessions;
 
     /**
      * Information about WaitSet sessions
-     * 
+     *
      * @Accessor(getter="getWaitsetSessions", setter="setWaitsetSessions")
      * @SerializedName("waitset")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var InfoForSessionType
      */
-    #[Accessor(getter: 'getWaitsetSessions', setter: 'setWaitsetSessions')]
-    #[SerializedName('waitset')]
+    #[Accessor(getter: "getWaitsetSessions", setter: "setWaitsetSessions")]
+    #[SerializedName("waitset")]
     #[Type(InfoForSessionType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?InfoForSessionType $waitsetSessions;
 
     /**
@@ -151,14 +167,13 @@ class DumpSessionsResponse extends SoapResponse
      */
     public function __construct(
         int $totalActiveSessions = 0,
-        ?InfoForSessionType $soapSessions = NULL,
-        ?InfoForSessionType $imapSessions = NULL,
-        ?InfoForSessionType $adminSessions = NULL,
-        ?InfoForSessionType $wikiSessions = NULL,
-        ?InfoForSessionType $synclistenerSessions = NULL,
-        ?InfoForSessionType $waitsetSessions = NULL
-    )
-    {
+        ?InfoForSessionType $soapSessions = null,
+        ?InfoForSessionType $imapSessions = null,
+        ?InfoForSessionType $adminSessions = null,
+        ?InfoForSessionType $wikiSessions = null,
+        ?InfoForSessionType $synclistenerSessions = null,
+        ?InfoForSessionType $waitsetSessions = null
+    ) {
         $this->setTotalActiveSessions($totalActiveSessions);
         $this->soapSessions = $soapSessions;
         $this->imapSessions = $imapSessions;
@@ -294,8 +309,9 @@ class DumpSessionsResponse extends SoapResponse
      * @param  InfoForSessionType $synclistenerSessions
      * @return self
      */
-    public function setSynclistenerSessions(InfoForSessionType $synclistenerSessions): self
-    {
+    public function setSynclistenerSessions(
+        InfoForSessionType $synclistenerSessions
+    ): self {
         $this->synclistenerSessions = $synclistenerSessions;
         return $this;
     }
@@ -316,8 +332,9 @@ class DumpSessionsResponse extends SoapResponse
      * @param  InfoForSessionType $waitsetSessions
      * @return self
      */
-    public function setWaitsetSessions(InfoForSessionType $waitsetSessions): self
-    {
+    public function setWaitsetSessions(
+        InfoForSessionType $waitsetSessions
+    ): self {
         $this->waitsetSessions = $waitsetSessions;
         return $this;
     }

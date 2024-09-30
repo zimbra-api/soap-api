@@ -31,29 +31,29 @@ class AutoProvTaskControlRequest extends SoapRequest
 {
     /**
      * Action to perform - one of start|status|stop
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskAction>")
      * @XmlAttribute
-     * 
+     *
      * @var AutoProvTaskAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\AutoProvTaskAction>')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("Enum<Zimbra\Common\Enum\AutoProvTaskAction>")]
     #[XmlAttribute]
     private AutoProvTaskAction $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param AutoProvTaskAction $action
      * @return self
      */
-    public function __construct(?AutoProvTaskAction $action = NULL)
+    public function __construct(?AutoProvTaskAction $action = null)
     {
-        $this->setAction($action ?? new AutoProvTaskAction('status'));
+        $this->setAction($action ?? new AutoProvTaskAction("status"));
     }
 
     /**

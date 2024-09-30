@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    Exclude,
+    SerializedName,
+    Type,
+    XmlAttribute
+};
 
 /**
  * NameOrId struct class
@@ -25,49 +31,49 @@ class NameOrId
 {
     /**
      * The name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @return self
      */
-    public function __construct(?string $name = NULL, ?string $id = NULL)
+    public function __construct(?string $name = null, ?string $id = null)
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }
@@ -123,6 +129,6 @@ class NameOrId
 
     public static function createForId(string $id): NameOrId
     {
-        return new self(NULL, $id);
+        return new self(null, $id);
     }
 }

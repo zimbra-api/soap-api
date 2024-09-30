@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapFaultInterface;
 
 /**
  * Exception class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Soap
@@ -25,14 +25,14 @@ class Exception extends \RuntimeException implements ExceptionInterface
 {
     /**
      * Soap fault
-     * 
+     *
      * @var SoapFaultInterface
      */
     private SoapFaultInterface $soapFault;
 
     /**
      * Constructor
-     * 
+     *
      * @param SoapFaultInterface $soapFault
      * @param int $code
      */

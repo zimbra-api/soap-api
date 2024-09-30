@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
  * Currently only 2 attrs are returned:
  * zimbraId: the unique UUID of the zimbra account
  * zimbraMailHost: the server on which this user's mail resides
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,23 +30,23 @@ class GetAccountInfoRequest extends SoapRequest
 {
     /**
      * Account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountSelector $account
      * @return self
      */
@@ -82,8 +82,6 @@ class GetAccountInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAccountInfoEnvelope(
-            new GetAccountInfoBody($this)
-        );
+        return new GetAccountInfoEnvelope(new GetAccountInfoBody($this));
     }
 }

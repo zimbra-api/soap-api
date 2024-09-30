@@ -27,18 +27,18 @@ class GetDistributionListResponse extends SoapResponse
 {
     /**
      * Information about distribution list
-     * 
+     *
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Account\Struct\DistributionListInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var DistributionListInfo
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionListInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?DistributionListInfo $dl;
 
     /**
@@ -47,7 +47,7 @@ class GetDistributionListResponse extends SoapResponse
      * @param DistributionListInfo $dl
      * @return self
      */
-    public function __construct(?DistributionListInfo $dl = NULL)
+    public function __construct(?DistributionListInfo $dl = null)
     {
         $this->dl = $dl;
     }

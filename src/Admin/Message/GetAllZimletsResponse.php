@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllZimletsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllZimletsResponse extends SoapResponse
 {
     /**
      * Information on zimlets
-     * 
+     *
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @Type("array<Zimbra\Admin\Struct\ZimletInfo>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type('array<Zimbra\Admin\Struct\ZimletInfo>')]
-    #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[Type("array<Zimbra\Admin\Struct\ZimletInfo>")]
+    #[XmlList(inline: true, entry: "zimlet", namespace: "urn:zimbraAdmin")]
     private $zimlets = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllZimletsResponse extends SoapResponse
     public function setZimlets(array $zimlets): self
     {
         $this->zimlets = array_filter(
-            $zimlets, static fn ($zimlet) => $zimlet instanceof ZimletInfo
+            $zimlets,
+            static fn($zimlet) => $zimlet instanceof ZimletInfo
         );
         return $this;
     }

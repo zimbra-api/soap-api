@@ -27,18 +27,18 @@ class GetZimletResponse extends SoapResponse
 {
     /**
      * Zimlet information
-     * 
+     *
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ZimletInfo
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
     #[Type(ZimletInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletInfo $zimlet;
 
     /**
@@ -47,7 +47,7 @@ class GetZimletResponse extends SoapResponse
      * @param ZimletInfo $zimlet
      * @return self
      */
-    public function __construct(?ZimletInfo $zimlet = NULL)
+    public function __construct(?ZimletInfo $zimlet = null)
     {
         $this->zimlet = $zimlet;
     }

@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * SendDeliveryReportBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class SendDeliveryReportBody extends SoapBody
      * @SerializedName("SendDeliveryReportRequest")
      * @Type("Zimbra\Mail\Message\SendDeliveryReportRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('SendDeliveryReportRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("SendDeliveryReportRequest")]
     #[Type(SendDeliveryReportRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("SendDeliveryReportResponse")
      * @Type("Zimbra\Mail\Message\SendDeliveryReportResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('SendDeliveryReportResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("SendDeliveryReportResponse")]
     #[Type(SendDeliveryReportResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class SendDeliveryReportBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SendDeliveryReportRequest $request = NULL, ?SendDeliveryReportResponse $response = NULL
-    )
-    {
+        ?SendDeliveryReportRequest $request = null,
+        ?SendDeliveryReportResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

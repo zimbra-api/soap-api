@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\Content;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ImportContactsRequest class
  * Import contacts
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,84 +35,84 @@ class ImportContactsRequest extends SoapRequest
     /**
      * Content type.
      * Only currenctly supported content type is "csv"
-     * 
+     *
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Optional Folder ID to import contacts to
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * The format of csv being imported. When it's not defined, Zimbra format is assumed.
      * The supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
-     * 
+     *
      * @Accessor(getter="getCsvFormat", setter="setCsvFormat")
      * @SerializedName("csvfmt")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsvFormat', setter: 'setCsvFormat')]
-    #[SerializedName('csvfmt')]
-    #[Type('string')]
+    #[Accessor(getter: "getCsvFormat", setter: "setCsvFormat")]
+    #[SerializedName("csvfmt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $csvFormat;
 
     /**
      * The locale to use when there are multiple <csvfmtt> locales defined.
      * When it is not specified, the <csvfmtt> with no locale specification is used.
-     * 
+     *
      * @Accessor(getter="getCsvLocale", setter="setCsvLocale")
      * @SerializedName("csvlocale")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsvLocale', setter: 'setCsvLocale')]
-    #[SerializedName('csvlocale')]
-    #[Type('string')]
+    #[Accessor(getter: "getCsvLocale", setter: "setCsvLocale")]
+    #[SerializedName("csvlocale")]
+    #[Type("string")]
     #[XmlAttribute]
     private $csvLocale;
 
     /**
      * Content specification
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("Zimbra\Mail\Struct\Content")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Content
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
     #[Type(Content::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private Content $content;
 
     /**
@@ -121,21 +127,19 @@ class ImportContactsRequest extends SoapRequest
      */
     public function __construct(
         Content $content,
-        string $contentType = 'text/csv',
-        ?string $folderId = NULL,
-        ?string $csvFormat = NULL,
-        ?string $csvLocale = NULL
-    )
-    {
-        $this->setContent($content)
-             ->setContentType($contentType);
-        if (NULL !== $folderId) {
+        string $contentType = "text/csv",
+        ?string $folderId = null,
+        ?string $csvFormat = null,
+        ?string $csvLocale = null
+    ) {
+        $this->setContent($content)->setContentType($contentType);
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $csvFormat) {
+        if (null !== $csvFormat) {
             $this->setCsvFormat($csvFormat);
         }
-        if (NULL !== $csvLocale) {
+        if (null !== $csvLocale) {
             $this->setCsvLocale($csvLocale);
         }
     }
@@ -255,8 +259,6 @@ class ImportContactsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ImportContactsEnvelope(
-            new ImportContactsBody($this)
-        );
+        return new ImportContactsEnvelope(new ImportContactsBody($this));
     }
 }

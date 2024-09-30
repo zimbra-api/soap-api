@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\Msg;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -19,7 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Propose a new time/location.  Sent by meeting attendee to organizer.
  * The syntax is very similar to CreateAppointmentRequest.
  * Should include an <inv> element which encodes an iCalendar COUNTER object
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,33 +36,33 @@ class CounterAppointmentRequest extends SoapRequest
 {
     /**
      * Invite ID of default invite
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component number of default component
-     * 
+     *
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
@@ -65,50 +71,50 @@ class CounterAppointmentRequest extends SoapRequest
      * Used for conflict detection.  By setting this, the request indicates which version of the appointment it is
      * attempting to propose.  If the appointment was updated on the server between the fetch and modify, an
      * INVITE_OUT_OF_DATE exception will be thrown.
-     * 
+     *
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Details of counter proposal.
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -122,24 +128,23 @@ class CounterAppointmentRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?Msg $msg = NULL
-    )
-    {
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?Msg $msg = null
+    ) {
         $this->msg = $msg;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
     }

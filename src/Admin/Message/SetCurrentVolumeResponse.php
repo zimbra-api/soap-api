@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SetCurrentVolumeResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,23 @@ class SetCurrentVolumeResponse extends SoapResponse
 {
     /**
      * The runtime switch result
-     * 
+     *
      * @Accessor(getter="getRuntimeSwitchResult", setter="setRuntimeSwitchResult")
      * @SerializedName("storeManagerRuntimeSwitchResult")
      * @Type("Zimbra\Admin\Struct\StoreManagerRuntimeSwitchResult")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var StoreManagerRuntimeSwitchResult
      */
-    #[Accessor(getter: 'getRuntimeSwitchResult', setter: 'setRuntimeSwitchResult')]
-    #[SerializedName('storeManagerRuntimeSwitchResult')]
+    #[
+        Accessor(
+            getter: "getRuntimeSwitchResult",
+            setter: "setRuntimeSwitchResult"
+        )
+    ]
+    #[SerializedName("storeManagerRuntimeSwitchResult")]
     #[Type(StoreManagerRuntimeSwitchResult::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?StoreManagerRuntimeSwitchResult $runtimeSwitchResult;
 
     /**
@@ -47,8 +52,9 @@ class SetCurrentVolumeResponse extends SoapResponse
      * @param StoreManagerRuntimeSwitchResult $runtimeSwitchResult
      * @return self
      */
-    public function __construct(?StoreManagerRuntimeSwitchResult $runtimeSwitchResult = NULL)
-    {
+    public function __construct(
+        ?StoreManagerRuntimeSwitchResult $runtimeSwitchResult = null
+    ) {
         $this->runtimeSwitchResult = $runtimeSwitchResult;
     }
 
@@ -68,8 +74,9 @@ class SetCurrentVolumeResponse extends SoapResponse
      * @param  StoreManagerRuntimeSwitchResult $runtimeSwitchResult
      * @return self
      */
-    public function setRuntimeSwitchResult(StoreManagerRuntimeSwitchResult $runtimeSwitchResult): self
-    {
+    public function setRuntimeSwitchResult(
+        StoreManagerRuntimeSwitchResult $runtimeSwitchResult
+    ): self {
         $this->runtimeSwitchResult = $runtimeSwitchResult;
         return $this;
     }

@@ -26,35 +26,34 @@ class ImportanceTest extends FilterTest
 {
     /**
      * Importance - high|normal|low
-     * 
+     *
      * @Accessor(getter="getImportance", setter="setImportance")
      * @SerializedName("imp")
      * @Type("Enum<Zimbra\Common\Enum\Importance>")
      * @XmlAttribute
-     * 
+     *
      * @var Importance
      */
-    #[Accessor(getter: 'getImportance', setter: 'setImportance')]
-    #[SerializedName('imp')]
-    #[Type('Enum<Zimbra\Common\Enum\Importance>')]
+    #[Accessor(getter: "getImportance", setter: "setImportance")]
+    #[SerializedName("imp")]
+    #[Type("Enum<Zimbra\Common\Enum\Importance>")]
     #[XmlAttribute]
     private ?Importance $importance;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param Importance $importance
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?Importance $importance = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
+        ?int $index = null,
+        ?bool $negative = null,
+        ?Importance $importance = null
+    ) {
+        parent::__construct($index, $negative);
         $this->importance = $importance;
     }
 

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * CosCountInfo struct class
@@ -25,67 +31,67 @@ class CosCountInfo
 {
     /**
      * Class Of Service (COS) name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Class Of Service (COS) ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Account count.
-     * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, 
+     * Note, it doesn't include any account with zimbraIsSystemResource=TRUE,
      * nor does it include any calendar resources.
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("int")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('int')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("int")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  int $value
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?int $value = NULL
-    )
-    {
-        $this->setName($name)
-             ->setId($id);
-        if (NULL !== $value) {
+        string $name = "",
+        string $id = "",
+        ?int $value = null
+    ) {
+        $this->setName($name)->setId($id);
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

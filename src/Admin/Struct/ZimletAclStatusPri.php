@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\ZimletStatus;
 
 /**
@@ -26,71 +32,71 @@ class ZimletAclStatusPri
 {
     /**
      * Name of Class Of Service (COS)
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Zimlet ACL
-     * 
+     *
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Zimbra\Admin\Struct\ZimletAcl")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ZimletAcl
      */
-    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName('acl')]
+    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[SerializedName("acl")]
     #[Type(ZimletAcl::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletAcl $acl;
 
     /**
      * Status - valid values for valueattribute - enabled|disabled
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Zimbra\Admin\Struct\ValueAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ValueAttrib
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[Type(ValueAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ValueAttrib $status;
 
     /**
      * Priority
-     * 
+     *
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var IntegerValueAttrib
      */
-    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName('priority')]
+    #[Accessor(getter: "getPriority", setter: "setPriority")]
+    #[SerializedName("priority")]
     #[Type(IntegerValueAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?IntegerValueAttrib $priority;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  ZimletAcl $acl
      * @param  ValueAttrib $status
@@ -98,12 +104,11 @@ class ZimletAclStatusPri
      * @return self
      */
     public function __construct(
-        string $name = '',
-        ?ZimletAcl $acl = NULL,
-        ?ValueAttrib $status = NULL,
-        ?IntegerValueAttrib $priority = NULL
-    )
-    {
+        string $name = "",
+        ?ZimletAcl $acl = null,
+        ?ValueAttrib $status = null,
+        ?IntegerValueAttrib $priority = null
+    ) {
         $this->setName($name);
         $this->acl = $acl;
         $this->status = $status;

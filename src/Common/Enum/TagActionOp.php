@@ -27,35 +27,35 @@ class TagActionOp extends Enum
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    protected const READ = "read";
 
     /**
      * Constant for value 'rename'
      * @return string 'rename'
      */
-    protected const RENAME = 'rename';
+    protected const RENAME = "rename";
 
     /**
      * Constant for value 'color'
      * @return string 'color'
      */
-    protected const COLOR = 'color';
+    protected const COLOR = "color";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    protected const DELETE = "delete";
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    protected const UPDATE = 'update';
+    protected const UPDATE = "update";
 
     /**
      * Constant for value 'retentionpolicy'
      * @return string 'retentionpolicy'
      */
-    protected const RETENTION = 'retentionpolicy';
+    protected const RETENTION = "retentionpolicy";
 }

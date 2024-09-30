@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CreateFolderRequest class
  * Create folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class CreateFolderRequest extends SoapRequest
 {
     /**
      * New folder specification
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\NewFolderSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var NewFolderSpec
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
     #[Type(NewFolderSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private NewFolderSpec $folder;
 
     /**
@@ -80,8 +80,6 @@ class CreateFolderRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateFolderEnvelope(
-            new CreateFolderBody($this)
-        );
+        return new CreateFolderEnvelope(new CreateFolderBody($this));
     }
 }

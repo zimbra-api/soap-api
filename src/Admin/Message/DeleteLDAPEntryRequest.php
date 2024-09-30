@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteLDAPEntryRequest class
  * Delete a LDAP entry
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,27 +27,27 @@ class DeleteLDAPEntryRequest extends SoapRequest
 {
     /**
      * A valid LDAP DN String (RFC 2253) that describes the DN to delete
-     * 
+     *
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDn', setter: 'setDn')]
-    #[SerializedName('dn')]
-    #[Type('string')]
+    #[Accessor(getter: "getDn", setter: "setDn")]
+    #[SerializedName("dn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dn;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $dn
      * @return self
      */
-    public function __construct(string $dn = '')
+    public function __construct(string $dn = "")
     {
         $this->setDn($dn);
     }
@@ -79,8 +79,6 @@ class DeleteLDAPEntryRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteLDAPEntryEnvelope(
-            new DeleteLDAPEntryBody($this)
-        );
+        return new DeleteLDAPEntryEnvelope(new DeleteLDAPEntryBody($this));
     }
 }

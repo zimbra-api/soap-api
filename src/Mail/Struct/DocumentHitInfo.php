@@ -26,17 +26,17 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
@@ -74,36 +74,35 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?string $lockOwnerId = NULL,
-        ?string $lockOwnerEmail = NULL,
-        ?string $lockOwnerTimestamp = NULL,
-        ?string $uuid = NULL,
-        ?string $name = NULL,
-        ?int $size = NULL,
-        ?int $date = NULL,
-        ?string $folderId = NULL,
-        ?string $folderUuid = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $metadataVersion = NULL,
-        ?int $changeDate = NULL,
-        ?int $revision = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $description = NULL,
-        ?string $contentType = NULL,
-        ?bool $descEnabled = NULL,
-        ?int $version = NULL,
-        ?string $lastEditedBy = NULL,
-        ?string $creator = NULL,
-        ?int $createdDate = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
+        ?string $lockOwnerId = null,
+        ?string $lockOwnerEmail = null,
+        ?string $lockOwnerTimestamp = null,
+        ?string $uuid = null,
+        ?string $name = null,
+        ?int $size = null,
+        ?int $date = null,
+        ?string $folderId = null,
+        ?string $folderUuid = null,
+        ?int $modifiedSequence = null,
+        ?int $metadataVersion = null,
+        ?int $changeDate = null,
+        ?int $revision = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $description = null,
+        ?string $contentType = null,
+        ?bool $descEnabled = null,
+        ?int $version = null,
+        ?string $lastEditedBy = null,
+        ?string $creator = null,
+        ?int $createdDate = null,
         array $metadatas = [],
-        ?string $fragment = NULL,
-        ?Acl $acl = NULL
-    )
-    {
+        ?string $fragment = null,
+        ?Acl $acl = null
+    ) {
         parent::__construct(
             $id,
             $lockOwnerId,
@@ -133,7 +132,7 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
             $fragment,
             $acl
         );
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
     }

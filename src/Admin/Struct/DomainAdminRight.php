@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\RightType;
 
 /**
@@ -26,68 +33,68 @@ class DomainAdminRight
 {
     /**
      * Domain admin right name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Right type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RightType>")
      * @XmlAttribute
-     * 
+     *
      * @var RightType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\RightType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\RightType>")]
     #[XmlAttribute]
     private RightType $type;
 
     /**
      * Description
-     * 
+     *
      * @Accessor(getter="getDesc", setter="setDesc")
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDesc', setter: 'setDesc')]
-    #[SerializedName('desc')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDesc", setter: "setDesc")]
+    #[SerializedName("desc")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $desc;
 
     /**
      * Rights
-     * 
+     *
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="r", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
-    #[Type('array<Zimbra\Admin\Struct\RightWithName>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'r', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
+    #[Type("array<Zimbra\Admin\Struct\RightWithName>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "r", namespace: "urn:zimbraAdmin")]
     private $rights = [];
 
     /**
@@ -100,16 +107,15 @@ class DomainAdminRight
      * @return self
      */
     public function __construct(
-        string $name = '',
-        ?RightType $type = NULL,
-        string $desc = '',
+        string $name = "",
+        ?RightType $type = null,
+        string $desc = "",
         array $rights = []
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setType($type ?? new RightType('preset'))
-             ->setDesc($desc)
-             ->setRights($rights);
+            ->setType($type ?? new RightType("preset"))
+            ->setDesc($desc)
+            ->setRights($rights);
     }
 
     /**
@@ -197,7 +203,8 @@ class DomainAdminRight
     public function setRights(array $rights)
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof RightWithName
+            $rights,
+            static fn($right) => $right instanceof RightWithName
         );
         return $this;
     }

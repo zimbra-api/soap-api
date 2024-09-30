@@ -26,16 +26,16 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
 {
     /**
      * Free/Busy user status
-     * 
+     *
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserStatus>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserStatus>')]
-    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
+    #[Type("array<Zimbra\Mail\Struct\FreeBusyUserStatus>")]
+    #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
     private $freebusyUsers = [];
 
     /**
@@ -51,14 +51,19 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
      */
     public function __construct(
         array $freebusyUsers = [],
-        ?int $startTime = NULL,
-        ?int $duration = NULL,
-        ?bool $allDay = NULL,
-        ?int $tzOffset = NULL,
-        ?string $recurIdZ = NULL
-    )
-    {
-        parent::__construct($startTime, $duration, $allDay, $tzOffset, $recurIdZ);
+        ?int $startTime = null,
+        ?int $duration = null,
+        ?bool $allDay = null,
+        ?int $tzOffset = null,
+        ?string $recurIdZ = null
+    ) {
+        parent::__construct(
+            $startTime,
+            $duration,
+            $allDay,
+            $tzOffset,
+            $recurIdZ
+        );
         $this->setFreebusyUsers($freebusyUsers);
     }
 
@@ -71,7 +76,8 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     public function setFreebusyUsers(array $users): self
     {
         $this->freebusyUsers = array_filter(
-            $users, static fn ($user) => $user instanceof FreeBusyUserStatus
+            $users,
+            static fn($user) => $user instanceof FreeBusyUserStatus
         );
         return $this;
     }

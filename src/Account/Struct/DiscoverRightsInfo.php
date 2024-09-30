@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * DiscoverRightsInfo struct class
@@ -25,32 +31,32 @@ class DiscoverRightsInfo
 {
     /**
      * Right the targets relate to
-     * 
+     *
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
-    #[Type('string')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
+    #[Type("string")]
     #[XmlAttribute]
     private $right;
 
     /**
      * Targets
-     * 
+     *
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTargets', setter: 'setTargets')]
-    #[Type('array<Zimbra\Account\Struct\DiscoverRightsTarget>')]
-    #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getTargets", setter: "setTargets")]
+    #[Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")]
+    #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAccount")]
     private $targets = [];
 
     /**
@@ -60,13 +66,9 @@ class DiscoverRightsInfo
      * @param  array $targets
      * @return self
      */
-    public function __construct(
-        string $right = '',
-        array $targets = []
-    )
+    public function __construct(string $right = "", array $targets = [])
     {
-        $this->setRight($right)
-             ->setTargets($targets);
+        $this->setRight($right)->setTargets($targets);
     }
 
     /**
@@ -100,7 +102,8 @@ class DiscoverRightsInfo
     public function setTargets(array $targets): self
     {
         $this->targets = array_filter(
-            $targets, static fn ($target) => $target instanceof DiscoverRightsTarget
+            $targets,
+            static fn($target) => $target instanceof DiscoverRightsTarget
         );
         return $this;
     }

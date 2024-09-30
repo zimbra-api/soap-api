@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * ConstraintAttr struct class
@@ -25,47 +31,46 @@ class ConstraintAttr
 {
     /**
      * Constraint name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constraint information
-     * 
+     *
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ConstraintInfo
      */
-    #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
-    #[SerializedName('constraint')]
+    #[Accessor(getter: "getConstraint", setter: "setConstraint")]
+    #[SerializedName("constraint")]
     #[Type(ConstraintInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ConstraintInfo $constraint;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ConstraintInfo $constraint
      * @param  string $name
      * @return self
      */
-    public function __construct(ConstraintInfo $constraint, string $name = '')
+    public function __construct(ConstraintInfo $constraint, string $name = "")
     {
-        $this->setConstraint($constraint)
-             ->setName($name);
+        $this->setConstraint($constraint)->setName($name);
     }
 
     /**

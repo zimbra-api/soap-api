@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * AutoCompleteGalBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class AutoCompleteGalBody extends SoapBody
      * @SerializedName("AutoCompleteGalRequest")
      * @Type("Zimbra\Account\Message\AutoCompleteGalRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('AutoCompleteGalRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("AutoCompleteGalRequest")]
     #[Type(AutoCompleteGalRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("AutoCompleteGalResponse")
      * @Type("Zimbra\Account\Message\AutoCompleteGalResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('AutoCompleteGalResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("AutoCompleteGalResponse")]
     #[Type(AutoCompleteGalResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class AutoCompleteGalBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AutoCompleteGalRequest $request = NULL, ?AutoCompleteGalResponse $response = NULL
-    )
-    {
+        ?AutoCompleteGalRequest $request = null,
+        ?AutoCompleteGalResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

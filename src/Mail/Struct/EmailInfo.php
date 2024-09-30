@@ -28,99 +28,104 @@ class EmailInfo implements EmailInfoInterface
 {
     /**
      * Email address
-     * 
+     *
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * Display name. If we have personal name, first word in "word1 word2" format, or last
      * word in "word1, word2" format.  If no personal name, take string before "@" in email-address.
-     * 
+     *
      * @Accessor(getter="getDisplay", setter="setDisplay")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplay', setter: 'setDisplay')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplay", setter: "setDisplay")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $display;
 
     /**
      * The comment/name part of an address
-     * 
+     *
      * @Accessor(getter="getPersonal", setter="setPersonal")
      * @SerializedName("p")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPersonal', setter: 'setPersonal')]
-    #[SerializedName('p')]
-    #[Type('string')]
+    #[Accessor(getter: "getPersonal", setter: "setPersonal")]
+    #[SerializedName("p")]
+    #[Type("string")]
     #[XmlAttribute]
     private $personal;
 
     /**
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
      * (s)ender, read-receipt (n)otification, (rf) resent-from
-     * 
+     *
      * @Accessor(getter="getAddressType", setter="setAddressType")
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\AddressType>")
      * @XmlAttribute
-     * 
+     *
      * @var AddressType
      */
-    #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
-    #[SerializedName('t')]
-    #[Type('Enum<Zimbra\Common\Enum\AddressType>')]
+    #[Accessor(getter: "getAddressType", setter: "setAddressType")]
+    #[SerializedName("t")]
+    #[Type("Enum<Zimbra\Common\Enum\AddressType>")]
     #[XmlAttribute]
     private ?AddressType $addressType;
 
     /**
      * Set if the email address is a group
-     * 
+     *
      * @Accessor(getter="getGroup", setter="setGroup")
      * @SerializedName("isGroup")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getGroup', setter: 'setGroup')]
-    #[SerializedName('isGroup')]
-    #[Type('bool')]
+    #[Accessor(getter: "getGroup", setter: "setGroup")]
+    #[SerializedName("isGroup")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $group;
 
     /**
      * Flags whether can expand group members
-     * 
+     *
      * @Accessor(getter="getCanExpandGroupMembers", setter="setCanExpandGroupMembers")
      * @SerializedName("exp")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
-    #[SerializedName('exp')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getCanExpandGroupMembers",
+            setter: "setCanExpandGroupMembers"
+        )
+    ]
+    #[SerializedName("exp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canExpandGroupMembers;
 
@@ -136,28 +141,27 @@ class EmailInfo implements EmailInfoInterface
      * @return self
      */
     public function __construct(
-        ?string $address = NULL,
-        ?string $display = NULL,
-        ?string $personal = NULL,
-        ?AddressType $addressType = NULL,
-        ?bool $group = NULL,
-        ?bool $canExpandGroupMembers = NULL
-    )
-    {
+        ?string $address = null,
+        ?string $display = null,
+        ?string $personal = null,
+        ?AddressType $addressType = null,
+        ?bool $group = null,
+        ?bool $canExpandGroupMembers = null
+    ) {
         $this->addressType = $addressType;
-        if (NULL !== $address) {
+        if (null !== $address) {
             $this->setAddress($address);
         }
-        if (NULL !== $display) {
+        if (null !== $display) {
             $this->setDisplay($display);
         }
-        if (NULL !== $personal) {
+        if (null !== $personal) {
             $this->setPersonal($personal);
         }
-        if (NULL !== $group) {
+        if (null !== $group) {
             $this->setGroup($group);
         }
-        if (NULL !== $canExpandGroupMembers) {
+        if (null !== $canExpandGroupMembers) {
             $this->setCanExpandGroupMembers($canExpandGroupMembers);
         }
     }

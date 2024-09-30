@@ -26,7 +26,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetDataSourcesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -37,114 +37,119 @@ class GetDataSourcesResponse extends SoapResponse
 {
     /**
      * Imap data sources
-     * 
+     *
      * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailImapDataSource>")
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailImapDataSource>')]
-    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getImapDataSources", setter: "setImapDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailImapDataSource>")]
+    #[XmlList(inline: true, entry: "imap", namespace: "urn:zimbraMail")]
     private $imapDataSources = [];
 
     /**
      * Pop3 data sources
-     * 
+     *
      * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
      * @Type("array<Zimbra\Mail\Struct\MailPop3DataSource>")
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailPop3DataSource>')]
-    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getPop3DataSources", setter: "setPop3DataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailPop3DataSource>")]
+    #[XmlList(inline: true, entry: "pop3", namespace: "urn:zimbraMail")]
     private $pop3DataSources = [];
 
     /**
      * Caldav data sources
-     * 
+     *
      * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailCaldavDataSource>")
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailCaldavDataSource>')]
-    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCaldavDataSources", setter: "setCaldavDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailCaldavDataSource>")]
+    #[XmlList(inline: true, entry: "caldav", namespace: "urn:zimbraMail")]
     private $caldavDataSources = [];
 
     /**
      * Yab data sources
-     * 
+     *
      * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailYabDataSource>")
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailYabDataSource>')]
-    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getYabDataSources", setter: "setYabDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailYabDataSource>")]
+    #[XmlList(inline: true, entry: "yab", namespace: "urn:zimbraMail")]
     private $yabDataSources = [];
 
     /**
      * Rss data sources
-     * 
+     *
      * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailRssDataSource>")
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailRssDataSource>')]
-    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRssDataSources", setter: "setRssDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailRssDataSource>")]
+    #[XmlList(inline: true, entry: "rss", namespace: "urn:zimbraMail")]
     private $rssDataSources = [];
 
     /**
      * Gal data sources
-     * 
+     *
      * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailGalDataSource>")
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailGalDataSource>')]
-    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGalDataSources", setter: "setGalDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailGalDataSource>")]
+    #[XmlList(inline: true, entry: "gal", namespace: "urn:zimbraMail")]
     private $galDataSources = [];
 
     /**
      * Cal data sources
-     * 
+     *
      * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailCalDataSource>")
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailCalDataSource>')]
-    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCalDataSources", setter: "setCalDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\MailCalDataSource>")]
+    #[XmlList(inline: true, entry: "cal", namespace: "urn:zimbraMail")]
     private $calDataSources = [];
 
     /**
      * Unknown data sources
-     * 
+     *
      * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
      * @Type("array<Zimbra\Mail\Struct\MailUnknownDataSource>")
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\MailUnknownDataSource>')]
-    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getUnknownDataSources",
+            setter: "setUnknownDataSources"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\MailUnknownDataSource>")]
+    #[XmlList(inline: true, entry: "unknown", namespace: "urn:zimbraMail")]
     private $unknownDataSources = [];
 
     /**
@@ -156,13 +161,13 @@ class GetDataSourcesResponse extends SoapResponse
     public function __construct(array $dataSources = [])
     {
         $this->setImapDataSources($dataSources)
-             ->setPop3DataSources($dataSources)
-             ->setCaldavDataSources($dataSources)
-             ->setYabDataSources($dataSources)
-             ->setRssDataSources($dataSources)
-             ->setGalDataSources($dataSources)
-             ->setCalDataSources($dataSources)
-             ->setUnknownDataSources($dataSources);
+            ->setPop3DataSources($dataSources)
+            ->setCaldavDataSources($dataSources)
+            ->setYabDataSources($dataSources)
+            ->setRssDataSources($dataSources)
+            ->setGalDataSources($dataSources)
+            ->setCalDataSources($dataSources)
+            ->setUnknownDataSources($dataSources);
     }
 
     /**
@@ -184,7 +189,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setImapDataSources(array $dataSources): self
     {
         $this->imapDataSources = array_values(
-            array_filter($dataSources, static fn ($imap) => $imap instanceof MailImapDataSource)
+            array_filter(
+                $dataSources,
+                static fn($imap) => $imap instanceof MailImapDataSource
+            )
         );
         return $this;
     }
@@ -208,7 +216,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setPop3DataSources(array $dataSources): self
     {
         $this->pop3DataSources = array_values(
-            array_filter($dataSources, static fn ($pop3) => $pop3 instanceof MailPop3DataSource)
+            array_filter(
+                $dataSources,
+                static fn($pop3) => $pop3 instanceof MailPop3DataSource
+            )
         );
         return $this;
     }
@@ -232,7 +243,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setCaldavDataSources(array $dataSources): self
     {
         $this->caldavDataSources = array_values(
-            array_filter($dataSources, static fn ($caldav) => $caldav instanceof MailCaldavDataSource)
+            array_filter(
+                $dataSources,
+                static fn($caldav) => $caldav instanceof MailCaldavDataSource
+            )
         );
         return $this;
     }
@@ -256,7 +270,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setYabDataSources(array $dataSources): self
     {
         $this->yabDataSources = array_values(
-            array_filter($dataSources, static fn ($yab) => $yab instanceof MailYabDataSource)
+            array_filter(
+                $dataSources,
+                static fn($yab) => $yab instanceof MailYabDataSource
+            )
         );
         return $this;
     }
@@ -280,7 +297,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setRssDataSources(array $dataSources): self
     {
         $this->rssDataSources = array_values(
-            array_filter($dataSources, static fn ($rss) => $rss instanceof MailRssDataSource)
+            array_filter(
+                $dataSources,
+                static fn($rss) => $rss instanceof MailRssDataSource
+            )
         );
         return $this;
     }
@@ -304,7 +324,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setGalDataSources(array $dataSources): self
     {
         $this->galDataSources = array_values(
-            array_filter($dataSources, static fn ($gal) => $gal instanceof MailGalDataSource)
+            array_filter(
+                $dataSources,
+                static fn($gal) => $gal instanceof MailGalDataSource
+            )
         );
         return $this;
     }
@@ -328,7 +351,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setCalDataSources(array $dataSources): self
     {
         $this->calDataSources = array_values(
-            array_filter($dataSources, static fn ($cal) => $cal instanceof MailCalDataSource)
+            array_filter(
+                $dataSources,
+                static fn($cal) => $cal instanceof MailCalDataSource
+            )
         );
         return $this;
     }
@@ -352,7 +378,10 @@ class GetDataSourcesResponse extends SoapResponse
     public function setUnknownDataSources(array $dataSources): self
     {
         $this->unknownDataSources = array_values(
-            array_filter($dataSources, static fn ($unknown) => $unknown instanceof MailUnknownDataSource)
+            array_filter(
+                $dataSources,
+                static fn($unknown) => $unknown instanceof MailUnknownDataSource
+            )
         );
         return $this;
     }

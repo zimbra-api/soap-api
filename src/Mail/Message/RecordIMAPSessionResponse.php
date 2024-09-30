@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * RecordIMAPSessionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,33 +26,33 @@ class RecordIMAPSessionResponse extends SoapResponse
 {
     /**
      * ID of last item created in mailbox
-     * 
+     *
      * @Accessor(getter="getLastItemId", setter="setLastItemId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastItemId', setter: 'setLastItemId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastItemId", setter: "setLastItemId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastItemId;
 
     /**
      * UUID of the affected Folder
-     * 
+     *
      * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
      * @SerializedName("luuid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName('luuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderUuid", setter: "setFolderUuid")]
+    #[SerializedName("luuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderUuid;
 
@@ -63,13 +63,9 @@ class RecordIMAPSessionResponse extends SoapResponse
      * @param  string $folderUuid
      * @return self
      */
-    public function __construct(
-        int $lastItemId = 0,
-        string $folderUuid = ''
-    )
+    public function __construct(int $lastItemId = 0, string $folderUuid = "")
     {
-        $this->setLastItemId($lastItemId)
-             ->setFolderUuid($folderUuid);
+        $this->setLastItemId($lastItemId)->setFolderUuid($folderUuid);
     }
 
     /**

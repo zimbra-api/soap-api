@@ -27,17 +27,17 @@ class ActionSelector
     /**
      * Comma separated list of item IDs to act on.  Required except for TagActionRequest,
      * where the tags items can be specified using their tag names as an alternative.
-     * 
+     *
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
@@ -64,17 +64,17 @@ class ActionSelector
      *    acceptSubsReq  accept subscription/un-subscription request
      *    rejectSubsReq  reject subscription/un-subscription request
      *    resetimapuid   reset IMAP item UIDs
-     * 
+     *
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('string')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("string")]
     #[XmlAttribute]
     private $operation;
 
@@ -86,177 +86,177 @@ class ActionSelector
      * d:   include items in Drafts folder
      * o:   include items in any other folder
      * A leading '-' means to negate the constraint (e.g. "-t" means all messages not in Trash)
-     * 
+     *
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("tcon")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
-    #[SerializedName('tcon')]
-    #[Type('string')]
+    #[Accessor(getter: "getConstraint", setter: "setConstraint")]
+    #[SerializedName("tcon")]
+    #[Type("string")]
     #[XmlAttribute]
     private $constraint;
 
     /**
      * Deprecated - use "tn" instead
-     * 
+     *
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTag', setter: 'setTag')]
-    #[SerializedName('tag')]
-    #[Type('int')]
+    #[Accessor(getter: "getTag", setter: "setTag")]
+    #[SerializedName("tag")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tag;
 
     /**
      * Folder ID
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Flag to signify that any non-existent ids should be returned
-     * 
+     *
      * @Accessor(getter="getNonExistentIds", setter="setNonExistentIds")
      * @SerializedName("nei")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
-    #[SerializedName('nei')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNonExistentIds", setter: "setNonExistentIds")]
+    #[SerializedName("nei")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $nonExistentIds;
 
     /**
      * Flag to signify that ids of new items should be returned applies to COPY action
-     * 
+     *
      * @Accessor(getter="getNewlyCreatedIds", setter="setNewlyCreatedIds")
      * @SerializedName("nci")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNewlyCreatedIds', setter: 'setNewlyCreatedIds')]
-    #[SerializedName('nci')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNewlyCreatedIds", setter: "setNewlyCreatedIds")]
+    #[SerializedName("nci")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $newlyCreatedIds;
 
@@ -279,56 +279,55 @@ class ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
-        ?string $ids = NULL,
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
-    )
-    {
+        string $operation = "",
+        ?string $ids = null,
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
+    ) {
         $this->setOperation($operation);
-        if (NULL !== $ids) {
+        if (null !== $ids) {
             $this->setIds($ids);
         }
-        if (NULL !== $constraint) {
+        if (null !== $constraint) {
             $this->setConstraint($constraint);
         }
-        if (NULL !== $tag) {
+        if (null !== $tag) {
             $this->setTag($tag);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $nonExistentIds) {
+        if (null !== $nonExistentIds) {
             $this->setNonExistentIds($nonExistentIds);
         }
-        if (NULL !== $newlyCreatedIds) {
+        if (null !== $newlyCreatedIds) {
             $this->setNewlyCreatedIds($newlyCreatedIds);
         }
     }

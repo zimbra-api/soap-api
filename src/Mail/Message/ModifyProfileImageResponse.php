@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ModifyProfileImageResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,17 +26,17 @@ class ModifyProfileImageResponse extends SoapResponse
 {
     /**
      * Item ID of profile image
-     * 
+     *
      * @Accessor(getter="getItemId", setter="setItemId")
      * @SerializedName("itemId")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getItemId', setter: 'setItemId')]
-    #[SerializedName('itemId')]
-    #[Type('int')]
+    #[Accessor(getter: "getItemId", setter: "setItemId")]
+    #[SerializedName("itemId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $itemId;
 
@@ -46,9 +46,9 @@ class ModifyProfileImageResponse extends SoapResponse
      * @param  int  $itemId
      * @return self
      */
-    public function __construct(?int $itemId = NULL)
+    public function __construct(?int $itemId = null)
     {
-        if (NULL !== $itemId) {
+        if (null !== $itemId) {
             $this->setItemId($itemId);
         }
     }

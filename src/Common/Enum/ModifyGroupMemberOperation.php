@@ -27,17 +27,17 @@ class ModifyGroupMemberOperation extends Enum
      * Constant for value ADD
      * @return string '+'
      */
-    protected const ADD = '+';
+    protected const ADD = "+";
 
     /**
      * Constant for value REMOVE
      * @return string '-'
      */
-    protected const REMOVE = '-';
+    protected const REMOVE = "-";
 
     /**
      * Constant for value RESET
      * @return string 'reset'
      */
-    protected const RESET = 'reset';
+    protected const RESET = "reset";
 }

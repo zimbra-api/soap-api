@@ -25,23 +25,23 @@ class ModifyNotification
 {
     /**
      * Bitmask of modification change
-     * 
+     *
      * @Accessor(getter="getChangeBitmask", setter="setChangeBitmask")
      * @SerializedName("change")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeBitmask', setter: 'setChangeBitmask')]
-    #[SerializedName('change')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeBitmask", setter: "setChangeBitmask")]
+    #[SerializedName("change")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeBitmask;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $changeBitmask
      * @return self
      */

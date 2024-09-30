@@ -28,18 +28,18 @@ class MailQueueFlushRequest extends SoapRequest
 {
     /**
      * Mta server
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var NamedElement
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(NamedElement::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private NamedElement $server;
 
     /**
@@ -80,8 +80,6 @@ class MailQueueFlushRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new MailQueueFlushEnvelope(
-            new MailQueueFlushBody($this)
-        );
+        return new MailQueueFlushEnvelope(new MailQueueFlushBody($this));
     }
 }

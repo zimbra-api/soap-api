@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAggregateQuotaUsageOnServerRequest class
  * Gets the aggregate quota usage for all domains on the server.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

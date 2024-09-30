@@ -26,70 +26,71 @@ class ReindexMailboxInfo
 {
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Comma separated list of types.
      * Legal values are: conversation|message|contact|appointment|task|note|wiki|document
-     * 
+     *
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getTypes", setter: "setTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $types;
 
     /**
      * Comma separated list of IDs to re-index
-     * 
+     *
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $types
      * @param string $ids
      * @return self
      */
     public function __construct(
-        string $id = '', ?string $types = NULL, ?string $ids = NULL
-    )
-    {
+        string $id = "",
+        ?string $types = null,
+        ?string $ids = null
+    ) {
         $this->setId($id);
-        if (NULL !== $types) {
+        if (null !== $types) {
             $this->setTypes($types);
         }
-        if (NULL !== $ids) {
+        if (null !== $ids) {
             $this->setIds($ids);
         }
     }
@@ -134,9 +135,15 @@ class ReindexMailboxInfo
      */
     public function setTypes(string $types): self
     {
-        $types = array_map(static fn ($type) => trim($type), explode(',', $types));
-        $types = array_filter($types, static fn ($type) => ReindexType::isValid($type));
-        $this->types = implode(',', array_unique($types));
+        $types = array_map(
+            static fn($type) => trim($type),
+            explode(",", $types)
+        );
+        $types = array_filter(
+            $types,
+            static fn($type) => ReindexType::isValid($type)
+        );
+        $this->types = implode(",", array_unique($types));
         return $this;
     }
 

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{ZimletHostConfigInfo, ZimletProperty};
 
 /**
@@ -27,44 +33,44 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
     /**
      * Designates the zimbra host name for the properties.
      * Must be a valid Zimbra host name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Host specifice zimlet configuration properties
-     * 
+     *
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
      * @Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")
      * @XmlList(inline=true, entry="property", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]
-    #[Type('array<Zimbra\Admin\Struct\AdminZimletProperty>')]
-    #[XmlList(inline: true, entry: 'property', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getZimletProperties", setter: "setZimletProperties")]
+    #[Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")]
+    #[XmlList(inline: true, entry: "property", namespace: "urn:zimbraAdmin")]
     private $properties = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  array $properties
      * @return self
      */
-    public function __construct(?string $name = NULL, array $properties = [])
+    public function __construct(?string $name = null, array $properties = [])
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
         $this->setZimletProperties($properties);
@@ -115,7 +121,8 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
     public function setZimletProperties(array $properties): self
     {
         $this->properties = array_filter(
-            $properties, static fn ($prop) => $prop instanceof AdminZimletProperty
+            $properties,
+            static fn($prop) => $prop instanceof AdminZimletProperty
         );
         return $this;
     }

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAdminSavedSearches request class
- * Returns admin saved searches. 
+ * Returns admin saved searches.
  * If no <search> is present server will return all saved searches.
  *
  * @package    Zimbra
@@ -28,21 +28,21 @@ class GetAdminSavedSearchesRequest extends SoapRequest
 {
     /**
      * Search information
-     * 
+     *
      * @Accessor(getter="getSearches", setter="setSearches")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSearches', setter: 'setSearches')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSearches", setter: "setSearches")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "search", namespace: "urn:zimbraAdmin")]
     private $searches = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $searches
      * @return self
      */
@@ -72,7 +72,8 @@ class GetAdminSavedSearchesRequest extends SoapRequest
     public function setSearches(array $searches): self
     {
         $this->searches = array_filter(
-            $searches, static fn ($search) => $search instanceof NamedElement
+            $searches,
+            static fn($search) => $search instanceof NamedElement
         );
         return $this;
     }

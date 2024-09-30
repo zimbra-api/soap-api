@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * ConversationSummary struct class
@@ -26,238 +33,238 @@ class ConversationSummary
 {
     /**
      * Conversation ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Number of messages in conversation without IMAP \Deleted flag set
-     * 
+     *
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
     /**
      * Number of unread messages in conversation
-     * 
+     *
      * @Accessor(getter="getNumUnread", setter="setNumUnread")
      * @SerializedName("u")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumUnread', setter: 'setNumUnread')]
-    #[SerializedName('u')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumUnread", setter: "setNumUnread")]
+    #[SerializedName("u")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numUnread;
 
     /**
      * Total number of messages in conversation including those with the IMAP \Deleted flag set
-     * 
+     *
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("total")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName('total')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotalSize", setter: "setTotalSize")]
+    #[SerializedName("total")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalSize;
 
     /**
      * Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Date (secs since epoch) of most recent message in the converstation
-     * 
+     *
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * If elided is set, some participants are missing before the first returned <e> element
-     * 
+     *
      * @Accessor(getter="getElided", setter="setElided")
      * @SerializedName("elided")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getElided', setter: 'setElided')]
-    #[SerializedName('elided')]
-    #[Type('bool')]
+    #[Accessor(getter: "getElided", setter: "setElided")]
+    #[SerializedName("elided")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $elided;
 
     /**
      * Modified date in seconds
-     * 
+     *
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Modified sequence
-     * 
+     *
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Custom metadata
-     * 
+     *
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
+    #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
     private $metadatas = [];
 
     /**
      * Subject of conversation
-     * 
+     *
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $subject;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Email addresses
-     * 
+     *
      * @Accessor(getter="getEmails", setter="setEmails")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmails", setter: "setEmails")]
+    #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emails = [];
 
     /**
@@ -281,62 +288,60 @@ class ConversationSummary
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $num = NULL,
-        ?int $numUnread = NULL,
-        ?int $totalSize = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?int $date = NULL,
-        ?bool $elided = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
+        ?string $id = null,
+        ?int $num = null,
+        ?int $numUnread = null,
+        ?int $totalSize = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?int $date = null,
+        ?bool $elided = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
         array $metadatas = [],
-        ?string $subject = NULL,
-        ?string $fragment = NULL,
+        ?string $subject = null,
+        ?string $fragment = null,
         array $emails = []
-    )
-    {
-        $this->setMetadatas($metadatas)
-             ->setEmails($emails);
-        if (NULL !== $id) {
+    ) {
+        $this->setMetadatas($metadatas)->setEmails($emails);
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $num) {
+        if (null !== $num) {
             $this->setNum($num);
         }
-        if (NULL !== $numUnread) {
+        if (null !== $numUnread) {
             $this->setNumUnread($numUnread);
         }
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
-        if (NULL !== $elided) {
+        if (null !== $elided) {
             $this->setElided($elided);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $subject) {
+        if (null !== $subject) {
             $this->setSubject($subject);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }
@@ -602,7 +607,8 @@ class ConversationSummary
     public function setMetadatas(array $metadatas): self
     {
         $this->metadatas = array_filter(
-            $metadatas, static fn($metadata) => $metadata instanceof MailCustomMetadata
+            $metadatas,
+            static fn($metadata) => $metadata instanceof MailCustomMetadata
         );
         return $this;
     }
@@ -660,7 +666,8 @@ class ConversationSummary
     public function setEmails(array $emails): self
     {
         $this->emails = array_filter(
-            $emails, static fn($email) => $email instanceof EmailInfo
+            $emails,
+            static fn($email) => $email instanceof EmailInfo
         );
         return $this;
     }

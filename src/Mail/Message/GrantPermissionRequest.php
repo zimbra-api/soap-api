@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Grant account level permissions
  * GrantPermissionResponse returns permissions that are successfully granted.
  * Note: to be deprecated in Zimbra 9.  Use zimbraAccount GrantRights instead.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,16 +30,16 @@ class GrantPermissionRequest extends SoapRequest
 {
     /**
      * Specify Access Control Entries (ACEs)
-     * 
+     *
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Mail\Struct\AccountACEinfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Mail\Struct\AccountACEinfo>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAces", setter: "setAces")]
+    #[Type("array<Zimbra\Mail\Struct\AccountACEinfo>")]
+    #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraMail")]
     private $aces = [];
 
     /**
@@ -74,7 +74,8 @@ class GrantPermissionRequest extends SoapRequest
     public function setAces(array $aces): self
     {
         $this->aces = array_filter(
-            $aces, static fn ($ace) => $ace instanceof AccountACEinfo
+            $aces,
+            static fn($ace) => $ace instanceof AccountACEinfo
         );
         return $this;
     }
@@ -94,8 +95,6 @@ class GrantPermissionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GrantPermissionEnvelope(
-            new GrantPermissionBody($this)
-        );
+        return new GrantPermissionEnvelope(new GrantPermissionBody($this));
     }
 }

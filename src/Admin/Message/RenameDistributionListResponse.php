@@ -27,18 +27,18 @@ class RenameDistributionListResponse extends SoapResponse
 {
     /**
      * Information about distribution list
-     * 
+     *
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DLInfo
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DLInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DLInfo $dl;
 
     /**
@@ -47,7 +47,7 @@ class RenameDistributionListResponse extends SoapResponse
      * @param DLInfo $dl
      * @return self
      */
-    public function __construct(?DLInfo $dl = NULL)
+    public function __construct(?DLInfo $dl = null)
     {
         $this->dl = $dl;
     }

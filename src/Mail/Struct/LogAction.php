@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\LoggingLevel;
 
 /**
@@ -26,49 +32,50 @@ class LogAction extends FilterAction
 {
     /**
      * level - fatal|error|warn|info|debug|trace, info is default if not specified.
-     * 
+     *
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
      * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
      * @XmlAttribute
-     * 
+     *
      * @var LoggingLevel
      */
-    #[Accessor(getter: 'getLevel', setter: 'setLevel')]
-    #[SerializedName('level')]
-    #[Type('Enum<Zimbra\Common\Enum\LoggingLevel>')]
+    #[Accessor(getter: "getLevel", setter: "setLevel")]
+    #[SerializedName("level")]
+    #[Type("Enum<Zimbra\Common\Enum\LoggingLevel>")]
     #[XmlAttribute]
     private ?LoggingLevel $level;
 
     /**
      * message text
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param LoggingLevel $level
      * @param string $content
      * @return self
      */
     public function __construct(
-        ?int $index = NULL, ?LoggingLevel $level = NULL, ?string $content = NULL
-    )
-    {
-    	parent::__construct($index);
+        ?int $index = null,
+        ?LoggingLevel $level = null,
+        ?string $content = null
+    ) {
+        parent::__construct($index);
         $this->level = $level;
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

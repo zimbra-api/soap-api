@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Struct\CalendarAttachInterface;
 
 /**
@@ -27,47 +33,47 @@ class CalendarAttach implements CalendarAttachInterface
 {
     /**
      * URI
-     * 
+     *
      * @Accessor(getter="getUri", setter="setUri")
      * @SerializedName("uri")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUri', setter: 'setUri')]
-    #[SerializedName('uri')]
-    #[Type('string')]
+    #[Accessor(getter: "getUri", setter: "setUri")]
+    #[SerializedName("uri")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uri;
 
     /**
      * Content Type for binaryB64Data
-     * 
+     *
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Base64 encoded binary alarrm attach data
-     * 
+     *
      * @Accessor(getter="getBinaryB64Data", setter="setBinaryB64Data")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBinaryB64Data', setter: 'setBinaryB64Data')]
-    #[Type('string')]
+    #[Accessor(getter: "getBinaryB64Data", setter: "setBinaryB64Data")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $binaryB64Data;
 
@@ -80,16 +86,17 @@ class CalendarAttach implements CalendarAttachInterface
      * @return self
      */
     public function __construct(
-        ?string $uri = NULL, ?string $contentType = NULL, ?string $binaryB64Data = NULL
-    )
-    {
-        if (NULL !== $uri) {
+        ?string $uri = null,
+        ?string $contentType = null,
+        ?string $binaryB64Data = null
+    ) {
+        if (null !== $uri) {
             $this->setUri($uri);
         }
-        if (NULL !== $contentType) {
+        if (null !== $contentType) {
             $this->setContentType($contentType);
         }
-        if (NULL !== $binaryB64Data) {
+        if (null !== $binaryB64Data) {
             $this->setBinaryB64Data($binaryB64Data);
         }
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\{TargetBy, TargetType};
 
 /**
@@ -29,12 +35,12 @@ class CheckRightsTargetSpec
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private TargetType $targetType;
 
@@ -43,12 +49,12 @@ class CheckRightsTargetSpec
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetBy
      */
-    #[Accessor(getter: 'getTargetBy', setter: 'setTargetBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetBy>')]
+    #[Accessor(getter: "getTargetBy", setter: "setTargetBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetBy>")]
     #[XmlAttribute]
     private TargetBy $targetBy;
 
@@ -57,12 +63,12 @@ class CheckRightsTargetSpec
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetKey', setter: 'setTargetKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetKey", setter: "setTargetKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetKey;
 
@@ -70,17 +76,17 @@ class CheckRightsTargetSpec
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
     private $rights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  TargetType $type
      * @param  TargetBy $by
      * @param  string $key
@@ -88,13 +94,15 @@ class CheckRightsTargetSpec
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', array $rights = []
-    )
-    {
-        $this->setTargetType($type ?? new TargetType('account'))
-             ->setTargetBy($by ?? new TargetBy('name'))
-             ->setTargetKey($key)
-             ->setRights($rights);
+        ?TargetType $type = null,
+        ?TargetBy $by = null,
+        string $key = "",
+        array $rights = []
+    ) {
+        $this->setTargetType($type ?? new TargetType("account"))
+            ->setTargetBy($by ?? new TargetBy("name"))
+            ->setTargetKey($key)
+            ->setRights($rights);
     }
 
     /**
@@ -187,7 +195,7 @@ class CheckRightsTargetSpec
     public function setRights(array $rights): self
     {
         $this->rights = array_unique(
-            array_map(static fn ($right) => trim($right), $rights)
+            array_map(static fn($right) => trim($right), $rights)
         );
         return $this;
     }

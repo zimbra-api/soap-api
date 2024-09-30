@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAppointmentIdsSinceBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class GetAppointmentIdsSinceBody extends SoapBody
      * @SerializedName("GetAppointmentIdsSinceRequest")
      * @Type("Zimbra\Mail\Message\GetAppointmentIdsSinceRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAppointmentIdsSinceRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAppointmentIdsSinceRequest")]
     #[Type(GetAppointmentIdsSinceRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetAppointmentIdsSinceResponse")
      * @Type("Zimbra\Mail\Message\GetAppointmentIdsSinceResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAppointmentIdsSinceResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAppointmentIdsSinceResponse")]
     #[Type(GetAppointmentIdsSinceResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetAppointmentIdsSinceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAppointmentIdsSinceRequest $request = NULL, ?GetAppointmentIdsSinceResponse $response = NULL
-    )
-    {
+        ?GetAppointmentIdsSinceRequest $request = null,
+        ?GetAppointmentIdsSinceResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

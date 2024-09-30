@@ -10,9 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\LockoutOperation;
-use Zimbra\Common\Struct\{AccountNameSelector, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AccountNameSelector,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * LockoutMailboxRequest request class
@@ -28,33 +38,33 @@ class LockoutMailboxRequest extends SoapRequest
 {
     /**
      * Account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountNameSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountNameSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountNameSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountNameSelector $account;
 
     /**
      * one of 'start' or 'end'
-     * 
+     *
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\LockoutOperation>")
      * @XmlAttribute
-     * 
+     *
      * @var LockoutOperation
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\LockoutOperation>')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\LockoutOperation>")]
     #[XmlAttribute]
     private ?LockoutOperation $operation;
 
@@ -66,9 +76,9 @@ class LockoutMailboxRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        AccountNameSelector $account, ?LockoutOperation $operation = NULL
-    )
-    {
+        AccountNameSelector $account,
+        ?LockoutOperation $operation = null
+    ) {
         $this->setAccount($account);
         $this->operation = $operation;
     }
@@ -122,8 +132,6 @@ class LockoutMailboxRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new LockoutMailboxEnvelope(
-            new LockoutMailboxBody($this)
-        );
+        return new LockoutMailboxEnvelope(new LockoutMailboxBody($this));
     }
 }

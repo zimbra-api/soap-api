@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\{NamedValue, SoapResponse};
 
 /**
@@ -26,133 +32,133 @@ class GetAccountInfoResponse extends SoapResponse
 {
     /**
      * Account name - an email address (user@domain)
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $name;
 
     /**
      * Account attributes.  Currently only these attributes are returned:
-     * zimbraId: the unique UUID of the zimbra account 
+     * zimbraId: the unique UUID of the zimbra account
      * zimbraMailHost: the server on which this user's mail resides
      * displayName: display name for the account
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Common\Struct\NamedValue>')]
-    #[XmlList(inline: true, entry: 'attr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Common\Struct\NamedValue>")]
+    #[XmlList(inline: true, entry: "attr", namespace: "urn:zimbraAccount")]
     private $attrs = [];
 
     /**
      * URL to talk to for soap service for this account.
-     * 
+     *
      * @Accessor(getter="getSoapURL", setter="setSoapURL")
      * @SerializedName("soapURL")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSoapURL', setter: 'setSoapURL')]
-    #[SerializedName('soapURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getSoapURL", setter: "setSoapURL")]
+    #[SerializedName("soapURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $soapURL;
 
     /**
      * Base public URL for the requested account
-     * 
+     *
      * @Accessor(getter="getPublicURL", setter="setPublicURL")
      * @SerializedName("publicURL")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPublicURL', setter: 'setPublicURL')]
-    #[SerializedName('publicURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPublicURL", setter: "setPublicURL")]
+    #[SerializedName("publicURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $publicURL;
 
     /**
      * URL to talk to in order to change a password.
      * Not returned if not configured via domain attribute zimbraChangePasswordURL
-     * 
+     *
      * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
      * @SerializedName("changePasswordURL")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getChangePasswordURL', setter: 'setChangePasswordURL')]
-    #[SerializedName('changePasswordURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getChangePasswordURL", setter: "setChangePasswordURL")]
+    #[SerializedName("changePasswordURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $changePasswordURL;
 
     /**
      * Zimbra Community URL to load in Community tab.
-     * 
+     *
      * @Accessor(getter="getCommunityURL", setter="setCommunityURL")
      * @SerializedName("communityURL")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCommunityURL', setter: 'setCommunityURL')]
-    #[SerializedName('communityURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCommunityURL", setter: "setCommunityURL")]
+    #[SerializedName("communityURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $communityURL;
 
     /**
      * base URL for accessing the admin console
-     * 
+     *
      * @Accessor(getter="getAdminURL", setter="setAdminURL")
      * @SerializedName("adminURL")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAdminURL', setter: 'setAdminURL')]
-    #[SerializedName('adminURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAdminURL", setter: "setAdminURL")]
+    #[SerializedName("adminURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $adminURL;
 
     /**
      * Proxy URL for accessing XMPP over BOSH.
      * Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
-     * 
+     *
      * @Accessor(getter="getBoshURL", setter="setBoshURL")
      * @SerializedName("boshURL")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBoshURL', setter: 'setBoshURL')]
-    #[SerializedName('boshURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getBoshURL", setter: "setBoshURL")]
+    #[SerializedName("boshURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $boshURL;
 
     /**
@@ -169,34 +175,32 @@ class GetAccountInfoResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         array $attrs = [],
-        ?string $soapURL = NULL,
-        ?string $publicURL = NULL,
-        ?string $changePasswordURL = NULL,
-        ?string $communityURL = NULL,
-        ?string $adminURL = NULL,
-        ?string $boshURL = NULL
-    )
-    {
-        $this->setName($name)
-             ->setAttrs($attrs);
-        if (NULL !== $soapURL) {
+        ?string $soapURL = null,
+        ?string $publicURL = null,
+        ?string $changePasswordURL = null,
+        ?string $communityURL = null,
+        ?string $adminURL = null,
+        ?string $boshURL = null
+    ) {
+        $this->setName($name)->setAttrs($attrs);
+        if (null !== $soapURL) {
             $this->setSoapURL($soapURL);
         }
-        if (NULL !== $publicURL) {
+        if (null !== $publicURL) {
             $this->setPublicURL($publicURL);
         }
-        if (NULL !== $changePasswordURL) {
+        if (null !== $changePasswordURL) {
             $this->setChangePasswordURL($changePasswordURL);
         }
-        if (NULL !== $communityURL) {
+        if (null !== $communityURL) {
             $this->setCommunityURL($communityURL);
         }
-        if (NULL !== $adminURL) {
+        if (null !== $adminURL) {
             $this->setAdminURL($adminURL);
         }
-        if (NULL !== $boshURL) {
+        if (null !== $boshURL) {
             $this->setBoshURL($boshURL);
         }
     }
@@ -232,7 +236,8 @@ class GetAccountInfoResponse extends SoapResponse
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof NamedValue
+            $attrs,
+            static fn($attr) => $attr instanceof NamedValue
         );
         return $this;
     }

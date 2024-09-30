@@ -30,7 +30,7 @@ class ModifyConfigRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Constructor
-     * 
+     *
      * @param array $attrs
      * @return self
      */
@@ -44,8 +44,6 @@ class ModifyConfigRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyConfigEnvelope(
-            new ModifyConfigBody($this)
-        );
+        return new ModifyConfigEnvelope(new ModifyConfigBody($this));
     }
 }

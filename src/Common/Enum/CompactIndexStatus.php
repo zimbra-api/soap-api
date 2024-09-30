@@ -27,17 +27,17 @@ class CompactIndexStatus extends Enum
      * Constant for value 'started'
      * @return string 'started'
      */
-    protected const STARTED = 'started';
+    protected const STARTED = "started";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const RUNNING = 'running';
+    protected const RUNNING = "running";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const IDLE = 'idle';
+    protected const IDLE = "idle";
 }

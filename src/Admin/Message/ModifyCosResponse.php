@@ -27,18 +27,18 @@ class ModifyCosResponse extends SoapResponse
 {
     /**
      * Information about Class Of Service (COS)
-     * 
+     *
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CosInfo
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosInfo $cos;
 
     /**
@@ -47,7 +47,7 @@ class ModifyCosResponse extends SoapResponse
      * @param CosInfo $cos
      * @return self
      */
-    public function __construct(?CosInfo $cos = NULL)
+    public function __construct(?CosInfo $cos = null)
     {
         $this->cos = $cos;
     }

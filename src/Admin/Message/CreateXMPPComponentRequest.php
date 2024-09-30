@@ -28,23 +28,23 @@ class CreateXMPPComponentRequest extends SoapRequest
 {
     /**
      * XMPP Component details
-     * 
+     *
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSpec")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var XMPPComponentSpec
      */
-    #[Accessor(getter: 'getComponent', setter: 'setComponent')]
-    #[SerializedName('xmppcomponent')]
+    #[Accessor(getter: "getComponent", setter: "setComponent")]
+    #[SerializedName("xmppcomponent")]
     #[Type(XMPPComponentSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private XMPPComponentSpec $component;
 
     /**
      * Constructor
-     * 
+     *
      * @param XMPPComponentSpec $component
      * @return self
      */

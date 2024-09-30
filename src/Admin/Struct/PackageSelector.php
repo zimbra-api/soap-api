@@ -25,29 +25,29 @@ class PackageSelector
 {
     /**
      * The name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @return self
      */
-    public function __construct(?string $name = NULL)
+    public function __construct(?string $name = null)
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

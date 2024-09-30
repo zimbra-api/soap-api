@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\CacheEntryBy;
 
 /**
@@ -26,45 +32,45 @@ class CacheEntrySelector
 {
     /**
      * Select the meaning of {cache-entry-key}
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CacheEntryBy>")
      * @XmlAttribute
-     * 
+     *
      * @var CacheEntryBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\CacheEntryBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\CacheEntryBy>")]
     #[XmlAttribute]
     private CacheEntryBy $by;
 
     /**
      * The key used to identify the cache entry
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CacheEntryBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?CacheEntryBy $by = NULL, ?string $value = NULL)
+    public function __construct(?CacheEntryBy $by = null, ?string $value = null)
     {
-        $this->setBy($by ?? new CacheEntryBy('id'));
-        if (NULL !== $value) {
+        $this->setBy($by ?? new CacheEntryBy("id"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

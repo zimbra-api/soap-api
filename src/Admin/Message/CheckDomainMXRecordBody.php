@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CheckDomainMXRecordBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class CheckDomainMXRecordBody extends SoapBody
      * @SerializedName("CheckDomainMXRecordRequest")
      * @Type("Zimbra\Admin\Message\CheckDomainMXRecordRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CheckDomainMXRecordRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CheckDomainMXRecordRequest")]
     #[Type(CheckDomainMXRecordRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CheckDomainMXRecordResponse")
      * @Type("Zimbra\Admin\Message\CheckDomainMXRecordResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CheckDomainMXRecordResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CheckDomainMXRecordResponse")]
     #[Type(CheckDomainMXRecordResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CheckDomainMXRecordBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckDomainMXRecordRequest $request = NULL, ?CheckDomainMXRecordResponse $response = NULL
-    )
-    {
+        ?CheckDomainMXRecordRequest $request = null,
+        ?CheckDomainMXRecordResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

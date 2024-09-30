@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * NewContactAttr class
@@ -26,82 +32,82 @@ class NewContactAttr
 {
     /**
      * Attribute name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Upload ID
-     * 
+     *
      * @Accessor(getter="getAttachId", setter="setAttachId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachId', setter: 'setAttachId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachId", setter: "setAttachId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachId;
 
     /**
      * Item ID.  Used in combination with subpart-name
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Subpart Name
-     * 
+     *
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Attribute data
-     * 
+     *
      * Date related attributes like "birthday" and "anniversary" SHOULD use "yyyy-MM-dd" format or,
      * if the year isn't specified "--MM-dd" format
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -116,20 +122,23 @@ class NewContactAttr
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $attachId = NULL, ?int $id = NULL, ?string $part = NULL, ?string $value = NULL
-    )
-    {
+        string $name = "",
+        ?string $attachId = null,
+        ?int $id = null,
+        ?string $part = null,
+        ?string $value = null
+    ) {
         $this->setName($name);
-        if (NULL !== $attachId) {
+        if (null !== $attachId) {
             $this->setAttachId($attachId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

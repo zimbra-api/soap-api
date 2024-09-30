@@ -25,81 +25,81 @@ class ExpandedRecurrenceInstance
 {
     /**
      * Start time in milliseconds
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Duration in milliseconds
-     * 
+     *
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
-    #[Type('int')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
+    #[Type("int")]
     #[XmlAttribute]
     private $duration;
 
     /**
      * Set if the instance is for an all day appointment
-     * 
+     *
      * @Accessor(getter="getAllDay", setter="setAllDay")
      * @SerializedName("allDay")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
-    #[SerializedName('allDay')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllDay", setter: "setAllDay")]
+    #[SerializedName("allDay")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allDay;
 
     /**
      * GMT offset of start time in milliseconds; returned only when allDay is set
-     * 
+     *
      * @Accessor(getter="getTzOffset", setter="setTzOffset")
      * @SerializedName("tzo")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
-    #[SerializedName('tzo')]
-    #[Type('int')]
+    #[Accessor(getter: "getTzOffset", setter: "setTzOffset")]
+    #[SerializedName("tzo")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tzOffset;
 
     /**
      * Recurrence ID string in UTC timezone
-     * 
+     *
      * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
      * @SerializedName("ridZ")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName('ridZ')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurIdZ", setter: "setRecurIdZ")]
+    #[SerializedName("ridZ")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -114,26 +114,25 @@ class ExpandedRecurrenceInstance
      * @return self
      */
     public function __construct(
-        ?int $startTime = NULL,
-        ?int $duration = NULL,
-        ?bool $allDay = NULL,
-        ?int $tzOffset = NULL,
-        ?string $recurIdZ = NULL
-    )
-    {
-        if (NULL !== $startTime) {
+        ?int $startTime = null,
+        ?int $duration = null,
+        ?bool $allDay = null,
+        ?int $tzOffset = null,
+        ?string $recurIdZ = null
+    ) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $duration) {
+        if (null !== $duration) {
             $this->setDuration($duration);
         }
-        if (NULL !== $allDay) {
+        if (null !== $allDay) {
             $this->setAllDay($allDay);
         }
-        if (NULL !== $tzOffset) {
+        if (null !== $tzOffset) {
             $this->setTzOffset($tzOffset);
         }
-        if (NULL !== $recurIdZ) {
+        if (null !== $recurIdZ) {
             $this->setRecurIdZ($recurIdZ);
         }
     }

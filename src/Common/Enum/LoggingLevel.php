@@ -27,25 +27,25 @@ class LoggingLevel extends Enum
      * Constant for value 'error'
      * @return string 'error'
      */
-    protected const ERROR = 'error';
+    protected const ERROR = "error";
     /**
      * Constant for value 'warn'
      * @return string 'warn'
      */
-    protected const WARN = 'warn';
+    protected const WARN = "warn";
     /**
      * Constant for value 'info'
      * @return string 'info'
      */
-    protected const INFO = 'info';
+    protected const INFO = "info";
     /**
      * Constant for value 'debug'
      * @return string 'debug'
      */
-    protected const DEBUG = 'debug';
+    protected const DEBUG = "debug";
     /**
      * Constant for value 'trace'
      * @return string 'trace'
      */
-    protected const TRACE = 'trace';
+    protected const TRACE = "trace";
 }

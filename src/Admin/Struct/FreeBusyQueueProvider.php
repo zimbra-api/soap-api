@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\Id;
 
 /**
@@ -26,45 +32,44 @@ class FreeBusyQueueProvider
 {
     /**
      * Provider name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Information on accounts
-     * 
+     *
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<Zimbra\Common\Struct\Id>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<Zimbra\Common\Struct\Id>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
      * Constructor
-     * 
-     * @param  string $name 
+     *
+     * @param  string $name
      * @param  array  $accounts
      * @return self
      */
-    public function __construct(string $name = '', array $accounts = [])
+    public function __construct(string $name = "", array $accounts = [])
     {
-        $this->setName($name)
-             ->setAccounts($accounts);
+        $this->setName($name)->setAccounts($accounts);
     }
 
     /**
@@ -98,7 +103,8 @@ class FreeBusyQueueProvider
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof Id
+            $accounts,
+            static fn($account) => $account instanceof Id
         );
         return $this;
     }

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetFilterRulesRequest class
  * Get filter rules
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class GetFilterRulesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetFilterRulesEnvelope(
-            new GetFilterRulesBody($this)
-        );
+        return new GetFilterRulesEnvelope(new GetFilterRulesBody($this));
     }
 }

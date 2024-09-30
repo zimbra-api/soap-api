@@ -27,11 +27,11 @@ class ContactBackupOp extends Enum
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    protected const START = "start";
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    protected const STOP = 'stop';
+    protected const STOP = "stop";
 }

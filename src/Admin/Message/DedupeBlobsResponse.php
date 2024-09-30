@@ -10,14 +10,20 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\VolumeIdAndProgress;
 use Zimbra\Common\Enum\DedupStatus;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DedupeBlobsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,17 +34,17 @@ class DedupeBlobsResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|idle|stopped
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\DedupStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var DedupStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\DedupStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\DedupStatus>")]
     #[XmlAttribute]
     private ?DedupStatus $status;
 
@@ -47,12 +53,12 @@ class DedupeBlobsResponse extends SoapResponse
      * @SerializedName("totalSize")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName('totalSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotalSize", setter: "setTotalSize")]
+    #[SerializedName("totalSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalSize;
 
@@ -61,41 +67,63 @@ class DedupeBlobsResponse extends SoapResponse
      * @SerializedName("totalCount")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalCount', setter: 'setTotalCount')]
-    #[SerializedName('totalCount')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotalCount", setter: "setTotalCount")]
+    #[SerializedName("totalCount")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalCount;
 
     /**
      * volume blobs progress
-     * 
+     *
      * @Accessor(getter="getVolumeBlobsProgress", setter="setVolumeBlobsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline=true, entry="volumeBlobsProgress", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getVolumeBlobsProgress', setter: 'setVolumeBlobsProgress')]
-    #[Type('array<Zimbra\Admin\Struct\VolumeIdAndProgress>')]
-    #[XmlList(inline: true, entry: 'volumeBlobsProgress', namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getVolumeBlobsProgress",
+            setter: "setVolumeBlobsProgress"
+        )
+    ]
+    #[Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "volumeBlobsProgress",
+            namespace: "urn:zimbraAdmin"
+        )
+    ]
     private $volumeBlobsProgress = [];
 
     /**
      * blob digests progress
-     * 
+     *
      * @Accessor(getter="getBlobDigestsProgress", setter="setBlobDigestsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline=true, entry="blobDigestsProgress", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBlobDigestsProgress', setter: 'setBlobDigestsProgress')]
-    #[Type('array<Zimbra\Admin\Struct\VolumeIdAndProgress>')]
-    #[XmlList(inline: true, entry: 'blobDigestsProgress', namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getBlobDigestsProgress",
+            setter: "setBlobDigestsProgress"
+        )
+    ]
+    #[Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "blobDigestsProgress",
+            namespace: "urn:zimbraAdmin"
+        )
+    ]
     private $blobDigestsProgress = [];
 
     /**
@@ -109,20 +137,20 @@ class DedupeBlobsResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?DedupStatus $status = NULL,
-        ?int $totalSize = NULL,
-        ?int $totalCount = NULL,
+        ?DedupStatus $status = null,
+        ?int $totalSize = null,
+        ?int $totalCount = null,
         array $volumeBlobsProgress = [],
         array $blobDigestsProgress = []
-    )
-    {
-        $this->setVolumeBlobsProgress($volumeBlobsProgress)
-             ->setBlobDigestsProgress($blobDigestsProgress);
+    ) {
+        $this->setVolumeBlobsProgress(
+            $volumeBlobsProgress
+        )->setBlobDigestsProgress($blobDigestsProgress);
         $this->status = $status;
-        if (NULL !== $totalSize) {
+        if (null !== $totalSize) {
             $this->setTotalSize($totalSize);
         }
-        if (NULL !== $totalCount) {
+        if (null !== $totalCount) {
             $this->setTotalCount($totalCount);
         }
     }
@@ -212,7 +240,8 @@ class DedupeBlobsResponse extends SoapResponse
     public function setVolumeBlobsProgress(array $progress): self
     {
         $this->volumeBlobsProgress = array_filter(
-            $progress, static fn ($progress) => $progress instanceof VolumeIdAndProgress
+            $progress,
+            static fn($progress) => $progress instanceof VolumeIdAndProgress
         );
         return $this;
     }
@@ -236,7 +265,8 @@ class DedupeBlobsResponse extends SoapResponse
     public function setBlobDigestsProgress(array $progress): self
     {
         $this->blobDigestsProgress = array_filter(
-            $progress, static fn ($progress) => $progress instanceof VolumeIdAndProgress
+            $progress,
+            static fn($progress) => $progress instanceof VolumeIdAndProgress
         );
         return $this;
     }

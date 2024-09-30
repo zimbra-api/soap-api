@@ -29,8 +29,6 @@ class GetZimletStatusRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetZimletStatusEnvelope(
-            new GetZimletStatusBody($this)
-        );
+        return new GetZimletStatusEnvelope(new GetZimletStatusBody($this));
     }
 }

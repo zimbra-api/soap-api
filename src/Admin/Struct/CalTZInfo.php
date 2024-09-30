@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\TzOnsetInfo;
 
 /**
@@ -28,119 +34,119 @@ class CalTZInfo
      * Timezone ID.
      * If this is the only detail present then this should be an existing server-known timezone's ID Otherwise,
      * it must be present, although it will be ignored by the server
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Standard Time's offset in minutes from UTC; local = UTC + offset
-     * 
+     *
      * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
      * @SerializedName("stdoff")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTzStdOffset', setter: 'setTzStdOffset')]
-    #[SerializedName('stdoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getTzStdOffset", setter: "setTzStdOffset")]
+    #[SerializedName("stdoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tzStdOffset;
 
     /**
      * Daylight Saving Time's offset in minutes from UTC; present only if DST is used
-     * 
+     *
      * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
      * @SerializedName("dayoff")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTzDayOffset', setter: 'setTzDayOffset')]
-    #[SerializedName('dayoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getTzDayOffset", setter: "setTzDayOffset")]
+    #[SerializedName("dayoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tzDayOffset;
 
     /**
      * Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
-     * 
+     *
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
      * @SerializedName("standard")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TzOnsetInfo
      */
-    #[Accessor(getter: 'getStandardTzOnset', setter: 'setStandardTzOnset')]
-    #[SerializedName('standard')]
+    #[Accessor(getter: "getStandardTzOnset", setter: "setStandardTzOnset")]
+    #[SerializedName("standard")]
     #[Type(TzOnsetInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TzOnsetInfo $standardTzOnset;
 
     /**
      * Time/rule for transitioning from standard time to daylight time
-     * 
+     *
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
      * @SerializedName("daylight")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TzOnsetInfo
      */
-    #[Accessor(getter: 'getDaylightTzOnset', setter: 'setDaylightTzOnset')]
-    #[SerializedName('daylight')]
+    #[Accessor(getter: "getDaylightTzOnset", setter: "setDaylightTzOnset")]
+    #[SerializedName("daylight")]
     #[Type(TzOnsetInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TzOnsetInfo $daylightTzOnset;
 
     /**
      * Standard Time component's timezone name
-     * 
+     *
      * @Accessor(getter="getStandardTZName", setter="setStandardTZName")
      * @SerializedName("stdname")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStandardTZName', setter: 'setStandardTZName')]
-    #[SerializedName('stdname')]
-    #[Type('string')]
+    #[Accessor(getter: "getStandardTZName", setter: "setStandardTZName")]
+    #[SerializedName("stdname")]
+    #[Type("string")]
     #[XmlAttribute]
     private $standardTZName;
 
     /**
      * Daylight Saving Time component's timezone name
-     * 
+     *
      * @Accessor(getter="getDaylightTZName", setter="setDaylightTZName")
      * @SerializedName("dayname")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDaylightTZName', setter: 'setDaylightTZName')]
-    #[SerializedName('dayname')]
-    #[Type('string')]
+    #[Accessor(getter: "getDaylightTZName", setter: "setDaylightTZName")]
+    #[SerializedName("dayname")]
+    #[Type("string")]
     #[XmlAttribute]
     private $daylightTZName;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $stdoff
      * @param int $dayoff
@@ -151,24 +157,21 @@ class CalTZInfo
      * @return self
      */
     public function __construct(
-        string $id = '',
+        string $id = "",
         int $stdoff = 0,
         int $dayoff = 0,
-        ?TzOnsetInfo $standard = NULL,
-        ?TzOnsetInfo $daylight = NULL,
-        ?string $stdname = NULL,
-        ?string $dayname = NULL
-    )
-    {
-        $this->setId($id)
-             ->setTzStdOffset($stdoff)
-             ->setTzDayOffset($dayoff);
+        ?TzOnsetInfo $standard = null,
+        ?TzOnsetInfo $daylight = null,
+        ?string $stdname = null,
+        ?string $dayname = null
+    ) {
+        $this->setId($id)->setTzStdOffset($stdoff)->setTzDayOffset($dayoff);
         $this->standardTzOnset = $standard;
         $this->daylightTzOnset = $daylight;
-        if (NULL !== $stdname) {
+        if (null !== $stdname) {
             $this->setStandardTZName($stdname);
         }
-        if (NULL !== $dayname) {
+        if (null !== $dayname) {
             $this->setDaylightTZName($dayname);
         }
     }

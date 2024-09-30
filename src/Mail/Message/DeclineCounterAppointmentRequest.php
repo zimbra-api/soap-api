@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * DeclineCounterAppointmentRequest class
  * Decline a change proposal from an attendee.  Sent by organizer to an attendee who has
  * previously sent a COUNTER message.  The syntax of the request is very similar to CreateAppointmentRequest.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,18 +30,18 @@ class DeclineCounterAppointmentRequest extends SoapRequest
     /**
      * Details of the Decline Counter.
      * Should have an <inv> which encodes an iCalendar DECLINECOUNTER object
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -50,7 +50,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
      * @param  Msg $msg
      * @return self
      */
-    public function __construct(?Msg $msg = NULL)
+    public function __construct(?Msg $msg = null)
     {
         $this->msg = $msg;
     }

@@ -25,17 +25,17 @@ class Part
 {
     /**
      * Part
-     * 
+     *
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
@@ -45,7 +45,7 @@ class Part
      * @param string $part
      * @return self
      */
-    public function __construct(string $part = '')
+    public function __construct(string $part = "")
     {
         $this->setPart($part);
     }

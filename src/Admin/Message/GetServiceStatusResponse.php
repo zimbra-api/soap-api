@@ -10,13 +10,20 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    AccessType,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\{ServiceStatus, TimeZoneInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetServiceStatusResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,32 +34,32 @@ class GetServiceStatusResponse extends SoapResponse
 {
     /**
      * TimeZone information
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("timezone")
      * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TimeZoneInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('timezone')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("timezone")]
     #[Type(TimeZoneInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TimeZoneInfo $timezone;
 
     /**
      * Service status information
-     * 
+     *
      * @Accessor(getter="getServiceStatuses", setter="setServiceStatuses")
      * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
      * @XmlList(inline=true, entry="status", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getServiceStatuses', setter: 'setServiceStatuses')]
-    #[Type('array<Zimbra\Admin\Struct\ServiceStatus>')]
-    #[XmlList(inline: true, entry: 'status', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getServiceStatuses", setter: "setServiceStatuses")]
+    #[Type("array<Zimbra\Admin\Struct\ServiceStatus>")]
+    #[XmlList(inline: true, entry: "status", namespace: "urn:zimbraAdmin")]
     private $serviceStatuses = [];
 
     /**
@@ -63,9 +70,9 @@ class GetServiceStatusResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?TimeZoneInfo $timezone = NULL, array $serviceStatuses = []
-    )
-    {
+        ?TimeZoneInfo $timezone = null,
+        array $serviceStatuses = []
+    ) {
         $this->setServiceStatuses($serviceStatuses);
         $this->timezone = $timezone;
     }
@@ -101,7 +108,8 @@ class GetServiceStatusResponse extends SoapResponse
     public function setServiceStatuses(array $statuses): self
     {
         $this->serviceStatuses = array_filter(
-            $statuses, static fn ($status) => $status instanceof ServiceStatus
+            $statuses,
+            static fn($status) => $status instanceof ServiceStatus
         );
         return $this;
     }

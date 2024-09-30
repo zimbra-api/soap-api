@@ -27,18 +27,18 @@ class ModifyDomainResponse extends SoapResponse
 {
     /**
      * Information about domain
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DomainInfo
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainInfo $domain;
 
     /**
@@ -47,7 +47,7 @@ class ModifyDomainResponse extends SoapResponse
      * @param DomainInfo $domain
      * @return self
      */
-    public function __construct(?DomainInfo $domain = NULL)
+    public function __construct(?DomainInfo $domain = null)
     {
         $this->domain = $domain;
     }

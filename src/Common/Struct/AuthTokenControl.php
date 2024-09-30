@@ -28,24 +28,24 @@ class AuthTokenControl
      * @SerializedName("voidOnExpired")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getVoidOnExpired', setter: 'setVoidOnExpired')]
-    #[SerializedName('voidOnExpired')]
-    #[Type('bool')]
+    #[Accessor(getter: "getVoidOnExpired", setter: "setVoidOnExpired")]
+    #[SerializedName("voidOnExpired")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $voidOnExpired;
 
     /**
      * Constructor
-     * 
+     *
      * @param bool $voidOnExpired
      * @return self
      */
-    public function __construct(?bool $voidOnExpired = NULL)
+    public function __construct(?bool $voidOnExpired = null)
     {
-        if (NULL !== $voidOnExpired) {
+        if (null !== $voidOnExpired) {
             $this->setVoidOnExpired($voidOnExpired);
         }
     }

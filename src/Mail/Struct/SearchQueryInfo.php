@@ -26,30 +26,30 @@ class SearchQueryInfo
 {
     /**
      * Suggest query info
-     * 
+     *
      * @Accessor(getter="getSuggests", setter="setSuggests")
      * @Type("array<Zimbra\Mail\Struct\SuggestedQueryString>")
      * @XmlList(inline=true, entry="suggest", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSuggests', setter: 'setSuggests')]
-    #[Type('array<Zimbra\Mail\Struct\SuggestedQueryString>')]
-    #[XmlList(inline: true, entry: "suggest", namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSuggests", setter: "setSuggests")]
+    #[Type("array<Zimbra\Mail\Struct\SuggestedQueryString>")]
+    #[XmlList(inline: true, entry: "suggest", namespace: "urn:zimbraMail")]
     private $suggests = [];
 
     /**
      * Wildcard query info
-     * 
+     *
      * @Accessor(getter="getWildcards", setter="setWildcards")
      * @Type("array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>")
      * @XmlList(inline=true, entry="wildcard", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWildcards', setter: 'setWildcards')]
-    #[Type('array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>')]
-    #[XmlList(inline: true, entry: "wildcard", namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getWildcards", setter: "setWildcards")]
+    #[Type("array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>")]
+    #[XmlList(inline: true, entry: "wildcard", namespace: "urn:zimbraMail")]
     private $wildcards = [];
 
     /**
@@ -61,8 +61,7 @@ class SearchQueryInfo
      */
     public function __construct(array $suggests = [], array $wildcards = [])
     {
-        $this->setSuggests($suggests)
-             ->setWildcards($wildcards);
+        $this->setSuggests($suggests)->setWildcards($wildcards);
     }
 
     /**
@@ -74,7 +73,8 @@ class SearchQueryInfo
     public function setSuggests(array $suggests): self
     {
         $this->suggests = array_filter(
-            $suggests, static fn($suggest) => $suggest instanceof SuggestedQueryString
+            $suggests,
+            static fn($suggest) => $suggest instanceof SuggestedQueryString
         );
         return $this;
     }
@@ -98,7 +98,9 @@ class SearchQueryInfo
     public function setWildcards(array $wildcards): self
     {
         $this->wildcards = array_filter(
-            $wildcards, static fn($wildcard) => $wildcard instanceof WildcardExpansionQueryInfo
+            $wildcards,
+            static fn($wildcard) => $wildcard instanceof
+                WildcardExpansionQueryInfo
         );
         return $this;
     }

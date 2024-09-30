@@ -25,47 +25,46 @@ class ExportAndDeleteItemSpec
 {
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Version
-     * 
+     *
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('version')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("version")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id
      * @param  int $version
      * @return self
      */
     public function __construct(int $id = 0, int $version = 0)
     {
-        $this->setId($id)
-             ->setVersion($version);
+        $this->setId($id)->setVersion($version);
     }
 
     /**

@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Return all targets of the specified rights applicable to the requested account.
  * Notes:
  * 1. This call only discovers grants granted on the designated target type of the specified rights.
- *    It does not return grants granted on target types the rights can inherit from. 
+ *    It does not return grants granted on target types the rights can inherit from.
  * 2. For sendAs, sendOnBehalfOf, sendAsDistList, sendOnBehalfOfDistList rights, name attribute
  *    is not returned on <target> elements.
  *    Instead, addresses in the target entry's zimbraPrefAllowAddressForDelegatedSender are returned
@@ -27,7 +27,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *    email address will be return in the only <e a="{email-address}"/> element under the <target> element.
  * 3. For all other rights, name attribute is always returned on <target> elements,
  *    no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -38,16 +38,16 @@ class DiscoverRightsRequest extends SoapRequest
 {
     /**
      * The rights
-     * 
+     *
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
     private $rights = [];
 
     /**
@@ -84,7 +84,7 @@ class DiscoverRightsRequest extends SoapRequest
     public function setRights(array $rights): self
     {
         $this->rights = array_unique(
-            array_map(static fn ($right) => trim($right), $rights)
+            array_map(static fn($right) => trim($right), $rights)
         );
         return $this;
     }
@@ -104,8 +104,6 @@ class DiscoverRightsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DiscoverRightsEnvelope(
-            new DiscoverRightsBody($this)
-        );
+        return new DiscoverRightsEnvelope(new DiscoverRightsBody($this));
     }
 }

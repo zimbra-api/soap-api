@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\LocaleInterface;
 
 /**
  * LocaleInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,69 +26,67 @@ class LocaleInfo implements LocaleInterface
 {
     /**
      * Locale ID.  e.g. "en_US"
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Locale name - the name in the locale itself.  e.g. "English (United States)"
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Locale name in the user's locale.  e.g. "English (United States)"
-     * 
+     *
      * @Accessor(getter="getLocalName", setter="setLocalName")
      * @SerializedName("localName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocalName', setter: 'setLocalName')]
-    #[SerializedName('localName')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocalName", setter: "setLocalName")]
+    #[SerializedName("localName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $localName;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $name
      * @param string $localName
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $name = '',
-        ?string $localName = NULL
-    )
-    {
-        $this->setId($id)
-             ->setName($name);
-        if (NULL !== $localName) {
+        string $id = "",
+        string $name = "",
+        ?string $localName = null
+    ) {
+        $this->setId($id)->setName($name);
+        if (null !== $localName) {
             $this->setLocalName($localName);
         }
     }

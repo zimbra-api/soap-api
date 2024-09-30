@@ -31,31 +31,30 @@ class ModifyDomainRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param array  $attrs
      * @return self
      */
-    public function __construct(string $id = '', array $attrs = [])
+    public function __construct(string $id = "", array $attrs = [])
     {
-        $this->setId($id)
-             ->setAttrs($attrs);
+        $this->setId($id)->setAttrs($attrs);
     }
 
     /**
@@ -85,8 +84,6 @@ class ModifyDomainRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyDomainEnvelope(
-            new ModifyDomainBody($this)
-        );
+        return new ModifyDomainEnvelope(new ModifyDomainBody($this));
     }
 }

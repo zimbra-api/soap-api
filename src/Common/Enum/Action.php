@@ -27,35 +27,35 @@ class Action extends Enum
      * Constant for value 'edit'
      * @return string 'edit'
      */
-    protected const EDIT = 'edit';
+    protected const EDIT = "edit";
 
     /**
      * Constant for value 'revoke'
      * @return string 'revoke'
      */
-    protected const REVOKE = 'revoke';
+    protected const REVOKE = "revoke";
 
     /**
      * Constant for value 'expire'
      * @return string 'expire'
      */
-    protected const EXPIRE = 'expire';
+    protected const EXPIRE = "expire";
 
     /**
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    protected const START = "start";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    protected const STATUS = "status";
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    protected const STOP = 'stop';
+    protected const STOP = "stop";
 }

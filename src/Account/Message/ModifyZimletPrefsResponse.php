@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ModifyZimletPrefsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,21 +26,21 @@ class ModifyZimletPrefsResponse extends SoapResponse
 {
     /**
      * Zimlets
-     * 
+     *
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "zimlet", namespace: "urn:zimbraAccount")]
     private $zimlets = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $zimlets
      * @return self
      */
@@ -68,7 +68,7 @@ class ModifyZimletPrefsResponse extends SoapResponse
     public function setZimlets(array $zimlets)
     {
         $this->zimlets = array_unique(
-            array_map(static fn ($zimlet) => trim($zimlet), $zimlets)
+            array_map(static fn($zimlet) => trim($zimlet), $zimlets)
         );
         return $this;
     }

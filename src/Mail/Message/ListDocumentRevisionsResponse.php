@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ListDocumentRevisionsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,30 +27,30 @@ class ListDocumentRevisionsResponse extends SoapResponse
 {
     /**
      * Document revision information
-     * 
+     *
      * @Accessor(getter="getRevisions", setter="setRevisions")
      * @Type("array<Zimbra\Mail\Struct\DocumentInfo>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRevisions', setter: 'setRevisions')]
-    #[Type('array<Zimbra\Mail\Struct\DocumentInfo>')]
-    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRevisions", setter: "setRevisions")]
+    #[Type("array<Zimbra\Mail\Struct\DocumentInfo>")]
+    #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
     private $revisions = [];
 
     /**
      * User information
-     * 
+     *
      * @Accessor(getter="getUsers", setter="setUsers")
      * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
      * @XmlList(inline=true, entry="user", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUsers', setter: 'setUsers')]
-    #[Type('array<Zimbra\Mail\Struct\IdEmailName>')]
-    #[XmlList(inline: true, entry: 'user', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getUsers", setter: "setUsers")]
+    #[Type("array<Zimbra\Mail\Struct\IdEmailName>")]
+    #[XmlList(inline: true, entry: "user", namespace: "urn:zimbraMail")]
     private $users = [];
 
     /**
@@ -62,8 +62,7 @@ class ListDocumentRevisionsResponse extends SoapResponse
      */
     public function __construct(array $revisions = [], array $users = [])
     {
-        $this->setRevisions($revisions)
-             ->setUsers($users);
+        $this->setRevisions($revisions)->setUsers($users);
     }
 
     /**
@@ -75,7 +74,8 @@ class ListDocumentRevisionsResponse extends SoapResponse
     public function setRevisions(array $revisions): self
     {
         $this->revisions = array_filter(
-            $revisions, static fn ($rev) => $rev instanceof DocumentInfo
+            $revisions,
+            static fn($rev) => $rev instanceof DocumentInfo
         );
         return $this;
     }
@@ -99,7 +99,8 @@ class ListDocumentRevisionsResponse extends SoapResponse
     public function setUsers(array $users): self
     {
         $this->users = array_filter(
-            $users, static fn ($user) => $user instanceof IdEmailName
+            $users,
+            static fn($user) => $user instanceof IdEmailName
         );
         return $this;
     }

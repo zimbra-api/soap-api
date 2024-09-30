@@ -25,31 +25,31 @@ class FlagAction extends FilterAction
 {
     /**
      * Flag name - flagged|read|priority
-     * 
+     *
      * @Accessor(getter="getFlag", setter="setFlag")
      * @SerializedName("flagName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlag', setter: 'setFlag')]
-    #[SerializedName('flagName')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlag", setter: "setFlag")]
+    #[SerializedName("flagName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flag;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $flag
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $flag = NULL)
+    public function __construct(?int $index = null, ?string $flag = null)
     {
-    	parent::__construct($index);
-        if (NULL !== $flag) {
+        parent::__construct($index);
+        if (null !== $flag) {
             $this->setFlag($flag);
         }
     }

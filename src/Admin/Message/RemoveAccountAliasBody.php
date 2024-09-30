@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RemoveAccountAliasBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class RemoveAccountAliasBody extends SoapBody
      * @SerializedName("RemoveAccountAliasRequest")
      * @Type("Zimbra\Admin\Message\RemoveAccountAliasRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RemoveAccountAliasRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RemoveAccountAliasRequest")]
     #[Type(RemoveAccountAliasRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RemoveAccountAliasResponse")
      * @Type("Zimbra\Admin\Message\RemoveAccountAliasResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RemoveAccountAliasResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RemoveAccountAliasResponse")]
     #[Type(RemoveAccountAliasResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RemoveAccountAliasBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveAccountAliasRequest $request = NULL, ?RemoveAccountAliasResponse $response = NULL
-    )
-    {
+        ?RemoveAccountAliasRequest $request = null,
+        ?RemoveAccountAliasResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

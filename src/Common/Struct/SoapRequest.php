@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Soap request class, not to be instantiated.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct
@@ -27,13 +27,13 @@ abstract class SoapRequest implements SoapRequestInterface
 
     /**
      * Soap envelope
-     * 
+     *
      * @Exclude
-     * 
+     *
      * @var SoapEnvelopeInterface
      */
     #[Exclude]
-    private ?SoapEnvelopeInterface $soapEnvelope = NULL;
+    private ?SoapEnvelopeInterface $soapEnvelope = null;
 
     /**
      * {@inheritdoc}

@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * AdminDestroyWaitSetBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class AdminDestroyWaitSetBody extends SoapBody
      * @SerializedName("AdminDestroyWaitSetRequest")
      * @Type("Zimbra\Admin\Message\AdminDestroyWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('AdminDestroyWaitSetRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("AdminDestroyWaitSetRequest")]
     #[Type(AdminDestroyWaitSetRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("AdminDestroyWaitSetResponse")
      * @Type("Zimbra\Admin\Message\AdminDestroyWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('AdminDestroyWaitSetResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("AdminDestroyWaitSetResponse")]
     #[Type(AdminDestroyWaitSetResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class AdminDestroyWaitSetBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AdminDestroyWaitSetRequest $request = NULL, ?AdminDestroyWaitSetResponse $response = NULL
-    )
-    {
+        ?AdminDestroyWaitSetRequest $request = null,
+        ?AdminDestroyWaitSetResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

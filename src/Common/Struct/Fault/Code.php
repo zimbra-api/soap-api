@@ -28,24 +28,29 @@ class Code
      * @SerializedName("Value")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('Value')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'http://www.w3.org/2003/05/soap-envelope')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("Value")]
+    #[Type("string")]
+    #[
+        XmlElement(
+            cdata: false,
+            namespace: "http://www.w3.org/2003/05/soap-envelope"
+        )
+    ]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @return self
      */
-    public function __construct(?string $value = NULL)
+    public function __construct(?string $value = null)
     {
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

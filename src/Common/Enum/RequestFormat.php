@@ -27,11 +27,11 @@ class RequestFormat extends Enum
      * Constant for value 'xml'
      * @return string 'xml'
      */
-    protected const XML = 'xml';
+    protected const XML = "xml";
 
     /**
      * Constant for value 'js'
      * @return string 'js'
      */
-    protected const JS = 'js';
+    protected const JS = "js";
 }

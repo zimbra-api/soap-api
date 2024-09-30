@@ -27,11 +27,11 @@ class LockoutOperation extends Enum
      * Constant for value 'start'
      * @return string 'start'
      */
-    protected const START = 'start';
+    protected const START = "start";
 
     /**
      * Constant for value 'end'
      * @return string 'end'
      */
-    protected const END = 'end';
+    protected const END = "end";
 }

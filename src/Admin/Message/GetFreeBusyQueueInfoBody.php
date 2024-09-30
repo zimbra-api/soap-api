@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetFreeBusyQueueInfoBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetFreeBusyQueueInfoBody extends SoapBody
      * @SerializedName("GetFreeBusyQueueInfoRequest")
      * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetFreeBusyQueueInfoRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetFreeBusyQueueInfoRequest")]
     #[Type(GetFreeBusyQueueInfoRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetFreeBusyQueueInfoResponse")
      * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetFreeBusyQueueInfoResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetFreeBusyQueueInfoResponse")]
     #[Type(GetFreeBusyQueueInfoResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetFreeBusyQueueInfoBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetFreeBusyQueueInfoRequest $request = NULL, ?GetFreeBusyQueueInfoResponse $response = NULL
-    )
-    {
+        ?GetFreeBusyQueueInfoRequest $request = null,
+        ?GetFreeBusyQueueInfoResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

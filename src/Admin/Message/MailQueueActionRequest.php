@@ -29,18 +29,18 @@ class MailQueueActionRequest extends SoapRequest
 {
     /**
      * Server with queue action
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerWithQueueAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Server
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(Server::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Server $server;
 
     /**
@@ -81,8 +81,6 @@ class MailQueueActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new MailQueueActionEnvelope(
-            new MailQueueActionBody($this)
-        );
+        return new MailQueueActionEnvelope(new MailQueueActionBody($this));
     }
 }

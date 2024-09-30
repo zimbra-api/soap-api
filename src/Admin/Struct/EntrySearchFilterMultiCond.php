@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Common\Struct\SearchFilterCondition;
@@ -28,82 +34,86 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
 {
     /**
      * Negation flag
-     * 
+     *
      * @Accessor(getter="isNot", setter="setNot")
      * @SerializedName("not")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isNot', setter: 'setNot')]
-    #[SerializedName('not')]
-    #[Type('bool')]
+    #[Accessor(getter: "isNot", setter: "setNot")]
+    #[SerializedName("not")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $not;
 
     /**
      * OR flag
-     * 
+     *
      * @Accessor(getter="isOr", setter="setOr")
      * @SerializedName("or")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isOr', setter: 'setOr')]
-    #[SerializedName('or')]
-    #[Type('bool')]
+    #[Accessor(getter: "isOr", setter: "setOr")]
+    #[SerializedName("or")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $or;
 
     /**
      * The array of compound conditions
-     * 
+     *
      * @Accessor(getter="getCompoundConditions", setter="setCompoundConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>")
      * @XmlList(inline=true, entry="conds", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCompoundConditions', setter: 'setCompoundConditions')]
-    #[Type('array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>')]
-    #[XmlList(inline: true, entry: 'conds', namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getCompoundConditions",
+            setter: "setCompoundConditions"
+        )
+    ]
+    #[Type("array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>")]
+    #[XmlList(inline: true, entry: "conds", namespace: "urn:zimbraAdmin")]
     private $compoundConditions = [];
 
     /**
      * The array of simple conditions
-     * 
+     *
      * @Accessor(getter="getSingleConditions", setter="setSingleConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>")
      * @XmlList(inline=true, entry="cond", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSingleConditions', setter: 'setSingleConditions')]
-    #[Type('array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>')]
-    #[XmlList(inline: true, entry: 'cond', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSingleConditions", setter: "setSingleConditions")]
+    #[Type("array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>")]
+    #[XmlList(inline: true, entry: "cond", namespace: "urn:zimbraAdmin")]
     private $singleConditions = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param bool $not
      * @param bool $or
      * @param array $conditions
      * @return self
      */
     public function __construct(
-        ?bool $not = NULL,
-        ?bool $or = NULL,
+        ?bool $not = null,
+        ?bool $or = null,
         array $conditions = []
-    )
-    {
-        if (NULL !== $not) {
+    ) {
+        if (null !== $not) {
             $this->setNot($not);
         }
-        if (NULL !== $or) {
+        if (null !== $or) {
             $this->setOr($or);
         }
         $this->setConditions($conditions);
@@ -177,8 +187,9 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      */
     public function setConditions(array $conditions): self
     {
-        $this->setCompoundConditions($conditions)
-             ->setSingleConditions($conditions);
+        $this->setCompoundConditions($conditions)->setSingleConditions(
+            $conditions
+        );
         return $this;
     }
 
@@ -210,7 +221,10 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     public function setCompoundConditions(array $conditions): self
     {
         $this->compoundConditions = array_values(
-            array_filter($conditions, static fn ($condition) => $condition instanceof MultiCond)
+            array_filter(
+                $conditions,
+                static fn($condition) => $condition instanceof MultiCond
+            )
         );
         return $this;
     }
@@ -233,7 +247,10 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     public function setSingleConditions(array $conditions): self
     {
         $this->singleConditions = array_values(
-            array_filter($conditions, static fn ($condition) => $condition instanceof SingleCond)
+            array_filter(
+                $conditions,
+                static fn($condition) => $condition instanceof SingleCond
+            )
         );
         return $this;
     }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetEffectiveFolderPermsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
 {
     /**
      * Folder permissions information
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Rights")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Rights
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
     #[Type(Rights::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Rights $folder;
 
     /**
@@ -47,7 +47,7 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
      * @param  Rights $folder
      * @return self
      */
-    public function __construct(?Rights $folder = NULL)
+    public function __construct(?Rights $folder = null)
     {
         $this->folder = $folder;
     }

@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\{DomainSelector, UcServiceSelector};
 use Zimbra\Common\Enum\CountObjectsType;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -18,17 +25,17 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CountObjectsRequest class
  * Count number of objects.
- * 
+ *
  * Returns number of objects of requested type.
- * 
+ *
  * Note: For account/alias/dl, if a domain is specified, only entries on the specified domain are counted.
  * If no domain is specified, entries on all domains are counted.
- * 
+ *
  * For accountOnUCService/cosOnUCService/domainOnUCService, UCService is required, and domain cannot be specified.
- * 
+ *
  * For domain, if onlyRelated attribute is true and the request is sent by a delegate or
  * domain admin, counts only domain on which has rights, without requiring countDomain right.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -39,69 +46,69 @@ class CountObjectsRequest extends SoapRequest
 {
     /**
      * Object type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\CountObjectsType>")
      * @XmlAttribute
-     * 
+     *
      * @var CountObjectsType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\CountObjectsType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\CountObjectsType>")]
     #[XmlAttribute]
     private CountObjectsType $type;
 
     /**
      * Domain
-     * 
+     *
      * @Accessor(getter="getDomains", setter="setDomains")
      * @Type("array<Zimbra\Admin\Struct\DomainSelector>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDomains', setter: 'setDomains')]
-    #[Type('array<Zimbra\Admin\Struct\DomainSelector>')]
-    #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDomains", setter: "setDomains")]
+    #[Type("array<Zimbra\Admin\Struct\DomainSelector>")]
+    #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
     private $domains = [];
 
     /**
      * UCService
-     * 
+     *
      * @Accessor(getter="getUcService", setter="setUcService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var UcServiceSelector
      */
-    #[Accessor(getter: 'getUcService', setter: 'setUcService')]
-    #[SerializedName('ucservice')]
+    #[Accessor(getter: "getUcService", setter: "setUcService")]
+    #[SerializedName("ucservice")]
     #[Type(UcServiceSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?UcServiceSelector $ucService;
 
     /**
      * Get only related if delegated/domain admin
-     * 
+     *
      * @Accessor(getter="getOnlyRelated", setter="setOnlyRelated")
      * @SerializedName("onlyrelated")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getOnlyRelated', setter: 'setOnlyRelated')]
-    #[SerializedName('onlyrelated')]
-    #[Type('bool')]
+    #[Accessor(getter: "getOnlyRelated", setter: "setOnlyRelated")]
+    #[SerializedName("onlyrelated")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $onlyRelated;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CountObjectsType $type
      * @param  array $domains
      * @param  UcServiceSelector $ucService
@@ -109,16 +116,16 @@ class CountObjectsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?CountObjectsType $type = NULL,
+        ?CountObjectsType $type = null,
         array $domains = [],
-        ?UcServiceSelector $ucService = NULL,
-        ?bool $onlyRelated = NULL
-    )
-    {
-        $this->setType($type ?? new CountObjectsType('account'))
-             ->setDomains($domains);
+        ?UcServiceSelector $ucService = null,
+        ?bool $onlyRelated = null
+    ) {
+        $this->setType($type ?? new CountObjectsType("account"))->setDomains(
+            $domains
+        );
         $this->ucService = $ucService;
-        if (NULL !== $onlyRelated) {
+        if (null !== $onlyRelated) {
             $this->setOnlyRelated($onlyRelated);
         }
     }
@@ -188,7 +195,8 @@ class CountObjectsRequest extends SoapRequest
     public function setDomains(array $domains): self
     {
         $this->domains = array_filter(
-            $domains, static fn ($domain) => $domain instanceof DomainSelector
+            $domains,
+            static fn($domain) => $domain instanceof DomainSelector
         );
         return $this;
     }
@@ -230,8 +238,6 @@ class CountObjectsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CountObjectsEnvelope(
-            new CountObjectsBody($this)
-        );
+        return new CountObjectsEnvelope(new CountObjectsBody($this));
     }
 }

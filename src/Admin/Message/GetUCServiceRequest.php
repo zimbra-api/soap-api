@@ -12,12 +12,17 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetUCServiceRequest class
  * Get UC Service
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,31 +35,33 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
 
     /**
      * UC Service
-     * 
+     *
      * @Accessor(getter="getUCService", setter="setUCService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var UcServiceSelector
      */
-    #[Accessor(getter: 'getUCService', setter: 'setUCService')]
-    #[SerializedName('ucservice')]
+    #[Accessor(getter: "getUCService", setter: "setUCService")]
+    #[SerializedName("ucservice")]
     #[Type(UcServiceSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private UcServiceSelector $ucService;
 
     /**
      * Constructor
-     * 
+     *
      * @param  UcServiceSelector $ucService
      * @param  string $attrs
      * @return self
      */
-    public function __construct(UcServiceSelector $ucService, ?string $attrs = NULL)
-    {
+    public function __construct(
+        UcServiceSelector $ucService,
+        ?string $attrs = null
+    ) {
         $this->setUCService($ucService);
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }
@@ -86,8 +93,6 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetUCServiceEnvelope(
-            new GetUCServiceBody($this)
-        );
+        return new GetUCServiceEnvelope(new GetUCServiceBody($this));
     }
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetApptSummariesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,30 +27,30 @@ class GetApptSummariesResponse extends SoapResponse
 {
     /**
      * Appointment summaries
-     * 
+     *
      * @Accessor(getter="getApptEntries", setter="setApptEntries")
      * @Type("array<Zimbra\Mail\Struct\LegacyAppointmentData>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getApptEntries', setter: 'setApptEntries')]
-    #[Type('array<Zimbra\Mail\Struct\LegacyAppointmentData>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getApptEntries", setter: "setApptEntries")]
+    #[Type("array<Zimbra\Mail\Struct\LegacyAppointmentData>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $apptEntries = [];
 
     /**
      * Task summaries
-     * 
+     *
      * @Accessor(getter="getTaskEntries", setter="setTaskEntries")
      * @Type("array<Zimbra\Mail\Struct\LegacyTaskData>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskEntries', setter: 'setTaskEntries')]
-    #[Type('array<Zimbra\Mail\Struct\LegacyTaskData>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskEntries", setter: "setTaskEntries")]
+    #[Type("array<Zimbra\Mail\Struct\LegacyTaskData>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskEntries = [];
 
     /**
@@ -63,10 +63,8 @@ class GetApptSummariesResponse extends SoapResponse
     public function __construct(
         array $apptEntries = [],
         array $taskEntries = []
-    )
-    {
-        $this->setApptEntries($apptEntries)
-             ->setTaskEntries($taskEntries);
+    ) {
+        $this->setApptEntries($apptEntries)->setTaskEntries($taskEntries);
     }
 
     /**
@@ -78,7 +76,8 @@ class GetApptSummariesResponse extends SoapResponse
     public function setApptEntries(array $entries): self
     {
         $this->apptEntries = array_filter(
-            $entries, static fn ($entry) => $entry instanceof LegacyAppointmentData
+            $entries,
+            static fn($entry) => $entry instanceof LegacyAppointmentData
         );
         return $this;
     }
@@ -102,7 +101,8 @@ class GetApptSummariesResponse extends SoapResponse
     public function setTaskEntries(array $entries): self
     {
         $this->taskEntries = array_filter(
-            $entries, static fn ($entry) => $entry instanceof LegacyTaskData
+            $entries,
+            static fn($entry) => $entry instanceof LegacyTaskData
         );
         return $this;
     }

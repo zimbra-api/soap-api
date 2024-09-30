@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\NamedElement;
 
 /**
@@ -26,45 +32,46 @@ class InDomainInfo
 {
     /**
      * Domains
-     * 
+     *
      * @Accessor(getter="getDomains", setter="setDomains")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDomains', setter: 'setDomains')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDomains", setter: "setDomains")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
     private $domains = [];
 
     /**
      * Rights
-     * 
+     *
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var EffectiveRightsInfo
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
     #[Type(EffectiveRightsInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private EffectiveRightsInfo $rights;
 
     /**
      * Constructor
-     * 
+     *
      * @param EffectiveRightsInfo $rights
      * @param array $domains
      * @return self
      */
-    public function __construct(EffectiveRightsInfo $rights, array $domains = [])
-    {
-        $this->setRights($rights)
-             ->setDomains($domains);
+    public function __construct(
+        EffectiveRightsInfo $rights,
+        array $domains = []
+    ) {
+        $this->setRights($rights)->setDomains($domains);
     }
     /**
      * Get domains
@@ -85,7 +92,8 @@ class InDomainInfo
     public function setDomains(array $domains): self
     {
         $this->domains = array_filter(
-            $domains, static fn ($domain) => $domain instanceof NamedElement
+            $domains,
+            static fn($domain) => $domain instanceof NamedElement
         );
         return $this;
     }

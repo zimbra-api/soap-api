@@ -27,17 +27,17 @@ class Importance extends Enum
      * Constant for value 'high'
      * @return string 'high'
      */
-    protected const HIGH = 'high';
+    protected const HIGH = "high";
 
     /**
      * Constant for value 'normal'
      * @return string 'normal'
      */
-    protected const NORMAL = 'normal';
+    protected const NORMAL = "normal";
 
     /**
      * Constant for value 'low'
      * @return string 'low'
      */
-    protected const LOW = 'low';
+    protected const LOW = "low";
 }

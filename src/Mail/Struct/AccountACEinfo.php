@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\GranteeType;
 
 /**
  * AccountACEinfo struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -29,12 +29,12 @@ class AccountACEinfo
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName('gt')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[Accessor(getter: "getGranteeType", setter: "setGranteeType")]
+    #[SerializedName("gt")]
+    #[Type("Enum<Zimbra\Common\Enum\GranteeType>")]
     #[XmlAttribute]
     private GranteeType $granteeType;
 
@@ -43,12 +43,12 @@ class AccountACEinfo
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
-    #[Type('string')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
+    #[Type("string")]
     #[XmlAttribute]
     private $right;
 
@@ -57,12 +57,12 @@ class AccountACEinfo
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
@@ -71,12 +71,12 @@ class AccountACEinfo
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
@@ -85,12 +85,12 @@ class AccountACEinfo
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessKey", setter: "setAccessKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessKey;
 
@@ -99,12 +99,12 @@ class AccountACEinfo
      * @SerializedName("pw")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('pw')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("pw")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
@@ -113,18 +113,18 @@ class AccountACEinfo
      * @SerializedName("deny")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDeny', setter: 'setDeny')]
-    #[SerializedName('deny')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDeny", setter: "setDeny")]
+    #[SerializedName("deny")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $deny;
 
     /**
      * Constructor
-     * 
+     *
      * @param GranteeType $granteeType
      * @param string $right
      * @param string $zimbraId
@@ -135,30 +135,30 @@ class AccountACEinfo
      * @return self
      */
     public function __construct(
-        ?GranteeType $granteeType = NULL,
-        string $right = '',
-        ?string $zimbraId = NULL,
-        ?string $displayName = NULL,
-        ?string $accessKey = NULL,
-        ?string $password = NULL,
-        ?bool $deny = NULL
-    )
-    {
-        $this->setGranteeType($granteeType ?? new GranteeType('all'))
-             ->setRight($right);
-        if (NULL !== $zimbraId) {
+        ?GranteeType $granteeType = null,
+        string $right = "",
+        ?string $zimbraId = null,
+        ?string $displayName = null,
+        ?string $accessKey = null,
+        ?string $password = null,
+        ?bool $deny = null
+    ) {
+        $this->setGranteeType($granteeType ?? new GranteeType("all"))->setRight(
+            $right
+        );
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $deny) {
+        if (null !== $deny) {
             $this->setDeny($deny);
         }
     }

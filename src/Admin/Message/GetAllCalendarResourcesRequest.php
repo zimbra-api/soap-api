@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 /**
  * GetAllCalendarResourcesRequest class
  * Get all calendar resources that match the selection criteria
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

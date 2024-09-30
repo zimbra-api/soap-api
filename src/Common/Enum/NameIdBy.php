@@ -27,11 +27,11 @@ abstract class NameIdBy extends Enum
      * Constant for value 'id'
      * @return string 'id'
      */
-    protected const ID = 'id';
+    protected const ID = "id";
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    protected const NAME = 'name';
+    protected const NAME = "name";
 }

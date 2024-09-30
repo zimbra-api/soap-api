@@ -27,18 +27,18 @@ class CreateIdentityResponse extends SoapResponse
 {
     /**
      * Information about created identity
-     * 
+     *
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var Identity
      */
-    #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName('identity')]
+    #[Accessor(getter: "getIdentity", setter: "setIdentity")]
+    #[SerializedName("identity")]
     #[Type(Identity::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?Identity $identity;
 
     /**
@@ -47,7 +47,7 @@ class CreateIdentityResponse extends SoapResponse
      * @param Identity $identity
      * @return self
      */
-    public function __construct(?Identity $identity = NULL)
+    public function __construct(?Identity $identity = null)
     {
         $this->identity = $identity;
     }

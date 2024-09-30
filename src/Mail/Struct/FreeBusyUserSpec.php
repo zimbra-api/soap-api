@@ -26,49 +26,49 @@ class FreeBusyUserSpec
 {
     /**
      * Calendar folder ID; if omitted, get f/b on all calendar folders
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('int')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("int")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Zimbra ID. Either "name" or "id" must be specified
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Email address.  Either "name" or "id" must be specified
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -81,16 +81,17 @@ class FreeBusyUserSpec
      * @return self
      */
     public function __construct(
-        ?int $folderId = NULL, ?string $id = NULL, ?string $name = NULL
-    )
-    {
-        if (NULL !== $folderId) {
+        ?int $folderId = null,
+        ?string $id = null,
+        ?string $name = null
+    ) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

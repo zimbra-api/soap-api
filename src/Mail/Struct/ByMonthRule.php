@@ -27,17 +27,17 @@ class ByMonthRule implements ByMonthRuleInterface
 {
     /**
      * Comma separated list of months where month is a number between 1 and 12
-     * 
+     *
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("molist")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('molist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("molist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -47,7 +47,7 @@ class ByMonthRule implements ByMonthRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -71,15 +71,15 @@ class ByMonthRule implements ByMonthRuleInterface
     public function setList(string $list): self
     {
         $molist = [];
-        foreach (explode(',', $list) as $mo) {
+        foreach (explode(",", $list) as $mo) {
             if (is_numeric($mo)) {
                 $mo = (int) $mo;
-                if($mo > 0 && $mo < 13 && !in_array($mo, $molist)) {
+                if ($mo > 0 && $mo < 13 && !in_array($mo, $molist)) {
                     $molist[] = $mo;
                 }
             }
         }
-        $this->list = implode(',', $molist);
+        $this->list = implode(",", $molist);
         return $this;
     }
 }

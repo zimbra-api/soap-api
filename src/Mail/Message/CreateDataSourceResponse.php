@@ -25,7 +25,7 @@ use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * CreateDataSourceResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -36,129 +36,129 @@ class CreateDataSourceResponse extends SoapResponse
 {
     /**
      * Imap data source
-     * 
+     *
      * @Accessor(getter="getImapDataSource", setter="setImapDataSource")
      * @SerializedName("imap")
      * @Type("Zimbra\Mail\Struct\ImapDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ImapDataSourceId
      */
-    #[Accessor(getter: 'getImapDataSource', setter: 'setImapDataSource')]
-    #[SerializedName('imap')]
+    #[Accessor(getter: "getImapDataSource", setter: "setImapDataSource")]
+    #[SerializedName("imap")]
     #[Type(ImapDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ImapDataSourceId $imapDataSource;
 
     /**
      * Pop3 data source
-     * 
+     *
      * @Accessor(getter="getPop3DataSource", setter="setPop3DataSource")
      * @SerializedName("pop3")
      * @Type("Zimbra\Mail\Struct\Pop3DataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Pop3DataSourceId
      */
-    #[Accessor(getter: 'getPop3DataSource', setter: 'setPop3DataSource')]
-    #[SerializedName('pop3')]
+    #[Accessor(getter: "getPop3DataSource", setter: "setPop3DataSource")]
+    #[SerializedName("pop3")]
     #[Type(Pop3DataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Pop3DataSourceId $pop3DataSource;
 
     /**
      * Caldav data source
-     * 
+     *
      * @Accessor(getter="getCaldavDataSource", setter="setCaldavDataSource")
      * @SerializedName("caldav")
      * @Type("Zimbra\Mail\Struct\CaldavDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CaldavDataSourceId
      */
-    #[Accessor(getter: 'getCaldavDataSource', setter: 'setCaldavDataSource')]
-    #[SerializedName('caldav')]
+    #[Accessor(getter: "getCaldavDataSource", setter: "setCaldavDataSource")]
+    #[SerializedName("caldav")]
     #[Type(CaldavDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CaldavDataSourceId $caldavDataSource;
 
     /**
      * Yab data source
-     * 
+     *
      * @Accessor(getter="getYabDataSource", setter="setYabDataSource")
      * @SerializedName("yab")
      * @Type("Zimbra\Mail\Struct\YabDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var YabDataSourceId
      */
-    #[Accessor(getter: 'getYabDataSource', setter: 'setYabDataSource')]
-    #[SerializedName('yab')]
+    #[Accessor(getter: "getYabDataSource", setter: "setYabDataSource")]
+    #[SerializedName("yab")]
     #[Type(YabDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?YabDataSourceId $yabDataSource;
 
     /**
      * Rss data source
-     * 
+     *
      * @Accessor(getter="getRssDataSource", setter="setRssDataSource")
      * @SerializedName("rss")
      * @Type("Zimbra\Mail\Struct\RssDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
      * @var RssDataSourceId
      */
-    #[Accessor(getter: 'getRssDataSource', setter: 'setRssDataSource')]
-    #[SerializedName('rss')]
+    #[Accessor(getter: "getRssDataSource", setter: "setRssDataSource")]
+    #[SerializedName("rss")]
     #[Type(RssDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RssDataSourceId $rssDataSource;
 
     /**
      * Gal data source
-     * 
+     *
      * @Accessor(getter="getGalDataSource", setter="setGalDataSource")
      * @SerializedName("gal")
      * @Type("Zimbra\Mail\Struct\GalDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var GalDataSourceId
      */
-    #[Accessor(getter: 'getGalDataSource', setter: 'setGalDataSource')]
-    #[SerializedName('gal')]
+    #[Accessor(getter: "getGalDataSource", setter: "setGalDataSource")]
+    #[SerializedName("gal")]
     #[Type(GalDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GalDataSourceId $galDataSource;
 
     /**
      * Cal data source
-     * 
+     *
      * @Accessor(getter="getCalDataSource", setter="setCalDataSource")
      * @SerializedName("cal")
      * @Type("Zimbra\Mail\Struct\CalDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalDataSourceId
      */
-    #[Accessor(getter: 'getCalDataSource', setter: 'setCalDataSource')]
-    #[SerializedName('cal')]
+    #[Accessor(getter: "getCalDataSource", setter: "setCalDataSource")]
+    #[SerializedName("cal")]
     #[Type(CalDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalDataSourceId $calDataSource;
 
     /**
      * Unknown data source
-     * 
+     *
      * @Accessor(getter="getUnknownDataSource", setter="setUnknownDataSource")
      * @SerializedName("unknown")
      * @Type("Zimbra\Mail\Struct\UnknownDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var UnknownDataSourceId
      */
-    #[Accessor(getter: 'getUnknownDataSource', setter: 'setUnknownDataSource')]
-    #[SerializedName('unknown')]
+    #[Accessor(getter: "getUnknownDataSource", setter: "setUnknownDataSource")]
+    #[SerializedName("unknown")]
     #[Type(UnknownDataSourceId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?UnknownDataSourceId $unknownDataSource;
 
     /**
@@ -167,16 +167,9 @@ class CreateDataSourceResponse extends SoapResponse
      * @param  Id $dataSource
      * @return self
      */
-    public function __construct(?Id $dataSource = NULL)
+    public function __construct(?Id $dataSource = null)
     {
-        $this->imapDataSource = 
-        $this->pop3DataSource = 
-        $this->caldavDataSource = 
-        $this->yabDataSource = 
-        $this->rssDataSource = 
-        $this->galDataSource = 
-        $this->calDataSource = 
-        $this->unknownDataSource = NULL;
+        $this->imapDataSource = $this->pop3DataSource = $this->caldavDataSource = $this->yabDataSource = $this->rssDataSource = $this->galDataSource = $this->calDataSource = $this->unknownDataSource = null;
         if ($dataSource instanceof ImapDataSourceId) {
             $this->setImapDataSource($dataSource);
         }
@@ -205,7 +198,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get imap data source
-     * 
+     *
      * @return ImapDataSourceId
      */
     public function getImapDataSource(): ?ImapDataSourceId
@@ -227,7 +220,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get pop3 data source
-     * 
+     *
      * @return Pop3DataSourceId
      */
     public function getPop3DataSource(): ?Pop3DataSourceId
@@ -249,7 +242,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get caldav data source
-     * 
+     *
      * @return CaldavDataSourceId
      */
     public function getCaldavDataSource(): ?CaldavDataSourceId
@@ -271,7 +264,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get yab data source
-     * 
+     *
      * @return YabDataSourceId
      */
     public function getYabDataSource(): ?YabDataSourceId
@@ -293,7 +286,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get rss data source
-     * 
+     *
      * @return RssDataSourceId
      */
     public function getRssDataSource(): ?RssDataSourceId
@@ -315,7 +308,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get gal data source
-     * 
+     *
      * @return GalDataSourceId
      */
     public function getGalDataSource(): ?GalDataSourceId
@@ -337,7 +330,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get cal data source
-     * 
+     *
      * @return CalDataSourceId
      */
     public function getCalDataSource(): ?CalDataSourceId
@@ -359,7 +352,7 @@ class CreateDataSourceResponse extends SoapResponse
 
     /**
      * Get unknown data source
-     * 
+     *
      * @return UnknownDataSourceId
      */
     public function getUnknownDataSource(): ?UnknownDataSourceId

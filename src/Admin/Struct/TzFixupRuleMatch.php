@@ -26,87 +26,87 @@ class TzFixupRuleMatch
 {
     /**
      * Simple element
-     * 
+     *
      * @Accessor(getter="getAny", setter="setAny")
      * @SerializedName("any")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SimpleElement
      */
-    #[Accessor(getter: 'getAny', setter: 'setAny')]
-    #[SerializedName('any')]
+    #[Accessor(getter: "getAny", setter: "setAny")]
+    #[SerializedName("any")]
     #[Type(SimpleElement::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SimpleElement $any;
 
     /**
      * Tz ID
-     * 
+     *
      * @Accessor(getter="getTzid", setter="setTzid")
      * @SerializedName("tzid")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getTzid', setter: 'setTzid')]
-    #[SerializedName('tzid')]
+    #[Accessor(getter: "getTzid", setter: "setTzid")]
+    #[SerializedName("tzid")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Id $tzid;
 
     /**
      * Offset
-     * 
+     *
      * @Accessor(getter="getNonDst", setter="setNonDst")
      * @SerializedName("nonDst")
      * @Type("Zimbra\Admin\Struct\Offset")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Offset
      */
-    #[Accessor(getter: 'getNonDst', setter: 'setNonDst')]
-    #[SerializedName('nonDst')]
+    #[Accessor(getter: "getNonDst", setter: "setNonDst")]
+    #[SerializedName("nonDst")]
     #[Type(Offset::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Offset $nonDst;
 
     /**
      * Rules
-     * 
+     *
      * @Accessor(getter="getRules", setter="setRules")
      * @SerializedName("rules")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRules")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TzFixupRuleMatchRules
      */
-    #[Accessor(getter: 'getRules', setter: 'setRules')]
-    #[SerializedName('rules')]
+    #[Accessor(getter: "getRules", setter: "setRules")]
+    #[SerializedName("rules")]
     #[Type(TzFixupRuleMatchRules::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TzFixupRuleMatchRules $rules;
 
     /**
      * Dates
-     * 
+     *
      * @Accessor(getter="getDates", setter="setDates")
      * @SerializedName("dates")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDates")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TzFixupRuleMatchDates
      */
-    #[Accessor(getter: 'getDates', setter: 'setDates')]
-    #[SerializedName('dates')]
+    #[Accessor(getter: "getDates", setter: "setDates")]
+    #[SerializedName("dates")]
     #[Type(TzFixupRuleMatchDates::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TzFixupRuleMatchDates $dates;
 
     /**
      * Constructor
-     * 
+     *
      * @param SimpleElement $any
      * @param Id $tzid
      * @param Offset $nonDst
@@ -115,13 +115,12 @@ class TzFixupRuleMatch
      * @return self
      */
     public function __construct(
-        ?SimpleElement $any = NULL,
-        ?Id $tzid = NULL,
-        ?Offset $nonDst = NULL,
-        ?TzFixupRuleMatchRules $rules = NULL,
-        ?TzFixupRuleMatchDates $dates = NULL
-    )
-    {
+        ?SimpleElement $any = null,
+        ?Id $tzid = null,
+        ?Offset $nonDst = null,
+        ?TzFixupRuleMatchRules $rules = null,
+        ?TzFixupRuleMatchDates $dates = null
+    ) {
         $this->any = $any;
         $this->tzid = $tzid;
         $this->nonDst = $nonDst;

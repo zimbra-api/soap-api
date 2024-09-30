@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\DistributionListInfo as DLInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -28,51 +34,51 @@ class GetDistributionListResponse extends SoapResponse
     /**
      * 1 (true) if more mailboxes left to return
      * Only present if the list of members is given
-     * 
+     *
      * @Accessor(getter="isMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Total number of members (not affected by limit/total)
      * Only present if the list of members is given
-     * 
+     *
      * @Accessor(getter="getTotal", setter="setTotal")
      * @SerializedName("total")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotal', setter: 'setTotal')]
-    #[SerializedName('total')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotal", setter: "setTotal")]
+    #[SerializedName("total")]
+    #[Type("int")]
     #[XmlAttribute]
     private $total;
 
     /**
      * Information about distribution list
-     * 
+     *
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DLInfo
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DLInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DLInfo $dl;
 
     /**
@@ -83,13 +89,16 @@ class GetDistributionListResponse extends SoapResponse
      * @param int $total
      * @return self
      */
-    public function __construct(?DLInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL)
-    {
+    public function __construct(
+        ?DLInfo $dl = null,
+        ?bool $more = null,
+        ?int $total = null
+    ) {
         $this->dl = $dl;
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if (NULL !== $total) {
+        if (null !== $total) {
             $this->setTotal($total);
         }
     }

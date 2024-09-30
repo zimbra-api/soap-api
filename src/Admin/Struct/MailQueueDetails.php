@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * MailQueueDetails struct class
@@ -25,50 +31,50 @@ class MailQueueDetails
 {
     /**
      * Queue name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Scan time
-     * 
+     *
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName('time')]
-    #[Type('int')]
+    #[Accessor(getter: "getTime", setter: "setTime")]
+    #[SerializedName("time")]
+    #[Type("int")]
     #[XmlAttribute]
     private $time;
 
     /**
      * Indicates that the server has not completed scanning the MTA queue, and that this
      * scan is in progress, and the client should ask again in a little while.
-     * 
+     *
      * @Accessor(getter="getStillScanning", setter="setStillScanning")
      * @SerializedName("scan")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getStillScanning', setter: 'setStillScanning')]
-    #[SerializedName('scan')]
-    #[Type('bool')]
+    #[Accessor(getter: "getStillScanning", setter: "setStillScanning")]
+    #[SerializedName("scan")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $stillScanning;
 
@@ -77,28 +83,28 @@ class MailQueueDetails
      * @SerializedName("total")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotal', setter: 'setTotal')]
-    #[SerializedName('total')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotal", setter: "setTotal")]
+    #[SerializedName("total")]
+    #[Type("int")]
     #[XmlAttribute]
     private $total;
 
     /**
      * Indicates that more qi's are available past the limit specified in the request.
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
@@ -106,35 +112,35 @@ class MailQueueDetails
      * Queue summary.
      * The <qs> elements summarize the queue by various types of data (sender addresses, recipient domain, etc).
      * Only the deferred queue has error summary type.
-     * 
+     *
      * @Accessor(getter="getQueueSummaries", setter="setQueueSummaries")
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
      * @XmlList(inline=true, entry="qs", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getQueueSummaries', setter: 'setQueueSummaries')]
-    #[Type('array<Zimbra\Admin\Struct\QueueSummary>')]
-    #[XmlList(inline: true, entry: 'qs', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getQueueSummaries", setter: "setQueueSummaries")]
+    #[Type("array<Zimbra\Admin\Struct\QueueSummary>")]
+    #[XmlList(inline: true, entry: "qs", namespace: "urn:zimbraAdmin")]
     private $queueSummaries = [];
 
     /**
      * The various queue items that match the requested query.
-     * 
+     *
      * @Accessor(getter="getQueueItems", setter="setQueueItems")
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline=true, entry="qi", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getQueueItems', setter: 'setQueueItems')]
-    #[Type('array<Zimbra\Admin\Struct\QueueItem>')]
-    #[XmlList(inline: true, entry: 'qi', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getQueueItems", setter: "setQueueItems")]
+    #[Type("array<Zimbra\Admin\Struct\QueueItem>")]
+    #[XmlList(inline: true, entry: "qi", namespace: "urn:zimbraAdmin")]
     private $queueItems = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  int $time
      * @param  bool $stillScanning
@@ -145,22 +151,21 @@ class MailQueueDetails
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         int $time = 0,
-        bool $stillScanning = FALSE,
+        bool $stillScanning = false,
         int $total = 0,
-        bool $more = FALSE,
+        bool $more = false,
         array $queueSummaries = [],
         array $queueItems = []
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setTime($time)
-             ->setStillScanning($stillScanning)
-             ->setTotal($total)
-             ->setMore($more)
-             ->setQueueSummaries($queueSummaries)
-             ->setQueueItems($queueItems);
+            ->setTime($time)
+            ->setStillScanning($stillScanning)
+            ->setTotal($total)
+            ->setMore($more)
+            ->setQueueSummaries($queueSummaries)
+            ->setQueueItems($queueItems);
     }
 
     /**
@@ -294,7 +299,8 @@ class MailQueueDetails
     public function setQueueSummaries(array $summaries): self
     {
         $this->queueSummaries = array_filter(
-            $summaries, static fn ($qs) => $qs instanceof QueueSummary
+            $summaries,
+            static fn($qs) => $qs instanceof QueueSummary
         );
         return $this;
     }
@@ -330,7 +336,8 @@ class MailQueueDetails
     public function setQueueItems(array $queueItems): self
     {
         $this->queueItems = array_filter(
-            $queueItems, static fn ($qi) => $qi instanceof QueueItem
+            $queueItems,
+            static fn($qi) => $qi instanceof QueueItem
         );
         return $this;
     }

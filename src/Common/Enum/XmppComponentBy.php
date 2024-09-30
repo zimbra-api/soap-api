@@ -25,5 +25,5 @@ class XmppComponentBy extends NameIdBy
      * Constant for value 'serviceHostname'
      * @return string 'serviceHostname'
      */
-    protected const SERVICE_HOSTNAME = 'serviceHostname';
+    protected const SERVICE_HOSTNAME = "serviceHostname";
 }

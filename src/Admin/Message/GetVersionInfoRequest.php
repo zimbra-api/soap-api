@@ -29,8 +29,6 @@ class GetVersionInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetVersionInfoEnvelope(
-            new GetVersionInfoBody($this)
-        );
+        return new GetVersionInfoEnvelope(new GetVersionInfoBody($this));
     }
 }

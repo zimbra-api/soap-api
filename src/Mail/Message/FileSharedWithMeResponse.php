@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * FileSharedWithMeResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,18 +26,18 @@ class FileSharedWithMeResponse extends SoapResponse
 {
     /**
      * status
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("string")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('string')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("string")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private $status;
 
     /**
@@ -46,9 +46,7 @@ class FileSharedWithMeResponse extends SoapResponse
      * @param  string $status
      * @return self
      */
-    public function __construct(
-        string $status = ''
-    )
+    public function __construct(string $status = "")
     {
         $this->setStatus($status);
     }

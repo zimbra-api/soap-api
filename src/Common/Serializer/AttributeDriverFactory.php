@@ -15,13 +15,15 @@ use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
 use JMS\Serializer\Metadata\Driver\{AttributeDriver, TypedPropertiesDriver};
 use JMS\Serializer\Naming\{
-    CamelCaseNamingStrategy, PropertyNamingStrategyInterface, SerializedNameAnnotationStrategy
+    CamelCaseNamingStrategy,
+    PropertyNamingStrategyInterface,
+    SerializedNameAnnotationStrategy
 };
 use JMS\Serializer\Type\{Parser, ParserInterface};
 
 /**
  * Attribute driver factory class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -32,42 +34,44 @@ class AttributeDriverFactory implements DriverFactoryInterface
 {
     /**
      * Property naming strategy
-     * 
+     *
      * @var PropertyNamingStrategyInterface
      */
     private PropertyNamingStrategyInterface $propertyNamingStrategy;
 
     /**
      * Type parser
-     * 
+     *
      * @var ParserInterface
      */
     private ParserInterface $typeParser;
 
     /**
      * Constructor
-     * 
+     *
      * @param PropertyNamingStrategyInterface $propertyNamingStrategy
      * @param ParserInterface $typeParser
      */
     public function __construct(
-        ?PropertyNamingStrategyInterface $propertyNamingStrategy = NULL,
-        ?ParserInterface $typeParser = NULL
-    )
-    {
-        $this->propertyNamingStrategy = $propertyNamingStrategy ?: new SerializedNameAnnotationStrategy(
-            new CamelCaseNamingStrategy()
-        );
+        ?PropertyNamingStrategyInterface $propertyNamingStrategy = null,
+        ?ParserInterface $typeParser = null
+    ) {
+        $this->propertyNamingStrategy =
+            $propertyNamingStrategy ?:
+            new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
         $this->typeParser = $typeParser ?: new Parser();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function createDriver(array $metadataDirs, Reader $annotationReader): DriverInterface
-    {
+    public function createDriver(
+        array $metadataDirs,
+        ?Reader $annotationReader = null
+    ): DriverInterface {
         $driver = new AttributeDriver(
-            $this->propertyNamingStrategy, $this->typeParser
+            $this->propertyNamingStrategy,
+            $this->typeParser
         );
 
         return new TypedPropertiesDriver($driver, $this->typeParser);

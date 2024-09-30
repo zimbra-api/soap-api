@@ -27,11 +27,11 @@ class AuthScheme extends Enum
      * Constant for value 'basic'
      * @return string 'basic'
      */
-    protected const BASIC = 'basic';
+    protected const BASIC = "basic";
 
     /**
      * Constant for value 'form'
      * @return string 'form'
      */
-    protected const FORM = 'form';
+    protected const FORM = "form";
 }

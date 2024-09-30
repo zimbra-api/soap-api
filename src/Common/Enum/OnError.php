@@ -27,11 +27,11 @@ class OnError extends Enum
      * Constant for value 'continue'
      * @return string 'continue'
      */
-    protected const CONTINUE = 'continue';
+    protected const CONTINUE = "continue";
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    protected const STOP = 'stop';
+    protected const STOP = "stop";
 }

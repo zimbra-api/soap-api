@@ -25,87 +25,87 @@ class LinkInfo
 {
     /**
      * Shared item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Item's UUID - a globally unique identifier
-     * 
+     *
      * @Accessor(getter="getUuid", setter="setUuid")
      * @SerializedName("uuid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName('uuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUuid", setter: "setUuid")]
+    #[SerializedName("uuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uuid;
 
     /**
      * Item name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Item type
-     * 
+     *
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName('view')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultView", setter: "setDefaultView")]
+    #[SerializedName("view")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultView;
 
     /**
      * Permissions granted
-     * 
+     *
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("perm")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('perm')]
-    #[Type('string')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("perm")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rights;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $uuid
      * @param string $name
@@ -114,18 +114,17 @@ class LinkInfo
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $uuid = '',
-        string $name = '',
-        string $defaultView = '',
-        ?string $rights = NULL,
-    )
-    {
+        string $id = "",
+        string $uuid = "",
+        string $name = "",
+        string $defaultView = "",
+        ?string $rights = null
+    ) {
         $this->setId($id)
-             ->setUuid($uuid)
-             ->setName($name)
-             ->setDefaultView($defaultView);
-        if (NULL !== $rights) {
+            ->setUuid($uuid)
+            ->setName($name)
+            ->setDefaultView($defaultView);
+        if (null !== $rights) {
             $this->setRights($rights);
         }
     }

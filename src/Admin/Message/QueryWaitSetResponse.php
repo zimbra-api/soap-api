@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * QueryWaitSetResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class QueryWaitSetResponse extends SoapResponse
 {
     /**
      * Information about WaitSets
-     * 
+     *
      * @Accessor(getter="getWaitsets", setter="setWaitsets")
      * @Type("array<Zimbra\Admin\Struct\WaitSetInfo>")
      * @XmlList(inline=true, entry="waitSet", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWaitsets', setter: 'setWaitsets')]
-    #[Type('array<Zimbra\Admin\Struct\WaitSetInfo>')]
-    #[XmlList(inline: true, entry: 'waitSet', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getWaitsets", setter: "setWaitsets")]
+    #[Type("array<Zimbra\Admin\Struct\WaitSetInfo>")]
+    #[XmlList(inline: true, entry: "waitSet", namespace: "urn:zimbraAdmin")]
     private $waitsets = [];
 
     /**
@@ -59,7 +59,8 @@ class QueryWaitSetResponse extends SoapResponse
     public function setWaitsets(array $waitsets): self
     {
         $this->waitsets = array_filter(
-            $waitsets, static fn ($waitset) => $waitset instanceof WaitSetInfo
+            $waitsets,
+            static fn($waitset) => $waitset instanceof WaitSetInfo
         );
         return $this;
     }

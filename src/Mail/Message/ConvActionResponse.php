@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ConvActionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class ConvActionResponse extends SoapResponse
 {
     /**
      * Action result
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ActionResult
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(ActionResult::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ActionResult $action;
 
     /**
@@ -47,7 +47,7 @@ class ConvActionResponse extends SoapResponse
      * @param  ActionResult $action
      * @return self
      */
-    public function __construct(?ActionResult $action = NULL)
+    public function __construct(?ActionResult $action = null)
     {
         $this->action = $action;
     }

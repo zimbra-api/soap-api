@@ -27,33 +27,33 @@ class WkDay implements WkDayInterface
 {
     /**
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
-     * 
+     *
      * @Accessor(getter="getDay", setter="setDay")
      * @SerializedName("day")
      * @Type("Enum<Zimbra\Common\Enum\WeekDay>")
      * @XmlAttribute
-     * 
+     *
      * @var WeekDay
      */
-    #[Accessor(getter: 'getDay', setter: 'setDay')]
-    #[SerializedName('day')]
-    #[Type('Enum<Zimbra\Common\Enum\WeekDay>')]
+    #[Accessor(getter: "getDay", setter: "setDay")]
+    #[SerializedName("day")]
+    #[Type("Enum<Zimbra\Common\Enum\WeekDay>")]
     #[XmlAttribute]
     private WeekDay $day;
 
     /**
      * Week number.  [[+]|-]num: 1 to 53
-     * 
+     *
      * @Accessor(getter="getOrdWk", setter="setOrdWk")
      * @SerializedName("ordwk")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOrdWk', setter: 'setOrdWk')]
-    #[SerializedName('ordwk')]
-    #[Type('int')]
+    #[Accessor(getter: "getOrdWk", setter: "setOrdWk")]
+    #[SerializedName("ordwk")]
+    #[Type("int")]
     #[XmlAttribute]
     private $ordWk;
 
@@ -64,10 +64,10 @@ class WkDay implements WkDayInterface
      * @param  int $ordWk
      * @return self
      */
-    public function __construct(?WeekDay $day = NULL, ?int $ordWk = NULL)
+    public function __construct(?WeekDay $day = null, ?int $ordWk = null)
     {
-        $this->setDay($day ?? new WeekDay('SU'));
-        if (NULL !== $ordWk) {
+        $this->setDay($day ?? new WeekDay("SU"));
+        if (null !== $ordWk) {
             $this->setOrdWk($ordWk);
         }
     }
@@ -112,7 +112,7 @@ class WkDay implements WkDayInterface
      */
     public function setOrdWk(int $ordWk): self
     {
-        if($ordWk != 0 && abs($ordWk) < 54) {
+        if ($ordWk != 0 && abs($ordWk) < 54) {
             $this->ordWk = $ordWk;
         }
         return $this;

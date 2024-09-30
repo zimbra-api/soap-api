@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CreateAppointmentExceptionBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class CreateAppointmentExceptionBody extends SoapBody
      * @SerializedName("CreateAppointmentExceptionRequest")
      * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CreateAppointmentExceptionRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CreateAppointmentExceptionRequest")]
     #[Type(CreateAppointmentExceptionRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CreateAppointmentExceptionResponse")
      * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CreateAppointmentExceptionResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CreateAppointmentExceptionResponse")]
     #[Type(CreateAppointmentExceptionResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CreateAppointmentExceptionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateAppointmentExceptionRequest $request = NULL, ?CreateAppointmentExceptionResponse $response = NULL
-    )
-    {
+        ?CreateAppointmentExceptionRequest $request = null,
+        ?CreateAppointmentExceptionResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

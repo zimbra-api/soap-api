@@ -27,23 +27,23 @@ class MdsConnectionType extends Enum
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    protected const CLEAR_TEXT = 'cleartext';
+    protected const CLEAR_TEXT = "cleartext";
 
     /**
      * Constant for value 'ssl'
      * @return string 'ssl'
      */
-    protected const SSL = 'ssl';
+    protected const SSL = "ssl";
 
     /**
      * Constant for value 'tls'
      * @return string 'tls'
      */
-    protected const TLS = 'tls';
+    protected const TLS = "tls";
 
     /**
      * Constant for value 'tls_is_available'
      * @return string 'tls_is_available'
      */
-    protected const TLS_IS_AVAILABLE = 'tls_is_available';
+    protected const TLS_IS_AVAILABLE = "tls_is_available";
 }

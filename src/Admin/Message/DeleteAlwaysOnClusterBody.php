@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * DeleteAlwaysOnClusterBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @SerializedName("DeleteAlwaysOnClusterRequest")
      * @Type("Zimbra\Admin\Message\DeleteAlwaysOnClusterRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('DeleteAlwaysOnClusterRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("DeleteAlwaysOnClusterRequest")]
     #[Type(DeleteAlwaysOnClusterRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("DeleteAlwaysOnClusterResponse")
      * @Type("Zimbra\Admin\Message\DeleteAlwaysOnClusterResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('DeleteAlwaysOnClusterResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("DeleteAlwaysOnClusterResponse")]
     #[Type(DeleteAlwaysOnClusterResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteAlwaysOnClusterRequest $request = NULL, ?DeleteAlwaysOnClusterResponse $response = NULL
-    )
-    {
+        ?DeleteAlwaysOnClusterRequest $request = null,
+        ?DeleteAlwaysOnClusterResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

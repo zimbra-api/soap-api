@@ -26,21 +26,21 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
 {
     /**
      * Global zimlet configuration property
-     * 
+     *
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
      * @Type("array<Zimbra\Account\Struct\AccountZimletProperty>")
      * @XmlList(inline=true, entry="property", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]
-    #[Type('array<Zimbra\Account\Struct\AccountZimletProperty>')]
-    #[XmlList(inline: true, entry: 'property', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getZimletProperties", setter: "setZimletProperties")]
+    #[Type("array<Zimbra\Account\Struct\AccountZimletProperty>")]
+    #[XmlList(inline: true, entry: "property", namespace: "urn:zimbraAccount")]
     private $properties = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $properties
      * @return self
      */
@@ -72,7 +72,8 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     public function setZimletProperties(array $properties): self
     {
         $this->properties = array_filter(
-            $properties, static fn ($prop) => $prop instanceof AccountZimletProperty
+            $properties,
+            static fn($prop) => $prop instanceof AccountZimletProperty
         );
         return $this;
     }

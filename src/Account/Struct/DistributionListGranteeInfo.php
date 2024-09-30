@@ -26,49 +26,49 @@ class DistributionListGranteeInfo
 {
     /**
      * Grantee Type.
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GranteeType>")]
     #[XmlAttribute]
     private GranteeType $type;
 
     /**
      * Grantee id
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Grantee name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -81,12 +81,13 @@ class DistributionListGranteeInfo
      * @return self
      */
     public function __construct(
-        ?GranteeType $type = NULL, string $id = '', string $name = ''
-    )
-    {
-        $this->setType($type ?? new GranteeType('all'))
-             ->setId($id)
-             ->setName($name);
+        ?GranteeType $type = null,
+        string $id = "",
+        string $name = ""
+    ) {
+        $this->setType($type ?? new GranteeType("all"))
+            ->setId($id)
+            ->setName($name);
     }
 
     /**

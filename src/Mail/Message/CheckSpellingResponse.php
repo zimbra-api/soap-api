@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\Misspelling;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CheckSpellingResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,32 +34,32 @@ class CheckSpellingResponse extends SoapResponse
     /**
      * The "available" attribute specifies whether the server-side spell checking
      * interface is available or not.
-     * 
+     *
      * @Accessor(getter="isAvailable", setter="setAvailable")
      * @SerializedName("available")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isAvailable', setter: 'setAvailable')]
-    #[SerializedName('available')]
-    #[Type('bool')]
+    #[Accessor(getter: "isAvailable", setter: "setAvailable")]
+    #[SerializedName("available")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $available;
 
     /**
      * Information for misspelled words
-     * 
+     *
      * @Accessor(getter="getMisspelledWords", setter="setMisspelledWords")
      * @Type("array<Zimbra\Mail\Struct\Misspelling>")
      * @XmlList(inline=true, entry="misspelled", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMisspelledWords', setter: 'setMisspelledWords')]
-    #[Type('array<Zimbra\Mail\Struct\Misspelling>')]
-    #[XmlList(inline: true, entry: 'misspelled', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMisspelledWords", setter: "setMisspelledWords")]
+    #[Type("array<Zimbra\Mail\Struct\Misspelling>")]
+    #[XmlList(inline: true, entry: "misspelled", namespace: "urn:zimbraMail")]
     private $misspelledWords = [];
 
     /**
@@ -63,10 +69,11 @@ class CheckSpellingResponse extends SoapResponse
      * @param  array $misspelledWords
      * @return self
      */
-    public function __construct(bool $available = FALSE, array $misspelledWords = [])
-    {
-        $this->setAvailable($available)
-             ->setMisspelledWords($misspelledWords);
+    public function __construct(
+        bool $available = false,
+        array $misspelledWords = []
+    ) {
+        $this->setAvailable($available)->setMisspelledWords($misspelledWords);
     }
 
     /**
@@ -100,7 +107,8 @@ class CheckSpellingResponse extends SoapResponse
     public function setMisspelledWords(array $words): self
     {
         $this->misspelledWords = array_filter(
-            $words, static fn ($word) => $word instanceof Misspelling
+            $words,
+            static fn($word) => $word instanceof Misspelling
         );
         return $this;
     }

@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * existing messages that were affected.
  *
  * Note that redirect actions are ignored when applying filter rules to existing messages.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

@@ -16,7 +16,7 @@ use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
 /**
  * Grant struct class
  * A grant
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -27,113 +27,113 @@ class Grant
 {
     /**
      * Rights - Some combination of (r)ead, (w)rite, (i)nsert, (d)elete, (a)dminister, workflow action (x), view (p)rivate, view (f)reebusy, (c)reate subfolder
-     * 
+     *
      * @Accessor(getter="getPerm", setter="setPerm")
      * @SerializedName("perm")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPerm', setter: 'setPerm')]
-    #[SerializedName('perm')]
-    #[Type('string')]
+    #[Accessor(getter: "getPerm", setter: "setPerm")]
+    #[SerializedName("perm")]
+    #[Type("string")]
     #[XmlAttribute]
     private $perm;
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
-     * 
+     *
      * @Accessor(getter="getGranteeType", setter="setGranteeType")
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GrantGranteeType>")
      * @XmlAttribute
-     * 
+     *
      * @var GrantGranteeType
      */
-    #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName('gt')]
-    #[Type('Enum<Zimbra\Common\Enum\GrantGranteeType>')]
+    #[Accessor(getter: "getGranteeType", setter: "setGranteeType")]
+    #[SerializedName("gt")]
+    #[Type("Enum<Zimbra\Common\Enum\GrantGranteeType>")]
     #[XmlAttribute]
     private GrantGranteeType $granteeType;
 
     /**
      * Grantee ID
-     * 
+     *
      * @Accessor(getter="getGranteeId", setter="setGranteeId")
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getGranteeId", setter: "setGranteeId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $granteeId;
 
     /**
      * Time when this grant expires
-     * 
+     *
      * @Accessor(getter="getExpiry", setter="setExpiry")
      * @SerializedName("expiry")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getExpiry', setter: 'setExpiry')]
-    #[SerializedName('expiry')]
-    #[Type('int')]
+    #[Accessor(getter: "getExpiry", setter: "setExpiry")]
+    #[SerializedName("expiry")]
+    #[Type("int")]
     #[XmlAttribute]
     private $expiry;
 
     /**
      * Name or email address of the principal being granted rights.
-     * 
+     *
      * @Accessor(getter="getGranteeName", setter="setGranteeName")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGranteeName', setter: 'setGranteeName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getGranteeName", setter: "setGranteeName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $granteeName;
 
     /**
      * Password for when granteeType is guest
-     * 
+     *
      * @Accessor(getter="getGuestPassword", setter="setGuestPassword")
      * @SerializedName("pw")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGuestPassword', setter: 'setGuestPassword')]
-    #[SerializedName('pw')]
-    #[Type('string')]
+    #[Accessor(getter: "getGuestPassword", setter: "setGuestPassword")]
+    #[SerializedName("pw")]
+    #[Type("string")]
     #[XmlAttribute]
     private $guestPassword;
 
     /**
      * Access key when granteeType is key
-     * 
+     *
      * @Accessor(getter="getAccessKey", setter="setAccessKey")
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessKey", setter: "setAccessKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessKey;
 
@@ -150,28 +150,27 @@ class Grant
      * @return self
      */
     public function __construct(
-        string $perm = '',
-        ?GrantGranteeType $granteeType = NULL,
-        string $granteeId = '',
-        ?int $expiry = NULL,
-        ?string $granteeName = NULL,
-        ?string $guestPassword = NULL,
-        ?string $accessKey = NULL
-    )
-    {
+        string $perm = "",
+        ?GrantGranteeType $granteeType = null,
+        string $granteeId = "",
+        ?int $expiry = null,
+        ?string $granteeName = null,
+        ?string $guestPassword = null,
+        ?string $accessKey = null
+    ) {
         $this->setPerm($perm)
-             ->setGranteeType($granteeType ?? new GrantGranteeType('all'))
-             ->setGranteeId($granteeId);
-        if (NULL !== $expiry) {
+            ->setGranteeType($granteeType ?? new GrantGranteeType("all"))
+            ->setGranteeId($granteeId);
+        if (null !== $expiry) {
             $this->setExpiry($expiry);
         }
-        if (NULL !== $granteeName) {
+        if (null !== $granteeName) {
             $this->setGranteeName($granteeName);
         }
-        if (NULL !== $guestPassword) {
+        if (null !== $guestPassword) {
             $this->setGuestPassword($guestPassword);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
     }
@@ -196,7 +195,10 @@ class Grant
     {
         $validRights = [];
         foreach (str_split($perm) as $right) {
-            if (ActionGrantRight::isValid($right) && !in_array($right, $validRights)) {
+            if (
+                ActionGrantRight::isValid($right) &&
+                !in_array($right, $validRights)
+            ) {
                 $validRights[] = $right;
             }
         }

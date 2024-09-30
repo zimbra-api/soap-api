@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RecordIMAPSessionBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class RecordIMAPSessionBody extends SoapBody
      * @SerializedName("RecordIMAPSessionRequest")
      * @Type("Zimbra\Mail\Message\RecordIMAPSessionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RecordIMAPSessionRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RecordIMAPSessionRequest")]
     #[Type(RecordIMAPSessionRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RecordIMAPSessionResponse")
      * @Type("Zimbra\Mail\Message\RecordIMAPSessionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RecordIMAPSessionResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RecordIMAPSessionResponse")]
     #[Type(RecordIMAPSessionResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RecordIMAPSessionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RecordIMAPSessionRequest $request = NULL, ?RecordIMAPSessionResponse $response = NULL
-    )
-    {
+        ?RecordIMAPSessionRequest $request = null,
+        ?RecordIMAPSessionResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

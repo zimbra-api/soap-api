@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * RecoverAccountResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,33 +26,38 @@ class RecoverAccountResponse extends SoapResponse
 {
     /**
      * Recovery account
-     * 
+     *
      * @Accessor(getter="getRecoveryAccount", setter="setRecoveryAccount")
      * @SerializedName("recoveryAccount")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecoveryAccount', setter: 'setRecoveryAccount')]
-    #[SerializedName('recoveryAccount')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecoveryAccount", setter: "setRecoveryAccount")]
+    #[SerializedName("recoveryAccount")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recoveryAccount;
 
     /**
      * attempts remaining before feature suspension
-     * 
+     *
      * @Accessor(getter="getRecoveryAttemptsLeft", setter="setRecoveryAttemptsLeft")
      * @SerializedName("recoveryAttemptsLeft")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRecoveryAttemptsLeft', setter: 'setRecoveryAttemptsLeft')]
-    #[SerializedName('recoveryAttemptsLeft')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getRecoveryAttemptsLeft",
+            setter: "setRecoveryAttemptsLeft"
+        )
+    ]
+    #[SerializedName("recoveryAttemptsLeft")]
+    #[Type("int")]
     #[XmlAttribute]
     private $recoveryAttemptsLeft;
 
@@ -64,14 +69,13 @@ class RecoverAccountResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $recoveryAccount = NULL,
-        ?int $recoveryAttemptsLeft = NULL
-    )
-    {
-        if (NULL !== $recoveryAccount) {
+        ?string $recoveryAccount = null,
+        ?int $recoveryAttemptsLeft = null
+    ) {
+        if (null !== $recoveryAccount) {
             $this->setRecoveryAccount($recoveryAccount);
         }
-        if (NULL !== $recoveryAttemptsLeft) {
+        if (null !== $recoveryAttemptsLeft) {
             $this->setRecoveryAttemptsLeft($recoveryAttemptsLeft);
         }
     }

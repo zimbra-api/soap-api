@@ -25,9 +25,9 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *
  * If entry(s) are specified, only the specified entries will be flushed.
  * If no entry is given, all enties of the type will be flushed from cache.
- * 
+ *
  * type can contain a combination of skin, locale and zimlet. E.g. type='skin,locale,zimlet' or type='zimletskin'
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -38,27 +38,27 @@ class FlushCacheRequest extends SoapRequest
 {
     /**
      * Cache
-     * 
+     *
      * @Accessor(getter="getCache", setter="setCache")
      * @SerializedName("cache")
      * @Type("Zimbra\Admin\Struct\CacheSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CacheSelector
      */
-    #[Accessor(getter: 'getCache', setter: 'setCache')]
-    #[SerializedName('cache')]
+    #[Accessor(getter: "getCache", setter: "setCache")]
+    #[SerializedName("cache")]
     #[Type(CacheSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CacheSelector $cache;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CacheSelector $cache
      * @return self
      */
-    public function __construct(?CacheSelector $cache = NULL)
+    public function __construct(?CacheSelector $cache = null)
     {
         $this->cache = $cache;
     }
@@ -90,8 +90,6 @@ class FlushCacheRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new FlushCacheEnvelope(
-            new FlushCacheBody($this)
-        );
+        return new FlushCacheEnvelope(new FlushCacheBody($this));
     }
 }

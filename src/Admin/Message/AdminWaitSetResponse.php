@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\AccountWithModifications;
 use Zimbra\Common\Struct\{IdAndType, SoapResponse};
 
 /**
  * AdminWaitSetResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,83 +33,83 @@ class AdminWaitSetResponse extends SoapResponse
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
     /**
      * canceled flag
-     * 
+     *
      * @Accessor(getter="getCanceled", setter="setCanceled")
      * @SerializedName("canceled")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanceled', setter: 'setCanceled')]
-    #[SerializedName('canceled')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCanceled", setter: "setCanceled")]
+    #[SerializedName("canceled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canceled;
 
     /**
      * Sequence number
-     * 
+     *
      * @Accessor(getter="getSeqNo", setter="setSeqNo")
      * @SerializedName("seq")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSeqNo', setter: 'setSeqNo')]
-    #[SerializedName('seq')]
-    #[Type('string')]
+    #[Accessor(getter: "getSeqNo", setter: "setSeqNo")]
+    #[SerializedName("seq")]
+    #[Type("string")]
     #[XmlAttribute]
     private $seqNo;
 
     /**
      * Information on signaled accounts.
-     * 
+     *
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
-    #[Type('array<Zimbra\Mail\Struct\AccountWithModifications>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSignalledAccounts", setter: "setSignalledAccounts")]
+    #[Type("array<Zimbra\Mail\Struct\AccountWithModifications>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $signalledAccounts = [];
 
     /**
      * Error information
-     * 
+     *
      * @Accessor(getter="getErrors", setter="setErrors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
-    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getErrors", setter: "setErrors")]
+    #[Type("array<Zimbra\Common\Struct\IdAndType>")]
+    #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraAdmin")]
     private $errors = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $waitSetId
      * @param bool   $canceled
      * @param string $seqNo
@@ -112,20 +118,19 @@ class AdminWaitSetResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        string $waitSetId = '',
-        ?bool $canceled = NULL,
-        ?string $seqNo = NULL,
+        string $waitSetId = "",
+        ?bool $canceled = null,
+        ?string $seqNo = null,
         array $signalledAccounts = [],
         array $errors = []
-    )
-    {
+    ) {
         $this->setWaitSetId($waitSetId)
-             ->setSignalledAccounts($signalledAccounts)
-             ->setErrors($errors);
-        if (NULL !== $canceled) {
+            ->setSignalledAccounts($signalledAccounts)
+            ->setErrors($errors);
+        if (null !== $canceled) {
             $this->setCanceled($canceled);
         }
-        if (NULL !== $seqNo) {
+        if (null !== $seqNo) {
             $this->setSeqNo($seqNo);
         }
     }
@@ -205,7 +210,8 @@ class AdminWaitSetResponse extends SoapResponse
     public function setSignalledAccounts(array $accounts): self
     {
         $this->signalledAccounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof AccountWithModifications
+            $accounts,
+            static fn($account) => $account instanceof AccountWithModifications
         );
         return $this;
     }
@@ -229,7 +235,8 @@ class AdminWaitSetResponse extends SoapResponse
     public function setErrors(array $errors): self
     {
         $this->errors = array_filter(
-            $errors, static fn ($error) => $error instanceof IdAndType
+            $errors,
+            static fn($error) => $error instanceof IdAndType
         );
         return $this;
     }

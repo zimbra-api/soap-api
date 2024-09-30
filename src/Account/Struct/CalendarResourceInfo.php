@@ -25,51 +25,50 @@ class CalendarResourceInfo extends AccountKeyValuePairs
 {
     /**
      * Name of calendar resource
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * ID of calendar resource
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  array  $keyValuePairs
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $keyValuePairs = []
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setKeyValuePairs($keyValuePairs);
+        string $name = "",
+        string $id = "",
+        array $keyValuePairs = []
+    ) {
+        $this->setName($name)->setId($id)->setKeyValuePairs($keyValuePairs);
     }
 
     /**

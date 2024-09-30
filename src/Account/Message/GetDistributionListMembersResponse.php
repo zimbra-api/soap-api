@@ -10,13 +10,20 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Account\Struct\HABGroupMember;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetDistributionListMembersResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,66 +35,72 @@ class GetDistributionListMembersResponse extends SoapResponse
     /**
      * 1 (true) if more members left to return
      * Only present if the list of members is given
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * total number of distribution lists (not affected by limit/offset)
-     * 
+     *
      * @Accessor(getter="getTotal", setter="setTotal")
      * @SerializedName("total")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotal', setter: 'setTotal')]
-    #[SerializedName('total')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotal", setter: "setTotal")]
+    #[SerializedName("total")]
+    #[Type("int")]
     #[XmlAttribute]
     private $total;
 
     /**
      * Distribution list members
-     * 
+     *
      * @Accessor(getter="getDlMembers", setter="setDlMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDlMembers', setter: 'setDlMembers')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getDlMembers", setter: "setDlMembers")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAccount")]
     private $dlMembers = [];
 
     /**
      * HAB Group members
-     * 
+     *
      * @Accessor(getter="getHABGroupMembers", setter="setHABGroupMembers")
      * @SerializedName("groupMembers")
      * @Type("array<Zimbra\Account\Struct\HABGroupMember>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="groupMember", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHABGroupMembers', setter: 'setHABGroupMembers')]
-    #[SerializedName('groupMembers')]
-    #[Type('array<Zimbra\Account\Struct\HABGroupMember>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'groupMember', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getHABGroupMembers", setter: "setHABGroupMembers")]
+    #[SerializedName("groupMembers")]
+    #[Type("array<Zimbra\Account\Struct\HABGroupMember>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[
+        XmlList(
+            inline: false,
+            entry: "groupMember",
+            namespace: "urn:zimbraAccount"
+        )
+    ]
     private $habGroupMembers = [];
 
     /**
@@ -102,16 +115,14 @@ class GetDistributionListMembersResponse extends SoapResponse
     public function __construct(
         array $dlMembers = [],
         array $habGroupMembers = [],
-        ?bool $more = NULL,
-        ?int $total = NULL
-    )
-    {
-        $this->setDlMembers($dlMembers)
-             ->setHABGroupMembers($habGroupMembers);
-        if (NULL !== $more) {
+        ?bool $more = null,
+        ?int $total = null
+    ) {
+        $this->setDlMembers($dlMembers)->setHABGroupMembers($habGroupMembers);
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if (NULL !== $total) {
+        if (null !== $total) {
             $this->setTotal($total);
         }
     }
@@ -179,7 +190,7 @@ class GetDistributionListMembersResponse extends SoapResponse
     public function setDlMembers(array $members): self
     {
         $this->dlMembers = array_unique(
-            array_map(static fn ($member) => trim($member), $members)
+            array_map(static fn($member) => trim($member), $members)
         );
         return $this;
     }
@@ -193,7 +204,8 @@ class GetDistributionListMembersResponse extends SoapResponse
     public function setHABGroupMembers(array $members): self
     {
         $this->habGroupMembers = array_filter(
-            $members, static fn ($member) => $member instanceof HABGroupMember
+            $members,
+            static fn($member) => $member instanceof HABGroupMember
         );
         return $this;
     }

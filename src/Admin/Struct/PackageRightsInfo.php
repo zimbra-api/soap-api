@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * PackageRightsInfo struct class
@@ -25,32 +31,32 @@ class PackageRightsInfo
 {
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Command cmds information
-     * 
+     *
      * @Accessor(getter="getCmds", setter="setCmds")
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
      * @XmlList(inline=true, entry="cmd", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCmds', setter: 'setCmds')]
-    #[Type('array<Zimbra\Admin\Struct\CmdRightsInfo>')]
-    #[XmlList(inline: true, entry: 'cmd', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCmds", setter: "setCmds")]
+    #[Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")]
+    #[XmlList(inline: true, entry: "cmd", namespace: "urn:zimbraAdmin")]
     private $cmds = [];
 
     /**
@@ -60,9 +66,9 @@ class PackageRightsInfo
      * @param array  $cmds
      * @return self
      */
-    public function __construct(?string $name = NULL, array $cmds = [])
+    public function __construct(?string $name = null, array $cmds = [])
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
         $this->setCmds($cmds);
@@ -109,7 +115,8 @@ class PackageRightsInfo
     public function setCmds(array $cmds)
     {
         $this->cmds = array_filter(
-            $cmds, static fn ($cmd) => $cmd instanceof CmdRightsInfo
+            $cmds,
+            static fn($cmd) => $cmd instanceof CmdRightsInfo
         );
         return $this;
     }

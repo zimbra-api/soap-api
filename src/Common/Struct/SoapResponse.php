@@ -12,7 +12,7 @@ namespace Zimbra\Common\Struct;
 
 /**
  * Soap response class, not to be instantiated.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct

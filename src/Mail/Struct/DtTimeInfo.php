@@ -41,49 +41,49 @@ class DtTimeInfo implements DtTimeInfoInterface
      *     e.g:
      *         20050612  June 12, 2005
      *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
-     * 
+     *
      * @Accessor(getter="getDateTime", setter="setDateTime")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDateTime", setter: "setDateTime")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dateTime;
 
     /**
      * Java timezone identifier
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
-    #[Type('string')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
+    #[Type("string")]
     #[XmlAttribute]
     private $timezone;
 
     /**
      * UTC time as milliseconds since the epoch.  Set if non-all-day
-     * 
+     *
      * @Accessor(getter="getUtcTime", setter="setUtcTime")
      * @SerializedName("u")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getUtcTime', setter: 'setUtcTime')]
-    #[SerializedName('u')]
-    #[Type('int')]
+    #[Accessor(getter: "getUtcTime", setter: "setUtcTime")]
+    #[SerializedName("u")]
+    #[Type("int")]
     #[XmlAttribute]
     private $utcTime;
 
@@ -96,18 +96,17 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @return self
      */
     public function __construct(
-        ?string $dateTime = NULL,
-        ?string $timezone = NULL,
-        ?int $utcTime = NULL
-    )
-    {
-        if (NULL !== $dateTime) {
+        ?string $dateTime = null,
+        ?string $timezone = null,
+        ?int $utcTime = null
+    ) {
+        if (null !== $dateTime) {
             $this->setDateTime($dateTime);
         }
-        if (NULL !== $timezone) {
+        if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
-        if (NULL !== $utcTime) {
+        if (null !== $utcTime) {
             $this->setUtcTime($utcTime);
         }
     }

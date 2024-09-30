@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\CreateCalendarItemResponse;
 /**
  * CreateTaskResponse class
  * Contains response information for create task
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

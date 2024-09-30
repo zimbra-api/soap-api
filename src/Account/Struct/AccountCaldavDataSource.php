@@ -12,7 +12,7 @@ namespace Zimbra\Account\Struct;
 
 /**
  * AccountCaldavDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

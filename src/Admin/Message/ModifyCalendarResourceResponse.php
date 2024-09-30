@@ -27,18 +27,18 @@ class ModifyCalendarResourceResponse extends SoapResponse
 {
     /**
      * Information about the calendar resource
-     * 
+     *
      * @Accessor(getter="getCalResource", setter="setCalResource")
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CalendarResourceInfo
      */
-    #[Accessor(getter: 'getCalResource', setter: 'setCalResource')]
-    #[SerializedName('calresource')]
+    #[Accessor(getter: "getCalResource", setter: "setCalResource")]
+    #[SerializedName("calresource")]
     #[Type(CalendarResourceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CalendarResourceInfo $calResource;
 
     /**
@@ -47,7 +47,7 @@ class ModifyCalendarResourceResponse extends SoapResponse
      * @param CalendarResourceInfo $calResource
      * @return self
      */
-    public function __construct(?CalendarResourceInfo $calResource = NULL)
+    public function __construct(?CalendarResourceInfo $calResource = null)
     {
         $this->calResource = $calResource;
     }

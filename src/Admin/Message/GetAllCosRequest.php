@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllCosRequest class
  * Get all classes of service (COS)
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class GetAllCosRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllCosEnvelope(
-            new GetAllCosBody($this)
-        );
+        return new GetAllCosEnvelope(new GetAllCosBody($this));
     }
 }

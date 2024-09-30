@@ -28,47 +28,46 @@ class RenameCosRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $id;
 
     /**
      * new COS name
-     * 
+     *
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('newName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("newName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $newName;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $newName
      * @return self
      */
-    public function __construct(string $id = '', string $newName = '')
+    public function __construct(string $id = "", string $newName = "")
     {
-        $this->setId($id)
-             ->setNewName($newName);
+        $this->setId($id)->setNewName($newName);
     }
 
     /**
@@ -120,8 +119,6 @@ class RenameCosRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RenameCosEnvelope(
-            new RenameCosBody($this)
-        );
+        return new RenameCosEnvelope(new RenameCosBody($this));
     }
 }

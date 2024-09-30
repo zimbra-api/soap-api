@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetLicenseInfoResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,18 @@ class GetLicenseInfoResponse extends SoapResponse
 {
     /**
      * License expiration information
-     * 
+     *
      * @Accessor(getter="getExpiration", setter="setExpiration")
      * @SerializedName("expiration")
      * @Type("Zimbra\Admin\Struct\LicenseExpirationInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var LicenseExpirationInfo
      */
-    #[Accessor(getter: 'getExpiration', setter: 'setExpiration')]
-    #[SerializedName('expiration')]
+    #[Accessor(getter: "getExpiration", setter: "setExpiration")]
+    #[SerializedName("expiration")]
     #[Type(LicenseExpirationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?LicenseExpirationInfo $expiration;
 
     /**
@@ -47,7 +47,7 @@ class GetLicenseInfoResponse extends SoapResponse
      * @param LicenseExpirationInfo $expiration
      * @return self
      */
-    public function __construct(?LicenseExpirationInfo $expiration = NULL)
+    public function __construct(?LicenseExpirationInfo $expiration = null)
     {
         $this->expiration = $expiration;
     }

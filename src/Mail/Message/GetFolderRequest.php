@@ -10,21 +10,27 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\GetFolderSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetFolderRequest class
  * Get folder
- * 
+ *
  * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder element;
  * if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
- * 
+ *
  * If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present,
  * the path is treated as relative to the folder that was specified by id/uuid.
  * {base-folder-id} is ignored if {base-folder-uuid} is present.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -35,50 +41,50 @@ class GetFolderRequest extends SoapRequest
 {
     /**
      * If set we include all visible subfolders of the specified folder.
-     * 
+     *
      * @Accessor(getter="isVisible", setter="setVisible")
      * @SerializedName("visible")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isVisible', setter: 'setVisible')]
-    #[SerializedName('visible')]
-    #[Type('bool')]
+    #[Accessor(getter: "isVisible", setter: "setVisible")]
+    #[SerializedName("visible")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isVisible;
 
     /**
      * If set then grantee names are supplied in the "d" attribute in <grant>.
-     * 
+     *
      * @Accessor(getter="isNeedGranteeName", setter="setNeedGranteeName")
      * @SerializedName("needGranteeName")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isNeedGranteeName', setter: 'setNeedGranteeName')]
-    #[SerializedName('needGranteeName')]
-    #[Type('bool')]
+    #[Accessor(getter: "isNeedGranteeName", setter: "setNeedGranteeName")]
+    #[SerializedName("needGranteeName")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needGranteeName;
 
     /**
      * If "view" is set then only the folders with matching view will be returned.
      * Otherwise folders with any default views will be returned.
-     * 
+     *
      * @Accessor(getter="getViewConstraint", setter="setViewConstraint")
      * @SerializedName("view")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getViewConstraint', setter: 'setViewConstraint')]
-    #[SerializedName('view')]
-    #[Type('string')]
+    #[Accessor(getter: "getViewConstraint", setter: "setViewConstraint")]
+    #[SerializedName("view")]
+    #[Type("string")]
     #[XmlAttribute]
     private $viewConstraint;
 
@@ -86,17 +92,17 @@ class GetFolderRequest extends SoapRequest
      * If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
      * (so if depth="1", we'll include only the folder and its direct subfolders)
      * If depth is missing or negative, the entire folder hierarchy is returned
-     * 
+     *
      * @Accessor(getter="getTreeDepth", setter="setTreeDepth")
      * @SerializedName("depth")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTreeDepth', setter: 'setTreeDepth')]
-    #[SerializedName('depth')]
-    #[Type('int')]
+    #[Accessor(getter: "getTreeDepth", setter: "setTreeDepth")]
+    #[SerializedName("depth")]
+    #[Type("int")]
     #[XmlAttribute]
     private $treeDepth;
 
@@ -105,34 +111,39 @@ class GetFolderRequest extends SoapRequest
      * If the root folder as referenced by {base-folder-id} and/or {fully-qualified-path} is a mountpoint,
      * "tr" is regarded as being automatically set.
      * Mountpoints under mountpoints are not themselves expanded.
-     * 
+     *
      * @Accessor(getter="isTraverseMountpoints", setter="setTraverseMountpoints")
      * @SerializedName("tr")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isTraverseMountpoints', setter: 'setTraverseMountpoints')]
-    #[SerializedName('tr')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "isTraverseMountpoints",
+            setter: "setTraverseMountpoints"
+        )
+    ]
+    #[SerializedName("tr")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $traverseMountpoints;
 
     /**
      * Folder specification
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\GetFolderSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var GetFolderSpec
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
     #[Type(GetFolderSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GetFolderSpec $folder;
 
     /**
@@ -147,28 +158,27 @@ class GetFolderRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?GetFolderSpec $folder = NULL,
-        ?bool $isVisible = NULL,
-        ?bool $needGranteeName = NULL,
-        ?string $viewConstraint = NULL,
-        ?int $treeDepth = NULL,
-        ?bool $traverseMountpoints = NULL
-    )
-    {
+        ?GetFolderSpec $folder = null,
+        ?bool $isVisible = null,
+        ?bool $needGranteeName = null,
+        ?string $viewConstraint = null,
+        ?int $treeDepth = null,
+        ?bool $traverseMountpoints = null
+    ) {
         $this->folder = $folder;
-        if (NULL !== $isVisible) {
+        if (null !== $isVisible) {
             $this->setVisible($isVisible);
         }
-        if (NULL !== $needGranteeName) {
+        if (null !== $needGranteeName) {
             $this->setNeedGranteeName($needGranteeName);
         }
-        if (NULL !== $viewConstraint) {
+        if (null !== $viewConstraint) {
             $this->setViewConstraint($viewConstraint);
         }
-        if (NULL !== $treeDepth) {
+        if (null !== $treeDepth) {
             $this->setTreeDepth($treeDepth);
         }
-        if (NULL !== $traverseMountpoints) {
+        if (null !== $traverseMountpoints) {
             $this->setTraverseMountpoints($traverseMountpoints);
         }
     }
@@ -310,8 +320,6 @@ class GetFolderRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetFolderEnvelope(
-            new GetFolderBody($this)
-        );
+        return new GetFolderEnvelope(new GetFolderBody($this));
     }
 }

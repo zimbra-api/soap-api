@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * RecoverAccountRequest class
  * Recover account request
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,49 +28,49 @@ class RecoverAccountRequest extends SoapRequest
 {
     /**
      * operation
-     * 
+     *
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RecoverAccountOperation>")
      * @XmlAttribute
-     * 
+     *
      * @var RecoverAccountOperation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\RecoverAccountOperation>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\RecoverAccountOperation>")]
     #[XmlAttribute]
     private RecoverAccountOperation $op;
 
     /**
      * Email
-     * 
+     *
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Channel
-     * 
+     *
      * @Accessor(getter="getChannel", setter="setChannel")
      * @SerializedName("channel")
      * @Type("Enum<Zimbra\Common\Enum\Channel>")
      * @XmlAttribute
-     * 
+     *
      * @var Channel
      */
-    #[Accessor(getter: 'getChannel', setter: 'setChannel')]
-    #[SerializedName('channel')]
-    #[Type('Enum<Zimbra\Common\Enum\Channel>')]
+    #[Accessor(getter: "getChannel", setter: "setChannel")]
+    #[SerializedName("channel")]
+    #[Type("Enum<Zimbra\Common\Enum\Channel>")]
     #[XmlAttribute]
     private ?Channel $channel;
 
@@ -83,13 +83,13 @@ class RecoverAccountRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $email = '',
-        ?RecoverAccountOperation $op = NULL,
-        ?Channel $channel = NULL
-    )
-    {
-        $this->setEmail($email)
-             ->setOp($op ?? new RecoverAccountOperation('getRecoveryAccount'));
+        string $email = "",
+        ?RecoverAccountOperation $op = null,
+        ?Channel $channel = null
+    ) {
+        $this->setEmail($email)->setOp(
+            $op ?? new RecoverAccountOperation("getRecoveryAccount")
+        );
         $this->channel = $channel;
     }
 
@@ -164,8 +164,6 @@ class RecoverAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RecoverAccountEnvelope(
-            new RecoverAccountBody($this)
-        );
+        return new RecoverAccountEnvelope(new RecoverAccountBody($this));
     }
 }

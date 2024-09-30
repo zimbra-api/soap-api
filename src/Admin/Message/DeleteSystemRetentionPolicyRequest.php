@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteSystemRetentionPolicyRequest class
  * Delete a system retention policy.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,44 +29,44 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
 {
     /**
      * COS
-     * 
+     *
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Details of policy
-     * 
+     *
      * @Accessor(getter="getPolicy", setter="setPolicy")
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Policy
      */
-    #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
-    #[SerializedName('policy')]
+    #[Accessor(getter: "getPolicy", setter: "setPolicy")]
+    #[SerializedName("policy")]
     #[Type(Policy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private Policy $policy;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Policy $policy
      * @param  CosSelector $cos
      * @return self
      */
-    public function __construct(Policy $policy, ?CosSelector $cos = NULL)
+    public function __construct(Policy $policy, ?CosSelector $cos = null)
     {
         $this->setPolicy($policy);
         $this->cos = $cos;

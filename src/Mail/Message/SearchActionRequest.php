@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchActionRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,34 +27,34 @@ class SearchActionRequest extends SoapRequest
 {
     /**
      * Search request
-     * 
+     *
      * @Accessor(getter="getSearchRequest", setter="setSearchRequest")
      * @SerializedName("SearchRequest")
      * @Type("Zimbra\Mail\Message\SearchRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SearchRequest
      */
-    #[Accessor(getter: 'getSearchRequest', setter: 'setSearchRequest')]
-    #[SerializedName('SearchRequest')]
+    #[Accessor(getter: "getSearchRequest", setter: "setSearchRequest")]
+    #[SerializedName("SearchRequest")]
     #[Type(SearchRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private SearchRequest $searchRequest;
 
     /**
      * Bulk action
-     * 
+     *
      * @Accessor(getter="getBulkAction", setter="setBulkAction")
      * @SerializedName("BulkAction")
      * @Type("Zimbra\Mail\Struct\BulkAction")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var BulkAction
      */
-    #[Accessor(getter: 'getBulkAction', setter: 'setBulkAction')]
-    #[SerializedName('BulkAction')]
+    #[Accessor(getter: "getBulkAction", setter: "setBulkAction")]
+    #[SerializedName("BulkAction")]
     #[Type(BulkAction::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private BulkAction $bulkAction;
 
     /**
@@ -64,10 +64,11 @@ class SearchActionRequest extends SoapRequest
      * @param  BulkAction $bulkAction
      * @return self
      */
-    public function __construct(SearchRequest $searchRequest, BulkAction $bulkAction)
-    {
-        $this->setSearchRequest($searchRequest)
-             ->setBulkAction($bulkAction);
+    public function __construct(
+        SearchRequest $searchRequest,
+        BulkAction $bulkAction
+    ) {
+        $this->setSearchRequest($searchRequest)->setBulkAction($bulkAction);
     }
 
     /**
@@ -119,8 +120,6 @@ class SearchActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchActionEnvelope(
-            new SearchActionBody($this)
-        );
+        return new SearchActionEnvelope(new SearchActionBody($this));
     }
 }

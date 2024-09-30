@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlAttributeMap};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlAttributeMap
+};
 
 /**
  * SessionInfo struct class
@@ -25,101 +31,101 @@ class SessionInfo
 {
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Account name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Session ID
-     * 
+     *
      * @Accessor(getter="getSessionId", setter="setSessionId")
      * @SerializedName("sid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName('sid')]
-    #[Type('string')]
+    #[Accessor(getter: "getSessionId", setter: "setSessionId")]
+    #[SerializedName("sid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sessionId;
 
     /**
      * Creation date
-     * 
+     *
      * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
      * @SerializedName("cd")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCreatedDate', setter: 'setCreatedDate')]
-    #[SerializedName('cd')]
-    #[Type('int')]
+    #[Accessor(getter: "getCreatedDate", setter: "setCreatedDate")]
+    #[SerializedName("cd")]
+    #[Type("int")]
     #[XmlAttribute]
     private $createdDate;
 
     /**
      * Last accessed date
-     * 
+     *
      * @Accessor(getter="getLastAccessedDate", setter="setLastAccessedDate")
      * @SerializedName("ld")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastAccessedDate', setter: 'setLastAccessedDate')]
-    #[SerializedName('ld')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastAccessedDate", setter: "setLastAccessedDate")]
+    #[SerializedName("ld")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastAccessedDate;
 
     /**
      * Extra attributes - possibly including "push"
-     * 
+     *
      * @Accessor(getter="getExtraAttributes", setter="setExtraAttributes")
      * @Type("array<string, string>")
      * @XmlAttributeMap
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getExtraAttributes', setter: 'setExtraAttributes')]
-    #[Type('array<string, string>')]
+    #[Accessor(getter: "getExtraAttributes", setter: "setExtraAttributes")]
+    #[Type("array<string, string>")]
     #[XmlAttributeMap]
     private $extraAttributes = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $sessionId
      * @param int $createdDate
      * @param int $lastAccessedDate
@@ -128,21 +134,20 @@ class SessionInfo
      * @return self
      */
     public function __construct(
-        string $sessionId = '',
+        string $sessionId = "",
         int $createdDate = 0,
         int $lastAccessedDate = 0,
-        ?string $zimbraId = NULL,
-        ?string $name = NULL
-    )
-    {
+        ?string $zimbraId = null,
+        ?string $name = null
+    ) {
         $this->setSessionId($sessionId)
-             ->setCreatedDate($createdDate)
-             ->setLastAccessedDate($lastAccessedDate);
+            ->setCreatedDate($createdDate)
+            ->setLastAccessedDate($lastAccessedDate);
 
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
     }

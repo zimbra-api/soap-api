@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * AddDistributionListMemberBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class AddDistributionListMemberBody extends SoapBody
      * @SerializedName("AddDistributionListMemberRequest")
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('AddDistributionListMemberRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("AddDistributionListMemberRequest")]
     #[Type(AddDistributionListMemberRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("AddDistributionListMemberResponse")
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('AddDistributionListMemberResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("AddDistributionListMemberResponse")]
     #[Type(AddDistributionListMemberResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class AddDistributionListMemberBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddDistributionListMemberRequest $request = NULL, ?AddDistributionListMemberResponse $response = NULL
-    )
-    {
+        ?AddDistributionListMemberRequest $request = null,
+        ?AddDistributionListMemberResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

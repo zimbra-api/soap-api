@@ -26,34 +26,34 @@ class Misspelling
 {
     /**
      * Misspelled word
-     * 
+     *
      * @Accessor(getter="getWord", setter="setWord")
      * @SerializedName("word")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWord', setter: 'setWord')]
-    #[SerializedName('word')]
-    #[Type('string')]
+    #[Accessor(getter: "getWord", setter: "setWord")]
+    #[SerializedName("word")]
+    #[Type("string")]
     #[XmlAttribute]
     private $word;
 
     /**
      * Comma separated list of suggestions.
      * Suggested words are listed in decreasing order of their match score.
-     * 
+     *
      * @Accessor(getter="getSuggestions", setter="setSuggestions")
      * @SerializedName("suggestions")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSuggestions', setter: 'setSuggestions')]
-    #[SerializedName('suggestions')]
-    #[Type('string')]
+    #[Accessor(getter: "getSuggestions", setter: "setSuggestions")]
+    #[SerializedName("suggestions")]
+    #[Type("string")]
     #[XmlAttribute]
     private $suggestions;
 
@@ -64,10 +64,10 @@ class Misspelling
      * @param  string $suggestions
      * @return self
      */
-    public function __construct(string $word = '', ?string $suggestions = NULL)
+    public function __construct(string $word = "", ?string $suggestions = null)
     {
         $this->setWord($word);
-        if (NULL !== $suggestions) {
+        if (null !== $suggestions) {
             $this->setSuggestions($suggestions);
         }
     }

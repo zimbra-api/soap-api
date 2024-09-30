@@ -25,47 +25,46 @@ class SnoozeAlarm
 {
     /**
      * Calendar item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * When to show the alarm again in milliseconds since the epoch
-     * 
+     *
      * @Accessor(getter="getSnoozeUntil", setter="setSnoozeUntil")
      * @SerializedName("until")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSnoozeUntil', setter: 'setSnoozeUntil')]
-    #[SerializedName('until')]
-    #[Type('int')]
+    #[Accessor(getter: "getSnoozeUntil", setter: "setSnoozeUntil")]
+    #[SerializedName("until")]
+    #[Type("int")]
     #[XmlAttribute]
     private $snoozeUntil;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $snoozeUntil
      * @return self
      */
-    public function __construct(string $id = '', int $snoozeUntil = 0)
+    public function __construct(string $id = "", int $snoozeUntil = 0)
     {
-        $this->setId($id)
-             ->setSnoozeUntil($snoozeUntil);
+        $this->setId($id)->setSnoozeUntil($snoozeUntil);
     }
 
     /**

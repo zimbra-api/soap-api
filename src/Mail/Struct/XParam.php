@@ -27,33 +27,33 @@ class XParam implements XParamInterface
 {
     /**
      * XPARAM Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * XPARAM value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
@@ -64,10 +64,9 @@ class XParam implements XParamInterface
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name = '', string $value = '')
+    public function __construct(string $name = "", string $value = "")
     {
-        $this->setName($name)
-             ->setValue($value);
+        $this->setName($name)->setValue($value);
     }
 
     /**

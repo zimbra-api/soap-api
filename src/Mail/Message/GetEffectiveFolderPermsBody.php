@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetEffectiveFolderPermsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @SerializedName("GetEffectiveFolderPermsRequest")
      * @Type("Zimbra\Mail\Message\GetEffectiveFolderPermsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetEffectiveFolderPermsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetEffectiveFolderPermsRequest")]
     #[Type(GetEffectiveFolderPermsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetEffectiveFolderPermsResponse")
      * @Type("Zimbra\Mail\Message\GetEffectiveFolderPermsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetEffectiveFolderPermsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetEffectiveFolderPermsResponse")]
     #[Type(GetEffectiveFolderPermsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetEffectiveFolderPermsRequest $request = NULL, ?GetEffectiveFolderPermsResponse $response = NULL
-    )
-    {
+        ?GetEffectiveFolderPermsRequest $request = null,
+        ?GetEffectiveFolderPermsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

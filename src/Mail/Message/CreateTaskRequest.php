@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 /**
  * CreateTaskRequest class
  * This is the API to create a new Task
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class CreateTaskRequest extends CreateAppointmentRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateTaskEnvelope(
-            new CreateTaskBody($this)
-        );
+        return new CreateTaskEnvelope(new CreateTaskBody($this));
     }
 }

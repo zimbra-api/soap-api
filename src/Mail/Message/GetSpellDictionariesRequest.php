@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetSpellDictionariesRequest class
  * Returns the list of dictionaries that can be used for spell checking.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

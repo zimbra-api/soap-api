@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * PurgeMessagesRequest class
  * Purges aged messages out of trash, spam, and entire mailbox
  * (if <mbox> element is omitted, purges all mailboxes on server)
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,18 +29,18 @@ class PurgeMessagesRequest extends SoapRequest
 {
     /**
      * Mailbox by account id selector
-     * 
+     *
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**
@@ -49,7 +49,7 @@ class PurgeMessagesRequest extends SoapRequest
      * @param  Mailbox $mbox
      * @return self
      */
-    public function __construct(?Mailbox $mbox = NULL)
+    public function __construct(?Mailbox $mbox = null)
     {
         $this->mbox = $mbox;
     }
@@ -81,8 +81,6 @@ class PurgeMessagesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new PurgeMessagesEnvelope(
-            new PurgeMessagesBody($this)
-        );
+        return new PurgeMessagesEnvelope(new PurgeMessagesBody($this));
     }
 }

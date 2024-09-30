@@ -10,9 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{
-    AccountSelector, AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest
+    AccountSelector,
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
 };
 
 /**
@@ -20,7 +30,7 @@ use Zimbra\Common\Struct\{
  * Get attributes related to an account
  * {attrs} - comma-seperated list of attrs to return
  * Note: this request is by default proxied to the account's home server
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -35,17 +45,17 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * Flag whether or not to apply class of service (COS) rules
      * 1 (true) [default] COS rules apply and unset attrs on an account will get their value from the COS
      * 0 (false) only attributes directly set on the account will be returned
-     * 
+     *
      * @Accessor(getter="isApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isApplyCos', setter: 'setApplyCos')]
-    #[SerializedName('applyCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "isApplyCos", setter: "setApplyCos")]
+    #[SerializedName("applyCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyCos;
 
@@ -53,39 +63,39 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * Flag whether or not to get effective value (minimum of zimbraMailQuota and zimbraMailDomainQuota)
      * 1 (true) zimbraMailQuota attribute will contain effective value
      * 0 (false) [default] zimbraMailQuota attribute will contain actual ldap value set
-     * 
+     *
      * @Accessor(getter="isEffectiveQuota", setter="setEffectiveQuota")
      * @SerializedName("effectiveQuota")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isEffectiveQuota', setter: 'setEffectiveQuota')]
-    #[SerializedName('effectiveQuota')]
-    #[Type('bool')]
+    #[Accessor(getter: "isEffectiveQuota", setter: "setEffectiveQuota")]
+    #[SerializedName("effectiveQuota")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $effectiveQuota;
 
     /**
      * Account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountSelector $account
      * @param  bool $applyCos
      * @param  bool $effectiveQuota
@@ -93,17 +103,19 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * @return self
      */
     public function __construct(
-        AccountSelector $account, ?bool $applyCos = NULL, ?bool $effectiveQuota = NULL, ?string $attrs = NULL
-    )
-    {
+        AccountSelector $account,
+        ?bool $applyCos = null,
+        ?bool $effectiveQuota = null,
+        ?string $attrs = null
+    ) {
         $this->setAccount($account);
-        if (NULL !== $applyCos) {
+        if (null !== $applyCos) {
             $this->setApplyCos($applyCos);
         }
-        if (NULL !== $effectiveQuota) {
+        if (null !== $effectiveQuota) {
             $this->setEffectiveQuota($effectiveQuota);
         }
-        if (NULL !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }
@@ -179,8 +191,6 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAccountEnvelope(
-            new GetAccountBody($this)
-        );
+        return new GetAccountEnvelope(new GetAccountBody($this));
     }
 }

@@ -25,49 +25,47 @@ class TestDataSource
 {
     /**
      * 0 if data source test failed, 1 if test succeeded
-     * 
+     *
      * @Accessor(getter="getSuccess", setter="setSuccess")
      * @SerializedName("success")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
-    #[SerializedName('success')]
-    #[Type('int')]
+    #[Accessor(getter: "getSuccess", setter: "setSuccess")]
+    #[SerializedName("success")]
+    #[Type("int")]
     #[XmlAttribute]
     private $success;
 
     /**
      * error message passed by DatImport::test method of the datasource being tested
-     * 
+     *
      * @Accessor(getter="getError", setter="setError")
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName('error')]
-    #[Type('string')]
+    #[Accessor(getter: "getError", setter: "setError")]
+    #[SerializedName("error")]
+    #[Type("string")]
     #[XmlAttribute]
     private $error;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $success
      * @param string $error
      * @return self
      */
-    public function __construct(
-        int $success = 0, ?string $error = NULL
-    )
+    public function __construct(int $success = 0, ?string $error = null)
     {
         $this->setSuccess($success);
-        if (NULL !== $error) {
+        if (null !== $error) {
             $this->setError($error);
         }
     }

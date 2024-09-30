@@ -10,13 +10,20 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Common\Struct\DataSource;
 
 /**
  * MailDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -27,308 +34,313 @@ class MailDataSource implements DataSource
 {
     /**
      * Unique ID for data source
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Name for data source
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Folder ID for data source
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Flag whether or not the data source is enabled
-     * 
+     *
      * @Accessor(getter="isEnabled", setter="setEnabled")
      * @SerializedName("isEnabled")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isEnabled', setter: 'setEnabled')]
-    #[SerializedName('isEnabled')]
-    #[Type('bool')]
+    #[Accessor(getter: "isEnabled", setter: "setEnabled")]
+    #[SerializedName("isEnabled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $enabled;
 
     /**
      * indicates that this datasource is used for one way (incoming) import versus two-way sync
-     * 
+     *
      * @Accessor(getter="isImportOnly", setter="setImportOnly")
      * @SerializedName("importOnly")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isImportOnly', setter: 'setImportOnly')]
-    #[SerializedName('importOnly')]
-    #[Type('bool')]
+    #[Accessor(getter: "isImportOnly", setter: "setImportOnly")]
+    #[SerializedName("importOnly")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $importOnly;
 
     /**
      * Name of server
      * e.g. "imap.myisp.com"
-     * 
+     *
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName('host')]
-    #[Type('string')]
+    #[Accessor(getter: "getHost", setter: "setHost")]
+    #[SerializedName("host")]
+    #[Type("string")]
     #[XmlAttribute]
     private $host;
 
     /**
      * Port number of server
      * e.g. "143"
-     * 
+     *
      * @Accessor(getter="getPort", setter="setPort")
      * @SerializedName("port")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getPort', setter: 'setPort')]
-    #[SerializedName('port')]
-    #[Type('int')]
+    #[Accessor(getter: "getPort", setter: "setPort")]
+    #[SerializedName("port")]
+    #[Type("int")]
     #[XmlAttribute]
     private $port;
 
     /**
      * Which security layer to use for connection (cleartext, ssl, tls, or tls if available).
      * If not set on data source, fallback to the id on global config.
-     * 
+     *
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
-     * 
+     *
      * @var ConnectionType
      */
-    #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
-    #[SerializedName('connectionType')]
-    #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
+    #[Accessor(getter: "getConnectionType", setter: "setConnectionType")]
+    #[SerializedName("connectionType")]
+    #[Type("Enum<Zimbra\Common\Enum\ConnectionType>")]
     #[XmlAttribute]
     private ?ConnectionType $connectionType;
 
     /**
      * Login string on data-source-server, for example a user name
-     * 
+     *
      * @Accessor(getter="getUsername", setter="setUsername")
      * @SerializedName("username")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUsername', setter: 'setUsername')]
-    #[SerializedName('username')]
-    #[Type('string')]
+    #[Accessor(getter: "getUsername", setter: "setUsername")]
+    #[SerializedName("username")]
+    #[Type("string")]
     #[XmlAttribute]
     private $username;
 
     /**
      * Login password for data source
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * Polling interval.  For instance "10m"
-     * 
+     *
      * @Accessor(getter="getPollingInterval", setter="setPollingInterval")
      * @SerializedName("pollingInterval")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPollingInterval', setter: 'setPollingInterval')]
-    #[SerializedName('pollingInterval')]
-    #[Type('string')]
+    #[Accessor(getter: "getPollingInterval", setter: "setPollingInterval")]
+    #[SerializedName("pollingInterval")]
+    #[Type("string")]
     #[XmlAttribute]
     private $pollingInterval;
 
     /**
      * Email address for the data-source
-     * 
+     *
      * @Accessor(getter="getEmailAddress", setter="setEmailAddress")
      * @SerializedName("emailAddress")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmailAddress', setter: 'setEmailAddress')]
-    #[SerializedName('emailAddress')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmailAddress", setter: "setEmailAddress")]
+    #[SerializedName("emailAddress")]
+    #[Type("string")]
     #[XmlAttribute]
     private $emailAddress;
 
     /**
      * Whether sending outbound mail using external SMTP server is enabled in this data source.
-     * 
+     *
      * @Accessor(getter="isSmtpEnabled", setter="setSmtpEnabled")
      * @SerializedName("smtpEnabled")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isSmtpEnabled', setter: 'setSmtpEnabled')]
-    #[SerializedName('smtpEnabled')]
-    #[Type('bool')]
+    #[Accessor(getter: "isSmtpEnabled", setter: "setSmtpEnabled")]
+    #[SerializedName("smtpEnabled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $smtpEnabled;
 
     /**
      * Name of SMTP server. e.g. "smtp.myisp.com"
-     * 
+     *
      * @Accessor(getter="getSmtpHost", setter="setSmtpHost")
      * @SerializedName("smtpHost")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSmtpHost', setter: 'setSmtpHost')]
-    #[SerializedName('smtpHost')]
-    #[Type('string')]
+    #[Accessor(getter: "getSmtpHost", setter: "setSmtpHost")]
+    #[SerializedName("smtpHost")]
+    #[Type("string")]
     #[XmlAttribute]
     private $smtpHost;
 
     /**
      * Port number of SMTP server. e.g. "465"
-     * 
+     *
      * @Accessor(getter="getSmtpPort", setter="setSmtpPort")
      * @SerializedName("smtpPort")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSmtpPort', setter: 'setSmtpPort')]
-    #[SerializedName('smtpPort')]
-    #[Type('int')]
+    #[Accessor(getter: "getSmtpPort", setter: "setSmtpPort")]
+    #[SerializedName("smtpPort")]
+    #[Type("int")]
     #[XmlAttribute]
     private $smtpPort;
 
     /**
      * Which security layer to use for connecting to SMTP host associated with this data source.
-     * 
+     *
      * @Accessor(getter="getSmtpConnectionType", setter="setSmtpConnectionType")
      * @SerializedName("smtpConnectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
-     * 
+     *
      * @var ConnectionType
      */
-    #[Accessor(getter: 'getSmtpConnectionType', setter: 'setSmtpConnectionType')]
-    #[SerializedName('smtpConnectionType')]
-    #[Type('Enum<Zimbra\Common\Enum\ConnectionType>')]
+    #[
+        Accessor(
+            getter: "getSmtpConnectionType",
+            setter: "setSmtpConnectionType"
+        )
+    ]
+    #[SerializedName("smtpConnectionType")]
+    #[Type("Enum<Zimbra\Common\Enum\ConnectionType>")]
     #[XmlAttribute]
     private ?ConnectionType $smtpConnectionType;
 
     /**
      * Whether SMTP server associated with this data source requires authentication.
-     * 
+     *
      * @Accessor(getter="isSmtpAuthRequired", setter="setSmtpAuthRequired")
      * @SerializedName("smtpAuthRequired")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isSmtpAuthRequired', setter: 'setSmtpAuthRequired')]
-    #[SerializedName('smtpAuthRequired')]
-    #[Type('bool')]
+    #[Accessor(getter: "isSmtpAuthRequired", setter: "setSmtpAuthRequired")]
+    #[SerializedName("smtpAuthRequired")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $smtpAuthRequired;
 
     /**
      * Login username for SMTP server
-     * 
+     *
      * @Accessor(getter="getSmtpUsername", setter="setSmtpUsername")
      * @SerializedName("smtpUsername")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSmtpUsername', setter: 'setSmtpUsername')]
-    #[SerializedName('smtpUsername')]
-    #[Type('string')]
+    #[Accessor(getter: "getSmtpUsername", setter: "setSmtpUsername")]
+    #[SerializedName("smtpUsername")]
+    #[Type("string")]
     #[XmlAttribute]
     private $smtpUsername;
 
     /**
      * Login password for SMTP server
-     * 
+     *
      * @Accessor(getter="getSmtpPassword", setter="setSmtpPassword")
      * @SerializedName("smtpPassword")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSmtpPassword', setter: 'setSmtpPassword')]
-    #[SerializedName('smtpPassword')]
-    #[Type('string')]
+    #[Accessor(getter: "getSmtpPassword", setter: "setSmtpPassword")]
+    #[SerializedName("smtpPassword")]
+    #[Type("string")]
     #[XmlAttribute]
     private $smtpPassword;
 
@@ -336,197 +348,207 @@ class MailDataSource implements DataSource
      * When forwarding or replying to messages sent to this data source, this flags whether
      * or not to use the email address of the data source for the from address and the designated signature/replyTo
      * of the data source for the outgoing message.
-     * 
+     *
      * @Accessor(getter="isUseAddressForForwardReply", setter="setUseAddressForForwardReply")
      * @SerializedName("useAddressForForwardReply")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isUseAddressForForwardReply', setter: 'setUseAddressForForwardReply')]
-    #[SerializedName('useAddressForForwardReply')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "isUseAddressForForwardReply",
+            setter: "setUseAddressForForwardReply"
+        )
+    ]
+    #[SerializedName("useAddressForForwardReply")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $useAddressForForwardReply;
 
     /**
      * ID for default signature
-     * 
+     *
      * @Accessor(getter="getDefaultSignature", setter="setDefaultSignature")
      * @SerializedName("defaultSignature")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultSignature', setter: 'setDefaultSignature')]
-    #[SerializedName('defaultSignature')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultSignature", setter: "setDefaultSignature")]
+    #[SerializedName("defaultSignature")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultSignature;
 
     /**
      * Forward / Reply Signature ID for data source
-     * 
+     *
      * @Accessor(getter="getForwardReplySignature", setter="setForwardReplySignature")
      * @SerializedName("forwardReplySignature")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getForwardReplySignature', setter: 'setForwardReplySignature')]
-    #[SerializedName('forwardReplySignature')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getForwardReplySignature",
+            setter: "setForwardReplySignature"
+        )
+    ]
+    #[SerializedName("forwardReplySignature")]
+    #[Type("string")]
     #[XmlAttribute]
     private $forwardReplySignature;
 
     /**
      * Personal part of email address to put in the from header
-     * 
+     *
      * @Accessor(getter="getFromDisplay", setter="setFromDisplay")
      * @SerializedName("fromDisplay")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFromDisplay', setter: 'setFromDisplay')]
-    #[SerializedName('fromDisplay')]
-    #[Type('string')]
+    #[Accessor(getter: "getFromDisplay", setter: "setFromDisplay")]
+    #[SerializedName("fromDisplay")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fromDisplay;
 
     /**
      * Email address to put in the reply-to header
-     * 
+     *
      * @Accessor(getter="getReplyToAddress", setter="setReplyToAddress")
      * @SerializedName("replyToAddress")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getReplyToAddress', setter: 'setReplyToAddress')]
-    #[SerializedName('replyToAddress')]
-    #[Type('string')]
+    #[Accessor(getter: "getReplyToAddress", setter: "setReplyToAddress")]
+    #[SerializedName("replyToAddress")]
+    #[Type("string")]
     #[XmlAttribute]
     private $replyToAddress;
 
     /**
      * Personal part of Email address to put in the reply-to header
-     * 
+     *
      * @Accessor(getter="getReplyToDisplay", setter="setReplyToDisplay")
      * @SerializedName("replyToDisplay")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getReplyToDisplay', setter: 'setReplyToDisplay')]
-    #[SerializedName('replyToDisplay')]
-    #[Type('string')]
+    #[Accessor(getter: "getReplyToDisplay", setter: "setReplyToDisplay")]
+    #[SerializedName("replyToDisplay")]
+    #[Type("string")]
     #[XmlAttribute]
     private $replyToDisplay;
 
     /**
      * Data import class used bt this data source
-     * 
+     *
      * @Accessor(getter="getImportClass", setter="setImportClass")
      * @SerializedName("importClass")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getImportClass', setter: 'setImportClass')]
-    #[SerializedName('importClass')]
-    #[Type('string')]
+    #[Accessor(getter: "getImportClass", setter: "setImportClass")]
+    #[SerializedName("importClass")]
+    #[Type("string")]
     #[XmlAttribute]
     private $importClass;
 
     /**
      * Failing Since
-     * 
+     *
      * @Accessor(getter="getFailingSince", setter="setFailingSince")
      * @SerializedName("failingSince")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFailingSince', setter: 'setFailingSince')]
-    #[SerializedName('failingSince')]
-    #[Type('int')]
+    #[Accessor(getter: "getFailingSince", setter: "setFailingSince")]
+    #[SerializedName("failingSince")]
+    #[Type("int")]
     #[XmlAttribute]
     private $failingSince;
 
     /**
      * Last Error
-     * 
+     *
      * @Accessor(getter="getLastError", setter="setLastError")
      * @SerializedName("lastError")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLastError', setter: 'setLastError')]
-    #[SerializedName('lastError')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getLastError", setter: "setLastError")]
+    #[SerializedName("lastError")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $lastError;
 
     /**
      * refresh token for refreshing data source oauth token
-     * 
+     *
      * @Accessor(getter="getRefreshToken", setter="setRefreshToken")
      * @SerializedName("refreshToken")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRefreshToken', setter: 'setRefreshToken')]
-    #[SerializedName('refreshToken')]
-    #[Type('string')]
+    #[Accessor(getter: "getRefreshToken", setter: "setRefreshToken")]
+    #[SerializedName("refreshToken")]
+    #[Type("string")]
     #[XmlAttribute]
     private $refreshToken;
 
     /**
      * refreshTokenUrl for refreshing data source oauth token
-     * 
+     *
      * @Accessor(getter="getRefreshTokenUrl", setter="setRefreshTokenUrl")
      * @SerializedName("refreshTokenUrl")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRefreshTokenUrl', setter: 'setRefreshTokenUrl')]
-    #[SerializedName('refreshTokenUrl')]
-    #[Type('string')]
+    #[Accessor(getter: "getRefreshTokenUrl", setter: "setRefreshTokenUrl")]
+    #[SerializedName("refreshTokenUrl")]
+    #[Type("string")]
     #[XmlAttribute]
     private $refreshTokenUrl;
 
     /**
      * Properties for the data source
-     * 
+     *
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttributes', setter: 'setAttributes')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttributes", setter: "setAttributes")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
     private $attributes = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $name
      * @param  string $folderId
@@ -561,126 +583,125 @@ class MailDataSource implements DataSource
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $folderId = NULL,
-        ?bool $enabled = NULL,
-        ?bool $importOnly = NULL,
-        ?string $host = NULL,
-        ?int $port = NULL,
-        ?ConnectionType $connectionType = NULL,
-        ?string $username = NULL,
-        ?string $password = NULL,
-        ?string $pollingInterval = NULL,
-        ?string $emailAddress = NULL,
-        ?bool $smtpEnabled = NULL,
-        ?string $smtpHost = NULL,
-        ?int $smtpPort = NULL,
-        ?ConnectionType $smtpConnectionType = NULL,
-        ?bool $smtpAuthRequired = NULL,
-        ?string $smtpUsername = NULL,
-        ?string $smtpPassword = NULL,
-        ?bool $useAddressForForwardReply = NULL,
-        ?string $defaultSignature = NULL,
-        ?string $forwardReplySignature = NULL,
-        ?string $fromDisplay = NULL,
-        ?string $replyToAddress = NULL,
-        ?string $replyToDisplay = NULL,
-        ?string $importClass = NULL,
-        ?int $failingSince = NULL,
-        ?string $lastError = NULL,
-        ?string $refreshToken = NULL,
-        ?string $refreshTokenUrl = NULL,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $folderId = null,
+        ?bool $enabled = null,
+        ?bool $importOnly = null,
+        ?string $host = null,
+        ?int $port = null,
+        ?ConnectionType $connectionType = null,
+        ?string $username = null,
+        ?string $password = null,
+        ?string $pollingInterval = null,
+        ?string $emailAddress = null,
+        ?bool $smtpEnabled = null,
+        ?string $smtpHost = null,
+        ?int $smtpPort = null,
+        ?ConnectionType $smtpConnectionType = null,
+        ?bool $smtpAuthRequired = null,
+        ?string $smtpUsername = null,
+        ?string $smtpPassword = null,
+        ?bool $useAddressForForwardReply = null,
+        ?string $defaultSignature = null,
+        ?string $forwardReplySignature = null,
+        ?string $fromDisplay = null,
+        ?string $replyToAddress = null,
+        ?string $replyToDisplay = null,
+        ?string $importClass = null,
+        ?int $failingSince = null,
+        ?string $lastError = null,
+        ?string $refreshToken = null,
+        ?string $refreshTokenUrl = null,
         array $attributes = []
-    )
-    {
+    ) {
         $this->connectionType = $connectionType;
         $this->smtpConnectionType = $smtpConnectionType;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $enabled) {
+        if (null !== $enabled) {
             $this->setEnabled($enabled);
         }
-        if (NULL !== $importOnly) {
+        if (null !== $importOnly) {
             $this->setImportOnly($importOnly);
         }
-        if (NULL !== $host) {
+        if (null !== $host) {
             $this->setHost($host);
         }
-        if (NULL !== $port) {
+        if (null !== $port) {
             $this->setPort($port);
         }
-        if (NULL !== $username) {
+        if (null !== $username) {
             $this->setUsername($username);
         }
-        if (NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $pollingInterval) {
+        if (null !== $pollingInterval) {
             $this->setPollingInterval($pollingInterval);
         }
-        if (NULL !== $emailAddress) {
+        if (null !== $emailAddress) {
             $this->setEmailAddress($emailAddress);
         }
-        if (NULL !== $smtpEnabled) {
+        if (null !== $smtpEnabled) {
             $this->setSmtpEnabled($smtpEnabled);
         }
-        if (NULL !== $smtpHost) {
+        if (null !== $smtpHost) {
             $this->setSmtpHost($smtpHost);
         }
-        if (NULL !== $smtpPort) {
+        if (null !== $smtpPort) {
             $this->setSmtpPort($smtpPort);
         }
-        if (NULL !== $smtpAuthRequired) {
+        if (null !== $smtpAuthRequired) {
             $this->setSmtpAuthRequired($smtpAuthRequired);
         }
-        if (NULL !== $smtpUsername) {
+        if (null !== $smtpUsername) {
             $this->setSmtpUsername($smtpUsername);
         }
-        if (NULL !== $smtpPassword) {
+        if (null !== $smtpPassword) {
             $this->setSmtpPassword($smtpPassword);
         }
-        if (NULL !== $useAddressForForwardReply) {
+        if (null !== $useAddressForForwardReply) {
             $this->setUseAddressForForwardReply($useAddressForForwardReply);
         }
-        if (NULL !== $defaultSignature) {
+        if (null !== $defaultSignature) {
             $this->setDefaultSignature($defaultSignature);
         }
-        if (NULL !== $forwardReplySignature) {
+        if (null !== $forwardReplySignature) {
             $this->setForwardReplySignature($forwardReplySignature);
         }
-        if (NULL !== $fromDisplay) {
+        if (null !== $fromDisplay) {
             $this->setFromDisplay($fromDisplay);
         }
-        if (NULL !== $replyToAddress) {
+        if (null !== $replyToAddress) {
             $this->setReplyToAddress($replyToAddress);
         }
-        if (NULL !== $replyToDisplay) {
+        if (null !== $replyToDisplay) {
             $this->setReplyToDisplay($replyToDisplay);
         }
-        if (NULL !== $importClass) {
+        if (null !== $importClass) {
             $this->setImportClass($importClass);
         }
-        if (NULL !== $failingSince) {
+        if (null !== $failingSince) {
             $this->setFailingSince($failingSince);
         }
-        if (NULL !== $lastError) {
+        if (null !== $lastError) {
             $this->setLastError($lastError);
         }
-        if (NULL !== $refreshToken) {
+        if (null !== $refreshToken) {
             $this->setRefreshToken($refreshToken);
         }
-        if (NULL !== $refreshTokenUrl) {
+        if (null !== $refreshTokenUrl) {
             $this->setRefreshTokenUrl($refreshTokenUrl);
         }
-        if (NULL !== $attributes) {
+        if (null !== $attributes) {
             $this->setAttributes($attributes);
         }
     }
@@ -1031,8 +1052,9 @@ class MailDataSource implements DataSource
      * @param  ConnectionType $smtpConnectionType
      * @return self
      */
-    public function setSmtpConnectionType(ConnectionType $smtpConnectionType): self
-    {
+    public function setSmtpConnectionType(
+        ConnectionType $smtpConnectionType
+    ): self {
         $this->smtpConnectionType = $smtpConnectionType;
         return $this;
     }
@@ -1119,8 +1141,9 @@ class MailDataSource implements DataSource
      * @param  bool $useAddressForForwardReply
      * @return self
      */
-    public function setUseAddressForForwardReply(bool $useAddressForForwardReply): self
-    {
+    public function setUseAddressForForwardReply(
+        bool $useAddressForForwardReply
+    ): self {
         $this->useAddressForForwardReply = $useAddressForForwardReply;
         return $this;
     }
@@ -1163,8 +1186,9 @@ class MailDataSource implements DataSource
      * @param  string $forwardReplySignature
      * @return self
      */
-    public function setForwardReplySignature(string $forwardReplySignature): self
-    {
+    public function setForwardReplySignature(
+        string $forwardReplySignature
+    ): self {
         $this->forwardReplySignature = $forwardReplySignature;
         return $this;
     }

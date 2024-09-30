@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllXMPPComponentsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,22 @@ class GetAllXMPPComponentsResponse extends SoapResponse
 {
     /**
      * Information on XMPP components
-     * 
+     *
      * @Accessor(getter="getComponents", setter="setComponents")
      * @Type("array<Zimbra\Admin\Struct\XMPPComponentInfo>")
      * @XmlList(inline=true, entry="xmppcomponent", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getComponents', setter: 'setComponents')]
-    #[Type('array<Zimbra\Admin\Struct\XMPPComponentInfo>')]
-    #[XmlList(inline: true, entry: 'xmppcomponent', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getComponents", setter: "setComponents")]
+    #[Type("array<Zimbra\Admin\Struct\XMPPComponentInfo>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "xmppcomponent",
+            namespace: "urn:zimbraAdmin"
+        )
+    ]
     private $components = [];
 
     /**
@@ -59,7 +65,8 @@ class GetAllXMPPComponentsResponse extends SoapResponse
     public function setComponents(array $components): self
     {
         $this->components = array_filter(
-            $components, static fn ($component) => $component instanceof XMPPComponentInfo
+            $components,
+            static fn($component) => $component instanceof XMPPComponentInfo
         );
         return $this;
     }

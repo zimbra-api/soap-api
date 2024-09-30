@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * RFCCompliantNotifyAction struct class
@@ -25,87 +31,87 @@ class RFCCompliantNotifyAction extends FilterAction
 {
     /**
      * Notify Tag ":from"
-     * 
+     *
      * @Accessor(getter="getFrom", setter="setFrom")
      * @SerializedName("from")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFrom', setter: 'setFrom')]
-    #[SerializedName('from')]
-    #[Type('string')]
+    #[Accessor(getter: "getFrom", setter: "setFrom")]
+    #[SerializedName("from")]
+    #[Type("string")]
     #[XmlAttribute]
     private $from;
 
     /**
      * Notify Tag ":importance"
-     * 
+     *
      * @Accessor(getter="getImportance", setter="setImportance")
      * @SerializedName("importance")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getImportance', setter: 'setImportance')]
-    #[SerializedName('importance')]
-    #[Type('string')]
+    #[Accessor(getter: "getImportance", setter: "setImportance")]
+    #[SerializedName("importance")]
+    #[Type("string")]
     #[XmlAttribute]
     private $importance;
 
     /**
      * Notify Tag ":options"
-     * 
+     *
      * @Accessor(getter="getOptions", setter="setOptions")
      * @SerializedName("options")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOptions', setter: 'setOptions')]
-    #[SerializedName('options')]
-    #[Type('string')]
+    #[Accessor(getter: "getOptions", setter: "setOptions")]
+    #[SerializedName("options")]
+    #[Type("string")]
     #[XmlAttribute]
     private $options;
 
     /**
      * Notify Tag ":message"
-     * 
+     *
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
     #[XmlAttribute]
     private $message;
 
     /**
      * Notify Parameter "method"
-     * 
+     *
      * @Accessor(getter="getMethod", setter="setMethod")
      * @SerializedName("method")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMethod', setter: 'setMethod')]
-    #[SerializedName('method')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMethod", setter: "setMethod")]
+    #[SerializedName("method")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $method;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $from
      * @param string $importance
@@ -115,28 +121,27 @@ class RFCCompliantNotifyAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?string $from = NULL,
-        ?string $importance = NULL,
-        ?string $options = NULL,
-        ?string $message = NULL,
-        ?string $method = NULL
-    )
-    {
-    	parent::__construct($index);
-        if (NULL !== $from) {
+        ?int $index = null,
+        ?string $from = null,
+        ?string $importance = null,
+        ?string $options = null,
+        ?string $message = null,
+        ?string $method = null
+    ) {
+        parent::__construct($index);
+        if (null !== $from) {
             $this->setFrom($from);
         }
-        if (NULL !== $importance) {
+        if (null !== $importance) {
             $this->setImportance($importance);
         }
-        if (NULL !== $options) {
+        if (null !== $options) {
             $this->setOptions($options);
         }
-        if (NULL !== $message) {
+        if (null !== $message) {
             $this->setMessage($message);
         }
-        if (NULL !== $method) {
+        if (null !== $method) {
             $this->setMethod($method);
         }
     }

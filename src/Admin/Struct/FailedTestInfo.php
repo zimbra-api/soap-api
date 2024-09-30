@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * FailedTestInfo struct class
@@ -25,63 +31,63 @@ class FailedTestInfo
 {
     /**
      * Failed test name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Failed test execution time
-     * 
+     *
      * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
      * @SerializedName("execSeconds")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getExecSeconds', setter: 'setExecSeconds')]
-    #[SerializedName('execSeconds')]
-    #[Type('int')]
+    #[Accessor(getter: "getExecSeconds", setter: "setExecSeconds")]
+    #[SerializedName("execSeconds")]
+    #[Type("int")]
     #[XmlAttribute]
     private $execSeconds;
 
     /**
      * Failed test class name
-     * 
+     *
      * @Accessor(getter="getClassName", setter="setClassName")
      * @SerializedName("class")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getClassName', setter: 'setClassName')]
-    #[SerializedName('class')]
-    #[Type('string')]
+    #[Accessor(getter: "getClassName", setter: "setClassName")]
+    #[SerializedName("class")]
+    #[Type("string")]
     #[XmlAttribute]
     private $className;
 
     /**
      * Text of any exception thrown during the test
-     * 
+     *
      * @Accessor(getter="getThrowable", setter="setThrowable")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getThrowable', setter: 'setThrowable')]
-    #[Type('string')]
+    #[Accessor(getter: "getThrowable", setter: "setThrowable")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $throwable;
 
@@ -95,13 +101,15 @@ class FailedTestInfo
      * @return self
      */
     public function __construct(
-        string $name = '', int $execSeconds = 0, string $className = '', string $throwable = ''
-    )
-    {
+        string $name = "",
+        int $execSeconds = 0,
+        string $className = "",
+        string $throwable = ""
+    ) {
         $this->setName($name)
-             ->setExecSeconds($execSeconds)
-             ->setClassName($className)
-             ->setThrowable($throwable);
+            ->setExecSeconds($execSeconds)
+            ->setClassName($className)
+            ->setThrowable($throwable);
     }
 
     /**

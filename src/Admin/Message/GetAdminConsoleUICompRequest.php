@@ -16,9 +16,9 @@ use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAdminConsoleUICompRequest class
- * Returns the union of the zimbraAdminConsoleUIComponents values on the specified account/dl entry and that on all admin groups the entry belongs to. 
+ * Returns the union of the zimbraAdminConsoleUIComponents values on the specified account/dl entry and that on all admin groups the entry belongs to.
  * Note: if neither <account> nor <dl> is specified, the authed admin account will be used as the perspective entry.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,45 +29,47 @@ class GetAdminConsoleUICompRequest extends SoapRequest
 {
     /**
      * Account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * Distribution List
-     * 
+     *
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DlSelector
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DlSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DlSelector $dl;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountSelector $account
      * @param  DlSelector $dl
      * @return self
      */
-    public function __construct(?AccountSelector $account = NULL, ?DlSelector $dl = NULL)
-    {
+    public function __construct(
+        ?AccountSelector $account = null,
+        ?DlSelector $dl = null
+    ) {
         $this->account = $account;
         $this->dl = $dl;
     }

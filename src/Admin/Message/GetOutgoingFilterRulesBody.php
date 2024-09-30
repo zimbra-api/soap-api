@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetOutgoingFilterRulesBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetOutgoingFilterRulesBody extends SoapBody
      * @SerializedName("GetOutgoingFilterRulesRequest")
      * @Type("Zimbra\Admin\Message\GetOutgoingFilterRulesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetOutgoingFilterRulesRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetOutgoingFilterRulesRequest")]
     #[Type(GetOutgoingFilterRulesRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetOutgoingFilterRulesResponse")
      * @Type("Zimbra\Admin\Message\GetOutgoingFilterRulesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetOutgoingFilterRulesResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetOutgoingFilterRulesResponse")]
     #[Type(GetOutgoingFilterRulesResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetOutgoingFilterRulesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetOutgoingFilterRulesRequest $request = NULL, ?GetOutgoingFilterRulesResponse $response = NULL
-    )
-    {
+        ?GetOutgoingFilterRulesRequest $request = null,
+        ?GetOutgoingFilterRulesResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

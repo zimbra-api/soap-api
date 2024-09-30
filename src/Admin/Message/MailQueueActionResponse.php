@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * MailQueueActionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

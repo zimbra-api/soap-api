@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{
     ImapImportStatusInfo,
     Pop3ImportStatusInfo,
@@ -19,14 +19,13 @@ use Zimbra\Mail\Struct\{
     RssImportStatusInfo,
     GalImportStatusInfo,
     CalImportStatusInfo,
-    UnknownImportStatusInfo,
-    ImportStatusInfo
+    UnknownImportStatusInfo
 };
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetImportStatusResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -37,114 +36,114 @@ class GetImportStatusResponse extends SoapResponse
 {
     /**
      * Imap statuses
-     * 
+     *
      * @Accessor(getter="getImapStatuses", setter="setImapStatuses")
      * @Type("array<Zimbra\Mail\Struct\ImapImportStatusInfo>")
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getImapStatuses', setter: 'setImapStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\ImapImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getImapStatuses", setter: "setImapStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\ImapImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "imap", namespace: "urn:zimbraMail")]
     private $imapStatuses = [];
 
     /**
      * Pop3 statuses
-     * 
+     *
      * @Accessor(getter="getPop3Statuses", setter="setPop3Statuses")
      * @Type("array<Zimbra\Mail\Struct\Pop3ImportStatusInfo>")
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPop3Statuses', setter: 'setPop3Statuses')]
-    #[Type('array<Zimbra\Mail\Struct\Pop3ImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getPop3Statuses", setter: "setPop3Statuses")]
+    #[Type("array<Zimbra\Mail\Struct\Pop3ImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "pop3", namespace: "urn:zimbraMail")]
     private $pop3Statuses = [];
 
     /**
      * Caldav statuses
-     * 
+     *
      * @Accessor(getter="getCaldavStatuses", setter="setCaldavStatuses")
      * @Type("array<Zimbra\Mail\Struct\CaldavImportStatusInfo>")
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCaldavStatuses', setter: 'setCaldavStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\CaldavImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCaldavStatuses", setter: "setCaldavStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\CaldavImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "caldav", namespace: "urn:zimbraMail")]
     private $caldavStatuses = [];
 
     /**
      * Yab statuses
-     * 
+     *
      * @Accessor(getter="getYabStatuses", setter="setYabStatuses")
      * @Type("array<Zimbra\Mail\Struct\YabImportStatusInfo>")
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getYabStatuses', setter: 'setYabStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\YabImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getYabStatuses", setter: "setYabStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\YabImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "yab", namespace: "urn:zimbraMail")]
     private $yabStatuses = [];
 
     /**
      * Rss statuses
-     * 
+     *
      * @Accessor(getter="getRssStatuses", setter="setRssStatuses")
      * @Type("array<Zimbra\Mail\Struct\RssImportStatusInfo>")
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRssStatuses', setter: 'setRssStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\RssImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRssStatuses", setter: "setRssStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\RssImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "rss", namespace: "urn:zimbraMail")]
     private $rssStatuses = [];
 
     /**
      * Gal statuses
-     * 
+     *
      * @Accessor(getter="getGalStatuses", setter="setGalStatuses")
      * @Type("array<Zimbra\Mail\Struct\GalImportStatusInfo>")
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGalStatuses', setter: 'setGalStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\GalImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGalStatuses", setter: "setGalStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\GalImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "gal", namespace: "urn:zimbraMail")]
     private $galStatuses = [];
 
     /**
      * Cal statuses
-     * 
+     *
      * @Accessor(getter="getCalStatuses", setter="setCalStatuses")
      * @Type("array<Zimbra\Mail\Struct\CalImportStatusInfo>")
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalStatuses', setter: 'setCalStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\CalImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCalStatuses", setter: "setCalStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\CalImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "cal", namespace: "urn:zimbraMail")]
     private $calStatuses = [];
 
     /**
      * Unknown statuses
-     * 
+     *
      * @Accessor(getter="getUnknownStatuses", setter="setUnknownStatuses")
      * @Type("array<Zimbra\Mail\Struct\UnknownImportStatusInfo>")
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUnknownStatuses', setter: 'setUnknownStatuses')]
-    #[Type('array<Zimbra\Mail\Struct\UnknownImportStatusInfo>')]
-    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getUnknownStatuses", setter: "setUnknownStatuses")]
+    #[Type("array<Zimbra\Mail\Struct\UnknownImportStatusInfo>")]
+    #[XmlList(inline: true, entry: "unknown", namespace: "urn:zimbraMail")]
     private $unknownStatuses = [];
 
     /**
@@ -171,12 +170,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set imap statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setImapStatuses(array $statuses): self
     {
         $this->imapStatuses = array_values(
-            array_filter($statuses, static fn ($imap) => $imap instanceof ImapImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($imap) => $imap instanceof ImapImportStatusInfo
+            )
         );
         return $this;
     }
@@ -194,12 +197,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set pop3 statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setPop3Statuses(array $statuses): self
     {
         $this->pop3Statuses = array_values(
-            array_filter($statuses, static fn ($pop3) => $pop3 instanceof Pop3ImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($pop3) => $pop3 instanceof Pop3ImportStatusInfo
+            )
         );
         return $this;
     }
@@ -217,12 +224,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set caldav statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setCaldavStatuses(array $statuses): self
     {
         $this->caldavStatuses = array_values(
-            array_filter($statuses, static fn ($caldav) => $caldav instanceof CaldavImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($caldav) => $caldav instanceof CaldavImportStatusInfo
+            )
         );
         return $this;
     }
@@ -240,12 +251,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set yab statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setYabStatuses(array $statuses): self
     {
         $this->yabStatuses = array_values(
-            array_filter($statuses, static fn ($yab) => $yab instanceof YabImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($yab) => $yab instanceof YabImportStatusInfo
+            )
         );
         return $this;
     }
@@ -263,12 +278,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set rss statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setRssStatuses(array $statuses): self
     {
         $this->rssStatuses = array_values(
-            array_filter($statuses, static fn ($rss) => $rss instanceof RssImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($rss) => $rss instanceof RssImportStatusInfo
+            )
         );
         return $this;
     }
@@ -286,12 +305,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set gal statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setGalStatuses(array $statuses): self
     {
         $this->galStatuses = array_values(
-            array_filter($statuses, static fn ($gal) => $gal instanceof GalImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($gal) => $gal instanceof GalImportStatusInfo
+            )
         );
         return $this;
     }
@@ -309,12 +332,16 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set cal statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setCalStatuses(array $statuses): self
     {
         $this->calStatuses = array_values(
-            array_filter($statuses, static fn ($cal) => $cal instanceof CalImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($cal) => $cal instanceof CalImportStatusInfo
+            )
         );
         return $this;
     }
@@ -332,12 +359,17 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Set unknown statuses
      *
+     * @param array $statuses
      * @return self
      */
     public function setUnknownStatuses(array $statuses): self
     {
         $this->unknownStatuses = array_values(
-            array_filter($statuses, static fn ($unknown) => $unknown instanceof UnknownImportStatusInfo)
+            array_filter(
+                $statuses,
+                static fn($unknown) => $unknown instanceof
+                    UnknownImportStatusInfo
+            )
         );
         return $this;
     }
@@ -351,13 +383,13 @@ class GetImportStatusResponse extends SoapResponse
     public function setStatuses(array $statuses): self
     {
         $this->setImapStatuses($statuses)
-             ->setPop3Statuses($statuses)
-             ->setCaldavStatuses($statuses)
-             ->setYabStatuses($statuses)
-             ->setRssStatuses($statuses)
-             ->setGalStatuses($statuses)
-             ->setCalStatuses($statuses)
-             ->setUnknownStatuses($statuses);
+            ->setPop3Statuses($statuses)
+            ->setCaldavStatuses($statuses)
+            ->setYabStatuses($statuses)
+            ->setRssStatuses($statuses)
+            ->setGalStatuses($statuses)
+            ->setCalStatuses($statuses)
+            ->setUnknownStatuses($statuses);
         return $this;
     }
 

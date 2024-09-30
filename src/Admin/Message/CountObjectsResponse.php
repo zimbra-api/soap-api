@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CountObjectsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,17 +26,17 @@ class CountObjectsResponse extends SoapResponse
 {
     /**
      * Number of objects of the requested type
-     * 
+     *
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('num')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("num")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
@@ -45,26 +45,25 @@ class CountObjectsResponse extends SoapResponse
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Constructor
-     * 
+     *
      * @param int    $num
      * @param string $type
      * @return self
      */
-    public function __construct(int $num = 0, string $type = '')
+    public function __construct(int $num = 0, string $type = "")
     {
-        $this->setNum($num)
-             ->setType($type);
+        $this->setNum($num)->setType($type);
     }
 
     /**

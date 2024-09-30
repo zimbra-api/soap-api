@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetMemcachedClientConfigBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetMemcachedClientConfigBody extends SoapBody
      * @SerializedName("GetMemcachedClientConfigRequest")
      * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetMemcachedClientConfigRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetMemcachedClientConfigRequest")]
     #[Type(GetMemcachedClientConfigRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetMemcachedClientConfigResponse")
      * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetMemcachedClientConfigResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetMemcachedClientConfigResponse")]
     #[Type(GetMemcachedClientConfigResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetMemcachedClientConfigBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetMemcachedClientConfigRequest $request = NULL, ?GetMemcachedClientConfigResponse $response = NULL
-    )
-    {
+        ?GetMemcachedClientConfigRequest $request = null,
+        ?GetMemcachedClientConfigResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

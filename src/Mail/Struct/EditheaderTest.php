@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 
 /**
@@ -26,117 +33,122 @@ class EditheaderTest
 {
     /**
      * matchType - is|contains|matches|count|value
-     * 
+     *
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("matchType")
      * @Type("Enum<Zimbra\Common\Enum\MatchType>")
      * @XmlAttribute
-     * 
+     *
      * @var MatchType
      */
-    #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
-    #[SerializedName('matchType')]
-    #[Type('Enum<Zimbra\Common\Enum\MatchType>')]
+    #[Accessor(getter: "getMatchType", setter: "setMatchType")]
+    #[SerializedName("matchType")]
+    #[Type("Enum<Zimbra\Common\Enum\MatchType>")]
     #[XmlAttribute]
     private ?MatchType $matchType;
 
     /**
      * if true count comparison will be done
-     * 
+     *
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("countComparator")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName('countComparator')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCount", setter: "setCount")]
+    #[SerializedName("countComparator")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $count;
 
     /**
      * if true count comparison will be done
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("valueComparator")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('valueComparator')]
-    #[Type('bool')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("valueComparator")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Relational comparator - gt|ge|lt|le|eq|ne
-     * 
+     *
      * @Accessor(getter="getRelationalComparator", setter="setRelationalComparator")
      * @SerializedName("relationalComparator")
      * @Type("Enum<Zimbra\Common\Enum\RelationalComparator>")
      * @XmlAttribute
-     * 
+     *
      * @var RelationalComparator
      */
-    #[Accessor(getter: 'getRelationalComparator', setter: 'setRelationalComparator')]
-    #[SerializedName('relationalComparator')]
-    #[Type('Enum<Zimbra\Common\Enum\RelationalComparator>')]
+    #[
+        Accessor(
+            getter: "getRelationalComparator",
+            setter: "setRelationalComparator"
+        )
+    ]
+    #[SerializedName("relationalComparator")]
+    #[Type("Enum<Zimbra\Common\Enum\RelationalComparator>")]
     #[XmlAttribute]
     private ?RelationalComparator $relationalComparator;
 
     /**
      * Comparator - i;ascii-numeric|i;ascii-casemap|i;octet
-     * 
+     *
      * @Accessor(getter="getComparator", setter="setComparator")
      * @SerializedName("comparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
-     * 
+     *
      * @var ComparisonComparator
      */
-    #[Accessor(getter: 'getComparator', setter: 'setComparator')]
-    #[SerializedName('comparator')]
-    #[Type('Enum<Zimbra\Common\Enum\ComparisonComparator>')]
+    #[Accessor(getter: "getComparator", setter: "setComparator")]
+    #[SerializedName("comparator")]
+    #[Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")]
     #[XmlAttribute]
     private ?ComparisonComparator $comparator;
 
     /**
      * Name of the header to be compared
-     * 
+     *
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaderName', setter: 'setHeaderName')]
-    #[SerializedName('headerName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[SerializedName("headerName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $headerName;
 
     /**
      * Value of the header to be compared
-     * 
+     *
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="headerValue", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaderValue', setter: 'setHeaderValue')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'headerValue', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "headerValue", namespace: "urn:zimbraMail")]
     private $headerValue = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param MatchType $matchType
      * @param bool $count
      * @param bool $value
@@ -147,26 +159,25 @@ class EditheaderTest
      * @return self
      */
     public function __construct(
-        ?MatchType $matchType = NULL,
-        ?bool $count = NULL,
-        ?bool $value = NULL,
-        ?RelationalComparator $relationalComparator = NULL,
-        ?ComparisonComparator $comparator = NULL,
-        ?string $headerName = NULL,
+        ?MatchType $matchType = null,
+        ?bool $count = null,
+        ?bool $value = null,
+        ?RelationalComparator $relationalComparator = null,
+        ?ComparisonComparator $comparator = null,
+        ?string $headerName = null,
         array $headerValue = []
-    )
-    {
+    ) {
         $this->setHeaderValue($headerValue);
         $this->matchType = $matchType;
         $this->relationalComparator = $relationalComparator;
         $this->comparator = $comparator;
-        if (NULL !== $count) {
+        if (null !== $count) {
             $this->setCount($count);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $headerName) {
+        if (null !== $headerName) {
             $this->setHeaderName($headerName);
         }
     }
@@ -253,8 +264,9 @@ class EditheaderTest
      * @param  RelationalComparator $relationalComparator
      * @return self
      */
-    public function setRelationalComparator(RelationalComparator $relationalComparator)
-    {
+    public function setRelationalComparator(
+        RelationalComparator $relationalComparator
+    ) {
         $this->relationalComparator = $relationalComparator;
         return $this;
     }
@@ -337,7 +349,10 @@ class EditheaderTest
     public function addHeaderValue(string $headerValue)
     {
         $headerValue = trim($headerValue);
-        if (!empty($headerValue) && !in_array($headerValue, $this->headerValue)) {
+        if (
+            !empty($headerValue) &&
+            !in_array($headerValue, $this->headerValue)
+        ) {
             $this->headerValue[] = $headerValue;
         }
         return $this;

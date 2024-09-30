@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\{CalTZInfo, DtTimeInfo, Msg};
 use Zimbra\Common\Enum\VerbType;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SendInviteReplyRequest class
  * Send a reply to an invite
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,50 +35,50 @@ class SendInviteReplyRequest extends SoapRequest
 {
     /**
      * Unique ID of the invite (and component therein) you are replying to
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * component number of the invite
-     * 
+     *
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
     /**
      * Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED
      * (Completed/Delegated are NOT supported as of 9/12/2005)
-     * 
+     *
      * @Accessor(getter="getVerb", setter="setVerb")
      * @SerializedName("verb")
      * @Type("Enum<Zimbra\Common\Enum\VerbType>")
      * @XmlAttribute
-     * 
+     *
      * @var VerbType
      */
-    #[Accessor(getter: 'getVerb', setter: 'setVerb')]
-    #[SerializedName('verb')]
-    #[Type('Enum<Zimbra\Common\Enum\VerbType>')]
+    #[Accessor(getter: "getVerb", setter: "setVerb")]
+    #[SerializedName("verb")]
+    #[Type("Enum<Zimbra\Common\Enum\VerbType>")]
     #[XmlAttribute]
     private VerbType $verb;
 
@@ -81,84 +87,84 @@ class SendInviteReplyRequest extends SoapRequest
      * Note that earlier documentation implied incorrectly that if this was false it would be ignored and treated
      * as being true if an <m> element is present.
      * Also take a note that, if RSVP setting in original invite is not present or FALSE then updateOrganizer will be treated as FALSE.
-     * 
+     *
      * @Accessor(getter="getUpdateOrganizer", setter="setUpdateOrganizer")
      * @SerializedName("updateOrganizer")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getUpdateOrganizer', setter: 'setUpdateOrganizer')]
-    #[SerializedName('updateOrganizer')]
-    #[Type('bool')]
+    #[Accessor(getter: "getUpdateOrganizer", setter: "setUpdateOrganizer")]
+    #[SerializedName("updateOrganizer")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $updateOrganizer;
 
     /**
      * Identity ID to use to send reply
-     * 
+     *
      * @Accessor(getter="getIdentityId", setter="setIdentityId")
      * @SerializedName("idnt")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIdentityId', setter: 'setIdentityId')]
-    #[SerializedName('idnt')]
-    #[Type('string')]
+    #[Accessor(getter: "getIdentityId", setter: "setIdentityId")]
+    #[SerializedName("idnt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $identityId;
 
     /**
      * If supplied then reply to just one instance of the specified Invite (default is all instances)
-     * 
+     *
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DtTimeInfo
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfo $exceptionId;
 
     /**
      * Definition for TZID referenced by DATETIME in <exceptId>
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
      * Embedded message, if the user wants to send a custom update message.
      * The client is responsible for setting the message recipient list in this case (which should include Organizer,
      * if the client wants to tell the organizer about this response)
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -173,26 +179,25 @@ class SendInviteReplyRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $id = '',
+        string $id = "",
         int $componentNum = 0,
-        ?VerbType $verb = NULL,
-        ?bool $updateOrganizer = NULL,
-        ?string $identityId = NULL,
-        ?DtTimeInfo $exceptionId = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
-    )
-    {
+        ?VerbType $verb = null,
+        ?bool $updateOrganizer = null,
+        ?string $identityId = null,
+        ?DtTimeInfo $exceptionId = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
+    ) {
         $this->setId($id)
-             ->setComponentNum($componentNum)
-             ->setVerb($verb ?? new VerbType('ACCEPT'));
+            ->setComponentNum($componentNum)
+            ->setVerb($verb ?? new VerbType("ACCEPT"));
         $this->exceptionId = $exceptionId;
         $this->timezone = $timezone;
         $this->msg = $msg;
-        if (NULL !== $updateOrganizer) {
+        if (null !== $updateOrganizer) {
             $this->setUpdateOrganizer($updateOrganizer);
         }
-        if (NULL !== $identityId) {
+        if (null !== $identityId) {
             $this->setIdentityId($identityId);
         }
     }
@@ -378,8 +383,6 @@ class SendInviteReplyRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SendInviteReplyEnvelope(
-            new SendInviteReplyBody($this)
-        );
+        return new SendInviteReplyEnvelope(new SendInviteReplyBody($this));
     }
 }

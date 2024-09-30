@@ -16,7 +16,7 @@ use Psr\Http\Message\{RequestFactoryInterface, StreamFactoryInterface};
 
 /**
  * Factory for client instances.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Soap
@@ -36,11 +36,10 @@ final class ClientFactory
      */
     public static function create(
         string $serviceUrl,
-        ?HttpClientInterface $httpClient = NULL,
-        ?RequestFactoryInterface $requestFactory = NULL,
-        ?StreamFactoryInterface $streamFactory = NULL
-    ): ClientInterface
-    {
+        ?HttpClientInterface $httpClient = null,
+        ?RequestFactoryInterface $requestFactory = null,
+        ?StreamFactoryInterface $streamFactory = null
+    ): ClientInterface {
         return new Client(
             $serviceUrl,
             $httpClient ?: Psr18ClientDiscovery::find(),

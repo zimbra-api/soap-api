@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CountAccountResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class CountAccountResponse extends SoapResponse
 {
     /**
      * Account count information by Class Of Service (COS)
-     * 
+     *
      * @Accessor(getter="getCos", setter="setCos")
      * @Type("array<Zimbra\Admin\Struct\CosCountInfo>")
      * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[Type('array<Zimbra\Admin\Struct\CosCountInfo>')]
-    #[XmlList(inline: true, entry: 'cos', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[Type("array<Zimbra\Admin\Struct\CosCountInfo>")]
+    #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
     private $cos = [];
 
     /**
@@ -59,7 +59,8 @@ class CountAccountResponse extends SoapResponse
     public function setCos(array $coses): self
     {
         $this->cos = array_filter(
-            $coses, static fn ($cos) => $cos instanceof CosCountInfo
+            $coses,
+            static fn($cos) => $cos instanceof CosCountInfo
         );
         return $this;
     }

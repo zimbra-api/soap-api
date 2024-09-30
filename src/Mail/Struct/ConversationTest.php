@@ -25,36 +25,35 @@ class ConversationTest extends FilterTest
 {
     /**
      * Where setting - started|participated
-     * 
+     *
      * @Accessor(getter="getWhere", setter="setWhere")
      * @SerializedName("where")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWhere', setter: 'setWhere')]
-    #[SerializedName('where')]
-    #[Type('string')]
+    #[Accessor(getter: "getWhere", setter: "setWhere")]
+    #[SerializedName("where")]
+    #[Type("string")]
     #[XmlAttribute]
     private $where;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $where
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $where = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
-        if (NULL !== $where) {
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $where = null
+    ) {
+        parent::__construct($index, $negative);
+        if (null !== $where) {
             $this->setWhere($where);
         }
     }

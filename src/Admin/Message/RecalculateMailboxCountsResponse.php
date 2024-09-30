@@ -27,18 +27,18 @@ class RecalculateMailboxCountsResponse extends SoapResponse
 {
     /**
      * Information about mailbox quotas
-     * 
+     *
      * @Accessor(getter="getMailbox", setter="setMailbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxQuotaInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMailbox', setter: 'setMailbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMailbox", setter: "setMailbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mailbox;
 
     /**
@@ -47,7 +47,7 @@ class RecalculateMailboxCountsResponse extends SoapResponse
      * @param Mailbox $mailbox
      * @return self
      */
-    public function __construct(?Mailbox $mailbox = NULL)
+    public function __construct(?Mailbox $mailbox = null)
     {
         $this->mailbox = $mailbox;
     }

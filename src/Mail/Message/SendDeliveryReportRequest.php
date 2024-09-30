@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SendDeliveryReportRequest class
  * Send a delivery report
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,17 +27,17 @@ class SendDeliveryReportRequest extends SoapRequest
 {
     /**
      * Message ID
-     * 
+     *
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $messageId;
 
@@ -47,7 +47,7 @@ class SendDeliveryReportRequest extends SoapRequest
      * @param  string $messageId
      * @return self
      */
-    public function __construct(string $messageId = '')
+    public function __construct(string $messageId = "")
     {
         $this->setMessageId($messageId);
     }

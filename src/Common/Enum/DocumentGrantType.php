@@ -27,11 +27,11 @@ class DocumentGrantType extends Enum
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    protected const ALL = "all";
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    protected const PUB = 'pub';
+    protected const PUB = "pub";
 }

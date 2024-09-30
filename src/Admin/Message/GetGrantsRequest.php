@@ -31,48 +31,47 @@ class GetGrantsRequest extends SoapRequest
 {
     /**
      * Target
-     * 
+     *
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var EffectiveRightsTargetSelector
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(EffectiveRightsTargetSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee
-     * 
+     *
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var GranteeSelector
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeSelector $grantee;
 
     /**
      * Constructor
-     * 
+     *
      * @param  EffectiveRightsTargetSelector $target
      * @param  GranteeSelector $grantee
      * @return self
      */
     public function __construct(
-        ?EffectiveRightsTargetSelector $target = NULL,
-        ?GranteeSelector $grantee = NULL
-    )
-    {
+        ?EffectiveRightsTargetSelector $target = null,
+        ?GranteeSelector $grantee = null
+    ) {
         $this->target = $target;
         $this->grantee = $grantee;
     }
@@ -126,8 +125,6 @@ class GetGrantsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetGrantsEnvelope(
-            new GetGrantsBody($this)
-        );
+        return new GetGrantsEnvelope(new GetGrantsBody($this));
     }
 }

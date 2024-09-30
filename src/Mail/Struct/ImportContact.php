@@ -25,33 +25,33 @@ class ImportContact
 {
     /**
      * Comma-separated list of created IDs
-     * 
+     *
      * @Accessor(getter="getListOfCreatedIds", setter="setListOfCreatedIds")
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getListOfCreatedIds', setter: 'setListOfCreatedIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getListOfCreatedIds", setter: "setListOfCreatedIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $listOfCreatedIds;
 
     /**
      * Number imported
-     * 
+     *
      * @Accessor(getter="getNumImported", setter="setNumImported")
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumImported', setter: 'setNumImported')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumImported", setter: "setNumImported")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numImported;
 
@@ -63,13 +63,13 @@ class ImportContact
      * @return self
      */
     public function __construct(
-        ?string $listOfCreatedIds = NULL, ?int $numImported = NULL
-    )
-    {
-        if (NULL !== $listOfCreatedIds) {
+        ?string $listOfCreatedIds = null,
+        ?int $numImported = null
+    ) {
+        if (null !== $listOfCreatedIds) {
             $this->setListOfCreatedIds($listOfCreatedIds);
         }
-        if (NULL !== $numImported) {
+        if (null !== $numImported) {
             $this->setNumImported($numImported);
         }
     }

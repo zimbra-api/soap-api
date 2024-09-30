@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Enum\GalMode;
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
@@ -31,119 +37,119 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name of the data source.
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Domain name
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * GalMode type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalMode>")
      * @XmlAttribute
-     * 
+     *
      * @var GalMode
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalMode>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GalMode>")]
     #[XmlAttribute]
     private GalMode $type;
 
     /**
      * Account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * password
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * Contact folder name
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * The mailhost on which this account resides
-     * 
+     *
      * @Accessor(getter="getMailHost", setter="setMailHost")
      * @SerializedName("server")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMailHost', setter: 'setMailHost')]
-    #[SerializedName('server')]
-    #[Type('string')]
+    #[Accessor(getter: "getMailHost", setter: "setMailHost")]
+    #[SerializedName("server")]
+    #[Type("string")]
     #[XmlAttribute]
     private $mailHost;
 
     /**
      * Constructor
-     * 
+     *
      * @param AccountSelector  $account
      * @param string  $name
      * @param string  $domain
@@ -156,25 +162,24 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      */
     public function __construct(
         AccountSelector $account,
-        string $name = '',
-        string $domain = '',
-        string $mailHost = '',
-        ?GalMode $type = NULL,
-        ?string $password = NULL,
-        ?string $folder = NULL,
+        string $name = "",
+        string $domain = "",
+        string $mailHost = "",
+        ?GalMode $type = null,
+        ?string $password = null,
+        ?string $folder = null,
         array $attrs = []
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setDomain($domain)
-             ->setAccount($account)
-             ->setMailHost($mailHost)
-             ->setType($type ?? new GalMode('both'))
-             ->setAttrs($attrs);
-        if (NULL !== $password) {
+            ->setDomain($domain)
+            ->setAccount($account)
+            ->setMailHost($mailHost)
+            ->setType($type ?? new GalMode("both"))
+            ->setAttrs($attrs);
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
     }

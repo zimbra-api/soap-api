@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SubscribeDistributionListResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,17 +27,17 @@ class SubscribeDistributionListResponse extends SoapResponse
 {
     /**
      * Status of subscription attempt
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var SubscribeStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>")]
     #[XmlAttribute]
     private SubscribeStatus $status;
 
@@ -47,9 +47,9 @@ class SubscribeDistributionListResponse extends SoapResponse
      * @param  SubscribeStatus $status
      * @return self
      */
-    public function __construct(?SubscribeStatus $status = NULL)
+    public function __construct(?SubscribeStatus $status = null)
     {
-        $this->setStatus($status ?? new SubscribeStatus('subscribed'));
+        $this->setStatus($status ?? new SubscribeStatus("subscribed"));
     }
 
     /**

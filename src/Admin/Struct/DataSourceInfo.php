@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\DataSourceType;
 
 /**
  * DataSourceInfo struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,69 +26,71 @@ class DataSourceInfo extends AdminAttrsImpl
 {
     /**
      * Data source name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Data source id
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Data source type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
      * @XmlAttribute
-     * 
+     *
      * @var DataSourceType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\DataSourceType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\DataSourceType>")]
     #[XmlAttribute]
     private DataSourceType $type;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
-     * @param DataSourceType $type 
+     * @param DataSourceType $type
      * @param array $attrs Attributes
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?DataSourceType $type = NULL, array $attrs = []
-    )
-    {
+        string $name = "",
+        string $id = "",
+        ?DataSourceType $type = null,
+        array $attrs = []
+    ) {
         parent::__construct($attrs);
         $this->setName($name)
-             ->setId($id)
-             ->setType($type ?? new DataSourceType('unknown'));
+            ->setId($id)
+            ->setType($type ?? new DataSourceType("unknown"));
     }
 
     /**

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * GetDataSourcesRequest class
  * Returns all data sources defined for the given mailbox.
  * For each data source, every attribute value is returned except password.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,8 +30,6 @@ class GetDataSourcesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetDataSourcesEnvelope(
-            new GetDataSourcesBody($this)
-        );
+        return new GetDataSourcesEnvelope(new GetDataSourcesBody($this));
     }
 }

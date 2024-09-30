@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\RssDataSource;
 
 /**
  * MailRssDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct

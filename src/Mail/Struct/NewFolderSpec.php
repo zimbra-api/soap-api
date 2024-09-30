@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\ViewType;
 
 /**
@@ -27,165 +34,165 @@ class NewFolderSpec
 {
     /**
      * If parentFolderId is unset, name is the full path of the new folder; otherwise, name may not contain the folder separator '/'
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Default type for the folder; used by web client to decide which view to use;
      * possible values are the same as <SearchRequest>'s {types}: conversation|message|contact|etc
-     * 
+     *
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
-     * 
+     *
      * @var ViewType
      */
-    #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName('view')]
-    #[Type('Enum<Zimbra\Common\Enum\ViewType>')]
+    #[Accessor(getter: "getDefaultView", setter: "setDefaultView")]
+    #[SerializedName("view")]
+    #[Type("Enum<Zimbra\Common\Enum\ViewType>")]
     #[XmlAttribute]
     private ?ViewType $defaultView;
 
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
-     * 
+     *
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Parent folder ID
-     * 
+     *
      * @Accessor(getter="getParentFolderId", setter="setParentFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getParentFolderId', setter: 'setParentFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getParentFolderId", setter: "setParentFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $parentFolderId;
 
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
-     * 
+     *
      * @Accessor(getter="getFetchIfExists", setter="setFetchIfExists")
      * @SerializedName("fie")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFetchIfExists', setter: 'setFetchIfExists')]
-    #[SerializedName('fie')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFetchIfExists", setter: "setFetchIfExists")]
+    #[SerializedName("fie")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $fetchIfExists;
 
     /**
      * If set (default) then if "url" is set, synchronize folder content on folder creation
-     * 
+     *
      * @Accessor(getter="getSyncToUrl", setter="setSyncToUrl")
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSyncToUrl', setter: 'setSyncToUrl')]
-    #[SerializedName('sync')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSyncToUrl", setter: "setSyncToUrl")]
+    #[SerializedName("sync")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $syncToUrl;
 
     /**
      * Grant specification
-     * 
+     *
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("acl")
      * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="grant", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[SerializedName('acl')]
-    #[Type('array<Zimbra\Mail\Struct\ActionGrantSelector>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'grant', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGrants", setter: "setGrants")]
+    #[SerializedName("acl")]
+    #[Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "grant", namespace: "urn:zimbraMail")]
     private $grants = [];
 
     /**
@@ -204,38 +211,37 @@ class NewFolderSpec
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $parentFolderId = '',
-        ?ViewType $defaultView = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?string $url = NULL,
-        ?bool $fetchIfExists = NULL,
-        ?bool $syncToUrl = NULL,
+        string $name = "",
+        string $parentFolderId = "",
+        ?ViewType $defaultView = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?string $url = null,
+        ?bool $fetchIfExists = null,
+        ?bool $syncToUrl = null,
         array $grants = []
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setParentFolderId($parentFolderId)
-             ->setGrants($grants);
+            ->setParentFolderId($parentFolderId)
+            ->setGrants($grants);
         $this->defaultView = $defaultView;
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $fetchIfExists) {
+        if (null !== $fetchIfExists) {
             $this->setFetchIfExists($fetchIfExists);
         }
-        if (NULL !== $syncToUrl) {
+        if (null !== $syncToUrl) {
             $this->setSyncToUrl($syncToUrl);
         }
     }
@@ -447,7 +453,8 @@ class NewFolderSpec
     public function setGrants(array $grants): self
     {
         $this->grants = array_filter(
-            $grants, static fn ($grant) => $grant instanceof ActionGrantSelector
+            $grants,
+            static fn($grant) => $grant instanceof ActionGrantSelector
         );
         return $this;
     }

@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * SearchCalendarResourcesBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class SearchCalendarResourcesBody extends SoapBody
      * @SerializedName("SearchCalendarResourcesRequest")
      * @Type("Zimbra\Account\Message\SearchCalendarResourcesRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('SearchCalendarResourcesRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("SearchCalendarResourcesRequest")]
     #[Type(SearchCalendarResourcesRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("SearchCalendarResourcesResponse")
      * @Type("Zimbra\Account\Message\SearchCalendarResourcesResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('SearchCalendarResourcesResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("SearchCalendarResourcesResponse")]
     #[Type(SearchCalendarResourcesResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class SearchCalendarResourcesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SearchCalendarResourcesRequest $request = NULL, ?SearchCalendarResourcesResponse $response = NULL
-    )
-    {
+        ?SearchCalendarResourcesRequest $request = null,
+        ?SearchCalendarResourcesResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

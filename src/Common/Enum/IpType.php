@@ -27,17 +27,17 @@ class IpType extends Enum
      * Constant for value 'ipV4'
      * @return string 'ipV4'
      */
-    protected const IPV4 = 'ipV4';
+    protected const IPV4 = "ipV4";
 
     /**
      * Constant for value 'ipV6'
      * @return string 'ipV6'
      */
-    protected const IPV6 = 'ipV6';
+    protected const IPV6 = "ipV6";
 
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    protected const BOTH = 'both';
+    protected const BOTH = "both";
 }

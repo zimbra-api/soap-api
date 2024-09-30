@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\Pop3DataSource;
 
 /**
  * MailPop3DataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -26,17 +26,17 @@ class MailPop3DataSource extends MailDataSource implements Pop3DataSource
 {
     /**
      * Specifies whether imported POP3 messages should be left on the server or deleted.
-     * 
+     *
      * @Accessor(getter="isLeaveOnServer", setter="setLeaveOnServer")
      * @SerializedName("leaveOnServer")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isLeaveOnServer', setter: 'setLeaveOnServer')]
-    #[SerializedName('leaveOnServer')]
-    #[Type('bool')]
+    #[Accessor(getter: "isLeaveOnServer", setter: "setLeaveOnServer")]
+    #[SerializedName("leaveOnServer")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $leaveOnServer;
 

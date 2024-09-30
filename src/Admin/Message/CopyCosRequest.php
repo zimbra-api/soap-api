@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -28,47 +34,49 @@ class CopyCosRequest extends SoapRequest
 {
     /**
      * Destination name for COS
-     * 
+     *
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('name')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("name")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $newName;
 
     /**
      * Source COS
-     * 
+     *
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CosSelector $cos
      * @param  string $newName
      * @return self
      */
-    public function __construct(?CosSelector $cos = NULL, ?string $newName = NULL)
-    {
+    public function __construct(
+        ?CosSelector $cos = null,
+        ?string $newName = null
+    ) {
         $this->cos = $cos;
-        if (NULL !== $newName) {
+        if (null !== $newName) {
             $this->setNewName($newName);
         }
     }
@@ -122,8 +130,6 @@ class CopyCosRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CopyCosEnvelope(
-            new CopyCosBody($this)
-        );
+        return new CopyCosEnvelope(new CopyCosBody($this));
     }
 }

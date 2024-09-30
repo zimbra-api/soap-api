@@ -28,22 +28,22 @@ class ValueAttrib
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $value
      * @return self
      */
-    public function __construct(string $value = '')
+    public function __construct(string $value = "")
     {
         $this->setValue($value);
     }

@@ -27,23 +27,23 @@ class QueueAction extends Enum
      * Constant for value 'hold'
      * @return string 'hold'
      */
-    protected const HOLD = 'hold';
+    protected const HOLD = "hold";
 
     /**
      * Constant for value 'release'
      * @return string 'release'
      */
-    protected const RELEASE = 'release';
+    protected const RELEASE = "release";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    protected const DELETE = "delete";
 
     /**
      * Constant for value 'requeue'
      * @return string 'requeue'
      */
-    protected const REQUEUE = 'requeue';
+    protected const REQUEUE = "requeue";
 }

@@ -26,49 +26,49 @@ class DocumentActionResult extends ActionResult
 {
     /**
      * Grantee Zimbra ID
-     * 
+     *
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Display name
-     * 
+     *
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * Access key (Password)
-     * 
+     *
      * @Accessor(getter="getAccessKey", setter="setAccessKey")
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessKey", setter: "setAccessKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessKey;
 
@@ -85,23 +85,22 @@ class DocumentActionResult extends ActionResult
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $operation = '',
-        ?string $nonExistentIds = NULL,
-        ?string $newlyCreatedIds = NULL,
-        ?string $zimbraId = NULL,
-        ?string $displayName = NULL,
-        ?string $accessKey = NULL
-    )
-    {
+        string $id = "",
+        string $operation = "",
+        ?string $nonExistentIds = null,
+        ?string $newlyCreatedIds = null,
+        ?string $zimbraId = null,
+        ?string $displayName = null,
+        ?string $accessKey = null
+    ) {
         parent::__construct($id, $operation, $nonExistentIds, $newlyCreatedIds);
-        if (NULL !== $zimbraId) {
+        if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
-        if (NULL !== $accessKey) {
+        if (null !== $accessKey) {
             $this->setAccessKey($accessKey);
         }
     }

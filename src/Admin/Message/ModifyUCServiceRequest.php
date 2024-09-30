@@ -32,31 +32,30 @@ class ModifyUCServiceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param array  $attrs
      * @return self
      */
-    public function __construct(string $id = '', array $attrs = [])
+    public function __construct(string $id = "", array $attrs = [])
     {
-        $this->setId($id)
-             ->setAttrs($attrs);
+        $this->setId($id)->setAttrs($attrs);
     }
 
     /**
@@ -86,8 +85,6 @@ class ModifyUCServiceRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyUCServiceEnvelope(
-            new ModifyUCServiceBody($this)
-        );
+        return new ModifyUCServiceEnvelope(new ModifyUCServiceBody($this));
     }
 }

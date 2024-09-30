@@ -27,17 +27,17 @@ class DateAttr implements DateAttrInterface
 {
     /**
      * Date in format : YYYYMMDDThhmmssZ
-     * 
+     *
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $date;
 
@@ -47,7 +47,7 @@ class DateAttr implements DateAttrInterface
      * @param  string $date
      * @return self
      */
-    public function __construct(string $date = '')
+    public function __construct(string $date = "")
     {
         $this->setDate($date);
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Common\Enum\DedupAction;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DedupeBlobsRequest class
  * Dedupe the blobs having the same digest.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,45 +35,48 @@ class DedupeBlobsRequest extends SoapRequest
 {
     /**
      * Action to perform - one of start|status|stop
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\DedupAction>")
      * @XmlAttribute
-     * 
+     *
      * @var DedupAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('Enum<Zimbra\Common\Enum\DedupAction>')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("Enum<Zimbra\Common\Enum\DedupAction>")]
     #[XmlAttribute]
     private DedupAction $action;
 
     /**
      * Volumes
-     * 
+     *
      * @Accessor(getter="getVolumes", setter="setVolumes")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
-    #[Type('array<Zimbra\Admin\Struct\IntIdAttr>')]
-    #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getVolumes", setter: "setVolumes")]
+    #[Type("array<Zimbra\Admin\Struct\IntIdAttr>")]
+    #[XmlList(inline: true, entry: "volume", namespace: "urn:zimbraAdmin")]
     private $volumes = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  DedupAction $action
      * @param  array $volumes
      * @return self
      */
-    public function __construct(?DedupAction $action = NULL, array $volumes = [])
-    {
-        $this->setAction($action ?? new DedupAction('start'))
-             ->setVolumes($volumes);
+    public function __construct(
+        ?DedupAction $action = null,
+        array $volumes = []
+    ) {
+        $this->setAction($action ?? new DedupAction("start"))->setVolumes(
+            $volumes
+        );
     }
 
     /**
@@ -111,7 +120,8 @@ class DedupeBlobsRequest extends SoapRequest
     public function setVolumes(array $volumes): self
     {
         $this->volumes = array_filter(
-            $volumes, static fn ($volume) => $volume instanceof IntIdAttr
+            $volumes,
+            static fn($volume) => $volume instanceof IntIdAttr
         );
         return $this;
     }
@@ -133,8 +143,6 @@ class DedupeBlobsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DedupeBlobsEnvelope(
-            new DedupeBlobsBody($this)
-        );
+        return new DedupeBlobsEnvelope(new DedupeBlobsBody($this));
     }
 }

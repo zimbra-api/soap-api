@@ -26,39 +26,39 @@ class AliasInfo extends AdminObjectInfo
 {
     /**
      * Target name
-     * 
+     *
      * @Accessor(getter="getTargetName", setter="setTargetName")
      * @SerializedName("targetName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetName', setter: 'setTargetName')]
-    #[SerializedName('targetName')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetName", setter: "setTargetName")]
+    #[SerializedName("targetName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetName;
 
     /**
      * Target type
-     * 
+     *
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private ?TargetType $targetType;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  string $targetName
@@ -67,13 +67,12 @@ class AliasInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $id = '',
-        string $targetName = '',
-        ?TargetType $targetType = NULL,
+        string $name = "",
+        string $id = "",
+        string $targetName = "",
+        ?TargetType $targetType = null,
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($name, $id, $attrs);
         $this->setTargetName($targetName);
         $this->targetType = $targetType;

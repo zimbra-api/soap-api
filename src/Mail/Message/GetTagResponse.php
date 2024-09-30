@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetTagResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,16 +27,16 @@ class GetTagResponse extends SoapResponse
 {
     /**
      * Information about tags
-     * 
+     *
      * @Accessor(getter="getTags", setter="setTags")
      * @Type("array<Zimbra\Mail\Struct\TagInfo>")
      * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[Type('array<Zimbra\Mail\Struct\TagInfo>')]
-    #[XmlList(inline: true, entry: 'tag', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[Type("array<Zimbra\Mail\Struct\TagInfo>")]
+    #[XmlList(inline: true, entry: "tag", namespace: "urn:zimbraMail")]
     private $tags = [];
 
     /**
@@ -59,7 +59,8 @@ class GetTagResponse extends SoapResponse
     public function setTags(array $tags): self
     {
         $this->tags = array_filter(
-            $tags, static fn ($tag) => $tag instanceof TagInfo
+            $tags,
+            static fn($tag) => $tag instanceof TagInfo
         );
         return $this;
     }

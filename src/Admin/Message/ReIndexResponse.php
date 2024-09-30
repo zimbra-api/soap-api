@@ -10,14 +10,20 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\ReindexProgressInfo;
 use Zimbra\Common\Enum\ReIndexStatus;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ReIndexResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,45 +34,47 @@ class ReIndexResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|cancelled|idle
-     * 
+     *
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ReIndexStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var ReIndexStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('Enum<Zimbra\Common\Enum\ReIndexStatus>')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("Enum<Zimbra\Common\Enum\ReIndexStatus>")]
     #[XmlAttribute]
     private ?ReIndexStatus $status;
 
     /**
      * Specify reindexing to perform
-     * 
+     *
      * @Accessor(getter="getProgress", setter="setProgress")
      * @SerializedName("progress")
      * @Type("Zimbra\Admin\Struct\ReindexProgressInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ReindexProgressInfo
      */
-    #[Accessor(getter: 'getProgress', setter: 'setProgress')]
-    #[SerializedName('progress')]
+    #[Accessor(getter: "getProgress", setter: "setProgress")]
+    #[SerializedName("progress")]
     #[Type(ReindexProgressInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ReindexProgressInfo $progress;
 
     /**
      * Constructor
-     * 
+     *
      * @param ReIndexStatus $status
      * @param ReindexProgressInfo $progress
      * @return self
      */
-    public function __construct(?ReIndexStatus $status = NULL, ?ReindexProgressInfo $progress = NULL)
-    {
+    public function __construct(
+        ?ReIndexStatus $status = null,
+        ?ReindexProgressInfo $progress = null
+    ) {
         $this->status = $status;
         $this->progress = $progress;
     }

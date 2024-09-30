@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAppointmentIdsInRangeResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,16 +27,16 @@ class GetAppointmentIdsInRangeResponse extends SoapResponse
 {
     /**
      * Appointment data
-     * 
+     *
      * @Accessor(getter="getAppointmentData", setter="setAppointmentData")
      * @Type("array<Zimbra\Mail\Struct\AppointmentIdAndDate>")
      * @XmlList(inline=true, entry="apptData", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAppointmentData', setter: 'setAppointmentData')]
-    #[Type('array<Zimbra\Mail\Struct\AppointmentIdAndDate>')]
-    #[XmlList(inline: true, entry: 'apptData', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAppointmentData", setter: "setAppointmentData")]
+    #[Type("array<Zimbra\Mail\Struct\AppointmentIdAndDate>")]
+    #[XmlList(inline: true, entry: "apptData", namespace: "urn:zimbraMail")]
     private $appointmentData = [];
 
     /**
@@ -45,9 +45,7 @@ class GetAppointmentIdsInRangeResponse extends SoapResponse
      * @param  array $appointmentData
      * @return self
      */
-    public function __construct(
-        array $appointmentData = []
-    )
+    public function __construct(array $appointmentData = [])
     {
         $this->setAppointmentData($appointmentData);
     }
@@ -61,7 +59,8 @@ class GetAppointmentIdsInRangeResponse extends SoapResponse
     public function setAppointmentData(array $appointmentData): self
     {
         $this->appointmentData = array_filter(
-            $appointmentData, static fn ($match) => $match instanceof AppointmentIdAndDate
+            $appointmentData,
+            static fn($match) => $match instanceof AppointmentIdAndDate
         );
         return $this;
     }

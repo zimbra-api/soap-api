@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 /**
  * ChangePasswordRequest class
  * Change Password
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,66 +27,66 @@ class ChangePasswordRequest extends SoapRequest
 {
     /**
      * Details of the account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private AccountSelector $account;
 
     /**
      * Old password
-     * 
+     *
      * @Accessor(getter="getOldPassword", setter="setOldPassword")
      * @SerializedName("oldPassword")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOldPassword', setter: 'setOldPassword')]
-    #[SerializedName('oldPassword')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getOldPassword", setter: "setOldPassword")]
+    #[SerializedName("oldPassword")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $oldPassword;
 
     /**
      * New password to assign
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $password;
 
     /**
      * specified virtual-host is used to determine the domain of the account name
-     * 
+     *
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName('virtualHost')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getVirtualHost", setter: "setVirtualHost")]
+    #[SerializedName("virtualHost")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $virtualHost;
 
     /**
@@ -94,13 +94,13 @@ class ChangePasswordRequest extends SoapRequest
      * @SerializedName("dryRun")
      * @Type("bool")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDryRun', setter: 'setDryRun')]
-    #[SerializedName('dryRun')]
-    #[Type('bool')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "isDryRun", setter: "setDryRun")]
+    #[SerializedName("dryRun")]
+    #[Type("bool")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $dryRun;
 
     /**
@@ -115,19 +115,18 @@ class ChangePasswordRequest extends SoapRequest
      */
     public function __construct(
         AccountSelector $account,
-        string $oldPassword = '',
-        string $newPassword = '',
-        ?string $virtualHost = NULL,
-        ?bool $dryRun = NULL
-    )
-    {
+        string $oldPassword = "",
+        string $newPassword = "",
+        ?string $virtualHost = null,
+        ?bool $dryRun = null
+    ) {
         $this->setAccount($account)
-             ->setOldPassword($oldPassword)
-             ->setPassword($newPassword);
-        if(NULL !== $virtualHost) {
+            ->setOldPassword($oldPassword)
+            ->setPassword($newPassword);
+        if (null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
-        if(NULL !== $dryRun) {
+        if (null !== $dryRun) {
             $this->setDryRun($dryRun);
         }
     }
@@ -247,8 +246,6 @@ class ChangePasswordRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ChangePasswordEnvelope(
-            new ChangePasswordBody($this)
-        );
+        return new ChangePasswordEnvelope(new ChangePasswordBody($this));
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\ParticipationStatus;
 
 /**
@@ -30,34 +36,34 @@ trait SetCalendarItemInfoTrait
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
+     *
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var ParticipationStatus
      */
-    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName('ptst')]
-    #[Type('Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[Accessor(getter: "getPartStat", setter: "setPartStat")]
+    #[SerializedName("ptst")]
+    #[Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")]
     #[XmlAttribute]
     private ?ParticipationStatus $partStat;
 
     /**
      * Message
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -68,9 +74,9 @@ trait SetCalendarItemInfoTrait
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
-    )
-    {
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
+    ) {
         $this->partStat = $partStat;
         $this->msg = $msg;
     }

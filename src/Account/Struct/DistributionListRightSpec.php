@@ -10,12 +10,18 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Account\Struct\DistributionListGranteeSelector as GranteeSelector;
 
 /**
  * DistributionListRightSpec struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -29,40 +35,39 @@ class DistributionListRightSpec
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
-    #[Type('string')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
+    #[Type("string")]
     #[XmlAttribute]
     private $right;
 
     /**
      * The sequence of grantee
-     * 
+     *
      * @Accessor(getter="getGrantees", setter="setGrantees")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline=true, entry="grantee", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGrantees', setter: 'setGrantees')]
-    #[Type('array<Zimbra\Account\Struct\DistributionListGranteeSelector>')]
-    #[XmlList(inline: true, entry: 'grantee', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getGrantees", setter: "setGrantees")]
+    #[Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")]
+    #[XmlList(inline: true, entry: "grantee", namespace: "urn:zimbraAccount")]
     private $grantees = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $right
      * @param array  $grantees
      * @return self
      */
-    public function __construct(string $right = '', array $grantees = [])
+    public function __construct(string $right = "", array $grantees = [])
     {
-        $this->setRight($right)
-             ->setGrantees($grantees);
+        $this->setRight($right)->setGrantees($grantees);
     }
 
     /**
@@ -102,12 +107,14 @@ class DistributionListRightSpec
     /**
      * Set grantees
      *
+     * @param  array $grantees
      * @return self
      */
     public function setGrantees(array $grantees): self
     {
         $this->grantees = array_filter(
-            $grantees, static fn ($grantee) => $grantee instanceof GranteeSelector
+            $grantees,
+            static fn($grantee) => $grantee instanceof GranteeSelector
         );
         return $this;
     }

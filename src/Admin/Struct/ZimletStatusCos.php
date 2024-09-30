@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * ZimletStatusCos struct class
@@ -25,32 +31,32 @@ class ZimletStatusCos
 {
     /**
      * Class Of Service (COS) name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Information on zimlet status
-     * 
+     *
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type('array<Zimbra\Admin\Struct\ZimletStatus>')]
-    #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[Type("array<Zimbra\Admin\Struct\ZimletStatus>")]
+    #[XmlList(inline: true, entry: "zimlet", namespace: "urn:zimbraAdmin")]
     private $zimlets = [];
 
     /**
@@ -60,10 +66,9 @@ class ZimletStatusCos
      * @param  array $zimlets
      * @return self
      */
-    public function __construct(string $name = '', array $zimlets = [])
+    public function __construct(string $name = "", array $zimlets = [])
     {
-        $this->setName($name)
-             ->setZimlets($zimlets);
+        $this->setName($name)->setZimlets($zimlets);
     }
 
     /**
@@ -97,7 +102,8 @@ class ZimletStatusCos
     public function setZimlets(array $zimlets): self
     {
         $this->zimlets = array_filter(
-            $zimlets, static fn ($zimlet) => $zimlet instanceof ZimletStatus
+            $zimlets,
+            static fn($zimlet) => $zimlet instanceof ZimletStatus
         );
         return $this;
     }

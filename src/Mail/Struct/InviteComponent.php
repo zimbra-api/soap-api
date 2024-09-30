@@ -10,8 +10,19 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteChange, InviteClass, InviteStatus, Transparency};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    Transparency
+};
 use Zimbra\Common\Struct\{
     AlarmInfoInterface,
     CalendarAttendeeInterface,
@@ -35,250 +46,251 @@ use Zimbra\Common\Struct\{
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class InviteComponent extends InviteComponentCommon implements InviteComponentInterface
+class InviteComponent extends InviteComponentCommon implements
+    InviteComponentInterface
 {
     /**
      * Categories - for iCalendar CATEGORY properties
-     * 
+     *
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCategories", setter: "setCategories")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
     private $categories = [];
 
     /**
      * Comments - for iCalendar COMMENT properties
-     * 
+     *
      * @Accessor(getter="getComments", setter="setComments")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getComments', setter: 'setComments')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'comment', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getComments", setter: "setComments")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "comment", namespace: "urn:zimbraMail")]
     private $comments = [];
 
     /**
      * Contacts - for iCalendar CONTACT properties
-     * 
+     *
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'contact', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "contact", namespace: "urn:zimbraMail")]
     private $contacts = [];
 
     /**
      * for iCalendar GEO property
-     * 
+     *
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var GeoInfoInterface
      */
-    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
-    #[SerializedName('geo')]
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName("geo")]
     #[Type(GeoInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GeoInfoInterface $geo;
 
     /**
      * Attendees
-     * 
+     *
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttendees', setter: 'setAttendees')]
-    #[Type('array<Zimbra\Mail\Struct\CalendarAttendee>')]
-    #[XmlList(inline: true, entry: 'at', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttendees", setter: "setAttendees")]
+    #[Type("array<Zimbra\Mail\Struct\CalendarAttendee>")]
+    #[XmlList(inline: true, entry: "at", namespace: "urn:zimbraMail")]
     private $attendees = [];
 
     /**
      * Alarm information
-     * 
+     *
      * @Accessor(getter="getAlarms", setter="setAlarms")
      * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAlarms', setter: 'setAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\AlarmInfo>')]
-    #[XmlList(inline: true, entry: 'alarm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAlarms", setter: "setAlarms")]
+    #[Type("array<Zimbra\Mail\Struct\AlarmInfo>")]
+    #[XmlList(inline: true, entry: "alarm", namespace: "urn:zimbraMail")]
     private $alarms = [];
 
     /**
      * XPROP properties
-     * 
+     *
      * @Accessor(getter="getXProps", setter="setXProps")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getXProps', setter: 'setXProps')]
-    #[Type('array<Zimbra\Mail\Struct\XProp>')]
-    #[XmlList(inline: true, entry: 'xprop', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getXProps", setter: "setXProps")]
+    #[Type("array<Zimbra\Mail\Struct\XProp>")]
+    #[XmlList(inline: true, entry: "xprop", namespace: "urn:zimbraMail")]
     private $xProps = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Present if noBlob is set and invite has a plain text description
-     * 
+     *
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('desc')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("desc")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $description;
 
     /**
      * Present if noBlob is set and invite has an HTML description
-     * 
+     *
      * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHtmlDescription', setter: 'setHtmlDescription')]
-    #[SerializedName('descHtml')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHtmlDescription", setter: "setHtmlDescription")]
+    #[SerializedName("descHtml")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $htmlDescription;
 
     /**
      * Organizer
-     * 
+     *
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalOrganizerInterface
      */
-    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
-    #[SerializedName('or')]
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName("or")]
     #[Type(CalOrganizer::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalOrganizerInterface $organizer;
 
     /**
      * Recurrence information
-     * 
+     *
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: 'getRecurrence', setter: 'setRecurrence')]
-    #[SerializedName('recur')]
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName("recur")]
     #[Type(RecurrenceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RecurrenceInfoInterface $recurrence;
 
     /**
      * Recurrence id, if this is an exception
-     * 
+     *
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ExceptionRecurIdInfoInterface
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(ExceptionRecurIdInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ExceptionRecurIdInfoInterface $exceptionId;
 
     /**
      * Start date-time (required)
-     * 
+     *
      * @Accessor(getter="getDtStart", setter="setDtStart")
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: 'getDtStart', setter: 'setDtStart')]
-    #[SerializedName('s')]
+    #[Accessor(getter: "getDtStart", setter: "setDtStart")]
+    #[SerializedName("s")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfoInterface $dtStart;
 
     /**
      * End date-time
-     * 
+     *
      * @Accessor(getter="getDtEnd", setter="setDtEnd")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: 'getDtEnd', setter: 'setDtEnd')]
-    #[SerializedName('e')]
+    #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
+    #[SerializedName("e")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfoInterface $dtEnd;
 
     /**
      * Duration
-     * 
+     *
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfoInterface $duration;
 
     /**
@@ -332,53 +344,52 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @return self
      */
     public function __construct(
-        ?string $method = NULL,
-        ?int $componentNum = NULL,
-        ?bool $rsvp = NULL,
-        ?string $priority = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?string $percentComplete = NULL,
-        ?string $completed = NULL,
-        ?bool $noBlob = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?FreeBusyStatus $freeBusy = NULL,
-        ?Transparency $transparency = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $xUid = NULL,
-        ?string $uid = NULL,
-        ?int $sequence = NULL,
-        ?int $dateTime = NULL,
-        ?string $calItemId = NULL,
-        ?string $deprecatedApptId = NULL,
-        ?string $calItemFolder = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?string $url = NULL,
-        ?bool $isException = NULL,
-        ?string $recurIdZ = NULL,
-        ?bool $isAllDay = NULL,
-        ?bool $isDraft = NULL,
-        ?bool $neverSent = NULL,
-        ?string $changes = NULL,
+        ?string $method = null,
+        ?int $componentNum = null,
+        ?bool $rsvp = null,
+        ?string $priority = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?string $percentComplete = null,
+        ?string $completed = null,
+        ?bool $noBlob = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?FreeBusyStatus $freeBusy = null,
+        ?Transparency $transparency = null,
+        ?bool $isOrganizer = null,
+        ?string $xUid = null,
+        ?string $uid = null,
+        ?int $sequence = null,
+        ?int $dateTime = null,
+        ?string $calItemId = null,
+        ?string $deprecatedApptId = null,
+        ?string $calItemFolder = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?string $url = null,
+        ?bool $isException = null,
+        ?string $recurIdZ = null,
+        ?bool $isAllDay = null,
+        ?bool $isDraft = null,
+        ?bool $neverSent = null,
+        ?string $changes = null,
         array $categories = [],
         array $comments = [],
         array $contacts = [],
-        ?GeoInfoInterface $geo = NULL,
+        ?GeoInfoInterface $geo = null,
         array $attendees = [],
         array $alarms = [],
         array $xProps = [],
-        ?string $fragment = NULL,
-        ?string $description = NULL,
-        ?string $htmlDescription = NULL,
-        ?CalOrganizerInterface $organizer = NULL,
-        ?RecurrenceInfoInterface $recurrence = NULL,
-        ?ExceptionRecurIdInfoInterface $exceptionId = NULL,
-        ?DtTimeInfoInterface $dtStart = NULL,
-        ?DtTimeInfoInterface $dtEnd = NULL,
-        ?DurationInfoInterface $duration = NULL
-    )
-    {
+        ?string $fragment = null,
+        ?string $description = null,
+        ?string $htmlDescription = null,
+        ?CalOrganizerInterface $organizer = null,
+        ?RecurrenceInfoInterface $recurrence = null,
+        ?ExceptionRecurIdInfoInterface $exceptionId = null,
+        ?DtTimeInfoInterface $dtStart = null,
+        ?DtTimeInfoInterface $dtEnd = null,
+        ?DurationInfoInterface $duration = null
+    ) {
         parent::__construct(
             $method,
             $componentNum,
@@ -411,11 +422,11 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
             $changes
         );
         $this->setCategories($categories)
-             ->setComments($comments)
-             ->setContacts($contacts)
-             ->setAttendees($attendees)
-             ->setAlarms($alarms)
-             ->setXProps($xProps);
+            ->setComments($comments)
+            ->setContacts($contacts)
+            ->setAttendees($attendees)
+            ->setAlarms($alarms)
+            ->setXProps($xProps);
         $this->geo = $geo;
         $this->organizer = $organizer;
         $this->recurrence = $recurrence;
@@ -423,13 +434,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
         $this->dtStart = $dtStart;
         $this->dtEnd = $dtEnd;
         $this->duration = $duration;
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
-        if (NULL !== $description) {
+        if (null !== $description) {
             $this->setDescription($description);
         }
-        if (NULL !== $htmlDescription) {
+        if (null !== $htmlDescription) {
             $this->setHtmlDescription($htmlDescription);
         }
     }
@@ -651,7 +662,9 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     public function setAttendees(array $attendees): self
     {
         $this->attendees = array_filter(
-            $attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface
+            $attendees,
+            static fn($attendee) => $attendee instanceof
+                CalendarAttendeeInterface
         );
         return $this;
     }
@@ -687,7 +700,8 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     public function setAlarms(array $alarms): self
     {
         $this->alarms = array_filter(
-            $alarms, static fn ($alarm) => $alarm instanceof AlarmInfoInterface
+            $alarms,
+            static fn($alarm) => $alarm instanceof AlarmInfoInterface
         );
         return $this;
     }
@@ -723,7 +737,8 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     public function setXProps(array $xProps): self
     {
         $this->xProps = array_filter(
-            $xProps, static fn ($xProp) => $xProp instanceof XPropInterface
+            $xProps,
+            static fn($xProp) => $xProp instanceof XPropInterface
         );
         return $this;
     }
@@ -810,8 +825,9 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @param  ExceptionRecurIdInfoInterface $exceptionId
      * @return self
      */
-    public function setExceptionId(ExceptionRecurIdInfoInterface $exceptionId): self
-    {
+    public function setExceptionId(
+        ExceptionRecurIdInfoInterface $exceptionId
+    ): self {
         $this->exceptionId = $exceptionId;
         return $this;
     }

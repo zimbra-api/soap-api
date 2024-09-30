@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAttributeInfoResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAttributeInfoResponse extends SoapResponse
 {
     /**
      * Attribute descriptions
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Admin\Struct\AttributeDescription>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Admin\Struct\AttributeDescription>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Admin\Struct\AttributeDescription>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrs = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAttributeInfoResponse extends SoapResponse
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof AttributeDescription
+            $attrs,
+            static fn($attr) => $attr instanceof AttributeDescription
         );
         return $this;
     }

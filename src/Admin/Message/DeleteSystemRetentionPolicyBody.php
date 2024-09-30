@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * DeleteSystemRetentionPolicyBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class DeleteSystemRetentionPolicyBody extends SoapBody
      * @SerializedName("DeleteSystemRetentionPolicyRequest")
      * @Type("Zimbra\Admin\Message\DeleteSystemRetentionPolicyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('DeleteSystemRetentionPolicyRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("DeleteSystemRetentionPolicyRequest")]
     #[Type(DeleteSystemRetentionPolicyRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("DeleteSystemRetentionPolicyResponse")
      * @Type("Zimbra\Admin\Message\DeleteSystemRetentionPolicyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('DeleteSystemRetentionPolicyResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("DeleteSystemRetentionPolicyResponse")]
     #[Type(DeleteSystemRetentionPolicyResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class DeleteSystemRetentionPolicyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteSystemRetentionPolicyRequest $request = NULL, ?DeleteSystemRetentionPolicyResponse $response = NULL
-    )
-    {
+        ?DeleteSystemRetentionPolicyRequest $request = null,
+        ?DeleteSystemRetentionPolicyResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

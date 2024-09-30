@@ -25,29 +25,29 @@ class AttachmentIdAttrib
 {
     /**
      * Attachment ID
-     * 
+     *
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $aid;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $aid
      * @return self
      */
-    public function __construct(?string $aid = NULL)
+    public function __construct(?string $aid = null)
     {
-        if (NULL !== $aid) {
+        if (null !== $aid) {
             $this->setAttachmentId($aid);
         }
     }

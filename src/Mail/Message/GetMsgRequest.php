@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetMsgRequest class
  * Get Message
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class GetMsgRequest extends SoapRequest
 {
     /**
      * Message specification
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MsgSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MsgSpec
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(MsgSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private MsgSpec $msg;
 
     /**
@@ -80,8 +80,6 @@ class GetMsgRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetMsgEnvelope(
-            new GetMsgBody($this)
-        );
+        return new GetMsgEnvelope(new GetMsgBody($this));
     }
 }

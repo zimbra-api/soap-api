@@ -27,17 +27,17 @@ class CreateSignatureResponse extends SoapResponse
 {
     /**
      * Information about created signature
-     * 
+     *
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @var NameId
      */
-    #[Accessor(getter: 'getSignature', setter: 'setSignature')]
-    #[SerializedName('signature')]
+    #[Accessor(getter: "getSignature", setter: "setSignature")]
+    #[SerializedName("signature")]
     #[Type(NameId::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?NameId $signature;
 
     /**
@@ -46,7 +46,7 @@ class CreateSignatureResponse extends SoapResponse
      * @param NameId $signature
      * @return self
      */
-    public function __construct(?NameId $signature = NULL)
+    public function __construct(?NameId $signature = null)
     {
         $this->signature = $signature;
     }

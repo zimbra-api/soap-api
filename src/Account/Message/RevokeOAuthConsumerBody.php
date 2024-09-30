@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RevokeOAuthConsumerBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,28 +33,28 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @SerializedName("RevokeOAuthConsumerRequest")
      * @Type("Zimbra\Account\Message\RevokeOAuthConsumerRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RevokeOAuthConsumerRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RevokeOAuthConsumerRequest")]
     #[Type(RevokeOAuthConsumerRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RevokeOAuthConsumerResponse")
      * @Type("Zimbra\Account\Message\RevokeOAuthConsumerResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RevokeOAuthConsumerResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RevokeOAuthConsumerResponse")]
     #[Type(RevokeOAuthConsumerResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RevokeOAuthConsumerRequest $request = NULL, ?RevokeOAuthConsumerResponse $response = NULL
-    )
-    {
+        ?RevokeOAuthConsumerRequest $request = null,
+        ?RevokeOAuthConsumerResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

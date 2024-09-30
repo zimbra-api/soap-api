@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetYahooAuthTokenRequest class
  * Get Yahoo Auth Token
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,33 +27,33 @@ class GetYahooAuthTokenRequest extends SoapRequest
 {
     /**
      * User
-     * 
+     *
      * @Accessor(getter="getUser", setter="setUser")
      * @SerializedName("user")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUser', setter: 'setUser')]
-    #[SerializedName('user')]
-    #[Type('string')]
+    #[Accessor(getter: "getUser", setter: "setUser")]
+    #[SerializedName("user")]
+    #[Type("string")]
     #[XmlAttribute]
     private $user;
 
     /**
      * Password
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
@@ -64,10 +64,9 @@ class GetYahooAuthTokenRequest extends SoapRequest
      * @param  string $password
      * @return self
      */
-    public function __construct(string $user = '', string $password = '')
+    public function __construct(string $user = "", string $password = "")
     {
-        $this->setUser($user)
-             ->setPassword($password);
+        $this->setUser($user)->setPassword($password);
     }
 
     /**
@@ -119,8 +118,6 @@ class GetYahooAuthTokenRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetYahooAuthTokenEnvelope(
-            new GetYahooAuthTokenBody($this)
-        );
+        return new GetYahooAuthTokenEnvelope(new GetYahooAuthTokenBody($this));
     }
 }

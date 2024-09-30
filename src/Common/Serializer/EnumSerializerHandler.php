@@ -10,18 +10,17 @@
 
 namespace Zimbra\Common\Serializer;
 
-use JMS\Serializer\{
-    Handler\SubscribingHandlerInterface,
-    Visitor\DeserializationVisitorInterface,
-    Visitor\SerializationVisitorInterface,
-    Context,
-    GraphNavigatorInterface,
+use JMS\Serializer\Handler\SubscribingHandlerInterface;
+use JMS\Serializer\Visitor\{
+    DeserializationVisitorInterface,
+    SerializationVisitorInterface
 };
+use JMS\Serializer\{Context, GraphNavigatorInterface};
 use MyCLabs\Enum\Enum;
 
 /**
  * Enum serializer handler class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -30,7 +29,7 @@ use MyCLabs\Enum\Enum;
  */
 class EnumSerializerHandler implements SubscribingHandlerInterface
 {
-    private const TYPE_ENUM = 'Enum';
+    private const TYPE_ENUM = "Enum";
 
     /**
      * {@inheritdoc}
@@ -39,16 +38,17 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
     {
         return [
             [
-                'direction' => GraphNavigatorInterface::DIRECTION_SERIALIZATION,
-                'type' => self::TYPE_ENUM,
-                'format' => 'xml',
-                'method' => 'serializeEnum',
+                "direction" => GraphNavigatorInterface::DIRECTION_SERIALIZATION,
+                "type" => self::TYPE_ENUM,
+                "format" => "xml",
+                "method" => "serializeEnum",
             ],
             [
-                'direction' => GraphNavigatorInterface::DIRECTION_DESERIALIZATION,
-                'type' => self::TYPE_ENUM,
-                'format' => 'xml',
-                'method' => 'deserializeEnum',
+                "direction" =>
+                    GraphNavigatorInterface::DIRECTION_DESERIALIZATION,
+                "type" => self::TYPE_ENUM,
+                "format" => "xml",
+                "method" => "deserializeEnum",
             ],
         ];
     }
@@ -59,18 +59,22 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
      * @return \DOMText
      */
     public static function serializeEnum(
-        SerializationVisitorInterface $visitor, Enum $enum, array $type, Context $context
-    ): \DOMText
-    {
+        SerializationVisitorInterface $visitor,
+        Enum $enum,
+        array $type,
+        Context $context
+    ): \DOMText {
         $mappedClass = self::getEnumClass($type);
         $actualClass = get_class($enum);
         if ($mappedClass !== $actualClass) {
-            throw new \TypeError(sprintf(
-                'Class of given value "%s" does not match mapped %s<%s>',
-                $actualClass,
-                self::TYPE_ENUM,
-                $mappedClass
-            ));
+            throw new \TypeError(
+                sprintf(
+                    'Class of given value "%s" does not match mapped %s<%s>',
+                    $actualClass,
+                    self::TYPE_ENUM,
+                    $mappedClass
+                )
+            );
         }
         return $visitor->visitString($enum->getValue(), $type);
     }
@@ -81,22 +85,26 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
      * @return Enum
      */
     public static function deserializeEnum(
-        DeserializationVisitorInterface $visitor, $data, array $type, Context $context
-    ): Enum
-    {
+        DeserializationVisitorInterface $visitor,
+        $data,
+        array $type,
+        Context $context
+    ): Enum {
         $enumClass = self::getEnumClass($type);
         return new $enumClass((string) $data);
     }
 
     private static function getEnumClass(array $type): string
     {
-        if (!(isset($type['params'][0]) && isset($type['params'][0]['name']))) {
-            throw new \InvalidArgumentException('Missing enum class name');
+        if (!(isset($type["params"][0]) && isset($type["params"][0]["name"]))) {
+            throw new \InvalidArgumentException("Missing enum class name");
         }
 
-        $enumClass = $type['params'][0]['name'];
+        $enumClass = $type["params"][0]["name"];
         if (!is_subclass_of($enumClass, Enum::class)) {
-            throw new \TypeError(sprintf('Class "%s" is not an Enum', $enumClass));
+            throw new \TypeError(
+                sprintf('Class "%s" is not an Enum', $enumClass)
+            );
         }
         return $enumClass;
     }

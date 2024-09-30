@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ImportContactsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class ImportContactsResponse extends SoapResponse
 {
     /**
      * Information about the import process
-     * 
+     *
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ImportContact")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ImportContact
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ImportContact::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ImportContact $contact;
 
     /**
@@ -47,9 +47,7 @@ class ImportContactsResponse extends SoapResponse
      * @param  ImportContact $contact
      * @return self
      */
-    public function __construct(
-        ?ImportContact $contact = NULL
-    )
+    public function __construct(?ImportContact $contact = null)
     {
         $this->contact = $contact;
     }

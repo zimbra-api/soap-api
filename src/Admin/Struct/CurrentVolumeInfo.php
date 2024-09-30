@@ -28,12 +28,12 @@ class CurrentVolumeInfo
      * @SerializedName("type")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('int')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("int")]
     #[XmlAttribute]
     private $type;
 
@@ -42,26 +42,25 @@ class CurrentVolumeInfo
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $type
      * @param  int $id
      * @return self
      */
     public function __construct(int $type = 0, int $id = 0)
     {
-        $this->setId($id)
-             ->setType($type);
+        $this->setId($id)->setType($type);
     }
 
     /**

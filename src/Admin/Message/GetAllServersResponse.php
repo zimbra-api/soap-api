@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllServersResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllServersResponse extends SoapResponse
 {
     /**
      * Information about servers
-     * 
+     *
      * @Accessor(getter="getServerList", setter="setServerList")
      * @Type("array<Zimbra\Admin\Struct\ServerInfo>")
      * @XmlList(inline=true, entry="server", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getServerList', setter: 'setServerList')]
-    #[Type('array<Zimbra\Admin\Struct\ServerInfo>')]
-    #[XmlList(inline: true, entry: 'server', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getServerList", setter: "setServerList")]
+    #[Type("array<Zimbra\Admin\Struct\ServerInfo>")]
+    #[XmlList(inline: true, entry: "server", namespace: "urn:zimbraAdmin")]
     private $serverList = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllServersResponse extends SoapResponse
     public function setServerList(array $serverList): self
     {
         $this->serverList = array_filter(
-            $serverList, static fn ($server) => $server instanceof ServerInfo
+            $serverList,
+            static fn($server) => $server instanceof ServerInfo
         );
         return $this;
     }

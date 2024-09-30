@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetServerNIfsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetServerNIfsResponse extends SoapResponse
 {
     /**
      * Network interface information
-     * 
+     *
      * @Accessor(getter="getNetworkInterfaces", setter="setNetworkInterfaces")
      * @Type("array<Zimbra\Admin\Struct\NetworkInformation>")
      * @XmlList(inline=true, entry="ni", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNetworkInterfaces', setter: 'setNetworkInterfaces')]
-    #[Type('array<Zimbra\Admin\Struct\NetworkInformation>')]
-    #[XmlList(inline: true, entry: 'ni', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getNetworkInterfaces", setter: "setNetworkInterfaces")]
+    #[Type("array<Zimbra\Admin\Struct\NetworkInformation>")]
+    #[XmlList(inline: true, entry: "ni", namespace: "urn:zimbraAdmin")]
     private $networkInterfaces = [];
 
     /**
@@ -59,7 +59,8 @@ class GetServerNIfsResponse extends SoapResponse
     public function setNetworkInterfaces(array $interfaces): self
     {
         $this->networkInterfaces = array_filter(
-            $interfaces, static fn ($ni) => $ni instanceof NetworkInformation
+            $interfaces,
+            static fn($ni) => $ni instanceof NetworkInformation
         );
         return $this;
     }

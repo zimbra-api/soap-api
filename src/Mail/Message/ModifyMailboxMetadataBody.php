@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ModifyMailboxMetadataBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class ModifyMailboxMetadataBody extends SoapBody
      * @SerializedName("ModifyMailboxMetadataRequest")
      * @Type("Zimbra\Mail\Message\ModifyMailboxMetadataRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ModifyMailboxMetadataRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ModifyMailboxMetadataRequest")]
     #[Type(ModifyMailboxMetadataRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("ModifyMailboxMetadataResponse")
      * @Type("Zimbra\Mail\Message\ModifyMailboxMetadataResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ModifyMailboxMetadataResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ModifyMailboxMetadataResponse")]
     #[Type(ModifyMailboxMetadataResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class ModifyMailboxMetadataBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyMailboxMetadataRequest $request = NULL, ?ModifyMailboxMetadataResponse $response = NULL
-    )
-    {
+        ?ModifyMailboxMetadataRequest $request = null,
+        ?ModifyMailboxMetadataResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

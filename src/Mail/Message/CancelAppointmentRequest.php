@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\{CalTZInfo, InstanceRecurIdInfo, Msg};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -19,7 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Cancel appointment
  * NOTE: If canceling an exception, the original instance (ie the one the exception was "excepting") WILL NOT be
  * restored when you cancel this exception.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,114 +36,114 @@ class CancelAppointmentRequest extends SoapRequest
 {
     /**
      * ID of default invite
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component number of default invite
-     * 
+     *
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
     /**
      * Modified sequence
-     * 
+     *
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Instance recurrence ID information
-     * 
+     *
      * @Accessor(getter="getInstance", setter="setInstance")
      * @SerializedName("inst")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InstanceRecurIdInfo
      */
-    #[Accessor(getter: 'getInstance', setter: 'setInstance')]
-    #[SerializedName('inst')]
+    #[Accessor(getter: "getInstance", setter: "setInstance")]
+    #[SerializedName("inst")]
     #[Type(InstanceRecurIdInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InstanceRecurIdInfo $instance;
 
     /**
      * Definition for TZID referenced by DATETIME in instance
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
      * Message
-     * 
+     *
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -153,28 +159,27 @@ class CancelAppointmentRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?int $componentNum = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?InstanceRecurIdInfo $instance = NULL,
-        ?CalTZInfo $timezone = NULL,
-        ?Msg $msg = NULL
-    )
-    {
+        ?string $id = null,
+        ?int $componentNum = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?InstanceRecurIdInfo $instance = null,
+        ?CalTZInfo $timezone = null,
+        ?Msg $msg = null
+    ) {
         $this->instance = $instance;
         $this->timezone = $timezone;
         $this->msg = $msg;
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $componentNum) {
+        if (null !== $componentNum) {
             $this->setComponentNum($componentNum);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
     }
@@ -338,8 +343,6 @@ class CancelAppointmentRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CancelAppointmentEnvelope(
-            new CancelAppointmentBody($this)
-        );
+        return new CancelAppointmentEnvelope(new CancelAppointmentBody($this));
     }
 }

@@ -25,23 +25,23 @@ class AccountInfo extends AdminObjectInfo
 {
     /**
      * Is external
-     * 
+     *
      * @Accessor(getter="getIsExternal", setter="setIsExternal")
      * @SerializedName("isExternal")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsExternal', setter: 'setIsExternal')]
-    #[SerializedName('isExternal')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsExternal", setter: "setIsExternal")]
+    #[SerializedName("isExternal")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isExternal;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  bool $isExternal
@@ -49,11 +49,13 @@ class AccountInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?bool $isExternal = NULL, array $attrs = []
-    )
-    {
+        string $name = "",
+        string $id = "",
+        ?bool $isExternal = null,
+        array $attrs = []
+    ) {
         parent::__construct($name, $id, $attrs);
-        if (NULL !== $isExternal) {
+        if (null !== $isExternal) {
             $this->setIsExternal($isExternal);
         }
     }

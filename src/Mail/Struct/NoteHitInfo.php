@@ -26,17 +26,17 @@ class NoteHitInfo extends NoteInfo implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
@@ -61,23 +61,22 @@ class NoteHitInfo extends NoteInfo implements SearchHit
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortField = NULL,
-        ?int $revision = NULL,
-        ?string $folder = NULL,
-        ?int $date = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $bounds = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
-        ?string $content = NULL,
+        ?string $id = null,
+        ?string $sortField = null,
+        ?int $revision = null,
+        ?string $folder = null,
+        ?int $date = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $bounds = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
+        ?string $content = null,
         array $metadatas = []
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $revision,
@@ -94,7 +93,7 @@ class NoteHitInfo extends NoteInfo implements SearchHit
             $content,
             $metadatas
         );
-        if (NULL !== $sortField) {
+        if (null !== $sortField) {
             $this->setSortField($sortField);
         }
     }

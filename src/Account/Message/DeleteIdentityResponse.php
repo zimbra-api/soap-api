@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DeleteIdentityResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message

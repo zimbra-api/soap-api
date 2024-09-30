@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    ParticipationStatus,
+    Transparency
+};
 
 /**
  * CommonInstanceDataAttrsInterface interface

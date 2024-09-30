@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\IdAndType;
 
 /**
@@ -26,186 +33,186 @@ class WaitSetInfo
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
     /**
      * WaitSet owner account ID
-     * 
+     *
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwner', setter: 'setOwner')]
-    #[SerializedName('owner')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwner", setter: "setOwner")]
+    #[SerializedName("owner")]
+    #[Type("string")]
     #[XmlAttribute]
     private $owner;
 
     /**
      * Default interest types: comma-separated list.
-     * all: all types (equiv to "f,m,c,a,t,d") 
-     * 
+     * all: all types (equiv to "f,m,c,a,t,d")
+     *
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName('defTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultInterests", setter: "setDefaultInterests")]
+    #[SerializedName("defTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultInterests;
 
     /**
      * Last access date
-     * 
+     *
      * @Accessor(getter="getLastAccessDate", setter="setLastAccessDate")
      * @SerializedName("ld")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastAccessDate', setter: 'setLastAccessDate')]
-    #[SerializedName('ld')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastAccessDate", setter: "setLastAccessDate")]
+    #[SerializedName("ld")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastAccessDate;
 
     /**
      * Error information
-     * 
+     *
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("errors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="error", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[SerializedName('errors')]
-    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'error', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getErrors", setter: "setErrors")]
+    #[SerializedName("errors")]
+    #[Type("array<Zimbra\Common\Struct\IdAndType>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "error", namespace: "urn:zimbraAdmin")]
     private $errors = [];
 
     /**
      * Comma separated list of account IDs
-     * 
+     *
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @SerializedName("ready")
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountsAttrib
      */
-    #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
-    #[SerializedName('ready')]
+    #[Accessor(getter: "getSignalledAccounts", setter: "setSignalledAccounts")]
+    #[SerializedName("ready")]
     #[Type(AccountsAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountsAttrib $signalledAccounts;
 
     /**
      * CB sequence number
-     * 
+     *
      * @Accessor(getter="getCbSeqNo", setter="setCbSeqNo")
      * @SerializedName("cbSeqNo")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCbSeqNo', setter: 'setCbSeqNo')]
-    #[SerializedName('cbSeqNo')]
-    #[Type('string')]
+    #[Accessor(getter: "getCbSeqNo", setter: "setCbSeqNo")]
+    #[SerializedName("cbSeqNo")]
+    #[Type("string")]
     #[XmlAttribute]
     private $cbSeqNo;
 
     /**
      * Current sequence number
-     * 
+     *
      * @Accessor(getter="getCurrentSeqNo", setter="setCurrentSeqNo")
      * @SerializedName("currentSeqNo")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCurrentSeqNo', setter: 'setCurrentSeqNo')]
-    #[SerializedName('currentSeqNo')]
-    #[Type('string')]
+    #[Accessor(getter: "getCurrentSeqNo", setter: "setCurrentSeqNo")]
+    #[SerializedName("currentSeqNo")]
+    #[Type("string")]
     #[XmlAttribute]
     private $currentSeqNo;
 
     /**
      * Next sequence number
-     * 
+     *
      * @Accessor(getter="getNextSeqNo", setter="setNextSeqNo")
      * @SerializedName("nextSeqNo")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNextSeqNo', setter: 'setNextSeqNo')]
-    #[SerializedName('nextSeqNo')]
-    #[Type('string')]
+    #[Accessor(getter: "getNextSeqNo", setter: "setNextSeqNo")]
+    #[SerializedName("nextSeqNo")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nextSeqNo;
 
     /**
      * Buffered commit information
-     * 
+     *
      * @Accessor(getter="getBufferedCommits", setter="setBufferedCommits")
      * @SerializedName("buffered")
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="commit", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBufferedCommits', setter: 'setBufferedCommits')]
-    #[SerializedName('buffered')]
-    #[Type('array<Zimbra\Admin\Struct\BufferedCommitInfo>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'commit', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getBufferedCommits", setter: "setBufferedCommits")]
+    #[SerializedName("buffered")]
+    #[Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "commit", namespace: "urn:zimbraAdmin")]
     private $bufferedCommits = [];
 
     /**
      * Session information
-     * 
+     *
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
      * @XmlList(inline=true, entry="session", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSessions', setter: 'setSessions')]
-    #[Type('array<Zimbra\Admin\Struct\SessionForWaitSet>')]
-    #[XmlList(inline: true, entry: 'session', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSessions", setter: "setSessions")]
+    #[Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")]
+    #[XmlList(inline: true, entry: "session", namespace: "urn:zimbraAdmin")]
     private $sessions = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $waitSetId
      * @param string $owner
      * @param string $defaultInterests
@@ -220,34 +227,33 @@ class WaitSetInfo
      * @return self
      */
     public function __construct(
-        string $waitSetId = '',
-        string $owner = '',
-        string $defaultInterests = '',
+        string $waitSetId = "",
+        string $owner = "",
+        string $defaultInterests = "",
         int $lastAccessDate = 0,
         array $errors = [],
-        ?AccountsAttrib $signalledAccounts = NULL,
-        ?string $cbSeqNo = NULL,
-        ?string $currentSeqNo = NULL,
-        ?string $nextSeqNo = NULL,
+        ?AccountsAttrib $signalledAccounts = null,
+        ?string $cbSeqNo = null,
+        ?string $currentSeqNo = null,
+        ?string $nextSeqNo = null,
         array $bufferedCommits = [],
         array $sessions = []
-    )
-    {
+    ) {
         $this->setWaitSetId($waitSetId)
-             ->setOwner($owner)
-             ->setDefaultInterests($defaultInterests)
-             ->setLastAccessDate($lastAccessDate)
-             ->setErrors($errors)
-             ->setBufferedCommits($bufferedCommits)
-             ->setSessions($sessions);
+            ->setOwner($owner)
+            ->setDefaultInterests($defaultInterests)
+            ->setLastAccessDate($lastAccessDate)
+            ->setErrors($errors)
+            ->setBufferedCommits($bufferedCommits)
+            ->setSessions($sessions);
         $this->signalledAccounts = $signalledAccounts;
-        if (NULL !== $cbSeqNo) {
+        if (null !== $cbSeqNo) {
             $this->setCbSeqNo($cbSeqNo);
         }
-        if (NULL !== $currentSeqNo) {
+        if (null !== $currentSeqNo) {
             $this->setCurrentSeqNo($currentSeqNo);
         }
-        if (NULL !== $nextSeqNo) {
+        if (null !== $nextSeqNo) {
             $this->setNextSeqNo($nextSeqNo);
         }
     }
@@ -356,8 +362,9 @@ class WaitSetInfo
      * @param  AccountsAttrib $signalledAccounts
      * @return self
      */
-    public function setSignalledAccounts(AccountsAttrib $signalledAccounts): self
-    {
+    public function setSignalledAccounts(
+        AccountsAttrib $signalledAccounts
+    ): self {
         $this->signalledAccounts = $signalledAccounts;
         return $this;
     }
@@ -447,7 +454,8 @@ class WaitSetInfo
     public function setErrors(array $errors): self
     {
         $this->errors = array_filter(
-            $errors, static fn ($error) => $error instanceof IdAndType
+            $errors,
+            static fn($error) => $error instanceof IdAndType
         );
         return $this;
     }
@@ -471,7 +479,8 @@ class WaitSetInfo
     public function setBufferedCommits(array $commits): self
     {
         $this->bufferedCommits = array_filter(
-            $commits, static fn ($commit) => $commit instanceof BufferedCommitInfo
+            $commits,
+            static fn($commit) => $commit instanceof BufferedCommitInfo
         );
         return $this;
     }
@@ -495,7 +504,8 @@ class WaitSetInfo
     public function setSessions(array $sessions): self
     {
         $this->sessions = array_filter(
-            $sessions, static fn ($session) => $session instanceof SessionForWaitSet
+            $sessions,
+            static fn($session) => $session instanceof SessionForWaitSet
         );
         return $this;
     }

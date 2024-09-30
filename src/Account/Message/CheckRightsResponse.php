@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CheckRightsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,21 +27,21 @@ class CheckRightsResponse extends SoapResponse
 {
     /**
      * Rights information for targets
-     * 
+     *
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTargets', setter: 'setTargets')]
-    #[Type('array<Zimbra\Account\Struct\CheckRightsTargetInfo>')]
-    #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getTargets", setter: "setTargets")]
+    #[Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")]
+    #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAccount")]
     private $targets = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $targets
      * @return self
      */
@@ -59,7 +59,8 @@ class CheckRightsResponse extends SoapResponse
     public function setTargets(array $targets): self
     {
         $this->targets = array_filter(
-            $targets, static fn ($target) => $target instanceof CheckRightsTargetInfo
+            $targets,
+            static fn($target) => $target instanceof CheckRightsTargetInfo
         );
         return $this;
     }

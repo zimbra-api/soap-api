@@ -27,17 +27,17 @@ class GalConfigAction extends Enum
      * Constant for value 'autocomplete'
      * @return string 'autocomplete'
      */
-    protected const AUTOCOMPLETE = 'autocomplete';
+    protected const AUTOCOMPLETE = "autocomplete";
 
     /**
      * Constant for value 'search'
      * @return string 'search'
      */
-    protected const SEARCH_ = 'search';
+    protected const SEARCH_ = "search";
 
     /**
      * Constant for value 'sync'
      * @return string 'sync'
      */
-    protected const SYNC = 'sync';
+    protected const SYNC = "sync";
 }

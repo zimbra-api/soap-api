@@ -27,11 +27,11 @@ class InviteType extends Enum
      * Constant for value 'appt'
      * @return string 'appt'
      */
-    protected const APPOINTMENT = 'appt';
+    protected const APPOINTMENT = "appt";
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    protected const TASK = 'task';
+    protected const TASK = "task";
 }

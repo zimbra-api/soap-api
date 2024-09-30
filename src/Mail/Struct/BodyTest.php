@@ -25,39 +25,39 @@ class BodyTest extends FilterTest
 {
     /**
      * Value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Case sensitive setting
-     * 
+     *
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName('caseSensitive')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCaseSensitive", setter: "setCaseSensitive")]
+    #[SerializedName("caseSensitive")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $caseSensitive;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $value
@@ -65,17 +65,16 @@ class BodyTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?string $value = NULL,
-        ?bool $caseSensitive = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
-        if (NULL !== $value) {
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $value = null,
+        ?bool $caseSensitive = null
+    ) {
+        parent::__construct($index, $negative);
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $caseSensitive) {
+        if (null !== $caseSensitive) {
             $this->setCaseSensitive($caseSensitive);
         }
     }

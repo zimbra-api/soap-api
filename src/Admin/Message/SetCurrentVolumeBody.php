@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * SetCurrentVolumeBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class SetCurrentVolumeBody extends SoapBody
      * @SerializedName("SetCurrentVolumeRequest")
      * @Type("Zimbra\Admin\Message\SetCurrentVolumeRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('SetCurrentVolumeRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("SetCurrentVolumeRequest")]
     #[Type(SetCurrentVolumeRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("SetCurrentVolumeResponse")
      * @Type("Zimbra\Admin\Message\SetCurrentVolumeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('SetCurrentVolumeResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("SetCurrentVolumeResponse")]
     #[Type(SetCurrentVolumeResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class SetCurrentVolumeBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?SetCurrentVolumeRequest $request = NULL, ?SetCurrentVolumeResponse $response = NULL
-    )
-    {
+        ?SetCurrentVolumeRequest $request = null,
+        ?SetCurrentVolumeResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

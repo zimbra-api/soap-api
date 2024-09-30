@@ -10,15 +10,26 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\{
-    AccountInfo, AliasInfo, CalendarResourceInfo, CosInfo, DistributionListInfo, DomainInfo
+    AccountInfo,
+    AliasInfo,
+    CalendarResourceInfo,
+    CosInfo,
+    DistributionListInfo,
+    DomainInfo
 };
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchDirectoryResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,134 +40,134 @@ class SearchDirectoryResponse extends SoapResponse
 {
     /**
      * number of counts
-     * 
+     *
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('num')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("num")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
     /**
      * 1 (true) if more accounts left to return
-     * 
+     *
      * @Accessor(getter="isMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/searchTotal)
-     * 
+     *
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName('searchTotal')]
-    #[Type('int')]
+    #[Accessor(getter: "getSearchTotal", setter: "setSearchTotal")]
+    #[SerializedName("searchTotal")]
+    #[Type("int")]
     #[XmlAttribute]
     private $searchTotal;
 
     /**
      * Information on calendar resources
-     * 
+     *
      * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalendarResources', setter: 'setCalendarResources')]
-    #[Type('array<Zimbra\Admin\Struct\CalendarResourceInfo>')]
-    #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCalendarResources", setter: "setCalendarResources")]
+    #[Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")]
+    #[XmlList(inline: true, entry: "calresource", namespace: "urn:zimbraAdmin")]
     private $calResources = [];
 
     /**
      * Information on distribution lists
-     * 
+     *
      * @Accessor(getter="getDistributionLists", setter="setDistributionLists")
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDistributionLists', setter: 'setDistributionLists')]
-    #[Type('array<Zimbra\Admin\Struct\DistributionListInfo>')]
-    #[XmlList(inline: true, entry: 'dl', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDistributionLists", setter: "setDistributionLists")]
+    #[Type("array<Zimbra\Admin\Struct\DistributionListInfo>")]
+    #[XmlList(inline: true, entry: "dl", namespace: "urn:zimbraAdmin")]
     private $dls = [];
 
     /**
      * Information on aliases
-     * 
+     *
      * @Accessor(getter="getAliases", setter="setAliases")
      * @Type("array<Zimbra\Admin\Struct\AliasInfo>")
      * @XmlList(inline=true, entry="alias", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAliases', setter: 'setAliases')]
-    #[Type('array<Zimbra\Admin\Struct\AliasInfo>')]
-    #[XmlList(inline: true, entry: 'alias', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAliases", setter: "setAliases")]
+    #[Type("array<Zimbra\Admin\Struct\AliasInfo>")]
+    #[XmlList(inline: true, entry: "alias", namespace: "urn:zimbraAdmin")]
     private $aliases = [];
 
     /**
      * Information on accounts
-     * 
+     *
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<Zimbra\Admin\Struct\AccountInfo>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<Zimbra\Admin\Struct\AccountInfo>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
      * Information on domains
-     * 
+     *
      * @Accessor(getter="getDomains", setter="setDomains")
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDomains', setter: 'setDomains')]
-    #[Type('array<Zimbra\Admin\Struct\DomainInfo>')]
-    #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDomains", setter: "setDomains")]
+    #[Type("array<Zimbra\Admin\Struct\DomainInfo>")]
+    #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
     private $domains = [];
 
     /**
      * Information on Classes of Service (COS)
-     * 
+     *
      * @Accessor(getter="getCOSes", setter="setCOSes")
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCOSes', setter: 'setCOSes')]
-    #[Type('array<Zimbra\Admin\Struct\CosInfo>')]
-    #[XmlList(inline: true, entry: 'cos', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCOSes", setter: "setCOSes")]
+    #[Type("array<Zimbra\Admin\Struct\CosInfo>")]
+    #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
     private $coses = [];
 
     /**
@@ -175,7 +186,7 @@ class SearchDirectoryResponse extends SoapResponse
      */
     public function __construct(
         int $num = 0,
-        bool $more = FALSE,
+        bool $more = false,
         int $searchTotal = 0,
         array $calResources = [],
         array $dls = [],
@@ -183,17 +194,16 @@ class SearchDirectoryResponse extends SoapResponse
         array $accounts = [],
         array $domains = [],
         array $coses = []
-    )
-    {
+    ) {
         $this->setNum($num)
-             ->setMore($more)
-             ->setSearchTotal($searchTotal)
-             ->setCalendarResources($calResources)
-             ->setDistributionLists($dls)
-             ->setAliases($aliases)
-             ->setAccounts($accounts)
-             ->setDomains($domains)
-             ->setCOSes($coses);
+            ->setMore($more)
+            ->setSearchTotal($searchTotal)
+            ->setCalendarResources($calResources)
+            ->setDistributionLists($dls)
+            ->setAliases($aliases)
+            ->setAccounts($accounts)
+            ->setDomains($domains)
+            ->setCOSes($coses);
     }
 
     /**
@@ -271,7 +281,8 @@ class SearchDirectoryResponse extends SoapResponse
     public function setCalendarResources(array $resources): self
     {
         $this->calResources = array_filter(
-            $resources, static fn ($resource) => $resource instanceof CalendarResourceInfo
+            $resources,
+            static fn($resource) => $resource instanceof CalendarResourceInfo
         );
         return $this;
     }
@@ -295,7 +306,8 @@ class SearchDirectoryResponse extends SoapResponse
     public function setDistributionLists(array $dls): self
     {
         $this->dls = array_filter(
-            $dls, static fn ($dl) => $dl instanceof DistributionListInfo
+            $dls,
+            static fn($dl) => $dl instanceof DistributionListInfo
         );
         return $this;
     }
@@ -319,7 +331,8 @@ class SearchDirectoryResponse extends SoapResponse
     public function setAliases(array $aliases): self
     {
         $this->aliases = array_filter(
-            $aliases, static fn ($alias) => $alias instanceof AliasInfo
+            $aliases,
+            static fn($alias) => $alias instanceof AliasInfo
         );
         return $this;
     }
@@ -343,7 +356,8 @@ class SearchDirectoryResponse extends SoapResponse
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof AccountInfo
+            $accounts,
+            static fn($account) => $account instanceof AccountInfo
         );
         return $this;
     }
@@ -367,7 +381,8 @@ class SearchDirectoryResponse extends SoapResponse
     public function setDomains(array $domains): self
     {
         $this->domains = array_filter(
-            $domains, static fn ($domain) => $domain instanceof DomainInfo
+            $domains,
+            static fn($domain) => $domain instanceof DomainInfo
         );
         return $this;
     }
@@ -391,7 +406,8 @@ class SearchDirectoryResponse extends SoapResponse
     public function setCOSes(array $coses): self
     {
         $this->coses = array_filter(
-            $coses, static fn ($cos) => $cos instanceof CosInfo
+            $coses,
+            static fn($cos) => $cos instanceof CosInfo
         );
         return $this;
     }

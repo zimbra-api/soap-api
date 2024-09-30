@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Status values for a data source are reinitialized when either (a)
  * another import process is startedor (b) when the server is restarted.
  * If import has not run yet, the success and error attributes are not specified in the response.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,8 +32,6 @@ class GetImportStatusRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetImportStatusEnvelope(
-            new GetImportStatusBody($this)
-        );
+        return new GetImportStatusEnvelope(new GetImportStatusBody($this));
     }
 }

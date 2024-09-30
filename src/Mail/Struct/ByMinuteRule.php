@@ -27,17 +27,17 @@ class ByMinuteRule implements ByMinuteRuleInterface
 {
     /**
      * Comma separated list of minutes where minute is a number between 0 and 59
-     * 
+     *
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("minlist")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('minlist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("minlist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -47,7 +47,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -71,15 +71,15 @@ class ByMinuteRule implements ByMinuteRuleInterface
     public function setList(string $list): self
     {
         $minlist = [];
-        foreach (explode(',', $list) as $min) {
+        foreach (explode(",", $list) as $min) {
             if (is_numeric($min)) {
                 $min = (int) $min;
-                if($min >= 0 && $min < 60 && !in_array($min, $minlist)) {
+                if ($min >= 0 && $min < 60 && !in_array($min, $minlist)) {
                     $minlist[] = $min;
                 }
             }
         }
-        $this->list = implode(',', $minlist);
+        $this->list = implode(",", $minlist);
         return $this;
     }
 }

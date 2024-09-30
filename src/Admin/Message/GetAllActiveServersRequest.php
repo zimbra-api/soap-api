@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAllActiveServersRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

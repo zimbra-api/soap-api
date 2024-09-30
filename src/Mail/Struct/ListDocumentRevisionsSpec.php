@@ -25,69 +25,70 @@ class ListDocumentRevisionsSpec
 {
     /**
      * Item ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Version
-     * 
+     *
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('ver')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("ver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Maximum number of revisions to return starting from <version>
-     * 
+     *
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("count")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName('count')]
-    #[Type('int')]
+    #[Accessor(getter: "getCount", setter: "setCount")]
+    #[SerializedName("count")]
+    #[Type("int")]
     #[XmlAttribute]
     private $count;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $version
      * @param int $count
      * @return self
      */
     public function __construct(
-        string $id = '', ?int $version = NULL, ?int $count = NULL
-    )
-    {
+        string $id = "",
+        ?int $version = null,
+        ?int $count = null
+    ) {
         $this->setId($id);
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
-        if (NULL !== $count) {
+        if (null !== $count) {
             $this->setCount($count);
         }
     }

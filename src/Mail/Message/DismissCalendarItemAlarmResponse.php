@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DismissCalendarItemAlarmResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,30 +27,30 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
 {
     /**
      * Updated appointment alarm information
-     * 
+     *
      * @Accessor(getter="getApptUpdatedAlarms", setter="setApptUpdatedAlarms")
      * @Type("array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getApptUpdatedAlarms', setter: 'setApptUpdatedAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getApptUpdatedAlarms", setter: "setApptUpdatedAlarms")]
+    #[Type("array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $apptUpdatedAlarms = [];
 
     /**
      * Updated task alarm information
-     * 
+     *
      * @Accessor(getter="getTaskUpdatedAlarms", setter="setTaskUpdatedAlarms")
      * @Type("array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskUpdatedAlarms', setter: 'setTaskUpdatedAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskUpdatedAlarms", setter: "setTaskUpdatedAlarms")]
+    #[Type("array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskUpdatedAlarms = [];
 
     /**
@@ -61,8 +61,7 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
      */
     public function __construct(array $alarms = [])
     {
-        $this->setApptUpdatedAlarms($alarms)
-             ->setTaskUpdatedAlarms($alarms);
+        $this->setApptUpdatedAlarms($alarms)->setTaskUpdatedAlarms($alarms);
     }
 
     /**
@@ -74,7 +73,11 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
     public function setApptUpdatedAlarms(array $alarms): self
     {
         $this->apptUpdatedAlarms = array_values(
-            array_filter($alarms, static fn ($alarm) => $alarm instanceof UpdatedAppointmentAlarmInfo)
+            array_filter(
+                $alarms,
+                static fn($alarm) => $alarm instanceof
+                    UpdatedAppointmentAlarmInfo
+            )
         );
         return $this;
     }
@@ -98,7 +101,10 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
     public function setTaskUpdatedAlarms(array $alarms): self
     {
         $this->taskUpdatedAlarms = array_values(
-            array_filter($alarms, static fn ($alarm) => $alarm instanceof UpdatedTaskAlarmInfo)
+            array_filter(
+                $alarms,
+                static fn($alarm) => $alarm instanceof UpdatedTaskAlarmInfo
+            )
         );
         return $this;
     }

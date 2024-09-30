@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Struct\AccountSelector;
 
 /**
@@ -26,31 +32,31 @@ class PreAuth
 {
     /**
      * Computed preauth value
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Time stamp
-     * 
+     *
      * @Accessor(getter="getTimestamp", setter="setTimestamp")
      * @SerializedName("timestamp")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTimestamp', setter: 'setTimestamp')]
-    #[SerializedName('timestamp')]
-    #[Type('int')]
+    #[Accessor(getter: "getTimestamp", setter: "setTimestamp")]
+    #[SerializedName("timestamp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $timestamp;
 
@@ -59,23 +65,23 @@ class PreAuth
      * Set to 0 to use the default expiration time for the account.
      * Can be used to sync the auth token expiration time with the external system's notion of expiration
      * (like a Kerberos TGT lifetime, for example).
-     * 
+     *
      * @Accessor(getter="getExpiresTimestamp", setter="setExpiresTimestamp")
      * @SerializedName("expires")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getExpiresTimestamp', setter: 'setExpiresTimestamp')]
-    #[SerializedName('expires')]
-    #[Type('int')]
+    #[Accessor(getter: "getExpiresTimestamp", setter: "setExpiresTimestamp")]
+    #[SerializedName("expires")]
+    #[Type("int")]
     #[XmlAttribute]
     private $expiresTimestamp;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountSelector $account
      * @param  string $preauthKey
      * @param  int    $timestamp
@@ -84,14 +90,13 @@ class PreAuth
      */
     public function __construct(
         AccountSelector $account,
-        string $preauthKey = '',
+        string $preauthKey = "",
         int $timestamp = 0,
         int $expiresTimestamp = 0
-    )
-    {
+    ) {
         $this->setTimestamp($timestamp)
-             ->setExpiresTimestamp($expiresTimestamp)
-             ->computeValue($account, $preauthKey);
+            ->setExpiresTimestamp($expiresTimestamp)
+            ->computeValue($account, $preauthKey);
     }
 
     /**
@@ -156,7 +161,8 @@ class PreAuth
      */
     public function setExpiresTimestamp(int $expiresTimestamp): self
     {
-        $this->expiresTimestamp = $expiresTimestamp < 0 ? time() : $expiresTimestamp;
+        $this->expiresTimestamp =
+            $expiresTimestamp < 0 ? time() : $expiresTimestamp;
         return $this;
     }
 
@@ -167,11 +173,20 @@ class PreAuth
      * @param  string $preauthKey
      * @return self
      */
-    public function computeValue(AccountSelector $account, string $preauthKey): self
-    {
-        $timestamp = ($this->getTimestamp() > 0) ? $this->getTimestamp() : time();
+    public function computeValue(
+        AccountSelector $account,
+        string $preauthKey
+    ): self {
+        $timestamp = $this->getTimestamp() > 0 ? $this->getTimestamp() : time();
         $expire = $this->getExpiresTimestamp();
-        $preauth = $account->getValue() . '|'. $account->getBy() . '|' . $expire . '|' . $timestamp;
-        return $this->setValue(hash_hmac('sha1', $preauth, $preauthKey));
+        $preauth =
+            $account->getValue() .
+            "|" .
+            $account->getBy() .
+            "|" .
+            $expire .
+            "|" .
+            $timestamp;
+        return $this->setValue(hash_hmac("sha1", $preauth, $preauthKey));
     }
 }

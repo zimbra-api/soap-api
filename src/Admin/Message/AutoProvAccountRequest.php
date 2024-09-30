@@ -28,55 +28,55 @@ class AutoProvAccountRequest extends SoapRequest
 {
     /**
      * The domain
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private DomainSelector $domain;
 
     /**
      * The principal
-     * 
+     *
      * @Accessor(getter="getPrincipal", setter="setPrincipal")
      * @SerializedName("principal")
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var PrincipalSelector
      */
-    #[Accessor(getter: 'getPrincipal', setter: 'setPrincipal')]
-    #[SerializedName('principal')]
+    #[Accessor(getter: "getPrincipal", setter: "setPrincipal")]
+    #[SerializedName("principal")]
     #[Type(PrincipalSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private PrincipalSelector $principal;
 
     /**
      * Password
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $password;
 
     /**
      * Constructor
-     * 
+     *
      * @param DomainSelector $domain
      * @param PrincipalSelector $principal
      * @param string  $password
@@ -85,12 +85,10 @@ class AutoProvAccountRequest extends SoapRequest
     public function __construct(
         DomainSelector $domain,
         PrincipalSelector $principal,
-        ?string $password = NULL
-    )
-    {
-        $this->setDomain($domain)
-        	 ->setPrincipal($principal);
-        if (NULL !== $password){
+        ?string $password = null
+    ) {
+        $this->setDomain($domain)->setPrincipal($principal);
+        if (null !== $password) {
             $this->setPassword($password);
         }
     }
@@ -166,8 +164,6 @@ class AutoProvAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AutoProvAccountEnvelope(
-            new AutoProvAccountBody($this)
-        );
+        return new AutoProvAccountEnvelope(new AutoProvAccountBody($this));
     }
 }

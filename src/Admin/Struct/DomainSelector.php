@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\DomainBy;
 
 /**
@@ -26,45 +32,45 @@ class DomainSelector
 {
     /**
      * Select the meaning of {acct-selector-key}
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\DomainBy>")
      * @XmlAttribute
-     * 
+     *
      * @var DomainBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\DomainBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\DomainBy>")]
     #[XmlAttribute]
     private DomainBy $by;
 
     /**
      * The key used to identify the domain
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DomainBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?DomainBy $by = NULL, ?string $value = NULL)
+    public function __construct(?DomainBy $by = null, ?string $value = null)
     {
-        $this->setBy($by ?? new DomainBy('name'));
-        if (NULL !== $value) {
+        $this->setBy($by ?? new DomainBy("name"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

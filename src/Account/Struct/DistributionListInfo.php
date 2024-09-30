@@ -10,7 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * DistributionListInfo struct class
@@ -26,106 +33,106 @@ class DistributionListInfo extends ObjectInfo
     /**
      * Flags whether user is the owner of the group.
      * Only returned if ownerOf on the request is 1 (true)
-     * 
+     *
      * @Accessor(getter="isOwner", setter="setIsOwner")
      * @SerializedName("isOwner")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
-    #[SerializedName('isOwner')]
-    #[Type('bool')]
+    #[Accessor(getter: "isOwner", setter: "setIsOwner")]
+    #[SerializedName("isOwner")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isOwner;
 
     /**
      * Flags whether user is a member of the group.
      * Only returned if memberOf on the request is 1 (true)
-     * 
+     *
      * @Accessor(getter="isMember", setter="setIsMember")
      * @SerializedName("isMember")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMember', setter: 'setIsMember')]
-    #[SerializedName('isMember')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMember", setter: "setIsMember")]
+    #[SerializedName("isMember")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isMember;
 
     /**
      * Flags whether the group is dynamic or not
-     * 
+     *
      * @Accessor(getter="isDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
     /**
      * Group members
-     * 
+     *
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getMembers", setter: "setMembers")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAccount")]
     private $members = [];
 
     /**
      * Group owners
-     * 
+     *
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getOwners', setter: 'setOwners')]
-    #[SerializedName('owners')]
-    #[Type('array<Zimbra\Account\Struct\DistributionListGranteeInfo>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'owner', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getOwners", setter: "setOwners")]
+    #[SerializedName("owners")]
+    #[Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "owner", namespace: "urn:zimbraAccount")]
     private $owners = [];
 
     /**
      * Rights
-     * 
+     *
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
-    #[Type('array<Zimbra\Account\Struct\DistributionListRightInfo>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'right', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
+    #[Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "right", namespace: "urn:zimbraAccount")]
     private $rights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @param array  $attrs
@@ -138,28 +145,25 @@ class DistributionListInfo extends ObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $id = '',
+        string $name = "",
+        string $id = "",
         array $attrs = [],
         array $members = [],
         array $owners = [],
         array $rights = [],
-        ?bool $isOwner = NULL,
-        ?bool $isMember = NULL,
-        ?bool $dynamic = NULL
-    )
-    {
+        ?bool $isOwner = null,
+        ?bool $isMember = null,
+        ?bool $dynamic = null
+    ) {
         parent::__construct($name, $id, $attrs);
-        $this->setMembers($members)
-             ->setOwners($owners)
-             ->setRights($rights);
-        if (NULL !== $isOwner) {
+        $this->setMembers($members)->setOwners($owners)->setRights($rights);
+        if (null !== $isOwner) {
             $this->setIsOwner($isOwner);
         }
-        if (NULL !== $isMember) {
+        if (null !== $isMember) {
             $this->setIsMember($isMember);
         }
-        if (NULL !== $dynamic) {
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }
@@ -235,7 +239,7 @@ class DistributionListInfo extends ObjectInfo
      *
      * @return array
      */
-    public function getMembers()
+    public function getMembers(): array
     {
         return $this->members;
     }
@@ -246,10 +250,10 @@ class DistributionListInfo extends ObjectInfo
      * @param  array $members
      * @return self
      */
-    public function setMembers(array $members)
+    public function setMembers(array $members): self
     {
         $this->members = array_unique(
-            array_map(static fn ($member) => trim($member), $members)
+            array_map(static fn($member) => trim($member), $members)
         );
         return $this;
     }
@@ -259,7 +263,7 @@ class DistributionListInfo extends ObjectInfo
      *
      * @return array
      */
-    public function getOwners()
+    public function getOwners(): array
     {
         return $this->owners;
     }
@@ -270,10 +274,11 @@ class DistributionListInfo extends ObjectInfo
      * @param  array $owners
      * @return self
      */
-    public function setOwners(array $owners)
+    public function setOwners(array $owners): self
     {
         $this->owners = array_filter(
-            $owners, static fn ($owner) => $owner instanceof DistributionListGranteeInfo
+            $owners,
+            static fn($owner) => $owner instanceof DistributionListGranteeInfo
         );
         return $this;
     }
@@ -283,7 +288,7 @@ class DistributionListInfo extends ObjectInfo
      *
      * @return array
      */
-    public function getRights()
+    public function getRights(): array
     {
         return $this->rights;
     }
@@ -294,10 +299,11 @@ class DistributionListInfo extends ObjectInfo
      * @param  array $rights
      * @return self
      */
-    public function setRights(array $rights)
+    public function setRights(array $rights): self
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof DistributionListRightInfo
+            $rights,
+            static fn($right) => $right instanceof DistributionListRightInfo
         );
         return $this;
     }

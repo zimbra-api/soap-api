@@ -21,7 +21,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetRecurResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,66 +32,66 @@ class GetRecurResponse extends SoapResponse
 {
     /**
      * Timezone
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
      * Cancel recurrence component
-     * 
+     *
      * @Accessor(getter="getCancelComponent", setter="setCancelComponent")
      * @SerializedName("cancel")
      * @Type("Zimbra\Mail\Struct\CancelItemRecur")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CancelItemRecur
      */
-    #[Accessor(getter: 'getCancelComponent', setter: 'setCancelComponent')]
-    #[SerializedName('cancel')]
+    #[Accessor(getter: "getCancelComponent", setter: "setCancelComponent")]
+    #[SerializedName("cancel")]
     #[Type(CancelItemRecur::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CancelItemRecur $cancelComponent;
 
     /**
      * Except recurrence component
-     * 
+     *
      * @Accessor(getter="getExceptComponent", setter="setExceptComponent")
      * @SerializedName("except")
      * @Type("Zimbra\Mail\Struct\ExceptionItemRecur")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ExceptionItemRecur
      */
-    #[Accessor(getter: 'getExceptComponent', setter: 'setExceptComponent')]
-    #[SerializedName('except')]
+    #[Accessor(getter: "getExceptComponent", setter: "setExceptComponent")]
+    #[SerializedName("except")]
     #[Type(ExceptionItemRecur::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ExceptionItemRecur $exceptComponent;
 
     /**
      * Invite recurrence component
-     * 
+     *
      * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteItemRecur")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InviteItemRecur
      */
-    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
-    #[SerializedName('comp')]
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName("comp")]
     #[Type(InviteItemRecur::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteItemRecur $inviteComponent;
 
     /**
@@ -104,12 +104,11 @@ class GetRecurResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?CalTZInfo $timezone = NULL,
-        ?CancelItemRecur $cancelComponent = NULL,
-        ?ExceptionItemRecur $exceptComponent = NULL,
-        ?InviteItemRecur $inviteComponent = NULL
-    )
-    {
+        ?CalTZInfo $timezone = null,
+        ?CancelItemRecur $cancelComponent = null,
+        ?ExceptionItemRecur $exceptComponent = null,
+        ?InviteItemRecur $inviteComponent = null
+    ) {
         $this->timezone = $timezone;
         $this->cancelComponent = $cancelComponent;
         $this->exceptComponent = $exceptComponent;
@@ -176,8 +175,9 @@ class GetRecurResponse extends SoapResponse
      * @param  ExceptionItemRecur $exceptComponent
      * @return self
      */
-    public function setExceptComponent(ExceptionItemRecur $exceptComponent): self
-    {
+    public function setExceptComponent(
+        ExceptionItemRecur $exceptComponent
+    ): self {
         $this->exceptComponent = $exceptComponent;
         return $this;
     }

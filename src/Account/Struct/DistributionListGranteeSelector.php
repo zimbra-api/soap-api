@@ -10,12 +10,18 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{DistributionListGranteeBy, GranteeType};
 
 /**
  * DistributionListGranteeSelector struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -29,12 +35,12 @@ class DistributionListGranteeSelector
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GranteeType>")]
     #[XmlAttribute]
     private GranteeType $type;
 
@@ -43,12 +49,12 @@ class DistributionListGranteeSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListGranteeBy>")
      * @XmlAttribute
-     * 
+     *
      * @var DistributionListGranteeBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListGranteeBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\DistributionListGranteeBy>")]
     #[XmlAttribute]
     private DistributionListGranteeBy $by;
 
@@ -56,29 +62,31 @@ class DistributionListGranteeSelector
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param GranteeType $type
      * @param DistributionListGranteeBy $by
      * @param string $value
      * @return self
      */
     public function __construct(
-        ?GranteeType $type = NULL, ?DistributionListGranteeBy $by = NULL, ?string $value = NULL
-    )
-    {
-        $this->setType($type ?? new GranteeType('all'))
-             ->setBy($by ?? new DistributionListGranteeBy('name'));
-        if (NULL !== $value) {
+        ?GranteeType $type = null,
+        ?DistributionListGranteeBy $by = null,
+        ?string $value = null
+    ) {
+        $this->setType($type ?? new GranteeType("all"))->setBy(
+            $by ?? new DistributionListGranteeBy("name")
+        );
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

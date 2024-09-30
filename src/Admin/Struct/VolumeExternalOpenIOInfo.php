@@ -25,87 +25,87 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
 {
     /**
      * Specifies the standard HTTP URL for OpenIO
-     * 
+     *
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Specifies OpenIO account name
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
+    #[Type("string")]
     #[XmlAttribute]
     private $account;
 
     /**
      * Specifies OpenIO namespace
-     * 
+     *
      * @Accessor(getter="getNameSpace", setter="setNameSpace")
      * @SerializedName("namespace")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNameSpace', setter: 'setNameSpace')]
-    #[SerializedName('namespace')]
-    #[Type('string')]
+    #[Accessor(getter: "getNameSpace", setter: "setNameSpace")]
+    #[SerializedName("namespace")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nameSpace;
 
     /**
      * Specifies OpenIO proxy port
-     * 
+     *
      * @Accessor(getter="getProxyPort", setter="setProxyPort")
      * @SerializedName("proxyPort")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getProxyPort', setter: 'setProxyPort')]
-    #[SerializedName('proxyPort')]
-    #[Type('int')]
+    #[Accessor(getter: "getProxyPort", setter: "setProxyPort")]
+    #[SerializedName("proxyPort")]
+    #[Type("int")]
     #[XmlAttribute]
     private $proxyPort;
 
     /**
      * Specifies OpenIO account port
-     * 
+     *
      * @Accessor(getter="getAccountPort", setter="setAccountPort")
      * @SerializedName("accountPort")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAccountPort', setter: 'setAccountPort')]
-    #[SerializedName('accountPort')]
-    #[Type('int')]
+    #[Accessor(getter: "getAccountPort", setter: "setAccountPort")]
+    #[SerializedName("accountPort")]
+    #[Type("int")]
     #[XmlAttribute]
     private $accountPort;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $storageType
      * @param string $url
      * @param string $account
@@ -115,28 +115,27 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
      * @return self
      */
     public function __construct(
-        ?string $storageType = NULL,
-        ?string $url = NULL,
-        ?string $account = NULL,
-        ?string $nameSpace = NULL,
-        ?int $proxyPort = NULL,
-        ?int $accountPort = NULL
-    )
-    {
+        ?string $storageType = null,
+        ?string $url = null,
+        ?string $account = null,
+        ?string $nameSpace = null,
+        ?int $proxyPort = null,
+        ?int $accountPort = null
+    ) {
         parent::__construct($storageType);
-        if (NULL !== $url) {
+        if (null !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $account) {
+        if (null !== $account) {
             $this->setAccount($account);
         }
-        if (NULL !== $nameSpace) {
+        if (null !== $nameSpace) {
             $this->setNameSpace($nameSpace);
         }
-        if (NULL !== $proxyPort) {
+        if (null !== $proxyPort) {
             $this->setProxyPort($proxyPort);
         }
-        if (NULL !== $accountPort) {
+        if (null !== $accountPort) {
             $this->setAccountPort($accountPort);
         }
     }

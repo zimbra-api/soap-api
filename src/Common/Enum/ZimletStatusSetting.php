@@ -27,11 +27,11 @@ class ZimletStatusSetting extends Enum
      * Constant for value 'enabled'
      * @return string 'enabled'
      */
-    protected const ENABLED = 'enabled';
+    protected const ENABLED = "enabled";
 
     /**
      * Constant for value 'disabled'
      * @return string 'disabled'
      */
-    protected const DISABLED = 'disabled';
+    protected const DISABLED = "disabled";
 }

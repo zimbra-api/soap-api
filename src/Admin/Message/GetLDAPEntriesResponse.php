@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetLDAPEntriesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetLDAPEntriesResponse extends SoapResponse
 {
     /**
      * LDAP entries
-     * 
+     *
      * @Accessor(getter="getLDAPEntries", setter="setLDAPEntries")
      * @Type("array<Zimbra\Admin\Struct\LDAPEntryInfo>")
      * @XmlList(inline=true, entry="LDAPEntry", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLDAPEntries', setter: 'setLDAPEntries')]
-    #[Type('array<Zimbra\Admin\Struct\LDAPEntryInfo>')]
-    #[XmlList(inline: true, entry: 'LDAPEntry', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLDAPEntries", setter: "setLDAPEntries")]
+    #[Type("array<Zimbra\Admin\Struct\LDAPEntryInfo>")]
+    #[XmlList(inline: true, entry: "LDAPEntry", namespace: "urn:zimbraAdmin")]
     private $LDAPEntries = [];
 
     /**
@@ -59,7 +59,8 @@ class GetLDAPEntriesResponse extends SoapResponse
     public function setLDAPEntries(array $LDAPEntries): self
     {
         $this->LDAPEntries = array_filter(
-            $LDAPEntries, static fn ($LDAPEntry) => $LDAPEntry instanceof LDAPEntryInfo
+            $LDAPEntries,
+            static fn($LDAPEntry) => $LDAPEntry instanceof LDAPEntryInfo
         );
         return $this;
     }

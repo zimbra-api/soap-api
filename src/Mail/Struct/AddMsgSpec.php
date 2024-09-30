@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * AddMsgSpec class
@@ -26,131 +32,131 @@ class AddMsgSpec
     /**
      * Flags - (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me, for(w)arded,
      * (d)raft, deleted (x), (n)otification sent
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Folder pathname (starts with '/') or folder ID
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * If set, then don't process iCal attachments.  Default is unset.
-     * 
+     *
      * @Accessor(getter="getNoICal", setter="setNoICal")
      * @SerializedName("noICal")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNoICal', setter: 'setNoICal')]
-    #[SerializedName('noICal')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNoICal", setter: "setNoICal")]
+    #[SerializedName("noICal")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $noICal;
 
     /**
      * (optional) Time the message was originally received, in MILLISECONDS since the epoch
-     * 
+     *
      * @Accessor(getter="getDateReceived", setter="setDateReceived")
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDateReceived', setter: 'setDateReceived')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDateReceived", setter: "setDateReceived")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dateReceived;
 
     /**
      * Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
-     * 
+     *
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachmentId;
 
     /**
      * The entire message's content.  (Omit if you specify an "aid" attribute.)
      * No <mp> elements should be provided within <m>.
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
@@ -167,38 +173,37 @@ class AddMsgSpec
      * @return self
      */
     public function __construct(
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folder = NULL,
-        ?bool $noICal = NULL,
-        ?int $dateReceived = NULL,
-        ?string $attachmentId = NULL,
-        ?string $content = NULL
-    )
-    {
-        if (NULL !== $flags) {
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folder = null,
+        ?bool $noICal = null,
+        ?int $dateReceived = null,
+        ?string $attachmentId = null,
+        ?string $content = null
+    ) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $folder) {
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $noICal) {
+        if (null !== $noICal) {
             $this->setNoICal($noICal);
         }
-        if (NULL !== $dateReceived) {
+        if (null !== $dateReceived) {
             $this->setDateReceived($dateReceived);
         }
-        if (NULL !== $attachmentId) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }

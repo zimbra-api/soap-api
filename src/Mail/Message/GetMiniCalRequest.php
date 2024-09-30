@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 
@@ -20,7 +27,7 @@ use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
  * Date is returned if there is at least one appointment on that date.
  * The date computation uses the requesting (authenticated) account's time zone,
  * not the time zone of the account that owns the calendar folder.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,65 +38,65 @@ class GetMiniCalRequest extends SoapRequest
 {
     /**
      * Range start time in milliseconds
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end time in milliseconds
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Local and/or remote calendar folders
-     * 
+     *
      * @Accessor(getter="getFolders", setter="setFolders")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFolders', setter: 'setFolders')]
-    #[Type('array<Zimbra\Common\Struct\Id>')]
-    #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFolders", setter: "setFolders")]
+    #[Type("array<Zimbra\Common\Struct\Id>")]
+    #[XmlList(inline: true, entry: "folder", namespace: "urn:zimbraMail")]
     private $folders = [];
 
     /**
      * Optional timezone specifier.
      * References an existing server-known timezone by ID or the full specification of a custom timezone
-     * 
+     *
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
@@ -105,12 +112,11 @@ class GetMiniCalRequest extends SoapRequest
         int $startTime = 0,
         int $endTime = 0,
         array $folders = [],
-        ?CalTZInfo $timezone = NULL
-    )
-    {
+        ?CalTZInfo $timezone = null
+    ) {
         $this->setStartTime($startTime)
-             ->setEndTime($endTime)
-             ->setFolders($folders);
+            ->setEndTime($endTime)
+            ->setFolders($folders);
         $this->timezone = $timezone;
     }
 
@@ -201,7 +207,8 @@ class GetMiniCalRequest extends SoapRequest
     public function setFolders(array $folders): self
     {
         $this->folders = array_filter(
-            $folders, static fn ($folder) => $folder instanceof Id
+            $folders,
+            static fn($folder) => $folder instanceof Id
         );
         return $this;
     }
@@ -221,8 +228,6 @@ class GetMiniCalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetMiniCalEnvelope(
-            new GetMiniCalBody($this)
-        );
+        return new GetMiniCalEnvelope(new GetMiniCalBody($this));
     }
 }

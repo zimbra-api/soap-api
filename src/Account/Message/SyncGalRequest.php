@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SyncGalRequest class
  * Synchronize with the Global Address List
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,81 +27,81 @@ class SyncGalRequest extends SoapRequest
 {
     /**
      * The previous synchronization token if applicable
-     * 
+     *
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * GAL sync account ID
-     * 
+     *
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName('galAcctId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGalAccountId", setter: "setGalAccountId")]
+    #[SerializedName("galAcctId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galAccountId;
 
     /**
      * Flag whether only the ID attributes for matching contacts should be returned.
-     * 
+     *
      * @Accessor(getter="getIdOnly", setter="setIdOnly")
      * @SerializedName("idOnly")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIdOnly', setter: 'setIdOnly')]
-    #[SerializedName('idOnly')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIdOnly", setter: "setIdOnly")]
+    #[SerializedName("idOnly")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $idOnly;
 
     /**
      * Flag whether count of remaining records should be returned in response or not.
-     * 
+     *
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("getCount")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName('getCount')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCount", setter: "setCount")]
+    #[SerializedName("getCount")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $getCount;
 
     /**
      * An int specifying the maximum number of results to return
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
@@ -116,26 +116,25 @@ class SyncGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $token = NULL,
-        ?string $galAccountId = NULL,
-        ?bool $idOnly = NULL,
-        ?bool $getCount = NULL,
-        ?int $limit = NULL
-    )
-    {
-        if(NULL !== $token) {
+        ?string $token = null,
+        ?string $galAccountId = null,
+        ?bool $idOnly = null,
+        ?bool $getCount = null,
+        ?int $limit = null
+    ) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if(NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if(NULL !== $idOnly) {
+        if (null !== $idOnly) {
             $this->setIdOnly($idOnly);
         }
-        if(NULL !== $getCount) {
+        if (null !== $getCount) {
             $this->setCount($getCount);
         }
-        if(NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
     }
@@ -255,8 +254,6 @@ class SyncGalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SyncGalEnvelope(
-            new SyncGalBody($this)
-        );
+        return new SyncGalEnvelope(new SyncGalBody($this));
     }
 }

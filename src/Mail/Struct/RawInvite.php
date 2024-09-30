@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * RawInvite struct class
@@ -26,69 +32,70 @@ class RawInvite
 {
     /**
      * UID
-     * 
+     *
      * @Accessor(getter="getUid", setter="setUid")
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Summary
-     * 
+     *
      * @Accessor(getter="getSummary", setter="setSummary")
      * @SerializedName("summary")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSummary', setter: 'setSummary')]
-    #[SerializedName('summary')]
-    #[Type('string')]
+    #[Accessor(getter: "getSummary", setter: "setSummary")]
+    #[SerializedName("summary")]
+    #[Type("string")]
     #[XmlAttribute]
     private $summary;
 
     /**
      * Raw iCalendar data
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $uid
      * @param string $summary
      * @param string $content
      * @return self
      */
     public function __construct(
-        ?string $uid = NULL, ?string $summary = NULL, ?string $content = NULL
-    )
-    {
-        if (NULL !== $uid) {
+        ?string $uid = null,
+        ?string $summary = null,
+        ?string $content = null
+    ) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $summary) {
+        if (null !== $summary) {
             $this->setSummary($summary);
         }
-        if (NULL !== $content) {
+        if (null !== $content) {
             $this->setContent($content);
         }
     }
@@ -109,7 +116,7 @@ class RawInvite
      * @param  string $uid
      * @return self
      */
-    public function setUid(string $uid)
+    public function setUid(string $uid): self
     {
         $this->uid = $uid;
         return $this;
@@ -131,7 +138,7 @@ class RawInvite
      * @param  string $summary
      * @return self
      */
-    public function setSummary(string $summary)
+    public function setSummary(string $summary): self
     {
         $this->summary = $summary;
         return $this;
@@ -153,7 +160,7 @@ class RawInvite
      * @param  string $content
      * @return self
      */
-    public function setContent(string $content)
+    public function setContent(string $content): self
     {
         $this->content = $content;
         return $this;

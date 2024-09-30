@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * BrowseRequest class
  * Browse
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,49 +28,49 @@ class BrowseRequest extends SoapRequest
 {
     /**
      * Browse by setting - domains|attachments|objects
-     * 
+     *
      * @Accessor(getter="getBrowseBy", setter="setBrowseBy")
      * @SerializedName("browseBy")
      * @Type("Enum<Zimbra\Common\Enum\BrowseBy>")
      * @XmlAttribute
-     * 
+     *
      * @var BrowseBy
      */
-    #[Accessor(getter: 'getBrowseBy', setter: 'setBrowseBy')]
-    #[SerializedName('browseBy')]
-    #[Type('Enum<Zimbra\Common\Enum\BrowseBy>')]
+    #[Accessor(getter: "getBrowseBy", setter: "setBrowseBy")]
+    #[SerializedName("browseBy")]
+    #[Type("Enum<Zimbra\Common\Enum\BrowseBy>")]
     #[XmlAttribute]
     private BrowseBy $browseBy;
 
     /**
      * Regex string.  Return only those results which match the specified regular expression
-     * 
+     *
      * @Accessor(getter="getRegex", setter="setRegex")
      * @SerializedName("regex")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRegex', setter: 'setRegex')]
-    #[SerializedName('regex')]
-    #[Type('string')]
+    #[Accessor(getter: "getRegex", setter: "setRegex")]
+    #[SerializedName("regex")]
+    #[Type("string")]
     #[XmlAttribute]
     private $regex;
 
     /**
      * Return only a maximum number of entries as requested
-     * 
+     *
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("maxToReturn")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMax', setter: 'setMax')]
-    #[SerializedName('maxToReturn')]
-    #[Type('int')]
+    #[Accessor(getter: "getMax", setter: "setMax")]
+    #[SerializedName("maxToReturn")]
+    #[Type("int")]
     #[XmlAttribute]
     private $max;
 
@@ -83,14 +83,15 @@ class BrowseRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
-    )
-    {
-        $this->setBrowseBy($browseBy ?? new BrowseBy('domains'));
-        if (NULL !== $regex) {
+        ?BrowseBy $browseBy = null,
+        ?string $regex = null,
+        ?int $max = null
+    ) {
+        $this->setBrowseBy($browseBy ?? new BrowseBy("domains"));
+        if (null !== $regex) {
             $this->setRegex($regex);
         }
-        if (NULL !== $max) {
+        if (null !== $max) {
             $this->setMax($max);
         }
     }
@@ -166,8 +167,6 @@ class BrowseRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new BrowseEnvelope(
-            new BrowseBody($this)
-        );
+        return new BrowseEnvelope(new BrowseBody($this));
     }
 }

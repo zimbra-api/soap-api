@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetCalendarItemSummariesRequest class
  * Get calendar item summaries
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

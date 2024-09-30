@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * AddTaskInviteRequest class
  * Add a task invite
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -38,9 +38,9 @@ class AddTaskInviteRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
-    )
-    {
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
+    ) {
         $this->__traitConstruct($partStat, $msg);
     }
 
@@ -49,8 +49,6 @@ class AddTaskInviteRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AddTaskInviteEnvelope(
-            new AddTaskInviteBody($this)
-        );
+        return new AddTaskInviteEnvelope(new AddTaskInviteBody($this));
     }
 }

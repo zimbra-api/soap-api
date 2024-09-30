@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DeployZimletResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class DeployZimletResponse extends SoapResponse
 {
     /**
      * Progress information on deployment to servers
-     * 
+     *
      * @Accessor(getter="getProgresses", setter="setProgresses")
      * @Type("array<Zimbra\Admin\Struct\ZimletDeploymentStatus>")
      * @XmlList(inline=true, entry="progress", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getProgresses', setter: 'setProgresses')]
-    #[Type('array<Zimbra\Admin\Struct\ZimletDeploymentStatus>')]
-    #[XmlList(inline: true, entry: 'progress', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getProgresses", setter: "setProgresses")]
+    #[Type("array<Zimbra\Admin\Struct\ZimletDeploymentStatus>")]
+    #[XmlList(inline: true, entry: "progress", namespace: "urn:zimbraAdmin")]
     private $progresses = [];
 
     /**
@@ -69,7 +69,8 @@ class DeployZimletResponse extends SoapResponse
     public function setProgresses(array $progresses): self
     {
         $this->progresses = array_filter(
-            $progresses, static fn ($progress) => $progress instanceof ZimletDeploymentStatus
+            $progresses,
+            static fn($progress) => $progress instanceof ZimletDeploymentStatus
         );
         return $this;
     }

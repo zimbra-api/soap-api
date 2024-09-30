@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAdminConsoleUICompBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetAdminConsoleUICompBody extends SoapBody
      * @SerializedName("GetAdminConsoleUICompRequest")
      * @Type("Zimbra\Admin\Message\GetAdminConsoleUICompRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAdminConsoleUICompRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAdminConsoleUICompRequest")]
     #[Type(GetAdminConsoleUICompRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetAdminConsoleUICompResponse")
      * @Type("Zimbra\Admin\Message\GetAdminConsoleUICompResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAdminConsoleUICompResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAdminConsoleUICompResponse")]
     #[Type(GetAdminConsoleUICompResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetAdminConsoleUICompBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAdminConsoleUICompRequest $request = NULL, ?GetAdminConsoleUICompResponse $response = NULL
-    )
-    {
+        ?GetAdminConsoleUICompRequest $request = null,
+        ?GetAdminConsoleUICompResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

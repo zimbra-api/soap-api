@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\{CosSelector, DomainSelector, ServerSelector};
 use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\{AccountSelector, SoapResponse};
@@ -29,99 +36,99 @@ class GetFilterRulesResponse extends SoapResponse
 {
     /**
      * Type can be either before or after
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
      * @XmlAttribute
-     * 
+     *
      * @var AdminFilterType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\AdminFilterType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\AdminFilterType>")]
     #[XmlAttribute]
     private ?AdminFilterType $type;
 
     /**
      * Account
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * Domain
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainSelector $domain;
 
     /**
      * COS
-     * 
+     *
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Server
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ServerSelector
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ServerSelector $server;
 
     /**
      * Filter rules
-     * 
+     *
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
-    #[SerializedName('filterRules')]
-    #[Type('array<Zimbra\Mail\Struct\FilterRule>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFilterRules", setter: "setFilterRules")]
+    #[SerializedName("filterRules")]
+    #[Type("array<Zimbra\Mail\Struct\FilterRule>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
     private $rules = [];
 
     /**
@@ -136,14 +143,13 @@ class GetFilterRulesResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?AdminFilterType $type = NULL,
-        ?AccountSelector $account = NULL,
-        ?DomainSelector $domain = NULL,
-        ?CosSelector $cos = NULL,
-        ?ServerSelector $server = NULL,
+        ?AdminFilterType $type = null,
+        ?AccountSelector $account = null,
+        ?DomainSelector $domain = null,
+        ?CosSelector $cos = null,
+        ?ServerSelector $server = null,
         array $rules = []
-    )
-    {
+    ) {
         $this->setFilterRules($rules);
         $this->type = $type;
         $this->account = $account;
@@ -271,7 +277,8 @@ class GetFilterRulesResponse extends SoapResponse
     public function setFilterRules(array $rules): self
     {
         $this->rules = array_filter(
-            $rules, static fn ($rule) => $rule instanceof FilterRule
+            $rules,
+            static fn($rule) => $rule instanceof FilterRule
         );
         return $this;
     }

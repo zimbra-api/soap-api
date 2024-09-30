@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * AddAppointmentInviteBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class AddAppointmentInviteBody extends SoapBody
      * @SerializedName("AddAppointmentInviteRequest")
      * @Type("Zimbra\Mail\Message\AddAppointmentInviteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('AddAppointmentInviteRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("AddAppointmentInviteRequest")]
     #[Type(AddAppointmentInviteRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("AddAppointmentInviteResponse")
      * @Type("Zimbra\Mail\Message\AddAppointmentInviteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('AddAppointmentInviteResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("AddAppointmentInviteResponse")]
     #[Type(AddAppointmentInviteResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class AddAppointmentInviteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddAppointmentInviteRequest $request = NULL, ?AddAppointmentInviteResponse $response = NULL
-    )
-    {
+        ?AddAppointmentInviteRequest $request = null,
+        ?AddAppointmentInviteResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

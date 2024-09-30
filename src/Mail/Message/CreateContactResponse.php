@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CreateContactResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class CreateContactResponse extends SoapResponse
     /**
      * Details of the contact.  Note that if verbose was not set in the request,
      * the returned <cn> is just a placeholder containing the new contact ID (i.e. <cn id="{id}"/>)
-     * 
+     *
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ContactInfo
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ContactInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ContactInfo $contact;
 
     /**
@@ -48,7 +48,7 @@ class CreateContactResponse extends SoapResponse
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(?ContactInfo $contact = NULL)
+    public function __construct(?ContactInfo $contact = null)
     {
         $this->contact = $contact;
     }

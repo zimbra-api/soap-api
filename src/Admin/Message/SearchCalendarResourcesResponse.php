@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchCalendarResourcesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,48 +33,48 @@ class SearchCalendarResourcesResponse extends SoapResponse
 {
     /**
      * 1 (true) if more calendar resources to return
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Total number of calendar resources that matched search (not affected by limit/offset)
-     * 
+     *
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName('searchTotal')]
-    #[Type('int')]
+    #[Accessor(getter: "getSearchTotal", setter: "setSearchTotal")]
+    #[SerializedName("searchTotal")]
+    #[Type("int")]
     #[XmlAttribute]
     private $searchTotal;
 
     /**
      * Information about calendar resources
-     * 
+     *
      * @Accessor(getter="getCalResources", setter="setCalResources")
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalResources', setter: 'setCalResources')]
-    #[Type('array<Zimbra\Admin\Struct\CalendarResourceInfo>')]
-    #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCalResources", setter: "setCalResources")]
+    #[Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")]
+    #[XmlList(inline: true, entry: "calresource", namespace: "urn:zimbraAdmin")]
     private $calResources = [];
 
     /**
@@ -80,14 +86,13 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        bool $more = FALSE,
+        bool $more = false,
         int $searchTotal = 0,
         array $calResources = []
-    )
-    {
+    ) {
         $this->setMore($more)
-             ->setSearchTotal($searchTotal)
-             ->setCalResources($calResources);
+            ->setSearchTotal($searchTotal)
+            ->setCalResources($calResources);
     }
 
     /**
@@ -143,7 +148,8 @@ class SearchCalendarResourcesResponse extends SoapResponse
     public function setCalResources(array $resources): self
     {
         $this->calResources = array_filter(
-            $resources, static fn ($resource) => $resource instanceof CalendarResourceInfo
+            $resources,
+            static fn($resource) => $resource instanceof CalendarResourceInfo
         );
         return $this;
     }

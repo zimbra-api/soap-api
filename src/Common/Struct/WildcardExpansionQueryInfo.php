@@ -25,17 +25,17 @@ class WildcardExpansionQueryInfo
 {
     /**
      * Wildcard expansion string
-     * 
+     *
      * @Accessor(getter="getStr", setter="setStr")
      * @SerializedName("str")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStr', setter: 'setStr')]
-    #[SerializedName('str')]
-    #[Type('string')]
+    #[Accessor(getter: "getStr", setter: "setStr")]
+    #[SerializedName("str")]
+    #[Type("string")]
     #[XmlAttribute]
     private $str;
 
@@ -43,33 +43,33 @@ class WildcardExpansionQueryInfo
      * If value is 1 (true), then the wildcard was expanded and the matches are included in the search.
      * If value is <b>0 (false)</b> then the wildcard was not specific enough and
      * therefore no wildcard matches are included (exact-match *is* included in results).
-     * 
+     *
      * @Accessor(getter="getExpanded", setter="setExpanded")
      * @SerializedName("expanded")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExpanded', setter: 'setExpanded')]
-    #[SerializedName('expanded')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExpanded", setter: "setExpanded")]
+    #[SerializedName("expanded")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $expanded;
 
     /**
      * Number expanded
-     * 
+     *
      * @Accessor(getter="getNumExpanded", setter="setNumExpanded")
      * @SerializedName("numExpanded")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumExpanded', setter: 'setNumExpanded')]
-    #[SerializedName('numExpanded')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumExpanded", setter: "setNumExpanded")]
+    #[SerializedName("numExpanded")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numExpanded;
 
@@ -82,14 +82,13 @@ class WildcardExpansionQueryInfo
      * @return self
      */
     public function __construct(
-        string $str = '',
-        bool $expanded = FALSE,
+        string $str = "",
+        bool $expanded = false,
         int $numExpanded = 0
-    )
-    {
+    ) {
         $this->setStr($str)
-             ->setExpanded($expanded)
-             ->setNumExpanded($numExpanded);
+            ->setExpanded($expanded)
+            ->setNumExpanded($numExpanded);
     }
 
     /**

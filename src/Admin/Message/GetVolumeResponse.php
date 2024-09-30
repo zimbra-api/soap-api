@@ -27,18 +27,18 @@ class GetVolumeResponse extends SoapResponse
 {
     /**
      * Volume information
-     * 
+     *
      * @Accessor(getter="getVolume", setter="setVolume")
      * @SerializedName("volume")
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var VolumeInfo
      */
-    #[Accessor(getter: 'getVolume', setter: 'setVolume')]
-    #[SerializedName('volume')]
+    #[Accessor(getter: "getVolume", setter: "setVolume")]
+    #[SerializedName("volume")]
     #[Type(VolumeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?VolumeInfo $volume;
 
     /**
@@ -47,7 +47,7 @@ class GetVolumeResponse extends SoapResponse
      * @param VolumeInfo $volume
      * @return self
      */
-    public function __construct(?VolumeInfo $volume = NULL)
+    public function __construct(?VolumeInfo $volume = null)
     {
         $this->volume = $volume;
     }

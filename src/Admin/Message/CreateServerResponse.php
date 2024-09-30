@@ -27,18 +27,18 @@ class CreateServerResponse extends SoapResponse
 {
     /**
      * Information about the newly created server
-     * 
+     *
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var ServerInfo
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ServerInfo $server;
 
     /**
@@ -47,7 +47,7 @@ class CreateServerResponse extends SoapResponse
      * @param ServerInfo $server
      * @return self
      */
-    public function __construct(?ServerInfo $server = NULL)
+    public function __construct(?ServerInfo $server = null)
     {
         $this->server = $server;
     }

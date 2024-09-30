@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\CreateCalendarItemResponse;
 /**
  * SendInviteReplyResponse class
  * Contains response information for reply to invite
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

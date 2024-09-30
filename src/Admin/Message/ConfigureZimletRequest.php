@@ -28,23 +28,23 @@ class ConfigureZimletRequest extends SoapRequest
 {
     /**
      * Content
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var AttachmentIdAttrib
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
     #[Type(AttachmentIdAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AttachmentIdAttrib $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AttachmentIdAttrib $content
      * @return self
      */
@@ -80,8 +80,6 @@ class ConfigureZimletRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ConfigureZimletEnvelope(
-            new ConfigureZimletBody($this)
-        );
+        return new ConfigureZimletEnvelope(new ConfigureZimletBody($this));
     }
 }

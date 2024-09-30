@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\DataSourceType;
 
 /**
  * DataSourceSpecifier struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,51 +26,51 @@ class DataSourceSpecifier extends AdminAttrsImpl
 {
     /**
      * Data source type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
      * @XmlAttribute
-     * 
+     *
      * @var DataSourceType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\DataSourceType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\DataSourceType>")]
     #[XmlAttribute]
     private DataSourceType $type;
 
     /**
      * Data source name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param DataSourceType $type
      * @param string $name
      * @param array $attrs
      * @return self
      */
     public function __construct(
-        ?DataSourceType $type = NULL, string $name = '', array $attrs = []
-    )
-    {
+        ?DataSourceType $type = null,
+        string $name = "",
+        array $attrs = []
+    ) {
         parent::__construct($attrs);
-        $this->setType($type ?? new DataSourceType('unknown'))
-             ->setName($name);
+        $this->setType($type ?? new DataSourceType("unknown"))->setName($name);
     }
 
     /**

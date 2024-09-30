@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ForwardAppointmentInviteBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class ForwardAppointmentInviteBody extends SoapBody
      * @SerializedName("ForwardAppointmentInviteRequest")
      * @Type("Zimbra\Mail\Message\ForwardAppointmentInviteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ForwardAppointmentInviteRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ForwardAppointmentInviteRequest")]
     #[Type(ForwardAppointmentInviteRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("ForwardAppointmentInviteResponse")
      * @Type("Zimbra\Mail\Message\ForwardAppointmentInviteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ForwardAppointmentInviteResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ForwardAppointmentInviteResponse")]
     #[Type(ForwardAppointmentInviteResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class ForwardAppointmentInviteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ForwardAppointmentInviteRequest $request = NULL, ?ForwardAppointmentInviteResponse $response = NULL
-    )
-    {
+        ?ForwardAppointmentInviteRequest $request = null,
+        ?ForwardAppointmentInviteResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Struct;
 
 /**
  * ServerInfo struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct

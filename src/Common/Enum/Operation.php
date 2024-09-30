@@ -27,77 +27,77 @@ class Operation extends Enum
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    protected const DELETE = "delete";
 
     /**
      * Constant for value 'modify'
      * @return string 'modify'
      */
-    protected const MODIFY = 'modify';
+    protected const MODIFY = "modify";
 
     /**
      * Constant for value 'rename'
      * @return string 'rename'
      */
-    protected const RENAME = 'rename';
+    protected const RENAME = "rename";
 
     /**
      * Constant for value 'addOwners'
      * @return string 'addOwners'
      */
-    protected const ADD_OWNERS = 'addOwners';
+    protected const ADD_OWNERS = "addOwners";
 
     /**
      * Constant for value 'removeOwners'
      * @return string 'removeOwners'
      */
-    protected const REMOVE_OWNERS = 'removeOwners';
+    protected const REMOVE_OWNERS = "removeOwners";
 
     /**
      * Constant for value 'setOwners'
      * @return string 'setOwners'
      */
-    protected const SET_OWNERS = 'setOwners';
+    protected const SET_OWNERS = "setOwners";
 
     /**
      * Constant for value 'grantRights'
      * @return string 'grantRights'
      */
-    protected const GRANT_RIGHTS = 'grantRights';
+    protected const GRANT_RIGHTS = "grantRights";
 
     /**
      * Constant for value 'revokeRights'
      * @return string 'revokeRights'
      */
-    protected const REVOKE_RIGHTS = 'revokeRights';
+    protected const REVOKE_RIGHTS = "revokeRights";
 
     /**
      * Constant for value 'setRights'
      * @return string 'setRights'
      */
-    protected const SET_RIGHTS = 'setRights';
+    protected const SET_RIGHTS = "setRights";
 
     /**
      * Constant for value 'addMembers'
      * @return string 'addMembers'
      */
-    protected const ADD_MEMBERS = 'addMembers';
+    protected const ADD_MEMBERS = "addMembers";
 
     /**
      * Constant for value 'removeMembers'
      * @return string 'removeMembers'
      */
-    protected const REMOVE_MEMBERS = 'removeMembers';
+    protected const REMOVE_MEMBERS = "removeMembers";
 
     /**
      * Constant for value 'acceptSubsReq'
      * @return string 'acceptSubsReq'
      */
-    protected const ACCEPT_SUBS_REQ = 'acceptSubsReq';
+    protected const ACCEPT_SUBS_REQ = "acceptSubsReq";
 
     /**
      * Constant for value 'rejectSubsReq'
      * @return string 'rejectSubsReq'
      */
-    protected const REJECT_SUBS_REQ = 'rejectSubsReq';
+    protected const REJECT_SUBS_REQ = "rejectSubsReq";
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ICalReplyRequest class
  * Do an iCalendar Reply
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class ICalReplyRequest extends SoapRequest
 {
     /**
      * iCalendar text containing components with method REPLY
-     * 
+     *
      * @Accessor(getter="getIcal", setter="setIcal")
      * @SerializedName("ical")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIcal', setter: 'setIcal')]
-    #[SerializedName('ical')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getIcal", setter: "setIcal")]
+    #[SerializedName("ical")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $ical;
 
     /**
@@ -47,7 +47,7 @@ class ICalReplyRequest extends SoapRequest
      * @param  string $ical
      * @return self
      */
-    public function __construct(string $ical = '')
+    public function __construct(string $ical = "")
     {
         $this->setIcal($ical);
     }
@@ -79,8 +79,6 @@ class ICalReplyRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ICalReplyEnvelope(
-            new ICalReplyBody($this)
-        );
+        return new ICalReplyEnvelope(new ICalReplyBody($this));
     }
 }

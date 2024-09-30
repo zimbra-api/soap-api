@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\ContentSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ImportAppointmentsRequest class
  * Import appointments
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,51 +34,51 @@ class ImportAppointmentsRequest extends SoapRequest
 {
     /**
      * Optional folder ID to import appointments into
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Content type
      * Only currently supported content type is "text/calendar" (and its nickname "ics")
-     * 
+     *
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Content specification
-     * 
+     *
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("Zimbra\Mail\Struct\ContentSpec")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ContentSpec
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
     #[Type(ContentSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ContentSpec $content;
 
     /**
@@ -81,18 +87,16 @@ class ImportAppointmentsRequest extends SoapRequest
      * @param  ContentSpec $content
      * @param  string $contentType
      * @param  string $folderId
-     * 
+     *
      * @return self
      */
     public function __construct(
         ContentSpec $content,
-        string $contentType = 'text/calendar',
-        ?string $folderId = NULL
-    )
-    {
-        $this->setContent($content)
-             ->setContentType($contentType);
-        if (NULL !== $folderId) {
+        string $contentType = "text/calendar",
+        ?string $folderId = null
+    ) {
+        $this->setContent($content)->setContentType($contentType);
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
     }

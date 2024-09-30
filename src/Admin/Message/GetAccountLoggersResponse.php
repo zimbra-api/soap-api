@@ -27,16 +27,16 @@ class GetAccountLoggersResponse extends SoapResponse
 {
     /**
      * Information for custom loggers created for the given account since the last server start.
-     * 
+     *
      * @Accessor(getter="getLoggers", setter="setLoggers")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]
-    #[Type('array<Zimbra\Admin\Struct\LoggerInfo>')]
-    #[XmlList(inline: true, entry: 'logger', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLoggers", setter: "setLoggers")]
+    #[Type("array<Zimbra\Admin\Struct\LoggerInfo>")]
+    #[XmlList(inline: true, entry: "logger", namespace: "urn:zimbraAdmin")]
     private $loggers = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAccountLoggersResponse extends SoapResponse
     public function setLoggers(array $loggers): self
     {
         $this->loggers = array_filter(
-            $loggers, static fn ($logger) => $logger instanceof LoggerInfo
+            $loggers,
+            static fn($logger) => $logger instanceof LoggerInfo
         );
         return $this;
     }

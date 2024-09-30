@@ -10,11 +10,17 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AutoProvDirectoryEntry struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,32 +31,32 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
 {
     /**
      * dn
-     * 
+     *
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDn', setter: 'setDn')]
-    #[SerializedName('dn')]
-    #[Type('string')]
+    #[Accessor(getter: "getDn", setter: "setDn")]
+    #[SerializedName("dn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dn;
 
     /**
      * Keys
-     * 
+     *
      * @Accessor(getter="getKeys", setter="setKeys")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="key", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeys', setter: 'setKeys')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'key', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getKeys", setter: "setKeys")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "key", namespace: "urn:zimbraAdmin")]
     private $keys = [];
 
     /**
@@ -62,12 +68,12 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @return self
      */
     public function __construct(
-        string $dn = '', array $keys = [], array $keyValuePairs = []
-    )
-    {
-    	parent::__construct($keyValuePairs);
-        $this->setDn($dn)
-             ->setKeys($keys);
+        string $dn = "",
+        array $keys = [],
+        array $keyValuePairs = []
+    ) {
+        parent::__construct($keyValuePairs);
+        $this->setDn($dn)->setKeys($keys);
     }
 
     /**
@@ -97,7 +103,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      *
      * @return array
      */
-    public function getKeys()
+    public function getKeys(): array
     {
         return $this->keys;
     }
@@ -108,10 +114,10 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @param  array $keys
      * @return self
      */
-    public function setKeys(array $keys)
+    public function setKeys(array $keys): self
     {
         $this->keys = array_unique(
-            array_map(static fn ($key) => trim($key), $keys)
+            array_map(static fn($key) => trim($key), $keys)
         );
         return $this;
     }

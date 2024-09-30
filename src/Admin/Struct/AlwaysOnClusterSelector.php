@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AlwaysOnClusterBy;
 
 /**
@@ -26,47 +32,47 @@ class AlwaysOnClusterSelector
 {
     /**
      * Selects the meaning of alwaysOnCluster-key
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>")
      * @XmlAttribute
-     * 
+     *
      * @var AlwaysOnClusterBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>")]
     #[XmlAttribute]
     private AlwaysOnClusterBy $by;
 
     /**
      * Key for choosing alwaysOnCluster
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AlwaysOnClusterBy $by
      * @param  string $value
      * @return self
      */
     public function __construct(
-        ?AlwaysOnClusterBy $by = NULL, ?string $value = NULL
-    )
-    {
-        $this->setBy($by ?? new AlwaysOnClusterBy('id'));
-        if (NULL !== $value) {
+        ?AlwaysOnClusterBy $by = null,
+        ?string $value = null
+    ) {
+        $this->setBy($by ?? new AlwaysOnClusterBy("id"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * GetCreateObjectAttrsRequest request class
  * Returns attributes, with defaults and constraints if any,  that can be set by the admin when an object is created.
  * GetCreateObjectAttrsRequest returns the equivalent of setAttrs portion of GetEffectiveRightsResponse.
- * GetCreateObjectAttrsRequest is needed becasue GetEffectiveRightsRequest requires a target, but when we are creating a object, the target object does not exist yet. 
+ * GetCreateObjectAttrsRequest is needed becasue GetEffectiveRightsRequest requires a target, but when we are creating a object, the target object does not exist yet.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -30,18 +30,18 @@ class GetCreateObjectAttrsRequest extends SoapRequest
 {
     /**
      * Target
-     * 
+     *
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var TargetWithType
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(TargetWithType::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private TargetWithType $target;
 
     /**
@@ -50,50 +50,51 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * if {target-type} is account/calresource/dl: this is the domain in which the object will be in.
      * the domain can be speciffied by id or by nam
      * if {target-type} is domain, it is the domain name to be created.
-     * 
+     *
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainSelector $domain;
 
     /**
      * COS
-     * 
+     *
      * Optional if {target-type} is account/calresource, ignored otherwise
      * If missing, default cos of the domain will be used
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Constructor
-     * 
+     *
      * @param  TargetWithType $target
      * @param  DomainSelector $domain
      * @param  CosSelector $cos
      * @return self
      */
     public function __construct(
-        TargetWithType $target, ?DomainSelector $domain = NULL, ?CosSelector $cos = NULL
-    )
-    {
+        TargetWithType $target,
+        ?DomainSelector $domain = null,
+        ?CosSelector $cos = null
+    ) {
         $this->setTarget($target);
         $this->domain = $domain;
         $this->cos = $cos;

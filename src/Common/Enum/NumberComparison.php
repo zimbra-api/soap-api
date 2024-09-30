@@ -27,11 +27,11 @@ class NumberComparison extends Enum
      * Constant for value 'over'
      * @return string 'over'
      */
-    protected const OVER = 'over';
+    protected const OVER = "over";
 
     /**
      * Constant for value 'under'
      * @return string 'under'
      */
-    protected const UNDER = 'under';
+    protected const UNDER = "under";
 }

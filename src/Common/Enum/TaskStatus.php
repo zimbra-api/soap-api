@@ -27,29 +27,29 @@ class TaskStatus extends Enum
      * Constant for value 'NEED'
      * @return string 'NEED'
      */
-    protected const NEED = 'NEED';
+    protected const NEED = "NEED";
 
     /**
      * Constant for value 'INPR'
      * @return string 'INPR'
      */
-    protected const INPR = 'INPR';
+    protected const INPR = "INPR";
 
     /**
      * Constant for value 'WAITING'
      * @return string 'WAITING'
      */
-    protected const WAITING = 'WAITING';
+    protected const WAITING = "WAITING";
 
     /**
      * Constant for value 'DEFERRED'
      * @return string 'DEFERRED'
      */
-    protected const DEFERRED = 'DEFERRED';
+    protected const DEFERRED = "DEFERRED";
 
     /**
      * Constant for value 'COMP'
      * @return string 'COMP'
      */
-    protected const COMP = 'COMP';
+    protected const COMP = "COMP";
 }

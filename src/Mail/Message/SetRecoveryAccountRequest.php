@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SetRecoveryAccountRequest class
  * Set recovery account request
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,65 +28,65 @@ class SetRecoveryAccountRequest extends SoapRequest
 {
     /**
      * op can be sendCode, validateCode, resendCode or reset.
-     * 
+     *
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RecoveryAccountOperation>")
      * @XmlAttribute
-     * 
+     *
      * @var RecoveryAccountOperation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\RecoveryAccountOperation>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\RecoveryAccountOperation>")]
     #[XmlAttribute]
     private RecoveryAccountOperation $op;
 
     /**
      * recovery account
-     * 
+     *
      * @Accessor(getter="getRecoveryAccount", setter="setRecoveryAccount")
      * @SerializedName("recoveryAccount")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecoveryAccount', setter: 'setRecoveryAccount')]
-    #[SerializedName('recoveryAccount')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecoveryAccount", setter: "setRecoveryAccount")]
+    #[SerializedName("recoveryAccount")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recoveryAccount;
 
     /**
      * recovery account verification code
-     * 
+     *
      * @Accessor(getter="getVerificationCode", setter="setVerificationCode")
      * @SerializedName("recoveryAccountVerificationCode")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVerificationCode', setter: 'setVerificationCode')]
-    #[SerializedName('recoveryAccountVerificationCode')]
-    #[Type('string')]
+    #[Accessor(getter: "getVerificationCode", setter: "setVerificationCode")]
+    #[SerializedName("recoveryAccountVerificationCode")]
+    #[Type("string")]
     #[XmlAttribute]
     private $verificationCode;
 
     /**
      * recovery channel
-     * 
+     *
      * @Accessor(getter="getChannel", setter="setChannel")
      * @SerializedName("channel")
      * @Type("Enum<Zimbra\Common\Enum\Channel>")
      * @XmlAttribute
-     * 
+     *
      * @var Channel
      */
-    #[Accessor(getter: 'getChannel', setter: 'setChannel')]
-    #[SerializedName('channel')]
-    #[Type('Enum<Zimbra\Common\Enum\Channel>')]
+    #[Accessor(getter: "getChannel", setter: "setChannel")]
+    #[SerializedName("channel")]
+    #[Type("Enum<Zimbra\Common\Enum\Channel>")]
     #[XmlAttribute]
     private ?Channel $channel;
 
@@ -100,18 +100,17 @@ class SetRecoveryAccountRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?RecoveryAccountOperation $op = NULL,
-        ?string $recoveryAccount = NULL,
-        ?string $verificationCode = NULL,
-        ?Channel $channel = NULL
-    )
-    {
-        $this->setOp($op ?? new RecoveryAccountOperation('sendCode'));
+        ?RecoveryAccountOperation $op = null,
+        ?string $recoveryAccount = null,
+        ?string $verificationCode = null,
+        ?Channel $channel = null
+    ) {
+        $this->setOp($op ?? new RecoveryAccountOperation("sendCode"));
         $this->channel = $channel;
-        if (NULL !== $recoveryAccount) {
+        if (null !== $recoveryAccount) {
             $this->setRecoveryAccount($recoveryAccount);
         }
-        if (NULL !== $verificationCode) {
+        if (null !== $verificationCode) {
             $this->setVerificationCode($verificationCode);
         }
     }

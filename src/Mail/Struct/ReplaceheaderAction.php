@@ -25,39 +25,39 @@ class ReplaceheaderAction extends DeleteheaderAction
 {
     /**
      * New name
-     * 
+     *
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('newName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("newName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $newName;
 
     /**
      * New value
-     * 
+     *
      * @Accessor(getter="getNewValue", setter="setNewValue")
      * @SerializedName("newValue")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewValue', setter: 'setNewValue')]
-    #[SerializedName('newValue')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNewValue", setter: "setNewValue")]
+    #[SerializedName("newValue")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $newValue;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $last
      * @param int $offset
@@ -67,19 +67,18 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $last = NULL,
-        ?int $offset = NULL,
-        ?EditheaderTest $test = NULL,
-        ?string $newName = NULL,
-        ?string $newValue = NULL
-    )
-    {
-    	parent::__construct($index, $last, $offset, $test);
-        if (NULL !== $newName) {
+        ?int $index = null,
+        ?bool $last = null,
+        ?int $offset = null,
+        ?EditheaderTest $test = null,
+        ?string $newName = null,
+        ?string $newValue = null
+    ) {
+        parent::__construct($index, $last, $offset, $test);
+        if (null !== $newName) {
             $this->setNewName($newName);
         }
-        if (NULL !== $newValue) {
+        if (null !== $newValue) {
             $this->setNewValue($newValue);
         }
     }
@@ -100,7 +99,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @param  string $newName
      * @return self
      */
-    public function setNewName(string $newName)
+    public function setNewName(string $newName): self
     {
         $this->newName = $newName;
         return $this;
@@ -122,7 +121,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @param  string $newValue
      * @return self
      */
-    public function setNewValue(string $newValue)
+    public function setNewValue(string $newValue): self
     {
         $this->newValue = $newValue;
         return $this;

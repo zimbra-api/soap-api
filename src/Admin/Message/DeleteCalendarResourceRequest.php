@@ -17,8 +17,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * DeleteCalendarResourceRequest class
  * Deletes the calendar resource with the given id.
  * Notes:
- *     this request is by default proxied to the account's home server 
- * 
+ *     this request is by default proxied to the account's home server
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,27 +29,27 @@ class DeleteCalendarResourceRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }

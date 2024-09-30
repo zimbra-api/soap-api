@@ -27,17 +27,17 @@ class RecoverAccountOperation extends Enum
      * Constant for value 'getRecoveryAccount'
      * @return string 'getRecoveryAccount'
      */
-    protected const GET_RECOVERY_ACCOUNT = 'getRecoveryAccount';
+    protected const GET_RECOVERY_ACCOUNT = "getRecoveryAccount";
 
     /**
      * Constant for value 'sendRecoveryCode'
      * @return string 'sendRecoveryCode'
      */
-    protected const SEND_RECOVERY_CODE = 'sendRecoveryCode';
+    protected const SEND_RECOVERY_CODE = "sendRecoveryCode";
 
     /**
      * Constant for value 'sendRecoveryLink'
      * @return string 'sendRecoveryLink'
      */
-    protected const SEND_RECOVERY_LINK = 'sendRecoveryLink';
+    protected const SEND_RECOVERY_LINK = "sendRecoveryLink";
 }

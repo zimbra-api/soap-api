@@ -28,17 +28,17 @@ class BySetPosRule implements BySetPosRuleInterface
     /**
      * Format [[+]|-]num[,...] where num is from 1 to 366
      * <bysetpos> MUST only be used in conjunction with another <byXXX> element.
-     * 
+     *
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("poslist")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('poslist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("poslist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -48,7 +48,7 @@ class BySetPosRule implements BySetPosRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -72,15 +72,19 @@ class BySetPosRule implements BySetPosRuleInterface
     public function setList(string $list): self
     {
         $poslist = [];
-        foreach (explode(',', $list) as $posday) {
+        foreach (explode(",", $list) as $posday) {
             if (is_numeric($posday)) {
                 $day = (int) $posday;
-                if($day != 0 && abs($day) < 367 && !in_array($posday, $poslist)) {
+                if (
+                    $day != 0 &&
+                    abs($day) < 367 &&
+                    !in_array($posday, $poslist)
+                ) {
                     $poslist[] = $posday;
                 }
             }
         }
-        $this->list = implode(',', $poslist);
+        $this->list = implode(",", $poslist);
         return $this;
     }
 }

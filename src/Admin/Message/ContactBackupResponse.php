@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\ContactBackupServer;
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -28,20 +34,20 @@ class ContactBackupResponse extends SoapResponse
 {
     /**
      * List of mailbox ids
-     * 
+     *
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getServers', setter: 'setServers')]
-    #[SerializedName('servers')]
-    #[Type('array<Zimbra\Admin\Struct\ContactBackupServer>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'server', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getServers", setter: "setServers")]
+    #[SerializedName("servers")]
+    #[Type("array<Zimbra\Admin\Struct\ContactBackupServer>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "server", namespace: "urn:zimbraAdmin")]
     private $servers = [];
 
     /**
@@ -74,7 +80,8 @@ class ContactBackupResponse extends SoapResponse
     public function setServers(array $servers): self
     {
         $this->servers = array_filter(
-            $servers, static fn ($server) => $server instanceof ContactBackupServer
+            $servers,
+            static fn($server) => $server instanceof ContactBackupServer
         );
         return $this;
     }

@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * FixCalendarPriorityBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class FixCalendarPriorityBody extends SoapBody
      * @SerializedName("FixCalendarPriorityRequest")
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('FixCalendarPriorityRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("FixCalendarPriorityRequest")]
     #[Type(FixCalendarPriorityRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("FixCalendarPriorityResponse")
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('FixCalendarPriorityResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("FixCalendarPriorityResponse")]
     #[Type(FixCalendarPriorityResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class FixCalendarPriorityBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?FixCalendarPriorityRequest $request = NULL, ?FixCalendarPriorityResponse $response = NULL
-    )
-    {
+        ?FixCalendarPriorityRequest $request = null,
+        ?FixCalendarPriorityResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

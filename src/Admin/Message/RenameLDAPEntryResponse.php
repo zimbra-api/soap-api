@@ -27,18 +27,18 @@ class RenameLDAPEntryResponse extends SoapResponse
 {
     /**
      * Information about updated LDAP entry
-     * 
+     *
      * @Accessor(getter="getLDAPEntry", setter="setLDAPEntry")
      * @SerializedName("LDAPEntry")
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var LDAPEntryInfo
      */
-    #[Accessor(getter: 'getLDAPEntry', setter: 'setLDAPEntry')]
-    #[SerializedName('LDAPEntry')]
+    #[Accessor(getter: "getLDAPEntry", setter: "setLDAPEntry")]
+    #[SerializedName("LDAPEntry")]
     #[Type(LDAPEntryInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?LDAPEntryInfo $LDAPEntry;
 
     /**
@@ -47,7 +47,7 @@ class RenameLDAPEntryResponse extends SoapResponse
      * @param LDAPEntryInfo $LDAPEntry
      * @return self
      */
-    public function __construct(?LDAPEntryInfo $LDAPEntry = NULL)
+    public function __construct(?LDAPEntryInfo $LDAPEntry = null)
     {
         $this->LDAPEntry = $LDAPEntry;
     }

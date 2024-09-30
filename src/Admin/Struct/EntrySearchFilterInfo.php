@@ -28,45 +28,45 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
 {
     /**
      * Search filter simple condition
-     * 
+     *
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("cond")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterSingleCond")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SearchFilterCondition
      */
-    #[Accessor(getter: 'getCondition', setter: 'setCondition')]
-    #[SerializedName('cond')]
+    #[Accessor(getter: "getCondition", setter: "setCondition")]
+    #[SerializedName("cond")]
     #[Type(EntrySearchFilterSingleCond::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SearchFilterCondition $condition;
 
     /**
      * Search filter compound condition
-     * 
+     *
      * @Accessor(getter="getConditions", setter="setConditions")
      * @SerializedName("conds")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterMultiCond")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SearchFilterCondition
      */
-    #[Accessor(getter: 'getConditions', setter: 'setConditions')]
-    #[SerializedName('conds')]
+    #[Accessor(getter: "getConditions", setter: "setConditions")]
+    #[SerializedName("conds")]
     #[Type(EntrySearchFilterMultiCond::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SearchFilterCondition $conditions;
 
     /**
      * Constructor
-     * 
+     *
      * @param SearchFilterCondition $condition
      * @return self
      */
-    public function __construct(?SearchFilterCondition $condition = NULL)
+    public function __construct(?SearchFilterCondition $condition = null)
     {
-        $this->condition = $this->conditions = NULL;
+        $this->condition = $this->conditions = null;
         if ($condition instanceof MultiCond) {
             $this->setConditions($condition);
         }

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ConvActionRequest class
  * Conv Action
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class ConvActionRequest extends SoapRequest
 {
     /**
      * Conversation action selector
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ConvActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ConvActionSelector
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(ConvActionSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ConvActionSelector $action;
 
     /**
@@ -80,8 +80,6 @@ class ConvActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ConvActionEnvelope(
-            new ConvActionBody($this)
-        );
+        return new ConvActionEnvelope(new ConvActionBody($this));
     }
 }

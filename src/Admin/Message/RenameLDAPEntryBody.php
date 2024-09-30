@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RenameLDAPEntryBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class RenameLDAPEntryBody extends SoapBody
      * @SerializedName("RenameLDAPEntryRequest")
      * @Type("Zimbra\Admin\Message\RenameLDAPEntryRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RenameLDAPEntryRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RenameLDAPEntryRequest")]
     #[Type(RenameLDAPEntryRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RenameLDAPEntryResponse")
      * @Type("Zimbra\Admin\Message\RenameLDAPEntryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RenameLDAPEntryResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RenameLDAPEntryResponse")]
     #[Type(RenameLDAPEntryResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RenameLDAPEntryBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RenameLDAPEntryRequest $request = NULL, ?RenameLDAPEntryResponse $response = NULL
-    )
-    {
+        ?RenameLDAPEntryRequest $request = null,
+        ?RenameLDAPEntryResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

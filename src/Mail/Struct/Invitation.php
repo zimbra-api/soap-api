@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * Invitation struct class
@@ -25,154 +32,159 @@ class Invitation
 {
     /**
      * Calendar item type - appt|task
-     * 
+     *
      * @Accessor(getter="getCalItemType", setter="setCalItemType")
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getCalItemType", setter: "setCalItemType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $calItemType;
 
     /**
      * Sequence number
-     * 
+     *
      * @Accessor(getter="getSequence", setter="setSequence")
      * @SerializedName("seq")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName('seq')]
-    #[Type('int')]
+    #[Accessor(getter: "getSequence", setter: "setSequence")]
+    #[SerializedName("seq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sequence;
 
     /**
      * Original mail item ID for invite
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component number
-     * 
+     *
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('compNum')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("compNum")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
     /**
      * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
-     * 
+     *
      * @Accessor(getter="getRecurrenceId", setter="setRecurrenceId")
      * @SerializedName("recurId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
-    #[SerializedName('recurId')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurrenceId", setter: "setRecurrenceId")]
+    #[SerializedName("recurId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurrenceId;
 
     /**
      * Timezones
-     * 
+     *
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
-    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTimezones", setter: "setTimezones")]
+    #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
+    #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
     private $timezones = [];
 
     /**
      * Invite component
-     * 
+     *
      * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InviteComponent
      */
-    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
-    #[SerializedName('comp')]
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName("comp")]
     #[Type(InviteComponent::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteComponent $inviteComponent;
 
     /**
      * Mime parts
-     * 
+     *
      * @Accessor(getter="getPartInfos", setter="setPartInfos")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPartInfos', setter: 'setPartInfos')]
-    #[Type('array<Zimbra\Mail\Struct\PartInfo>')]
-    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getPartInfos", setter: "setPartInfos")]
+    #[Type("array<Zimbra\Mail\Struct\PartInfo>")]
+    #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
     private $partInfos = [];
 
     /**
      * Share notifications
-     * 
+     *
      * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
      * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getShareNotifications', setter: 'setShareNotifications')]
-    #[Type('array<Zimbra\Mail\Struct\ShareNotification>')]
-    #[XmlList(inline: true, entry: 'shr', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getShareNotifications",
+            setter: "setShareNotifications"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\ShareNotification>")]
+    #[XmlList(inline: true, entry: "shr", namespace: "urn:zimbraMail")]
     private $shareNotifications = [];
 
     /**
      * Distribution list subscription notifications
-     * 
+     *
      * @Accessor(getter="getDlSubs", setter="setDlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
      * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDlSubs', setter: 'setDlSubs')]
-    #[Type('array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
-    #[XmlList(inline: true, entry: 'dlSubs', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDlSubs", setter: "setDlSubs")]
+    #[Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")]
+    #[XmlList(inline: true, entry: "dlSubs", namespace: "urn:zimbraMail")]
     private $dlSubs = [];
 
     /**
@@ -191,28 +203,27 @@ class Invitation
      * @return self
      */
     public function __construct(
-        string $calItemType = '',
+        string $calItemType = "",
         int $sequence = 0,
         int $id = 0,
         int $componentNum = 0,
-        ?string $recurrenceId = NULL,
+        ?string $recurrenceId = null,
         array $timezones = [],
-        ?InviteComponent $inviteComponent = NULL,
+        ?InviteComponent $inviteComponent = null,
         array $partInfos = [],
         array $shareNotifications = [],
         array $dlSubs = []
-    )
-    {
+    ) {
         $this->setTimezones($timezones)
-             ->setPartInfos($partInfos)
-             ->setShareNotifications($shareNotifications)
-             ->setDlSubs($dlSubs)
-             ->setCalItemType($calItemType)
-             ->setSequence($sequence)
-             ->setId($id)
-             ->setComponentNum($componentNum);
+            ->setPartInfos($partInfos)
+            ->setShareNotifications($shareNotifications)
+            ->setDlSubs($dlSubs)
+            ->setCalItemType($calItemType)
+            ->setSequence($sequence)
+            ->setId($id)
+            ->setComponentNum($componentNum);
         $this->inviteComponent = $inviteComponent;
-        if (NULL !== $recurrenceId) {
+        if (null !== $recurrenceId) {
             $this->setRecurrenceId($recurrenceId);
         }
     }
@@ -348,7 +359,8 @@ class Invitation
     public function setTimezones(array $timezones): self
     {
         $this->timezones = array_filter(
-            $timezones, static fn($timezone) => $timezone instanceof CalTZInfo
+            $timezones,
+            static fn($timezone) => $timezone instanceof CalTZInfo
         );
         return $this;
     }
@@ -406,7 +418,8 @@ class Invitation
     public function setPartInfos(array $partInfos): self
     {
         $this->partInfos = array_filter(
-            $partInfos, static fn($partInfo) => $partInfo instanceof PartInfo
+            $partInfos,
+            static fn($partInfo) => $partInfo instanceof PartInfo
         );
         return $this;
     }
@@ -427,8 +440,9 @@ class Invitation
      * @param  ShareNotification $shareNotification
      * @return self
      */
-    public function addShareNotification(ShareNotification $shareNotification): self
-    {
+    public function addShareNotification(
+        ShareNotification $shareNotification
+    ): self {
         $this->shareNotifications[] = $shareNotification;
         return $this;
     }
@@ -442,7 +456,9 @@ class Invitation
     public function setShareNotifications(array $notifications): self
     {
         $this->shareNotifications = array_filter(
-            $notifications, static fn($notification) => $notification instanceof ShareNotification
+            $notifications,
+            static fn($notification) => $notification instanceof
+                ShareNotification
         );
         return $this;
     }
@@ -478,7 +494,8 @@ class Invitation
     public function setDlSubs(array $dlSubs): self
     {
         $this->dlSubs = array_filter(
-            $dlSubs, static fn($dlSub) => $dlSub instanceof DLSubscriptionNotification
+            $dlSubs,
+            static fn($dlSub) => $dlSub instanceof DLSubscriptionNotification
         );
         return $this;
     }

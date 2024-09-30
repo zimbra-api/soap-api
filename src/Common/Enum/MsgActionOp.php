@@ -27,47 +27,47 @@ class MsgActionOp extends Enum
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    protected const DELETE = "delete";
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    protected const READ = "read";
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    protected const FLAG = 'flag';
+    protected const FLAG = "flag";
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    protected const TAG = 'tag';
+    protected const TAG = "tag";
 
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    protected const MOVE = 'move';
+    protected const MOVE = "move";
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    protected const UPDATE = 'update';
+    protected const UPDATE = "update";
 
     /**
      * Constant for value 'spam'
      * @return string 'spam'
      */
-    protected const SPAM = 'spam';
+    protected const SPAM = "spam";
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    protected const TRASH = 'trash';
+    protected const TRASH = "trash";
 }

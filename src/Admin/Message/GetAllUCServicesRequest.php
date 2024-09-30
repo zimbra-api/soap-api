@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllUCServicesRequest class
  * Get all ucservices defined in the system
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class GetAllUCServicesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllUCServicesEnvelope(
-            new GetAllUCServicesBody($this)
-        );
+        return new GetAllUCServicesEnvelope(new GetAllUCServicesBody($this));
     }
 }

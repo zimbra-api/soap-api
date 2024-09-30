@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * InfoForSessionType struct class
@@ -25,69 +31,69 @@ class InfoForSessionType
 {
     /**
      * Count of number of active accounts
-     * 
+     *
      * @Accessor(getter="getActiveAccounts", setter="setActiveAccounts")
      * @SerializedName("activeAccounts")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getActiveAccounts', setter: 'setActiveAccounts')]
-    #[SerializedName('activeAccounts')]
-    #[Type('int')]
+    #[Accessor(getter: "getActiveAccounts", setter: "setActiveAccounts")]
+    #[SerializedName("activeAccounts")]
+    #[Type("int")]
     #[XmlAttribute]
     private $activeAccounts;
 
     /**
      * Count of number of active sessions
-     * 
+     *
      * @Accessor(getter="getActiveSessions", setter="setActiveSessions")
      * @SerializedName("activeSessions")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getActiveSessions', setter: 'setActiveSessions')]
-    #[SerializedName('activeSessions')]
-    #[Type('int')]
+    #[Accessor(getter: "getActiveSessions", setter: "setActiveSessions")]
+    #[SerializedName("activeSessions")]
+    #[Type("int")]
     #[XmlAttribute]
     private $activeSessions;
 
     /**
      * If the request selected "groupByAccount" and "listSessions" then
      * the session information will be grouped under here.
-     * 
+     *
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
      * @XmlList(inline=true, entry="zid", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<Zimbra\Admin\Struct\AccountSessionInfo>')]
-    #[XmlList(inline: true, entry: 'zid', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")]
+    #[XmlList(inline: true, entry: "zid", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
      * If the request selected "listSessions" but NOT "groupByAccount" then
      * the session information will be under here.
-     * 
+     *
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSessions', setter: 'setSessions')]
-    #[Type('array<Zimbra\Admin\Struct\SessionInfo>')]
-    #[XmlList(inline: true, entry: 's', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSessions", setter: "setSessions")]
+    #[Type("array<Zimbra\Admin\Struct\SessionInfo>")]
+    #[XmlList(inline: true, entry: "s", namespace: "urn:zimbraAdmin")]
     private $sessions = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $activeSessions
      * @param  int $activeAccounts
      * @param  array $accounts
@@ -95,13 +101,15 @@ class InfoForSessionType
      * @return self
      */
     public function __construct(
-        int $activeSessions = 0, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = []
-    )
-    {
+        int $activeSessions = 0,
+        ?int $activeAccounts = null,
+        array $accounts = [],
+        array $sessions = []
+    ) {
         $this->setActiveSessions($activeSessions)
-             ->setAccounts($accounts)
-             ->setSessions($sessions);
-        if (NULL !== $activeAccounts) {
+            ->setAccounts($accounts)
+            ->setSessions($sessions);
+        if (null !== $activeAccounts) {
             $this->setActiveAccounts($activeAccounts);
         }
     }
@@ -159,7 +167,8 @@ class InfoForSessionType
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof AccountSessionInfo
+            $accounts,
+            static fn($account) => $account instanceof AccountSessionInfo
         );
         return $this;
     }
@@ -183,7 +192,8 @@ class InfoForSessionType
     public function setSessions(array $sessions): self
     {
         $this->sessions = array_filter(
-            $sessions, static fn ($session) => $session instanceof SessionInfo
+            $sessions,
+            static fn($session) => $session instanceof SessionInfo
         );
         return $this;
     }

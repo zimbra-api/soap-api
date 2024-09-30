@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllVolumesRequest class
  * Get all volumes
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class GetAllVolumesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllVolumesEnvelope(
-            new GetAllVolumesBody($this)
-        );
+        return new GetAllVolumesEnvelope(new GetAllVolumesBody($this));
     }
 }

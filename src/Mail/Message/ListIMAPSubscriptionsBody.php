@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ListIMAPSubscriptionsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class ListIMAPSubscriptionsBody extends SoapBody
      * @SerializedName("ListIMAPSubscriptionsRequest")
      * @Type("Zimbra\Mail\Message\ListIMAPSubscriptionsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ListIMAPSubscriptionsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ListIMAPSubscriptionsRequest")]
     #[Type(ListIMAPSubscriptionsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("ListIMAPSubscriptionsResponse")
      * @Type("Zimbra\Mail\Message\ListIMAPSubscriptionsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ListIMAPSubscriptionsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ListIMAPSubscriptionsResponse")]
     #[Type(ListIMAPSubscriptionsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class ListIMAPSubscriptionsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ListIMAPSubscriptionsRequest $request = NULL, ?ListIMAPSubscriptionsResponse $response = NULL
-    )
-    {
+        ?ListIMAPSubscriptionsRequest $request = null,
+        ?ListIMAPSubscriptionsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

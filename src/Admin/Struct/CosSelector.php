@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\CosBy;
 
 /**
@@ -26,45 +32,45 @@ class CosSelector
 {
     /**
      * Select the meaning of {cos-selector-key}
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CosBy>")
      * @XmlAttribute
-     * 
+     *
      * @var CosBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\CosBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\CosBy>")]
     #[XmlAttribute]
     private CosBy $by;
 
     /**
      * The key used to identify the COS
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CosBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?CosBy $by = NULL, ?string $value = NULL)
+    public function __construct(?CosBy $by = null, ?string $value = null)
     {
-        $this->setBy($by ?? new CosBy('name'));
-        if (NULL !== $value) {
+        $this->setBy($by ?? new CosBy("name"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

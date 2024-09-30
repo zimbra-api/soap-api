@@ -29,12 +29,12 @@ class LoggerInfo
      * @SerializedName("category")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCategory', setter: 'setCategory')]
-    #[SerializedName('category')]
-    #[Type('string')]
+    #[Accessor(getter: "getCategory", setter: "setCategory")]
+    #[SerializedName("category")]
+    #[Type("string")]
     #[XmlAttribute]
     private $category;
 
@@ -43,24 +43,26 @@ class LoggerInfo
      * @SerializedName("level")
      * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
      * @XmlAttribute
-     * 
+     *
      * @var LoggingLevel
      */
-    #[Accessor(getter: 'getLevel', setter: 'setLevel')]
-    #[SerializedName('level')]
-    #[Type('Enum<Zimbra\Common\Enum\LoggingLevel>')]
+    #[Accessor(getter: "getLevel", setter: "setLevel")]
+    #[SerializedName("level")]
+    #[Type("Enum<Zimbra\Common\Enum\LoggingLevel>")]
     #[XmlAttribute]
     private ?LoggingLevel $level;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $category
      * @param LoggingLevel $level
      * @return self
      */
-    public function __construct(string $category = '', ?LoggingLevel $level = NULL)
-    {
+    public function __construct(
+        string $category = "",
+        ?LoggingLevel $level = null
+    ) {
         $this->setCategory($category);
         $this->level = $level;
     }

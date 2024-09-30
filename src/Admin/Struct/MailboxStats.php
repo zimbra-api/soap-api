@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MailboxStats class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,33 +25,33 @@ class MailboxStats
 {
     /**
      * Total number of mailboxes
-     * 
+     *
      * @Accessor(getter="getNumMboxes", setter="setNumMboxes")
      * @SerializedName("numMboxes")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumMboxes', setter: 'setNumMboxes')]
-    #[SerializedName('numMboxes')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumMboxes", setter: "setNumMboxes")]
+    #[SerializedName("numMboxes")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numMboxes;
 
     /**
      * Total size of all mailboxes
-     * 
+     *
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("totalSize")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName('totalSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotalSize", setter: "setTotalSize")]
+    #[SerializedName("totalSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalSize;
 
@@ -62,13 +62,9 @@ class MailboxStats
      * @param int $totalSize
      * @return self
      */
-    public function __construct(
-        int $numMboxes = 0,
-        int $totalSize = 0
-    )
+    public function __construct(int $numMboxes = 0, int $totalSize = 0)
     {
-        $this->setNumMboxes($numMboxes)
-             ->setTotalSize($totalSize);
+        $this->setNumMboxes($numMboxes)->setTotalSize($totalSize);
     }
 
     /**

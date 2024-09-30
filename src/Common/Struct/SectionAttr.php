@@ -25,27 +25,27 @@ class SectionAttr
 {
     /**
      * Metadata section key
-     * 
+     *
      * @Accessor(getter="getSection", setter="setSection")
      * @SerializedName("section")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSection', setter: 'setSection')]
-    #[SerializedName('section')]
-    #[Type('string')]
+    #[Accessor(getter: "getSection", setter: "setSection")]
+    #[SerializedName("section")]
+    #[Type("string")]
     #[XmlAttribute]
     private $section;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $section
      * @return self
      */
-    public function __construct(string $section = '')
+    public function __construct(string $section = "")
     {
         $this->setSection($section);
     }

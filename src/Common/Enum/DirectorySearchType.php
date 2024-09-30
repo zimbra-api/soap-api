@@ -27,35 +27,35 @@ class DirectorySearchType extends Enum
      * Constant for value 'accounts'
      * @return string 'accounts'
      */
-    protected const ACCOUNTS = 'accounts';
+    protected const ACCOUNTS = "accounts";
 
     /**
      * Constant for value 'distributionlists'
      * @return string 'distributionlists'
      */
-    protected const DISTRIBUTION_LISTS = 'distributionlists';
+    protected const DISTRIBUTION_LISTS = "distributionlists";
 
     /**
      * Constant for value 'aliases'
      * @return string 'aliases'
      */
-    protected const ALIASES = 'aliases';
+    protected const ALIASES = "aliases";
 
     /**
      * Constant for value 'resources'
      * @return string 'resources'
      */
-    protected const RESOURCES = 'resources';
+    protected const RESOURCES = "resources";
 
     /**
      * Constant for value 'domains'
      * @return string 'domains'
      */
-    protected const DOMAINS = 'domains';
+    protected const DOMAINS = "domains";
 
     /**
      * Constant for value 'coses'
      * @return string 'coses'
      */
-    protected const COSES = 'coses';
+    protected const COSES = "coses";
 }

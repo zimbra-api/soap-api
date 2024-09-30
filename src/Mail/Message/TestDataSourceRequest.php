@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Does not modify the data source or import data.
  * If the id is specified, uses an existing data source.
  * Any values specified in the request are used in the test instead of the saved values.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -36,16 +36,9 @@ class TestDataSourceRequest extends SoapRequest
      * @param  MailDataSource $dataSource
      * @return self
      */
-    public function __construct(?MailDataSource $dataSource = NULL)
+    public function __construct(?MailDataSource $dataSource = null)
     {
-        $this->imapDataSource = 
-        $this->pop3DataSource = 
-        $this->caldavDataSource = 
-        $this->yabDataSource = 
-        $this->rssDataSource = 
-        $this->galDataSource = 
-        $this->calDataSource = 
-        $this->unknownDataSource = NULL;
+        $this->imapDataSource = $this->pop3DataSource = $this->caldavDataSource = $this->yabDataSource = $this->rssDataSource = $this->galDataSource = $this->calDataSource = $this->unknownDataSource = null;
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);
         }
@@ -56,8 +49,6 @@ class TestDataSourceRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new TestDataSourceEnvelope(
-            new TestDataSourceBody($this)
-        );
+        return new TestDataSourceEnvelope(new TestDataSourceBody($this));
     }
 }

@@ -29,16 +29,16 @@ class RunUnitTestsRequest extends SoapRequest
 {
     /**
      * Test names - each entry of form: className[#testName[+testName]*]
-     * 
+     *
      * @Accessor(getter="getTests", setter="setTests")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="test", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTests', setter: 'setTests')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'test', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getTests", setter: "setTests")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "test", namespace: "urn:zimbraAdmin")]
     private $tests;
 
     /**
@@ -76,7 +76,7 @@ class RunUnitTestsRequest extends SoapRequest
     public function setTests(array $tests): self
     {
         $this->tests = array_unique(
-            array_map(static fn ($test) => trim($test), $tests)
+            array_map(static fn($test) => trim($test), $tests)
         );
         return $this;
     }
@@ -96,8 +96,6 @@ class RunUnitTestsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RunUnitTestsEnvelope(
-            new RunUnitTestsBody($this)
-        );
+        return new RunUnitTestsEnvelope(new RunUnitTestsBody($this));
     }
 }

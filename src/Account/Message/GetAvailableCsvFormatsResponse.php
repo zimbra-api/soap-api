@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{NamedElement, SoapResponse};
 
 /**
  * GetAvailableCsvFormatsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,16 +26,16 @@ class GetAvailableCsvFormatsResponse extends SoapResponse
 {
     /**
      * Information about csvFormats
-     * 
+     *
      * @Accessor(getter="getCsvFormats", setter="setCsvFormats")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="csv", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCsvFormats', setter: 'setCsvFormats')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'csv', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCsvFormats", setter: "setCsvFormats")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "csv", namespace: "urn:zimbraAccount")]
     private $csvFormats = [];
 
     /**
@@ -58,7 +58,8 @@ class GetAvailableCsvFormatsResponse extends SoapResponse
     public function setCsvFormats(array $formats): self
     {
         $this->csvFormats = array_filter(
-            $formats, static fn ($format) => $format instanceof NamedElement
+            $formats,
+            static fn($format) => $format instanceof NamedElement
         );
         return $this;
     }

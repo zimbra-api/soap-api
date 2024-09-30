@@ -26,16 +26,16 @@ class ContactActionSelector extends ActionSelector
 {
     /**
      * New contact attributes
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
      * @XmlList(inline=true, entry="attr", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Mail\Struct\NewContactAttr>')]
-    #[XmlList(inline: true, entry: 'attr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Mail\Struct\NewContactAttr>")]
+    #[XmlList(inline: true, entry: "attr", namespace: "urn:zimbraMail")]
     private $attrs = [];
 
     /**
@@ -58,22 +58,21 @@ class ContactActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
-        ?string $ids = NULL,
+        string $operation = "",
+        ?string $ids = null,
         array $attrs = [],
-        ?string $constraint = NULL,
-        ?int $tag = NULL,
-        ?string $folder = NULL,
-        ?string $rgb = NULL,
-        ?int $color = NULL,
-        ?string $name = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?bool $nonExistentIds = NULL,
-        ?bool $newlyCreatedIds = NULL
-    )
-    {
+        ?string $constraint = null,
+        ?int $tag = null,
+        ?string $folder = null,
+        ?string $rgb = null,
+        ?int $color = null,
+        ?string $name = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?bool $nonExistentIds = null,
+        ?bool $newlyCreatedIds = null
+    ) {
         parent::__construct(
             $operation,
             $ids,
@@ -127,7 +126,8 @@ class ContactActionSelector extends ActionSelector
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof NewContactAttr
+            $attrs,
+            static fn($attr) => $attr instanceof NewContactAttr
         );
         return $this;
     }

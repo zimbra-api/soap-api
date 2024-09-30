@@ -29,8 +29,6 @@ class GenerateUUIDRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GenerateUUIDEnvelope(
-            new GenerateUUIDBody($this)
-        );
+        return new GenerateUUIDEnvelope(new GenerateUUIDBody($this));
     }
 }

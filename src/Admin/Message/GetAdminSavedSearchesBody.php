@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAdminSavedSearchesBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @SerializedName("GetAdminSavedSearchesRequest")
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAdminSavedSearchesRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAdminSavedSearchesRequest")]
     #[Type(GetAdminSavedSearchesRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetAdminSavedSearchesResponse")
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAdminSavedSearchesResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAdminSavedSearchesResponse")]
     #[Type(GetAdminSavedSearchesResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAdminSavedSearchesRequest $request = NULL, ?GetAdminSavedSearchesResponse $response = NULL
-    )
-    {
+        ?GetAdminSavedSearchesRequest $request = null,
+        ?GetAdminSavedSearchesResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

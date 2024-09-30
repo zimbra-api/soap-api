@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * StatsInfo class
@@ -25,34 +31,34 @@ class StatsInfo
 {
     /**
      * Stat name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Stats values
-     * 
+     *
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValues")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var StatsValues
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName('values')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[SerializedName("values")]
     #[Type(StatsValues::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?StatsValues $values;
 
     /**
@@ -62,7 +68,7 @@ class StatsInfo
      * @param  StatsValues $values
      * @return self
      */
-    public function __construct(string $name = '', ?StatsValues $values = NULL)
+    public function __construct(string $name = "", ?StatsValues $values = null)
     {
         $this->setName($name);
         $this->values = $values;

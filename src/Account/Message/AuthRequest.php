@@ -10,21 +10,28 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AuthRequest class
- * 
+ *
  * Authenticate for an account
  * when specifying an account, one of <password> or <preauth> or <recoveryCode> must be specified. See preauth.txt for a discussion of preauth.
  * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
  * If {verifyAccount}="1", <account> is required and the account in the auth token is compared to the named account.
  * Mismatch results in auth failure.
  * An external app that relies on ZCS for user identification can use this to test if the auth token provided by the user belongs to that user.
- * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored. 
- * 
+ * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored.
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -37,17 +44,22 @@ class AuthRequest extends SoapRequest
      * Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * - 0: (default) the cookie will be deleted when the Web browser exits.
      * - 1: The "Expires" attribute of the cookie will be set per rfc6265.
-     * 
+     *
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
-    #[SerializedName('persistAuthTokenCookie')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getPersistAuthTokenCookie",
+            setter: "setPersistAuthTokenCookie"
+        )
+    ]
+    #[SerializedName("persistAuthTokenCookie")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $persistAuthTokenCookie;
 
@@ -55,247 +67,252 @@ class AuthRequest extends SoapRequest
      * Controls whether the client supports CSRF token
      * - 0: (default) Client does not support CSRF token
      * - 1: The client supports CSRF token.
-     * 
+     *
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
-    #[SerializedName('csrfTokenSecured')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCsrfSupported", setter: "setCsrfSupported")]
+    #[SerializedName("csrfTokenSecured")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $csrfSupported;
 
     /**
      * Specifies the account to authenticate against
-     * 
+     *
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?AccountSelector $account;
 
     /**
      * Password to use in conjunction with an account
-     * 
+     *
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $password;
 
     /**
      * RecoveryCode to use in conjunction with an account in case of forgot password flow.
-     * 
+     *
      * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
      * @SerializedName("recoveryCode")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecoveryCode', setter: 'setRecoveryCode')]
-    #[SerializedName('recoveryCode')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRecoveryCode", setter: "setRecoveryCode")]
+    #[SerializedName("recoveryCode")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $recoveryCode;
 
     /**
      * The preauth
-     * 
+     *
      * @Accessor(getter="getPreauth", setter="setPreauth")
      * @SerializedName("preauth")
      * @Type("Zimbra\Account\Struct\PreAuth")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var PreAuth
      */
-    #[Accessor(getter: 'getPreauth', setter: 'setPreauth')]
-    #[SerializedName('preauth')]
+    #[Accessor(getter: "getPreauth", setter: "setPreauth")]
+    #[SerializedName("preauth")]
     #[Type(PreAuth::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?PreAuth $preauth;
 
     /**
      * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
-     * 
+     *
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("Zimbra\Account\Struct\AuthToken")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var AuthToken
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
     #[Type(AuthToken::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?AuthToken $authToken;
 
     /**
      * JWT auth token
-     * 
+     *
      * @Accessor(getter="getJwtToken", setter="setJwtToken")
      * @SerializedName("jwtToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getJwtToken', setter: 'setJwtToken')]
-    #[SerializedName('jwtToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getJwtToken", setter: "setJwtToken")]
+    #[SerializedName("jwtToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $jwtToken;
 
     /**
      * If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
-     * 
+     *
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName('virtualHost')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getVirtualHost", setter: "setVirtualHost")]
+    #[SerializedName("virtualHost")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $virtualHost;
 
     /**
      * Requested preference settings.
-     * 
+     *
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[SerializedName('prefs')]
-    #[Type('array<Zimbra\Account\Struct\Pref>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'pref', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPrefs", setter: "setPrefs")]
+    #[SerializedName("prefs")]
+    #[Type("array<Zimbra\Account\Struct\Pref>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "pref", namespace: "urn:zimbraAccount")]
     private $prefs = [];
 
     /**
      * Requested attribute settings.
      * Only attributes that are allowed to be returned by GetInfo will be returned by this call
-     * 
+     *
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('array<Zimbra\Account\Struct\Attr>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("array<Zimbra\Account\Struct\Attr>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
     private $attrs = [];
 
     /**
      * The requestedSkin. If specified the name of the skin requested by the client.
-     * 
+     *
      * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
      * @SerializedName("requestedSkin")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRequestedSkin', setter: 'setRequestedSkin')]
-    #[SerializedName('requestedSkin')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRequestedSkin", setter: "setRequestedSkin")]
+    #[SerializedName("requestedSkin")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $requestedSkin;
 
     /**
      * The TOTP code used for two-factor authentication
-     * 
+     *
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
-    #[SerializedName('twoFactorCode')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getTwoFactorCode", setter: "setTwoFactorCode")]
+    #[SerializedName("twoFactorCode")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $twoFactorCode;
 
     /**
      * Whether the client represents a trusted device
-     * 
+     *
      * @Accessor(getter="getDeviceTrusted", setter="setDeviceTrusted")
      * @SerializedName("deviceTrusted")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDeviceTrusted', setter: 'setDeviceTrusted')]
-    #[SerializedName('deviceTrusted')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDeviceTrusted", setter: "setDeviceTrusted")]
+    #[SerializedName("deviceTrusted")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $deviceTrusted;
 
     /**
      * Whether the client represents a trusted device
-     * 
+     *
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
      * @SerializedName("trustedToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTrustedDeviceToken', setter: 'setTrustedDeviceToken')]
-    #[SerializedName('trustedToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[
+        Accessor(
+            getter: "getTrustedDeviceToken",
+            setter: "setTrustedDeviceToken"
+        )
+    ]
+    #[SerializedName("trustedToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $trustedDeviceToken;
 
     /**
      * Unique device identifier; used to verify trusted mobile devices
-     * 
+     *
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDeviceId', setter: 'setDeviceId')]
-    #[SerializedName('deviceId')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getDeviceId", setter: "setDeviceId")]
+    #[SerializedName("deviceId")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $deviceId;
 
     /**
@@ -303,44 +320,44 @@ class AuthRequest extends SoapRequest
      * @SerializedName("generateDeviceId")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getGenerateDeviceId', setter: 'setGenerateDeviceId')]
-    #[SerializedName('generateDeviceId')]
-    #[Type('bool')]
+    #[Accessor(getter: "getGenerateDeviceId", setter: "setGenerateDeviceId")]
+    #[SerializedName("generateDeviceId")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $generateDeviceId;
 
     /**
      * type of token to be returned, it can be auth or jwt
-     * 
+     *
      * @Accessor(getter="getTokenType", setter="setTokenType")
      * @SerializedName("tokenType")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTokenType', setter: 'setTokenType')]
-    #[SerializedName('tokenType')]
-    #[Type('string')]
+    #[Accessor(getter: "getTokenType", setter: "setTokenType")]
+    #[SerializedName("tokenType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tokenType;
 
     /**
      * if true SameSite=Strict cookie will not be added in AuthToken
-     * 
+     *
      * @Accessor(getter="getIgnoreSameSite", setter="setIgnoreSameSite")
      * @SerializedName("ignoreSameSite")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIgnoreSameSite', setter: 'setIgnoreSameSite')]
-    #[SerializedName('ignoreSameSite')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIgnoreSameSite", setter: "setIgnoreSameSite")]
+    #[SerializedName("ignoreSameSite")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $ignoreSameSite;
 
@@ -369,72 +386,70 @@ class AuthRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?AccountSelector $account = NULL,
-        ?string $password = NULL,
-        ?string $recoveryCode = NULL,
-        ?PreAuth $preauth = NULL,
-        ?AuthToken $authToken = NULL,
-        ?string $jwtToken = NULL,
-        ?string $virtualHost = NULL,
+        ?AccountSelector $account = null,
+        ?string $password = null,
+        ?string $recoveryCode = null,
+        ?PreAuth $preauth = null,
+        ?AuthToken $authToken = null,
+        ?string $jwtToken = null,
+        ?string $virtualHost = null,
         array $prefs = [],
         array $attrs = [],
-        ?string $requestedSkin = NULL,
-        ?bool $persistAuthTokenCookie = NULL,
-        ?bool $csrfSupported = NULL,
-        ?string $twoFactorCode = NULL,
-        ?bool $deviceTrusted = NULL,
-        ?string $trustedDeviceToken = NULL,
-        ?string $deviceId = NULL,
-        ?bool $generateDeviceId = NULL,
-        ?string $tokenType = NULL,
-        ?bool $ignoreSameSite = NULL
-    )
-    {
-        $this->setPrefs($prefs)
-             ->setAttrs($attrs);
+        ?string $requestedSkin = null,
+        ?bool $persistAuthTokenCookie = null,
+        ?bool $csrfSupported = null,
+        ?string $twoFactorCode = null,
+        ?bool $deviceTrusted = null,
+        ?string $trustedDeviceToken = null,
+        ?string $deviceId = null,
+        ?bool $generateDeviceId = null,
+        ?string $tokenType = null,
+        ?bool $ignoreSameSite = null
+    ) {
+        $this->setPrefs($prefs)->setAttrs($attrs);
         $this->account = $account;
         $this->preauth = $preauth;
         $this->authToken = $authToken;
-        if(NULL !== $password) {
+        if (null !== $password) {
             $this->setPassword($password);
         }
-        if(NULL !== $recoveryCode) {
+        if (null !== $recoveryCode) {
             $this->setRecoveryCode($recoveryCode);
         }
-        if(NULL !== $jwtToken) {
+        if (null !== $jwtToken) {
             $this->setJwtToken($jwtToken);
         }
-        if(NULL !== $virtualHost) {
+        if (null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
-        if(NULL !== $requestedSkin) {
+        if (null !== $requestedSkin) {
             $this->setRequestedSkin($requestedSkin);
         }
-        if(NULL !== $persistAuthTokenCookie) {
+        if (null !== $persistAuthTokenCookie) {
             $this->setPersistAuthTokenCookie($persistAuthTokenCookie);
         }
-        if(NULL !== $csrfSupported) {
+        if (null !== $csrfSupported) {
             $this->setCsrfSupported($csrfSupported);
         }
-        if(NULL !== $twoFactorCode) {
+        if (null !== $twoFactorCode) {
             $this->setTwoFactorCode($twoFactorCode);
         }
-        if(NULL !== $deviceTrusted) {
+        if (null !== $deviceTrusted) {
             $this->setDeviceTrusted($deviceTrusted);
         }
-        if(NULL !== $trustedDeviceToken) {
+        if (null !== $trustedDeviceToken) {
             $this->setTrustedDeviceToken($trustedDeviceToken);
         }
-        if(NULL !== $deviceId) {
+        if (null !== $deviceId) {
             $this->setDeviceId($deviceId);
         }
-        if(NULL !== $generateDeviceId) {
+        if (null !== $generateDeviceId) {
             $this->setGenerateDeviceId($generateDeviceId);
         }
-        if(NULL !== $tokenType) {
+        if (null !== $tokenType) {
             $this->setTokenType($tokenType);
         }
-        if(NULL !== $ignoreSameSite) {
+        if (null !== $ignoreSameSite) {
             $this->setIgnoreSameSite($ignoreSameSite);
         }
     }
@@ -455,8 +470,9 @@ class AuthRequest extends SoapRequest
      * @param  bool $persistAuthTokenCookie
      * @return self
      */
-    public function setPersistAuthTokenCookie(bool $persistAuthTokenCookie): self
-    {
+    public function setPersistAuthTokenCookie(
+        bool $persistAuthTokenCookie
+    ): self {
         $this->persistAuthTokenCookie = $persistAuthTokenCookie;
         return $this;
     }
@@ -655,7 +671,10 @@ class AuthRequest extends SoapRequest
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
+        $this->prefs = array_filter(
+            $prefs,
+            static fn($pref) => $pref instanceof Pref
+        );
         return $this;
     }
 
@@ -690,7 +709,8 @@ class AuthRequest extends SoapRequest
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof Attr
+            $attrs,
+            static fn($attr) => $attr instanceof Attr
         );
         return $this;
     }
@@ -888,8 +908,6 @@ class AuthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AuthEnvelope(
-            new AuthBody($this)
-        );
+        return new AuthEnvelope(new AuthBody($this));
     }
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetApptSummariesRequest class
  * Get appointment summaries
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,49 +27,49 @@ class GetApptSummariesRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds since the epoch GMT
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end in milliseconds since the epoch GMT
-     * 
+     *
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Folder ID. Optional folder to constrain requests to; otherwise, searches all folders but trash and spam
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
@@ -84,12 +84,10 @@ class GetApptSummariesRequest extends SoapRequest
     public function __construct(
         int $startTime = 0,
         int $endTime = 0,
-        ?string $folderId = NULL
-    )
-    {
-        $this->setStartTime($startTime)
-             ->setEndTime($endTime);
-        if (NULL !== $folderId) {
+        ?string $folderId = null
+    ) {
+        $this->setStartTime($startTime)->setEndTime($endTime);
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
     }
@@ -165,8 +163,6 @@ class GetApptSummariesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetApptSummariesEnvelope(
-            new GetApptSummariesBody($this)
-        );
+        return new GetApptSummariesEnvelope(new GetApptSummariesBody($this));
     }
 }

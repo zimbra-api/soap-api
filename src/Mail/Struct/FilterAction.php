@@ -25,29 +25,29 @@ class FilterAction
 {
     /**
      * Index - specifies a guaranteed order for the action elements
-     * 
+     *
      * @Accessor(getter="getIndex", setter="setIndex")
      * @SerializedName("index")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getIndex', setter: 'setIndex')]
-    #[SerializedName('index')]
-    #[Type('int')]
+    #[Accessor(getter: "getIndex", setter: "setIndex")]
+    #[SerializedName("index")]
+    #[Type("int")]
     #[XmlAttribute]
     private $index;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @return self
      */
-    public function __construct(?int $index = NULL)
+    public function __construct(?int $index = null)
     {
-        if (NULL !== $index) {
+        if (null !== $index) {
             $this->setIndex($index);
         }
     }

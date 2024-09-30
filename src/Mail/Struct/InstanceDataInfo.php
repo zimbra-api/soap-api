@@ -10,9 +10,20 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\{
-    FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    ParticipationStatus,
+    Transparency
 };
 
 /**
@@ -28,101 +39,101 @@ class InstanceDataInfo extends InstanceDataAttrs
 {
     /**
      * Start time
-     * 
+     *
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Set if is an exception
-     * 
+     *
      * @Accessor(getter="getIsException", setter="setIsException")
      * @SerializedName("ex")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsException', setter: 'setIsException')]
-    #[SerializedName('ex')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsException", setter: "setIsException")]
+    #[SerializedName("ex")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isException;
 
     /**
      * Organizer
-     * 
+     *
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var CalOrganizer
      */
-    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
-    #[SerializedName('or')]
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName("or")]
     #[Type(CalOrganizer::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalOrganizer $organizer;
 
     /**
      * Categories
-     * 
+     *
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCategories", setter: "setCategories")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
     private $categories = [];
 
     /**
      * Information for iCalendar GEO property
-     * 
+     *
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var GeoInfo
      */
-    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
-    #[SerializedName('geo')]
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName("geo")]
     #[Type(GeoInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $startTime
      * @param bool $isException
      * @param CalOrganizer $organizer
@@ -157,39 +168,38 @@ class InstanceDataInfo extends InstanceDataAttrs
      * @return self
      */
     public function __construct(
-        ?int $startTime = NULL,
-        ?bool $isException = NULL,
-        ?CalOrganizer $organizer = NULL,
+        ?int $startTime = null,
+        ?bool $isException = null,
+        ?CalOrganizer $organizer = null,
         array $categories = [],
-        ?GeoInfo $geo = NULL,
-        ?string $fragment = NULL,
-        ?int $duration = NULL,
-        ?ParticipationStatus $partStat = NULL,
-        ?string $recurIdZ = NULL,
-        ?int $tzOffset = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?string $taskPercentComplete = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $hasExceptions = NULL,
-        ?string $priority = NULL,
-        ?FreeBusyStatus $freeBusyIntended = NULL,
-        ?Transparency $transparency = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?bool $hasOtherAttendees = NULL,
-        ?bool $hasAlarm = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $invId = NULL,
-        ?int $componentNum = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?bool $allDay = NULL,
-        ?bool $draft = NULL,
-        ?bool $neverSent = NULL,
-        ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL
-    )
-    {
+        ?GeoInfo $geo = null,
+        ?string $fragment = null,
+        ?int $duration = null,
+        ?ParticipationStatus $partStat = null,
+        ?string $recurIdZ = null,
+        ?int $tzOffset = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?string $taskPercentComplete = null,
+        ?bool $isRecurring = null,
+        ?bool $hasExceptions = null,
+        ?string $priority = null,
+        ?FreeBusyStatus $freeBusyIntended = null,
+        ?Transparency $transparency = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?bool $hasOtherAttendees = null,
+        ?bool $hasAlarm = null,
+        ?bool $isOrganizer = null,
+        ?string $invId = null,
+        ?int $componentNum = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?bool $allDay = null,
+        ?bool $draft = null,
+        ?bool $neverSent = null,
+        ?int $taskDueDate = null,
+        ?int $taskTzOffsetDue = null
+    ) {
         parent::__construct(
             $duration,
             $partStat,
@@ -220,13 +230,13 @@ class InstanceDataInfo extends InstanceDataAttrs
         $this->setCategories($categories);
         $this->organizer = $organizer;
         $this->geo = $geo;
-        if (NULL !== $startTime) {
+        if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
-        if (NULL !== $isException) {
+        if (null !== $isException) {
             $this->setIsException($isException);
         }
-        if (NULL !== $fragment) {
+        if (null !== $fragment) {
             $this->setFragment($fragment);
         }
     }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAggregateQuotaUsageOnServerResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAggregateQuotaUsageOnServerResponse extends SoapResponse
 {
     /**
      * Aggregate quota information reported per domain
-     * 
+     *
      * @Accessor(getter="getDomainQuotas", setter="setDomainQuotas")
      * @Type("array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDomainQuotas', setter: 'setDomainQuotas')]
-    #[Type('array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>')]
-    #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDomainQuotas", setter: "setDomainQuotas")]
+    #[Type("array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>")]
+    #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
     private $domainQuotas = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAggregateQuotaUsageOnServerResponse extends SoapResponse
     public function setDomainQuotas(array $quotas): self
     {
         $this->domainQuotas = array_filter(
-            $quotas, static fn ($quota) => $quota instanceof DomainAggregateQuotaInfo
+            $quotas,
+            static fn($quota) => $quota instanceof DomainAggregateQuotaInfo
         );
         return $this;
     }

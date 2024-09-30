@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\UcServiceBy;
 
 /**
@@ -26,45 +32,45 @@ class UcServiceSelector
 {
     /**
      * Selects the meaning of {ucservice-key}
-     * 
+     *
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\UcServiceBy>")
      * @XmlAttribute
-     * 
+     *
      * @var UcServiceBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\UcServiceBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\UcServiceBy>")]
     #[XmlAttribute]
     private UcServiceBy $by;
 
     /**
      * Key for choosing ucservice
-     * 
+     *
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  UcServiceBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?UcServiceBy $by = NULL, ?string $value = NULL)
+    public function __construct(?UcServiceBy $by = null, ?string $value = null)
     {
-        $this->setBy($by ?? new UcServiceBy('id'));
-        if (NULL !== $value) {
+        $this->setBy($by ?? new UcServiceBy("id"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

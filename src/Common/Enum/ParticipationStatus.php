@@ -27,53 +27,53 @@ class ParticipationStatus extends Enum
      * Constant for value 'Needs-action'
      * @return string 'NE'
      */
-    protected const NEEDS_ACTION = 'NE';
+    protected const NEEDS_ACTION = "NE";
 
     /**
      * Constant for value 'Accept'
      * @return string 'AC'
      */
-    protected const ACCEPT = 'AC';
+    protected const ACCEPT = "AC";
 
     /**
      * Constant for value 'Tentative'
      * @return string 'TE'
      */
-    protected const TENTATIVE = 'TE';
+    protected const TENTATIVE = "TE";
 
     /**
      * Constant for value 'Declined'
      * @return string 'DE'
      */
-    protected const DECLINED = 'DE';
+    protected const DECLINED = "DE";
 
     /**
      * Constant for value 'delegated'
      * @return string 'DG'
      */
-    protected const DELEGATED = 'DG';
+    protected const DELEGATED = "DG";
 
     /**
      * Constant for value 'Completed'
      * @return string 'CO'
      */
-    protected const COMPLETED = 'CO';
+    protected const COMPLETED = "CO";
 
     /**
      * Constant for value 'In-process'
      * @return string 'IN'
      */
-    protected const IN_PROCESS = 'IN';
+    protected const IN_PROCESS = "IN";
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WE'
      */
-    protected const WAITING = 'WE';
+    protected const WAITING = "WE";
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DF'
      */
-    protected const DEFERRED = 'DF';
+    protected const DEFERRED = "DF";
 }

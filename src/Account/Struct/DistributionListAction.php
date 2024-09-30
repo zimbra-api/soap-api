@@ -10,7 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Account\Struct\DistributionListSubscribeReq as Subscribe;
 use Zimbra\Account\Struct\DistributionListGranteeSelector as Grantee;
 use Zimbra\Account\Struct\DistributionListRightSpec as Right;
@@ -18,7 +25,7 @@ use Zimbra\Common\Enum\Operation;
 
 /**
  * DistributionListAction class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -32,12 +39,12 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\Operation>")
      * @XmlAttribute
-     * 
+     *
      * @var Operation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\Operation>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\Operation>")]
     #[XmlAttribute]
     private Operation $op;
 
@@ -46,13 +53,13 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("newName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('newName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("newName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $newName;
 
     /**
@@ -60,54 +67,54 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("subsReq")
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var Subscribe
      */
-    #[Accessor(getter: 'getSubsReq', setter: 'setSubsReq')]
-    #[SerializedName('subsReq')]
+    #[Accessor(getter: "getSubsReq", setter: "setSubsReq")]
+    #[SerializedName("subsReq")]
     #[Type(DistributionListSubscribeReq::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?Subscribe $subsReq;
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getMembers", setter: "setMembers")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAccount")]
     private $members = [];
 
     /**
      * @Accessor(getter="getOwners", setter="setOwners")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline=true, entry="owner", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getOwners', setter: 'setOwners')]
-    #[Type('array<Zimbra\Account\Struct\DistributionListGranteeSelector>')]
-    #[XmlList(inline: true, entry: 'owner', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getOwners", setter: "setOwners")]
+    #[Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")]
+    #[XmlList(inline: true, entry: "owner", namespace: "urn:zimbraAccount")]
     private $owners = [];
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<Zimbra\Account\Struct\DistributionListRightSpec>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
     private $rights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param Operation $op
      * @param string $newName
      * @param Subscribe $subsReq
@@ -118,22 +125,21 @@ class DistributionListAction extends AccountKeyValuePairs
      * @return self
      */
     public function __construct(
-        ?Operation $op = NULL,
-        ?string $newName = NULL,
-        ?Subscribe $subsReq = NULL,
+        ?Operation $op = null,
+        ?string $newName = null,
+        ?Subscribe $subsReq = null,
         array $dlms = [],
         array $owners = [],
         array $rights = [],
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($attrs);
-        $this->setOp($op ?? new Operation('grantRights'))
-             ->setMembers($dlms)
-             ->setOwners($owners)
-             ->setRights($rights);
+        $this->setOp($op ?? new Operation("grantRights"))
+            ->setMembers($dlms)
+            ->setOwners($owners)
+            ->setRights($rights);
         $this->subsReq = $subsReq;
-        if (NULL !== $newName) {
+        if (null !== $newName) {
             $this->setNewName($newName);
         }
     }
@@ -228,7 +234,7 @@ class DistributionListAction extends AccountKeyValuePairs
     public function setMembers(array $dlms): self
     {
         $this->members = array_unique(
-            array_map(static fn ($dlm) => trim($dlm), $dlms)
+            array_map(static fn($dlm) => trim($dlm), $dlms)
         );
         return $this;
     }
@@ -264,7 +270,8 @@ class DistributionListAction extends AccountKeyValuePairs
     public function setOwners(array $owners): self
     {
         $this->owners = array_filter(
-            $owners, static fn ($owner) => $owner instanceof Grantee
+            $owners,
+            static fn($owner) => $owner instanceof Grantee
         );
         return $this;
     }
@@ -300,7 +307,8 @@ class DistributionListAction extends AccountKeyValuePairs
     public function setRights(array $rights): self
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof Right
+            $rights,
+            static fn($right) => $right instanceof Right
         );
         return $this;
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\AttributeName;
 
 /**
@@ -26,98 +32,98 @@ class ConversationSpec
 {
     /**
      * Conversation ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * if value is "1" or "all" the full expanded message structure is inlined for the
      * first (or for all) messages in the conversation.
-     * 
+     *
      * @Accessor(getter="getInlineRule", setter="setInlineRule")
      * @SerializedName("fetch")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInlineRule', setter: 'setInlineRule')]
-    #[SerializedName('fetch')]
-    #[Type('string')]
+    #[Accessor(getter: "getInlineRule", setter: "setInlineRule")]
+    #[SerializedName("fetch")]
+    #[Type("string")]
     #[XmlAttribute]
     private $inlineRule;
 
     /**
      * Set to return defanged HTML content by default. (default is unset)
-     * 
+     *
      * @Accessor(getter="getWantHtml", setter="setWantHtml")
      * @SerializedName("html")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName('html')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantHtml", setter: "setWantHtml")]
+    #[SerializedName("html")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantHtml;
 
     /**
      * Maximum inlined length
-     * 
+     *
      * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
      * @SerializedName("max")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
-    #[SerializedName('max')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxInlinedLength", setter: "setMaxInlinedLength")]
+    #[SerializedName("max")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxInlinedLength;
 
     /**
      * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
-     * 
+     *
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName('needExp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedCanExpand", setter: "setNeedCanExpand")]
+    #[SerializedName("needExp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needCanExpand;
 
     /**
      * Requested headers. If <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
-     * 
+     *
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
-    #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[Type("array<Zimbra\Common\Struct\AttributeName>")]
+    #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
     private $headers = [];
 
     /**
@@ -132,28 +138,27 @@ class ConversationSpec
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $inlineRule = NULL,
-        ?bool $wantHtml = NULL,
-        ?int $maxInlinedLength = NULL,
-        ?bool $needCanExpand = NULL,
+        ?string $id = null,
+        ?string $inlineRule = null,
+        ?bool $wantHtml = null,
+        ?int $maxInlinedLength = null,
+        ?bool $needCanExpand = null,
         array $headers = []
-    )
-    {
+    ) {
         $this->setHeaders($headers);
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $inlineRule) {
+        if (null !== $inlineRule) {
             $this->setInlineRule($inlineRule);
         }
-        if (NULL !== $wantHtml) {
+        if (null !== $wantHtml) {
             $this->setWantHtml($wantHtml);
         }
-        if (NULL !== $maxInlinedLength) {
+        if (null !== $maxInlinedLength) {
             $this->setMaxInlinedLength($maxInlinedLength);
         }
-        if (NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
     }
@@ -255,7 +260,8 @@ class ConversationSpec
     public function setHeaders(array $headers): self
     {
         $this->headers = array_filter(
-            $headers, static fn ($header) => $header instanceof AttributeName
+            $headers,
+            static fn($header) => $header instanceof AttributeName
         );
         return $this;
     }

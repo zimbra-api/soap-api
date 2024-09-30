@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Perform an autocomplete for a name against the Global Address List
  * The number of entries in the response is limited by Account/COS attribute zimbraContactAutoCompleteMaxResults with
  * default value of 20.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -30,87 +30,87 @@ class AutoCompleteGalRequest extends SoapRequest
 {
     /**
      * The name to test for autocompletion
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * type of addresses to auto-complete on
-     * - "account" for regular user accounts, aliases and distribution lists 
-     * - "resource" for calendar resources 
-     * - "group" for groups 
-     * - "all" for combination of all types 
+     * - "account" for regular user accounts, aliases and distribution lists
+     * - "resource" for calendar resources
+     * - "group" for groups
+     * - "all" for combination of all types
      * if omitted, defaults to "account"
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
-     * 
+     *
      * @var GalSearchType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\GalSearchType>")]
     #[XmlAttribute]
     private ?GalSearchType $type;
 
     /**
      * flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
-     * 
+     *
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName('needExp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedCanExpand", setter: "setNeedCanExpand")]
+    #[SerializedName("needExp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needCanExpand;
 
     /**
      * GAL Account ID
-     * 
+     *
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName('galAcctId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGalAccountId", setter: "setGalAccountId")]
+    #[SerializedName("galAcctId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galAccountId;
 
     /**
      * An int specifying the maximum number of results to return
-     * 
+     *
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
@@ -125,22 +125,21 @@ class AutoCompleteGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $name = '',
-        ?GalSearchType $type = NULL,
-        ?bool $needCanExpand = NULL,
-        ?string $galAccountId = NULL,
-        ?int $limit = NULL
-    )
-    {
+        string $name = "",
+        ?GalSearchType $type = null,
+        ?bool $needCanExpand = null,
+        ?string $galAccountId = null,
+        ?int $limit = null
+    ) {
         $this->setName($name);
         $this->type = $type;
-        if(NULL !== $needCanExpand) {
+        if (null !== $needCanExpand) {
             $this->setNeedCanExpand($needCanExpand);
         }
-        if(NULL !== $galAccountId) {
+        if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
         }
-        if(NULL !== $limit) {
+        if (null !== $limit) {
             $this->setLimit($limit);
         }
     }
@@ -260,8 +259,6 @@ class AutoCompleteGalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AutoCompleteGalEnvelope(
-            new AutoCompleteGalBody($this)
-        );
+        return new AutoCompleteGalEnvelope(new AutoCompleteGalBody($this));
     }
 }

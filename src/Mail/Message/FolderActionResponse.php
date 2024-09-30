@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * FolderActionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class FolderActionResponse extends SoapResponse
 {
     /**
      * Folder action result
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var FolderActionResult
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(FolderActionResult::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?FolderActionResult $action;
 
     /**
@@ -47,7 +47,7 @@ class FolderActionResponse extends SoapResponse
      * @param  FolderActionResult $action
      * @return self
      */
-    public function __construct(?FolderActionResult $action = NULL)
+    public function __construct(?FolderActionResult $action = null)
     {
         $this->action = $action;
     }

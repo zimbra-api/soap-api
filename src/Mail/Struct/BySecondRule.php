@@ -27,17 +27,17 @@ class BySecondRule implements BySecondRuleInterface
 {
     /**
      * Comma separated list of seconds where second is a number between 0 and 59
-     * 
+     *
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("seclist")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('seclist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("seclist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -47,7 +47,7 @@ class BySecondRule implements BySecondRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -71,15 +71,15 @@ class BySecondRule implements BySecondRuleInterface
     public function setList(string $list): self
     {
         $seclist = [];
-        foreach (explode(',', $list) as $sec) {
+        foreach (explode(",", $list) as $sec) {
             if (is_numeric($sec)) {
                 $sec = (int) $sec;
-                if($sec >= 0 && $sec < 60 && !in_array($sec, $seclist)) {
+                if ($sec >= 0 && $sec < 60 && !in_array($sec, $seclist)) {
                     $seclist[] = $sec;
                 }
             }
         }
-        $this->list = implode(',', $seclist);
+        $this->list = implode(",", $seclist);
         return $this;
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * Preference struct class
@@ -28,12 +34,12 @@ class Pref
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -41,11 +47,11 @@ class Pref
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -54,32 +60,33 @@ class Pref
      * @SerializedName("modified")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModified', setter: 'setModified')]
-    #[SerializedName('modified')]
-    #[Type('int')]
+    #[Accessor(getter: "getModified", setter: "setModified")]
+    #[SerializedName("modified")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modified;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $value
      * @param  int    $modified
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $value = NULL, ?int $modified = NULL
-    )
-    {
+        string $name = "",
+        ?string $value = null,
+        ?int $modified = null
+    ) {
         $this->setName($name);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $modified) {
+        if (null !== $modified) {
             $this->setModified($modified);
         }
     }

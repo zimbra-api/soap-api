@@ -32,177 +32,177 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 {
     /**
      * x uid
-     * 
+     *
      * @Accessor(getter="getXUid", setter="setXUid")
      * @SerializedName("x_uid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getXUid', setter: 'setXUid')]
-    #[SerializedName('x_uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getXUid", setter: "setXUid")]
+    #[SerializedName("x_uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $xUid;
 
     /**
      * iCalendar UID
-     * 
+     *
      * @Accessor(getter="getUid", setter="setUid")
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma separated list of tag names
-     * 
+     *
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Folder ID
-     * 
+     *
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Size
-     * 
+     *
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Modified date in seconds
-     * 
+     *
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Modified sequence
-     * 
+     *
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision number
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Appointment ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -248,44 +248,43 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @return self
      */
     public function __construct(
-        string $xUid = NULL,
-        string $uid = NULL,
-        ?string $flags = NULL,
-        ?string $tags = NULL,
-        ?string $tagNames = NULL,
-        ?string $folderId = NULL,
-        ?int $size = NULL,
-        ?int $changeDate = NULL,
-        ?int $modifiedSequence = NULL,
-        ?int $revision = NULL,
-        ?string $id = NULL,
-        ?int $duration = NULL,
-        ?ParticipationStatus $partStat = NULL,
-        ?string $recurIdZ = NULL,
-        ?int $tzOffset = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?string $taskPercentComplete = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $hasExceptions = NULL,
-        ?string $priority = NULL,
-        ?FreeBusyStatus $freeBusyIntended = NULL,
-        ?Transparency $transparency = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?bool $hasOtherAttendees = NULL,
-        ?bool $hasAlarm = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $invId = NULL,
-        ?int $componentNum = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?bool $allDay = NULL,
-        ?bool $draft = NULL,
-        ?bool $neverSent = NULL,
-        ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL
-    )
-    {
+        string $xUid = null,
+        string $uid = null,
+        ?string $flags = null,
+        ?string $tags = null,
+        ?string $tagNames = null,
+        ?string $folderId = null,
+        ?int $size = null,
+        ?int $changeDate = null,
+        ?int $modifiedSequence = null,
+        ?int $revision = null,
+        ?string $id = null,
+        ?int $duration = null,
+        ?ParticipationStatus $partStat = null,
+        ?string $recurIdZ = null,
+        ?int $tzOffset = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?string $taskPercentComplete = null,
+        ?bool $isRecurring = null,
+        ?bool $hasExceptions = null,
+        ?string $priority = null,
+        ?FreeBusyStatus $freeBusyIntended = null,
+        ?Transparency $transparency = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?bool $hasOtherAttendees = null,
+        ?bool $hasAlarm = null,
+        ?bool $isOrganizer = null,
+        ?string $invId = null,
+        ?int $componentNum = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?bool $allDay = null,
+        ?bool $draft = null,
+        ?bool $neverSent = null,
+        ?int $taskDueDate = null,
+        ?int $taskTzOffsetDue = null
+    ) {
         parent::__construct(
             $duration,
             $partStat,
@@ -313,37 +312,37 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
             $taskDueDate,
             $taskTzOffsetDue
         );
-        if (NULL !== $xUid) {
+        if (null !== $xUid) {
             $this->setXUid($xUid);
         }
-        if (NULL !== $uid) {
+        if (null !== $uid) {
             $this->setUid($uid);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $tags) {
+        if (null !== $tags) {
             $this->setTags($tags);
         }
-        if (NULL !== $tagNames) {
+        if (null !== $tagNames) {
             $this->setTagNames($tagNames);
         }
-        if (NULL !== $folderId) {
+        if (null !== $folderId) {
             $this->setFolderId($folderId);
         }
-        if (NULL !== $size) {
+        if (null !== $size) {
             $this->setSize($size);
         }
-        if (NULL !== $changeDate) {
+        if (null !== $changeDate) {
             $this->setChangeDate($changeDate);
         }
-        if (NULL !== $modifiedSequence) {
+        if (null !== $modifiedSequence) {
             $this->setModifiedSequence($modifiedSequence);
         }
-        if (NULL !== $revision) {
+        if (null !== $revision) {
             $this->setRevision($revision);
         }
-        if (NULL !== $id) {
+        if (null !== $id) {
             $this->setId($id);
         }
     }

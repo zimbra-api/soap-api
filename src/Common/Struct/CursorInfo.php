@@ -28,12 +28,12 @@ class CursorInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -42,12 +42,12 @@ class CursorInfo
      * @SerializedName("sortVal")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortVal', setter: 'setSortVal')]
-    #[SerializedName('sortVal')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortVal", setter: "setSortVal")]
+    #[SerializedName("sortVal")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortVal;
 
@@ -56,12 +56,12 @@ class CursorInfo
      * @SerializedName("endSortVal")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEndSortVal', setter: 'setEndSortVal')]
-    #[SerializedName('endSortVal')]
-    #[Type('string')]
+    #[Accessor(getter: "getEndSortVal", setter: "setEndSortVal")]
+    #[SerializedName("endSortVal")]
+    #[Type("string")]
     #[XmlAttribute]
     private $endSortVal;
 
@@ -70,18 +70,18 @@ class CursorInfo
      * @SerializedName("includeOffset")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeOffset', setter: 'setIncludeOffset')]
-    #[SerializedName('includeOffset')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeOffset", setter: "setIncludeOffset")]
+    #[SerializedName("includeOffset")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeOffset;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $sortVal
      * @param string $endSortVal
@@ -89,22 +89,21 @@ class CursorInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $sortVal = NULL,
-        ?string $endSortVal = NULL,
-        ?bool   $includeOffset = NULL
-    )
-    {
-        if (NULL !== $id) {
+        ?string $id = null,
+        ?string $sortVal = null,
+        ?string $endSortVal = null,
+        ?bool $includeOffset = null
+    ) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $sortVal) {
+        if (null !== $sortVal) {
             $this->setSortVal($sortVal);
         }
-        if (NULL !== $endSortVal) {
+        if (null !== $endSortVal) {
             $this->setEndSortVal($endSortVal);
         }
-        if (NULL !== $includeOffset) {
+        if (null !== $includeOffset) {
             $this->setIncludeOffset($includeOffset);
         }
     }

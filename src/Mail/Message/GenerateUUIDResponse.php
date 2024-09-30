@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GenerateUUIDResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,15 +26,15 @@ class GenerateUUIDResponse extends SoapResponse
 {
     /**
      * Generated globally unique UUID
-     * 
+     *
      * @Accessor(getter="getUuid", setter="setUuid")
      * @Type("string")
      * @XmlValue
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUuid", setter: "setUuid")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $uuid;
 
@@ -44,7 +44,7 @@ class GenerateUUIDResponse extends SoapResponse
      * @param  string $uuid
      * @return self
      */
-    public function __construct(string $uuid = '')
+    public function __construct(string $uuid = "")
     {
         $this->setUuid($uuid);
     }

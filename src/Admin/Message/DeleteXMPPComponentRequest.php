@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteXMPPComponentRequest class
  * Delete an XMPP Component
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,27 +28,27 @@ class DeleteXMPPComponentRequest extends SoapRequest
 {
     /**
      * XMPP Component details
-     * 
+     *
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Component
      */
-    #[Accessor(getter: 'getComponent', setter: 'setComponent')]
-    #[SerializedName('xmppcomponent')]
+    #[Accessor(getter: "getComponent", setter: "setComponent")]
+    #[SerializedName("xmppcomponent")]
     #[Type(Component::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Component $component;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Component $component
      * @return self
      */
-    public function __construct(?Component $component = NULL)
+    public function __construct(?Component $component = null)
     {
         $this->component = $component;
     }

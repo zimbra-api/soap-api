@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\TargetType;
 
 /**
@@ -26,80 +32,80 @@ class DiscoverRightsTarget
 {
     /**
      * Target type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private TargetType $type;
 
     /**
      * Target ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Target name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * If a discovered target is an account or a group and the entry has a display name set then this is set to that display name.
-     * 
+     *
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * Email addresses
-     * 
+     *
      * @Accessor(getter="getEmails", setter="setEmails")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")
      * @XmlList(inline=true, entry="email", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type('array<Zimbra\Account\Struct\DiscoverRightsEmail>')]
-    #[XmlList(inline: true, entry: 'email', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getEmails", setter: "setEmails")]
+    #[Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")]
+    #[XmlList(inline: true, entry: "email", namespace: "urn:zimbraAccount")]
     private $emails = [];
 
     /**
@@ -113,22 +119,20 @@ class DiscoverRightsTarget
      * @return self
      */
     public function __construct(
-        ?TargetType $type = NULL,
-        ?string $id = NULL,
-        ?string $name = NULL,
-        ?string $displayName = NULL,
+        ?TargetType $type = null,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $displayName = null,
         array $emails = []
-    )
-    {
-        $this->setType($type ?? new TargetType('account'))
-             ->setEmails($emails);
-        if (NULL !== $id) {
+    ) {
+        $this->setType($type ?? new TargetType("account"))->setEmails($emails);
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $displayName) {
+        if (null !== $displayName) {
             $this->setDisplayName($displayName);
         }
     }
@@ -242,7 +246,8 @@ class DiscoverRightsTarget
     public function setEmails(array $emails): self
     {
         $this->emails = array_filter(
-            $emails, static fn ($email) => $email instanceof DiscoverRightsEmail
+            $emails,
+            static fn($email) => $email instanceof DiscoverRightsEmail
         );
         return $this;
     }

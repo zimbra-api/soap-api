@@ -27,17 +27,17 @@ class BulkOperation extends Enum
      * Constant for value 'move'
      * @return string 'move'
      */
-    protected const MOVE = 'move';
+    protected const MOVE = "move";
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    protected const READ = 'read';
+    protected const READ = "read";
 
     /**
      * Constant for value 'unread'
      * @return string 'unread'
      */
-    protected const UNREAD = 'unread';
+    protected const UNREAD = "unread";
 }

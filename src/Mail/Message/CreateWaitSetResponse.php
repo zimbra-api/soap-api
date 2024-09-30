@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\InterestType;
 use Zimbra\Common\Struct\{CreateWaitSetResp, IdAndType, SoapResponse};
 
 /**
  * CreateWaitSetResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,17 +33,17 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -50,50 +56,50 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * t: tasks
      * d: documents
      * all: all types (equiv to "f,m,c,a,t,d")
-     * 
+     *
      * This is used if types isn't specified for an account
-     * 
+     *
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName('defTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultInterests", setter: "setDefaultInterests")]
+    #[SerializedName("defTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultInterests;
 
     /**
      * Sequence
-     * 
+     *
      * @Accessor(getter="getSequence", setter="setSequence")
      * @SerializedName("seq")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName('seq')]
-    #[Type('int')]
+    #[Accessor(getter: "getSequence", setter: "setSequence")]
+    #[SerializedName("seq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sequence;
 
     /**
      * Error information
-     * 
+     *
      * @Accessor(getter="getErrors", setter="setErrors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
-    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getErrors", setter: "setErrors")]
+    #[Type("array<Zimbra\Common\Struct\IdAndType>")]
+    #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraMail")]
     private $errors = [];
 
     /**
@@ -106,20 +112,19 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * @return self
      */
     public function __construct(
-        ?string $waitSetId = NULL,
-        ?string $defaultInterests = NULL,
-        ?int $sequence = NULL,
+        ?string $waitSetId = null,
+        ?string $defaultInterests = null,
+        ?int $sequence = null,
         array $errors = []
-    )
-    {
+    ) {
         $this->setErrors($errors);
-        if (NULL !== $waitSetId) {
+        if (null !== $waitSetId) {
             $this->setWaitSetId($waitSetId);
         }
-        if (NULL !== $defaultInterests) {
+        if (null !== $defaultInterests) {
             $this->setDefaultInterests($defaultInterests);
         }
-        if (NULL !== $sequence) {
+        if (null !== $sequence) {
             $this->setSequence($sequence);
         }
     }
@@ -165,9 +170,10 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     public function setDefaultInterests(string $defaultInterests): self
     {
         $types = array_filter(
-            explode(',', $defaultInterests), static fn ($type) => InterestType::isValid($type)
+            explode(",", $defaultInterests),
+            static fn($type) => InterestType::isValid($type)
         );
-        $this->defaultInterests = implode(',', array_unique($types));
+        $this->defaultInterests = implode(",", array_unique($types));
         return $this;
     }
 
@@ -180,7 +186,8 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     public function setErrors(array $errors = []): self
     {
         $this->errors = array_filter(
-            $errors, static fn ($error) => $error instanceof IdAndType
+            $errors,
+            static fn($error) => $error instanceof IdAndType
         );
         return $this;
     }

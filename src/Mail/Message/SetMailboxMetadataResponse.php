@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SetMailboxMetadataResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

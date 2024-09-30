@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetDocumentShareURLResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,15 +26,15 @@ class GetDocumentShareURLResponse extends SoapResponse
 {
     /**
      * url
-     * 
+     *
      * @Accessor(getter="getUrl", setter="setUrl")
      * @Type("string")
      * @XmlValue
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $url;
 
@@ -44,7 +44,7 @@ class GetDocumentShareURLResponse extends SoapResponse
      * @param  string $url
      * @return self
      */
-    public function __construct(string $url = '')
+    public function __construct(string $url = "")
     {
         $this->setUrl($url);
     }

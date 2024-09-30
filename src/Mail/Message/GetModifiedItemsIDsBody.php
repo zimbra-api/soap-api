@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetModifiedItemsIDsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @SerializedName("GetModifiedItemsIDsRequest")
      * @Type("Zimbra\Mail\Message\GetModifiedItemsIDsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetModifiedItemsIDsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetModifiedItemsIDsRequest")]
     #[Type(GetModifiedItemsIDsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetModifiedItemsIDsResponse")
      * @Type("Zimbra\Mail\Message\GetModifiedItemsIDsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetModifiedItemsIDsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetModifiedItemsIDsResponse")]
     #[Type(GetModifiedItemsIDsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetModifiedItemsIDsRequest $request = NULL, ?GetModifiedItemsIDsResponse $response = NULL
-    )
-    {
+        ?GetModifiedItemsIDsRequest $request = null,
+        ?GetModifiedItemsIDsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

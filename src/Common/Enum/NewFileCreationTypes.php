@@ -27,17 +27,17 @@ class NewFileCreationTypes extends Enum
      * Constant for value 'document'
      * @return string 'document'
      */
-    protected const DOCUMENT = 'document';
+    protected const DOCUMENT = "document";
 
     /**
      * Constant for value 'presentation'
      * @return string 'presentation'
      */
-    protected const PRESENTATION = 'presentation';
+    protected const PRESENTATION = "presentation";
 
     /**
      * Constant for value 'spreadsheet'
      * @return string 'spreadsheet'
      */
-    protected const SPREADSHEET = 'spreadsheet';
+    protected const SPREADSHEET = "spreadsheet";
 }

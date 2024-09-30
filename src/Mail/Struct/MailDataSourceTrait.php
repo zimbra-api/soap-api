@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 
 /**
  * MailDataSource trait
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -25,129 +25,129 @@ trait MailDataSourceTrait
 {
     /**
      * Imap data source
-     * 
+     *
      * @Accessor(getter="getImapDataSource", setter="setImapDataSource")
      * @SerializedName("imap")
      * @Type("Zimbra\Mail\Struct\MailImapDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailImapDataSource
      */
-    #[Accessor(getter: 'getImapDataSource', setter: 'setImapDataSource')]
-    #[SerializedName('imap')]
+    #[Accessor(getter: "getImapDataSource", setter: "setImapDataSource")]
+    #[SerializedName("imap")]
     #[Type(MailImapDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailImapDataSource $imapDataSource;
 
     /**
      * Pop3 data source
-     * 
+     *
      * @Accessor(getter="getPop3DataSource", setter="setPop3DataSource")
      * @SerializedName("pop3")
      * @Type("Zimbra\Mail\Struct\MailPop3DataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailPop3DataSource
      */
-    #[Accessor(getter: 'getPop3DataSource', setter: 'setPop3DataSource')]
-    #[SerializedName('pop3')]
+    #[Accessor(getter: "getPop3DataSource", setter: "setPop3DataSource")]
+    #[SerializedName("pop3")]
     #[Type(MailPop3DataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailPop3DataSource $pop3DataSource;
 
     /**
      * Caldav data source
-     * 
+     *
      * @Accessor(getter="getCaldavDataSource", setter="setCaldavDataSource")
      * @SerializedName("caldav")
      * @Type("Zimbra\Mail\Struct\MailCaldavDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailCaldavDataSource
      */
-    #[Accessor(getter: 'getCaldavDataSource', setter: 'setCaldavDataSource')]
-    #[SerializedName('caldav')]
+    #[Accessor(getter: "getCaldavDataSource", setter: "setCaldavDataSource")]
+    #[SerializedName("caldav")]
     #[Type(MailCaldavDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailCaldavDataSource $caldavDataSource;
 
     /**
      * Yab data source
-     * 
+     *
      * @Accessor(getter="getYabDataSource", setter="setYabDataSource")
      * @SerializedName("yab")
      * @Type("Zimbra\Mail\Struct\MailYabDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailYabDataSource
      */
-    #[Accessor(getter: 'getYabDataSource', setter: 'setYabDataSource')]
-    #[SerializedName('yab')]
+    #[Accessor(getter: "getYabDataSource", setter: "setYabDataSource")]
+    #[SerializedName("yab")]
     #[Type(MailYabDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailYabDataSource $yabDataSource;
 
     /**
      * Rss data source
-     * 
+     *
      * @Accessor(getter="getRssDataSource", setter="setRssDataSource")
      * @SerializedName("rss")
      * @Type("Zimbra\Mail\Struct\MailRssDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailRssDataSource
      */
-    #[Accessor(getter: 'getRssDataSource', setter: 'setRssDataSource')]
-    #[SerializedName('rss')]
+    #[Accessor(getter: "getRssDataSource", setter: "setRssDataSource")]
+    #[SerializedName("rss")]
     #[Type(MailRssDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailRssDataSource $rssDataSource;
 
     /**
      * Gal data source
-     * 
+     *
      * @Accessor(getter="getGalDataSource", setter="setGalDataSource")
      * @SerializedName("gal")
      * @Type("Zimbra\Mail\Struct\MailGalDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
      * @var MailGalDataSource
      */
-    #[Accessor(getter: 'getGalDataSource', setter: 'setGalDataSource')]
-    #[SerializedName('gal')]
+    #[Accessor(getter: "getGalDataSource", setter: "setGalDataSource")]
+    #[SerializedName("gal")]
     #[Type(MailGalDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailGalDataSource $galDataSource;
 
     /**
      * Cal data source
-     * 
+     *
      * @Accessor(getter="getCalDataSource", setter="setCalDataSource")
      * @SerializedName("cal")
      * @Type("Zimbra\Mail\Struct\MailCalDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailCalDataSource
      */
-    #[Accessor(getter: 'getCalDataSource', setter: 'setCalDataSource')]
-    #[SerializedName('cal')]
+    #[Accessor(getter: "getCalDataSource", setter: "setCalDataSource")]
+    #[SerializedName("cal")]
     #[Type(MailCalDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailCalDataSource $calDataSource;
 
     /**
      * Unknown data source
-     * 
+     *
      * @Accessor(getter="getUnknownDataSource", setter="setUnknownDataSource")
      * @SerializedName("unknown")
      * @Type("Zimbra\Mail\Struct\MailUnknownDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var MailUnknownDataSource
      */
-    #[Accessor(getter: 'getUnknownDataSource', setter: 'setUnknownDataSource')]
-    #[SerializedName('unknown')]
+    #[Accessor(getter: "getUnknownDataSource", setter: "setUnknownDataSource")]
+    #[SerializedName("unknown")]
     #[Type(MailUnknownDataSource::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailUnknownDataSource $unknownDataSource;
 
     /**
@@ -180,14 +180,14 @@ trait MailDataSourceTrait
             return $this->setCalDataSource($dataSource);
         }
         if ($dataSource instanceof MailUnknownDataSource) {
-             return $this->setUnknownDataSource($dataSource);
+            return $this->setUnknownDataSource($dataSource);
         }
         return $this;
     }
 
     /**
      * Get imap data source
-     * 
+     *
      * @return MailImapDataSource
      */
     public function getImapDataSource(): ?MailImapDataSource
@@ -209,7 +209,7 @@ trait MailDataSourceTrait
 
     /**
      * Get pop3 data source
-     * 
+     *
      * @return MailPop3DataSource
      */
     public function getPop3DataSource(): ?MailPop3DataSource
@@ -231,7 +231,7 @@ trait MailDataSourceTrait
 
     /**
      * Get caldav data source
-     * 
+     *
      * @return MailCaldavDataSource
      */
     public function getCaldavDataSource(): ?MailCaldavDataSource
@@ -253,7 +253,7 @@ trait MailDataSourceTrait
 
     /**
      * Get yab data source
-     * 
+     *
      * @return MailYabDataSource
      */
     public function getYabDataSource(): ?MailYabDataSource
@@ -275,7 +275,7 @@ trait MailDataSourceTrait
 
     /**
      * Get rss data source
-     * 
+     *
      * @return MailRssDataSource
      */
     public function getRssDataSource(): ?MailRssDataSource
@@ -297,7 +297,7 @@ trait MailDataSourceTrait
 
     /**
      * Get gal data source
-     * 
+     *
      * @return MailGalDataSource
      */
     public function getGalDataSource(): ?MailGalDataSource
@@ -319,7 +319,7 @@ trait MailDataSourceTrait
 
     /**
      * Get cal data source
-     * 
+     *
      * @return MailCalDataSource
      */
     public function getCalDataSource(): ?MailCalDataSource
@@ -341,7 +341,7 @@ trait MailDataSourceTrait
 
     /**
      * Get unknown data source
-     * 
+     *
      * @return MailUnknownDataSource
      */
     public function getUnknownDataSource(): ?MailUnknownDataSource
@@ -355,8 +355,9 @@ trait MailDataSourceTrait
      * @param  MailUnknownDataSource $dataSource
      * @return self
      */
-    public function setUnknownDataSource(MailUnknownDataSource $dataSource): self
-    {
+    public function setUnknownDataSource(
+        MailUnknownDataSource $dataSource
+    ): self {
         $this->unknownDataSource = $dataSource;
         return $this;
     }

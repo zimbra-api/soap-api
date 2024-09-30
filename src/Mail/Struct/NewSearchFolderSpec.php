@@ -27,129 +27,129 @@ class NewSearchFolderSpec
 {
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * query
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * Search types
-     * 
+     *
      * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getSearchTypes", setter: "setSearchTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $searchTypes;
 
     /**
      * Sort by
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("Enum<Zimbra\Common\Enum\SearchSortBy>")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
     /**
      * Flags
-     * 
+     *
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * Parent folder ID
-     * 
+     *
      * @Accessor(getter="getParentFolderId", setter="setParentFolderId")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getParentFolderId', setter: 'setParentFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getParentFolderId", setter: "setParentFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $parentFolderId;
 
@@ -167,32 +167,30 @@ class NewSearchFolderSpec
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $query = '',
-        ?string $searchTypes = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?string $flags = NULL,
-        ?int $color = NULL,
-        ?string $rgb = NULL,
-        ?string $parentFolderId = NULL
-    )
-    {
-        $this->setName($name)
-             ->setQuery($query);
+        string $name = "",
+        string $query = "",
+        ?string $searchTypes = null,
+        ?SearchSortBy $sortBy = null,
+        ?string $flags = null,
+        ?int $color = null,
+        ?string $rgb = null,
+        ?string $parentFolderId = null
+    ) {
+        $this->setName($name)->setQuery($query);
         $this->sortBy = $sortBy;
-        if (NULL !== $searchTypes) {
+        if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
         }
-        if (NULL !== $flags) {
+        if (null !== $flags) {
             $this->setFlags($flags);
         }
-        if (NULL !== $color) {
+        if (null !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $rgb) {
+        if (null !== $rgb) {
             $this->setRgb($rgb);
         }
-        if (NULL !== $parentFolderId) {
+        if (null !== $parentFolderId) {
             $this->setParentFolderId($parentFolderId);
         }
     }
@@ -260,12 +258,12 @@ class NewSearchFolderSpec
     public function setSearchTypes(string $searchTypes): self
     {
         $validTypes = [];
-        foreach (explode(',', $searchTypes) as $type) {
+        foreach (explode(",", $searchTypes) as $type) {
             if (ItemType::isValid($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }
-        $this->searchTypes = implode(',', $validTypes);
+        $this->searchTypes = implode(",", $validTypes);
         return $this;
     }
 

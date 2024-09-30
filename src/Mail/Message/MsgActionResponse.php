@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * MsgActionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class MsgActionResponse extends SoapResponse
     /**
      * The <action> element in the response always contains the same id list that the client sent in the request.
      * In particular, IDs that were ignored due to constraints are included in the id list.
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var ActionResult
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(ActionResult::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ActionResult $action;
 
     /**
@@ -48,7 +48,7 @@ class MsgActionResponse extends SoapResponse
      * @param  ActionResult $action
      * @return self
      */
-    public function __construct(?ActionResult $action = NULL)
+    public function __construct(?ActionResult $action = null)
     {
         $this->action = $action;
     }

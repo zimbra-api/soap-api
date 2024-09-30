@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ResetRecentMessageCountBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class ResetRecentMessageCountBody extends SoapBody
      * @SerializedName("ResetRecentMessageCountRequest")
      * @Type("Zimbra\Mail\Message\ResetRecentMessageCountRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ResetRecentMessageCountRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ResetRecentMessageCountRequest")]
     #[Type(ResetRecentMessageCountRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("ResetRecentMessageCountResponse")
      * @Type("Zimbra\Mail\Message\ResetRecentMessageCountResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ResetRecentMessageCountResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ResetRecentMessageCountResponse")]
     #[Type(ResetRecentMessageCountResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class ResetRecentMessageCountBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ResetRecentMessageCountRequest $request = NULL, ?ResetRecentMessageCountResponse $response = NULL
-    )
-    {
+        ?ResetRecentMessageCountRequest $request = null,
+        ?ResetRecentMessageCountResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

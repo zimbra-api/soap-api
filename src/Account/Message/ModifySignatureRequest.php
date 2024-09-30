@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Change attributes of the given signature.
  * Only the attributes specified in the request are modified.
  * Note:
- * The Server identifies the signature by id, if the name attribute is present and is different from the current name of the signature, the signature will be renamed. 
+ * The Server identifies the signature by id, if the name attribute is present and is different from the current name of the signature, the signature will be renamed.
  *
  * @package    Zimbra
  * @subpackage Account
@@ -31,23 +31,23 @@ class ModifySignatureRequest extends SoapRequest
 {
     /**
      * Specifies the changes to the signature
-     * 
+     *
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\Signature")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var Signature
      */
-    #[Accessor(getter: 'getSignature', setter: 'setSignature')]
-    #[SerializedName('signature')]
+    #[Accessor(getter: "getSignature", setter: "setSignature")]
+    #[SerializedName("signature")]
     #[Type(Signature::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private Signature $signature;
 
     /**
      * Constructor
-     * 
+     *
      * @param Signature $signature
      * @return self
      */
@@ -83,8 +83,6 @@ class ModifySignatureRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifySignatureEnvelope(
-            new ModifySignatureBody($this)
-        );
+        return new ModifySignatureEnvelope(new ModifySignatureBody($this));
     }
 }

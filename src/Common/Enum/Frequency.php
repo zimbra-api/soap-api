@@ -27,41 +27,41 @@ class Frequency extends Enum
      * Constant for value 'SEC'
      * @return string 'SEC'
      */
-    protected const SECOND = 'SEC';
+    protected const SECOND = "SEC";
 
     /**
      * Constant for value 'MIN'
      * @return string 'MIN'
      */
-    protected const MINUTE = 'MIN';
+    protected const MINUTE = "MIN";
 
     /**
      * Constant for value 'HOU'
      * @return string 'HOU'
      */
-    protected const HOUR = 'HOU';
+    protected const HOUR = "HOU";
 
     /**
      * Constant for value 'DAI'
      * @return string 'DAI'
      */
-    protected const DAY = 'DAI';
+    protected const DAY = "DAI";
 
     /**
      * Constant for value 'WEE'
      * @return string 'WEE'
      */
-    protected const WEEK = 'WEE';
+    protected const WEEK = "WEE";
 
     /**
      * Constant for value 'MON'
      * @return string 'MON'
      */
-    protected const MONTH = 'MON';
+    protected const MONTH = "MON";
 
     /**
      * Constant for value 'YEA'
      * @return string 'YEA'
      */
-    protected const YEAR = 'YEA';
+    protected const YEAR = "YEA";
 }

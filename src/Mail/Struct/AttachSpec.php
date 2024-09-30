@@ -25,17 +25,17 @@ abstract class AttachSpec
 {
     /**
      * Optional
-     * 
+     *
      * @Accessor(getter="getOptional", setter="setOptional")
      * @SerializedName("optional")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getOptional', setter: 'setOptional')]
-    #[SerializedName('optional')]
-    #[Type('bool')]
+    #[Accessor(getter: "getOptional", setter: "setOptional")]
+    #[SerializedName("optional")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $optional;
 
@@ -45,9 +45,9 @@ abstract class AttachSpec
      * @param bool $optional
      * @return self
      */
-    public function __construct(?bool $optional = NULL)
+    public function __construct(?bool $optional = null)
     {
-        if (NULL !== $optional) {
+        if (null !== $optional) {
             $this->setOptional($optional);
         }
     }

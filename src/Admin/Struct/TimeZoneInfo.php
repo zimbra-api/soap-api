@@ -25,47 +25,46 @@ class TimeZoneInfo
 {
     /**
      * Timezone ID. e.g "America/Los_Angeles"
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Timezone display name, e.g. "Pacific Standard Time"
-     * 
+     *
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("displayName")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('displayName')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("displayName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $displayName
      * @return self
      */
-    public function __construct(string $id = '', string $displayName = '')
+    public function __construct(string $id = "", string $displayName = "")
     {
-        $this->setId($id)
-             ->setDisplayName($displayName);
+        $this->setId($id)->setDisplayName($displayName);
     }
 
     /**

@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\CalDataSource;
 
 /**
  * MailCalDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct

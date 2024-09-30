@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CheckBlobConsistencyBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class CheckBlobConsistencyBody extends SoapBody
      * @SerializedName("CheckBlobConsistencyRequest")
      * @Type("Zimbra\Admin\Message\CheckBlobConsistencyRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CheckBlobConsistencyRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CheckBlobConsistencyRequest")]
     #[Type(CheckBlobConsistencyRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("CheckBlobConsistencyResponse")
      * @Type("Zimbra\Admin\Message\CheckBlobConsistencyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CheckBlobConsistencyResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CheckBlobConsistencyResponse")]
     #[Type(CheckBlobConsistencyResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class CheckBlobConsistencyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckBlobConsistencyRequest $request = NULL, ?CheckBlobConsistencyResponse $response = NULL
-    )
-    {
+        ?CheckBlobConsistencyRequest $request = null,
+        ?CheckBlobConsistencyResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

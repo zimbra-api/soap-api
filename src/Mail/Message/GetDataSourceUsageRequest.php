@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetDataSourceUsageRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

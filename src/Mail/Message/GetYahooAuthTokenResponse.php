@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetYahooAuthTokenResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,17 +26,17 @@ class GetYahooAuthTokenResponse extends SoapResponse
 {
     /**
      * Failed
-     * 
+     *
      * @Accessor(getter="getFailed", setter="setFailed")
      * @SerializedName("failed")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFailed', setter: 'setFailed')]
-    #[SerializedName('failed')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFailed", setter: "setFailed")]
+    #[SerializedName("failed")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $failed;
 
@@ -46,9 +46,9 @@ class GetYahooAuthTokenResponse extends SoapResponse
      * @param  bool $failed
      * @return self
      */
-    public function __construct(?bool $failed = NULL)
+    public function __construct(?bool $failed = null)
     {
-        if (NULL !== $failed) {
+        if (null !== $failed) {
             $this->setFailed($failed);
         }
     }

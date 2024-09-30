@@ -27,11 +27,11 @@ class ContentType extends Enum
      * Constant for value 'text/plain'
      * @return string 'text/plain'
      */
-    protected const TEXT_PLAIN = 'text/plain';
+    protected const TEXT_PLAIN = "text/plain";
 
     /**
      * Constant for value 'text/html'
      * @return string 'text/html'
      */
-    protected const TEXT_HTML = 'text/html';
+    protected const TEXT_HTML = "text/html";
 }

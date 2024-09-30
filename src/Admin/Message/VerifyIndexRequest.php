@@ -28,27 +28,27 @@ class VerifyIndexRequest extends SoapRequest
 {
     /**
      * Mailbox by account id selector
-     * 
+     *
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mailbox  $mbox
      * @return self
      */
-    public function __construct(?Mailbox $mbox = NULL)
+    public function __construct(?Mailbox $mbox = null)
     {
         $this->mbox = $mbox;
     }
@@ -80,8 +80,6 @@ class VerifyIndexRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new VerifyIndexEnvelope(
-            new VerifyIndexBody($this)
-        );
+        return new VerifyIndexEnvelope(new VerifyIndexBody($this));
     }
 }

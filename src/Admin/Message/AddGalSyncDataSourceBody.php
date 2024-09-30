@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * AddGalSyncDataSourceBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @SerializedName("AddGalSyncDataSourceRequest")
      * @Type("Zimbra\Admin\Message\AddGalSyncDataSourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('AddGalSyncDataSourceRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("AddGalSyncDataSourceRequest")]
     #[Type(AddGalSyncDataSourceRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("AddGalSyncDataSourceResponse")
      * @Type("Zimbra\Admin\Message\AddGalSyncDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('AddGalSyncDataSourceResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("AddGalSyncDataSourceResponse")]
     #[Type(AddGalSyncDataSourceResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?AddGalSyncDataSourceRequest $request = NULL, ?AddGalSyncDataSourceResponse $response = NULL
-    )
-    {
+        ?AddGalSyncDataSourceRequest $request = null,
+        ?AddGalSyncDataSourceResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

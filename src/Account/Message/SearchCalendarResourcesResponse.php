@@ -10,13 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Account\Struct\CalendarResourceInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchCalendarResourcesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,49 +33,49 @@ class SearchCalendarResourcesResponse extends SoapResponse
 {
     /**
      * Name of attribute sorted on. If not present then sorted by the calendar resource name.
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * The 0-based offset into the results list to return as the first result for this search operation.
-     * 
+     *
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Flags whether there are more results
-     * 
+     *
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
@@ -77,32 +83,38 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * Flag whether the underlying search supported pagination.
      * 1 (true) - limit and offset in the request was honored
      * 0 (false) - the underlying search does not support pagination. limit and offset in the request was not honored
-     * 
+     *
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
      * @SerializedName("paginationSupported")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
-    #[SerializedName('paginationSupported')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPagingSupported", setter: "setPagingSupported")]
+    #[SerializedName("paginationSupported")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $pagingSupported;
 
     /**
      * Matching calendar resources
-     * 
+     *
      * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
      * @Type("array<Zimbra\Account\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalendarResources', setter: 'setCalendarResources')]
-    #[Type('array<Zimbra\Account\Struct\CalendarResourceInfo>')]
-    #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCalendarResources", setter: "setCalendarResources")]
+    #[Type("array<Zimbra\Account\Struct\CalendarResourceInfo>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "calresource",
+            namespace: "urn:zimbraAccount"
+        )
+    ]
     private $calendarResources = [];
 
     /**
@@ -116,23 +128,22 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $sortBy = NULL,
-        ?int $offset = NULL,
-        ?bool $more = NULL,
-        ?bool $pagingSupported = NULL,
+        ?string $sortBy = null,
+        ?int $offset = null,
+        ?bool $more = null,
+        ?bool $pagingSupported = null,
         array $calendarResources = []
-    )
-    {
-        if (NULL !== $sortBy) {
+    ) {
+        if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
-        if (NULL !== $offset) {
+        if (null !== $offset) {
             $this->setOffset($offset);
         }
-        if (NULL !== $more) {
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if (NULL !== $pagingSupported) {
+        if (null !== $pagingSupported) {
             $this->setPagingSupported($pagingSupported);
         }
         $this->setCalendarResources($calendarResources);
@@ -235,7 +246,8 @@ class SearchCalendarResourcesResponse extends SoapResponse
     public function setCalendarResources(array $resources): self
     {
         $this->calendarResources = array_filter(
-            $resources, static fn ($resource) => $resource instanceof CalendarResourceInfo
+            $resources,
+            static fn($resource) => $resource instanceof CalendarResourceInfo
         );
         return $this;
     }

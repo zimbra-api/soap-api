@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Common\Enum\ContactBackupOp;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -29,49 +36,50 @@ class ContactBackupRequest extends SoapRequest
 {
     /**
      * List of servers
-     * 
+     *
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getServers', setter: 'setServers')]
-    #[SerializedName('servers')]
-    #[Type('array<Zimbra\Admin\Struct\ServerSelector>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'server', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getServers", setter: "setServers")]
+    #[SerializedName("servers")]
+    #[Type("array<Zimbra\Admin\Struct\ServerSelector>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "server", namespace: "urn:zimbraAdmin")]
     private $servers = [];
 
     /**
      * op can be either start or stop
-     * 
+     *
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")
      * @XmlAttribute
-     * 
+     *
      * @var ContactBackupOp
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\ContactBackupOp>')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")]
     #[XmlAttribute]
     private ContactBackupOp $op;
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $servers
      * @param  ContactBackupOp $op
      * @return self
      */
-    public function __construct(array $servers = [], ?ContactBackupOp $op = NULL)
-    {
-        $this->setServers($servers)
-             ->setOp($op ?? new ContactBackupOp('start'));
+    public function __construct(
+        array $servers = [],
+        ?ContactBackupOp $op = null
+    ) {
+        $this->setServers($servers)->setOp($op ?? new ContactBackupOp("start"));
     }
 
     /**
@@ -93,7 +101,8 @@ class ContactBackupRequest extends SoapRequest
     public function setServers(array $servers): self
     {
         $this->servers = array_filter(
-            $servers, static fn ($server) => $server instanceof ServerSelector
+            $servers,
+            static fn($server) => $server instanceof ServerSelector
         );
         return $this;
     }
@@ -104,7 +113,7 @@ class ContactBackupRequest extends SoapRequest
      * @param  ServerSelector $server
      * @return self
      */
-    public function addServer(ServerSelector $server)
+    public function addServer(ServerSelector $server): self
     {
         $this->servers[] = $server;
         return $this;
@@ -137,8 +146,6 @@ class ContactBackupRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ContactBackupEnvelope(
-            new ContactBackupBody($this)
-        );
+        return new ContactBackupEnvelope(new ContactBackupBody($this));
     }
 }

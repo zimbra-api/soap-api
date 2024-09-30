@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetRightRequest class
- * Get definition of a right 
- * 
+ * Get definition of a right
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,37 +32,37 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetRightRequest extends SoapRequest
 {
     /**
-     * whether to include all attribute names in the <attrs> elements in the response if the right is meant for all attributes 
-     * 0 (false) [default]: do not include all attribute names in the <attrs> elements 
-     * 1 (true): include all attribute names in the <attrs> elements 
-     * 
+     * whether to include all attribute names in the <attrs> elements in the response if the right is meant for all attributes
+     * 0 (false) [default]: do not include all attribute names in the <attrs> elements
+     * 1 (true): include all attribute names in the <attrs> elements
+     *
      * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
      * @SerializedName("expandAllAttrs")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
-    #[SerializedName('expandAllAttrs')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExpandAllAttrs", setter: "setExpandAllAttrs")]
+    #[SerializedName("expandAllAttrs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
      * Right name
-     * 
+     *
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $right;
 
     /**
@@ -66,10 +72,12 @@ class GetRightRequest extends SoapRequest
      * @param  bool $expandAllAttrs
      * @return self
      */
-    public function __construct(string $right = '', ?bool $expandAllAttrs = NULL)
-    {
+    public function __construct(
+        string $right = "",
+        ?bool $expandAllAttrs = null
+    ) {
         $this->setRight($right);
-        if (NULL !== $expandAllAttrs) {
+        if (null !== $expandAllAttrs) {
             $this->setExpandAllAttrs($expandAllAttrs);
         }
     }
@@ -123,8 +131,6 @@ class GetRightRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetRightEnvelope(
-            new GetRightBody($this)
-        );
+        return new GetRightEnvelope(new GetRightBody($this));
     }
 }

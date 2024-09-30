@@ -21,6 +21,8 @@ use Zimbra\Common\Struct\AddRecurrenceInfoInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AddRecurrenceInfo extends RecurrenceInfo implements RecurRuleBase, AddRecurrenceInfoInterface
+class AddRecurrenceInfo extends RecurrenceInfo implements
+    RecurRuleBase,
+    AddRecurrenceInfoInterface
 {
 }

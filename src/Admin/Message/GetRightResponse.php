@@ -27,27 +27,27 @@ class GetRightResponse extends SoapResponse
 {
     /**
      * Right information
-     * 
+     *
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var RightInfo
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
     #[Type(RightInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?RightInfo $right;
 
     /**
      * Constructor
-     * 
+     *
      * @param RightInfo $right
      * @return self
      */
-    public function __construct(?RightInfo $right = NULL)
+    public function __construct(?RightInfo $right = null)
     {
         $this->right = $right;
     }

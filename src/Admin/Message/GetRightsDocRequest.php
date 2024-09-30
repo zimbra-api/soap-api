@@ -28,21 +28,21 @@ class GetRightsDocRequest extends SoapRequest
 {
     /**
      * Packages
-     * 
+     *
      * @Accessor(getter="getPkgs", setter="setPkgs")
      * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
      * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPkgs', setter: 'setPkgs')]
-    #[Type('array<Zimbra\Admin\Struct\PackageSelector>')]
-    #[XmlList(inline: true, entry: 'package', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getPkgs", setter: "setPkgs")]
+    #[Type("array<Zimbra\Admin\Struct\PackageSelector>")]
+    #[XmlList(inline: true, entry: "package", namespace: "urn:zimbraAdmin")]
     private $pkgs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $pkgs
      * @return self
      */
@@ -72,7 +72,8 @@ class GetRightsDocRequest extends SoapRequest
     public function setPkgs(array $pkgs): self
     {
         $this->pkgs = array_filter(
-            $pkgs, static fn ($pkg) => $pkg instanceof PackageSelector
+            $pkgs,
+            static fn($pkg) => $pkg instanceof PackageSelector
         );
         return $this;
     }
@@ -92,8 +93,6 @@ class GetRightsDocRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetRightsDocEnvelope(
-            new GetRightsDocBody($this)
-        );
+        return new GetRightsDocEnvelope(new GetRightsDocBody($this));
     }
 }

@@ -25,67 +25,67 @@ abstract class ImportStatusInfo
 {
     /**
      * Data source ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Whether data is currently being imported from this data source
-     * 
+     *
      * @Accessor(getter="getRunning", setter="setRunning")
      * @SerializedName("isRunning")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getRunning', setter: 'setRunning')]
-    #[SerializedName('isRunning')]
-    #[Type('bool')]
+    #[Accessor(getter: "getRunning", setter: "setRunning")]
+    #[SerializedName("isRunning")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $running;
 
     /**
      * Whether the last import completed successfully.
      * (not returned if the import has not run yet)
-     * 
+     *
      * @Accessor(getter="getSuccess", setter="setSuccess")
      * @SerializedName("success")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
-    #[SerializedName('success')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSuccess", setter: "setSuccess")]
+    #[SerializedName("success")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $success;
 
     /**
      * If the last import failed, this is the error message that was returned.
      * (not returned if the import has not run yet)
-     * 
+     *
      * @Accessor(getter="getError", setter="setError")
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName('error')]
-    #[Type('string')]
+    #[Accessor(getter: "getError", setter: "setError")]
+    #[SerializedName("error")]
+    #[Type("string")]
     #[XmlAttribute]
     private $error;
 
@@ -99,22 +99,21 @@ abstract class ImportStatusInfo
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?bool $running = NULL,
-        ?bool $success = NULL,
-        ?string $error = NULL
-    )
-    {
-        if (NULL !== $id) {
+        ?string $id = null,
+        ?bool $running = null,
+        ?bool $success = null,
+        ?string $error = null
+    ) {
+        if (null !== $id) {
             $this->setId($id);
         }
-        if (NULL !== $running) {
+        if (null !== $running) {
             $this->setRunning($running);
         }
-        if (NULL !== $success) {
+        if (null !== $success) {
             $this->setSuccess($success);
         }
-        if (NULL !== $error) {
+        if (null !== $error) {
             $this->setError($error);
         }
     }

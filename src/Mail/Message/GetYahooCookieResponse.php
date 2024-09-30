@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetYahooCookieResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,65 +26,65 @@ class GetYahooCookieResponse extends SoapResponse
 {
     /**
      * Error
-     * 
+     *
      * @Accessor(getter="getError", setter="setError")
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName('error')]
-    #[Type('string')]
+    #[Accessor(getter: "getError", setter: "setError")]
+    #[SerializedName("error")]
+    #[Type("string")]
     #[XmlAttribute]
     private $error;
 
     /**
      * Crumb
-     * 
+     *
      * @Accessor(getter="getCrumb", setter="setCrumb")
      * @SerializedName("crumb")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCrumb', setter: 'setCrumb')]
-    #[SerializedName('crumb')]
-    #[Type('string')]
+    #[Accessor(getter: "getCrumb", setter: "setCrumb")]
+    #[SerializedName("crumb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $crumb;
 
     /**
      * Y
-     * 
+     *
      * @Accessor(getter="getY", setter="setY")
      * @SerializedName("y")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getY', setter: 'setY')]
-    #[SerializedName('y')]
-    #[Type('string')]
+    #[Accessor(getter: "getY", setter: "setY")]
+    #[SerializedName("y")]
+    #[Type("string")]
     #[XmlAttribute]
     private $y;
 
     /**
      * T
-     * 
+     *
      * @Accessor(getter="getT", setter="setT")
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getT', setter: 'setT')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getT", setter: "setT")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $t;
 
@@ -98,19 +98,21 @@ class GetYahooCookieResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $error = NULL, ?string $crumb = NULL, ?string $y = NULL, ?string $t = NULL
-    )
-    {
-        if (NULL !== $error) {
+        ?string $error = null,
+        ?string $crumb = null,
+        ?string $y = null,
+        ?string $t = null
+    ) {
+        if (null !== $error) {
             $this->setError($error);
         }
-        if (NULL !== $crumb) {
+        if (null !== $crumb) {
             $this->setCrumb($crumb);
         }
-        if (NULL !== $y) {
+        if (null !== $y) {
             $this->setY($y);
         }
-        if (NULL !== $t) {
+        if (null !== $t) {
             $this->setT($t);
         }
     }

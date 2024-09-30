@@ -27,18 +27,18 @@ class GetXMPPComponentResponse extends SoapResponse
 {
     /**
      * XMPP Component Information
-     * 
+     *
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var XMPPComponentInfo
      */
-    #[Accessor(getter: 'getComponent', setter: 'setComponent')]
-    #[SerializedName('xmppcomponent')]
+    #[Accessor(getter: "getComponent", setter: "setComponent")]
+    #[SerializedName("xmppcomponent")]
     #[Type(XMPPComponentInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?XMPPComponentInfo $component;
 
     /**
@@ -47,7 +47,7 @@ class GetXMPPComponentResponse extends SoapResponse
      * @param XMPPComponentInfo $component
      * @return self
      */
-    public function __construct(?XMPPComponentInfo $component = NULL)
+    public function __construct(?XMPPComponentInfo $component = null)
     {
         $this->component = $component;
     }

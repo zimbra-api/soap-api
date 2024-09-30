@@ -27,35 +27,35 @@ class ValueComparison extends Enum
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    protected const GREATER_THAN = 'gt';
+    protected const GREATER_THAN = "gt";
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    protected const GREATER_EQUAL = 'ge';
+    protected const GREATER_EQUAL = "ge";
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    protected const LESS_THAN = 'lt';
+    protected const LESS_THAN = "lt";
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    protected const LESS_EQUAL = 'le';
+    protected const LESS_EQUAL = "le";
 
     /**
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    protected const EQUAL = 'eq';
+    protected const EQUAL = "eq";
 
     /**
      * Constant for value 'ne'
      * @return string 'ne'
      */
-    protected const NOT_EQUAL = 'ne';
+    protected const NOT_EQUAL = "ne";
 }

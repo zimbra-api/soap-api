@@ -16,8 +16,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CreateAlwaysOnClusterRequest class
- * Create a AlwaysOnCluster 
- * Extra attrs: description, zimbraNotes 
+ * Create a AlwaysOnCluster
+ * Extra attrs: description, zimbraNotes
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -31,33 +31,30 @@ class CreateAlwaysOnClusterRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New server name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $name = '', array $attrs = []
-    )
+    public function __construct(string $name = "", array $attrs = [])
     {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        $this->setName($name)->setAttrs($attrs);
     }
 
     /**

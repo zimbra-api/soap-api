@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * RemoveDistributionListAliasBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class RemoveDistributionListAliasBody extends SoapBody
      * @SerializedName("RemoveDistributionListAliasRequest")
      * @Type("Zimbra\Admin\Message\RemoveDistributionListAliasRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('RemoveDistributionListAliasRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("RemoveDistributionListAliasRequest")]
     #[Type(RemoveDistributionListAliasRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("RemoveDistributionListAliasResponse")
      * @Type("Zimbra\Admin\Message\RemoveDistributionListAliasResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('RemoveDistributionListAliasResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("RemoveDistributionListAliasResponse")]
     #[Type(RemoveDistributionListAliasResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class RemoveDistributionListAliasBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?RemoveDistributionListAliasRequest $request = NULL, ?RemoveDistributionListAliasResponse $response = NULL
-    )
-    {
+        ?RemoveDistributionListAliasRequest $request = null,
+        ?RemoveDistributionListAliasResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

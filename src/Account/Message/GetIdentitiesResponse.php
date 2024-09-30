@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetIdentitiesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,16 +27,16 @@ class GetIdentitiesResponse extends SoapResponse
 {
     /**
      * Identities
-     * 
+     *
      * @Accessor(getter="getIdentities", setter="setIdentities")
      * @Type("array<Zimbra\Account\Struct\Identity>")
      * @XmlList(inline=true, entry="identity", namespace="urn:zimbraAccount")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getIdentities', setter: 'setIdentities')]
-    #[Type('array<Zimbra\Account\Struct\Identity>')]
-    #[XmlList(inline: true, entry: 'identity', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getIdentities", setter: "setIdentities")]
+    #[Type("array<Zimbra\Account\Struct\Identity>")]
+    #[XmlList(inline: true, entry: "identity", namespace: "urn:zimbraAccount")]
     private $identities = [];
 
     /**
@@ -59,7 +59,8 @@ class GetIdentitiesResponse extends SoapResponse
     public function setIdentities(array $identities): self
     {
         $this->identities = array_filter(
-            $identities, static fn ($identity) => $identity instanceof Identity
+            $identities,
+            static fn($identity) => $identity instanceof Identity
         );
         return $this;
     }

@@ -27,10 +27,10 @@ class VersionCheckAction extends Enum
      * Constant for value 'check'
      * @return string 'check'
      */
-    protected const CHECK = 'check';
+    protected const CHECK = "check";
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    protected const STATUS = 'status';
+    protected const STATUS = "status";
 }

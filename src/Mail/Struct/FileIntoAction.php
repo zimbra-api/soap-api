@@ -25,52 +25,55 @@ class FileIntoAction extends FilterAction
 {
     /**
      * Folder path
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folderPath")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folderPath')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folderPath")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * If true, item will be copied to the new location, leaving the original in place.
      * See https://tools.ietf.org/html/rfc3894 "Sieve Extension: Copying Without Side Effects"
-     * 
+     *
      * @Accessor(getter="isCopy", setter="setCopy")
      * @SerializedName("copy")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCopy', setter: 'setCopy')]
-    #[SerializedName('copy')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCopy", setter: "setCopy")]
+    #[SerializedName("copy")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $copy;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $folder
      * @param bool $copy
      * @return self
      */
-    public function __construct(?int $index = NULL, ?string $folder = NULL, ?bool $copy = NULL)
-    {
-    	parent::__construct($index);
-        if (NULL !== $folder) {
+    public function __construct(
+        ?int $index = null,
+        ?string $folder = null,
+        ?bool $copy = null
+    ) {
+        parent::__construct($index);
+        if (null !== $folder) {
             $this->setFolder($folder);
         }
-        if (NULL !== $copy) {
+        if (null !== $copy) {
             $this->setCopy($copy);
         }
     }
@@ -91,7 +94,7 @@ class FileIntoAction extends FilterAction
      * @param  string $folder
      * @return self
      */
-    public function setFolder(string $folder)
+    public function setFolder(string $folder): self
     {
         $this->folder = $folder;
         return $this;
@@ -113,7 +116,7 @@ class FileIntoAction extends FilterAction
      * @param  bool $copy
      * @return self
      */
-    public function setCopy(bool $copy)
+    public function setCopy(bool $copy): self
     {
         $this->copy = $copy;
         return $this;

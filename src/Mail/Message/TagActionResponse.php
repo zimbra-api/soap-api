@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * TagActionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,18 +28,18 @@ class TagActionResponse extends SoapResponse
     /**
      * The <action> element contains information about the tags affected by
      * the operation if and only if the operation was successful
-     * 
+     *
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\TagActionInfo")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var TagActionInfo
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(TagActionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TagActionInfo $action;
 
     /**
@@ -48,7 +48,7 @@ class TagActionResponse extends SoapResponse
      * @param  TagActionInfo $action
      * @return self
      */
-    public function __construct(?TagActionInfo $action = NULL)
+    public function __construct(?TagActionInfo $action = null)
     {
         $this->action = $action;
     }

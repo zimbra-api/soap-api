@@ -26,39 +26,39 @@ class DateTest extends FilterTest
 {
     /**
      * Date comparison setting - before|after
-     * 
+     *
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
      * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
      * @XmlAttribute
-     * 
+     *
      * @var DateComparison
      */
-    #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
-    #[SerializedName('dateComparison')]
-    #[Type('Enum<Zimbra\Common\Enum\DateComparison>')]
+    #[Accessor(getter: "getDateComparison", setter: "setDateComparison")]
+    #[SerializedName("dateComparison")]
+    #[Type("Enum<Zimbra\Common\Enum\DateComparison>")]
     #[XmlAttribute]
     private ?DateComparison $dateComparison;
 
     /**
      * Date
-     * 
+     *
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("date")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('date')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("date")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param DateComparison $dateComparison
@@ -66,15 +66,14 @@ class DateTest extends FilterTest
      * @return self
      */
     public function __construct(
-        ?int $index = NULL,
-        ?bool $negative = NULL,
-        ?DateComparison $dateComparison = NULL,
-        ?int $date = NULL
-    )
-    {
-    	parent::__construct($index, $negative);
+        ?int $index = null,
+        ?bool $negative = null,
+        ?DateComparison $dateComparison = null,
+        ?int $date = null
+    ) {
+        parent::__construct($index, $negative);
         $this->dateComparison = $dateComparison;
-        if (NULL !== $date) {
+        if (null !== $date) {
             $this->setDate($date);
         }
     }

@@ -27,23 +27,23 @@ class DocumentActionOp extends Enum
      * Constant for value 'watch'
      * @return string 'watch'
      */
-    protected const WATCH = 'watch';
+    protected const WATCH = "watch";
 
     /**
      * Constant for value '!watch'
      * @return string '!watch'
      */
-    protected const NOT_WATCH = '!watch';
+    protected const NOT_WATCH = "!watch";
 
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    protected const GRANT = 'grant';
+    protected const GRANT = "grant";
 
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    protected const NOT_GRANT = '!grant';
+    protected const NOT_GRANT = "!grant";
 }

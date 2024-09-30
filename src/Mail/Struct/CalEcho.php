@@ -25,18 +25,18 @@ class CalEcho
 {
     /**
      * Invite
-     * 
+     *
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\InviteAsMP")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var InviteAsMP
      */
-    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName("m")]
     #[Type(InviteAsMP::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteAsMP $invite;
 
     /**
@@ -45,7 +45,7 @@ class CalEcho
      * @param InviteAsMP $invite
      * @return self
      */
-    public function __construct(?InviteAsMP $invite = NULL)
+    public function __construct(?InviteAsMP $invite = null)
     {
         $this->invite = $invite;
     }

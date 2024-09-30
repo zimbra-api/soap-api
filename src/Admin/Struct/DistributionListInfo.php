@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * DistributionListInfo struct class
@@ -25,55 +32,55 @@ class DistributionListInfo extends AdminObjectInfo
 {
     /**
      * Flags whether this is a dynamic distribution list or not
-     * 
+     *
      * @Accessor(getter="isDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
     /**
      * dl members
-     * 
+     *
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMembers", setter: "setMembers")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAdmin")]
     private $members = [];
 
     /**
      * Owner information
-     * 
+     *
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getOwners', setter: 'setOwners')]
-    #[SerializedName('owners')]
-    #[Type('array<Zimbra\Admin\Struct\GranteeInfo>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'owner', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getOwners", setter: "setOwners")]
+    #[SerializedName("owners")]
+    #[Type("array<Zimbra\Admin\Struct\GranteeInfo>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "owner", namespace: "urn:zimbraAdmin")]
     private $owners = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @param array  $members
@@ -83,18 +90,16 @@ class DistributionListInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $id = '',
+        string $name = "",
+        string $id = "",
         array $members = [],
         array $attrs = [],
         array $owners = [],
-        ?bool $dynamic = NULL
-    )
-    {
+        ?bool $dynamic = null
+    ) {
         parent::__construct($name, $id, $attrs);
-        $this->setMembers($members)
-             ->setOwners($owners);
-        if (NULL !== $dynamic) {
+        $this->setMembers($members)->setOwners($owners);
+        if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }
     }
@@ -140,7 +145,7 @@ class DistributionListInfo extends AdminObjectInfo
     public function setMembers(array $members)
     {
         $this->members = array_unique(
-            array_map(static fn ($member) => trim($member), $members)
+            array_map(static fn($member) => trim($member), $members)
         );
         return $this;
     }
@@ -164,7 +169,8 @@ class DistributionListInfo extends AdminObjectInfo
     public function setOwners(array $owners)
     {
         $this->owners = array_filter(
-            $owners, static fn ($owner) => $owner instanceof GranteeInfo
+            $owners,
+            static fn($owner) => $owner instanceof GranteeInfo
         );
         return $this;
     }

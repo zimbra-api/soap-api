@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllDomainsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,16 +27,16 @@ class GetAllDomainsResponse extends SoapResponse
 {
     /**
      * Information on domains
-     * 
+     *
      * @Accessor(getter="getDomainList", setter="setDomainList")
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDomainList', setter: 'setDomainList')]
-    #[Type('array<Zimbra\Admin\Struct\DomainInfo>')]
-    #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDomainList", setter: "setDomainList")]
+    #[Type("array<Zimbra\Admin\Struct\DomainInfo>")]
+    #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
     private $domainList = [];
 
     /**
@@ -59,7 +59,8 @@ class GetAllDomainsResponse extends SoapResponse
     public function setDomainList(array $domainList): self
     {
         $this->domainList = array_filter(
-            $domainList, static fn ($domain) => $domain instanceof DomainInfo
+            $domainList,
+            static fn($domain) => $domain instanceof DomainInfo
         );
         return $this;
     }

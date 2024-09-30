@@ -12,7 +12,7 @@ namespace Zimbra\Account\Struct;
 
 /**
  * AccountGalDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

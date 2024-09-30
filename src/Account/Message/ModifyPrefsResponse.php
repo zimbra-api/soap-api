@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ModifyPrefsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message

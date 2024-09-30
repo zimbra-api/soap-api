@@ -14,13 +14,14 @@ use Zimbra\Common\Struct\ContactsDataSource;
 
 /**
  * AccountContactsDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class AccountContactsDataSource extends AccountDataSource implements ContactsDataSource
+class AccountContactsDataSource extends AccountDataSource implements
+    ContactsDataSource
 {
 }

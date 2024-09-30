@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetCreateObjectAttrsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @SerializedName("GetCreateObjectAttrsRequest")
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetCreateObjectAttrsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetCreateObjectAttrsRequest")]
     #[Type(GetCreateObjectAttrsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetCreateObjectAttrsResponse")
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetCreateObjectAttrsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetCreateObjectAttrsResponse")]
     #[Type(GetCreateObjectAttrsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetCreateObjectAttrsRequest $request = NULL, ?GetCreateObjectAttrsResponse $response = NULL
-    )
-    {
+        ?GetCreateObjectAttrsRequest $request = null,
+        ?GetCreateObjectAttrsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

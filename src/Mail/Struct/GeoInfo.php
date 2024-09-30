@@ -27,49 +27,51 @@ class GeoInfo implements GeoInfoInterface
 {
     /**
      * Latitude (float value)
-     * 
+     *
      * @Accessor(getter="getLatitude", setter="setLatitude")
      * @SerializedName("lat")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLatitude', setter: 'setLatitude')]
-    #[SerializedName('lat')]
-    #[Type('string')]
+    #[Accessor(getter: "getLatitude", setter: "setLatitude")]
+    #[SerializedName("lat")]
+    #[Type("string")]
     #[XmlAttribute]
     private $latitude;
 
     /**
      * Longitude (float value)
-     * 
+     *
      * @Accessor(getter="getLongitude", setter="setLongitude")
      * @SerializedName("lon")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLongitude', setter: 'setLongitude')]
-    #[SerializedName('lon')]
-    #[Type('string')]
+    #[Accessor(getter: "getLongitude", setter: "setLongitude")]
+    #[SerializedName("lon")]
+    #[Type("string")]
     #[XmlAttribute]
     private $longitude;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $latitude
      * @param string $longitude
      * @return self
      */
-    public function __construct(?string $latitude = NULL, ?string $longitude = NULL)
-    {
-        if (NULL !== $latitude) {
+    public function __construct(
+        ?string $latitude = null,
+        ?string $longitude = null
+    ) {
+        if (null !== $latitude) {
             $this->setLatitude($latitude);
         }
-        if (NULL !== $longitude) {
+        if (null !== $longitude) {
             $this->setLongitude($longitude);
         }
     }

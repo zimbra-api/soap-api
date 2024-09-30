@@ -10,12 +10,18 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\DistributionListBy;
 
 /**
  * DistributionListSelector struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -29,12 +35,12 @@ class DistributionListSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListBy>")
      * @XmlAttribute
-     * 
+     *
      * @var DistributionListBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
-    #[Type('Enum<Zimbra\Common\Enum\DistributionListBy>')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
+    #[Type("Enum<Zimbra\Common\Enum\DistributionListBy>")]
     #[XmlAttribute]
     private DistributionListBy $by;
 
@@ -42,25 +48,27 @@ class DistributionListSelector
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DistributionListBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?DistributionListBy $by = NULL, ?string $value = NULL)
-    {
-        $this->setBy($by ?? new DistributionListBy('name'));
-        if (NULL !== $value) {
+    public function __construct(
+        ?DistributionListBy $by = null,
+        ?string $value = null
+    ) {
+        $this->setBy($by ?? new DistributionListBy("name"));
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

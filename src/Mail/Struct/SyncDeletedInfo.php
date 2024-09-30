@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * SyncDeletedInfo class
@@ -25,200 +31,200 @@ class SyncDeletedInfo
 {
     /**
      * IDs of deleted items
-     * 
+     *
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getFolderTypes", setter="setFolderTypes")
      * @Type("array<Zimbra\Mail\Struct\FolderIdsAttr>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFolderTypes', setter: 'setFolderTypes')]
-    #[Type('array<Zimbra\Mail\Struct\FolderIdsAttr>')]
-    #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFolderTypes", setter: "setFolderTypes")]
+    #[Type("array<Zimbra\Mail\Struct\FolderIdsAttr>")]
+    #[XmlList(inline: true, entry: "folder", namespace: "urn:zimbraMail")]
     private $folderTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
      * @Type("array<Zimbra\Mail\Struct\SearchFolderIdsAttr>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[Type('array<Zimbra\Mail\Struct\SearchFolderIdsAttr>')]
-    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSearchTypes", setter: "setSearchTypes")]
+    #[Type("array<Zimbra\Mail\Struct\SearchFolderIdsAttr>")]
+    #[XmlList(inline: true, entry: "search", namespace: "urn:zimbraMail")]
     private $searchTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getLinkTypes", setter="setLinkTypes")
      * @Type("array<Zimbra\Mail\Struct\MountIdsAttr>")
      * @XmlList(inline=true, entry="link", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLinkTypes', setter: 'setLinkTypes')]
-    #[Type('array<Zimbra\Mail\Struct\MountIdsAttr>')]
-    #[XmlList(inline: true, entry: 'link', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getLinkTypes", setter: "setLinkTypes")]
+    #[Type("array<Zimbra\Mail\Struct\MountIdsAttr>")]
+    #[XmlList(inline: true, entry: "link", namespace: "urn:zimbraMail")]
     private $linkTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getTagTypes", setter="setTagTypes")
      * @Type("array<Zimbra\Mail\Struct\TagIdsAttr>")
      * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTagTypes', setter: 'setTagTypes')]
-    #[Type('array<Zimbra\Mail\Struct\TagIdsAttr>')]
-    #[XmlList(inline: true, entry: 'tag', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTagTypes", setter: "setTagTypes")]
+    #[Type("array<Zimbra\Mail\Struct\TagIdsAttr>")]
+    #[XmlList(inline: true, entry: "tag", namespace: "urn:zimbraMail")]
     private $tagTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getConvTypes", setter="setConvTypes")
      * @Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")
      * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getConvTypes', setter: 'setConvTypes')]
-    #[Type('array<Zimbra\Mail\Struct\ConvIdsAttr>')]
-    #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getConvTypes", setter: "setConvTypes")]
+    #[Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")]
+    #[XmlList(inline: true, entry: "c", namespace: "urn:zimbraMail")]
     private $convTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getChatTypes", setter="setChatTypes")
      * @Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getChatTypes', setter: 'setChatTypes')]
-    #[Type('array<Zimbra\Mail\Struct\ChatIdsAttr>')]
-    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getChatTypes", setter: "setChatTypes")]
+    #[Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")]
+    #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
     private $chatTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getMsgTypes", setter="setMsgTypes")
      * @Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMsgTypes', setter: 'setMsgTypes')]
-    #[Type('array<Zimbra\Mail\Struct\MsgIdsAttr>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMsgTypes", setter: "setMsgTypes")]
+    #[Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $msgTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getContactTypes", setter="setContactTypes")
      * @Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactTypes', setter: 'setContactTypes')]
-    #[Type('array<Zimbra\Mail\Struct\ContactIdsAttr>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContactTypes", setter: "setContactTypes")]
+    #[Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
     private $contactTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getApptTypes", setter="setApptTypes")
      * @Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getApptTypes', setter: 'setApptTypes')]
-    #[Type('array<Zimbra\Mail\Struct\ApptIdsAttr>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getApptTypes", setter: "setApptTypes")]
+    #[Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $apptTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getTaskTypes", setter="setTaskTypes")
      * @Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskTypes', setter: 'setTaskTypes')]
-    #[Type('array<Zimbra\Mail\Struct\TaskIdsAttr>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskTypes", setter: "setTaskTypes")]
+    #[Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getNoteTypes", setter="setNoteTypes")
      * @Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")
      * @XmlList(inline=true, entry="notes", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNoteTypes', setter: 'setNoteTypes')]
-    #[Type('array<Zimbra\Mail\Struct\NoteIdsAttr>')]
-    #[XmlList(inline: true, entry: 'notes', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNoteTypes", setter: "setNoteTypes")]
+    #[Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")]
+    #[XmlList(inline: true, entry: "notes", namespace: "urn:zimbraMail")]
     private $noteTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getWikiTypes", setter="setWikiTypes")
      * @Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")
      * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWikiTypes', setter: 'setWikiTypes')]
-    #[Type('array<Zimbra\Mail\Struct\WikiIdsAttr>')]
-    #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getWikiTypes", setter: "setWikiTypes")]
+    #[Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")]
+    #[XmlList(inline: true, entry: "w", namespace: "urn:zimbraMail")]
     private $wikiTypes = [];
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
-     * 
+     *
      * @Accessor(getter="getDocTypes", setter="setDocTypes")
      * @Type("array<Zimbra\Mail\Struct\DocIdsAttr>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDocTypes', setter: 'setDocTypes')]
-    #[Type('array<Zimbra\Mail\Struct\DocIdsAttr>')]
-    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDocTypes", setter: "setDocTypes")]
+    #[Type("array<Zimbra\Mail\Struct\DocIdsAttr>")]
+    #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
     private $docTypes = [];
 
     /**
@@ -228,10 +234,9 @@ class SyncDeletedInfo
      * @param  array  $types
      * @return self
      */
-    public function __construct(string $ids = '', array $types = [])
+    public function __construct(string $ids = "", array $types = [])
     {
-        $this->setIds($ids)
-             ->setTypes($types);
+        $this->setIds($ids)->setTypes($types);
     }
 
     /**
@@ -243,18 +248,18 @@ class SyncDeletedInfo
     public function setTypes(array $types = []): self
     {
         $this->setFolderTypes($types)
-             ->setSearchTypes($types)
-             ->setLinkTypes($types)
-             ->setTagTypes($types)
-             ->setConvTypes($types)
-             ->setChatTypes($types)
-             ->setMsgTypes($types)
-             ->setContactTypes($types)
-             ->setApptTypes($types)
-             ->setTaskTypes($types)
-             ->setNoteTypes($types)
-             ->setWikiTypes($types)
-             ->setDocTypes($types);
+            ->setSearchTypes($types)
+            ->setLinkTypes($types)
+            ->setTagTypes($types)
+            ->setConvTypes($types)
+            ->setChatTypes($types)
+            ->setMsgTypes($types)
+            ->setContactTypes($types)
+            ->setApptTypes($types)
+            ->setTaskTypes($types)
+            ->setNoteTypes($types)
+            ->setWikiTypes($types)
+            ->setDocTypes($types);
         return $this;
     }
 
@@ -313,7 +318,10 @@ class SyncDeletedInfo
     public function setFolderTypes(array $types): self
     {
         $this->folderTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof FolderIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof FolderIdsAttr
+            )
         );
         return $this;
     }
@@ -337,7 +345,10 @@ class SyncDeletedInfo
     public function setSearchTypes(array $types): self
     {
         $this->searchTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof SearchFolderIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof SearchFolderIdsAttr
+            )
         );
         return $this;
     }
@@ -361,7 +372,10 @@ class SyncDeletedInfo
     public function setLinkTypes(array $types): self
     {
         $this->linkTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof MountIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof MountIdsAttr
+            )
         );
         return $this;
     }
@@ -385,7 +399,10 @@ class SyncDeletedInfo
     public function setTagTypes(array $types): self
     {
         $this->tagTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof TagIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof TagIdsAttr
+            )
         );
         return $this;
     }
@@ -409,7 +426,10 @@ class SyncDeletedInfo
     public function setConvTypes(array $types): self
     {
         $this->convTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof ConvIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof ConvIdsAttr
+            )
         );
         return $this;
     }
@@ -433,7 +453,10 @@ class SyncDeletedInfo
     public function setChatTypes(array $types): self
     {
         $this->chatTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof ChatIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof ChatIdsAttr
+            )
         );
         return $this;
     }
@@ -457,7 +480,10 @@ class SyncDeletedInfo
     public function setMsgTypes(array $types): self
     {
         $this->msgTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof MsgIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof MsgIdsAttr
+            )
         );
         return $this;
     }
@@ -481,7 +507,10 @@ class SyncDeletedInfo
     public function setContactTypes(array $types): self
     {
         $this->contactTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof ContactIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof ContactIdsAttr
+            )
         );
         return $this;
     }
@@ -505,7 +534,10 @@ class SyncDeletedInfo
     public function setApptTypes(array $types): self
     {
         $this->apptTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof ApptIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof ApptIdsAttr
+            )
         );
         return $this;
     }
@@ -529,7 +561,10 @@ class SyncDeletedInfo
     public function setTaskTypes(array $types): self
     {
         $this->taskTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof TaskIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof TaskIdsAttr
+            )
         );
         return $this;
     }
@@ -553,7 +588,10 @@ class SyncDeletedInfo
     public function setNoteTypes(array $types): self
     {
         $this->noteTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof NoteIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof NoteIdsAttr
+            )
         );
         return $this;
     }
@@ -577,7 +615,10 @@ class SyncDeletedInfo
     public function setWikiTypes(array $types): self
     {
         $this->wikiTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof WikiIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof WikiIdsAttr
+            )
         );
         return $this;
     }
@@ -601,7 +642,10 @@ class SyncDeletedInfo
     public function setDocTypes(array $types): self
     {
         $this->docTypes = array_values(
-            array_filter($types, static fn ($type) => $type instanceof DocIdsAttr)
+            array_filter(
+                $types,
+                static fn($type) => $type instanceof DocIdsAttr
+            )
         );
         return $this;
     }

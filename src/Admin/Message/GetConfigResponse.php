@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetConfigResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\SoapResponse;
  */
 class GetConfigResponse extends SoapResponse implements AdminAttrs
 {
-	use AdminAttrsImplTrait;
+    use AdminAttrsImplTrait;
 
     /**
      * Constructor

@@ -26,55 +26,55 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 {
     /**
      * Target type
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('Enum<Zimbra\Common\Enum\TargetType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("Enum<Zimbra\Common\Enum\TargetType>")]
     #[XmlAttribute]
     private TargetType $type;
 
     /**
      * ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Name
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param  EffectiveAttrsInfo $setAttrs
      * @param  EffectiveAttrsInfo $getAttrs
      * @param  TargetType $type
@@ -86,16 +86,15 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     public function __construct(
         EffectiveAttrsInfo $setAttrs,
         EffectiveAttrsInfo $getAttrs,
-        ?TargetType $type = NULL,
-        string $id = '',
-        string $name = '',
+        ?TargetType $type = null,
+        string $id = "",
+        string $name = "",
         array $rights = []
-    )
-    {
+    ) {
         parent::__construct($setAttrs, $getAttrs, $rights);
-        $this->setType($type ?? new TargetType('account'))
-             ->setId($id)
-             ->setName($name);
+        $this->setType($type ?? new TargetType("account"))
+            ->setId($id)
+            ->setName($name);
     }
 
     /**

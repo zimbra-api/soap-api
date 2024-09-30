@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * Property struct class
@@ -28,12 +34,12 @@ class Prop
      * @SerializedName("zimlet")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimlet;
 
@@ -42,12 +48,12 @@ class Prop
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -55,29 +61,29 @@ class Prop
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $zimlet
      * @param  string $name
      * @param  string $value
      * @return self
      */
     public function __construct(
-        string $zimlet = '', string $name = '', ?string $value = NULL
-    )
-    {
-        $this->setZimlet($zimlet)
-             ->setName($name);
-        if (NULL !== $value) {
+        string $zimlet = "",
+        string $name = "",
+        ?string $value = null
+    ) {
+        $this->setZimlet($zimlet)->setName($name);
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

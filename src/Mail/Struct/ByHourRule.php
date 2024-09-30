@@ -27,17 +27,17 @@ class ByHourRule implements ByHourRuleInterface
 {
     /**
      * Comma separated list of hours where hour is a number between 0 and 23
-     * 
+     *
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("hrlist")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('hrlist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("hrlist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -47,7 +47,7 @@ class ByHourRule implements ByHourRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -71,15 +71,15 @@ class ByHourRule implements ByHourRuleInterface
     public function setList(string $list): self
     {
         $hrlist = [];
-        foreach (explode(',', $list) as $hr) {
+        foreach (explode(",", $list) as $hr) {
             if (is_numeric($hr)) {
                 $hr = (int) $hr;
-                if($hr >= 0 && $hr < 24 && !in_array($hr, $hrlist)) {
+                if ($hr >= 0 && $hr < 24 && !in_array($hr, $hrlist)) {
                     $hrlist[] = $hr;
                 }
             }
         }
-        $this->list = implode(',', $hrlist);
+        $this->list = implode(",", $hrlist);
         return $this;
     }
 }

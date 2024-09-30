@@ -27,11 +27,11 @@ class RankingActionOp extends Enum
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    protected const RESET = 'reset';
+    protected const RESET = "reset";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    protected const DELETE = 'delete';
+    protected const DELETE = "delete";
 }

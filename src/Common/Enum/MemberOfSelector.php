@@ -27,15 +27,15 @@ class MemberOfSelector extends Enum
      * Constant for value 'all'
      * @return string 'all'
      */
-    protected const ALL = 'all';
+    protected const ALL = "all";
     /**
      * Constant for value 'directOnly'
      * @return string 'directOnly'
      */
-    protected const DIRECT_ONLY = 'directOnly';
+    protected const DIRECT_ONLY = "directOnly";
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    protected const NONE = 'none';
+    protected const NONE = "none";
 }

@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * BeginTrackingIMAPBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,28 +33,28 @@ class BeginTrackingIMAPBody extends SoapBody
      * @SerializedName("BeginTrackingIMAPRequest")
      * @Type("Zimbra\Mail\Message\BeginTrackingIMAPRequest")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('BeginTrackingIMAPRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("BeginTrackingIMAPRequest")]
     #[Type(BeginTrackingIMAPRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("BeginTrackingIMAPResponse")
      * @Type("Zimbra\Mail\Message\BeginTrackingIMAPResponse")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('BeginTrackingIMAPResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("BeginTrackingIMAPResponse")]
     #[Type(BeginTrackingIMAPResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class BeginTrackingIMAPBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?BeginTrackingIMAPRequest $request = NULL, ?BeginTrackingIMAPResponse $response = NULL
-    )
-    {
+        ?BeginTrackingIMAPRequest $request = null,
+        ?BeginTrackingIMAPResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

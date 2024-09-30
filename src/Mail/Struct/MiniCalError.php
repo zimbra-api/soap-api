@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    Exclude,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * MiniCalError struct class
@@ -25,67 +32,65 @@ class MiniCalError
 {
     /**
      * ID for calendar folder that couldn't be accessed
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * ServiceException error code - service.PERM_DENIED, mail.NO_SUCH_FOLDER, account.NO_SUCH_ACCOUNT, etc.
-     * 
+     *
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName('code')]
-    #[Type('string')]
+    #[Accessor(getter: "getCode", setter: "setCode")]
+    #[SerializedName("code")]
+    #[Type("string")]
     #[XmlAttribute]
     private $code;
 
     /**
      * Error message from the exception (but no stack trace)
-     * 
+     *
      * @Accessor(getter="getErrorMessage", setter="setErrorMessage")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getErrorMessage', setter: 'setErrorMessage')]
-    #[Type('string')]
+    #[Accessor(getter: "getErrorMessage", setter: "setErrorMessage")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $errorMessage;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $code
      * @param string $errorMessage
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $code = '',
-        ?string $errorMessage = NULL
-    )
-    {
-        $this->setId($id)
-             ->setCode($code);
-        if (NULL !== $errorMessage) {
+        string $id = "",
+        string $code = "",
+        ?string $errorMessage = null
+    ) {
+        $this->setId($id)->setCode($code);
+        if (null !== $errorMessage) {
             $this->setErrorMessage($errorMessage);
         }
     }

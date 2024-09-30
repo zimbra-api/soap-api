@@ -27,11 +27,11 @@ class ReplyType extends Enum
      * Constant for value 'REPLIED'
      * @return string 'r'
      */
-    protected const REPLIED = 'r';
+    protected const REPLIED = "r";
 
     /**
      * Constant for value 'FORWARDED'
      * @return string 'w'
      */
-    protected const FORWARDED = 'w';
+    protected const FORWARDED = "w";
 }

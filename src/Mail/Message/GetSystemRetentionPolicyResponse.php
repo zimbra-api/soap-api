@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetSystemRetentionPolicyResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,18 +27,18 @@ class GetSystemRetentionPolicyResponse extends SoapResponse
 {
     /**
      * System Retention policy
-     * 
+     *
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
-     * 
+     *
      * @var RetentionPolicy
      */
-    #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
-    #[SerializedName('retentionPolicy')]
+    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[SerializedName("retentionPolicy")]
     #[Type(RetentionPolicy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RetentionPolicy $retentionPolicy;
 
     /**
@@ -47,7 +47,7 @@ class GetSystemRetentionPolicyResponse extends SoapResponse
      * @param  RetentionPolicy $retentionPolicy
      * @return self
      */
-    public function __construct(?RetentionPolicy $retentionPolicy = NULL)
+    public function __construct(?RetentionPolicy $retentionPolicy = null)
     {
         $this->retentionPolicy = $retentionPolicy;
     }

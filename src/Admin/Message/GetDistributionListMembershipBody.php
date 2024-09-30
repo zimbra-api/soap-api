@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetDistributionListMembershipBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class GetDistributionListMembershipBody extends SoapBody
      * @SerializedName("GetDistributionListMembershipRequest")
      * @Type("Zimbra\Admin\Message\GetDistributionListMembershipRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetDistributionListMembershipRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetDistributionListMembershipRequest")]
     #[Type(GetDistributionListMembershipRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("GetDistributionListMembershipResponse")
      * @Type("Zimbra\Admin\Message\GetDistributionListMembershipResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetDistributionListMembershipResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetDistributionListMembershipResponse")]
     #[Type(GetDistributionListMembershipResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,10 +64,9 @@ class GetDistributionListMembershipBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetDistributionListMembershipRequest $request = NULL,
-        ?GetDistributionListMembershipResponse $response = NULL
-    )
-    {
+        ?GetDistributionListMembershipRequest $request = null,
+        ?GetDistributionListMembershipResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

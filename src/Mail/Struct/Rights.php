@@ -25,27 +25,32 @@ class Rights
 {
     /**
      * The effective permissions of the specified folder
-     * 
+     *
      * @Accessor(getter="getEffectivePermissions", setter="setEffectivePermissions")
      * @SerializedName("perm")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEffectivePermissions', setter: 'setEffectivePermissions')]
-    #[SerializedName('perm')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getEffectivePermissions",
+            setter: "setEffectivePermissions"
+        )
+    ]
+    #[SerializedName("perm")]
+    #[Type("string")]
     #[XmlAttribute]
     private $effectivePermissions;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $effectivePermissions
      * @return self
      */
-    public function __construct(string $effectivePermissions = '')
+    public function __construct(string $effectivePermissions = "")
     {
         $this->setEffectivePermissions($effectivePermissions);
     }

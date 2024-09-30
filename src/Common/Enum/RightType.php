@@ -27,23 +27,23 @@ class RightType extends Enum
      * Constant for value 'preset'
      * @return string 'preset'
      */
-    protected const PRESET = 'preset';
+    protected const PRESET = "preset";
 
     /**
      * Constant for value 'getAttrs'
      * @return string 'getAttrs'
      */
-    protected const GET_ATTRS = 'getAttrs';
+    protected const GET_ATTRS = "getAttrs";
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    protected const SET_ATTRS = 'setAttrs';
+    protected const SET_ATTRS = "setAttrs";
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    protected const COMBO = 'combo';
+    protected const COMBO = "combo";
 }

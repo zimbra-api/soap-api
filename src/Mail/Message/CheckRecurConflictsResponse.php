@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CheckRecurConflictsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,16 +27,16 @@ class CheckRecurConflictsResponse extends SoapResponse
 {
     /**
      * Information on conflicting instances
-     * 
+     *
      * @Accessor(getter="getInstances", setter="setInstances")
      * @Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type('array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>')]
-    #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInstances", setter: "setInstances")]
+    #[Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")]
+    #[XmlList(inline: true, entry: "inst", namespace: "urn:zimbraMail")]
     private $instances = [];
 
     /**
@@ -59,7 +59,9 @@ class CheckRecurConflictsResponse extends SoapResponse
     public function setInstances(array $instances): self
     {
         $this->instances = array_filter(
-            $instances, static fn ($instance) => $instance instanceof ConflictRecurrenceInstance
+            $instances,
+            static fn($instance) => $instance instanceof
+                ConflictRecurrenceInstance
         );
         return $this;
     }

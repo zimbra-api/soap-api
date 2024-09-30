@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ComputeAggregateQuotaUsageBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,28 +33,28 @@ class ComputeAggregateQuotaUsageBody extends SoapBody
      * @SerializedName("ComputeAggregateQuotaUsageRequest")
      * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ComputeAggregateQuotaUsageRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ComputeAggregateQuotaUsageRequest")]
     #[Type(ComputeAggregateQuotaUsageRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapRequestInterface $request = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapRequestInterface $request = null;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
      * @SerializedName("ComputeAggregateQuotaUsageResponse")
      * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ComputeAggregateQuotaUsageResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ComputeAggregateQuotaUsageResponse")]
     #[Type(ComputeAggregateQuotaUsageResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    private ?SoapResponseInterface $response = NULL;
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?SoapResponseInterface $response = null;
 
     /**
      * Constructor
@@ -60,9 +64,9 @@ class ComputeAggregateQuotaUsageBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ComputeAggregateQuotaUsageRequest $request = NULL, ?ComputeAggregateQuotaUsageResponse $response = NULL
-    )
-    {
+        ?ComputeAggregateQuotaUsageRequest $request = null,
+        ?ComputeAggregateQuotaUsageResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

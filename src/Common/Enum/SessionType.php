@@ -27,17 +27,17 @@ class SessionType extends Enum
      * Constant for value 'soap'
      * @return string 'soap'
      */
-    protected const SOAP = 'soap';
+    protected const SOAP = "soap";
 
     /**
      * Constant for value 'imap'
      * @return string 'imap'
      */
-    protected const IMAP = 'imap';
+    protected const IMAP = "imap";
 
     /**
      * Constant for value 'admin'
      * @return string 'admin'
      */
-    protected const ADMIN = 'admin';
+    protected const ADMIN = "admin";
 }

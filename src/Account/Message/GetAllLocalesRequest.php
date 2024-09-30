@@ -15,8 +15,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllLocalesRequest class
  * Returns all locales defined in the system.  This is the same list returned by
- * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute). 
- * 
+ * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute).
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -30,8 +30,6 @@ class GetAllLocalesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllLocalesEnvelope(
-            new GetAllLocalesBody($this)
-        );
+        return new GetAllLocalesEnvelope(new GetAllLocalesBody($this));
     }
 }

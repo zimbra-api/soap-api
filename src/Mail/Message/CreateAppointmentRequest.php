@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * CreateAppointmentRequest class
  * This is the API to create a new Appointment, optionally  sending out meeting
  * Invitations to other people.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,8 +31,6 @@ class CreateAppointmentRequest extends CalItemRequestBase
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateAppointmentEnvelope(
-            new CreateAppointmentBody($this)
-        );
+        return new CreateAppointmentEnvelope(new CreateAppointmentBody($this));
     }
 }

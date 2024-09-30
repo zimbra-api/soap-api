@@ -27,17 +27,17 @@ class GetMailboxResponse extends SoapResponse
 {
     /**
      * Information about mailbox
-     * 
+     *
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**
@@ -46,7 +46,7 @@ class GetMailboxResponse extends SoapResponse
      * @param Mailbox $mbox
      * @return self
      */
-    public function __construct(?Mailbox $mbox = NULL)
+    public function __construct(?Mailbox $mbox = null)
     {
         $this->mbox = $mbox;
     }

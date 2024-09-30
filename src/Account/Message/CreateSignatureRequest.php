@@ -17,9 +17,9 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CreateSignatureRequest class
  * Create a signature.
- * If an id is provided it will be honored as the id for the signature. 
+ * If an id is provided it will be honored as the id for the signature.
  * CreateSignature will set account default signature to the signature being created if there is currently no default signature for the account.
- * There can be at most one text/plain signatue and one text/html signature. 
+ * There can be at most one text/plain signatue and one text/html signature.
  *
  * @package    Zimbra
  * @subpackage Account
@@ -31,23 +31,23 @@ class CreateSignatureRequest extends SoapRequest
 {
     /**
      * Details of the signature to be created
-     * 
+     *
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\Signature")
      * @XmlElement(namespace="urn:zimbraAccount")
-     * 
+     *
      * @var Signature
      */
-    #[Accessor(getter: 'getSignature', setter: 'setSignature')]
-    #[SerializedName('signature')]
+    #[Accessor(getter: "getSignature", setter: "setSignature")]
+    #[SerializedName("signature")]
     #[Type(Signature::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private Signature $signature;
 
     /**
      * Constructor
-     * 
+     *
      * @param Signature $signature
      * @return self
      */
@@ -83,8 +83,6 @@ class CreateSignatureRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateSignatureEnvelope(
-            new CreateSignatureBody($this)
-        );
+        return new CreateSignatureEnvelope(new CreateSignatureBody($this));
     }
 }

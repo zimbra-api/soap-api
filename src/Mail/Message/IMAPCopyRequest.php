@@ -28,50 +28,50 @@ class IMAPCopyRequest extends SoapRequest
 {
     /**
      * Comma separated list of int ids
-     * 
+     *
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
     /**
      * Mail item type.
      * Valid values are case insensitive types from MailItemType enum
-     * 
+     *
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\MailItemType>")
      * @XmlAttribute
-     * 
+     *
      * @var MailItemType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('t')]
-    #[Type('Enum<Zimbra\Common\Enum\MailItemType>')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("t")]
+    #[Type("Enum<Zimbra\Common\Enum\MailItemType>")]
     #[XmlAttribute]
     private MailItemType $type;
 
     /**
      * Target folder ID
-     * 
+     *
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('int')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("int")]
     #[XmlAttribute]
     private $folder;
 
@@ -84,14 +84,13 @@ class IMAPCopyRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $ids = '',
-        ?MailItemType $type = NULL,
+        string $ids = "",
+        ?MailItemType $type = null,
         int $folder = 0
-    )
-    {
+    ) {
         $this->setIds($ids)
-             ->setType($type ?? new MailItemType('MESSAGE'))
-             ->setFolder($folder);
+            ->setType($type ?? new MailItemType("MESSAGE"))
+            ->setFolder($folder);
     }
 
     /**
@@ -165,8 +164,6 @@ class IMAPCopyRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new IMAPCopyEnvelope(
-            new IMAPCopyBody($this)
-        );
+        return new IMAPCopyEnvelope(new IMAPCopyBody($this));
     }
 }

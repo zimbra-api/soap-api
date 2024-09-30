@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllAccountLoggersRequest class
  * Returns all account loggers that have been created on the given server since the last server start.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

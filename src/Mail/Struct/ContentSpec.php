@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * ContentSpec struct class
@@ -25,69 +31,69 @@ class ContentSpec
 {
     /**
      * Attachment upload ID of uploaded object to use
-     * 
+     *
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachmentId;
 
     /**
      * Message ID of existing message. Used in conjunction with "part"
-     * 
+     *
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Part identifier. This combined with "mid" identifies a part of an existing message
-     * 
+     *
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Inlined content data. Ignored if "aid" or "mid"/"part" specified
-     * 
+     *
      * @Accessor(getter="getText", setter="setText")
      * @Type("string")
      * @XmlValue(cdata=false)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type('string')]
+    #[Accessor(getter: "getText", setter: "setText")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $text;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $attachmentId
      * @param string $messageId
      * @param string $part
@@ -95,19 +101,21 @@ class ContentSpec
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = NULL, ?string $messageId = NULL, ?string $part = NULL, ?string $text = NULL
-    )
-    {
-        if (NULL !== $attachmentId) {
+        ?string $attachmentId = null,
+        ?string $messageId = null,
+        ?string $part = null,
+        ?string $text = null
+    ) {
+        if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }
-        if (NULL !== $messageId) {
+        if (null !== $messageId) {
             $this->setMessageId($messageId);
         }
-        if (NULL !== $part) {
+        if (null !== $part) {
             $this->setPart($part);
         }
-        if (NULL !== $text) {
+        if (null !== $text) {
             $this->setText($text);
         }
     }

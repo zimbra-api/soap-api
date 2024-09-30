@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
 
 /**
@@ -26,45 +32,44 @@ class SyncGalAccountSpec
 {
     /**
      * Account ID
-     * 
+     *
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * SyncGalAccount data source specifications
-     * 
+     *
      * @Accessor(getter="getDataSources", setter="setDataSources")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
      * @XmlList(inline=true, entry="datasource", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDataSources', setter: 'setDataSources')]
-    #[Type('array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>')]
-    #[XmlList(inline: true, entry: 'datasource', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDataSources", setter: "setDataSources")]
+    #[Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")]
+    #[XmlList(inline: true, entry: "datasource", namespace: "urn:zimbraAdmin")]
     private $dataSources = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param array $dataSources
      * @return self
      */
-    public function __construct(string $id = '', array $dataSources = [])
+    public function __construct(string $id = "", array $dataSources = [])
     {
-        $this->setId($id)
-             ->setDataSources($dataSources);
+        $this->setId($id)->setDataSources($dataSources);
     }
 
     /**
@@ -110,7 +115,8 @@ class SyncGalAccountSpec
     public function setDataSources(array $dataSources): self
     {
         $this->dataSources = array_filter(
-            $dataSources, static fn ($source) => $source instanceof DataSource
+            $dataSources,
+            static fn($source) => $source instanceof DataSource
         );
         return $this;
     }

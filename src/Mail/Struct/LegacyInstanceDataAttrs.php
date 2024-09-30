@@ -11,7 +11,13 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    ParticipationStatus,
+    Transparency
+};
 
 /**
  * LegacyInstanceDataAttrs struct class
@@ -26,17 +32,17 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
 {
     /**
      * Duration
-     * 
+     *
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $duration;
 
@@ -71,33 +77,32 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
      * @return self
      */
     public function __construct(
-        ?int $duration = NULL,
-        ?ParticipationStatus $partStat = NULL,
-        ?string $recurIdZ = NULL,
-        ?int $tzOffset = NULL,
-        ?FreeBusyStatus $freeBusyActual = NULL,
-        ?string $taskPercentComplete = NULL,
-        ?bool $isRecurring = NULL,
-        ?bool $hasExceptions = NULL,
-        ?string $priority = NULL,
-        ?FreeBusyStatus $freeBusyIntended = NULL,
-        ?Transparency $transparency = NULL,
-        ?string $name = NULL,
-        ?string $location = NULL,
-        ?bool $hasOtherAttendees = NULL,
-        ?bool $hasAlarm = NULL,
-        ?bool $isOrganizer = NULL,
-        ?string $invId = NULL,
-        ?int $componentNum = NULL,
-        ?InviteStatus $status = NULL,
-        ?InviteClass $calClass = NULL,
-        ?bool $allDay = NULL,
-        ?bool $draft = NULL,
-        ?bool $neverSent = NULL,
-        ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL
-    )
-    {
+        ?int $duration = null,
+        ?ParticipationStatus $partStat = null,
+        ?string $recurIdZ = null,
+        ?int $tzOffset = null,
+        ?FreeBusyStatus $freeBusyActual = null,
+        ?string $taskPercentComplete = null,
+        ?bool $isRecurring = null,
+        ?bool $hasExceptions = null,
+        ?string $priority = null,
+        ?FreeBusyStatus $freeBusyIntended = null,
+        ?Transparency $transparency = null,
+        ?string $name = null,
+        ?string $location = null,
+        ?bool $hasOtherAttendees = null,
+        ?bool $hasAlarm = null,
+        ?bool $isOrganizer = null,
+        ?string $invId = null,
+        ?int $componentNum = null,
+        ?InviteStatus $status = null,
+        ?InviteClass $calClass = null,
+        ?bool $allDay = null,
+        ?bool $draft = null,
+        ?bool $neverSent = null,
+        ?int $taskDueDate = null,
+        ?int $taskTzOffsetDue = null
+    ) {
         parent::__construct(
             $partStat,
             $recurIdZ,
@@ -124,7 +129,7 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
             $taskDueDate,
             $taskTzOffsetDue
         );
-        if (NULL !== $duration) {
+        if (null !== $duration) {
             $this->setDuration($duration);
         }
     }

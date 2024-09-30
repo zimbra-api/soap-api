@@ -26,56 +26,56 @@ class SearchFolder extends Folder
 {
     /**
      * Query
-     * 
+     *
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * Sort by
-     * 
+     *
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("Enum<Zimbra\Common\Enum\SearchSortBy>")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
     /**
      * Comma-separated list.  Legal values in list are:
      * appointment|chat|contact|conversation|document|message|tag|task|wiki
-     * 
+     *
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getTypes", setter: "setTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $types;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $uuid
      * @param  string $query
@@ -84,19 +84,18 @@ class SearchFolder extends Folder
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $uuid = '',
-        ?string $query = NULL,
-        ?SearchSortBy $sortBy = NULL,
-        ?string $types = NULL
-    )
-    {
-    	parent::__construct($id, $uuid);
+        string $id = "",
+        string $uuid = "",
+        ?string $query = null,
+        ?SearchSortBy $sortBy = null,
+        ?string $types = null
+    ) {
+        parent::__construct($id, $uuid);
         $this->sortBy = $sortBy;
-        if (NULL !== $query) {
+        if (null !== $query) {
             $this->setQuery($query);
         }
-        if (NULL !== $types) {
+        if (null !== $types) {
             $this->setTypes($types);
         }
     }
@@ -164,12 +163,12 @@ class SearchFolder extends Folder
     public function setTypes(string $types)
     {
         $validTypes = [];
-        foreach (explode(',', $types) as $type) {
+        foreach (explode(",", $types) as $type) {
             if (ItemType::isValid($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }
-        $this->types = implode(',', $validTypes);
+        $this->types = implode(",", $validTypes);
         return $this;
     }
 }

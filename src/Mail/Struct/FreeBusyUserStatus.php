@@ -27,33 +27,33 @@ class FreeBusyUserStatus
 {
     /**
      * Email address for a user who has a conflict with the instance
-     * 
+     *
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
-     * 
+     *
      * @Accessor(getter="getFreebusyStatus", setter="setFreebusyStatus")
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
-     * 
+     *
      * @var FreeBusyStatus
      */
-    #[Accessor(getter: 'getFreebusyStatus', setter: 'setFreebusyStatus')]
-    #[SerializedName('fb')]
-    #[Type('Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[Accessor(getter: "getFreebusyStatus", setter: "setFreebusyStatus")]
+    #[SerializedName("fb")]
+    #[Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")]
     #[XmlAttribute]
     private FreeBusyStatus $freebusyStatus;
 
@@ -64,10 +64,13 @@ class FreeBusyUserStatus
      * @param  FreeBusyStatus $freebusyStatus
      * @return self
      */
-    public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = NULL)
-    {
-        $this->setName($name)
-             ->setFreebusyStatus($freebusyStatus ?? new FreeBusyStatus('F'));
+    public function __construct(
+        string $name = "",
+        ?FreeBusyStatus $freebusyStatus = null
+    ) {
+        $this->setName($name)->setFreebusyStatus(
+            $freebusyStatus ?? new FreeBusyStatus("F")
+        );
     }
 
     /**

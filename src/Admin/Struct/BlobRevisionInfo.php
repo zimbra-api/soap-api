@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * BlobRevisionInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,71 +25,71 @@ class BlobRevisionInfo
 {
     /**
      * Path
-     * 
+     *
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * File size
-     * 
+     *
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName('fileSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getFileSize", setter: "setFileSize")]
+    #[SerializedName("fileSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fileSize;
 
     /**
      * Revision number
-     * 
+     *
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
-     * 
+     *
      * @Accessor(getter="getExternal", setter="setExternal")
      * @SerializedName("external")
      * @Type("bool")
      * @XmlAttribute
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
-    #[SerializedName('external')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExternal", setter: "setExternal")]
+    #[SerializedName("external")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $external;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $path
      * @param int $fileSize
      * @param int $revision
@@ -97,16 +97,15 @@ class BlobRevisionInfo
      * @return self
      */
     public function __construct(
-        string $path = '',
+        string $path = "",
         int $fileSize = 0,
         int $revision = 0,
-        bool $external = FALSE
-    )
-    {
+        bool $external = false
+    ) {
         $this->setPath($path)
-             ->setFileSize($fileSize)
-             ->setRevision($revision)
-             ->setExternal($external);
+            ->setFileSize($fileSize)
+            ->setRevision($revision)
+            ->setExternal($external);
     }
 
     /**

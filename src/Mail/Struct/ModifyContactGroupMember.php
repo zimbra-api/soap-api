@@ -27,34 +27,33 @@ class ModifyContactGroupMember extends NewContactGroupMember
 {
     /**
      * Operation - +|-|reset
-     * 
+     *
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>")
      * @XmlAttribute
-     * 
+     *
      * @var ModifyGroupMemberOperation
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>")]
     #[XmlAttribute]
     private ?ModifyGroupMemberOperation $operation;
 
     /**
      * Constructor
-     * 
+     *
      * @param ModifyGroupMemberOperation $operation
      * @param MemberType $type
      * @param MemberType $type
      * @return self
      */
     public function __construct(
-        ?ModifyGroupMemberOperation $operation = NULL,
-        ?MemberType $type = NULL,
-        string $value = ''
-    )
-    {
+        ?ModifyGroupMemberOperation $operation = null,
+        ?MemberType $type = null,
+        string $value = ""
+    ) {
         parent::__construct($type, $value);
         $this->operation = $operation;
     }

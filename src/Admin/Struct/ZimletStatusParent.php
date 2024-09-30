@@ -25,16 +25,16 @@ class ZimletStatusParent
 {
     /**
      * Status information
-     * 
+     *
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type('array<Zimbra\Admin\Struct\ZimletStatus>')]
-    #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[Type("array<Zimbra\Admin\Struct\ZimletStatus>")]
+    #[XmlList(inline: true, entry: "zimlet", namespace: "urn:zimbraAdmin")]
     private $zimlets = [];
 
     /**
@@ -57,7 +57,8 @@ class ZimletStatusParent
     public function setZimlets(array $zimlets): self
     {
         $this->zimlets = array_filter(
-            $zimlets, static fn ($zimlet) => $zimlet instanceof ZimletStatus
+            $zimlets,
+            static fn($zimlet) => $zimlet instanceof ZimletStatus
         );
         return $this;
     }

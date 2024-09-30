@@ -10,7 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-
 /**
  * ReIndexAction enum class
  *
@@ -26,5 +25,5 @@ class ReIndexAction extends CompactIndexAction
      * Constant for value 'cancel'
      * @return string 'cancel'
      */
-    protected const CANCEL = 'cancel';
+    protected const CANCEL = "cancel";
 }
