@@ -69,7 +69,7 @@ class FlaggedTest extends FilterTest
      * @param  string $flag
      * @return self
      */
-    public function setFlag(string $flag)
+    public function setFlag(string $flag): self
     {
         $this->flag = $flag;
         return $this;
