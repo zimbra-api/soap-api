@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 3.1.0 - 2024-09-30
+[Full Changelog](https://github.com/zimbra-api/soap-api/compare/3.0.3...3.1.0)
+
+* Refactor code with phpactor
+
 ## 3.0.3 - 2024-04-23
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/3.0.2...3.0.3)
 
@@ -27,6 +32,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Remove Enum serializer handler class
 * Replace MyClabs Enum by PHP 8.1 BackedEnum
 * Replace Http Discovery by PSR Discovery
+
+## 2.2.0 - 2024-09-30
+[Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.1.2...2.2.0)
+
+* Refactor code with phpactor
 
 ## 2.1.0 - 2023-04-10
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.8...2.1.0)
