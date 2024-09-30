@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ForwardAppointmentBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,24 +30,24 @@ class ForwardAppointmentBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ForwardAppointmentRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ForwardAppointmentRequest")]
     #[Type(ForwardAppointmentRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ForwardAppointmentResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ForwardAppointmentResponse")]
     #[Type(ForwardAppointmentResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class ForwardAppointmentBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ForwardAppointmentRequest $request = null, ?ForwardAppointmentResponse $response = null
-    )
-    {
+        ?ForwardAppointmentRequest $request = null,
+        ?ForwardAppointmentResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

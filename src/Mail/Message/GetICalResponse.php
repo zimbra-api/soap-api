@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetICalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class GetICalResponse extends SoapResponse
 {
     /**
      * iCalendar content
-     * 
+     *
      * @var ICalContent
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('ical')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("ical")]
     #[Type(ICalContent::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ICalContent $content;
 
     /**

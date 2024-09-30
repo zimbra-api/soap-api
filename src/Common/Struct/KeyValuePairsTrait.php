@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * KeyValuePairsTrait trait
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct
@@ -25,12 +25,12 @@ trait KeyValuePairsTrait
 {
     /**
      * Key value pairs
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'a')]
+    #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "a")]
     protected $keyValuePairs = [];
 
     /**
@@ -54,7 +54,8 @@ trait KeyValuePairsTrait
     public function setKeyValuePairs(array $pairs): self
     {
         $this->keyValuePairs = array_filter(
-            $pairs, static fn ($kvp) => $kvp instanceof KeyValuePair
+            $pairs,
+            static fn($kvp) => $kvp instanceof KeyValuePair
         );
         return $this;
     }
@@ -77,13 +78,14 @@ trait KeyValuePairsTrait
     public function firstValueForKey($key): ?string
     {
         $keyValuePairs = array_filter(
-            $this->keyValuePairs, static fn ($kvp) => $kvp->getKey() == $key
+            $this->keyValuePairs,
+            static fn($kvp) => $kvp->getKey() == $key
         );
         $kvp = reset($keyValuePairs);
         if ($kvp instanceof KeyValuePair) {
             return $kvp->getValue();
         }
-        return NULL;
+        return null;
     }
 
     /**
@@ -94,8 +96,9 @@ trait KeyValuePairsTrait
     public function valuesForKey($key): array
     {
         $keyValuePairs = array_filter(
-            $this->keyValuePairs, static fn ($kvp) => $kvp->getKey() == $key
+            $this->keyValuePairs,
+            static fn($kvp) => $kvp->getKey() == $key
         );
-        return array_map(static fn ($kvp) => $kvp->getValue(), $keyValuePairs);
+        return array_map(static fn($kvp) => $kvp->getValue(), $keyValuePairs);
     }
 }

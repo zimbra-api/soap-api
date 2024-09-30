@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * FixCalendarPriorityRequest class
- * Fix Calendar priority 
- * 
+ * Fix Calendar priority
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,29 +34,29 @@ class FixCalendarPriorityRequest extends SoapRequest
     /**
      * Sync flag
      * 1 (true) command blocks until processing finishes
-     * 0 (false) [default]  command returns right away 
-     * 
+     * 0 (false) [default]  command returns right away
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName('sync')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSync", setter: "setSync")]
+    #[SerializedName("sync")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sync;
 
     /**
      * Accounts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $sync
      * @param  array $accounts
      * @return self
@@ -104,7 +110,8 @@ class FixCalendarPriorityRequest extends SoapRequest
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof NamedElement
+            $accounts,
+            static fn($account) => $account instanceof NamedElement
         );
         return $this;
     }

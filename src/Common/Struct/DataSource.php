@@ -35,7 +35,9 @@ interface DataSource
     function setPassword(string $password): self;
     function setPollingInterval(string $pollingInterval): self;
     function setEmailAddress(string $emailAddress): self;
-    function setUseAddressForForwardReply(bool $useAddressForForwardReply): self;
+    function setUseAddressForForwardReply(
+        bool $useAddressForForwardReply
+    ): self;
     function setDefaultSignature(string $defaultSignature): self;
     function setForwardReplySignature(string $forwardReplySignature): self;
     function setFromDisplay(string $fromDisplay): self;

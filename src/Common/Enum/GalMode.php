@@ -25,17 +25,17 @@ enum GalMode: string
      * Constant for value 'both'
      * @return string 'both'
      */
-    case BOTH = 'both';
+    case BOTH = "both";
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    case LDAP = 'ldap';
+    case LDAP = "ldap";
 
     /**
      * Constant for value 'zimbra'
      * @return string 'zimbra'
      */
-    case ZIMBRA = 'zimbra';
+    case ZIMBRA = "zimbra";
 }

@@ -25,53 +25,53 @@ enum ParticipationStatus: string
      * Constant for value 'Needs-action'
      * @return string 'NE'
      */
-    case NEEDS_ACTION = 'NE';
+    case NEEDS_ACTION = "NE";
 
     /**
      * Constant for value 'Accept'
      * @return string 'AC'
      */
-    case ACCEPT = 'AC';
+    case ACCEPT = "AC";
 
     /**
      * Constant for value 'Tentative'
      * @return string 'TE'
      */
-    case TENTATIVE = 'TE';
+    case TENTATIVE = "TE";
 
     /**
      * Constant for value 'Declined'
      * @return string 'DE'
      */
-    case DECLINED = 'DE';
+    case DECLINED = "DE";
 
     /**
      * Constant for value 'delegated'
      * @return string 'DG'
      */
-    case DELEGATED = 'DG';
+    case DELEGATED = "DG";
 
     /**
      * Constant for value 'Completed'
      * @return string 'CO'
      */
-    case COMPLETED = 'CO';
+    case COMPLETED = "CO";
 
     /**
      * Constant for value 'In-process'
      * @return string 'IN'
      */
-    case IN_PROCESS = 'IN';
+    case IN_PROCESS = "IN";
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WE'
      */
-    case WAITING = 'WE';
+    case WAITING = "WE";
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DF'
      */
-    case DEFERRED = 'DF';
+    case DEFERRED = "DF";
 }

@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CheckSpellingBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,24 +30,24 @@ class CheckSpellingBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CheckSpellingRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CheckSpellingRequest")]
     #[Type(CheckSpellingRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CheckSpellingResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CheckSpellingResponse")]
     #[Type(CheckSpellingResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class CheckSpellingBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckSpellingRequest $request = null, ?CheckSpellingResponse $response = null
-    )
-    {
+        ?CheckSpellingRequest $request = null,
+        ?CheckSpellingResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

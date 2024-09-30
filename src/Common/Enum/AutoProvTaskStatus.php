@@ -25,23 +25,23 @@ enum AutoProvTaskStatus: string
      * Constant for value 'started'
      * @return string 'started'
      */
-    case STARTED = 'started';
+    case STARTED = "started";
 
     /**
      * Constant for value 'running'
      * @return string 'running'
      */
-    case RUNNING = 'running';
+    case RUNNING = "running";
 
     /**
      * Constant for value 'idle'
      * @return string 'idle'
      */
-    case IDLE = 'idle';
+    case IDLE = "idle";
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    case STOPPED = 'stopped';
+    case STOPPED = "stopped";
 }

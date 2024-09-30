@@ -27,88 +27,88 @@ class NewSearchFolderSpec
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * query
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * Search types
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getSearchTypes", setter: "setSearchTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $searchTypes;
 
     /**
      * Sort by
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
     /**
      * Flags
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * Parent folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getParentFolderId', setter: 'setParentFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getParentFolderId", setter: "setParentFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $parentFolderId;
 
@@ -126,18 +126,16 @@ class NewSearchFolderSpec
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $query = '',
+        string $name = "",
+        string $query = "",
         ?string $searchTypes = null,
         ?SearchSortBy $sortBy = null,
         ?string $flags = null,
         ?int $color = null,
         ?string $rgb = null,
         ?string $parentFolderId = null
-    )
-    {
-        $this->setName($name)
-             ->setQuery($query);
+    ) {
+        $this->setName($name)->setQuery($query);
         $this->sortBy = $sortBy;
         if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
@@ -219,12 +217,12 @@ class NewSearchFolderSpec
     public function setSearchTypes(string $searchTypes): self
     {
         $validTypes = [];
-        foreach (explode(',', $searchTypes) as $type) {
+        foreach (explode(",", $searchTypes) as $type) {
             if (ItemType::tryFrom($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }
-        $this->searchTypes = implode(',', $validTypes);
+        $this->searchTypes = implode(",", $validTypes);
         return $this;
     }
 

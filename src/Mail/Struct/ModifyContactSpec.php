@@ -10,11 +10,17 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * ModifyContactSpec struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -25,45 +31,50 @@ class ModifyContactSpec
 {
     /**
      * ID - specified when modifying a contact
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Mail\Struct\ModifyContactAttr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Mail\Struct\ModifyContactAttr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
     private $attrs = [];
 
     /**
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
-    #[Type('array<Zimbra\Mail\Struct\ModifyContactGroupMember>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getContactGroupMembers",
+            setter: "setContactGroupMembers"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\ModifyContactGroupMember>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $contactGroupMembers = [];
 
     /**
@@ -80,10 +91,8 @@ class ModifyContactSpec
         ?string $tagNames = null,
         array $attrs = [],
         array $contactGroupMembers = []
-    )
-    {
-        $this->setAttrs($attrs)
-             ->setContactGroupMembers($contactGroupMembers);
+    ) {
+        $this->setAttrs($attrs)->setContactGroupMembers($contactGroupMembers);
         if (null !== $id) {
             $this->setId($id);
         }
@@ -155,7 +164,8 @@ class ModifyContactSpec
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof ModifyContactAttr
+            $attrs,
+            static fn($attr) => $attr instanceof ModifyContactAttr
         );
         return $this;
     }
@@ -191,7 +201,8 @@ class ModifyContactSpec
     public function setContactGroupMembers(array $members): self
     {
         $this->contactGroupMembers = array_filter(
-            $members, static fn ($member) => $member instanceof ModifyContactGroupMember
+            $members,
+            static fn($member) => $member instanceof ModifyContactGroupMember
         );
         return $this;
     }
@@ -202,8 +213,9 @@ class ModifyContactSpec
      * @param  ModifyContactGroupMember $contactGroupMember
      * @return self
      */
-    public function addContactGroupMember(ModifyContactGroupMember $contactGroupMember): self
-    {
+    public function addContactGroupMember(
+        ModifyContactGroupMember $contactGroupMember
+    ): self {
         $this->contactGroupMembers[] = $contactGroupMember;
         return $this;
     }

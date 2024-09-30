@@ -25,29 +25,29 @@ enum TaskStatus: string
      * Constant for value 'NEED'
      * @return string 'NEED'
      */
-    case NEED = 'NEED';
+    case NEED = "NEED";
 
     /**
      * Constant for value 'INPR'
      * @return string 'INPR'
      */
-    case INPR = 'INPR';
+    case INPR = "INPR";
 
     /**
      * Constant for value 'WAITING'
      * @return string 'WAITING'
      */
-    case WAITING = 'WAITING';
+    case WAITING = "WAITING";
 
     /**
      * Constant for value 'DEFERRED'
      * @return string 'DEFERRED'
      */
-    case DEFERRED = 'DEFERRED';
+    case DEFERRED = "DEFERRED";
 
     /**
      * Constant for value 'COMP'
      * @return string 'COMP'
      */
-    case COMP = 'COMP';
+    case COMP = "COMP";
 }

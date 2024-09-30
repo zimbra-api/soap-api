@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 /**
  * GetCalendarItemSummariesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

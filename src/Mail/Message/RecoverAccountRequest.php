@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * RecoverAccountRequest class
  * Recover account request
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,32 +28,32 @@ class RecoverAccountRequest extends SoapRequest
 {
     /**
      * operation
-     * 
+     *
      * @var RecoverAccountOperation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private RecoverAccountOperation $op;
 
     /**
      * Email
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Channel
-     * 
+     *
      * @var Channel
      */
-    #[Accessor(getter: 'getChannel', setter: 'setChannel')]
-    #[SerializedName('channel')]
+    #[Accessor(getter: "getChannel", setter: "setChannel")]
+    #[SerializedName("channel")]
     #[XmlAttribute]
     private ?Channel $channel;
 
@@ -66,13 +66,13 @@ class RecoverAccountRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $email = '',
+        string $email = "",
         ?RecoverAccountOperation $op = null,
         ?Channel $channel = null
-    )
-    {
-        $this->setEmail($email)
-             ->setOp($op ?? RecoverAccountOperation::GET_RECOVERY_ACCOUNT);
+    ) {
+        $this->setEmail($email)->setOp(
+            $op ?? RecoverAccountOperation::GET_RECOVERY_ACCOUNT
+        );
         $this->channel = $channel;
     }
 
@@ -147,8 +147,6 @@ class RecoverAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RecoverAccountEnvelope(
-            new RecoverAccountBody($this)
-        );
+        return new RecoverAccountEnvelope(new RecoverAccountBody($this));
     }
 }

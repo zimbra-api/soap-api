@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct\Header;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AccountBy;
 
 /**
@@ -26,52 +32,58 @@ class AccountInfo
 {
     /**
      * Account by
-     * 
+     *
      * @var AccountBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private AccountBy $by;
 
     /**
      * Mountpoint traversed
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMountpointTraversed', setter: 'setMountpointTraversed')]
-    #[SerializedName('link')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getMountpointTraversed",
+            setter: "setMountpointTraversed"
+        )
+    ]
+    #[SerializedName("link")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $mountpointTraversed;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountBy $by
      * @param  string $value
      * @param  bool $mountpointTraversed
      * @return self
      */
     public function __construct(
-        ?AccountBy $by = NULL, ?string $value = NULL, ?bool $mountpointTraversed = NULL
-    )
-    {
+        ?AccountBy $by = null,
+        ?string $value = null,
+        ?bool $mountpointTraversed = null
+    ) {
         $this->setBy($by ?? AccountBy::NAME);
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $mountpointTraversed) {
+        if (null !== $mountpointTraversed) {
             $this->setMountpointTraversed($mountpointTraversed);
         }
     }

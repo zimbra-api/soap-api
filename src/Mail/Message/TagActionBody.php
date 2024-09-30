@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * TagActionBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,24 +30,24 @@ class TagActionBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('TagActionRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("TagActionRequest")]
     #[Type(TagActionRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('TagActionResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("TagActionResponse")]
     #[Type(TagActionResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class TagActionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?TagActionRequest $request = null, ?TagActionResponse $response = null
-    )
-    {
+        ?TagActionRequest $request = null,
+        ?TagActionResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

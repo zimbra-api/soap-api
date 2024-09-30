@@ -25,11 +25,11 @@ enum ZimletStatus: string
      * Constant for value 'enabled'
      * @return string 'enabled'
      */
-    case ENABLED = 'enabled';
+    case ENABLED = "enabled";
 
     /**
      * Constant for value 'disabled'
      * @return string 'disabled'
      */
-    case DISABLED = 'disabled';
+    case DISABLED = "disabled";
 }

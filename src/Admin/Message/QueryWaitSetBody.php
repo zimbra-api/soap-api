@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * QueryWaitSetBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class QueryWaitSetBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('QueryWaitSetRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("QueryWaitSetRequest")]
     #[Type(QueryWaitSetRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('QueryWaitSetResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("QueryWaitSetResponse")]
     #[Type(QueryWaitSetResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class QueryWaitSetBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?QueryWaitSetRequest $request = null, ?QueryWaitSetResponse $response = null
-    )
-    {
+        ?QueryWaitSetRequest $request = null,
+        ?QueryWaitSetResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

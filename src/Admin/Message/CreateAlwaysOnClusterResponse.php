@@ -27,13 +27,13 @@ class CreateAlwaysOnClusterResponse extends SoapResponse
 {
     /**
      * Information about the newly created cluster
-     * 
+     *
      * @var AlwaysOnClusterInfo
      */
-    #[Accessor(getter: 'getAlwaysOnCluster', setter: 'setAlwaysOnCluster')]
-    #[SerializedName('alwaysOnCluster')]
+    #[Accessor(getter: "getAlwaysOnCluster", setter: "setAlwaysOnCluster")]
+    #[SerializedName("alwaysOnCluster")]
     #[Type(AlwaysOnClusterInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AlwaysOnClusterInfo $cluster;
 
     /**

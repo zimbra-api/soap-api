@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ModifyAlwaysOnClusterBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class ModifyAlwaysOnClusterBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ModifyAlwaysOnClusterRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ModifyAlwaysOnClusterRequest")]
     #[Type(ModifyAlwaysOnClusterRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ModifyAlwaysOnClusterResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ModifyAlwaysOnClusterResponse")]
     #[Type(ModifyAlwaysOnClusterResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class ModifyAlwaysOnClusterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyAlwaysOnClusterRequest $request = null, ?ModifyAlwaysOnClusterResponse $response = null
-    )
-    {
+        ?ModifyAlwaysOnClusterRequest $request = null,
+        ?ModifyAlwaysOnClusterResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

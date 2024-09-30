@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{AccountBy, TargetType};
 
 /**
@@ -27,32 +33,32 @@ class TargetSpec
 {
     /**
      * Target type
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private TargetType $targetType;
 
     /**
      * Select the meaning of {value}
-     * 
+     *
      * @var AccountBy
      */
-    #[Accessor(getter: 'getAccountBy', setter: 'setAccountBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getAccountBy", setter: "setAccountBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private AccountBy $accountBy;
 
     /**
      * The key used to identify the target
      * Meaning determined by {accountBy}
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -65,11 +71,13 @@ class TargetSpec
      * @return self
      */
     public function __construct(
-        ?TargetType $targetType = null, ?AccountBy $accountBy = null, ?string $value = null
-    )
-    {
-        $this->setTargetType($targetType ?? TargetType::ACCOUNT)
-             ->setAccountBy($accountBy ?? AccountBy::NAME);
+        ?TargetType $targetType = null,
+        ?AccountBy $accountBy = null,
+        ?string $value = null
+    ) {
+        $this->setTargetType($targetType ?? TargetType::ACCOUNT)->setAccountBy(
+            $accountBy ?? AccountBy::NAME
+        );
         if (null !== $value) {
             $this->setValue($value);
         }

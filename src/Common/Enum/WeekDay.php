@@ -25,41 +25,41 @@ enum WeekDay: string
      * Constant for value 'SU'
      * @return string 'SU'
      */
-    case SUNDAY = 'SU';
+    case SUNDAY = "SU";
 
     /**
      * Constant for value 'MO'
      * @return string 'MO'
      */
-    case MONDAY = 'MO';
+    case MONDAY = "MO";
 
     /**
      * Constant for value 'TU'
      * @return string 'TU'
      */
-    case TUESDAY = 'TU';
+    case TUESDAY = "TU";
 
     /**
      * Constant for value 'WE'
      * @return string 'WE'
      */
-    case WEDNESDAY = 'WE';
+    case WEDNESDAY = "WE";
 
     /**
      * Constant for value 'TH'
      * @return string 'TH'
      */
-    case THURSDAY = 'TH';
+    case THURSDAY = "TH";
 
     /**
      * Constant for value 'FR'
      * @return string 'FR'
      */
-    case FRIDAY = 'FR';
+    case FRIDAY = "FR";
 
     /**
      * Constant for value 'SA'
      * @return string 'SA'
      */
-    case SATURDAY = 'SA';
+    case SATURDAY = "SA";
 }

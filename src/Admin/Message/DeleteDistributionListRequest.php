@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteDistributionListRequest class
  * Delete a distribution list
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,34 +27,34 @@ class DeleteDistributionListRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * If true, cascade delete the hab-groups else return error
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCascadeDelete', setter: 'setCascadeDelete')]
-    #[SerializedName('cascadeDelete')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCascadeDelete", setter: "setCascadeDelete")]
+    #[SerializedName("cascadeDelete")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $cascadeDelete;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  bool   $cascadeDelete
      * @return self
      */
-    public function __construct(string $id = '', ?bool $cascadeDelete = null)
+    public function __construct(string $id = "", ?bool $cascadeDelete = null)
     {
         $this->setId($id);
         if (null !== $cascadeDelete) {

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * Header class
@@ -26,22 +32,22 @@ class Header
 {
     /**
      * Header name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Header value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 

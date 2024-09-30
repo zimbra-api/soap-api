@@ -25,18 +25,18 @@ class PackageSelector
 {
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @return self
      */

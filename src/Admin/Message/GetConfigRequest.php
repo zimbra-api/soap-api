@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetConfigRequest class
  * Get Config request
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,18 +28,18 @@ class GetConfigRequest extends SoapRequest
 {
     /**
      * Attribute
-     * 
+     *
      * @var Attr
      */
-    #[Accessor(getter: 'getAttr', setter: 'setAttr')]
-    #[SerializedName('a')]
+    #[Accessor(getter: "getAttr", setter: "setAttr")]
+    #[SerializedName("a")]
     #[Type(Attr::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Attr $attr;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Attr $attr
      * @return self
      */
@@ -75,8 +75,6 @@ class GetConfigRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetConfigEnvelope(
-            new GetConfigBody($this)
-        );
+        return new GetConfigEnvelope(new GetConfigBody($this));
     }
 }

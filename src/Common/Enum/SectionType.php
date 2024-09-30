@@ -25,53 +25,53 @@ enum SectionType: string
      * Constant for value 'mbox'
      * @return string 'mbox'
      */
-    case MBOX = 'mbox';
+    case MBOX = "mbox";
 
     /**
      * Constant for value 'prefs'
      * @return string 'prefs'
      */
-    case PREFS = 'prefs';
+    case PREFS = "prefs";
 
     /**
      * Constant for value 'attrs'
      * @return string 'attrs'
      */
-    case ATTRS = 'attrs';
+    case ATTRS = "attrs";
 
     /**
      * Constant for value 'zimlets'
      * @return string 'zimlets'
      */
-    case ZIMLETS = 'zimlets';
+    case ZIMLETS = "zimlets";
 
     /**
      * Constant for value 'props'
      * @return string 'props'
      */
-    case PROPS = 'props';
+    case PROPS = "props";
 
     /**
      * Constant for value 'idents'
      * @return string 'idents'
      */
-    case IDENTS = 'idents';
+    case IDENTS = "idents";
 
     /**
      * Constant for value 'sigs'
      * @return string 'sigs'
      */
-    case SIGS = 'sigs';
+    case SIGS = "sigs";
 
     /**
      * Constant for value 'dsrcs'
      * @return string 'dsrcs'
      */
-    case DSRCS = 'dsrcs';
+    case DSRCS = "dsrcs";
 
     /**
      * Constant for value 'children'
      * @return string 'children'
      */
-    case CHILDREN = 'children';
+    case CHILDREN = "children";
 }

@@ -21,7 +21,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetRecurResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,46 +32,46 @@ class GetRecurResponse extends SoapResponse
 {
     /**
      * Timezone
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
      * Cancel recurrence component
-     * 
+     *
      * @var CancelItemRecur
      */
-    #[Accessor(getter: 'getCancelComponent', setter: 'setCancelComponent')]
-    #[SerializedName('cancel')]
+    #[Accessor(getter: "getCancelComponent", setter: "setCancelComponent")]
+    #[SerializedName("cancel")]
     #[Type(CancelItemRecur::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CancelItemRecur $cancelComponent;
 
     /**
      * Except recurrence component
-     * 
+     *
      * @var ExceptionItemRecur
      */
-    #[Accessor(getter: 'getExceptComponent', setter: 'setExceptComponent')]
-    #[SerializedName('except')]
+    #[Accessor(getter: "getExceptComponent", setter: "setExceptComponent")]
+    #[SerializedName("except")]
     #[Type(ExceptionItemRecur::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ExceptionItemRecur $exceptComponent;
 
     /**
      * Invite recurrence component
-     * 
+     *
      * @var InviteItemRecur
      */
-    #[Accessor(getter: 'getInviteComponent', setter: 'setInviteComponent')]
-    #[SerializedName('comp')]
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName("comp")]
     #[Type(InviteItemRecur::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteItemRecur $inviteComponent;
 
     /**
@@ -88,8 +88,7 @@ class GetRecurResponse extends SoapResponse
         ?CancelItemRecur $cancelComponent = null,
         ?ExceptionItemRecur $exceptComponent = null,
         ?InviteItemRecur $inviteComponent = null
-    )
-    {
+    ) {
         $this->timezone = $timezone;
         $this->cancelComponent = $cancelComponent;
         $this->exceptComponent = $exceptComponent;
@@ -156,8 +155,9 @@ class GetRecurResponse extends SoapResponse
      * @param  ExceptionItemRecur $exceptComponent
      * @return self
      */
-    public function setExceptComponent(ExceptionItemRecur $exceptComponent): self
-    {
+    public function setExceptComponent(
+        ExceptionItemRecur $exceptComponent
+    ): self {
         $this->exceptComponent = $exceptComponent;
         return $this;
     }

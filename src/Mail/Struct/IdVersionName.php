@@ -25,52 +25,51 @@ class IdVersionName
 {
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Version
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('ver')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("ver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $version
      * @param string $name
      * @return self
      */
     public function __construct(
-        string $id = '', int $version = 0, string $name = ''
-    )
-    {
-        $this->setId($id)
-             ->setVersion($version)
-             ->setName($name);
+        string $id = "",
+        int $version = 0,
+        string $name = ""
+    ) {
+        $this->setId($id)->setVersion($version)->setName($name);
     }
 
     /**

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * BounceMsgRequest class
  * Resend a message
- * 
+ *
  * Supports (f)rom, (t)o, (c)c, (b)cc, (s)ender "type" on <e> elements
  * (these get mapped to Resent-From, Resent-To, Resent-CC, Resent-Bcc, Resent-Sender headers, which are prepended to
  * copy of existing message)
@@ -33,13 +33,13 @@ class BounceMsgRequest extends SoapRequest
 {
     /**
      * Specification of message to be resent
-     * 
+     *
      * @var BounceMsgSpec
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(BounceMsgSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private BounceMsgSpec $msg;
 
     /**
@@ -80,8 +80,6 @@ class BounceMsgRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new BounceMsgEnvelope(
-            new BounceMsgBody($this)
-        );
+        return new BounceMsgEnvelope(new BounceMsgBody($this));
     }
 }

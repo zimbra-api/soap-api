@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ModifyOutgoingFilterRulesBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,24 +30,24 @@ class ModifyOutgoingFilterRulesBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ModifyOutgoingFilterRulesRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ModifyOutgoingFilterRulesRequest")]
     #[Type(ModifyOutgoingFilterRulesRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ModifyOutgoingFilterRulesResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ModifyOutgoingFilterRulesResponse")]
     #[Type(ModifyOutgoingFilterRulesResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class ModifyOutgoingFilterRulesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyOutgoingFilterRulesRequest $request = null, ?ModifyOutgoingFilterRulesResponse $response = null
-    )
-    {
+        ?ModifyOutgoingFilterRulesRequest $request = null,
+        ?ModifyOutgoingFilterRulesResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

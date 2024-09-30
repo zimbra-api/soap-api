@@ -27,13 +27,13 @@ class ChangePrimaryEmailResponse extends SoapResponse
 {
     /**
      * Information about account after rename
-     * 
+     *
      * @var Account
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(Account::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Account $account;
 
     /**

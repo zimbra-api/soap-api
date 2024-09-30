@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * NoteInfo class
@@ -26,155 +33,155 @@ class NoteInfo
 {
     /**
      * The id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Flags
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
-    #[SerializedName('pos')]
-    #[Type('string')]
+    #[Accessor(getter: "getBounds", setter: "setBounds")]
+    #[SerializedName("pos")]
+    #[Type("string")]
     #[XmlAttribute]
     private $bounds;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * Modified date in seconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Modified sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
      * Custom metadata information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
+    #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
     private $metadatas = [];
 
     /**
@@ -211,8 +218,7 @@ class NoteInfo
         ?int $modifiedSequence = null,
         ?string $content = null,
         array $metadatas = []
-    )
-    {
+    ) {
         $this->setMetadatas($metadatas);
         if (null !== $id) {
             $this->setId($id);
@@ -550,7 +556,8 @@ class NoteInfo
     public function setMetadatas(array $metadatas): self
     {
         $this->metadatas = array_filter(
-            $metadatas, static fn ($metadata) => $metadata instanceof MailCustomMetadata
+            $metadatas,
+            static fn($metadata) => $metadata instanceof MailCustomMetadata
         );
         return $this;
     }

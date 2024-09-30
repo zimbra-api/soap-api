@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Get System Retention Policy
  * The system retention policy SOAP APIs allow the administrator to edit named system retention policies that users
  * can apply to folders and tags.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -31,15 +31,15 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
     /**
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CosSelector $cos
      * @return self
      */

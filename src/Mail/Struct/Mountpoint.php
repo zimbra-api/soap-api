@@ -25,84 +25,84 @@ class Mountpoint extends Folder
 {
     /**
      * Primary email address of the owner of the linked-to resource
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
-    #[SerializedName('owner')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerEmail", setter: "setOwnerEmail")]
+    #[SerializedName("owner")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerEmail;
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerAccountId", setter: "setOwnerAccountId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerAccountId;
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRemoteFolderId', setter: 'setRemoteFolderId')]
-    #[SerializedName('rid')]
-    #[Type('int')]
+    #[Accessor(getter: "getRemoteFolderId", setter: "setRemoteFolderId")]
+    #[SerializedName("rid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $remoteFolderId;
 
     /**
      * UUID of the linked-to resource in the remote mailbox
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRemoteUuid', setter: 'setRemoteUuid')]
-    #[SerializedName('ruuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getRemoteUuid", setter: "setRemoteUuid")]
+    #[SerializedName("ruuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $remoteUuid;
 
     /**
      * The name presently used for the item by the owner
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRemoteFolderName', setter: 'setRemoteFolderName')]
-    #[SerializedName('oname')]
-    #[Type('string')]
+    #[Accessor(getter: "getRemoteFolderName", setter: "setRemoteFolderName")]
+    #[SerializedName("oname")]
+    #[Type("string")]
     #[XmlAttribute]
     private $remoteFolderName;
 
     /**
      * If set, client should display reminders for shared appointments/tasks
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
-    #[SerializedName('reminder')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReminderEnabled", setter: "setReminderEnabled")]
+    #[SerializedName("reminder")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $reminderEnabled;
 
     /**
      * If "tr" is true in the request, broken is set if this is a broken link
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBroken', setter: 'setBroken')]
-    #[SerializedName('broken')]
-    #[Type('bool')]
+    #[Accessor(getter: "getBroken", setter: "setBroken")]
+    #[SerializedName("broken")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $broken;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $uuid
      * @param  string $ownerEmail
@@ -115,8 +115,8 @@ class Mountpoint extends Folder
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $uuid = '',
+        string $id = "",
+        string $uuid = "",
         ?string $ownerEmail = null,
         ?string $ownerAccountId = null,
         ?int $remoteFolderId = null,
@@ -124,9 +124,8 @@ class Mountpoint extends Folder
         ?string $remoteFolderName = null,
         ?bool $reminderEnabled = null,
         ?bool $broken = null
-    )
-    {
-    	parent::__construct($id, $uuid);
+    ) {
+        parent::__construct($id, $uuid);
         if (null !== $ownerEmail) {
             $this->setOwnerEmail($ownerEmail);
         }

@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ModifyZimletPrefsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,24 +30,24 @@ class ModifyZimletPrefsBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ModifyZimletPrefsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ModifyZimletPrefsRequest")]
     #[Type(ModifyZimletPrefsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ModifyZimletPrefsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ModifyZimletPrefsResponse")]
     #[Type(ModifyZimletPrefsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class ModifyZimletPrefsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ModifyZimletPrefsRequest $request = null, ?ModifyZimletPrefsResponse $response = null
-    )
-    {
+        ?ModifyZimletPrefsRequest $request = null,
+        ?ModifyZimletPrefsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

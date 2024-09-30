@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CreateMountpointResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class CreateMountpointResponse extends SoapResponse
 {
     /**
      * Details of the created mountpoint
-     * 
+     *
      * @var Mountpoint
      */
-    #[Accessor(getter: 'getMount', setter: 'setMount')]
-    #[SerializedName('link')]
+    #[Accessor(getter: "getMount", setter: "setMount")]
+    #[SerializedName("link")]
     #[Type(Mountpoint::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Mountpoint $mount;
 
     /**

@@ -11,11 +11,15 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetNoteBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,24 +30,24 @@ class GetNoteBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetNoteRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetNoteRequest")]
     #[Type(GetNoteRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetNoteResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetNoteResponse")]
     #[Type(GetNoteResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class GetNoteBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetNoteRequest $request = null, ?GetNoteResponse $response = null
-    )
-    {
+        ?GetNoteRequest $request = null,
+        ?GetNoteResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

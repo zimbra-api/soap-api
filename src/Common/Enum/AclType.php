@@ -25,11 +25,11 @@ enum AclType: string
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    case GRANT = 'grant';
+    case GRANT = "grant";
 
     /**
      * Constant for value 'deny'
      * @return string 'deny'
      */
-    case DENY = 'deny';
+    case DENY = "deny";
 }

@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * Identity struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,23 +25,23 @@ class Identity extends AttrsImpl
 {
     /**
      * Identity name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Identity ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -53,8 +53,11 @@ class Identity extends AttrsImpl
      * @param array  $attrs
      * @return self
      */
-    public function __construct(?string $name = null, ?string $id = null, array $attrs = [])
-    {
+    public function __construct(
+        ?string $name = null,
+        ?string $id = null,
+        array $attrs = []
+    ) {
         parent::__construct($attrs);
         if (null !== $name) {
             $this->setName($name);

@@ -27,13 +27,13 @@ class SetPasswordResponse extends SoapResponse
     /**
      * If the password had violated any policy, it is returned in this> element,
      * and the password is still set successfully.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $message;
 
     /**

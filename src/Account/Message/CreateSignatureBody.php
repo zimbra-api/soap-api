@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CreateSignatureBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,24 +30,24 @@ class CreateSignatureBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CreateSignatureRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CreateSignatureRequest")]
     #[Type(CreateSignatureRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CreateSignatureResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CreateSignatureResponse")]
     #[Type(CreateSignatureResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class CreateSignatureBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CreateSignatureRequest $request = null, ?CreateSignatureResponse $response = null
-    )
-    {
+        ?CreateSignatureRequest $request = null,
+        ?CreateSignatureResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

@@ -26,28 +26,28 @@ class AliasInfo extends AdminObjectInfo
 {
     /**
      * Target name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetName', setter: 'setTargetName')]
-    #[SerializedName('targetName')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetName", setter: "setTargetName")]
+    #[SerializedName("targetName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetName;
 
     /**
      * Target type
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?TargetType $targetType;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  string $targetName
@@ -56,13 +56,12 @@ class AliasInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $id = '',
-        string $targetName = '',
+        string $name = "",
+        string $id = "",
+        string $targetName = "",
         ?TargetType $targetType = null,
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($name, $id, $attrs);
         $this->setTargetName($targetName);
         $this->targetType = $targetType;

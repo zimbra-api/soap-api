@@ -10,12 +10,22 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInfo};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
+use Zimbra\Common\Struct\{
+    ZimletConfigInfo,
+    ZimletGlobalConfigInfo,
+    ZimletHostConfigInfo
+};
 
 /**
  * AccountZimletConfigInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,95 +36,95 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
 {
     /**
      * Zimlet name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Version string
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('version')]
-    #[Type('string')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("version")]
+    #[Type("string")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Zimlet description
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('description')]
-    #[Type('string')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("description")]
+    #[Type("string")]
     #[XmlAttribute]
     private $description;
 
     /**
      * Zimlet extension
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName('extension')]
-    #[Type('string')]
+    #[Accessor(getter: "getExtension", setter: "setExtension")]
+    #[SerializedName("extension")]
+    #[Type("string")]
     #[XmlAttribute]
     private $extension;
 
     /**
      * Zimlet target
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
-    #[Type('string')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
+    #[Type("string")]
     #[XmlAttribute]
     private $target;
 
     /**
      * Zimlet label
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLabel', setter: 'setLabel')]
-    #[SerializedName('label')]
-    #[Type('string')]
+    #[Accessor(getter: "getLabel", setter: "setLabel")]
+    #[SerializedName("label")]
+    #[Type("string")]
     #[XmlAttribute]
     private $label;
 
     /**
      * Zimlet global configuration information
-     * 
+     *
      * @var ZimletGlobalConfigInfo
      */
-    #[Accessor(getter: 'getGlobal', setter: 'setGlobal')]
-    #[SerializedName('global')]
+    #[Accessor(getter: "getGlobal", setter: "setGlobal")]
+    #[SerializedName("global")]
     #[Type(AccountZimletGlobalConfigInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?ZimletGlobalConfigInfo $global;
 
     /**
      * Zimlet host configuration information
-     * 
+     *
      * @var ZimletHostConfigInfo
      */
-    #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName('host')]
+    #[Accessor(getter: "getHost", setter: "setHost")]
+    #[SerializedName("host")]
     #[Type(AccountZimletHostConfigInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?ZimletHostConfigInfo $host;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $version
      * @param string $description
@@ -134,8 +144,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
         ?string $label = null,
         ?AccountZimletGlobalConfigInfo $global = null,
         ?AccountZimletHostConfigInfo $host = null
-    )
-    {
+    ) {
         $this->global = $global;
         $this->host = $host;
         if (null !== $name) {

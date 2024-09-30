@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteSystemRetentionPolicyRequest class
  * Delete a system retention policy.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,29 +29,29 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
 {
     /**
      * COS
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Details of policy
-     * 
+     *
      * @var Policy
      */
-    #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
-    #[SerializedName('policy')]
+    #[Accessor(getter: "getPolicy", setter: "setPolicy")]
+    #[SerializedName("policy")]
     #[Type(Policy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private Policy $policy;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Policy $policy
      * @param  CosSelector $cos
      * @return self

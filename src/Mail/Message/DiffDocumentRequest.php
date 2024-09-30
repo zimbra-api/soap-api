@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Performs line by line diff of two revisions of a Document then returns a list of
  * <chunk> containing the result.  Sections of text that are identical to both versions are indicated with
  * disp="common".  For each conflict the chunk will show disp="first", disp="second" or both.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,13 +30,13 @@ class DiffDocumentRequest extends SoapRequest
 {
     /**
      * Diff document version specification
-     * 
+     *
      * @var DiffDocumentVersionSpec
      */
-    #[Accessor(getter: 'getDoc', setter: 'setDoc')]
-    #[SerializedName('doc')]
+    #[Accessor(getter: "getDoc", setter: "setDoc")]
+    #[SerializedName("doc")]
     #[Type(DiffDocumentVersionSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DiffDocumentVersionSpec $doc;
 
     /**
@@ -77,8 +77,6 @@ class DiffDocumentRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DiffDocumentEnvelope(
-            new DiffDocumentBody($this)
-        );
+        return new DiffDocumentEnvelope(new DiffDocumentBody($this));
     }
 }

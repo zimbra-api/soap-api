@@ -32,122 +32,122 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 {
     /**
      * x uid
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getXUid', setter: 'setXUid')]
-    #[SerializedName('x_uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getXUid", setter: "setXUid")]
+    #[SerializedName("x_uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $xUid;
 
     /**
      * iCalendar UID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Flags
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Modified date in seconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Modified sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Appointment ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -229,8 +229,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
         ?bool $neverSent = null,
         ?int $taskDueDate = null,
         ?int $taskTzOffsetDue = null
-    )
-    {
+    ) {
         parent::__construct(
             $duration,
             $partStat,

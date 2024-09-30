@@ -10,14 +10,25 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait, SoapEnvelopeInterface, SoapRequest};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
+use Zimbra\Common\Struct\{
+    KeyValuePairs,
+    KeyValuePairsTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * CreateDistributionListRequest class
- * Create a Distribution List 
+ * Create a Distribution List
  * Notes:
- * authed account must have the privilege to create dist lists in the domain 
+ * authed account must have the privilege to create dist lists in the domain
  *
  * @package    Zimbra
  * @subpackage Account
@@ -31,50 +42,50 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
 
     /**
      * Name for distribution list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * If 1 (true) then create a dynamic distribution list
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
     /**
      * Key value pairs
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
     protected $keyValuePairs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param bool   $dynamic
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '', ?bool $dynamic = null, array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setKeyValuePairs($attrs);
+        string $name = "",
+        ?bool $dynamic = null,
+        array $attrs = []
+    ) {
+        $this->setName($name)->setKeyValuePairs($attrs);
         if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }

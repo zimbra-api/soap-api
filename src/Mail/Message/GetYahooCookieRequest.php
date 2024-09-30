@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetYahooCookieRequest class
  * Get Yahoo cookie
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class GetYahooCookieRequest extends SoapRequest
 {
     /**
      * User
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUser', setter: 'setUser')]
-    #[SerializedName('user')]
-    #[Type('string')]
+    #[Accessor(getter: "getUser", setter: "setUser")]
+    #[SerializedName("user")]
+    #[Type("string")]
     #[XmlAttribute]
     private $user;
 
@@ -42,7 +42,7 @@ class GetYahooCookieRequest extends SoapRequest
      * @param  string $user
      * @return self
      */
-    public function __construct(string $user = '')
+    public function __construct(string $user = "")
     {
         $this->setUser($user);
     }
@@ -74,8 +74,6 @@ class GetYahooCookieRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetYahooCookieEnvelope(
-            new GetYahooCookieBody($this)
-        );
+        return new GetYahooCookieEnvelope(new GetYahooCookieBody($this));
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Common\Enum\TargetType;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -19,7 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * ModifyDelegatedAdminConstraintsRequest class
  * Modify constraint (zimbraConstraint) for delegated admin on global config or a COS
  * If constraints for an attribute already exists, it will be replaced by the new constraints.
- * If <constraint> is an empty element, constraints for the attribute will be removed. 
+ * If <constraint> is an empty element, constraints for the attribute will be removed.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -31,49 +37,49 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 {
     /**
      * Target type
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private TargetType $type;
 
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constaint attributes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Admin\Struct\ConstraintAttr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Admin\Struct\ConstraintAttr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param TargetType $type
      * @param string $id
      * @param string $name
@@ -81,11 +87,12 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?TargetType $type = null, ?string $id = null, ?string $name = null, array $attrs = []
-    )
-    {
-        $this->setType($type ?? TargetType::ACCOUNT)
-             ->setAttrs($attrs);
+        ?TargetType $type = null,
+        ?string $id = null,
+        ?string $name = null,
+        array $attrs = []
+    ) {
+        $this->setType($type ?? TargetType::ACCOUNT)->setAttrs($attrs);
         if (null !== $id) {
             $this->setId($id);
         }
@@ -181,7 +188,8 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof ConstraintAttr
+            $attrs,
+            static fn($attr) => $attr instanceof ConstraintAttr
         );
         return $this;
     }

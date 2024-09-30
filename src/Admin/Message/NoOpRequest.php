@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * NoOpRequest class
  * A request that does nothing and always returns nothing. Used to keep an admin session alive.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class NoOpRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new NoOpEnvelope(
-            new NoOpBody($this)
-        );
+        return new NoOpEnvelope(new NoOpBody($this));
     }
 }

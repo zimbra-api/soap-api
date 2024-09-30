@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * BrowseResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class BrowseResponse extends SoapResponse
 {
     /**
      * Browse data
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBrowseDatas', setter: 'setBrowseDatas')]
-    #[Type('array<Zimbra\Mail\Struct\BrowseData>')]
-    #[XmlList(inline: true, entry: 'bd', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getBrowseDatas", setter: "setBrowseDatas")]
+    #[Type("array<Zimbra\Mail\Struct\BrowseData>")]
+    #[XmlList(inline: true, entry: "bd", namespace: "urn:zimbraMail")]
     private $browseDatas = [];
 
     /**
@@ -55,7 +55,8 @@ class BrowseResponse extends SoapResponse
     public function setBrowseDatas(array $datas): self
     {
         $this->browseDatas = array_filter(
-            $datas, static fn ($data) => $data instanceof BrowseData
+            $datas,
+            static fn($data) => $data instanceof BrowseData
         );
         return $this;
     }

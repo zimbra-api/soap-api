@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\{
     ConversationHitInfo,
     MessageHitInfo,
@@ -29,7 +36,7 @@ use Zimbra\Common\Struct\{SimpleSearchHit, SoapResponse};
 
 /**
  * SearchResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -48,156 +55,156 @@ class SearchResponse extends SoapResponse
      * Server will throw an IllegalArgumentException if the search is invalid.
      * ADDITIONAL SORT MODES FOR TASKS: valid only if types="task" (and task alone):
      * taskDueAsc|taskDueDesc|taskStatusAsc|taskStatusDesc|taskPercCompletedAsc|taskPercCompletedDesc
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
     /**
      * Offset - an int specifying the 0-based offset into the results list returned as
      * the first result for this search operation.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getQueryOffset', setter: 'setQueryOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getQueryOffset", setter: "setQueryOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $queryOffset;
 
     /**
      * Set if there are more search results remaining.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getQueryMore', setter: 'setQueryMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getQueryMore", setter: "setQueryMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $queryMore;
 
     /**
      * All messages
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName('total')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotalSize", setter: "setTotalSize")]
+    #[SerializedName("total")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalSize;
 
     /**
      * Simple search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSimpleHits', setter: 'setSimpleHits')]
-    #[Type('array<Zimbra\Common\Struct\SimpleSearchHit>')]
-    #[XmlList(inline: true, entry: 'hit', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSimpleHits", setter: "setSimpleHits")]
+    #[Type("array<Zimbra\Common\Struct\SimpleSearchHit>")]
+    #[XmlList(inline: true, entry: "hit", namespace: "urn:zimbraMail")]
     private $simpleHits = [];
 
     /**
      * Conversation search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getConversationHits', setter: 'setConversationHits')]
-    #[Type('array<Zimbra\Mail\Struct\ConversationHitInfo>')]
-    #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getConversationHits", setter: "setConversationHits")]
+    #[Type("array<Zimbra\Mail\Struct\ConversationHitInfo>")]
+    #[XmlList(inline: true, entry: "c", namespace: "urn:zimbraMail")]
     private $conversationHits = [];
 
     /**
      * Message search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessageHits', setter: 'setMessageHits')]
-    #[Type('array<Zimbra\Mail\Struct\MessageHitInfo>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessageHits", setter: "setMessageHits")]
+    #[Type("array<Zimbra\Mail\Struct\MessageHitInfo>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $messageHits = [];
 
     /**
      * Chat search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getChatHits', setter: 'setChatHits')]
-    #[Type('array<Zimbra\Mail\Struct\ChatHitInfo>')]
-    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getChatHits", setter: "setChatHits")]
+    #[Type("array<Zimbra\Mail\Struct\ChatHitInfo>")]
+    #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
     private $chatHits = [];
 
     /**
      * Message part search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessagePartHits', setter: 'setMessagePartHits')]
-    #[Type('array<Zimbra\Mail\Struct\MessagePartHitInfo>')]
-    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessagePartHits", setter: "setMessagePartHits")]
+    #[Type("array<Zimbra\Mail\Struct\MessagePartHitInfo>")]
+    #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
     private $messagePartHits = [];
 
     /**
      * Contact search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactHits', setter: 'setContactHits')]
-    #[Type('array<Zimbra\Mail\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContactHits", setter: "setContactHits")]
+    #[Type("array<Zimbra\Mail\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
     private $contactHits = [];
 
     /**
      * Note search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNoteHits', setter: 'setNoteHits')]
-    #[Type('array<Zimbra\Mail\Struct\NoteHitInfo>')]
-    #[XmlList(inline: true, entry: 'note', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNoteHits", setter: "setNoteHits")]
+    #[Type("array<Zimbra\Mail\Struct\NoteHitInfo>")]
+    #[XmlList(inline: true, entry: "note", namespace: "urn:zimbraMail")]
     private $noteHits = [];
 
     /**
      * Document search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDocumentHits', setter: 'setDocumentHits')]
-    #[Type('array<Zimbra\Mail\Struct\DocumentHitInfo>')]
-    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDocumentHits", setter: "setDocumentHits")]
+    #[Type("array<Zimbra\Mail\Struct\DocumentHitInfo>")]
+    #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
     private $documentHits = [];
 
     /**
      * Wiki search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWikiHits', setter: 'setWikiHits')]
-    #[Type('array<Zimbra\Mail\Struct\WikiHitInfo>')]
-    #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getWikiHits", setter: "setWikiHits")]
+    #[Type("array<Zimbra\Mail\Struct\WikiHitInfo>")]
+    #[XmlList(inline: true, entry: "w", namespace: "urn:zimbraMail")]
     private $wikiHits = [];
 
     /**
      * Appointment search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAppointmentHits', setter: 'setAppointmentHits')]
-    #[Type('array<Zimbra\Mail\Struct\AppointmentHitInfo>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAppointmentHits", setter: "setAppointmentHits")]
+    #[Type("array<Zimbra\Mail\Struct\AppointmentHitInfo>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $appointmentHits = [];
 
     /**
      * Task search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskHits', setter: 'setTaskHits')]
-    #[Type('array<Zimbra\Mail\Struct\TaskHitInfo>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskHits", setter: "setTaskHits")]
+    #[Type("array<Zimbra\Mail\Struct\TaskHitInfo>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskHits = [];
 
     /**
@@ -206,13 +213,13 @@ class SearchResponse extends SoapResponse
      * If expanded is set, then the wildcard was expanded and the matches are included in the search.
      * If expanded is unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
-     * 
+     *
      * @var SearchQueryInfo
      */
-    #[Accessor(getter: 'getQueryInfo', setter: 'setQueryInfo')]
-    #[SerializedName('info')]
+    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[SerializedName("info")]
     #[Type(SearchQueryInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SearchQueryInfo $queryInfo;
 
     /**
@@ -253,19 +260,18 @@ class SearchResponse extends SoapResponse
         array $appointmentHits = [],
         array $taskHits = [],
         ?SearchQueryInfo $queryInfo = null
-    )
-    {
+    ) {
         $this->setSimpleHits($simpleHits)
-             ->setConversationHits($conversationHits)
-             ->setMessageHits($messageHits)
-             ->setChatHits($chatHits)
-             ->setMessagePartHits($messagePartHits)
-             ->setContactHits($contactHits)
-             ->setNoteHits($noteHits)
-             ->setDocumentHits($documentHits)
-             ->setWikiHits($wikiHits)
-             ->setAppointmentHits($appointmentHits)
-             ->setTaskHits($taskHits);
+            ->setConversationHits($conversationHits)
+            ->setMessageHits($messageHits)
+            ->setChatHits($chatHits)
+            ->setMessagePartHits($messagePartHits)
+            ->setContactHits($contactHits)
+            ->setNoteHits($noteHits)
+            ->setDocumentHits($documentHits)
+            ->setWikiHits($wikiHits)
+            ->setAppointmentHits($appointmentHits)
+            ->setTaskHits($taskHits);
         $this->sortBy = $sortBy;
         $this->queryInfo = $queryInfo;
         if (null !== $queryOffset) {
@@ -376,7 +382,8 @@ class SearchResponse extends SoapResponse
     public function setSimpleHits(array $hits): self
     {
         $this->simpleHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof SimpleSearchHit
+            $hits,
+            static fn($hit) => $hit instanceof SimpleSearchHit
         );
         return $this;
     }
@@ -400,7 +407,8 @@ class SearchResponse extends SoapResponse
     public function setConversationHits(array $hits): self
     {
         $this->conversationHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof ConversationHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof ConversationHitInfo
         );
         return $this;
     }
@@ -424,7 +432,8 @@ class SearchResponse extends SoapResponse
     public function setMessageHits(array $hits): self
     {
         $this->messageHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof MessageHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof MessageHitInfo
         );
         return $this;
     }
@@ -448,7 +457,8 @@ class SearchResponse extends SoapResponse
     public function setChatHits(array $hits): self
     {
         $this->chatHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof ChatHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof ChatHitInfo
         );
         return $this;
     }
@@ -472,7 +482,8 @@ class SearchResponse extends SoapResponse
     public function setMessagePartHits(array $hits): self
     {
         $this->messagePartHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof MessagePartHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof MessagePartHitInfo
         );
         return $this;
     }
@@ -496,7 +507,8 @@ class SearchResponse extends SoapResponse
     public function setContactHits(array $hits): self
     {
         $this->contactHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof ContactInfo
+            $hits,
+            static fn($hit) => $hit instanceof ContactInfo
         );
         return $this;
     }
@@ -520,7 +532,8 @@ class SearchResponse extends SoapResponse
     public function setNoteHits(array $hits): self
     {
         $this->noteHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof NoteHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof NoteHitInfo
         );
         return $this;
     }
@@ -544,7 +557,8 @@ class SearchResponse extends SoapResponse
     public function setDocumentHits(array $hits): self
     {
         $this->documentHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof DocumentHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof DocumentHitInfo
         );
         return $this;
     }
@@ -568,7 +582,8 @@ class SearchResponse extends SoapResponse
     public function setWikiHits(array $hits): self
     {
         $this->wikiHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof WikiHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof WikiHitInfo
         );
         return $this;
     }
@@ -592,7 +607,8 @@ class SearchResponse extends SoapResponse
     public function setAppointmentHits(array $hits): self
     {
         $this->appointmentHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof AppointmentHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof AppointmentHitInfo
         );
         return $this;
     }
@@ -616,7 +632,8 @@ class SearchResponse extends SoapResponse
     public function setTaskHits(array $hits): self
     {
         $this->taskHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof TaskHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof TaskHitInfo
         );
         return $this;
     }

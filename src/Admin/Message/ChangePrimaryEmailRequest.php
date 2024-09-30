@@ -27,37 +27,36 @@ class ChangePrimaryEmailRequest extends SoapRequest
 {
     /**
      * Specifies the account to be changed
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * New account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('newName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("newName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $newName;
 
     /**
      * Constructor
-     * 
+     *
      * @param AccountSelector $account
      * @param string $newName
      * @return self
      */
-    public function __construct(AccountSelector $account, string $newName = '')
+    public function __construct(AccountSelector $account, string $newName = "")
     {
-        $this->setAccount($account)
-             ->setNewName($newName);
+        $this->setAccount($account)->setNewName($newName);
     }
 
     /**

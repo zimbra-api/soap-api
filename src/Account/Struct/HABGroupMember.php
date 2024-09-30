@@ -26,28 +26,27 @@ class HABGroupMember extends HABMember
 {
     /**
      * Member attributes. Currently only these attributes are returned: zimbraId, displayName
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Common\Struct\NamedValue>')]
-    #[XmlList(inline: true, entry: 'attr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Common\Struct\NamedValue>")]
+    #[XmlList(inline: true, entry: "attr", namespace: "urn:zimbraAccount")]
     private $attrs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  int   $seniorityIndex
      * @param  array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         ?int $seniorityIndex = null,
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($name, $seniorityIndex);
         $this->setAttrs($attrs);
     }
@@ -61,7 +60,8 @@ class HABGroupMember extends HABMember
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof NamedValue
+            $attrs,
+            static fn($attr) => $attr instanceof NamedValue
         );
         return $this;
     }

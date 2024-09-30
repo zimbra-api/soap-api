@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\KeyValuePair;
 
 /**
@@ -27,51 +33,50 @@ abstract class ObjectInfo
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Attributes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAttrList", setter: "setAttrList")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
     private $attrList = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setAttrList($attrs);
+        string $name = "",
+        string $id = "",
+        array $attrs = []
+    ) {
+        $this->setName($name)->setId($id)->setAttrList($attrs);
     }
 
     /**
@@ -127,7 +132,8 @@ abstract class ObjectInfo
     public function setAttrList(array $attrs): self
     {
         $this->attrList = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof KeyValuePair
+            $attrs,
+            static fn($attr) => $attr instanceof KeyValuePair
         );
         return $this;
     }

@@ -25,18 +25,18 @@ class Offset
 {
     /**
      * Offset
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $offset
      * @return self
      */

@@ -26,122 +26,122 @@ class FreeBusySlot
 {
     /**
      * GMT Start time for slot in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * GMT End time for slot in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Calendar event id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('eventId')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("eventId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Appointment subject
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('subject')]
-    #[Type('string')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("subject")]
+    #[Type("string")]
     #[XmlAttribute]
     private $subject;
 
     /**
      * Location of meeting
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName('location')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocation", setter: "setLocation")]
+    #[SerializedName("location")]
+    #[Type("string")]
     #[XmlAttribute]
     private $location;
 
     /**
      * Returns a bool value whether this calendar event is a meeting or not.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMeeting', setter: 'setMeeting')]
-    #[SerializedName('isMeeting')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMeeting", setter: "setMeeting")]
+    #[SerializedName("isMeeting")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isMeeting;
 
     /**
      * Returns a bool indicating whether it is continuous or not.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isRecurring', setter: 'setRecurring')]
-    #[SerializedName('isRecurring')]
-    #[Type('bool')]
+    #[Accessor(getter: "isRecurring", setter: "setRecurring")]
+    #[SerializedName("isRecurring")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isRecurring;
 
     /**
      * Returns a bool indicating whether there is any exception or not.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isException', setter: 'setException')]
-    #[SerializedName('isException')]
-    #[Type('bool')]
+    #[Accessor(getter: "isException", setter: "setException")]
+    #[SerializedName("isException")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isException;
 
     /**
      * Returns a bool indicating whether any reminder has been set or not.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isReminderSet', setter: 'setReminderSet')]
-    #[SerializedName('isReminderSet')]
-    #[Type('bool')]
+    #[Accessor(getter: "isReminderSet", setter: "setReminderSet")]
+    #[SerializedName("isReminderSet")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isReminderSet;
 
     /**
      * Returns a bool indicating whether this meeting is private or not.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isPrivate', setter: 'setPrivate')]
-    #[SerializedName('isPrivate')]
-    #[Type('bool')]
+    #[Accessor(getter: "isPrivate", setter: "setPrivate")]
+    #[SerializedName("isPrivate")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isPrivate;
 
     /**
      * Returns a bool indicating hasPermission to view FreeBusy information
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'hasPermission', setter: 'setHasPermission')]
-    #[SerializedName('hasPermission')]
-    #[Type('bool')]
+    #[Accessor(getter: "hasPermission", setter: "setHasPermission")]
+    #[SerializedName("hasPermission")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasPermission;
 
@@ -173,10 +173,8 @@ class FreeBusySlot
         ?bool $isReminderSet = null,
         ?bool $isPrivate = null,
         ?bool $hasPermission = null
-    )
-    {
-        $this->setStartTime($startTime)
-             ->setEndTime($endTime);
+    ) {
+        $this->setStartTime($startTime)->setEndTime($endTime);
         if (null !== $id) {
             $this->setId($id);
         }

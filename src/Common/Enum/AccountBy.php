@@ -25,35 +25,35 @@ enum AccountBy: string
      * Constant for value 'id'
      * @return string 'id'
      */
-    case ID = 'id';
+    case ID = "id";
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    case NAME = 'name';
+    case NAME = "name";
 
     /**
      * Constant for value 'adminName'
      * @return string 'adminName'
      */
-    case ADMIN_NAME = 'adminName';
+    case ADMIN_NAME = "adminName";
 
     /**
      * Constant for value 'appAdminName'
      * @return string 'appAdminName'
      */
-    case APP_ADMIN_NAME = 'appAdminName';
+    case APP_ADMIN_NAME = "appAdminName";
 
     /**
      * Constant for value 'foreignPrincipal'
      * @return string 'foreignPrincipal'
      */
-    case FOREIGN_PRINCIPAL = 'foreignPrincipal';
+    case FOREIGN_PRINCIPAL = "foreignPrincipal";
 
     /**
      * Constant for value 'krb5Principal'
      * @return string 'krb5Principal'
      */
-    case KRB5_PRINCIPAL = 'krb5Principal';
+    case KRB5_PRINCIPAL = "krb5Principal";
 }

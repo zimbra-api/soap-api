@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * QueueSummaryItem class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,23 +25,23 @@ class QueueSummaryItem
 {
     /**
      * Count
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getCount", setter: "setCount")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $count;
 
     /**
      * Text for item.  e.g. "connect to 10.10.20.40 failed"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTerm', setter: 'setTerm')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTerm", setter: "setTerm")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $term;
 
@@ -52,13 +52,9 @@ class QueueSummaryItem
      * @param string $term
      * @return self
      */
-    public function __construct(
-        int $count = 0,
-        string $term = ''
-    )
+    public function __construct(int $count = 0, string $term = "")
     {
-        $this->setCount($count)
-             ->setTerm($term);
+        $this->setCount($count)->setTerm($term);
     }
 
     /**

@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * PushFreeBusyBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class PushFreeBusyBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('PushFreeBusyRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("PushFreeBusyRequest")]
     #[Type(PushFreeBusyRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('PushFreeBusyResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("PushFreeBusyResponse")]
     #[Type(PushFreeBusyResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class PushFreeBusyBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PushFreeBusyRequest $request = null, ?PushFreeBusyResponse $response = null
-    )
-    {
+        ?PushFreeBusyRequest $request = null,
+        ?PushFreeBusyResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * GetTaskRequest class
  * Get Task
  * Similar to GetAppointmentRequest/GetAppointmentResponse
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,8 +31,6 @@ class GetTaskRequest extends GetCalendarItemRequestBase
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetTaskEnvelope(
-            new GetTaskBody($this)
-        );
+        return new GetTaskEnvelope(new GetTaskBody($this));
     }
 }

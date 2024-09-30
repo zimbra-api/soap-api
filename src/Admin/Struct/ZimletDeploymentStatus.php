@@ -26,50 +26,52 @@ class ZimletDeploymentStatus
 {
     /**
      * Server name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
-    #[Type('string')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
+    #[Type("string")]
     #[XmlAttribute]
     private $server;
 
     /**
      * Status - valid values succeeded|failed|pending
-     * 
+     *
      * @var ZimletDeployStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private ZimletDeployStatus $status;
 
     /**
      * Error message
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getError', setter: 'setError')]
-    #[SerializedName('error')]
-    #[Type('string')]
+    #[Accessor(getter: "getError", setter: "setError")]
+    #[SerializedName("error")]
+    #[Type("string")]
     #[XmlAttribute]
     private $error;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $server
      * @param  ZimletDeployStatus $status
      * @param  string $error
      * @return self
      */
     public function __construct(
-        string $server = '', ?ZimletDeployStatus $status = null, ?string $error = null
-    )
-    {
-        $this->setServer($server)
-             ->setStatus($status ?? ZimletDeployStatus::SUCCEEDED);
+        string $server = "",
+        ?ZimletDeployStatus $status = null,
+        ?string $error = null
+    ) {
+        $this->setServer($server)->setStatus(
+            $status ?? ZimletDeployStatus::SUCCEEDED
+        );
         if (null !== $error) {
             $this->setError($error);
         }

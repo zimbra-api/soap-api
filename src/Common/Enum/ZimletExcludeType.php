@@ -25,17 +25,17 @@ enum ZimletExcludeType: string
      * Constant for value 'extension'
      * @return string 'extension'
      */
-    case EXTENSION = 'extension';
+    case EXTENSION = "extension";
 
     /**
      * Constant for value 'mail'
      * @return string 'mail'
      */
-    case MAIL = 'mail';
+    case MAIL = "mail";
 
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    case NONE = 'none';
+    case NONE = "none";
 }

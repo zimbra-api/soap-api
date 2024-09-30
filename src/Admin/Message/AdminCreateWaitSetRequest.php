@@ -10,13 +10,20 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest, WaitSetAddSpec};
 
 /**
  * AdminCreateWaitSet request class
  * Create a waitset to listen for changes on one or more accounts
- * Called once to initialize a WaitSet and to set its "default interest types" 
+ * Called once to initialize a WaitSet and to set its "default interest types"
  * WaitSet: scalable mechanism for listening for changes to one or more accounts
  *
  * @package    Zimbra
@@ -29,54 +36,52 @@ class AdminCreateWaitSetRequest extends SoapRequest
 {
     /**
      * Default interest types: comma-separated list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName('defTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultInterests", setter: "setDefaultInterests")]
+    #[SerializedName("defTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultInterests;
 
     /**
      * All accounts
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllAccounts', setter: 'setAllAccounts')]
-    #[SerializedName('allAccounts')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllAccounts", setter: "setAllAccounts")]
+    #[SerializedName("allAccounts")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allAccounts;
 
     /**
      * Waitsets to add
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[SerializedName('add')]
-    #[Type('array<Zimbra\Common\Struct\WaitSetAddSpec>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[SerializedName("add")]
+    #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $defaultInterests
      * @param bool $allAccounts
      * @param array $accounts
      * @return self
      */
     public function __construct(
-        string $defaultInterests = '',
+        string $defaultInterests = "",
         ?bool $allAccounts = null,
         array $accounts = []
-    )
-    {
-        $this->setDefaultInterests($defaultInterests)
-             ->setAccounts($accounts);
+    ) {
+        $this->setDefaultInterests($defaultInterests)->setAccounts($accounts);
         if (null !== $allAccounts) {
             $this->setAllAccounts($allAccounts);
         }
@@ -147,7 +152,8 @@ class AdminCreateWaitSetRequest extends SoapRequest
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+            $accounts,
+            static fn($account) => $account instanceof WaitSetAddSpec
         );
         return $this;
     }

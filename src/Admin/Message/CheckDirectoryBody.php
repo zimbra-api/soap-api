@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * CheckDirectoryBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class CheckDirectoryBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('CheckDirectoryRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("CheckDirectoryRequest")]
     #[Type(CheckDirectoryRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('CheckDirectoryResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("CheckDirectoryResponse")]
     #[Type(CheckDirectoryResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class CheckDirectoryBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?CheckDirectoryRequest $request = null, ?CheckDirectoryResponse $response = null
-    )
-    {
+        ?CheckDirectoryRequest $request = null,
+        ?CheckDirectoryResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

@@ -25,17 +25,17 @@ enum ModifyGroupMemberOperation: string
      * Constant for value ADD
      * @return string '+'
      */
-    case ADD = '+';
+    case ADD = "+";
 
     /**
      * Constant for value REMOVE
      * @return string '-'
      */
-    case REMOVE = '-';
+    case REMOVE = "-";
 
     /**
      * Constant for value RESET
      * @return string 'reset'
      */
-    case RESET = 'reset';
+    case RESET = "reset";
 }

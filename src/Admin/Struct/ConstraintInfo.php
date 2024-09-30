@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 
 /**
  * ConstraintInfo struct class
@@ -25,48 +31,51 @@ class ConstraintInfo
 {
     /**
      * Minimum value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMin', setter: 'setMin')]
-    #[SerializedName('min')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMin", setter: "setMin")]
+    #[SerializedName("min")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $min;
 
     /**
      * Maximum value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMax', setter: 'setMax')]
-    #[SerializedName('max')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMax", setter: "setMax")]
+    #[SerializedName("max")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $max;
 
     /**
      * Acceptable Values
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName('values')]
-    #[Type('array<string>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'v', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[SerializedName("values")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "v", namespace: "urn:zimbraAdmin")]
     private $values = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $min
      * @param  string $max
      * @param  array $values
      * @return self
      */
-    public function __construct(?string $min = null, ?string $max = null, array $values = [])
-    {
+    public function __construct(
+        ?string $min = null,
+        ?string $max = null,
+        array $values = []
+    ) {
         if (null !== $min) {
             $this->setMin($min);
         }
@@ -139,7 +148,7 @@ class ConstraintInfo
     public function setValues(array $values): self
     {
         $this->values = array_unique(
-            array_map(static fn ($value) => trim($value), $values)
+            array_map(static fn($value) => trim($value), $values)
         );
         return $this;
     }

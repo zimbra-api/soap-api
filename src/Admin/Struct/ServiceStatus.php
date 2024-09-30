@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\ZeroOrOne;
 
 /**
@@ -26,49 +32,49 @@ class ServiceStatus
 {
     /**
      * Server
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
-    #[Type('string')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
+    #[Type("string")]
     #[XmlAttribute]
     private $server;
 
     /**
      * Service
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getService', setter: 'setService')]
-    #[SerializedName('service')]
-    #[Type('string')]
+    #[Accessor(getter: "getService", setter: "setService")]
+    #[SerializedName("service")]
+    #[Type("string")]
     #[XmlAttribute]
     private $service;
 
     /**
      * Number of seconds since the epoch (1970), UTC time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName('t')]
-    #[Type('int')]
+    #[Accessor(getter: "getTime", setter: "setTime")]
+    #[SerializedName("t")]
+    #[Type("int")]
     #[XmlAttribute]
     private $time;
 
     /**
      * Status
-     * 
+     *
      * @var ZeroOrOne
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
     #[XmlValue(cdata: false)]
     private ZeroOrOne $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $server
      * @param  string $service
      * @param  int $time
@@ -76,13 +82,15 @@ class ServiceStatus
      * @return self
      */
     public function __construct(
-        string $server = '', string $service = '', int $time = 0, ?ZeroOrOne $status = null
-    )
-    {
+        string $server = "",
+        string $service = "",
+        int $time = 0,
+        ?ZeroOrOne $status = null
+    ) {
         $this->setServer($server)
-             ->setService($service)
-             ->setTime($time)
-             ->setStatus($status ?? ZeroOrOne::ZERO);
+            ->setService($service)
+            ->setTime($time)
+            ->setStatus($status ?? ZeroOrOne::ZERO);
     }
 
     /**

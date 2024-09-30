@@ -25,18 +25,18 @@ class IntegerValueAttrib
 {
     /**
      * Value
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('int')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("int")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $value
      * @return self
      */

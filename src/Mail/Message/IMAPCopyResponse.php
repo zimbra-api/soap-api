@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * IMAPCopyResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class IMAPCopyResponse extends SoapResponse
 {
     /**
      * new items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getItems', setter: 'setItems')]
-    #[Type('array<Zimbra\Mail\Struct\IMAPItemInfo>')]
-    #[XmlList(inline: true, entry: 'item', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getItems", setter: "setItems")]
+    #[Type("array<Zimbra\Mail\Struct\IMAPItemInfo>")]
+    #[XmlList(inline: true, entry: "item", namespace: "urn:zimbraMail")]
     private $items = [];
 
     /**
@@ -55,7 +55,8 @@ class IMAPCopyResponse extends SoapResponse
     public function setItems(array $items): self
     {
         $this->items = array_filter(
-            $items, static fn ($item) => $item instanceof IMAPItemInfo
+            $items,
+            static fn($item) => $item instanceof IMAPItemInfo
         );
         return $this;
     }

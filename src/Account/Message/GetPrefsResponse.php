@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetPrefsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,17 +27,17 @@ class GetPrefsResponse extends SoapResponse
 {
     /**
      * Preferences
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[Type('array<Zimbra\Account\Struct\Pref>')]
-    #[XmlList(inline: true, entry: 'pref', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPrefs", setter: "setPrefs")]
+    #[Type("array<Zimbra\Account\Struct\Pref>")]
+    #[XmlList(inline: true, entry: "pref", namespace: "urn:zimbraAccount")]
     private $prefs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $prefs
      * @return self
      */
@@ -55,7 +55,8 @@ class GetPrefsResponse extends SoapResponse
     public function setPrefs(array $prefs): self
     {
         $this->prefs = array_filter(
-            $prefs, static fn ($pref) => $pref instanceof Pref
+            $prefs,
+            static fn($pref) => $pref instanceof Pref
         );
         return $this;
     }

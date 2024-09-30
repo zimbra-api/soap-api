@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetEffectiveRightsBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class GetEffectiveRightsBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetEffectiveRightsRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetEffectiveRightsRequest")]
     #[Type(GetEffectiveRightsRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetEffectiveRightsResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetEffectiveRightsResponse")]
     #[Type(GetEffectiveRightsResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class GetEffectiveRightsBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetEffectiveRightsRequest $request = null, ?GetEffectiveRightsResponse $response = null
-    )
-    {
+        ?GetEffectiveRightsRequest $request = null,
+        ?GetEffectiveRightsResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

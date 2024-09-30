@@ -25,84 +25,84 @@ class TzOnsetInfo
 {
     /**
      * Month; 1=January, 2=February, etc.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
-    #[SerializedName('mon')]
-    #[Type('int')]
+    #[Accessor(getter: "getMonth", setter: "setMonth")]
+    #[SerializedName("mon")]
+    #[Type("int")]
     #[XmlAttribute]
     private $month;
 
     /**
      * Transition hour (0..23)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getHour', setter: 'setHour')]
-    #[SerializedName('hour')]
-    #[Type('int')]
+    #[Accessor(getter: "getHour", setter: "setHour")]
+    #[SerializedName("hour")]
+    #[Type("int")]
     #[XmlAttribute]
     private $hour;
 
     /**
      * Transition minute (0..59)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMinute', setter: 'setMinute')]
-    #[SerializedName('min')]
-    #[Type('int')]
+    #[Accessor(getter: "getMinute", setter: "setMinute")]
+    #[SerializedName("min")]
+    #[Type("int")]
     #[XmlAttribute]
     private $minute;
 
     /**
      * Transition second; 0..59, usually 0
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSecond', setter: 'setSecond')]
-    #[SerializedName('sec')]
-    #[Type('int')]
+    #[Accessor(getter: "getSecond", setter: "setSecond")]
+    #[SerializedName("sec")]
+    #[Type("int")]
     #[XmlAttribute]
     private $second;
 
     /**
      * Day of month (1..31)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDayOfMonth', setter: 'setDayOfMonth')]
-    #[SerializedName('mday')]
-    #[Type('int')]
+    #[Accessor(getter: "getDayOfMonth", setter: "setDayOfMonth")]
+    #[SerializedName("mday")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dayOfMonth;
 
     /**
      * Week number; 1=first, 2=second, 3=third, 4=fourth, -1=last
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getWeek', setter: 'setWeek')]
-    #[SerializedName('week')]
-    #[Type('int')]
+    #[Accessor(getter: "getWeek", setter: "setWeek")]
+    #[SerializedName("week")]
+    #[Type("int")]
     #[XmlAttribute]
     private $week;
 
     /**
      * Day of week; 1=Sunday, 2=Monday, etc.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDayOfWeek', setter: 'setDayOfWeek')]
-    #[SerializedName('wkday')]
-    #[Type('int')]
+    #[Accessor(getter: "getDayOfWeek", setter: "setDayOfWeek")]
+    #[SerializedName("wkday")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dayOfWeek;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $month
      * @param int $hour
      * @param int $minute
@@ -120,12 +120,11 @@ class TzOnsetInfo
         ?int $dayOfMonth = null,
         ?int $week = null,
         ?int $dayOfWeek = null
-    )
-    {
+    ) {
         $this->setMonth($month)
-             ->setHour($hour)
-             ->setMinute($minute)
-             ->setSecond($second);
+            ->setHour($hour)
+            ->setMinute($minute)
+            ->setSecond($second);
 
         if (is_int($dayOfMonth) && in_array((int) $dayOfMonth, range(1, 31))) {
             $this->setDayOfMonth($dayOfMonth);

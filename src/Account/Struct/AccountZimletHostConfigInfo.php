@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{ZimletHostConfigInfo, ZimletProperty};
 
 /**
@@ -27,28 +33,28 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
     /**
      * Designates the zimbra host name for the properties.
      * Must be a valid Zimbra host name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Host specifice zimlet configuration properties
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]
-    #[Type('array<Zimbra\Account\Struct\AccountZimletProperty>')]
-    #[XmlList(inline: true, entry: 'property', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getZimletProperties", setter: "setZimletProperties")]
+    #[Type("array<Zimbra\Account\Struct\AccountZimletProperty>")]
+    #[XmlList(inline: true, entry: "property", namespace: "urn:zimbraAccount")]
     private $properties = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  array $properties
      * @return self
@@ -106,7 +112,8 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
     public function setZimletProperties(array $properties): self
     {
         $this->properties = array_filter(
-            $properties, static fn ($prop) => $prop instanceof AccountZimletProperty
+            $properties,
+            static fn($prop) => $prop instanceof AccountZimletProperty
         );
         return $this;
     }

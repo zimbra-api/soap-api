@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetVersionInfoRequest class
  * Get version information
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,8 +29,6 @@ class GetVersionInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetVersionInfoEnvelope(
-            new GetVersionInfoBody($this)
-        );
+        return new GetVersionInfoEnvelope(new GetVersionInfoBody($this));
     }
 }

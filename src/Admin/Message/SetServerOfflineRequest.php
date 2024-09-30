@@ -10,14 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SetServerOfflineRequest class
  * Set server offline
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,24 +35,26 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Server
-     * 
+     *
      * @var ServerSelector
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ServerSelector $server;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ServerSelector $server
      * @param  string $attrs
      * @return self
      */
-    public function __construct(?ServerSelector $server = null, ?string $attrs = null)
-    {
+    public function __construct(
+        ?ServerSelector $server = null,
+        ?string $attrs = null
+    ) {
         $this->server = $server;
         if (null !== $attrs) {
             $this->setAttrs($attrs);
@@ -81,8 +88,6 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetServerOfflineEnvelope(
-            new SetServerOfflineBody($this)
-        );
+        return new SetServerOfflineEnvelope(new SetServerOfflineBody($this));
     }
 }

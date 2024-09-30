@@ -25,22 +25,22 @@ class AccountsAttrib
 {
     /**
      * Comma separated list of account IDs
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[SerializedName('accounts')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[SerializedName("accounts")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accounts;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $accounts
      * @return self
      */
-    public function __construct(string $accounts = '')
+    public function __construct(string $accounts = "")
     {
         $this->setAccounts($accounts);
     }

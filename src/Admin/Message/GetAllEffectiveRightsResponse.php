@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\{EffectiveRightsTarget, GranteeInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllEffectiveRightsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,23 +33,23 @@ class GetAllEffectiveRightsResponse extends SoapResponse
 {
     /**
      * Grantee information
-     * 
+     *
      * @var GranteeInfo
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeInfo $grantee;
 
     /**
      * Effective rights targets
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTargets', setter: 'setTargets')]
-    #[Type('array<Zimbra\Admin\Struct\EffectiveRightsTarget>')]
-    #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getTargets", setter: "setTargets")]
+    #[Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")]
+    #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAdmin")]
     private $targets = [];
 
     /**
@@ -53,8 +59,10 @@ class GetAllEffectiveRightsResponse extends SoapResponse
      * @param array $targets
      * @return self
      */
-    public function __construct(?GranteeInfo $grantee = null, array $targets = [])
-    {
+    public function __construct(
+        ?GranteeInfo $grantee = null,
+        array $targets = []
+    ) {
         $this->setTargets($targets);
         $this->grantee = $grantee;
     }
@@ -90,7 +98,8 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     public function setTargets(array $targets): self
     {
         $this->targets = array_filter(
-            $targets, static fn ($target) => $target instanceof EffectiveRightsTarget
+            $targets,
+            static fn($target) => $target instanceof EffectiveRightsTarget
         );
         return $this;
     }

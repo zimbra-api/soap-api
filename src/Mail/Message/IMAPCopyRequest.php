@@ -28,34 +28,34 @@ class IMAPCopyRequest extends SoapRequest
 {
     /**
      * Comma separated list of int ids
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
     /**
      * Mail item type.
      * Valid values are case insensitive types from MailItemType enum
-     * 
+     *
      * @var MailItemType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('t')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("t")]
     #[XmlAttribute]
     private MailItemType $type;
 
     /**
      * Target folder ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('int')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("int")]
     #[XmlAttribute]
     private $folder;
 
@@ -68,14 +68,13 @@ class IMAPCopyRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $ids = '',
+        string $ids = "",
         ?MailItemType $type = null,
         int $folder = 0
-    )
-    {
+    ) {
         $this->setIds($ids)
-             ->setType($type ?? MailItemType::MESSAGE)
-             ->setFolder($folder);
+            ->setType($type ?? MailItemType::MESSAGE)
+            ->setFolder($folder);
     }
 
     /**
@@ -149,8 +148,6 @@ class IMAPCopyRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new IMAPCopyEnvelope(
-            new IMAPCopyBody($this)
-        );
+        return new IMAPCopyEnvelope(new IMAPCopyBody($this));
     }
 }

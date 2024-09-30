@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * BlobSizeInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,51 +25,51 @@ class BlobSizeInfo
 {
     /**
      * Path
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Data size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * File size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName('fileSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getFileSize", setter: "setFileSize")]
+    #[SerializedName("fileSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fileSize;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
-    #[SerializedName('external')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExternal", setter: "setExternal")]
+    #[SerializedName("external")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $external;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $path
      * @param int $size
      * @param int $fileSize
@@ -77,16 +77,15 @@ class BlobSizeInfo
      * @return self
      */
     public function __construct(
-        string $path = '',
+        string $path = "",
         int $size = 0,
         int $fileSize = 0,
         bool $external = false
-    )
-    {
+    ) {
         $this->setPath($path)
-             ->setSize($size)
-             ->setFileSize($fileSize)
-             ->setExternal($external);
+            ->setSize($size)
+            ->setFileSize($fileSize)
+            ->setExternal($external);
     }
 
     /**

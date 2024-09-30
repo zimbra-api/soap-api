@@ -27,12 +27,12 @@ class NumAttr implements NumAttrInterface
 {
     /**
      * Number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('num')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("num")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 

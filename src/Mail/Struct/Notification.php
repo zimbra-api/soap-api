@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\NotificationInterface;
 
 /**
@@ -26,24 +32,24 @@ class Notification implements NotificationInterface
 {
     /**
      * Truncated flag
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTruncatedContent', setter: 'setTruncatedContent')]
-    #[SerializedName('truncated')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTruncatedContent", setter: "setTruncatedContent")]
+    #[SerializedName("truncated")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $truncatedContent;
 
     /**
      * Content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
@@ -53,8 +59,10 @@ class Notification implements NotificationInterface
      * @param  string $content
      * @return self
      */
-    public function __construct(?bool $truncatedContent = null, ?string $content = null)
-    {
+    public function __construct(
+        ?bool $truncatedContent = null,
+        ?string $content = null
+    ) {
         if (null !== $truncatedContent) {
             $this->setTruncatedContent($truncatedContent);
         }

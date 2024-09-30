@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\AddMsgSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AddMsgRequest class
  * Add a message
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,24 +35,24 @@ class AddMsgRequest extends SoapRequest
     /**
      * If set, then do outgoing message filtering if the msg is being added to the Sent
      * folder and has been flagged as sent. Default is unset.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFilterSent', setter: 'setFilterSent')]
-    #[SerializedName('filterSent')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFilterSent", setter: "setFilterSent")]
+    #[SerializedName("filterSent")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $filterSent;
 
     /**
      * Specification of the message to add
-     * 
+     *
      * @var AddMsgSpec
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(AddMsgSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private AddMsgSpec $msg;
 
     /**
@@ -113,8 +119,6 @@ class AddMsgRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AddMsgEnvelope(
-            new AddMsgBody($this)
-        );
+        return new AddMsgEnvelope(new AddMsgBody($this));
     }
 }

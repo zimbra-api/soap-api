@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetFreeBusyResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class GetFreeBusyResponse extends SoapResponse
 {
     /**
      * Freebusy information for users
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserInfo>')]
-    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
+    #[Type("array<Zimbra\Mail\Struct\FreeBusyUserInfo>")]
+    #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
     private $freebusyUsers = [];
 
     /**
@@ -55,7 +55,8 @@ class GetFreeBusyResponse extends SoapResponse
     public function setFreebusyUsers(array $users): self
     {
         $this->freebusyUsers = array_filter(
-            $users, static fn ($usr) => $usr instanceof FreeBusyUserInfo
+            $users,
+            static fn($usr) => $usr instanceof FreeBusyUserInfo
         );
         return $this;
     }

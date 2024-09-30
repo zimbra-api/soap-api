@@ -26,34 +26,34 @@ class TagSpec
 {
     /**
      * Tag name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
@@ -66,11 +66,10 @@ class TagSpec
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         ?string $rgb = null,
         ?int $color = null
-    )
-    {
+    ) {
         $this->setName($name);
         if (null !== $rgb) {
             $this->setRgb($rgb);

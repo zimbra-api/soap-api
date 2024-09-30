@@ -10,15 +10,26 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\{
-    ContactAttr, ContactGroupMemberInterface, ContactInterface, CustomMetadataInterface, SearchHit
+    ContactAttr,
+    ContactGroupMemberInterface,
+    ContactInterface,
+    CustomMetadataInterface,
+    SearchHit
 };
 
 /**
  * ContactInfo struct class
  * Contact information
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -29,266 +40,276 @@ class ContactInfo implements ContactInterface, SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Set if the user can (has right to) expand group members.  Returned only if needExp
      * is set in the request and only on group entries (type=group in attrs on a <cn>).
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanExpand', setter: 'setCanExpand')]
-    #[SerializedName('exp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCanExpand", setter: "setCanExpand")]
+    #[SerializedName("exp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canExpand;
 
     /**
      * Unique contact ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * IMAP UID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
-    #[SerializedName('i4uid')]
-    #[Type('int')]
+    #[Accessor(getter: "getImapUid", setter: "setImapUid")]
+    #[SerializedName("i4uid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $imapUid;
 
     /**
      * Folder ID. When creating a contact, this is the ID of the folder to create the contact in
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Flags.  {flags} = (f)lagged, has (a)ttachment
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Modified date in seconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Modified sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequenceId', setter: 'setModifiedSequenceId')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getModifiedSequenceId",
+            setter: "setModifiedSequenceId"
+        )
+    ]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequenceId;
 
     /**
      * Date in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Saved sequence number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevisionId', setter: 'setRevisionId')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevisionId", setter: "setRevisionId")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revisionId;
 
     /**
      * Current "file as" string for display/sorting purposes; cannot be used to
      * set the file-as value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
-    #[SerializedName('fileAsStr')]
-    #[Type('string')]
+    #[Accessor(getter: "getFileAs", setter: "setFileAs")]
+    #[SerializedName("fileAsStr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fileAs;
 
     /**
      * Contact email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Contact email address 2
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail2', setter: 'setEmail2')]
-    #[SerializedName('email2')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail2", setter: "setEmail2")]
+    #[SerializedName("email2")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email2;
 
     /**
      * Contact email address 3
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail3', setter: 'setEmail3')]
-    #[SerializedName('email3')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail3", setter: "setEmail3")]
+    #[SerializedName("email3")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email3;
 
     /**
      * Contact type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Contact dlist
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDlist', setter: 'setDlist')]
-    #[SerializedName('dlist')]
-    #[Type('string')]
+    #[Accessor(getter: "getDlist", setter: "setDlist")]
+    #[SerializedName("dlist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dlist;
 
     /**
      * GAL entry reference
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getReference', setter: 'setReference')]
-    #[SerializedName('ref')]
-    #[Type('string')]
+    #[Accessor(getter: "getReference", setter: "setReference")]
+    #[SerializedName("ref")]
+    #[Type("string")]
     #[XmlAttribute]
     private $reference;
 
     /**
      * If number of members on a GAL group is greater than the specified max,
      * do not return any members for the entry.  Instead, set "tooManyMembers.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTooManyMembers', setter: 'setTooManyMembers')]
-    #[SerializedName('tooManyMembers')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTooManyMembers", setter: "setTooManyMembers")]
+    #[SerializedName("tooManyMembers")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $tooManyMembers;
 
     /**
      * Custom metadata information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
+    #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
     private $metadatas = [];
 
     /**
      * Attributes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Common\Struct\ContactAttr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Common\Struct\ContactAttr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
     private $attrs = [];
 
     /**
      * Contact group members
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
-    #[Type('array<Zimbra\Mail\Struct\ContactGroupMember>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getContactGroupMembers",
+            setter: "setContactGroupMembers"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\ContactGroupMember>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $contactGroupMembers = [];
 
     /**
      * Comma separated list of IDs of contact groups this contact is a member of. Only provided if requested
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMemberOf', setter: 'setMemberOf')]
-    #[SerializedName('memberOf')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMemberOf", setter: "setMemberOf")]
+    #[SerializedName("memberOf")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $memberOf;
 
     /**
@@ -320,7 +341,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * @return self
      */
     public function __construct(
-        string $id = '',
+        string $id = "",
         ?string $sortField = null,
         ?bool $canExpand = null,
         ?int $imapUid = null,
@@ -340,16 +361,15 @@ class ContactInfo implements ContactInterface, SearchHit
         ?string $dlist = null,
         ?string $reference = null,
         ?bool $tooManyMembers = null,
-        array $metadatas  = [],
+        array $metadatas = [],
         array $attrs = [],
         array $contactGroupMembers = [],
         ?string $memberOf = null
-    )
-    {
+    ) {
         $this->setId($id)
-             ->setMetadatas($metadatas)
-             ->setAttrs($attrs)
-             ->setContactGroupMembers($contactGroupMembers);
+            ->setMetadatas($metadatas)
+            ->setAttrs($attrs)
+            ->setContactGroupMembers($contactGroupMembers);
 
         if (null !== $sortField) {
             $this->setSortField($sortField);
@@ -872,7 +892,8 @@ class ContactInfo implements ContactInterface, SearchHit
     public function setMetadatas(array $metadatas): self
     {
         $this->metadatas = array_filter(
-            $metadatas, static fn ($metadata) => $metadata instanceof CustomMetadataInterface
+            $metadatas,
+            static fn($metadata) => $metadata instanceof CustomMetadataInterface
         );
         return $this;
     }
@@ -896,7 +917,8 @@ class ContactInfo implements ContactInterface, SearchHit
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof ContactAttr
+            $attrs,
+            static fn($attr) => $attr instanceof ContactAttr
         );
         return $this;
     }
@@ -920,7 +942,8 @@ class ContactInfo implements ContactInterface, SearchHit
     public function setContactGroupMembers(array $members): self
     {
         $this->contactGroupMembers = array_filter(
-            $members, static fn ($member) => $member instanceof ContactGroupMemberInterface
+            $members,
+            static fn($member) => $member instanceof ContactGroupMemberInterface
         );
         return $this;
     }

@@ -25,17 +25,17 @@ enum BrowseBy: string
      * Constant for value 'domains'
      * @return string 'domains'
      */
-    case DOMAINS = 'domains';
+    case DOMAINS = "domains";
 
     /**
      * Constant for value 'attachments'
      * @return string 'attachments'
      */
-    case ATTACHMENTS = 'attachments';
+    case ATTACHMENTS = "attachments";
 
     /**
      * Constant for value 'objects'
      * @return string 'objects'
      */
-    case OBJECTS = 'objects';
+    case OBJECTS = "objects";
 }

@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\ImapDataSource;
 
 /**
  * AccountImapDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

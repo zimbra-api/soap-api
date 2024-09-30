@@ -30,28 +30,25 @@ class CreateZimletRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimlet name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $name = '', array $attrs = []
-    )
+    public function __construct(string $name = "", array $attrs = [])
     {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        $this->setName($name)->setAttrs($attrs);
     }
 
     /**
@@ -81,8 +78,6 @@ class CreateZimletRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateZimletEnvelope(
-            new CreateZimletBody($this)
-        );
+        return new CreateZimletEnvelope(new CreateZimletBody($this));
     }
 }

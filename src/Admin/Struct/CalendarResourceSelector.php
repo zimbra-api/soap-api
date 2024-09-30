@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\CalendarResourceBy;
 
 /**
@@ -26,35 +32,35 @@ class CalendarResourceSelector
 {
     /**
      * Select the meaning of {cal-resource-selector-key}
-     * 
+     *
      * @var CalendarResourceBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private CalendarResourceBy $by;
 
     /**
      * Specify calendar resource
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CalendarResourceBy $by
      * @param  string $value
      * @return self
      */
     public function __construct(
-        ?CalendarResourceBy $by = null, ?string $value = null
-    )
-    {
+        ?CalendarResourceBy $by = null,
+        ?string $value = null
+    ) {
         $this->setBy($by ?? CalendarResourceBy::ID);
         if (null !== $value) {
             $this->setValue($value);

@@ -25,17 +25,17 @@ enum ContactBackupStatus: string
      * Constant for value 'started'
      * @return string 'started'
      */
-    case STARTED = 'started';
+    case STARTED = "started";
 
     /**
      * Constant for value 'error'
      * @return string 'error'
      */
-    case ERROR = 'error';
+    case ERROR = "error";
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    case STOPPED = 'stopped';
+    case STOPPED = "stopped";
 }

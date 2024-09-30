@@ -25,59 +25,59 @@ enum GranteeType: string
      * Constant for value 'usr'
      * @return string 'usr'
      */
-    case USR = 'usr';
+    case USR = "usr";
 
     /**
      * Constant for value 'grp'
      * @return string 'grp'
      */
-    case GRP = 'grp';
+    case GRP = "grp";
 
     /**
      * Constant for value 'egp'
      * @return string 'egp'
      */
-    case EGP = 'egp';
+    case EGP = "egp";
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'dom'
      * @return string 'dom'
      */
-    case DOM = 'dom';
+    case DOM = "dom";
 
     /**
      * Constant for value 'edom'
      * @return string 'edom'
      */
-    case EDOM = 'edom';
+    case EDOM = "edom";
 
     /**
      * Constant for value 'gst'
      * @return string 'gst'
      */
-    case GST = 'gst';
+    case GST = "gst";
 
     /**
      * Constant for value 'key'
      * @return string 'key'
      */
-    case KEY = 'key';
+    case KEY = "key";
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    case PUB = 'pub';
+    case PUB = "pub";
 
     /**
      * Constant for value 'email'
      * @return string 'email'
      */
-    case EMAIL = 'email';
+    case EMAIL = "email";
 }

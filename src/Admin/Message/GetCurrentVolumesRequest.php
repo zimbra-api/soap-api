@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetCurrentVolumesRequest class
  * Get current volumes
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class GetCurrentVolumesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetCurrentVolumesEnvelope(
-            new GetCurrentVolumesBody($this)
-        );
+        return new GetCurrentVolumesEnvelope(new GetCurrentVolumesBody($this));
     }
 }

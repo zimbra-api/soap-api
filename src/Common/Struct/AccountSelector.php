@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AccountBy;
 
 /**
@@ -26,27 +32,27 @@ class AccountSelector
 {
     /**
      * Account by
-     * 
+     *
      * @var AccountBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private AccountBy $by;
 
     /**
      * value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountBy $by
      * @param  string $value
      * @return self

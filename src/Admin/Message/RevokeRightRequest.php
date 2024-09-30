@@ -11,7 +11,11 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\{EffectiveRightsTargetSelector, GranteeSelector, RightModifierInfo};
+use Zimbra\Admin\Struct\{
+    EffectiveRightsTargetSelector,
+    GranteeSelector,
+    RightModifierInfo
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -26,43 +30,42 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  */
 class RevokeRightRequest extends SoapRequest
 {
-
     /**
      * Target selector
-     * 
+     *
      * @var EffectiveRightsTargetSelector
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(EffectiveRightsTargetSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee selector
-     * 
+     *
      * @var GranteeSelector
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private GranteeSelector $grantee;
 
     /**
      * Right
-     * 
+     *
      * @var RightModifierInfo
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
     #[Type(RightModifierInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private RightModifierInfo $right;
 
     /**
      * Constructor
-     * 
+     *
      * @param EffectiveRightsTargetSelector $target
      * @param GranteeSelector $grantee
      * @param RightModifierInfo $right
@@ -72,11 +75,8 @@ class RevokeRightRequest extends SoapRequest
         EffectiveRightsTargetSelector $target,
         GranteeSelector $grantee,
         RightModifierInfo $right
-    )
-    {
-        $this->setTarget($target)
-             ->setGrantee($grantee)
-             ->setRight($right);
+    ) {
+        $this->setTarget($target)->setGrantee($grantee)->setRight($right);
     }
 
     /**
@@ -150,8 +150,6 @@ class RevokeRightRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RevokeRightEnvelope(
-            new RevokeRightBody($this)
-        );
+        return new RevokeRightEnvelope(new RevokeRightBody($this));
     }
 }

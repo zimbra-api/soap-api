@@ -25,17 +25,17 @@ enum QuotaSortBy: string
      * Constant for value 'percentUsed'
      * @return string 'percentUsed'
      */
-    case PERCENT_USED = 'percentUsed';
+    case PERCENT_USED = "percentUsed";
 
     /**
      * Constant for value 'totalUsed'
      * @return string 'totalUsed'
      */
-    case TOTAL_USED = 'totalUsed';
+    case TOTAL_USED = "totalUsed";
 
     /**
      * Constant for value 'quotaLimit'
      * @return string 'quotaLimit'
      */
-    case QUOTA_LIMIT = 'quotaLimit';
+    case QUOTA_LIMIT = "quotaLimit";
 }

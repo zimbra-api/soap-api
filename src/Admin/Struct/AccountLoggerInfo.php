@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AccountLoggerInfo struct class
@@ -25,51 +31,50 @@ class AccountLoggerInfo
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Logger information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]
-    #[Type('array<Zimbra\Admin\Struct\LoggerInfo>')]
-    #[XmlList(inline: true, entry: 'logger', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLoggers", setter: "setLoggers")]
+    #[Type("array<Zimbra\Admin\Struct\LoggerInfo>")]
+    #[XmlList(inline: true, entry: "logger", namespace: "urn:zimbraAdmin")]
     private $loggers = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  array  $loggers
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $loggers = []
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setLoggers($loggers);
+        string $name = "",
+        string $id = "",
+        array $loggers = []
+    ) {
+        $this->setName($name)->setId($id)->setLoggers($loggers);
     }
 
     /**
@@ -125,7 +130,8 @@ class AccountLoggerInfo
     public function setLoggers(array $loggers): self
     {
         $this->loggers = array_filter(
-            $loggers, static fn ($logger) => $logger instanceof LoggerInfo
+            $loggers,
+            static fn($logger) => $logger instanceof LoggerInfo
         );
         return $this;
     }

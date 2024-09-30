@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * RightPermission class
@@ -26,22 +32,22 @@ class RightPermission
 {
     /**
      * If set then the authed user has the right {right-name} on the target.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName('allow')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllow", setter: "setAllow")]
+    #[SerializedName("allow")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allow;
 
     /**
      * Right name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRightName', setter: 'setRightName')]
-    #[Type('string')]
+    #[Accessor(getter: "getRightName", setter: "setRightName")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $rightName;
 
@@ -52,9 +58,7 @@ class RightPermission
      * @param  string $rightName
      * @return self
      */
-    public function __construct(
-        bool $allow = false, ?string $rightName = null
-    )
+    public function __construct(bool $allow = false, ?string $rightName = null)
     {
         $this->setAllow($allow);
         if (null !== $rightName) {

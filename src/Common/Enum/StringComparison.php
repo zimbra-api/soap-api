@@ -25,17 +25,17 @@ enum StringComparison: string
      * Constant for value 'is'
      * @return string 'is'
      */
-    case IS = 'is';
+    case IS = "is";
 
     /**
      * Constant for value 'contains'
      * @return string 'contains'
      */
-    case CONTAINS = 'contains';
+    case CONTAINS = "contains";
 
     /**
      * Constant for value 'matches'
      * @return string 'matches'
      */
-    case MATCHES = 'matches';
+    case MATCHES = "matches";
 }

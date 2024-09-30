@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetIndexStatsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,13 +27,13 @@ class GetIndexStatsResponse extends SoapResponse
 {
     /**
      * Statistics about mailboxes
-     * 
+     *
      * @var IndexStats
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName('stats')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[SerializedName("stats")]
     #[Type(IndexStats::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?IndexStats $stats;
 
     /**

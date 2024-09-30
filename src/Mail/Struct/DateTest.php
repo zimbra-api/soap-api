@@ -26,28 +26,28 @@ class DateTest extends FilterTest
 {
     /**
      * Date comparison setting - before|after
-     * 
+     *
      * @var DateComparison
      */
-    #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
-    #[SerializedName('dateComparison')]
+    #[Accessor(getter: "getDateComparison", setter: "setDateComparison")]
+    #[SerializedName("dateComparison")]
     #[XmlAttribute]
     private ?DateComparison $dateComparison;
 
     /**
      * Date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('date')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("date")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param DateComparison $dateComparison
@@ -59,9 +59,8 @@ class DateTest extends FilterTest
         ?bool $negative = null,
         ?DateComparison $dateComparison = null,
         ?int $date = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         $this->dateComparison = $dateComparison;
         if (null !== $date) {
             $this->setDate($date);

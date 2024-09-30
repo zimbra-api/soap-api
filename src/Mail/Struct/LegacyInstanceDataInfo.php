@@ -10,9 +10,20 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\{
-    FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    ParticipationStatus,
+    Transparency
 };
 
 /**
@@ -24,71 +35,72 @@ use Zimbra\Common\Enum\{
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements InstanceDataInterface
+class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements
+    InstanceDataInterface
 {
     /**
      * Start time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Set if is an exception
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsException', setter: 'setIsException')]
-    #[SerializedName('ex')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsException", setter: "setIsException")]
+    #[SerializedName("ex")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isException;
 
     /**
      * Organizer
-     * 
+     *
      * @var CalOrganizer
      */
-    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
-    #[SerializedName('or')]
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName("or")]
     #[Type(CalOrganizer::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalOrganizer $organizer;
 
     /**
      * Categories
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCategories", setter: "setCategories")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
     private $categories = [];
 
     /**
      * Information for iCalendar GEO property
-     * 
+     *
      * @var GeoInfo
      */
-    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
-    #[SerializedName('geo')]
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName("geo")]
     #[Type(GeoInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
@@ -159,8 +171,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
         ?bool $neverSent = null,
         ?int $taskDueDate = null,
         ?int $taskTzOffsetDue = null
-    )
-    {
+    ) {
         parent::__construct(
             $duration,
             $partStat,

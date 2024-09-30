@@ -11,7 +11,13 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    ParticipationStatus,
+    Transparency
+};
 
 /**
  * LegacyInstanceDataAttrs struct class
@@ -26,12 +32,12 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
 {
     /**
      * Duration
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $duration;
 
@@ -91,8 +97,7 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
         ?bool $neverSent = null,
         ?int $taskDueDate = null,
         ?int $taskTzOffsetDue = null
-    )
-    {
+    ) {
         parent::__construct(
             $partStat,
             $recurIdZ,

@@ -25,17 +25,17 @@ enum ShareAction: string
      * Constant for value 'edit'
      * @return string 'edit'
      */
-    case EDIT = 'edit';
+    case EDIT = "edit";
 
     /**
      * Constant for value 'revoke'
      * @return string 'revoke'
      */
-    case REVOKE = 'revoke';
+    case REVOKE = "revoke";
 
     /**
      * Constant for value 'expire'
      * @return string 'expire'
      */
-    case EXPIRE = 'expire';
+    case EXPIRE = "expire";
 }

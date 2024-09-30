@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Get preferences for the authenticated account
  * If no <pref> elements are provided, all known prefs are returned in the response.
  * If <pref> elements are provided, only those prefs are returned in the response.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -30,12 +30,12 @@ class GetPrefsRequest extends SoapRequest
 {
     /**
      * If any of these are specified then only get these preferences
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[Type('array<Zimbra\Account\Struct\Pref>')]
-    #[XmlList(inline: true, entry: 'pref', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPrefs", setter: "setPrefs")]
+    #[Type("array<Zimbra\Account\Struct\Pref>")]
+    #[XmlList(inline: true, entry: "pref", namespace: "urn:zimbraAccount")]
     private $prefs = [];
 
     /**
@@ -70,7 +70,8 @@ class GetPrefsRequest extends SoapRequest
     public function setPrefs(array $prefs): self
     {
         $this->prefs = array_filter(
-            $prefs, static fn ($pref) => $pref instanceof Pref
+            $prefs,
+            static fn($pref) => $pref instanceof Pref
         );
         return $this;
     }
@@ -90,8 +91,6 @@ class GetPrefsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetPrefsEnvelope(
-            new GetPrefsBody($this)
-        );
+        return new GetPrefsEnvelope(new GetPrefsBody($this));
     }
 }

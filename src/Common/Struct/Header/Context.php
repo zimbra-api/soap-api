@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct\Header;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\AuthTokenControl;
 
 /**
@@ -26,194 +32,194 @@ class Context
 {
     /**
      * Hop count
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getHopCount', setter: 'setHopCount')]
-    #[SerializedName('hops')]
-    #[Type('int')]
+    #[Accessor(getter: "getHopCount", setter: "setHopCount")]
+    #[SerializedName("hops")]
+    #[Type("int")]
     #[XmlAttribute]
     private $hopCount;
 
     /**
      * Auth token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $authToken;
 
     /**
      * Session
-     * 
+     *
      * @var SessionInfo
      */
-    #[Accessor(getter: 'getSession', setter: 'setSession')]
-    #[SerializedName('session')]
+    #[Accessor(getter: "getSession", setter: "setSession")]
+    #[SerializedName("session")]
     #[Type(SessionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?SessionInfo $session;
 
     /**
      * Legacy session id
-     * 
+     *
      * @var SessionInfo
      */
-    #[Accessor(getter: 'getLegacySessionId', setter: 'setLegacySessionId')]
-    #[SerializedName('sessionId')]
+    #[Accessor(getter: "getLegacySessionId", setter: "setLegacySessionId")]
+    #[SerializedName("sessionId")]
     #[Type(SessionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?SessionInfo $legacySessionId;
 
     /**
      * No session
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNoSession', setter: 'setNoSession')]
-    #[SerializedName('nosession')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getNoSession", setter: "setNoSession")]
+    #[SerializedName("nosession")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $noSession;
 
     /**
      * Account info
-     * 
+     *
      * @var AccountInfo
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?AccountInfo $account;
 
     /**
      * Change info
-     * 
+     *
      * @var ChangeInfo
      */
-    #[Accessor(getter: 'getChange', setter: 'setChange')]
-    #[SerializedName('change')]
+    #[Accessor(getter: "getChange", setter: "setChange")]
+    #[SerializedName("change")]
     #[Type(ChangeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?ChangeInfo $change;
 
     /**
      * Target server
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetServer', setter: 'setTargetServer')]
-    #[SerializedName('targetServer')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getTargetServer", setter: "setTargetServer")]
+    #[SerializedName("targetServer")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $targetServer;
 
     /**
      * User agent
-     * 
+     *
      * @var UserAgentInfo
      */
-    #[Accessor(getter: 'getUserAgent', setter: 'setUserAgent')]
-    #[SerializedName('userAgent')]
+    #[Accessor(getter: "getUserAgent", setter: "setUserAgent")]
+    #[SerializedName("userAgent")]
     #[Type(UserAgentInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?UserAgentInfo $userAgent;
 
     /**
      * Auth token control
-     * 
+     *
      * @var AuthTokenControl
      */
-    #[Accessor(getter: 'getAuthTokenControl', setter: 'setAuthTokenControl')]
-    #[SerializedName('authTokenControl')]
+    #[Accessor(getter: "getAuthTokenControl", setter: "setAuthTokenControl")]
+    #[SerializedName("authTokenControl")]
     #[Type(AuthTokenControl::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?AuthTokenControl $authTokenControl;
 
     /**
      * Format info
-     * 
+     *
      * @var FormatInfo
      */
-    #[Accessor(getter: 'getFormat', setter: 'setFormat')]
-    #[SerializedName('format')]
+    #[Accessor(getter: "getFormat", setter: "setFormat")]
+    #[SerializedName("format")]
     #[Type(FormatInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?FormatInfo $format;
 
     /**
      * Notify info
-     * 
+     *
      * @var NotifyInfo
      */
-    #[Accessor(getter: 'getNotify', setter: 'setNotify')]
-    #[SerializedName('notify')]
+    #[Accessor(getter: "getNotify", setter: "setNotify")]
+    #[SerializedName("notify")]
     #[Type(NotifyInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?NotifyInfo $notify;
 
     /**
      * No notify
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNoNotify', setter: 'setNoNotify')]
-    #[SerializedName('nonotify')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getNoNotify", setter: "setNoNotify")]
+    #[SerializedName("nonotify")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $noNotify;
 
     /**
      * No qualify
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNoQualify', setter: 'setNoQualify')]
-    #[SerializedName('noqualify')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getNoQualify", setter: "setNoQualify")]
+    #[SerializedName("noqualify")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $noQualify;
 
     /**
      * Via
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName('via')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getVia", setter: "setVia")]
+    #[SerializedName("via")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $via;
 
     /**
      * Soap request id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSoapRequestId', setter: 'setSoapRequestId')]
-    #[SerializedName('soapId')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getSoapRequestId", setter: "setSoapRequestId")]
+    #[SerializedName("soapId")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $soapRequestId;
 
     /**
      * Csrf token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
-    #[SerializedName('csrfToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbra')]
+    #[Accessor(getter: "getCsrfToken", setter: "setCsrfToken")]
+    #[SerializedName("csrfToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbra")]
     private $csrfToken;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $hopCount
      * @param string $authToken
      * @param SessionInfo $session
@@ -234,25 +240,24 @@ class Context
      * @return self
      */
     public function __construct(
-        ?int $hopCount = NULL,
-        ?string $authToken = NULL,
-        ?SessionInfo $session = NULL,
-        ?SessionInfo $legacySessionId = NULL,
-        ?string $noSession = NULL,
-        ?AccountInfo $account = NULL,
-        ?ChangeInfo $change = NULL,
-        ?string $targetServer = NULL,
-        ?UserAgentInfo $userAgent = NULL,
-        ?AuthTokenControl $authTokenControl = NULL,
-        ?FormatInfo $format = NULL,
-        ?NotifyInfo $notify = NULL,
-        ?string $noNotify = NULL,
-        ?string $noQualify = NULL,
-        ?string $via = NULL,
-        ?string $soapRequestId = NULL,
-        ?string $csrfToken = NULL
-    )
-    {
+        ?int $hopCount = null,
+        ?string $authToken = null,
+        ?SessionInfo $session = null,
+        ?SessionInfo $legacySessionId = null,
+        ?string $noSession = null,
+        ?AccountInfo $account = null,
+        ?ChangeInfo $change = null,
+        ?string $targetServer = null,
+        ?UserAgentInfo $userAgent = null,
+        ?AuthTokenControl $authTokenControl = null,
+        ?FormatInfo $format = null,
+        ?NotifyInfo $notify = null,
+        ?string $noNotify = null,
+        ?string $noQualify = null,
+        ?string $via = null,
+        ?string $soapRequestId = null,
+        ?string $csrfToken = null
+    ) {
         $this->session = $session;
         $this->legacySessionId = $legacySessionId;
         $this->account = $account;
@@ -261,31 +266,31 @@ class Context
         $this->authTokenControl = $authTokenControl;
         $this->format = $format;
         $this->notify = $notify;
-        if (NULL !== $hopCount) {
+        if (null !== $hopCount) {
             $this->setHopCount($hopCount);
         }
-        if (NULL !== $authToken) {
+        if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if (NULL !== $noSession) {
+        if (null !== $noSession) {
             $this->setNoSession($noSession);
         }
-        if (NULL !== $targetServer) {
+        if (null !== $targetServer) {
             $this->setTargetServer($targetServer);
         }
-        if (NULL !== $noNotify) {
+        if (null !== $noNotify) {
             $this->setNoNotify($noNotify);
         }
-        if (NULL !== $noQualify) {
+        if (null !== $noQualify) {
             $this->setNoQualify($noQualify);
         }
-        if (NULL !== $via) {
+        if (null !== $via) {
             $this->setVia($via);
         }
-        if (NULL !== $soapRequestId) {
+        if (null !== $soapRequestId) {
             $this->setSoapRequestId($soapRequestId);
         }
-        if (NULL !== $csrfToken) {
+        if (null !== $csrfToken) {
             $this->setCsrfToken($csrfToken);
         }
     }
@@ -504,8 +509,9 @@ class Context
      * @param  AuthTokenControl $authTokenControl
      * @return self
      */
-    public function setAuthTokenControl(AuthTokenControl $authTokenControl): self
-    {
+    public function setAuthTokenControl(
+        AuthTokenControl $authTokenControl
+    ): self {
         $this->authTokenControl = $authTokenControl;
         return $this;
     }

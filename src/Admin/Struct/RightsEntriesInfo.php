@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\NamedElement;
 
 /**
@@ -26,36 +32,37 @@ class RightsEntriesInfo
 {
     /**
      * Entries
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEntries', setter: 'setEntries')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getEntries", setter: "setEntries")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
     private $entries = [];
 
     /**
      * Effective rights
-     * 
+     *
      * @var EffectiveRightsInfo
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
     #[Type(EffectiveRightsInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private EffectiveRightsInfo $rights;
 
     /**
      * Constructor
-     * 
+     *
      * @param EffectiveRightsInfo $rights
      * @param array $entries
      * @return self
      */
-    public function __construct(EffectiveRightsInfo $rights, array $entries = [])
-    {
-        $this->setRights($rights)
-             ->setEntries($entries);
+    public function __construct(
+        EffectiveRightsInfo $rights,
+        array $entries = []
+    ) {
+        $this->setRights($rights)->setEntries($entries);
     }
     /**
      * Get entries
@@ -76,7 +83,8 @@ class RightsEntriesInfo
     public function setEntries(array $entries): self
     {
         $this->entries = array_filter(
-            $entries, static fn ($entry) => $entry instanceof NamedElement
+            $entries,
+            static fn($entry) => $entry instanceof NamedElement
         );
         return $this;
     }

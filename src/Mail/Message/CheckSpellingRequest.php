@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Check spelling.
  * Suggested words are listed in decreasing order of their match score.  The "available" attribute specifies whether
  * the server-side spell checking interface is available or not.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,34 +37,34 @@ class CheckSpellingRequest extends SoapRequest
      * The optional name of the aspell dictionary that will be used to check spelling.
      * If not specified, the the dictionary will be either zimbraPrefSpellDictionary or the one for the
      * account's locale, in that order.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDictionary', setter: 'setDictionary')]
-    #[SerializedName('dictionary')]
-    #[Type('string')]
+    #[Accessor(getter: "getDictionary", setter: "setDictionary")]
+    #[SerializedName("dictionary")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dictionary;
 
     /**
      * Comma-separated list of words to ignore just for this request.  These words are added
      * to the user's personal dictionary of ignore words stored as zimbraPrefSpellIgnoreWord.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIgnoreList', setter: 'setIgnoreList')]
-    #[SerializedName('ignore')]
-    #[Type('string')]
+    #[Accessor(getter: "getIgnoreList", setter: "setIgnoreList")]
+    #[SerializedName("ignore")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ignoreList;
 
     /**
      * Text to spell check
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type('string')]
+    #[Accessor(getter: "getText", setter: "setText")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $text;
 
@@ -71,9 +77,10 @@ class CheckSpellingRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $dictionary = null, ?string $ignoreList = null, ?string $text = null
-    )
-    {
+        ?string $dictionary = null,
+        ?string $ignoreList = null,
+        ?string $text = null
+    ) {
         if (null !== $dictionary) {
             $this->setDictionary($dictionary);
         }
@@ -156,8 +163,6 @@ class CheckSpellingRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckSpellingEnvelope(
-            new CheckSpellingBody($this)
-        );
+        return new CheckSpellingEnvelope(new CheckSpellingBody($this));
     }
 }

@@ -25,12 +25,12 @@ class IdsAttr
 {
     /**
      * IDs
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
@@ -40,7 +40,7 @@ class IdsAttr
      * @param  string $ids
      * @return self
      */
-    public function __construct(string $ids = '')
+    public function __construct(string $ids = "")
     {
         $this->setIds($ids);
     }

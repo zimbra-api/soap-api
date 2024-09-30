@@ -25,47 +25,47 @@ enum ConditionOperator: string
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    case EQUAL = 'eq';
+    case EQUAL = "eq";
 
     /**
      * Constant for value 'has'
      * @return string 'has'
      */
-    case HAS = 'has';
+    case HAS = "has";
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    case GREATER_EQUAL = 'ge';
+    case GREATER_EQUAL = "ge";
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    case LESS_EQUAL = 'le';
+    case LESS_EQUAL = "le";
 
     /**
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    case GREATER_THAN = 'gt';
+    case GREATER_THAN = "gt";
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    case LESS_THAN = 'lt';
+    case LESS_THAN = "lt";
 
     /**
      * Constant for value 'startswith'
      * @return string 'startswith'
      */
-    case STARTS_WITH = 'startswith';
+    case STARTS_WITH = "startswith";
 
     /**
      * Constant for value 'endswith'
      * @return string 'endswith'
      */
-    case ENDS_WITH = 'endswith';
+    case ENDS_WITH = "endswith";
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * SetCustomMetadataRequest class
  * Set custom metadata
  * Setting a custom metadata section but providing no key/value pairs will remove the sction from the item
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,24 +35,24 @@ class SetCustomMetadataRequest extends SoapRequest
 {
     /**
      * Item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * New metadata information
-     * 
+     *
      * @var MailCustomMetadata
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(MailCustomMetadata::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private MailCustomMetadata $metadata;
 
     /**
@@ -56,12 +62,9 @@ class SetCustomMetadataRequest extends SoapRequest
      * @param  string $id
      * @return self
      */
-    public function __construct(
-        MailCustomMetadata $metadata, string $id = ''
-    )
+    public function __construct(MailCustomMetadata $metadata, string $id = "")
     {
-        $this->setId($id)
-             ->setMetadata($metadata);
+        $this->setId($id)->setMetadata($metadata);
     }
 
     /**
@@ -113,8 +116,6 @@ class SetCustomMetadataRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetCustomMetadataEnvelope(
-            new SetCustomMetadataBody($this)
-        );
+        return new SetCustomMetadataEnvelope(new SetCustomMetadataBody($this));
     }
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetDataSourcesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class GetDataSourcesResponse extends SoapResponse
 {
     /**
      * Information on data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDataSources', setter: 'setDataSources')]
-    #[Type('array<Zimbra\Admin\Struct\DataSourceInfo>')]
-    #[XmlList(inline: true, entry: 'dataSource', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDataSources", setter: "setDataSources")]
+    #[Type("array<Zimbra\Admin\Struct\DataSourceInfo>")]
+    #[XmlList(inline: true, entry: "dataSource", namespace: "urn:zimbraAdmin")]
     private $dataSources = [];
 
     /**
@@ -55,7 +55,8 @@ class GetDataSourcesResponse extends SoapResponse
     public function setDataSources(array $sources): self
     {
         $this->dataSources = array_filter(
-            $sources, static fn ($source) => $source instanceof DataSourceInfo
+            $sources,
+            static fn($source) => $source instanceof DataSourceInfo
         );
         return $this;
     }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * RightModifierInfo struct class
@@ -25,61 +31,66 @@ class RightModifierInfo
 {
     /**
      * Value is of the form
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Deny flag - default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDeny', setter: 'setDeny')]
-    #[SerializedName('deny')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDeny", setter: "setDeny")]
+    #[SerializedName("deny")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $deny;
 
     /**
      * Flag whether can delegate - default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanDelegate', setter: 'setCanDelegate')]
-    #[SerializedName('canDelegate')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCanDelegate", setter: "setCanDelegate")]
+    #[SerializedName("canDelegate")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canDelegate;
 
     /**
      * disinheritSubGroups flag - default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDisinheritSubGroups', setter: 'setDisinheritSubGroups')]
-    #[SerializedName('disinheritSubGroups')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getDisinheritSubGroups",
+            setter: "setDisinheritSubGroups"
+        )
+    ]
+    #[SerializedName("disinheritSubGroups")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $disinheritSubGroups;
 
     /**
      * subDomain flag - default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSubDomain', setter: 'setSubDomain')]
-    #[SerializedName('subDomain')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSubDomain", setter: "setSubDomain")]
+    #[SerializedName("subDomain")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $subDomain;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @param bool $deny
      * @param bool $canDelegate
@@ -93,8 +104,7 @@ class RightModifierInfo
         ?bool $canDelegate = null,
         ?bool $disinheritSubGroups = null,
         ?bool $subDomain = null
-    )
-    {
+    ) {
         if (null !== $value) {
             $this->setValue($value);
         }

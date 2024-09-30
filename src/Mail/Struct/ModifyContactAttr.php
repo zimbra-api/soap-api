@@ -26,18 +26,18 @@ class ModifyContactAttr extends NewContactAttr
 {
     /**
      * Operation: "+" or "-"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('string')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("string")]
     #[XmlAttribute]
     private $operation;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $operation
      * @param string $attachId
@@ -47,21 +47,14 @@ class ModifyContactAttr extends NewContactAttr
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         ?string $operation = null,
         ?string $attachId = null,
         ?int $id = null,
         ?string $part = null,
         ?string $value = null
-    )
-    {
-        parent::__construct(
-            $name,
-            $attachId,
-            $id,
-            $part,
-            $value
-        );
+    ) {
+        parent::__construct($name, $attachId, $id, $part, $value);
         if (null !== $operation) {
             $this->setOperation($operation);
         }

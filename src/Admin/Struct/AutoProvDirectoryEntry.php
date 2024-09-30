@@ -10,11 +10,17 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AutoProvDirectoryEntry struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,23 +31,23 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
 {
     /**
      * dn
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDn', setter: 'setDn')]
-    #[SerializedName('dn')]
-    #[Type('string')]
+    #[Accessor(getter: "getDn", setter: "setDn")]
+    #[SerializedName("dn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dn;
 
     /**
      * Keys
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeys', setter: 'setKeys')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'key', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getKeys", setter: "setKeys")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "key", namespace: "urn:zimbraAdmin")]
     private $keys = [];
 
     /**
@@ -53,12 +59,12 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @return self
      */
     public function __construct(
-        string $dn = '', array $keys = [], array $keyValuePairs = []
-    )
-    {
-    	parent::__construct($keyValuePairs);
-        $this->setDn($dn)
-             ->setKeys($keys);
+        string $dn = "",
+        array $keys = [],
+        array $keyValuePairs = []
+    ) {
+        parent::__construct($keyValuePairs);
+        $this->setDn($dn)->setKeys($keys);
     }
 
     /**
@@ -102,7 +108,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     public function setKeys(array $keys)
     {
         $this->keys = array_unique(
-            array_map(static fn ($key) => trim($key), $keys)
+            array_map(static fn($key) => trim($key), $keys)
         );
         return $this;
     }

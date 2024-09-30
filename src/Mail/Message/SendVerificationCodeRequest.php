@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SendVerificationCodeRequest class
  * SendVerificationCodeRequest results in a random verification code being generated and sent to a device.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class SendVerificationCodeRequest extends SoapRequest
 {
     /**
      * Device email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 

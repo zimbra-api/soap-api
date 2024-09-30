@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\KeyValuePair;
 
 /**
@@ -27,119 +34,124 @@ class InviteAsMP extends MessageCommon
 {
     /**
      * Sub-part ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * If non-null, this message/rfc822 subpart of the specified Message is serialized
      * instead of the Message itself.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Sent date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSentDate', setter: 'setSentDate')]
-    #[SerializedName('sd')]
-    #[Type('int')]
+    #[Accessor(getter: "getSentDate", setter: "setSentDate")]
+    #[SerializedName("sd")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sentDate;
 
     /**
      * Email addresses
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmails", setter: "setEmails")]
+    #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emails = [];
 
     /**
      * Subject
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $subject;
 
     /**
      * Message ID header
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageIdHeader', setter: 'setMessageIdHeader')]
-    #[SerializedName('mid')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessageIdHeader", setter: "setMessageIdHeader")]
+    #[SerializedName("mid")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $messageIdHeader;
 
     /**
      * Invite
-     * 
+     *
      * @var MPInviteInfo
      */
-    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
-    #[SerializedName('inv')]
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName("inv")]
     #[Type(MPInviteInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MPInviteInfo $invite;
 
     /**
      * Headers
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
     private $headers = [];
 
     /**
      * Mime part content elements
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMpContentElems', setter: 'setMpContentElems')]
-    #[Type('array<Zimbra\Mail\Struct\PartInfo>')]
-    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMpContentElems", setter: "setMpContentElems")]
+    #[Type("array<Zimbra\Mail\Struct\PartInfo>")]
+    #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
     private $mpContentElems = [];
 
     /**
      * Share notifications
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getShareContentElems', setter: 'setShareContentElems')]
-    #[Type('array<Zimbra\Mail\Struct\ShareNotification>')]
-    #[XmlList(inline: true, entry: 'shr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getShareContentElems", setter: "setShareContentElems")]
+    #[Type("array<Zimbra\Mail\Struct\ShareNotification>")]
+    #[XmlList(inline: true, entry: "shr", namespace: "urn:zimbraMail")]
     private $shrContentElems = [];
 
     /**
      * Distribution list subscription notifications
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDlSubsContentElems', setter: 'setDlSubsContentElems')]
-    #[Type('array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
-    #[XmlList(inline: true, entry: 'dlSubs', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getDlSubsContentElems",
+            setter: "setDlSubsContentElems"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")]
+    #[XmlList(inline: true, entry: "dlSubs", namespace: "urn:zimbraMail")]
     private $dlSubsContentElems = [];
 
     /**
@@ -166,11 +178,10 @@ class InviteAsMP extends MessageCommon
         ?MPInviteInfo $invite = null,
         array $headers = [],
         array $contentElems = []
-    )
-    {
+    ) {
         $this->setEmails($emails)
-             ->setHeaders($headers)
-             ->setContentElems($contentElems);
+            ->setHeaders($headers)
+            ->setContentElems($contentElems);
         $this->invite = $invite;
         if (null !== $id) {
             $this->setId($id);
@@ -264,7 +275,8 @@ class InviteAsMP extends MessageCommon
     public function setEmails(array $emails): self
     {
         $this->emails = array_filter(
-            $emails, static fn ($email) => $email instanceof EmailInfo
+            $emails,
+            static fn($email) => $email instanceof EmailInfo
         );
         return $this;
     }
@@ -366,7 +378,8 @@ class InviteAsMP extends MessageCommon
     public function setHeaders(array $headers): self
     {
         $this->headers = array_filter(
-            $headers, static fn ($header) => $header instanceof KeyValuePair
+            $headers,
+            static fn($header) => $header instanceof KeyValuePair
         );
         return $this;
     }
@@ -414,7 +427,9 @@ class InviteAsMP extends MessageCommon
     public function getContentElems(): array
     {
         return array_merge(
-            $this->mpContentElems, $this->shrContentElems, $this->dlSubsContentElems
+            $this->mpContentElems,
+            $this->shrContentElems,
+            $this->dlSubsContentElems
         );
     }
 
@@ -427,7 +442,10 @@ class InviteAsMP extends MessageCommon
     public function setMpContentElems(array $elements): self
     {
         $this->mpContentElems = array_values(
-            array_filter($elements, static fn ($element) => $element instanceof PartInfo)
+            array_filter(
+                $elements,
+                static fn($element) => $element instanceof PartInfo
+            )
         );
         return $this;
     }
@@ -451,7 +469,10 @@ class InviteAsMP extends MessageCommon
     public function setShareContentElems(array $elements): self
     {
         $this->shrContentElems = array_values(
-            array_filter($elements, static fn ($element) => $element instanceof ShareNotification)
+            array_filter(
+                $elements,
+                static fn($element) => $element instanceof ShareNotification
+            )
         );
         return $this;
     }
@@ -475,7 +496,11 @@ class InviteAsMP extends MessageCommon
     public function setDlSubsContentElems(array $elements): self
     {
         $this->dlSubsContentElems = array_values(
-            array_filter($elements, static fn ($element) => $element instanceof DLSubscriptionNotification)
+            array_filter(
+                $elements,
+                static fn($element) => $element instanceof
+                    DLSubscriptionNotification
+            )
         );
         return $this;
     }

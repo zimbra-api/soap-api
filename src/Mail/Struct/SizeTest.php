@@ -26,28 +26,28 @@ class SizeTest extends FilterTest
 {
     /**
      * Number comparison setting - over|under
-     * 
+     *
      * @var NumberComparison
      */
-    #[Accessor(getter: 'getNumberComparison', setter: 'setNumberComparison')]
-    #[SerializedName('numberComparison')]
+    #[Accessor(getter: "getNumberComparison", setter: "setNumberComparison")]
+    #[SerializedName("numberComparison")]
     #[XmlAttribute]
     private ?NumberComparison $numberComparison;
 
     /**
      * Size value. Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('string')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("string")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param NumberComparison $numberComparison
@@ -59,9 +59,8 @@ class SizeTest extends FilterTest
         ?bool $negative = null,
         ?NumberComparison $numberComparison = null,
         ?string $size = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         $this->numberComparison = $numberComparison;
         if (null !== $size) {
             $this->setSize($size);

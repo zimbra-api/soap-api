@@ -10,11 +10,17 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * Attr struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,48 +31,49 @@ class Attr
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Perm denied
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPermDenied', setter: 'setPermDenied')]
-    #[SerializedName('pd')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPermDenied", setter: "setPermDenied")]
+    #[SerializedName("pd")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $permDenied;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $value
      * @param  bool   $pd
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $value = null, ?bool $pd = null
-    )
-    {
+        string $name = "",
+        ?string $value = null,
+        ?bool $pd = null
+    ) {
         $this->setName($name);
         if (null !== $value) {
             $this->setValue($value);

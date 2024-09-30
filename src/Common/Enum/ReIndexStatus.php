@@ -25,23 +25,23 @@ enum ReIndexStatus: string
      * Constant for value 'started'
      * @return string 'started'
      */
-    case STARTED = 'started';
+    case STARTED = "started";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case RUNNING = 'running';
+    case RUNNING = "running";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case IDLE = 'idle';
+    case IDLE = "idle";
 
     /**
      * Constant for value 'cancelled'
      * @return string 'cancelled'
      */
-    case CANCELLED = 'cancelled';
+    case CANCELLED = "cancelled";
 }

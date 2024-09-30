@@ -21,7 +21,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * For multi-value prefs, just add the same attribute with 'n' different values
  * You can also add/subtract single values to/from a multi-value pref by prefixing
  * the preference name with a '+' or '-', respectively in the same way you do when using zmprov.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -32,12 +32,12 @@ class ModifyPrefsRequest extends SoapRequest
 {
     /**
      * Specify the preferences to be modified
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[Type('array<Zimbra\Account\Struct\Pref>')]
-    #[XmlList(inline: true, entry: 'pref', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPrefs", setter: "setPrefs")]
+    #[Type("array<Zimbra\Account\Struct\Pref>")]
+    #[XmlList(inline: true, entry: "pref", namespace: "urn:zimbraAccount")]
     private $prefs = [];
 
     /**
@@ -72,7 +72,8 @@ class ModifyPrefsRequest extends SoapRequest
     public function setPrefs(array $prefs): self
     {
         $this->prefs = array_filter(
-            $prefs, static fn ($pref) => $pref instanceof Pref
+            $prefs,
+            static fn($pref) => $pref instanceof Pref
         );
         return $this;
     }
@@ -92,8 +93,6 @@ class ModifyPrefsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyPrefsEnvelope(
-            new ModifyPrefsBody($this)
-        );
+        return new ModifyPrefsEnvelope(new ModifyPrefsBody($this));
     }
 }

@@ -25,41 +25,41 @@ enum InviteStatus: string
      * Constant for value 'Tentative'
      * @return string 'TENT'
      */
-    case TENTATIVE = 'TENT';
+    case TENTATIVE = "TENT";
 
     /**
      * Constant for value 'Confirmed'
      * @return string 'CONF'
      */
-    case CONFIRMED = 'CONF';
+    case CONFIRMED = "CONF";
 
     /**
      * Constant for value 'Cancelled'
      * @return string 'CANC'
      */
-    case CANCELLED = 'CANC';
+    case CANCELLED = "CANC";
 
     /**
      * Constant for value 'Completed'
      * @return string 'COMP'
      */
-    case COMPLETED = 'COMP';
+    case COMPLETED = "COMP";
 
     /**
      * Constant for value 'Inprogress'
      * @return string 'INPR'
      */
-    case INPROGRESS = 'INPR';
+    case INPROGRESS = "INPR";
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WAITING'
      */
-    case WAITING = 'WAITING';
+    case WAITING = "WAITING";
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DEFERRED'
      */
-    case DEFERRED = 'DEFERRED';
+    case DEFERRED = "DEFERRED";
 }

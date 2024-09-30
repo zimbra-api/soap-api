@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\GranteeSelector;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAllEffectiveRightsRequest request class
- * Get all effective Admin rights 
+ * Get all effective Admin rights
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -26,43 +32,44 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  */
 class GetAllEffectiveRightsRequest extends SoapRequest
 {
-    const EXPAND_GET_ATTRS = 'getAttrs';
-    const EXPAND_SET_ATTRS = 'setAttrs';
+    const EXPAND_GET_ATTRS = "getAttrs";
+    const EXPAND_SET_ATTRS = "setAttrs";
 
     /**
      * Expand all attributes
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
-    #[SerializedName('expandAllAttrs')]
-    #[Type('string')]
+    #[Accessor(getter: "getExpandAllAttrs", setter: "setExpandAllAttrs")]
+    #[SerializedName("expandAllAttrs")]
+    #[Type("string")]
     #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
      * Grantee
-     * 
+     *
      * @var GranteeSelector
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeSelector $grantee;
 
     /**
      * Constructor
-     * 
+     *
      * @param  GranteeSelector $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs
      * @return self
      */
     public function __construct(
-        ?GranteeSelector $grantee = null, ?bool $expandSetAttrs = null, ?bool $expandGetAttrs = null
-    )
-    {
+        ?GranteeSelector $grantee = null,
+        ?bool $expandSetAttrs = null,
+        ?bool $expandGetAttrs = null
+    ) {
         $this->grantee = $grantee;
         $attrs = [];
         if (null !== $expandSetAttrs) {
@@ -72,7 +79,7 @@ class GetAllEffectiveRightsRequest extends SoapRequest
             $attrs[self::EXPAND_GET_ATTRS] = self::EXPAND_GET_ATTRS;
         }
         if (!empty($attrs)) {
-            $this->setExpandAllAttrs(implode(',', $attrs));
+            $this->setExpandAllAttrs(implode(",", $attrs));
         }
     }
 
@@ -94,9 +101,9 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      */
     public function setExpandAllAttrs(string $expandAllAttrs): self
     {
-        $this->expandAllAttrs = '';
+        $this->expandAllAttrs = "";
         $attrs = [];
-        foreach (explode(',', $expandAllAttrs) as $attr) {
+        foreach (explode(",", $expandAllAttrs) as $attr) {
             if ($attr === self::EXPAND_SET_ATTRS) {
                 $attrs[self::EXPAND_SET_ATTRS] = self::EXPAND_SET_ATTRS;
             }
@@ -105,7 +112,7 @@ class GetAllEffectiveRightsRequest extends SoapRequest
             }
         }
         if (!empty($attrs)) {
-            $this->expandAllAttrs = implode(',', $attrs);
+            $this->expandAllAttrs = implode(",", $attrs);
         }
         return $this;
     }

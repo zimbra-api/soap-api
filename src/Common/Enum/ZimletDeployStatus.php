@@ -25,17 +25,17 @@ enum ZimletDeployStatus: string
      * Constant for value 'succeeded'
      * @return string 'succeeded'
      */
-    case SUCCEEDED = 'succeeded';
+    case SUCCEEDED = "succeeded";
 
     /**
      * Constant for value 'failed'
      * @return string 'failed'
      */
-    case FAILED = 'failed';
+    case FAILED = "failed";
 
     /**
      * Constant for value 'pending'
      * @return string 'pending'
      */
-    case PENDING = 'pending';
+    case PENDING = "pending";
 }

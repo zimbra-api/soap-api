@@ -11,7 +11,12 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
 };
 
 use Zimbra\Common\Enum\GranteeType;
@@ -31,111 +36,111 @@ class FolderActionSelector extends ActionSelector
     /**
      * For op=empty - hard-delete all items in the folder (and all the folder's
      * subfolders if "recursive" is set)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getRecursive', setter: 'setRecursive')]
-    #[SerializedName('recursive')]
-    #[Type('bool')]
+    #[Accessor(getter: "getRecursive", setter: "setRecursive")]
+    #[SerializedName("recursive")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $recursive;
 
     /**
      * Target URL
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * For fb operation - set the excludeFreeBusy bool for this folder (must specify for fb operation)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExcludeFreebusy', setter: 'setExcludeFreebusy')]
-    #[SerializedName('excludeFreeBusy')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExcludeFreebusy", setter: "setExcludeFreebusy")]
+    #[SerializedName("excludeFreeBusy")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $excludeFreeBusy;
 
     /**
      * Grantee Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Grantee type
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getGrantType', setter: 'setGrantType')]
-    #[SerializedName('gt')]
+    #[Accessor(getter: "getGrantType", setter: "setGrantType")]
+    #[SerializedName("gt")]
     #[XmlAttribute]
     private ?GranteeType $grantType;
 
     /**
      * User with op=update to change folder's default view (usefor for migration)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getView', setter: 'setView')]
-    #[SerializedName('view')]
-    #[Type('string')]
+    #[Accessor(getter: "getView", setter: "setView")]
+    #[SerializedName("view")]
+    #[Type("string")]
     #[XmlAttribute]
     private $view;
 
     /**
      * Grant
-     * 
+     *
      * @var ActionGrantSelector
      */
-    #[Accessor(getter: 'getGrant', setter: 'setGrant')]
-    #[SerializedName('grant')]
+    #[Accessor(getter: "getGrant", setter: "setGrant")]
+    #[SerializedName("grant")]
     #[Type(ActionGrantSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ActionGrantSelector $grant;
 
     /**
      * List of grants used with op=grant and op=!grant
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[SerializedName('acl')]
-    #[Type('array<Zimbra\Mail\Struct\ActionGrantSelector>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'grant', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGrants", setter: "setGrants")]
+    #[SerializedName("acl")]
+    #[Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "grant", namespace: "urn:zimbraMail")]
     private $grants = [];
 
     /**
      * Retention policy
-     * 
+     *
      * @var RetentionPolicy
      */
-    #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
-    #[SerializedName('retentionPolicy')]
+    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[SerializedName("retentionPolicy")]
     #[Type(RetentionPolicy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RetentionPolicy $retentionPolicy;
 
     /**
      * Number of days for which web client would sync folder data for offline use
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumDays', setter: 'setNumDays')]
-    #[SerializedName('numDays')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumDays", setter: "setNumDays")]
+    #[SerializedName("numDays")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numDays;
 
@@ -157,7 +162,7 @@ class FolderActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
+        string $operation = "",
         ?string $ids = null,
         ?bool $recursive = null,
         ?string $url = null,
@@ -169,8 +174,7 @@ class FolderActionSelector extends ActionSelector
         ?array $grants = [],
         ?RetentionPolicy $retentionPolicy = null,
         ?int $numDays = null
-    )
-    {
+    ) {
         parent::__construct($operation, $ids);
         $this->setGrants($grants);
         $this->grantType = $grantType;
@@ -369,7 +373,8 @@ class FolderActionSelector extends ActionSelector
     public function setGrants(array $grants): self
     {
         $this->grants = array_filter(
-            $grants, static fn ($grant) => $grant instanceof ActionGrantSelector
+            $grants,
+            static fn($grant) => $grant instanceof ActionGrantSelector
         );
         return $this;
     }

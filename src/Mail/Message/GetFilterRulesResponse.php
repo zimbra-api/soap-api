@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetFilterRulesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,14 +33,14 @@ class GetFilterRulesResponse extends SoapResponse
 {
     /**
      * Filter rules
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
-    #[SerializedName('filterRules')]
-    #[Type('array<Zimbra\Mail\Struct\FilterRule>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFilterRules", setter: "setFilterRules")]
+    #[SerializedName("filterRules")]
+    #[Type("array<Zimbra\Mail\Struct\FilterRule>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
     private $filterRules = [];
 
     /**
@@ -57,7 +63,8 @@ class GetFilterRulesResponse extends SoapResponse
     public function setFilterRules(array $rules): self
     {
         $this->filterRules = array_filter(
-            $rules, static fn ($rule) => $rule instanceof FilterRule
+            $rules,
+            static fn($rule) => $rule instanceof FilterRule
         );
         return $this;
     }

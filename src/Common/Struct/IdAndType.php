@@ -25,37 +25,36 @@ class IdAndType
 {
     /**
      * The id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * The type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $type
      * @return self
      */
-    public function __construct(string $id = '', string $type = '')
+    public function __construct(string $id = "", string $type = "")
     {
-        $this->setId($id)
-             ->setType($type);
+        $this->setId($id)->setType($type);
     }
 
     /**

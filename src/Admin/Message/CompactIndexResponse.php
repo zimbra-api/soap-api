@@ -10,13 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, XmlAttribute};
 use Zimbra\Common\Enum\CompactIndexStatus as Status;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CompactIndexResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,17 +27,17 @@ class CompactIndexResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|idle
-     * 
+     *
      * @var Status
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private ?Status $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param Status  $status
      * @return self
      */

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 
@@ -31,41 +37,40 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Id for an existing account
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Data source ID
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
-    #[SerializedName('dataSource')]
+    #[Accessor(getter: "getDataSource", setter: "setDataSource")]
+    #[SerializedName("dataSource")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Id $dataSource;
 
     /**
      * Constructor
-     * 
+     *
      * @param Id     $dataSource
      * @param string $id
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        Id $dataSource, string $id = '', array $attrs = []
-    )
-    {
-        $this->setId($id)
-             ->setDataSource($dataSource)
-             ->setAttrs($attrs);
+        Id $dataSource,
+        string $id = "",
+        array $attrs = []
+    ) {
+        $this->setId($id)->setDataSource($dataSource)->setAttrs($attrs);
     }
 
     /**
@@ -117,8 +122,6 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteDataSourceEnvelope(
-            new DeleteDataSourceBody($this)
-        );
+        return new DeleteDataSourceEnvelope(new DeleteDataSourceBody($this));
     }
 }

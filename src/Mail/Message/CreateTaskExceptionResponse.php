@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\CreateCalendarItemResponse;
 /**
  * CreateTaskExceptionResponse class
  * Contains response information for create task exception
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

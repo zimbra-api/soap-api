@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\HostStats;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetLoggerStatsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,23 +33,23 @@ class GetLoggerStatsResponse extends SoapResponse
 {
     /**
      * Info by hostname
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHostNames', setter: 'setHostNames')]
-    #[Type('array<Zimbra\Admin\Struct\HostStats>')]
-    #[XmlList(inline: true, entry: 'hostname', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getHostNames", setter: "setHostNames")]
+    #[Type("array<Zimbra\Admin\Struct\HostStats>")]
+    #[XmlList(inline: true, entry: "hostname", namespace: "urn:zimbraAdmin")]
     private $hostNames = [];
 
     /**
      * Note.  For instance "Logger is not enabled"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNote', setter: 'setNote')]
-    #[SerializedName('note')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[SerializedName("note")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $note;
 
     /**
@@ -70,7 +76,8 @@ class GetLoggerStatsResponse extends SoapResponse
     public function setHostNames(array $hostNames): self
     {
         $this->hostNames = array_filter(
-            $hostNames, static fn ($hostname) => $hostname instanceof HostStats
+            $hostNames,
+            static fn($hostname) => $hostname instanceof HostStats
         );
         return $this;
     }

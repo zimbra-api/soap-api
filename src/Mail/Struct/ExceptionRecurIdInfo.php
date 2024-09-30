@@ -33,7 +33,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      *     MM   - 2 digit month
      *     DD   - 2 digit day
      * Optionally:
-     *     'T' the literal char "T" then 
+     *     'T' the literal char "T" then
      *     HH - 2 digit hour (00-23)
      *     MM - 2 digit minute (00-59)
      *     SS - 2 digit second (00-59)
@@ -42,34 +42,39 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      *     e.g:
      *         20050612  June 12, 2005
      *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDateTime", setter: "setDateTime")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dateTime;
 
     /**
      * Java timezone identifier
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
-    #[Type('string')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
+    #[Type("string")]
     #[XmlAttribute]
     private $timezone;
 
     /**
      * Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRecurrenceRangeType', setter: 'setRecurrenceRangeType')]
-    #[SerializedName('rangeType')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getRecurrenceRangeType",
+            setter: "setRecurrenceRangeType"
+        )
+    ]
+    #[SerializedName("rangeType")]
+    #[Type("int")]
     #[XmlAttribute]
     private $recurrenceRangeType;
 
@@ -82,11 +87,10 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      * @return self
      */
     public function __construct(
-        string $dateTime = '',
+        string $dateTime = "",
         ?string $timezone = null,
         ?int $recurrenceRangeType = null
-    )
-    {
+    ) {
         $this->setDateTime($dateTime);
         if (null !== $timezone) {
             $this->setTimezone($timezone);
@@ -114,7 +118,9 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      */
     public function setRecurrenceRangeType(int $rangeType): self
     {
-        $this->recurrenceRangeType = RangeType::tryFrom($rangeType) ? $rangeType : 1;
+        $this->recurrenceRangeType = RangeType::tryFrom($rangeType)
+            ? $rangeType
+            : 1;
         return $this;
     }
 

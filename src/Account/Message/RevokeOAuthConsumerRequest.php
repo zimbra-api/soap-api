@@ -26,22 +26,22 @@ class RevokeOAuthConsumerRequest extends SoapRequest
 {
     /**
      * Access token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessToken', setter: 'setAccessToken')]
-    #[SerializedName('accessToken')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessToken", setter: "setAccessToken")]
+    #[SerializedName("accessToken")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessToken;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $accessToken
      * @return self
      */
-    public function __construct(string $accessToken = '')
+    public function __construct(string $accessToken = "")
     {
         $this->setAccessToken($accessToken);
     }

@@ -12,13 +12,18 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetXMPPComponentRequest class
  * Get XMPP Component
  * XMPP stands for Extensible Messaging and Presence Protocol
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -31,24 +36,26 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
 
     /**
      * XMPP component selector
-     * 
+     *
      * @var XMPPComponentSelector
      */
-    #[Accessor(getter: 'getComponent', setter: 'setComponent')]
-    #[SerializedName('xmppcomponent')]
+    #[Accessor(getter: "getComponent", setter: "setComponent")]
+    #[SerializedName("xmppcomponent")]
     #[Type(XMPPComponentSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private XMPPComponentSelector $component;
 
     /**
      * Constructor
-     * 
+     *
      * @param  XMPPComponentSelector $component
      * @param  string $attrs
      * @return self
      */
-    public function __construct(XMPPComponentSelector $component, ?string $attrs = null)
-    {
+    public function __construct(
+        XMPPComponentSelector $component,
+        ?string $attrs = null
+    ) {
         $this->setComponent($component);
         if (null !== $attrs) {
             $this->setAttrs($attrs);
@@ -82,8 +89,6 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetXMPPComponentEnvelope(
-            new GetXMPPComponentBody($this)
-        );
+        return new GetXMPPComponentEnvelope(new GetXMPPComponentBody($this));
     }
 }

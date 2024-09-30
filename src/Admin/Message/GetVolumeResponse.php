@@ -27,13 +27,13 @@ class GetVolumeResponse extends SoapResponse
 {
     /**
      * Volume information
-     * 
+     *
      * @var VolumeInfo
      */
-    #[Accessor(getter: 'getVolume', setter: 'setVolume')]
-    #[SerializedName('volume')]
+    #[Accessor(getter: "getVolume", setter: "setVolume")]
+    #[SerializedName("volume")]
     #[Type(VolumeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?VolumeInfo $volume;
 
     /**

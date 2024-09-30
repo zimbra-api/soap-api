@@ -12,13 +12,17 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\DistributionListAction;
-use Zimbra\Common\Struct\{DistributionListSelector, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    DistributionListSelector,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * DistributionListActionRequest class
  * Perform an action on a Distribution List
  * Notes:
- *  - Authorized account must be one of the list owners 
+ *  - Authorized account must be one of the list owners
  *  - For owners/rights, only grants on the group itself will be modified,
  *    grants on domain and globalgrant (from which the right can be inherited) will not be touched.
  *    Only admins can modify grants on domains and globalgrant, owners of groups
@@ -34,39 +38,38 @@ class DistributionListActionRequest extends SoapRequest
 {
     /**
      * Identifies the distribution list to act upon
-     * 
+     *
      * @var DistributionListSelector
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionListSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private DistributionListSelector $dl;
 
     /**
      * Specifies the action to perform
-     * 
+     *
      * @var DistributionListAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(DistributionListAction::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private DistributionListAction $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param DistributionListSelector $dl
      * @param DistributionListAction $action
      * @return self
      */
     public function __construct(
-        DistributionListSelector $dl, DistributionListAction $action
-    )
-    {
-        $this->setDl($dl)
-             ->setAction($action);
+        DistributionListSelector $dl,
+        DistributionListAction $action
+    ) {
+        $this->setDl($dl)->setAction($action);
     }
 
     /**

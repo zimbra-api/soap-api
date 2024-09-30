@@ -25,52 +25,51 @@ class TagActionInfo
 {
     /**
      * Tag IDs for successfully applied operation
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSuccesses', setter: 'setSuccesses')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getSuccesses", setter: "setSuccesses")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $successes;
 
     /**
      * Operations of tags affected by successfully applied operation
      * Only present if "tn" was specified in the request
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSuccessNames', setter: 'setSuccessNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getSuccessNames", setter: "setSuccessNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $successNames;
 
     /**
      * Operation - "read|!read|color|delete|rename|update|retentionpolicy"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('string')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("string")]
     #[XmlAttribute]
     private $operation;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $successes
      * @param string $successNames
      * @param string $operation
      * @return self
      */
     public function __construct(
-        string $successes = '',
+        string $successes = "",
         ?string $successNames = null,
         ?string $operation = null
-    )
-    {
+    ) {
         $this->setSuccesses($successes);
         if (null !== $successNames) {
             $this->setSuccessNames($successNames);

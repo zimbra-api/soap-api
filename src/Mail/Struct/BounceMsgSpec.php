@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * BounceMsgSpec class
@@ -25,23 +31,23 @@ class BounceMsgSpec
 {
     /**
      * ID of message to resend
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Email addresses
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmailAddresses', setter: 'setEmailAddresses')]
-    #[Type('array<Zimbra\Mail\Struct\EmailAddrInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmailAddresses", setter: "setEmailAddresses")]
+    #[Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emailAddresses = [];
 
     /**
@@ -51,13 +57,9 @@ class BounceMsgSpec
      * @param  array $emailAddresses
      * @return self
      */
-    public function __construct(
-        string $id = '',
-        array $emailAddresses = []
-    )
+    public function __construct(string $id = "", array $emailAddresses = [])
     {
-        $this->setId($id)
-             ->setEmailAddresses($emailAddresses);
+        $this->setId($id)->setEmailAddresses($emailAddresses);
     }
 
     /**
@@ -91,7 +93,8 @@ class BounceMsgSpec
     public function setEmailAddresses(array $addresses): self
     {
         $this->emailAddresses = array_filter(
-            $addresses, static fn ($address) => $address instanceof EmailAddrInfo
+            $addresses,
+            static fn($address) => $address instanceof EmailAddrInfo
         );
         return $this;
     }

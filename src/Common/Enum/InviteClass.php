@@ -25,17 +25,17 @@ enum InviteClass: string
      * Constant for value 'Public'
      * @return string 'PUB'
      */
-    case PUB = 'PUB';
+    case PUB = "PUB";
 
     /**
      * Constant for value 'Private'
      * @return string 'PRI'
      */
-    case PRI = 'PRI';
+    case PRI = "PRI";
 
     /**
      * Constant for value 'Confidential'
      * @return string 'CON'
      */
-    case CON = 'CON';
+    case CON = "CON";
 }

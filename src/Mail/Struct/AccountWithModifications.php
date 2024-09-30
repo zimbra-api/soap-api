@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AccountWithModifications struct class
@@ -24,39 +30,44 @@ class AccountWithModifications
 {
     /**
      * Account ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Serialized pending modifications per folder
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPendingFolderModifications', setter: 'setPendingFolderModifications')]
-    #[Type('array<Zimbra\Mail\Struct\PendingFolderModifications>')]
-    #[XmlList(inline: true, entry: 'mods', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getPendingFolderModifications",
+            setter: "setPendingFolderModifications"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")]
+    #[XmlList(inline: true, entry: "mods", namespace: "urn:zimbraMail")]
     private $mods = [];
 
     /**
      * ID of the last change
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastChangeId', setter: 'setLastChangeId')]
-    #[SerializedName('changeid')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastChangeId", setter: "setLastChangeId")]
+    #[SerializedName("changeid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastChangeId;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id
      * @param  array $mods
      * @param  int $lastChangeId
@@ -66,8 +77,7 @@ class AccountWithModifications
         ?int $id = null,
         array $mods = [],
         ?int $lastChangeId = null
-    )
-    {
+    ) {
         $this->setPendingFolderModifications($mods);
         if (null !== $id) {
             $this->setId($id);
@@ -130,7 +140,8 @@ class AccountWithModifications
     public function setPendingFolderModifications(array $mods): self
     {
         $this->mods = array_filter(
-            $mods, static fn ($mod) => $mod instanceof PendingFolderModifications
+            $mods,
+            static fn($mod) => $mod instanceof PendingFolderModifications
         );
         return $this;
     }

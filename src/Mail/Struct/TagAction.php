@@ -25,25 +25,25 @@ class TagAction extends FilterAction
 {
     /**
      * Tag name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTag', setter: 'setTag')]
-    #[SerializedName('tagName')]
-    #[Type('string')]
+    #[Accessor(getter: "getTag", setter: "setTag")]
+    #[SerializedName("tagName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tag;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $tag
      * @return self
      */
     public function __construct(?int $index = null, ?string $tag = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         if (null !== $tag) {
             $this->setTag($tag);
         }

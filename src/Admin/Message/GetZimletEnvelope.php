@@ -10,29 +10,36 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace,
+    XmlRoot
+};
 use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * GetZimletEnvelope class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
-#[XmlRoot(name: 'soap:Envelope')]
+#[XmlNamespace(uri: "urn:zimbraAdmin", prefix: "urn")]
+#[XmlRoot(name: "soap:Envelope")]
 class GetZimletEnvelope extends SoapEnvelope
 {
     /**
      * Soap body
-     * 
+     *
      * @var SoapBodyInterface
      */
-    #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName('Body')]
+    #[Accessor(getter: "getBody", setter: "setBody")]
+    #[SerializedName("Body")]
     #[Type(GetZimletBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?SoapBodyInterface $body = null;
@@ -45,9 +52,9 @@ class GetZimletEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetZimletBody $body = null, ?SoapHeaderInterface $header = null
-    )
-    {
+        ?GetZimletBody $body = null,
+        ?SoapHeaderInterface $header = null
+    ) {
         parent::__construct($body, $header);
     }
 

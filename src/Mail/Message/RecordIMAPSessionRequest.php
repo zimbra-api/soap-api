@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Record that an IMAP client has seen all the messages in this folder as they are at this time.
  * This is used to determine which messages are considered by IMAP to be RECENT.
  * This is achieved by invoking Mailbox::recordImapSession for the specified folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,12 +29,12 @@ class RecordIMAPSessionRequest extends SoapRequest
 {
     /**
      * The ID of the folder to record
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
@@ -44,7 +44,7 @@ class RecordIMAPSessionRequest extends SoapRequest
      * @param  string $folderId
      * @return self
      */
-    public function __construct(string $folderId = '')
+    public function __construct(string $folderId = "")
     {
         $this->setFolderId($folderId);
     }
@@ -76,8 +76,6 @@ class RecordIMAPSessionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RecordIMAPSessionEnvelope(
-            new RecordIMAPSessionBody($this)
-        );
+        return new RecordIMAPSessionEnvelope(new RecordIMAPSessionBody($this));
     }
 }

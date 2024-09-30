@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * CreateDataSourceRequest class
  * Creates a data source that imports mail items into the specified folder, for example
  * via the POP3 or IMAP protocols.  Only one data source is allowed per request.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -36,14 +36,7 @@ class CreateDataSourceRequest extends SoapRequest
      */
     public function __construct(?MailDataSource $dataSource = null)
     {
-        $this->imapDataSource = 
-        $this->pop3DataSource = 
-        $this->caldavDataSource = 
-        $this->yabDataSource = 
-        $this->rssDataSource = 
-        $this->galDataSource = 
-        $this->calDataSource = 
-        $this->unknownDataSource = null;
+        $this->imapDataSource = $this->pop3DataSource = $this->caldavDataSource = $this->yabDataSource = $this->rssDataSource = $this->galDataSource = $this->calDataSource = $this->unknownDataSource = null;
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);
         }
@@ -54,8 +47,6 @@ class CreateDataSourceRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateDataSourceEnvelope(
-            new CreateDataSourceBody($this)
-        );
+        return new CreateDataSourceEnvelope(new CreateDataSourceBody($this));
     }
 }

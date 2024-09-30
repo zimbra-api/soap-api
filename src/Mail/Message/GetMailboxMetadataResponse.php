@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetMailboxMetadataResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class GetMailboxMetadataResponse extends SoapResponse
 {
     /**
      * Metadata information
-     * 
+     *
      * @var MailCustomMetadata
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(MailCustomMetadata::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailCustomMetadata $metadata;
 
     /**

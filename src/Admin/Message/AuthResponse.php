@@ -27,46 +27,51 @@ class AuthResponse extends SoapResponse
 {
     /**
      * Auth token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $authToken;
 
     /**
      * If client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
-    #[SerializedName('csrfToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCsrfToken", setter: "setCsrfToken")]
+    #[SerializedName("csrfToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $csrfToken;
 
     /**
      * Life time for the authorization
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName('lifetime')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLifetime", setter: "setLifetime")]
+    #[SerializedName("lifetime")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $lifetime;
 
     /**
      * Two Factor Auth Required
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTwoFactorAuthRequired', setter: 'setTwoFactorAuthRequired')]
-    #[SerializedName('twoFactorAuthRequired')]
-    #[Type('bool')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getTwoFactorAuthRequired",
+            setter: "setTwoFactorAuthRequired"
+        )
+    ]
+    #[SerializedName("twoFactorAuthRequired")]
+    #[Type("bool")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $twoFactorAuthRequired;
 
     /**
@@ -83,8 +88,7 @@ class AuthResponse extends SoapResponse
         ?string $csrfToken = null,
         ?int $lifetime = null,
         ?bool $twoFactorAuthRequired = null
-    )
-    {
+    ) {
         if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }

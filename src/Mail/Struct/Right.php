@@ -25,22 +25,22 @@ class Right
 {
     /**
      * Name for right
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
-    #[Type('string')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
+    #[Type("string")]
     #[XmlAttribute]
     private $right;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $right
      * @return self
      */
-    public function __construct(string $right = '')
+    public function __construct(string $right = "")
     {
         $this->setRight($right);
     }

@@ -25,40 +25,40 @@ class IdEmailName
 {
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Email
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $email
      * @param string $name
@@ -68,8 +68,7 @@ class IdEmailName
         ?string $id = null,
         ?string $email = null,
         ?string $name = null
-    )
-    {
+    ) {
         if (null !== $id) {
             $this->setId($id);
         }

@@ -26,49 +26,50 @@ class GetFolderSpec
 {
     /**
      * Base folder UUID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName('uuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUuid", setter: "setUuid")]
+    #[SerializedName("uuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uuid;
 
     /**
      * Base folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Base folder fully qualified path
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $uuid
      * @param string $folderId
      * @param string $path
      * @return self
      */
     public function __construct(
-        ?string $uuid = null, ?string $folderId = null, ?string $path = null
-    )
-    {
+        ?string $uuid = null,
+        ?string $folderId = null,
+        ?string $path = null
+    ) {
         if (null !== $uuid) {
             $this->setUuid($uuid);
         }

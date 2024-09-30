@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\ZimletServerExtensionInterface;
 
 /**
  * ZimletServerExtension class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,40 +26,40 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
 {
     /**
      * Keyword
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHasKeyword', setter: 'setHasKeyword')]
-    #[SerializedName('hasKeyword')]
-    #[Type('string')]
+    #[Accessor(getter: "getHasKeyword", setter: "setHasKeyword")]
+    #[SerializedName("hasKeyword")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hasKeyword;
 
     /**
      * Extension class
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExtensionClass', setter: 'setExtensionClass')]
-    #[SerializedName('extensionClass')]
-    #[Type('string')]
+    #[Accessor(getter: "getExtensionClass", setter: "setExtensionClass")]
+    #[SerializedName("extensionClass")]
+    #[Type("string")]
     #[XmlAttribute]
     private $extensionClass;
 
     /**
      * Regex
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRegex', setter: 'setRegex')]
-    #[SerializedName('regex')]
-    #[Type('string')]
+    #[Accessor(getter: "getRegex", setter: "setRegex")]
+    #[SerializedName("regex")]
+    #[Type("string")]
     #[XmlAttribute]
     private $regex;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $hasKeyword
      * @param string $extensionClass
      * @param string $regex
@@ -69,8 +69,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
         ?string $hasKeyword = null,
         ?string $extensionClass = null,
         ?string $regex = null
-    )
-    {
+    ) {
         if (null !== $hasKeyword) {
             $this->setHasKeyword($hasKeyword);
         }

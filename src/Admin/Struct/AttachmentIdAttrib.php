@@ -25,18 +25,18 @@ class AttachmentIdAttrib
 {
     /**
      * Attachment ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $aid;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $aid
      * @return self
      */

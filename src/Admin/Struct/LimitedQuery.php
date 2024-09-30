@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * LimitedQuery struct class
@@ -25,28 +31,28 @@ class LimitedQuery
 {
     /**
      * Limit. Default value 10
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Query string
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int    $limit
      * @param  string $value
      * @return self

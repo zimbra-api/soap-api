@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\ZimletContextInterface;
 
 /**
  * AdminZimletContext class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -27,52 +27,52 @@ class AdminZimletContext implements ZimletContextInterface
 {
     /**
      * Zimlet Base URL
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimletBaseUrl', setter: 'setZimletBaseUrl')]
-    #[SerializedName('baseUrl')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimletBaseUrl", setter: "setZimletBaseUrl")]
+    #[SerializedName("baseUrl")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimletBaseUrl;
 
     /**
      * Zimlet Priority
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getZimletPriority', setter: 'setZimletPriority')]
-    #[SerializedName('priority')]
-    #[Type('int')]
+    #[Accessor(getter: "getZimletPriority", setter: "setZimletPriority")]
+    #[SerializedName("priority")]
+    #[Type("int")]
     #[XmlAttribute]
     private $zimletPriority;
 
     /**
      * Zimlet presence
-     * 
+     *
      * @var ZimletPresence
      */
-    #[Accessor(getter: 'getZimletPresence', setter: 'setZimletPresence')]
-    #[SerializedName('presence')]
+    #[Accessor(getter: "getZimletPresence", setter: "setZimletPresence")]
+    #[SerializedName("presence")]
     #[XmlAttribute]
     private ZimletPresence $zimletPresence;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $baseUrl
      * @param ZimletPresence $presence
      * @param int $priority
      * @return self
      */
     public function __construct(
-        string $baseUrl = '',
+        string $baseUrl = "",
         ?ZimletPresence $presence = null,
         ?int $priority = null
-    )
-    {
-        $this->setZimletBaseUrl($baseUrl)
-             ->setZimletPresence($presence ?? ZimletPresence::ENABLED);
+    ) {
+        $this->setZimletBaseUrl($baseUrl)->setZimletPresence(
+            $presence ?? ZimletPresence::ENABLED
+        );
         if (null !== $priority) {
             $this->setZimletPriority($priority);
         }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * MailQueueWithAction struct class
@@ -25,37 +31,36 @@ class MailQueueWithAction
 {
     /**
      * Action
-     * 
+     *
      * @var MailQueueAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(MailQueueAction::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private MailQueueAction $action;
 
     /**
      * Queue name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param  MailQueueAction $action
      * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueAction $action, string $name = '')
+    public function __construct(MailQueueAction $action, string $name = "")
     {
-        $this->setAction($action)
-             ->setName($name);
+        $this->setAction($action)->setName($name);
     }
 
     /**

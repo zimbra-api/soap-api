@@ -25,34 +25,34 @@ class AppointmentIdAndDate
 {
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $date
      * @return self
      */
-    public function __construct(string $id = '', ?int $date = null)
+    public function __construct(string $id = "", ?int $date = null)
     {
         $this->setId($id);
         if (null !== $date) {

@@ -10,60 +10,73 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\CalendarResourceSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetCalendarResourceRequest class
  * Get a calendar resource
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GetCalendarResourceRequest extends SoapRequest implements AttributeSelector
+class GetCalendarResourceRequest extends SoapRequest implements
+    AttributeSelector
 {
     use AttributeSelectorTrait;
 
     /**
      * Flag whether to apply Class of Service (COS)
-     * 1 (true) [default]   COS rules apply and unset attrs on the calendar resource will get their value from the COS. 
+     * 1 (true) [default]   COS rules apply and unset attrs on the calendar resource will get their value from the COS.
      * 0 (false)   only attributes directly set on the calendar resource will be returned
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName('applyCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "getApplyCos", setter: "setApplyCos")]
+    #[SerializedName("applyCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyCos;
 
     /**
      * Specify calendar resource
-     * 
+     *
      * @var CalendarResourceSelector
      */
-    #[Accessor(getter: 'getCalResource', setter: 'setCalResource')]
-    #[SerializedName('calresource')]
+    #[Accessor(getter: "getCalResource", setter: "setCalResource")]
+    #[SerializedName("calresource")]
     #[Type(CalendarResourceSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CalendarResourceSelector $calResource;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CalendarResourceSelector $calResource
      * @param  bool $applyCos
      * @param  string $attrs
      * @return self
      */
     public function __construct(
-        ?CalendarResourceSelector $calResource = null, ?bool $applyCos = null, ?string $attrs = null
-    )
-    {
+        ?CalendarResourceSelector $calResource = null,
+        ?bool $applyCos = null,
+        ?string $attrs = null
+    ) {
         $this->calResource = $calResource;
         if (null !== $applyCos) {
             $this->setApplyCos($applyCos);

@@ -25,47 +25,47 @@ enum CacheType: string
      * Constant for value 'skin'
      * @return string 'skin'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'skin'
      * @return string 'skin'
      */
-    case SKIN = 'skin';
+    case SKIN = "skin";
 
     /**
      * Constant for value 'locale'
      * @return string 'locale'
      */
-    case LOCALE = 'locale';
+    case LOCALE = "locale";
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    case ACCOUNT = 'account';
+    case ACCOUNT = "account";
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    case COS = 'cos';
+    case COS = "cos";
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    case DOMAIN = 'domain';
+    case DOMAIN = "domain";
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    case SERVER = 'server';
+    case SERVER = "server";
 
     /**
      * Constant for value 'zimlet'
      * @return string 'zimlet'
      */
-    case ZIMLET = 'zimlet';
+    case ZIMLET = "zimlet";
 }

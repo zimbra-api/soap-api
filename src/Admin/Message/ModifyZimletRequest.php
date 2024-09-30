@@ -28,18 +28,18 @@ class ModifyZimletRequest extends SoapRequest
 {
     /**
      * New Zimlet information
-     * 
+     *
      * @var ZimletAclStatusPri
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
     #[Type(ZimletAclStatusPri::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ZimletAclStatusPri $zimlet;
 
     /**
      * Constructor
-     * 
+     *
      * @param ZimletAclStatusPri $zimlet
      * @return self
      */
@@ -75,8 +75,6 @@ class ModifyZimletRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyZimletEnvelope(
-            new ModifyZimletBody($this)
-        );
+        return new ModifyZimletEnvelope(new ModifyZimletBody($this));
     }
 }

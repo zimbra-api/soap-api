@@ -25,17 +25,17 @@ enum CalendarResourceBy: string
      * Constant for value 'id'
      * @return string 'id'
      */
-    case ID = 'id';
+    case ID = "id";
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    case NAME = 'name';
+    case NAME = "name";
 
     /**
      * Constant for value 'foreignPrincipal'
      * @return string 'foreignPrincipal'
      */
-    case FOREIGN_PRINCIPAL = 'foreignPrincipal';
+    case FOREIGN_PRINCIPAL = "foreignPrincipal";
 }

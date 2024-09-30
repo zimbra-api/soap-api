@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyServerRequest class
- * Modify attributes for a server 
+ * Modify attributes for a server
  * Notes:
  * - an empty attribute value removes the specified attr
  * - this request is by default proxied to the referenced server
@@ -33,26 +33,25 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param array  $attrs
      * @return self
      */
-    public function __construct(string $id = '', array $attrs = [])
+    public function __construct(string $id = "", array $attrs = [])
     {
-        $this->setId($id)
-             ->setAttrs($attrs);
+        $this->setId($id)->setAttrs($attrs);
     }
 
     /**
@@ -82,8 +81,6 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyServerEnvelope(
-            new ModifyServerBody($this)
-        );
+        return new ModifyServerEnvelope(new ModifyServerBody($this));
     }
 }

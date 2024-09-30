@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * AddMsgSpec class
@@ -26,91 +32,91 @@ class AddMsgSpec
     /**
      * Flags - (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me, for(w)arded,
      * (d)raft, deleted (x), (n)otification sent
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Folder pathname (starts with '/') or folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * If set, then don't process iCal attachments.  Default is unset.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNoICal', setter: 'setNoICal')]
-    #[SerializedName('noICal')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNoICal", setter: "setNoICal")]
+    #[SerializedName("noICal")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $noICal;
 
     /**
      * (optional) Time the message was originally received, in MILLISECONDS since the epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDateReceived', setter: 'setDateReceived')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDateReceived", setter: "setDateReceived")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dateReceived;
 
     /**
      * Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachmentId;
 
     /**
      * The entire message's content.  (Omit if you specify an "aid" attribute.)
      * No <mp> elements should be provided within <m>.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
@@ -135,8 +141,7 @@ class AddMsgSpec
         ?int $dateReceived = null,
         ?string $attachmentId = null,
         ?string $content = null
-    )
-    {
+    ) {
         if (null !== $flags) {
             $this->setFlags($flags);
         }

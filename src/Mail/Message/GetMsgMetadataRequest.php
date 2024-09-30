@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetMsgMetadataRequest class
  * Get message metadata
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class GetMsgMetadataRequest extends SoapRequest
 {
     /**
      * Messages selector
-     * 
+     *
      * @var IdsAttr
      */
-    #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
+    #[SerializedName("m")]
     #[Type(IdsAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private IdsAttr $msgIds;
 
     /**
@@ -75,8 +75,6 @@ class GetMsgMetadataRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetMsgMetadataEnvelope(
-            new GetMsgMetadataBody($this)
-        );
+        return new GetMsgMetadataEnvelope(new GetMsgMetadataBody($this));
     }
 }

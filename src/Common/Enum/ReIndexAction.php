@@ -25,17 +25,17 @@ enum ReIndexAction: string
      * Constant for value 'start'
      * @return string 'start'
      */
-    case START = 'start';
+    case START = "start";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case STATUS = 'status';
+    case STATUS = "status";
 
     /**
      * Constant for value 'cancel'
      * @return string 'cancel'
      */
-    case CANCEL = 'cancel';
+    case CANCEL = "cancel";
 }

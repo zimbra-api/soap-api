@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * FileSharedWithMeRequest class
  * File Share With Me
  * This is an internal API, cannot be invoked directly
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,112 +28,112 @@ class FileSharedWithMeRequest extends SoapRequest
 {
     /**
      * Action - Create, Edit, Revoke
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $action;
 
     /**
      * Name of the file which is to be shared
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFileName', setter: 'setFileName')]
-    #[SerializedName('filename')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFileName", setter: "setFileName")]
+    #[SerializedName("filename")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fileName;
 
     /**
      * Owner File ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOwnerFileId', setter: 'setOwnerFileId')]
-    #[SerializedName('itemId')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getOwnerFileId", setter: "setOwnerFileId")]
+    #[SerializedName("itemId")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $ownerFileId;
 
     /**
      * Owner File UUID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFileUUID', setter: 'setFileUUID')]
-    #[SerializedName('ruuid')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFileUUID", setter: "setFileUUID")]
+    #[SerializedName("ruuid")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fileUUID;
 
     /**
      * File Owner Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFileOwnerName', setter: 'setFileOwnerName')]
-    #[SerializedName('owner')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFileOwnerName", setter: "setFileOwnerName")]
+    #[SerializedName("owner")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fileOwnerName;
 
     /**
      * Permission provided to the file
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('perm')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("perm")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $rights;
 
     /**
      * Content type of the file
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $contentType;
 
     /**
      * Actual file size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $size;
 
     /**
      * Remote account owner ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
-    #[SerializedName('rid')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getOwnerAccountId", setter: "setOwnerAccountId")]
+    #[SerializedName("rid")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $ownerAccountId;
 
     /**
      * Actual file modified date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $date;
 
     /**
@@ -152,28 +152,27 @@ class FileSharedWithMeRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $action = '',
-        string $fileName = '',
+        string $action = "",
+        string $fileName = "",
         int $ownerFileId = 0,
-        string $fileUUID = '',
-        string $fileOwnerName = '',
-        string $rights = '',
-        string $contentType = '',
+        string $fileUUID = "",
+        string $fileOwnerName = "",
+        string $rights = "",
+        string $contentType = "",
         int $size = 0,
-        string $ownerAccountId = '',
+        string $ownerAccountId = "",
         int $date = 0
-    )
-    {
+    ) {
         $this->setAction($action)
-             ->setFileName($fileName)
-             ->setOwnerFileId($ownerFileId)
-             ->setFileUUID($fileUUID)
-             ->setFileOwnerName($fileOwnerName)
-             ->setRights($rights)
-             ->setContentType($contentType)
-             ->setSize($size)
-             ->setOwnerAccountId($ownerAccountId)
-             ->setDate($date);
+            ->setFileName($fileName)
+            ->setOwnerFileId($ownerFileId)
+            ->setFileUUID($fileUUID)
+            ->setFileOwnerName($fileOwnerName)
+            ->setRights($rights)
+            ->setContentType($contentType)
+            ->setSize($size)
+            ->setOwnerAccountId($ownerAccountId)
+            ->setDate($date);
     }
 
     /**
@@ -401,8 +400,6 @@ class FileSharedWithMeRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new FileSharedWithMeEnvelope(
-            new FileSharedWithMeBody($this)
-        );
+        return new FileSharedWithMeEnvelope(new FileSharedWithMeBody($this));
     }
 }

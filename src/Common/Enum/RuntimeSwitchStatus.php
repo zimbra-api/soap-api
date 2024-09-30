@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * RuntimeSwitchStatus enum class
  *
@@ -27,17 +25,17 @@ enum RuntimeSwitchStatus: string
      * Constant for value 'SUCCESS'
      * @return string 'SUCCESS'
      */
-    case SUCCESS = 'SUCCESS';
+    case SUCCESS = "SUCCESS";
 
     /**
      * Constant for value 'FAIL'
      * @return string 'FAIL'
      */
-    case FAIL = 'FAIL';
+    case FAIL = "FAIL";
 
     /**
      * Constant for value 'NO_OPERATION'
      * @return string 'NO_OPERATION'
      */
-    case NO_OPERATION = 'NO_OPERATION';
+    case NO_OPERATION = "NO_OPERATION";
 }

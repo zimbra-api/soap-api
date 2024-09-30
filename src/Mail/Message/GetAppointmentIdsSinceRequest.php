@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAppointmentIdsSinceRequest class
  * Get appointment ids since given id
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,23 +27,23 @@ class GetAppointmentIdsSinceRequest extends SoapRequest
 {
     /**
      * last synced appointment id
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastSync', setter: 'setLastSync')]
-    #[SerializedName('lastSync')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastSync", setter: "setLastSync")]
+    #[SerializedName("lastSync")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastSync;
 
     /**
      * Folder ID.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
@@ -54,13 +54,9 @@ class GetAppointmentIdsSinceRequest extends SoapRequest
      * @param  string $folderId
      * @return self
      */
-    public function __construct(
-        int $lastSync = 0,
-        string $folderId = ''
-    )
+    public function __construct(int $lastSync = 0, string $folderId = "")
     {
-        $this->setLastSync($lastSync)
-             ->setFolderId($folderId);
+        $this->setLastSync($lastSync)->setFolderId($folderId);
     }
 
     /**

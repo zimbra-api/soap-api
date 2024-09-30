@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyFilterRulesRequest class
  * Modify filter rules
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,14 +34,14 @@ class ModifyFilterRulesRequest extends SoapRequest
 {
     /**
      * Filter rules
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
-    #[SerializedName('filterRules')]
-    #[Type('array<Zimbra\Mail\Struct\FilterRule>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFilterRules", setter: "setFilterRules")]
+    #[SerializedName("filterRules")]
+    #[Type("array<Zimbra\Mail\Struct\FilterRule>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
     private $filterRules = [];
 
     /**
@@ -70,7 +76,8 @@ class ModifyFilterRulesRequest extends SoapRequest
     public function setFilterRules(array $rules): self
     {
         $this->filterRules = array_filter(
-            $rules, static fn ($rule) => $rule instanceof FilterRule
+            $rules,
+            static fn($rule) => $rule instanceof FilterRule
         );
         return $this;
     }
@@ -90,8 +97,6 @@ class ModifyFilterRulesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyFilterRulesEnvelope(
-            new ModifyFilterRulesBody($this)
-        );
+        return new ModifyFilterRulesEnvelope(new ModifyFilterRulesBody($this));
     }
 }

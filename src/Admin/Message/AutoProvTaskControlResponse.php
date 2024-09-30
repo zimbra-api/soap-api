@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, XmlAttribute};
 use Zimbra\Common\Enum\AutoProvTaskStatus;
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -27,11 +27,11 @@ class AutoProvTaskControlResponse extends SoapResponse
 {
     /**
      * Auth token
-     * 
+     *
      * @var AutoProvTaskStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private ?AutoProvTaskStatus $status;
 

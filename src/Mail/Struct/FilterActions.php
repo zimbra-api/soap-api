@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * FilterActions struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -25,177 +25,246 @@ class FilterActions
 {
     /**
      * Filter variables
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFilterVariables', setter: 'setFilterVariables')]
-    #[Type('array<Zimbra\Mail\Struct\FilterVariables>')]
-    #[XmlList(inline: true, entry: 'filterVariables', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFilterVariables", setter: "setFilterVariables")]
+    #[Type("array<Zimbra\Mail\Struct\FilterVariables>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "filterVariables",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $filterVariables = [];
 
     /**
      * Keep filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getKeepActions', setter: 'setKeepActions')]
-    #[Type('array<Zimbra\Mail\Struct\KeepAction>')]
-    #[XmlList(inline: true, entry: 'actionKeep', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getKeepActions", setter: "setKeepActions")]
+    #[Type("array<Zimbra\Mail\Struct\KeepAction>")]
+    #[XmlList(inline: true, entry: "actionKeep", namespace: "urn:zimbraMail")]
     private $keepActions = [];
 
     /**
      * Discard filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDiscardActions', setter: 'setDiscardActions')]
-    #[Type('array<Zimbra\Mail\Struct\DiscardAction>')]
-    #[XmlList(inline: true, entry: 'actionDiscard', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDiscardActions", setter: "setDiscardActions")]
+    #[Type("array<Zimbra\Mail\Struct\DiscardAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionDiscard",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $discardActions = [];
 
     /**
      * File into filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFileIntoActions', setter: 'setFileIntoActions')]
-    #[Type('array<Zimbra\Mail\Struct\FileIntoAction>')]
-    #[XmlList(inline: true, entry: 'actionFileInto', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFileIntoActions", setter: "setFileIntoActions")]
+    #[Type("array<Zimbra\Mail\Struct\FileIntoAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionFileInto",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $fileIntoActions = [];
 
     /**
      * Flag filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFlagActions', setter: 'setFlagActions')]
-    #[Type('array<Zimbra\Mail\Struct\FlagAction>')]
-    #[XmlList(inline: true, entry: 'actionFlag', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFlagActions", setter: "setFlagActions")]
+    #[Type("array<Zimbra\Mail\Struct\FlagAction>")]
+    #[XmlList(inline: true, entry: "actionFlag", namespace: "urn:zimbraMail")]
     private $flagActions = [];
 
     /**
      * Tag filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTagActions', setter: 'setTagActions')]
-    #[Type('array<Zimbra\Mail\Struct\TagAction>')]
-    #[XmlList(inline: true, entry: 'actionTag', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTagActions", setter: "setTagActions")]
+    #[Type("array<Zimbra\Mail\Struct\TagAction>")]
+    #[XmlList(inline: true, entry: "actionTag", namespace: "urn:zimbraMail")]
     private $tagActions = [];
 
     /**
      * Redirect filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRedirectActions', setter: 'setRedirectActions')]
-    #[Type('array<Zimbra\Mail\Struct\RedirectAction>')]
-    #[XmlList(inline: true, entry: 'actionRedirect', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRedirectActions", setter: "setRedirectActions")]
+    #[Type("array<Zimbra\Mail\Struct\RedirectAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionRedirect",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $redirectActions = [];
 
     /**
      * Reply filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getReplyActions', setter: 'setReplyActions')]
-    #[Type('array<Zimbra\Mail\Struct\ReplyAction>')]
-    #[XmlList(inline: true, entry: 'actionReply', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getReplyActions", setter: "setReplyActions")]
+    #[Type("array<Zimbra\Mail\Struct\ReplyAction>")]
+    #[XmlList(inline: true, entry: "actionReply", namespace: "urn:zimbraMail")]
     private $replyActions = [];
 
     /**
      * Notify filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNotifyActions', setter: 'setNotifyActions')]
-    #[Type('array<Zimbra\Mail\Struct\NotifyAction>')]
-    #[XmlList(inline: true, entry: 'actionNotify', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNotifyActions", setter: "setNotifyActions")]
+    #[Type("array<Zimbra\Mail\Struct\NotifyAction>")]
+    #[XmlList(inline: true, entry: "actionNotify", namespace: "urn:zimbraMail")]
     private $notifyActions = [];
 
     /**
      * RFC compliant notify filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRFCCompliantNotifyActions', setter: 'setRFCCompliantNotifyActions')]
-    #[Type('array<Zimbra\Mail\Struct\RFCCompliantNotifyAction>')]
-    #[XmlList(inline: true, entry: 'actionRFCCompliantNotify', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getRFCCompliantNotifyActions",
+            setter: "setRFCCompliantNotifyActions"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\RFCCompliantNotifyAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionRFCCompliantNotify",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $rfcCompliantNotifyActions = [];
 
     /**
      * Stop filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getStopActions', setter: 'setStopActions')]
-    #[Type('array<Zimbra\Mail\Struct\StopAction>')]
-    #[XmlList(inline: true, entry: 'actionStop', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getStopActions", setter: "setStopActions")]
+    #[Type("array<Zimbra\Mail\Struct\StopAction>")]
+    #[XmlList(inline: true, entry: "actionStop", namespace: "urn:zimbraMail")]
     private $stopActions = [];
 
     /**
      * Reject filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRejectActions', setter: 'setRejectActions')]
-    #[Type('array<Zimbra\Mail\Struct\RejectAction>')]
-    #[XmlList(inline: true, entry: 'actionReject', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRejectActions", setter: "setRejectActions")]
+    #[Type("array<Zimbra\Mail\Struct\RejectAction>")]
+    #[XmlList(inline: true, entry: "actionReject", namespace: "urn:zimbraMail")]
     private $rejectActions = [];
 
     /**
      * Ereject filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErejectActions', setter: 'setErejectActions')]
-    #[Type('array<Zimbra\Mail\Struct\ErejectAction>')]
-    #[XmlList(inline: true, entry: 'actionEreject', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getErejectActions", setter: "setErejectActions")]
+    #[Type("array<Zimbra\Mail\Struct\ErejectAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionEreject",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $erejectActions = [];
 
     /**
      * Log filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getLogActions', setter: 'setLogActions')]
-    #[Type('array<Zimbra\Mail\Struct\LogAction>')]
-    #[XmlList(inline: true, entry: 'actionLog', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getLogActions", setter: "setLogActions")]
+    #[Type("array<Zimbra\Mail\Struct\LogAction>")]
+    #[XmlList(inline: true, entry: "actionLog", namespace: "urn:zimbraMail")]
     private $logActions = [];
 
     /**
      * Add header filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAddheaderActions', setter: 'setAddheaderActions')]
-    #[Type('array<Zimbra\Mail\Struct\AddheaderAction>')]
-    #[XmlList(inline: true, entry: 'actionAddheader', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAddheaderActions", setter: "setAddheaderActions")]
+    #[Type("array<Zimbra\Mail\Struct\AddheaderAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionAddheader",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $addheaderActions = [];
 
     /**
      * Delete header filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDeleteheaderActions', setter: 'setDeleteheaderActions')]
-    #[Type('array<Zimbra\Mail\Struct\DeleteheaderAction>')]
-    #[XmlList(inline: true, entry: 'actionDeleteheader', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getDeleteheaderActions",
+            setter: "setDeleteheaderActions"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\DeleteheaderAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionDeleteheader",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $deleteheaderActions = [];
 
     /**
      * Replace header filter actions
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getReplaceheaderActions', setter: 'setReplaceheaderActions')]
-    #[Type('array<Zimbra\Mail\Struct\ReplaceheaderAction>')]
-    #[XmlList(inline: true, entry: 'actionReplaceheader', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getReplaceheaderActions",
+            setter: "setReplaceheaderActions"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\ReplaceheaderAction>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "actionReplaceheader",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $replaceheaderActions = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $filterActions
      * @return self
      */
@@ -222,7 +291,10 @@ class FilterActions
     public function setFilterVariables(array $filterVariables): self
     {
         $this->filterVariables = array_values(
-            array_filter($filterVariables, static fn ($action) => $action instanceof FilterVariables)
+            array_filter(
+                $filterVariables,
+                static fn($action) => $action instanceof FilterVariables
+            )
         );
         return $this;
     }
@@ -245,7 +317,10 @@ class FilterActions
     public function setKeepActions(array $filterActions): self
     {
         $this->keepActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof KeepAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof KeepAction
+            )
         );
         return $this;
     }
@@ -268,7 +343,10 @@ class FilterActions
     public function setDiscardActions(array $filterActions): self
     {
         $this->discardActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof DiscardAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof DiscardAction
+            )
         );
         return $this;
     }
@@ -291,7 +369,10 @@ class FilterActions
     public function setFileIntoActions(array $filterActions): self
     {
         $this->fileIntoActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof FileIntoAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof FileIntoAction
+            )
         );
         return $this;
     }
@@ -314,7 +395,10 @@ class FilterActions
     public function setFlagActions(array $filterActions): self
     {
         $this->flagActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof FlagAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof FlagAction
+            )
         );
         return $this;
     }
@@ -337,7 +421,10 @@ class FilterActions
     public function setTagActions(array $filterActions): self
     {
         $this->tagActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof TagAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof TagAction
+            )
         );
         return $this;
     }
@@ -360,7 +447,10 @@ class FilterActions
     public function setRedirectActions(array $filterActions): self
     {
         $this->redirectActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof RedirectAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof RedirectAction
+            )
         );
         return $this;
     }
@@ -383,7 +473,10 @@ class FilterActions
     public function setReplyActions(array $filterActions): self
     {
         $this->replyActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof ReplyAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof ReplyAction
+            )
         );
         return $this;
     }
@@ -406,7 +499,10 @@ class FilterActions
     public function setNotifyActions(array $filterActions): self
     {
         $this->notifyActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof NotifyAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof NotifyAction
+            )
         );
         return $this;
     }
@@ -429,7 +525,11 @@ class FilterActions
     public function setRFCCompliantNotifyActions(array $filterActions): self
     {
         $this->rfcCompliantNotifyActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof RFCCompliantNotifyAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof
+                    RFCCompliantNotifyAction
+            )
         );
         return $this;
     }
@@ -452,7 +552,10 @@ class FilterActions
     public function setStopActions(array $filterActions): self
     {
         $this->stopActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof StopAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof StopAction
+            )
         );
         return $this;
     }
@@ -475,7 +578,10 @@ class FilterActions
     public function setRejectActions(array $filterActions): self
     {
         $this->rejectActions = array_values(
-            array_filter($filterActions, static fn ($action) => get_class($action) === RejectAction::class)
+            array_filter(
+                $filterActions,
+                static fn($action) => get_class($action) === RejectAction::class
+            )
         );
         return $this;
     }
@@ -498,7 +604,10 @@ class FilterActions
     public function setErejectActions(array $filterActions): self
     {
         $this->erejectActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof ErejectAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof ErejectAction
+            )
         );
         return $this;
     }
@@ -521,7 +630,10 @@ class FilterActions
     public function setLogActions(array $filterActions): self
     {
         $this->logActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof LogAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof LogAction
+            )
         );
         return $this;
     }
@@ -544,7 +656,10 @@ class FilterActions
     public function setAddheaderActions(array $filterActions): self
     {
         $this->addheaderActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof AddheaderAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof AddheaderAction
+            )
         );
         return $this;
     }
@@ -567,7 +682,11 @@ class FilterActions
     public function setDeleteheaderActions(array $filterActions): self
     {
         $this->deleteheaderActions = array_values(
-            array_filter($filterActions, static fn ($action) => get_class($action) ===DeleteheaderAction::class)
+            array_filter(
+                $filterActions,
+                static fn($action) => get_class($action) ===
+                    DeleteheaderAction::class
+            )
         );
         return $this;
     }
@@ -590,7 +709,10 @@ class FilterActions
     public function setReplaceheaderActions(array $filterActions): self
     {
         $this->replaceheaderActions = array_values(
-            array_filter($filterActions, static fn ($action) => $action instanceof ReplaceheaderAction)
+            array_filter(
+                $filterActions,
+                static fn($action) => $action instanceof ReplaceheaderAction
+            )
         );
         return $this;
     }
@@ -666,22 +788,22 @@ class FilterActions
     public function setFilterActions(array $filterActions): self
     {
         $this->setFilterVariables($filterActions)
-             ->setKeepActions($filterActions)
-             ->setDiscardActions($filterActions)
-             ->setFileIntoActions($filterActions)
-             ->setFlagActions($filterActions)
-             ->setTagActions($filterActions)
-             ->setRedirectActions($filterActions)
-             ->setReplyActions($filterActions)
-             ->setNotifyActions($filterActions)
-             ->setRFCCompliantNotifyActions($filterActions)
-             ->setStopActions($filterActions)
-             ->setRejectActions($filterActions)
-             ->setErejectActions($filterActions)
-             ->setLogActions($filterActions)
-             ->setAddheaderActions($filterActions)
-             ->setDeleteheaderActions($filterActions)
-             ->setReplaceheaderActions($filterActions);
+            ->setKeepActions($filterActions)
+            ->setDiscardActions($filterActions)
+            ->setFileIntoActions($filterActions)
+            ->setFlagActions($filterActions)
+            ->setTagActions($filterActions)
+            ->setRedirectActions($filterActions)
+            ->setReplyActions($filterActions)
+            ->setNotifyActions($filterActions)
+            ->setRFCCompliantNotifyActions($filterActions)
+            ->setStopActions($filterActions)
+            ->setRejectActions($filterActions)
+            ->setErejectActions($filterActions)
+            ->setLogActions($filterActions)
+            ->setAddheaderActions($filterActions)
+            ->setDeleteheaderActions($filterActions)
+            ->setReplaceheaderActions($filterActions);
         return $this;
     }
 

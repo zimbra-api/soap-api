@@ -25,17 +25,17 @@ enum DocumentPermission: string
      * Constant for value 'r'
      * @return string 'r'
      */
-    case READ = 'r';
+    case READ = "r";
 
     /**
      * Constant for value 'w'
      * @return string 'w'
      */
-    case WRITE = 'w';
+    case WRITE = "w";
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    case DELETE = 'd';
+    case DELETE = "d";
 }

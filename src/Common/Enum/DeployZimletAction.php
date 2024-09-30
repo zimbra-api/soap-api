@@ -25,17 +25,17 @@ enum DeployZimletAction: string
      * Constant for value 'deployAll'
      * @return string 'deployAll'
      */
-    case DEPLOY_ALL = 'deployAll';
+    case DEPLOY_ALL = "deployAll";
 
     /**
      * Constant for value 'deployLocal'
      * @return string 'deployLocal'
      */
-    case DEPLOY_LOCAL = 'deployLocal';
+    case DEPLOY_LOCAL = "deployLocal";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case STATUS = 'status';
+    case STATUS = "status";
 }

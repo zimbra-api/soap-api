@@ -25,37 +25,36 @@ class DataSourceUsage
 {
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Usage
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getUsage', setter: 'setUsage')]
-    #[SerializedName('usage')]
-    #[Type('int')]
+    #[Accessor(getter: "getUsage", setter: "setUsage")]
+    #[SerializedName("usage")]
+    #[Type("int")]
     #[XmlAttribute]
     private $usage;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $usage
      * @return self
      */
-    public function __construct(string $id = '', int $usage = 0)
+    public function __construct(string $id = "", int $usage = 0)
     {
-        $this->setId($id)
-             ->setUsage($usage);
+        $this->setId($id)->setUsage($usage);
     }
 
     /**

@@ -27,166 +27,171 @@ class AutoCompleteMatch
 {
     /**
      * Comma-separated email addresses in case of group
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Match type - gal|contact|rankingTable
-     * 
+     *
      * @var MatchType
      */
-    #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getMatchType", setter: "setMatchType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?MatchType $matchType;
 
     /**
      * Ranking
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRanking', setter: 'setRanking')]
-    #[SerializedName('ranking')]
-    #[Type('int')]
+    #[Accessor(getter: "getRanking", setter: "setRanking")]
+    #[SerializedName("ranking")]
+    #[Type("int")]
     #[XmlAttribute]
     private $ranking;
 
     /**
      * Set if the entry is a group
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getGroup', setter: 'setGroup')]
-    #[SerializedName('isGroup')]
-    #[Type('bool')]
+    #[Accessor(getter: "getGroup", setter: "setGroup")]
+    #[SerializedName("isGroup")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $group;
 
     /**
      * Set if the user has the right to expand group members.  Returned only if
      * needExp is set in the request and only on group entries (isGroup is set).
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
-    #[SerializedName('exp')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getCanExpandGroupMembers",
+            setter: "setCanExpandGroupMembers"
+        )
+    ]
+    #[SerializedName("exp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canExpandGroupMembers;
 
     /**
      * Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * String that should be displayed by the client
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('display')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("display")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * First Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFirstName', setter: 'setFirstName')]
-    #[SerializedName('first')]
-    #[Type('string')]
+    #[Accessor(getter: "getFirstName", setter: "setFirstName")]
+    #[SerializedName("first")]
+    #[Type("string")]
     #[XmlAttribute]
     private $firstName;
 
     /**
      * Middle Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMiddleName', setter: 'setMiddleName')]
-    #[SerializedName('middle')]
-    #[Type('string')]
+    #[Accessor(getter: "getMiddleName", setter: "setMiddleName")]
+    #[SerializedName("middle")]
+    #[Type("string")]
     #[XmlAttribute]
     private $middleName;
 
     /**
      * Last Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLastName', setter: 'setLastName')]
-    #[SerializedName('last')]
-    #[Type('string')]
+    #[Accessor(getter: "getLastName", setter: "setLastName")]
+    #[SerializedName("last")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lastName;
 
     /**
      * Full Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFullName', setter: 'setFullName')]
-    #[SerializedName('full')]
-    #[Type('string')]
+    #[Accessor(getter: "getFullName", setter: "setFullName")]
+    #[SerializedName("full")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fullName;
 
     /**
      * Nick Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNickname', setter: 'setNickname')]
-    #[SerializedName('nick')]
-    #[Type('string')]
+    #[Accessor(getter: "getNickname", setter: "setNickname")]
+    #[SerializedName("nick")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nickname;
 
     /**
      * Company Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCompany', setter: 'setCompany')]
-    #[SerializedName('company')]
-    #[Type('string')]
+    #[Accessor(getter: "getCompany", setter: "setCompany")]
+    #[SerializedName("company")]
+    #[Type("string")]
     #[XmlAttribute]
     private $company;
 
     /**
      * FileAs
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
-    #[SerializedName('fileas')]
-    #[Type('string')]
+    #[Accessor(getter: "getFileAs", setter: "setFileAs")]
+    #[SerializedName("fileas")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fileAs;
 
@@ -226,8 +231,7 @@ class AutoCompleteMatch
         ?string $nickname = null,
         ?string $company = null,
         ?string $fileAs = null
-    )
-    {
+    ) {
         $this->matchType = $matchType;
         if (null !== $email) {
             $this->setEmail($email);

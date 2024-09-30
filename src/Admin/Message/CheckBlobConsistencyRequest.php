@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -32,49 +38,49 @@ class CheckBlobConsistencyRequest extends SoapRequest
     /**
      * Set checkSize to 0 (false) to avoid the CPU overhead of uncompressing
      * compressed blobs in order to calculate size.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCheckSize', setter: 'setCheckSize')]
-    #[SerializedName('checkSize')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCheckSize", setter: "setCheckSize")]
+    #[SerializedName("checkSize")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $checkSize;
 
     /**
      * If set a complete list of all blobs used by the mailbox(es) is returned
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReportUsedBlobs', setter: 'setReportUsedBlobs')]
-    #[SerializedName('reportUsedBlobs')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReportUsedBlobs", setter: "setReportUsedBlobs")]
+    #[SerializedName("reportUsedBlobs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $reportUsedBlobs;
 
     /**
      * Volumes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
-    #[Type('array<Zimbra\Admin\Struct\IntIdAttr>')]
-    #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getVolumes", setter: "setVolumes")]
+    #[Type("array<Zimbra\Admin\Struct\IntIdAttr>")]
+    #[XmlList(inline: true, entry: "volume", namespace: "urn:zimbraAdmin")]
     private $volumes = [];
 
     /**
      * Mailboxes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMailboxes', setter: 'setMailboxes')]
-    #[Type('array<Zimbra\Admin\Struct\IntIdAttr>')]
-    #[XmlList(inline: true, entry: 'mbox', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMailboxes", setter: "setMailboxes")]
+    #[Type("array<Zimbra\Admin\Struct\IntIdAttr>")]
+    #[XmlList(inline: true, entry: "mbox", namespace: "urn:zimbraAdmin")]
     private $mailboxes = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $checkSize
      * @param  bool $reportUsedBlobs
      * @param  array $volumes
@@ -82,15 +88,16 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?bool $checkSize = null, ?bool $reportUsedBlobs = null, array $volumes = [], array $mailboxes = []
-    )
-    {
-        $this->setVolumes($volumes)
-             ->setMailboxes($mailboxes);
+        ?bool $checkSize = null,
+        ?bool $reportUsedBlobs = null,
+        array $volumes = [],
+        array $mailboxes = []
+    ) {
+        $this->setVolumes($volumes)->setMailboxes($mailboxes);
         if (null !== $checkSize) {
             $this->setCheckSize($checkSize);
         }
-        if (null !== $reportUsedBlobs){
+        if (null !== $reportUsedBlobs) {
             $this->setReportUsedBlobs($reportUsedBlobs);
         }
     }
@@ -160,7 +167,8 @@ class CheckBlobConsistencyRequest extends SoapRequest
     public function setVolumes(array $volumes): self
     {
         $this->volumes = array_filter(
-            $volumes, static fn ($volume) => $volume instanceof IntIdAttr
+            $volumes,
+            static fn($volume) => $volume instanceof IntIdAttr
         );
         return $this;
     }
@@ -196,7 +204,8 @@ class CheckBlobConsistencyRequest extends SoapRequest
     public function setMailboxes(array $mailboxes): self
     {
         $this->mailboxes = array_filter(
-            $mailboxes, static fn ($mailbox) => $mailbox instanceof IntIdAttr
+            $mailboxes,
+            static fn($mailbox) => $mailbox instanceof IntIdAttr
         );
         return $this;
     }

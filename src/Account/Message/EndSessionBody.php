@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * EndSessionBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,24 +30,24 @@ class EndSessionBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('EndSessionRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("EndSessionRequest")]
     #[Type(EndSessionRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('EndSessionResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("EndSessionResponse")]
     #[Type(EndSessionResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class EndSessionBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?EndSessionRequest $request = null, ?EndSessionResponse $response = null
-    )
-    {
+        ?EndSessionRequest $request = null,
+        ?EndSessionResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

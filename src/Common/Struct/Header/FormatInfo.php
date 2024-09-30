@@ -26,21 +26,21 @@ class FormatInfo
 {
     /**
      * Desired response format. Valid values "xml" (default) and "js"
-     * 
+     *
      * @var RequestFormat
      */
-    #[Accessor(getter: 'getFormat', setter: 'setFormat')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getFormat", setter: "setFormat")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private RequestFormat $format;
 
     /**
      * Constructor
-     * 
+     *
      * @param RequestFormat $format
      * @return self
      */
-    public function __construct(?RequestFormat $format = NULL)
+    public function __construct(?RequestFormat $format = null)
     {
         $this->setFormat($format ?? RequestFormat::XML);
     }

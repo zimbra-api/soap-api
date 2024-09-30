@@ -27,22 +27,22 @@ class ResetPasswordRequest extends SoapRequest
 {
     /**
      * New password to assign
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $password;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $password
      * @return self
      */
-    public function __construct(string $password = '')
+    public function __construct(string $password = "")
     {
         $this->setPassword($password);
     }
@@ -74,8 +74,6 @@ class ResetPasswordRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ResetPasswordEnvelope(
-            new ResetPasswordBody($this)
-        );
+        return new ResetPasswordEnvelope(new ResetPasswordBody($this));
     }
 }

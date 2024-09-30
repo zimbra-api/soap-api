@@ -27,37 +27,36 @@ class CheckPasswordStrengthRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Password
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $password
      * @return self
      */
-    public function __construct(string $id = '', string $password = '')
+    public function __construct(string $id = "", string $password = "")
     {
-        $this->setId($id)
-             ->setPassword($password);
+        $this->setId($id)->setPassword($password);
     }
 
     /**

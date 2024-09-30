@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllMailboxesRequest class
  * Return all mailboxes
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,29 +27,29 @@ class GetAllMailboxesRequest extends SoapRequest
 {
     /**
      * The number of mailboxes to return (0 is default and means all)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $limit
      * @param  int $offset
      * @return self
@@ -113,8 +113,6 @@ class GetAllMailboxesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllMailboxesEnvelope(
-            new GetAllMailboxesBody($this)
-        );
+        return new GetAllMailboxesEnvelope(new GetAllMailboxesBody($this));
     }
 }

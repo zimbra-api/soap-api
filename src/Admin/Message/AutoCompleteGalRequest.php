@@ -28,61 +28,61 @@ class AutoCompleteGalRequest extends SoapRequest
 {
     /**
      * domain
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * The name to test for autocompletion
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Type of addresses to auto-complete on
-     * 
+     *
      * @var GalSearchType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?GalSearchType $type;
 
     /**
      * GAL Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName('galAcctId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGalAccountId", setter: "setGalAccountId")]
+    #[SerializedName("galAcctId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galAccountId;
 
     /**
      * An integer specifying the maximum number of results to return
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Constructor
-     * 
+     *
      * @param string  $domain
      * @param string  $name
      * @param GalSearchType  $type
@@ -91,15 +91,13 @@ class AutoCompleteGalRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $domain = '',
-        string $name = '',
+        string $domain = "",
+        string $name = "",
         ?GalSearchType $type = null,
         ?string $galAccountId = null,
         ?int $limit = null
-    )
-    {
-        $this->setDomain($domain)
-             ->setName($name);
+    ) {
+        $this->setDomain($domain)->setName($name);
         $this->type = $type;
         if (null !== $galAccountId) {
             $this->setGalAccountId($galAccountId);
@@ -224,8 +222,6 @@ class AutoCompleteGalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AutoCompleteGalEnvelope(
-            new AutoCompleteGalBody($this)
-        );
+        return new AutoCompleteGalEnvelope(new AutoCompleteGalBody($this));
     }
 }

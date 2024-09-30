@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\TestResultInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * RunUnitTestsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,40 +33,40 @@ class RunUnitTestsResponse extends SoapResponse
 {
     /**
      * Information about test results
-     * 
+     *
      * @var TestResultInfo
      */
-    #[Accessor(getter: 'getResults', setter: 'setResults')]
-    #[SerializedName('results')]
+    #[Accessor(getter: "getResults", setter: "setResults")]
+    #[SerializedName("results")]
     #[Type(TestResultInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TestResultInfo $results;
 
     /**
      * Number of executed tests
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumExecuted', setter: 'setNumExecuted')]
-    #[SerializedName('numExecuted')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumExecuted", setter: "setNumExecuted")]
+    #[SerializedName("numExecuted")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numExecuted;
 
     /**
      * Number of failed tests
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumFailed', setter: 'setNumFailed')]
-    #[SerializedName('numFailed')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumFailed", setter: "setNumFailed")]
+    #[SerializedName("numFailed")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numFailed;
 
     /**
      * Constructor
-     * 
+     *
      * @param TestResultInfo $results
      * @param int $numExecuted
      * @param int $numFailed
@@ -70,10 +76,8 @@ class RunUnitTestsResponse extends SoapResponse
         ?TestResultInfo $results = null,
         int $numExecuted = 0,
         int $numFailed = 0
-    )
-    {
-        $this->setNumExecuted($numExecuted)
-             ->setNumFailed($numFailed);
+    ) {
+        $this->setNumExecuted($numExecuted)->setNumFailed($numFailed);
         $this->results = $results;
     }
 

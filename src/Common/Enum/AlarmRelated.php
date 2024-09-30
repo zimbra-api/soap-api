@@ -25,11 +25,11 @@ enum AlarmRelated: string
      * Constant for value 'START'
      * @return string 'START'
      */
-    case START = 'START';
+    case START = "START";
 
     /**
      * Constant for value 'END'
      * @return string 'END'
      */
-    case END = 'END';
+    case END = "END";
 }

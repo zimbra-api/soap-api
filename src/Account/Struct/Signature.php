@@ -10,7 +10,14 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * Signature struct class
@@ -25,50 +32,50 @@ class Signature
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Content Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCid', setter: 'setCid')]
-    #[SerializedName('cid')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getCid", setter: "setCid")]
+    #[SerializedName("cid")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $cid;
 
     /**
      * Content of the signature
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContents', setter: 'setContents')]
-    #[Type('array<Zimbra\Account\Struct\SignatureContent>')]
-    #[XmlList(inline: true, entry: 'content', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getContents", setter: "setContents")]
+    #[Type("array<Zimbra\Account\Struct\SignatureContent>")]
+    #[XmlList(inline: true, entry: "content", namespace: "urn:zimbraAccount")]
     private $contents = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @param string $cid
@@ -80,8 +87,7 @@ class Signature
         ?string $id = null,
         ?string $cid = null,
         array $contents = []
-	)
-    {
+    ) {
         $this->setContents($contents);
         if (null !== $name) {
             $this->setName($name);
@@ -180,7 +186,10 @@ class Signature
      */
     public function setContents(array $contents): self
     {
-        $this->contents = array_filter($contents, static fn ($content) => $content instanceof SignatureContent);
+        $this->contents = array_filter(
+            $contents,
+            static fn($content) => $content instanceof SignatureContent
+        );
         return $this;
     }
 

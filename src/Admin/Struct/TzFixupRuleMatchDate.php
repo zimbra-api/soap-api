@@ -25,37 +25,36 @@ class TzFixupRuleMatchDate
 {
     /**
      * Match month. Value between 1 (January) and 12 (December)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
-    #[SerializedName('mon')]
-    #[Type('int')]
+    #[Accessor(getter: "getMonth", setter: "setMonth")]
+    #[SerializedName("mon")]
+    #[Type("int")]
     #[XmlAttribute]
     private $month;
 
     /**
      * Match day of month (1..31)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMonthDay', setter: 'setMonthDay')]
-    #[SerializedName('mday')]
-    #[Type('int')]
+    #[Accessor(getter: "getMonthDay", setter: "setMonthDay")]
+    #[SerializedName("mday")]
+    #[Type("int")]
     #[XmlAttribute]
     private $monthDay;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $mon
      * @param int $mday
      * @return self
      */
     public function __construct(int $mon = 0, int $mday = 0)
     {
-        $this->setMonth($mon)
-             ->setMonthDay($mday);
+        $this->setMonth($mon)->setMonthDay($mday);
     }
 
     /**

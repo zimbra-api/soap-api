@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * BrowseRequest class
  * Browse
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,33 +28,33 @@ class BrowseRequest extends SoapRequest
 {
     /**
      * Browse by setting - domains|attachments|objects
-     * 
+     *
      * @var BrowseBy
      */
-    #[Accessor(getter: 'getBrowseBy', setter: 'setBrowseBy')]
-    #[SerializedName('browseBy')]
+    #[Accessor(getter: "getBrowseBy", setter: "setBrowseBy")]
+    #[SerializedName("browseBy")]
     #[XmlAttribute]
     private BrowseBy $browseBy;
 
     /**
      * Regex string.  Return only those results which match the specified regular expression
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRegex', setter: 'setRegex')]
-    #[SerializedName('regex')]
-    #[Type('string')]
+    #[Accessor(getter: "getRegex", setter: "setRegex")]
+    #[SerializedName("regex")]
+    #[Type("string")]
     #[XmlAttribute]
     private $regex;
 
     /**
      * Return only a maximum number of entries as requested
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMax', setter: 'setMax')]
-    #[SerializedName('maxToReturn')]
-    #[Type('int')]
+    #[Accessor(getter: "getMax", setter: "setMax")]
+    #[SerializedName("maxToReturn")]
+    #[Type("int")]
     #[XmlAttribute]
     private $max;
 
@@ -67,9 +67,10 @@ class BrowseRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?BrowseBy $browseBy = null, ?string $regex = null, ?int $max = null
-    )
-    {
+        ?BrowseBy $browseBy = null,
+        ?string $regex = null,
+        ?int $max = null
+    ) {
         $this->setBrowseBy($browseBy ?? BrowseBy::DOMAINS);
         if (null !== $regex) {
             $this->setRegex($regex);
@@ -150,8 +151,6 @@ class BrowseRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new BrowseEnvelope(
-            new BrowseBody($this)
-        );
+        return new BrowseEnvelope(new BrowseBody($this));
     }
 }

@@ -30,18 +30,18 @@ class CreateIdentityRequest extends SoapRequest
 {
     /**
      * Details of the new identity to create
-     * 
+     *
      * @var Identity
      */
-    #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName('identity')]
+    #[Accessor(getter: "getIdentity", setter: "setIdentity")]
+    #[SerializedName("identity")]
     #[Type(Identity::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private Identity $identity;
 
     /**
      * Constructor
-     * 
+     *
      * @param Identity $identity
      * @return self
      */
@@ -77,8 +77,6 @@ class CreateIdentityRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateIdentityEnvelope(
-            new CreateIdentityBody($this)
-        );
+        return new CreateIdentityEnvelope(new CreateIdentityBody($this));
     }
 }

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 /**
  * CreateAppointmentExceptionRequest class
  * Create Appointment Exception.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,45 +28,45 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 {
     /**
      * ID of default invite
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component of default invite
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumComponents', setter: 'setNumComponents')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumComponents", setter: "setNumComponents")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numComponents;
 
     /**
      * Change sequence of fetched series
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision of fetched series
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
@@ -96,9 +96,15 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
         ?bool $wantHtml = null,
         ?bool $neuter = null,
         ?bool $forceSend = null
-    )
-    {
-        parent::__construct($msg, $echo, $maxSize, $wantHtml, $neuter, $forceSend);
+    ) {
+        parent::__construct(
+            $msg,
+            $echo,
+            $maxSize,
+            $wantHtml,
+            $neuter,
+            $forceSend
+        );
         if (null !== $id) {
             $this->setId($id);
         }

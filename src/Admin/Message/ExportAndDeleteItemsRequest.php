@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec as Mailbox;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -19,7 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Exports the database data for the given items with SELECT INTO OUTFILE and deletes the items from the mailbox.
  * Exported filenames follow the pattern {prefix}{table_name}.txt.  The files are written to sqlExportDir.
  * When sqlExportDir is not specified, data is not exported. Export is only supported for MySQL.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,49 +36,55 @@ class ExportAndDeleteItemsRequest extends SoapRequest
 {
     /**
      * Path for export dir
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExportDir', setter: 'setExportDir')]
-    #[SerializedName('exportDir')]
-    #[Type('string')]
+    #[Accessor(getter: "getExportDir", setter: "setExportDir")]
+    #[SerializedName("exportDir")]
+    #[Type("string")]
     #[XmlAttribute]
     private $exportDir;
 
     /**
      * Export filename prefix
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExportFilenamePrefix', setter: 'setExportFilenamePrefix')]
-    #[SerializedName('exportFilenamePrefix')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getExportFilenamePrefix",
+            setter: "setExportFilenamePrefix"
+        )
+    ]
+    #[SerializedName("exportFilenamePrefix")]
+    #[Type("string")]
     #[XmlAttribute]
     private $exportFilenamePrefix;
 
     /**
      * Export filename prefix
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMailbox', setter: 'setMailbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMailbox", setter: "setMailbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Mailbox $mailbox;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mailbox $mailbox
      * @param  string $exportDir
      * @param  string $exportFilenamePrefix
      * @return self
      */
     public function __construct(
-        Mailbox $mailbox, ?string $exportDir = null, ?string $exportFilenamePrefix = null
-    )
-    {
+        Mailbox $mailbox,
+        ?string $exportDir = null,
+        ?string $exportFilenamePrefix = null
+    ) {
         $this->setMailbox($mailbox);
         if (null !== $exportDir) {
             $this->setExportDir($exportDir);

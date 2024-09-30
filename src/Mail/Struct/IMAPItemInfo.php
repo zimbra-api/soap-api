@@ -25,37 +25,36 @@ class IMAPItemInfo
 {
     /**
      * Message ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * IMAP UID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
-    #[SerializedName('i4uid')]
-    #[Type('int')]
+    #[Accessor(getter: "getImapUid", setter: "setImapUid")]
+    #[SerializedName("i4uid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $imapUid;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id Message ID
      * @param  int $imapUid IMAP UID
      * @return self
      */
     public function __construct(int $id = 0, int $imapUid = 0)
     {
-        $this->setId($id)
-             ->setImapUid($imapUid);
+        $this->setId($id)->setImapUid($imapUid);
     }
 
     /**

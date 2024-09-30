@@ -25,17 +25,17 @@ enum MsgContent: string
      * Constant for value 'full'
      * @return string 'full'
      */
-    case FULL = 'full';
+    case FULL = "full";
 
     /**
      * Constant for value 'original'
      * @return string 'original'
      */
-    case ORIGINAL = 'original';
+    case ORIGINAL = "original";
 
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    case BOTH = 'both';
+    case BOTH = "both";
 }

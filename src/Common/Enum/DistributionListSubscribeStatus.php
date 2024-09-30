@@ -25,17 +25,17 @@ enum DistributionListSubscribeStatus: string
      * Constant for value 'subscribe'
      * @return string 'subscribed'
      */
-    case SUBSCRIBED = 'subscribed';
+    case SUBSCRIBED = "subscribed";
 
     /**
      * Constant for value 'unsubscribed'
      * @return string 'unsubscribed'
      */
-    case UNSUBSCRIBED = 'unsubscribed';
+    case UNSUBSCRIBED = "unsubscribed";
 
     /**
      * Constant for value 'awaiting_approval'
      * @return string 'awaiting_approval'
      */
-    case AWAITING_APPROVAL = 'awaiting_approval';
+    case AWAITING_APPROVAL = "awaiting_approval";
 }

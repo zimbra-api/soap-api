@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Notes:
  *     If the request is sent to the server on which the mailbox resides, the mailbox is deleted as well.
  *     this request is by default proxied to the account's home server
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,22 +30,22 @@ class DeleteAccountRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }
@@ -77,8 +77,6 @@ class DeleteAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteAccountEnvelope(
-            new DeleteAccountBody($this)
-        );
+        return new DeleteAccountEnvelope(new DeleteAccountBody($this));
     }
 }

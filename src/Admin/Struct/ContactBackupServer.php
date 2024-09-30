@@ -26,36 +26,39 @@ class ContactBackupServer
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Backup status
-     * 
+     *
      * @var ContactBackupStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private ContactBackupStatus $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param ContactBackupStatus $status
      * @return self
      */
-    public function __construct(string $name = '', ?ContactBackupStatus $status = null)
-    {
-        $this->setName($name)
-             ->setStatus($status ?? ContactBackupStatus::STOPPED);
+    public function __construct(
+        string $name = "",
+        ?ContactBackupStatus $status = null
+    ) {
+        $this->setName($name)->setStatus(
+            $status ?? ContactBackupStatus::STOPPED
+        );
     }
 
     /**

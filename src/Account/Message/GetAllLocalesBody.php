@@ -11,11 +11,15 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * GetAllLocalesBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,24 +30,24 @@ class GetAllLocalesBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('GetAllLocalesRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("GetAllLocalesRequest")]
     #[Type(GetAllLocalesRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('GetAllLocalesResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("GetAllLocalesResponse")]
     #[Type(GetAllLocalesResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class GetAllLocalesBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?GetAllLocalesRequest $request = null, ?GetAllLocalesResponse $response = null
-    )
-    {
+        ?GetAllLocalesRequest $request = null,
+        ?GetAllLocalesResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

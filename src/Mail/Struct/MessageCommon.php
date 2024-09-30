@@ -10,12 +10,18 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{CustomMetadataInterface, MessageCommonInterface};
 
 /**
  * MessageCommon struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -26,45 +32,45 @@ class MessageCommon implements MessageCommonInterface
 {
     /**
      * Size in bytes
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Date Seconds since the epoch, from the date header in the message
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Converstation ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
-    #[SerializedName('cid')]
-    #[Type('string')]
+    #[Accessor(getter: "getConversationId", setter: "setConversationId")]
+    #[SerializedName("cid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $conversationId;
 
@@ -72,78 +78,78 @@ class MessageCommon implements MessageCommonInterface
      * Flags.  (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me,
      * for(w)arded, calendar in(v)ite, (d)raft, IMAP-\Deleted (x), (n)otification sent, urgent (!),
      * low-priority (?), priority (+)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Date metadata changed
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Change sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Custom metadata information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
+    #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
     private $metadatas = [];
 
     /**
@@ -174,8 +180,7 @@ class MessageCommon implements MessageCommonInterface
         ?int $changeDate = null,
         ?int $modifiedSequence = null,
         array $metadatas = []
-    )
-    {
+    ) {
         $this->setMetadatas($metadatas);
         if (null !== $size) {
             $this->setSize($size);
@@ -438,7 +443,8 @@ class MessageCommon implements MessageCommonInterface
     public function setMetadatas(array $metadatas): self
     {
         $this->metadatas = array_filter(
-            $metadatas, static fn ($metadata) => $metadata instanceof CustomMetadataInterface
+            $metadatas,
+            static fn($metadata) => $metadata instanceof CustomMetadataInterface
         );
         return $this;
     }

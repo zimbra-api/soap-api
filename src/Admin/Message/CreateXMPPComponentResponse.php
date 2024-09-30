@@ -27,13 +27,13 @@ class CreateXMPPComponentResponse extends SoapResponse
 {
     /**
      * Information about the newly created XMPP component
-     * 
+     *
      * @var XMPPComponentInfo
      */
-    #[Accessor(getter: 'getComponent', setter: 'setComponent')]
-    #[SerializedName('xmppcomponent')]
+    #[Accessor(getter: "getComponent", setter: "setComponent")]
+    #[SerializedName("xmppcomponent")]
     #[Type(XMPPComponentInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?XMPPComponentInfo $component;
 
     /**

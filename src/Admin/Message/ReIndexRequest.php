@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\ReindexMailboxInfo as Mbox;
 use Zimbra\Common\Enum\ReIndexAction as Action;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -29,31 +35,31 @@ class ReIndexRequest extends SoapRequest
 {
     /**
      * Specify reindexing to perform
-     * 
+     *
      * @var Mbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Mbox $mbox;
 
     /**
      * Action to perform
      * start: start compact indexing
      * status: show compact indexing status
-     * cancel: cancel reindexing 
-     * 
+     * cancel: cancel reindexing
+     *
      * @var Action
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[XmlAttribute]
     private ?Action $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mbox $mbox
      * @param  Action $action
      * @return self
@@ -113,8 +119,6 @@ class ReIndexRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ReIndexEnvelope(
-            new ReIndexBody($this)
-        );
+        return new ReIndexEnvelope(new ReIndexBody($this));
     }
 }

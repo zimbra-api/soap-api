@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * ContentSpec struct class
@@ -25,50 +31,50 @@ class ContentSpec
 {
     /**
      * Attachment upload ID of uploaded object to use
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachmentId;
 
     /**
      * Message ID of existing message. Used in conjunction with "part"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Part identifier. This combined with "mid" identifies a part of an existing message
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Inlined content data. Ignored if "aid" or "mid"/"part" specified
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type('string')]
+    #[Accessor(getter: "getText", setter: "setText")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $text;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $attachmentId
      * @param string $messageId
      * @param string $part
@@ -76,9 +82,11 @@ class ContentSpec
      * @return self
      */
     public function __construct(
-        ?string $attachmentId = null, ?string $messageId = null, ?string $part = null, ?string $text = null
-    )
-    {
+        ?string $attachmentId = null,
+        ?string $messageId = null,
+        ?string $part = null,
+        ?string $text = null
+    ) {
         if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
         }

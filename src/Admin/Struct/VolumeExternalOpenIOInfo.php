@@ -25,62 +25,62 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
 {
     /**
      * Specifies the standard HTTP URL for OpenIO
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Specifies OpenIO account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
+    #[Type("string")]
     #[XmlAttribute]
     private $account;
 
     /**
      * Specifies OpenIO namespace
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNameSpace', setter: 'setNameSpace')]
-    #[SerializedName('namespace')]
-    #[Type('string')]
+    #[Accessor(getter: "getNameSpace", setter: "setNameSpace")]
+    #[SerializedName("namespace")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nameSpace;
 
     /**
      * Specifies OpenIO proxy port
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getProxyPort', setter: 'setProxyPort')]
-    #[SerializedName('proxyPort')]
-    #[Type('int')]
+    #[Accessor(getter: "getProxyPort", setter: "setProxyPort")]
+    #[SerializedName("proxyPort")]
+    #[Type("int")]
     #[XmlAttribute]
     private $proxyPort;
 
     /**
      * Specifies OpenIO account port
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAccountPort', setter: 'setAccountPort')]
-    #[SerializedName('accountPort')]
-    #[Type('int')]
+    #[Accessor(getter: "getAccountPort", setter: "setAccountPort")]
+    #[SerializedName("accountPort")]
+    #[Type("int")]
     #[XmlAttribute]
     private $accountPort;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $storageType
      * @param string $url
      * @param string $account
@@ -96,8 +96,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
         ?string $nameSpace = null,
         ?int $proxyPort = null,
         ?int $accountPort = null
-    )
-    {
+    ) {
         parent::__construct($storageType);
         if (null !== $url) {
             $this->setUrl($url);

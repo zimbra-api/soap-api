@@ -26,34 +26,36 @@ class StoreManagerRuntimeSwitchResult
 {
     /**
      * Status
-     * 
+     *
      * @var RuntimeSwitchStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private RuntimeSwitchStatus $status;
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
     #[XmlAttribute]
     private $message;
 
     /**
      * Constructor
-     * 
+     *
      * @param  RuntimeSwitchStatus $status
      * @param  string $message
      * @return self
      */
-    public function __construct(?RuntimeSwitchStatus $status = null, ?string $message = null)
-    {
+    public function __construct(
+        ?RuntimeSwitchStatus $status = null,
+        ?string $message = null
+    ) {
         $this->setStatus($status ?? RuntimeSwitchStatus::SUCCESS);
         if (null !== $message) {
             $this->setMessage($message);

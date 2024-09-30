@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\ContentType;
 
 /**
@@ -26,33 +32,35 @@ class SignatureContent
 {
     /**
      * Content type
-     * 
+     *
      * @var ContentType
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?ContentType $type;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @param ContentType $type
      * @return self
      */
-    public function __construct(?string $value = null, ?ContentType $type = null)
-    {
+    public function __construct(
+        ?string $value = null,
+        ?ContentType $type = null
+    ) {
         $this->type = $type;
         if (null !== $value) {
             $this->setValue($value);

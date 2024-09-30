@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchGalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,34 +33,34 @@ class SearchGalResponse extends SoapResponse
 {
     /**
      * Name of attribute sorted on.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * The 0-based offset into the results list returned as the first result for this search operation.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Set if the results are truncated
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
@@ -62,25 +68,25 @@ class SearchGalResponse extends SoapResponse
      * Valid values: and|or
      * Not present if the search key was not tokenized.
      * Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more
-     *      generic key, and it checks cached results instead of issuing another SOAP request to the server.  
+     *      generic key, and it checks cached results instead of issuing another SOAP request to the server.
      *      If search key was tokenized and expanded with AND or OR, this cannot be assumed.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName('tokenizeKey')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTokenizeKey", setter: "setTokenizeKey")]
+    #[SerializedName("tokenizeKey")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $tokenizeKey;
 
     /**
      * Matching contacts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Admin\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Admin\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAdmin")]
     private $contacts = [];
 
     /**
@@ -99,8 +105,7 @@ class SearchGalResponse extends SoapResponse
         ?bool $more = null,
         ?bool $tokenizeKey = null,
         array $contacts = []
-    )
-    {
+    ) {
         $this->setContacts($contacts);
         if (null !== $sortBy) {
             $this->setSortBy($sortBy);
@@ -213,7 +218,8 @@ class SearchGalResponse extends SoapResponse
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof ContactInfo
         );
         return $this;
     }

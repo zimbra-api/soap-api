@@ -10,23 +10,35 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest, WaitSetAddSpec};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
+use Zimbra\Common\Struct\{
+    Id,
+    SoapEnvelopeInterface,
+    SoapRequest,
+    WaitSetAddSpec
+};
 
 /**
  * AdminWaitSet request class
  * AdminWaitSetRequest optionally modifies the wait set and checks for any notifications.
  * If block=1 and there are no notifications, then this API will BLOCK until there is data.
- * 
+ *
  * Client should always set 'seq' to be the highest known value it has received from the server.  The server will use
  * this information to retransmit lost data.
- * 
+ *
  * If the client sends a last known sync token then the notification is calculated by comparing the accounts current
  * token with the client's last known.
- * 
+ *
  * If the client does not send a last known sync token, then notification is based on change since last Wait
  * (or change since &lt;add> if this is the first time Wait has been called with the account)
- * 
+ *
  * The client may specify a custom timeout-length for their request if they know something about the particular
  * underlying network.  The server may or may not honor this request (depending on server configured max/min values).
  *
@@ -40,109 +52,109 @@ class AdminWaitSetRequest extends SoapRequest
 {
     /**
      * Waitset ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
     /**
      * Last known sequence number
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLastKnownSeqNo', setter: 'setLastKnownSeqNo')]
-    #[SerializedName('seq')]
-    #[Type('string')]
+    #[Accessor(getter: "getLastKnownSeqNo", setter: "setLastKnownSeqNo")]
+    #[SerializedName("seq")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lastKnownSeqNo;
 
     /**
      * Flag whether or not to block until some account has new data
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBlock', setter: 'setBlock')]
-    #[SerializedName('block')]
-    #[Type('bool')]
+    #[Accessor(getter: "getBlock", setter: "setBlock")]
+    #[SerializedName("block")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $block;
 
     /**
      * If true, WaitSetResponse will include details of Pending Modifications.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExpand', setter: 'setExpand')]
-    #[SerializedName('expand')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExpand", setter: "setExpand")]
+    #[SerializedName("expand")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $expand;
 
     /**
      * Default interest types: comma-separated list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName('defTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultInterests", setter: "setDefaultInterests")]
+    #[SerializedName("defTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultInterests;
 
     /**
      * Timeout length
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
-    #[SerializedName('timeout')]
-    #[Type('int')]
+    #[Accessor(getter: "getTimeout", setter: "setTimeout")]
+    #[SerializedName("timeout")]
+    #[Type("int")]
     #[XmlAttribute]
     private $timeout;
 
     /**
      * Waitsets to add
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAddAccounts', setter: 'setAddAccounts')]
-    #[SerializedName('add')]
-    #[Type('array<Zimbra\Common\Struct\WaitSetAddSpec>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAddAccounts", setter: "setAddAccounts")]
+    #[SerializedName("add")]
+    #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
     private $addAccounts = [];
 
     /**
      * Waitsets to update
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUpdateAccounts', setter: 'setUpdateAccounts')]
-    #[SerializedName('update')]
-    #[Type('array<Zimbra\Common\Struct\WaitSetAddSpec>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getUpdateAccounts", setter: "setUpdateAccounts")]
+    #[SerializedName("update")]
+    #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
     private $updateAccounts = [];
 
     /**
      * Waitsets to remove
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRemoveAccounts', setter: 'setRemoveAccounts')]
-    #[SerializedName('remove')]
-    #[Type('array<Zimbra\Common\Struct\Id>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getRemoveAccounts", setter: "setRemoveAccounts")]
+    #[SerializedName("remove")]
+    #[Type("array<Zimbra\Common\Struct\Id>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
     private $removeAccounts = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $waitSetId
      * @param string $lastKnownSeqNo
      * @param bool   $block
@@ -155,8 +167,8 @@ class AdminWaitSetRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $waitSetId = '',
-        string $lastKnownSeqNo = '',
+        string $waitSetId = "",
+        string $lastKnownSeqNo = "",
         ?bool $block = null,
         ?bool $expand = null,
         ?string $defaultInterests = null,
@@ -164,13 +176,12 @@ class AdminWaitSetRequest extends SoapRequest
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
-    )
-    {
+    ) {
         $this->setWaitSetId($waitSetId)
-             ->setLastKnownSeqNo($lastKnownSeqNo)
-             ->setAddAccounts($addAccounts)
-             ->setUpdateAccounts($updateAccounts)
-             ->setRemoveAccounts($removeAccounts);
+            ->setLastKnownSeqNo($lastKnownSeqNo)
+            ->setAddAccounts($addAccounts)
+            ->setUpdateAccounts($updateAccounts)
+            ->setRemoveAccounts($removeAccounts);
         if (null !== $block) {
             $this->setBlock($block);
         }
@@ -336,7 +347,8 @@ class AdminWaitSetRequest extends SoapRequest
     public function setAddAccounts(array $accounts): self
     {
         $this->addAccounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+            $accounts,
+            static fn($account) => $account instanceof WaitSetAddSpec
         );
         return $this;
     }
@@ -372,7 +384,8 @@ class AdminWaitSetRequest extends SoapRequest
     public function setUpdateAccounts(array $accounts): self
     {
         $this->updateAccounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+            $accounts,
+            static fn($account) => $account instanceof WaitSetAddSpec
         );
         return $this;
     }
@@ -408,7 +421,8 @@ class AdminWaitSetRequest extends SoapRequest
     public function setRemoveAccounts(array $accounts): self
     {
         $this->removeAccounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof Id
+            $accounts,
+            static fn($account) => $account instanceof Id
         );
         return $this;
     }
@@ -430,8 +444,6 @@ class AdminWaitSetRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AdminWaitSetEnvelope(
-            new AdminWaitSetBody($this)
-        );
+        return new AdminWaitSetEnvelope(new AdminWaitSetBody($this));
     }
 }

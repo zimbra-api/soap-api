@@ -27,13 +27,13 @@ class GetAccountResponse extends SoapResponse
 {
     /**
      * Account information
-     * 
+     *
      * @var AccountInfo
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountInfo $account;
 
     /**

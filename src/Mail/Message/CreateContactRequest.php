@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\ContactSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CreateContactRequest class
  * Create a contact
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,46 +35,51 @@ class CreateContactRequest extends SoapRequest
     /**
      * If set (defaults to unset) The returned <cn> is just a placeholder
      * containing the new contact ID (i.e. <cn id="{id}"/>)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getVerbose', setter: 'setVerbose')]
-    #[SerializedName('verbose')]
-    #[Type('bool')]
+    #[Accessor(getter: "getVerbose", setter: "setVerbose")]
+    #[SerializedName("verbose")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $verbose;
 
     /**
      * Set to return IMAP UID.  (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName('wantImapUid')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantImapUid", setter: "setWantImapUid")]
+    #[SerializedName("wantImapUid")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantImapUid;
 
     /**
      * Set to return Modified Sequence.  (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName('wantModSeq')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getWantModifiedSequence",
+            setter: "setWantModifiedSequence"
+        )
+    ]
+    #[SerializedName("wantModSeq")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
     /**
      * Contact specification
-     * 
+     *
      * @var ContactSpec
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ContactSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ContactSpec $contact;
 
     /**
@@ -85,8 +96,7 @@ class CreateContactRequest extends SoapRequest
         ?bool $verbose = null,
         ?bool $wantImapUid = null,
         ?bool $wantModifiedSequence = null
-    )
-    {
+    ) {
         $this->setContact($contact);
         if (null !== $verbose) {
             $this->setVerbose($verbose);
@@ -192,8 +202,6 @@ class CreateContactRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateContactEnvelope(
-            new CreateContactBody($this)
-        );
+        return new CreateContactEnvelope(new CreateContactBody($this));
     }
 }

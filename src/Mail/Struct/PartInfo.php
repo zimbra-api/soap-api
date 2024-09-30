@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\PartInfoInterface;
 
 /**
@@ -27,122 +34,127 @@ class PartInfo implements PartInfoInterface
     /**
      * MIME part name. "" means top-level part, 1 first part, 1.1 first part of a multipart
      * inside of 1.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * MIME Content-Type. The mime type is the content of the element.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Size in bytes
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * MIME Content-Disposition
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentDisposition', setter: 'setContentDisposition')]
-    #[SerializedName('cd')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getContentDisposition",
+            setter: "setContentDisposition"
+        )
+    ]
+    #[SerializedName("cd")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentDisposition;
 
     /**
      * Filename attribute from the Content-Disposition param list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]
-    #[SerializedName('filename')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentFilename", setter: "setContentFilename")]
+    #[SerializedName("filename")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentFilename;
 
     /**
      * MIME Content-ID (for display of embedded images)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentId', setter: 'setContentId')]
-    #[SerializedName('ci')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentId", setter: "setContentId")]
+    #[SerializedName("ci")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentId;
 
     /**
      * MIME/Microsoft Content-Location (for display of embedded images)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName('cl')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocation", setter: "setLocation")]
+    #[SerializedName("cl")]
+    #[Type("string")]
     #[XmlAttribute]
     private $location;
 
     /**
      * Set if this part is considered to be the "body" of the message for display purposes.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName('body')]
-    #[Type('bool')]
+    #[Accessor(getter: "getBody", setter: "setBody")]
+    #[SerializedName("body")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $body;
 
     /**
      * Set if the content for the part is truncated
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTruncatedContent', setter: 'setTruncatedContent')]
-    #[SerializedName('truncated')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTruncatedContent", setter: "setTruncatedContent")]
+    #[SerializedName("truncated")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $truncatedContent;
 
     /**
      * The content of the part, if requested
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
      * Mime parts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
-    #[Type('array<Zimbra\Mail\Struct\PartInfo>')]
-    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMimeParts", setter: "setMimeParts")]
+    #[Type("array<Zimbra\Mail\Struct\PartInfo>")]
+    #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
     private $mimeParts = [];
 
     /**
@@ -162,8 +174,8 @@ class PartInfo implements PartInfoInterface
      * @return self
      */
     public function __construct(
-        string $part = '',
-        string $contentType = '',
+        string $part = "",
+        string $contentType = "",
         ?int $size = null,
         ?string $contentDisposition = null,
         ?string $contentFilename = null,
@@ -173,11 +185,10 @@ class PartInfo implements PartInfoInterface
         ?bool $truncatedContent = null,
         ?string $content = null,
         array $mimeParts = []
-    )
-    {
+    ) {
         $this->setPart($part)
-             ->setContentType($contentType)
-             ->setMimeParts($mimeParts);
+            ->setContentType($contentType)
+            ->setMimeParts($mimeParts);
         if (null !== $size) {
             $this->setSize($size);
         }
@@ -433,7 +444,8 @@ class PartInfo implements PartInfoInterface
     public function setMimeParts(array $mimeParts): self
     {
         $this->mimeParts = array_filter(
-            $mimeParts, static fn ($mimePart) => $mimePart instanceof PartInfoInterface
+            $mimeParts,
+            static fn($mimePart) => $mimePart instanceof PartInfoInterface
         );
         return $this;
     }

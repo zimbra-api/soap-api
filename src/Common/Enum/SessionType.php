@@ -25,17 +25,17 @@ enum SessionType: string
      * Constant for value 'soap'
      * @return string 'soap'
      */
-    case SOAP = 'soap';
+    case SOAP = "soap";
 
     /**
      * Constant for value 'imap'
      * @return string 'imap'
      */
-    case IMAP = 'imap';
+    case IMAP = "imap";
 
     /**
      * Constant for value 'admin'
      * @return string 'admin'
      */
-    case ADMIN = 'admin';
+    case ADMIN = "admin";
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAccountMembershipRequest class
  * Get distribution lists an account is a member of
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,18 @@ class GetAccountMembershipRequest extends SoapRequest
 {
     /**
      * Account
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AccountSelector $account;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountSelector $account
      * @return self
      */

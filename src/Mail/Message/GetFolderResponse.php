@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetFolderResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,35 +27,35 @@ class GetFolderResponse extends SoapResponse
 {
     /**
      * Information about folder
-     * 
+     *
      * @var Folder
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
     #[Type(Folder::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Folder $folder;
 
     /**
      * Information about mountpoint
-     * 
+     *
      * @var Mountpoint
      */
-    #[Accessor(getter: 'getMountpoint', setter: 'setMountpoint')]
-    #[SerializedName('link')]
+    #[Accessor(getter: "getMountpoint", setter: "setMountpoint")]
+    #[SerializedName("link")]
     #[Type(Mountpoint::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Mountpoint $mountpoint;
 
     /**
      * Information about search folder
-     * 
+     *
      * @var SearchFolder
      */
-    #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]
-    #[SerializedName('search')]
+    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[SerializedName("search")]
     #[Type(SearchFolder::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SearchFolder $searchFolder;
 
     /**
@@ -69,11 +69,9 @@ class GetFolderResponse extends SoapResponse
         $this->folder = $this->mountpoint = $this->searchFolder = null;
         if ($folder instanceof Mountpoint) {
             $this->setMountpoint($folder);
-        }
-        else if ($folder instanceof SearchFolder) {
+        } elseif ($folder instanceof SearchFolder) {
             $this->setSearchFolder($folder);
-        }
-        else if ($folder instanceof Folder){
+        } elseif ($folder instanceof Folder) {
             $this->setFolder($folder);
         }
     }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ApplyFilterRulesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class ApplyFilterRulesResponse extends SoapResponse
 {
     /**
      * Comma-separated list of message IDs that were affected
-     * 
+     *
      * @var IdsAttr
      */
-    #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
+    #[SerializedName("m")]
     #[Type(IdsAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?IdsAttr $msgIds;
 
     /**

@@ -26,12 +26,12 @@ class ContactActionSelector extends ActionSelector
 {
     /**
      * New contact attributes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Mail\Struct\NewContactAttr>')]
-    #[XmlList(inline: true, entry: 'attr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Mail\Struct\NewContactAttr>")]
+    #[XmlList(inline: true, entry: "attr", namespace: "urn:zimbraMail")]
     private $attrs = [];
 
     /**
@@ -54,7 +54,7 @@ class ContactActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
+        string $operation = "",
         ?string $ids = null,
         array $attrs = [],
         ?string $constraint = null,
@@ -68,8 +68,7 @@ class ContactActionSelector extends ActionSelector
         ?string $tagNames = null,
         ?bool $nonExistentIds = null,
         ?bool $newlyCreatedIds = null
-    )
-    {
+    ) {
         parent::__construct(
             $operation,
             $ids,
@@ -123,7 +122,8 @@ class ContactActionSelector extends ActionSelector
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof NewContactAttr
+            $attrs,
+            static fn($attr) => $attr instanceof NewContactAttr
         );
         return $this;
     }

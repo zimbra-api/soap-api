@@ -25,41 +25,41 @@ enum InterestType: string
      * Constant for value 'f'
      * @return string 'f'
      */
-    case FOLDERS = 'f';
+    case FOLDERS = "f";
 
     /**
      * Constant for value 'm'
      * @return string 'm'
      */
-    case MESSAGES = 'm';
+    case MESSAGES = "m";
 
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    case CONTACTS = 'c';
+    case CONTACTS = "c";
 
     /**
      * Constant for value 'a'
      * @return string 'a'
      */
-    case APPOINTMENTS = 'a';
+    case APPOINTMENTS = "a";
 
     /**
      * Constant for value 't'
      * @return string 't'
      */
-    case TASKS = 't';
+    case TASKS = "t";
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    case DOCUMENTS = 'd';
+    case DOCUMENTS = "d";
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 }

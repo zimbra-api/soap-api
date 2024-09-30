@@ -27,12 +27,12 @@ class ByDayRule implements ByDayRuleInterface
 {
     /**
      * By day weekday rule specification
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDays', setter: 'setDays')]
-    #[Type('array<Zimbra\Mail\Struct\WkDay>')]
-    #[XmlList(inline: true, entry: 'wkday', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDays", setter: "setDays")]
+    #[Type("array<Zimbra\Mail\Struct\WkDay>")]
+    #[XmlList(inline: true, entry: "wkday", namespace: "urn:zimbraMail")]
     private $days = [];
 
     /**
@@ -67,7 +67,8 @@ class ByDayRule implements ByDayRuleInterface
     public function setDays(array $days): self
     {
         $this->days = array_filter(
-            $days, static fn ($day) => $day instanceof WkDayInterface
+            $days,
+            static fn($day) => $day instanceof WkDayInterface
         );
         return $this;
     }

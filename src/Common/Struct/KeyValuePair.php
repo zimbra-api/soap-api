@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * KeyValuePair class
@@ -25,33 +31,33 @@ class KeyValuePair
 {
     /**
      * Key
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getKey', setter: 'setKey')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getKey", setter: "setKey")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $key;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $key
      * @param string $value
      * @return self
      */
-    public function __construct(string $key = '', ?string $value = null)
+    public function __construct(string $key = "", ?string $value = null)
     {
         $this->setKey($key);
         if (null !== $value) {

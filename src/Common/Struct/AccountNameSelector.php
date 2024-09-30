@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AccountBy;
 
 /**
@@ -26,47 +32,48 @@ class AccountNameSelector
 {
     /**
      * Account by
-     * 
+     *
      * @var AccountBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private AccountBy $by;
 
     /**
      * Account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AccountBy $by
      * @param  string $name
      * @param  string $value
      * @return self
      */
     public function __construct(
-        ?AccountBy $by = null, ?string $name = null, ?string $value = null
-    )
-    {
+        ?AccountBy $by = null,
+        ?string $name = null,
+        ?string $value = null
+    ) {
         $this->setBy($by ?? AccountBy::NAME);
         if (null !== $name) {
             $this->setName($name);

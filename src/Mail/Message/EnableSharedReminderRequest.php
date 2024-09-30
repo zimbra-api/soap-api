@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * EnableSharedReminderRequest class
  * Enable/disable reminders for shared appointments/tasks on a mountpoint
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class EnableSharedReminderRequest extends SoapRequest
 {
     /**
      * Specification for mountpoint
-     * 
+     *
      * @var SharedReminderMount
      */
-    #[Accessor(getter: 'getMount', setter: 'setMount')]
-    #[SerializedName('link')]
+    #[Accessor(getter: "getMount", setter: "setMount")]
+    #[SerializedName("link")]
     #[Type(SharedReminderMount::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private SharedReminderMount $mount;
 
     /**

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetMsgResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class GetMsgResponse extends SoapResponse
 {
     /**
      * Message information
-     * 
+     *
      * @var MsgWithGroupInfo
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(MsgWithGroupInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MsgWithGroupInfo $msg;
 
     /**

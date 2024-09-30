@@ -28,17 +28,17 @@ class CheckDirectoryRequest extends SoapRequest
 {
     /**
      * Directories
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPaths', setter: 'setPaths')]
-    #[Type('array<Zimbra\Admin\Struct\CheckDirSelector>')]
-    #[XmlList(inline: true, entry: 'directory', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getPaths", setter: "setPaths")]
+    #[Type("array<Zimbra\Admin\Struct\CheckDirSelector>")]
+    #[XmlList(inline: true, entry: "directory", namespace: "urn:zimbraAdmin")]
     private $paths = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $paths
      * @return self
      */
@@ -68,7 +68,8 @@ class CheckDirectoryRequest extends SoapRequest
     public function setPaths(array $paths): self
     {
         $this->paths = array_filter(
-            $paths, static fn ($path) => $path instanceof CheckDirSelector
+            $paths,
+            static fn($path) => $path instanceof CheckDirSelector
         );
         return $this;
     }
@@ -88,8 +89,6 @@ class CheckDirectoryRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckDirectoryEnvelope(
-            new CheckDirectoryBody($this)
-        );
+        return new CheckDirectoryEnvelope(new CheckDirectoryBody($this));
     }
 }

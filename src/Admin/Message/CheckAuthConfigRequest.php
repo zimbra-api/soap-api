@@ -30,41 +30,40 @@ class CheckAuthConfigRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Password
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $password
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '', string $password = '', array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setPassword($password)
-             ->setAttrs($attrs);
+        string $name = "",
+        string $password = "",
+        array $attrs = []
+    ) {
+        $this->setName($name)->setPassword($password)->setAttrs($attrs);
     }
 
     /**
@@ -116,8 +115,6 @@ class CheckAuthConfigRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckAuthConfigEnvelope(
-            new CheckAuthConfigBody($this)
-        );
+        return new CheckAuthConfigEnvelope(new CheckAuthConfigBody($this));
     }
 }

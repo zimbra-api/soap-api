@@ -25,17 +25,17 @@ enum AutoCompleteMatchType: string
      * Constant for value 'gal'
      * @return string 'gal'
      */
-    case GAL = 'gal';
+    case GAL = "gal";
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    case CONTACT = 'contact';
+    case CONTACT = "contact";
 
     /**
      * Constant for value 'rankingTable'
      * @return string 'rankingTable'
      */
-    case RANKING_TABLE = 'rankingTable';
+    case RANKING_TABLE = "rankingTable";
 }

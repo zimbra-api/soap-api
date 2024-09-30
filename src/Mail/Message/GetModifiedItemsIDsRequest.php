@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetModifiedItemsIDsRequest class
  * Returns the IDs of all items modified since a given change number
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,23 +27,23 @@ class GetModifiedItemsIDsRequest extends SoapRequest
 {
     /**
      * Root folder ID. If present, we start sync there rather than at folder 11
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Value passed by IMAP client in CHANGEDSINCE modifier
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModSeq', setter: 'setModSeq')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModSeq", setter: "setModSeq")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modSeq;
 
@@ -54,10 +54,9 @@ class GetModifiedItemsIDsRequest extends SoapRequest
      * @param  int $modSeq
      * @return self
      */
-    public function __construct(string $folderId = '', int $modSeq = 0)
+    public function __construct(string $folderId = "", int $modSeq = 0)
     {
-        $this->setFolderId($folderId)
-             ->setModSeq($modSeq);
+        $this->setFolderId($folderId)->setModSeq($modSeq);
     }
 
     /**

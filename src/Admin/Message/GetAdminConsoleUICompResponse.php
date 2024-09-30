@@ -27,12 +27,12 @@ class GetAdminConsoleUICompResponse extends SoapResponse
 {
     /**
      * zimbraAdminConsoleUIComponents values
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[Type('array<Zimbra\Admin\Struct\InheritedFlaggedValue>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[Type("array<Zimbra\Admin\Struct\InheritedFlaggedValue>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $values = [];
 
     /**
@@ -55,7 +55,8 @@ class GetAdminConsoleUICompResponse extends SoapResponse
     public function setValues(array $values): self
     {
         $this->values = array_filter(
-            $values, static fn ($value) => $value instanceof InheritedFlaggedValue
+            $values,
+            static fn($value) => $value instanceof InheritedFlaggedValue
         );
         return $this;
     }

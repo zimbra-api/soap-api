@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * PendingFolderModifications struct class
@@ -25,68 +31,68 @@ class PendingFolderModifications
 {
     /**
      * ID of signaled folder
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * list of created items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCreated', setter: 'setCreated')]
-    #[Type('array<Zimbra\Mail\Struct\CreateItemNotification>')]
-    #[XmlList(inline: true, entry: 'created', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCreated", setter: "setCreated")]
+    #[Type("array<Zimbra\Mail\Struct\CreateItemNotification>")]
+    #[XmlList(inline: true, entry: "created", namespace: "urn:zimbraMail")]
     private $created = [];
 
     /**
      * list of deleted items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
-    #[Type('array<Zimbra\Mail\Struct\DeleteItemNotification>')]
-    #[XmlList(inline: true, entry: 'deleted', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDeleted", setter: "setDeleted")]
+    #[Type("array<Zimbra\Mail\Struct\DeleteItemNotification>")]
+    #[XmlList(inline: true, entry: "deleted", namespace: "urn:zimbraMail")]
     private $deleted = [];
 
     /**
      * list of modified messages
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getModifiedMsgs', setter: 'setModifiedMsgs')]
-    #[Type('array<Zimbra\Mail\Struct\ModifyItemNotification>')]
-    #[XmlList(inline: true, entry: 'modMsgs', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getModifiedMsgs", setter: "setModifiedMsgs")]
+    #[Type("array<Zimbra\Mail\Struct\ModifyItemNotification>")]
+    #[XmlList(inline: true, entry: "modMsgs", namespace: "urn:zimbraMail")]
     private $modifiedMsgs = [];
 
     /**
      * list of modified tags
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getModifiedTags', setter: 'setModifiedTags')]
-    #[Type('array<Zimbra\Mail\Struct\ModifyTagNotification>')]
-    #[XmlList(inline: true, entry: 'modTags', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getModifiedTags", setter: "setModifiedTags")]
+    #[Type("array<Zimbra\Mail\Struct\ModifyTagNotification>")]
+    #[XmlList(inline: true, entry: "modTags", namespace: "urn:zimbraMail")]
     private $modifiedTags = [];
 
     /**
      * list of renamed folders
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRenamedFolders', setter: 'setRenamedFolders')]
-    #[Type('array<Zimbra\Mail\Struct\RenameFolderNotification>')]
-    #[XmlList(inline: true, entry: 'modFolders', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRenamedFolders", setter: "setRenamedFolders")]
+    #[Type("array<Zimbra\Mail\Struct\RenameFolderNotification>")]
+    #[XmlList(inline: true, entry: "modFolders", namespace: "urn:zimbraMail")]
     private $modifiedFolders = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $folderId
      * @param  array $created
      * @param  array $deleted
@@ -102,14 +108,13 @@ class PendingFolderModifications
         array $modifiedMsgs = [],
         array $modifiedTags = [],
         array $modifiedFolders = []
-    )
-    {
+    ) {
         $this->setFolderId($folderId)
-             ->setCreated($created)
-             ->setDeleted($deleted)
-             ->setModifiedMsgs($modifiedMsgs)
-             ->setModifiedTags($modifiedTags)
-             ->setRenamedFolders($modifiedFolders);
+            ->setCreated($created)
+            ->setDeleted($deleted)
+            ->setModifiedMsgs($modifiedMsgs)
+            ->setModifiedTags($modifiedTags)
+            ->setRenamedFolders($modifiedFolders);
     }
 
     /**
@@ -155,7 +160,8 @@ class PendingFolderModifications
     public function setCreated(array $created): self
     {
         $this->created = array_filter(
-            $created, static fn ($item) => $item instanceof CreateItemNotification
+            $created,
+            static fn($item) => $item instanceof CreateItemNotification
         );
         return $this;
     }
@@ -191,7 +197,8 @@ class PendingFolderModifications
     public function setDeleted(array $deleted): self
     {
         $this->deleted = array_filter(
-            $deleted, static fn ($item) => $item instanceof DeleteItemNotification
+            $deleted,
+            static fn($item) => $item instanceof DeleteItemNotification
         );
         return $this;
     }
@@ -227,7 +234,8 @@ class PendingFolderModifications
     public function setModifiedMsgs(array $msgs): self
     {
         $this->modifiedMsgs = array_filter(
-            $msgs, static fn ($msg) => $msg instanceof ModifyItemNotification
+            $msgs,
+            static fn($msg) => $msg instanceof ModifyItemNotification
         );
         return $this;
     }
@@ -263,7 +271,8 @@ class PendingFolderModifications
     public function setModifiedTags(array $tags): self
     {
         $this->modifiedTags = array_filter(
-            $tags, static fn ($tag) => $tag instanceof ModifyTagNotification
+            $tags,
+            static fn($tag) => $tag instanceof ModifyTagNotification
         );
         return $this;
     }
@@ -299,7 +308,8 @@ class PendingFolderModifications
     public function setRenamedFolders(array $folders): self
     {
         $this->modifiedFolders = array_filter(
-            $folders, static fn ($folder) => $folder instanceof RenameFolderNotification
+            $folders,
+            static fn($folder) => $folder instanceof RenameFolderNotification
         );
         return $this;
     }

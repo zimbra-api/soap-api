@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 /**
  * ModifyTaskResponse class
  * Contains response information for modify task
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

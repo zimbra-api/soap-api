@@ -26,12 +26,12 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
 {
     /**
      * Free/Busy user status
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserStatus>')]
-    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
+    #[Type("array<Zimbra\Mail\Struct\FreeBusyUserStatus>")]
+    #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
     private $freebusyUsers = [];
 
     /**
@@ -52,9 +52,14 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
         ?bool $allDay = null,
         ?int $tzOffset = null,
         ?string $recurIdZ = null
-    )
-    {
-        parent::__construct($startTime, $duration, $allDay, $tzOffset, $recurIdZ);
+    ) {
+        parent::__construct(
+            $startTime,
+            $duration,
+            $allDay,
+            $tzOffset,
+            $recurIdZ
+        );
         $this->setFreebusyUsers($freebusyUsers);
     }
 
@@ -67,7 +72,8 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     public function setFreebusyUsers(array $users): self
     {
         $this->freebusyUsers = array_filter(
-            $users, static fn ($user) => $user instanceof FreeBusyUserStatus
+            $users,
+            static fn($user) => $user instanceof FreeBusyUserStatus
         );
         return $this;
     }

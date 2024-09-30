@@ -27,44 +27,44 @@ class ModifySearchFolderSpec
 {
     /**
      * Search folder id to be edited
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * New search query
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * New type for the search folder
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getSearchTypes", setter: "setSearchTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $searchTypes;
 
     /**
      * New sort order for
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
@@ -78,14 +78,12 @@ class ModifySearchFolderSpec
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $query = '',
+        string $id = "",
+        string $query = "",
         ?string $searchTypes = null,
         ?SearchSortBy $sortBy = null
-    )
-    {
-        $this->setId($id)
-             ->setQuery($query);
+    ) {
+        $this->setId($id)->setQuery($query);
         $this->sortBy = $sortBy;
         if (null !== $searchTypes) {
             $this->setSearchTypes($searchTypes);
@@ -155,12 +153,12 @@ class ModifySearchFolderSpec
     public function setSearchTypes(string $searchTypes): self
     {
         $validTypes = [];
-        foreach (explode(',', $searchTypes) as $type) {
+        foreach (explode(",", $searchTypes) as $type) {
             if (ItemType::tryFrom($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }
-        $this->searchTypes = implode(',', $validTypes);
+        $this->searchTypes = implode(",", $validTypes);
         return $this;
     }
 

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * BrowseData class
@@ -27,23 +33,28 @@ class BrowseData
     /**
      * Set for domains. Indicates whether or not the domain was from the "From", "To", or "Cc" header.
      * Valid flags are always one of: "f", "t", "ft", "c", "fc", "tc", "ftc"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBrowseDomainHeader', setter: 'setBrowseDomainHeader')]
-    #[SerializedName('h')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getBrowseDomainHeader",
+            setter: "setBrowseDomainHeader"
+        )
+    ]
+    #[SerializedName("h")]
+    #[Type("string")]
     #[XmlAttribute]
     private $browseDomainHeader;
 
     /**
      * Frequency count
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFrequency', setter: 'setFrequency')]
-    #[SerializedName('freq')]
-    #[Type('int')]
+    #[Accessor(getter: "getFrequency", setter: "setFrequency")]
+    #[SerializedName("freq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $frequency;
 
@@ -52,11 +63,11 @@ class BrowseData
      * for attachments: content type (application/msword)
      * for objects: object type (url, etc)
      * for domains: domains (stanford.edu, etc)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getData', setter: 'setData')]
-    #[Type('string')]
+    #[Accessor(getter: "getData", setter: "setData")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $data;
 
@@ -69,11 +80,13 @@ class BrowseData
      * @return self
      */
     public function __construct(
-        string $browseDomainHeader = '', int $frequency = 0, ?string $data = null
-    )
-    {
-        $this->setBrowseDomainHeader($browseDomainHeader)
-             ->setFrequency($frequency);
+        string $browseDomainHeader = "",
+        int $frequency = 0,
+        ?string $data = null
+    ) {
+        $this->setBrowseDomainHeader($browseDomainHeader)->setFrequency(
+            $frequency
+        );
         if (null !== $data) {
             $this->setData($data);
         }

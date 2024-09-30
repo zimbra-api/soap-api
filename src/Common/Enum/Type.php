@@ -25,11 +25,11 @@ enum Type: string
      * Constant for value 'user'
      * @return string 'user'
      */
-    case USER = 'user';
+    case USER = "user";
 
     /**
      * Constant for value 'system'
      * @return string 'system'
      */
-    case SYSTEM = 'system';
+    case SYSTEM = "system";
 }

@@ -10,13 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\{OpValue, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyWhiteBlackListRequest class
  * Modify the anti-spam WhiteList and BlackList addresses
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,26 +33,26 @@ class ModifyWhiteBlackListRequest extends SoapRequest
 {
     /**
      * Modifications for WhiteList
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWhiteListEntries', setter: 'setWhiteListEntries')]
-    #[SerializedName('whiteList')]
-    #[Type('array<Zimbra\Common\Struct\OpValue>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getWhiteListEntries", setter: "setWhiteListEntries")]
+    #[SerializedName("whiteList")]
+    #[Type("array<Zimbra\Common\Struct\OpValue>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
     private $whiteListEntries = [];
 
     /**
      * Modifications for BlackList
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBlackListEntries', setter: 'setBlackListEntries')]
-    #[SerializedName('blackList')]
-    #[Type('array<Zimbra\Common\Struct\OpValue>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getBlackListEntries", setter: "setBlackListEntries")]
+    #[SerializedName("blackList")]
+    #[Type("array<Zimbra\Common\Struct\OpValue>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
     private $blackListEntries = [];
 
     /**
@@ -57,11 +63,12 @@ class ModifyWhiteBlackListRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        array $whiteListEntries = [], array $blackListEntries = []
-    )
-    {
-        $this->setWhiteListEntries($whiteListEntries)
-             ->setBlackListEntries($blackListEntries);
+        array $whiteListEntries = [],
+        array $blackListEntries = []
+    ) {
+        $this->setWhiteListEntries($whiteListEntries)->setBlackListEntries(
+            $blackListEntries
+        );
     }
 
     /**
@@ -85,7 +92,8 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     public function setWhiteListEntries(array $entries): self
     {
         $this->whiteListEntries = array_filter(
-            $entries, static fn ($entry) => $entry instanceof OpValue
+            $entries,
+            static fn($entry) => $entry instanceof OpValue
         );
         return $this;
     }
@@ -121,7 +129,8 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     public function setBlackListEntries(array $entries): self
     {
         $this->blackListEntries = array_filter(
-            $entries, static fn ($entry) => $entry instanceof OpValue
+            $entries,
+            static fn($entry) => $entry instanceof OpValue
         );
         return $this;
     }

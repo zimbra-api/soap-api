@@ -25,11 +25,11 @@ enum FilterCondition: string
      * Constant for value 'allof'
      * @return string 'allof'
      */
-    case ALL_OF = 'allof';
+    case ALL_OF = "allof";
 
     /**
      * Constant for value 'anyof'
      * @return string 'anyof'
      */
-    case ANY_OF = 'anyof';
+    case ANY_OF = "anyof";
 }

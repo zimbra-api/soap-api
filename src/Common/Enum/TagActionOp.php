@@ -25,35 +25,35 @@ enum TagActionOp: string
      * Constant for value 'read'
      * @return string 'read'
      */
-    case READ = 'read';
+    case READ = "read";
 
     /**
      * Constant for value 'rename'
      * @return string 'rename'
      */
-    case RENAME = 'rename';
+    case RENAME = "rename";
 
     /**
      * Constant for value 'color'
      * @return string 'color'
      */
-    case COLOR = 'color';
+    case COLOR = "color";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    case DELETE = 'delete';
+    case DELETE = "delete";
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    case UPDATE = 'update';
+    case UPDATE = "update";
 
     /**
      * Constant for value 'retentionpolicy'
      * @return string 'retentionpolicy'
      */
-    case RETENTION = 'retentionpolicy';
+    case RETENTION = "retentionpolicy";
 }

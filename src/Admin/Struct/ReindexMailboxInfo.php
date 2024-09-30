@@ -26,50 +26,51 @@ class ReindexMailboxInfo
 {
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Comma separated list of types.
      * Legal values are: conversation|message|contact|appointment|task|note|wiki|document
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getTypes", setter: "setTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $types;
 
     /**
      * Comma separated list of IDs to re-index
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $types
      * @param string $ids
      * @return self
      */
     public function __construct(
-        string $id = '', ?string $types = null, ?string $ids = null
-    )
-    {
+        string $id = "",
+        ?string $types = null,
+        ?string $ids = null
+    ) {
         $this->setId($id);
         if (null !== $types) {
             $this->setTypes($types);
@@ -120,12 +121,10 @@ class ReindexMailboxInfo
     public function setTypes(string $types): self
     {
         $types = array_filter(
-            array_map(
-                static fn ($type) => trim($type), explode(',', $types)
-            ),
-            static fn ($type) => ReindexType::tryFrom($type) !== null
+            array_map(static fn($type) => trim($type), explode(",", $types)),
+            static fn($type) => ReindexType::tryFrom($type) !== null
         );
-        $this->types = implode(',', array_unique($types));
+        $this->types = implode(",", array_unique($types));
         return $this;
     }
 

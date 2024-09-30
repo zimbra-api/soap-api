@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetShareNotificationsRequest class
  * Get Share notifications
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

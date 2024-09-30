@@ -25,23 +25,23 @@ enum FreeBusyStatus: string
      * Constant for value 'Free'
      * @return string 'F'
      */
-    case FREE = 'F';
+    case FREE = "F";
 
     /**
      * Constant for value 'Busy'
      * @return string 'B'
      */
-    case BUSY = 'B';
+    case BUSY = "B";
 
     /**
      * Constant for value 'Busy-Tentative'
      * @return string 'T'
      */
-    case TENTATIVE = 'T';
+    case TENTATIVE = "T";
 
     /**
      * Constant for value 'OutOfOffice' (busy-unavailable)
      * @return string 'O'
      */
-    case OUT_OF_OFFICE = 'O';
+    case OUT_OF_OFFICE = "O";
 }

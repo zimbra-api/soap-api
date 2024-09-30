@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * AttachmentsInfo struct class
@@ -25,53 +31,58 @@ class AttachmentsInfo
 {
     /**
      * Attachment upload ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachmentId", setter: "setAttachmentId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachmentId;
 
     /**
      * Mime part attachment details
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMpAttachments', setter: 'setMpAttachments')]
-    #[Type('array<Zimbra\Mail\Struct\MimePartAttachSpec>')]
-    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMpAttachments", setter: "setMpAttachments")]
+    #[Type("array<Zimbra\Mail\Struct\MimePartAttachSpec>")]
+    #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
     private $mpAttachments = [];
 
     /**
      * Msg attachment details
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMsgAttachments', setter: 'setMsgAttachments')]
-    #[Type('array<Zimbra\Mail\Struct\MsgAttachSpec>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMsgAttachments", setter: "setMsgAttachments")]
+    #[Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $msgAttachments = [];
 
     /**
      * Contact attachment details
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactAttachments', setter: 'setContactAttachments')]
-    #[Type('array<Zimbra\Mail\Struct\ContactAttachSpec>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getContactAttachments",
+            setter: "setContactAttachments"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
     private $cnAttachments = [];
 
     /**
      * Doc attachment details
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDocAttachments', setter: 'setDocAttachments')]
-    #[Type('array<Zimbra\Mail\Struct\DocAttachSpec>')]
-    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDocAttachments", setter: "setDocAttachments")]
+    #[Type("array<Zimbra\Mail\Struct\DocAttachSpec>")]
+    #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
     private $docAttachments = [];
 
     /**
@@ -81,8 +92,10 @@ class AttachmentsInfo
      * @param array $attachments
      * @return self
      */
-    public function __construct(?string $attachmentId = null, array $attachments = [])
-    {
+    public function __construct(
+        ?string $attachmentId = null,
+        array $attachments = []
+    ) {
         $this->setAttachments($attachments);
         if (null !== $attachmentId) {
             $this->setAttachmentId($attachmentId);
@@ -156,7 +169,10 @@ class AttachmentsInfo
     public function getAttachments(): array
     {
         return array_merge(
-            $this->mpAttachments, $this->msgAttachments, $this->cnAttachments, $this->docAttachments
+            $this->mpAttachments,
+            $this->msgAttachments,
+            $this->cnAttachments,
+            $this->docAttachments
         );
     }
 
@@ -169,7 +185,11 @@ class AttachmentsInfo
     public function setMpAttachments(array $attachments): self
     {
         $this->mpAttachments = array_values(
-            array_filter($attachments, static fn ($attachment) => $attachment instanceof MimePartAttachSpec)
+            array_filter(
+                $attachments,
+                static fn($attachment) => $attachment instanceof
+                    MimePartAttachSpec
+            )
         );
         return $this;
     }
@@ -193,7 +213,10 @@ class AttachmentsInfo
     public function setMsgAttachments(array $attachments): self
     {
         $this->msgAttachments = array_values(
-            array_filter($attachments, static fn ($attachment) => $attachment instanceof MsgAttachSpec)
+            array_filter(
+                $attachments,
+                static fn($attachment) => $attachment instanceof MsgAttachSpec
+            )
         );
         return $this;
     }
@@ -217,7 +240,11 @@ class AttachmentsInfo
     public function setContactAttachments(array $attachments): self
     {
         $this->cnAttachments = array_values(
-            array_filter($attachments, static fn ($attachment) => $attachment instanceof ContactAttachSpec)
+            array_filter(
+                $attachments,
+                static fn($attachment) => $attachment instanceof
+                    ContactAttachSpec
+            )
         );
         return $this;
     }
@@ -241,7 +268,10 @@ class AttachmentsInfo
     public function setDocAttachments(array $attachments): self
     {
         $this->docAttachments = array_values(
-            array_filter($attachments, static fn ($attachment) => $attachment instanceof DocAttachSpec)
+            array_filter(
+                $attachments,
+                static fn($attachment) => $attachment instanceof DocAttachSpec
+            )
         );
         return $this;
     }

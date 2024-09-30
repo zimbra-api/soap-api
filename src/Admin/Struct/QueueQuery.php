@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * QueueQuery struct class
@@ -25,46 +31,49 @@ class QueueQuery
 {
     /**
      * Queue query field
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFields', setter: 'setFields')]
-    #[Type('array<Zimbra\Admin\Struct\QueueQueryField>')]
-    #[XmlList(inline: true, entry: 'field', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getFields", setter: "setFields")]
+    #[Type("array<Zimbra\Admin\Struct\QueueQueryField>")]
+    #[XmlList(inline: true, entry: "field", namespace: "urn:zimbraAdmin")]
     private $fields = [];
 
     /**
      * Limit the number of queue items to return in the response
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Offset
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $fields
      * @param  int $limit
      * @param  int $offset
      * @return self
      */
-    public function __construct(array $fields = [], ?int $limit = null, ?int $offset = null)
-    {
+    public function __construct(
+        array $fields = [],
+        ?int $limit = null,
+        ?int $offset = null
+    ) {
         $this->setFields($fields);
         if (null !== $limit) {
             $this->setLimit($limit);
@@ -95,7 +104,8 @@ class QueueQuery
     public function setFields(array $fields): self
     {
         $this->fields = array_filter(
-            $fields, static fn ($field) => $field instanceof QueueQueryField
+            $fields,
+            static fn($field) => $field instanceof QueueQueryField
         );
         return $this;
     }

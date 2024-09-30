@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SetCurrentVolumeRequest class
  * Set current volume.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,23 +28,23 @@ class SetCurrentVolumeRequest extends SoapRequest
 {
     /**
      * ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Volume type: 1 (primary message), 2 (secondary message) or 10 (index)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('int')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("int")]
     #[XmlAttribute]
     private $type;
 
@@ -57,8 +57,7 @@ class SetCurrentVolumeRequest extends SoapRequest
      */
     public function __construct(int $id = 0, int $type = 0)
     {
-        $this->setId($id)
-             ->setType($type);
+        $this->setId($id)->setType($type);
     }
 
     /**
@@ -110,8 +109,6 @@ class SetCurrentVolumeRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetCurrentVolumeEnvelope(
-            new SetCurrentVolumeBody($this)
-        );
+        return new SetCurrentVolumeEnvelope(new SetCurrentVolumeBody($this));
     }
 }

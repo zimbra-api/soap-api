@@ -25,11 +25,11 @@ enum NumberComparison: string
      * Constant for value 'over'
      * @return string 'over'
      */
-    case OVER = 'over';
+    case OVER = "over";
 
     /**
      * Constant for value 'under'
      * @return string 'under'
      */
-    case UNDER = 'under';
+    case UNDER = "under";
 }

@@ -10,11 +10,18 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * NestedSearchConversation class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -25,78 +32,78 @@ class NestedSearchConversation
 {
     /**
      * Conversation ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Number of messages in conversation without IMAP \Deleted flag set
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
     /**
      * Total number of messages in conversation
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
-    #[SerializedName('total')]
-    #[Type('int')]
+    #[Accessor(getter: "getTotalSize", setter: "setTotalSize")]
+    #[SerializedName("total")]
+    #[Type("int")]
     #[XmlAttribute]
     private $totalSize;
 
     /**
      * Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Message search hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessages', setter: 'setMessages')]
-    #[Type('array<Zimbra\Mail\Struct\MessageHitInfo>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessages", setter: "setMessages")]
+    #[Type("array<Zimbra\Mail\Struct\MessageHitInfo>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $messages = [];
 
     /**
@@ -105,13 +112,13 @@ class NestedSearchConversation
      * If expanded is set, then the wildcard was expanded and the matches are included in the search.
      * If expanded is unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
-     * 
+     *
      * @var SearchQueryInfo
      */
-    #[Accessor(getter: 'getQueryInfo', setter: 'setQueryInfo')]
-    #[SerializedName('info')]
+    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[SerializedName("info")]
     #[Type(SearchQueryInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SearchQueryInfo $queryInfo;
 
     /**
@@ -136,8 +143,7 @@ class NestedSearchConversation
         ?string $tagNames = null,
         array $messages = [],
         ?SearchQueryInfo $queryInfo = null
-    )
-    {
+    ) {
         $this->setMessages($messages);
         $this->queryInfo = $queryInfo;
         if (null !== $id) {
@@ -301,7 +307,8 @@ class NestedSearchConversation
     public function setMessages(array $messages): self
     {
         $this->messages = array_filter(
-            $messages, static fn($message) => $message instanceof MessageHitInfo
+            $messages,
+            static fn($message) => $message instanceof MessageHitInfo
         );
         return $this;
     }

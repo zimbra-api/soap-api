@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Only the attributes specified in the request are modified.
  * If the username, host or leaveOnServer settings are modified, the server wipes out saved state for this data source.
  * As a result, any previously downloaded messages that are still stored on the remote server will be downloaded again.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -38,14 +38,7 @@ class ModifyDataSourceRequest extends SoapRequest
      */
     public function __construct(?MailDataSource $dataSource = null)
     {
-        $this->imapDataSource = 
-        $this->pop3DataSource = 
-        $this->caldavDataSource = 
-        $this->yabDataSource = 
-        $this->rssDataSource = 
-        $this->galDataSource = 
-        $this->calDataSource = 
-        $this->unknownDataSource = null;
+        $this->imapDataSource = $this->pop3DataSource = $this->caldavDataSource = $this->yabDataSource = $this->rssDataSource = $this->galDataSource = $this->calDataSource = $this->unknownDataSource = null;
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);
         }
@@ -56,8 +49,6 @@ class ModifyDataSourceRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyDataSourceEnvelope(
-            new ModifyDataSourceBody($this)
-        );
+        return new ModifyDataSourceEnvelope(new ModifyDataSourceBody($this));
     }
 }

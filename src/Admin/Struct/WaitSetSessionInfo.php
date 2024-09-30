@@ -25,95 +25,95 @@ class WaitSetSessionInfo
 {
     /**
      * Interest bitmask
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInterestMask', setter: 'setInterestMask')]
-    #[SerializedName('interestMask')]
-    #[Type('string')]
+    #[Accessor(getter: "getInterestMask", setter: "setInterestMask")]
+    #[SerializedName("interestMask")]
+    #[Type("string")]
     #[XmlAttribute]
     private $interestMask;
 
     /**
      * Mailbox change ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getHighestChangeId', setter: 'setHighestChangeId')]
-    #[SerializedName('highestChangeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getHighestChangeId", setter: "setHighestChangeId")]
+    #[SerializedName("highestChangeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $highestChangeId;
 
     /**
      * Last access time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastAccessTime', setter: 'setLastAccessTime')]
-    #[SerializedName('lastAccessTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastAccessTime", setter: "setLastAccessTime")]
+    #[SerializedName("lastAccessTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastAccessTime;
 
     /**
      * Creation time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCreationTime', setter: 'setCreationTime')]
-    #[SerializedName('creationTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getCreationTime", setter: "setCreationTime")]
+    #[SerializedName("creationTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $creationTime;
 
     /**
      * Session ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName('sessionId')]
-    #[Type('string')]
+    #[Accessor(getter: "getSessionId", setter: "setSessionId")]
+    #[SerializedName("sessionId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sessionId;
 
     /**
      * Sync Token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * Comma separated list of IDs for folders.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderInterests', setter: 'setFolderInterests')]
-    #[SerializedName('folderInterests')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderInterests", setter: "setFolderInterests")]
+    #[SerializedName("folderInterests")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderInterests;
 
     /**
      * Comma separated list of IDs for folders.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getChangedFolders', setter: 'setChangedFolders')]
-    #[SerializedName('changedFolders')]
-    #[Type('string')]
+    #[Accessor(getter: "getChangedFolders", setter: "setChangedFolders")]
+    #[SerializedName("changedFolders")]
+    #[Type("string")]
     #[XmlAttribute]
     private $changedFolders;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $interestMask
      * @param int    $highestChangeId
      * @param int    $lastAccessTime
@@ -125,21 +125,20 @@ class WaitSetSessionInfo
      * @return self
      */
     public function __construct(
-        string $interestMask = '',
+        string $interestMask = "",
         int $highestChangeId = 0,
         int $lastAccessTime = 0,
         int $creationTime = 0,
-        string $sessionId = '',
+        string $sessionId = "",
         ?string $token = null,
         ?string $folderInterests = null,
         ?string $changedFolders = null
-    )
-    {
+    ) {
         $this->setInterestMask($interestMask)
-             ->setHighestChangeId($highestChangeId)
-             ->setLastAccessTime($lastAccessTime)
-             ->setCreationTime($creationTime)
-             ->setSessionId($sessionId);
+            ->setHighestChangeId($highestChangeId)
+            ->setLastAccessTime($lastAccessTime)
+            ->setCreationTime($creationTime)
+            ->setSessionId($sessionId);
         if (null !== $token) {
             $this->setToken($token);
         }

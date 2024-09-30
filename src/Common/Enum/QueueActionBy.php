@@ -25,10 +25,10 @@ enum QueueActionBy: string
      * Constant for value 'id'
      * @return string 'id'
      */
-    case ID = 'id';
+    case ID = "id";
     /**
      * Constant for value 'query'
      * @return string 'query'
      */
-    case QUERY = 'query';
+    case QUERY = "query";
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
 use Zimbra\Common\Enum\CompactIndexAction as Action;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -29,30 +35,30 @@ class CompactIndexRequest extends SoapRequest
 {
     /**
      * Mailbox by account id selector
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Mailbox $mbox;
 
     /**
      * Action to perform
      * start: start compact indexing
      * status: show compact indexing status
-     * 
+     *
      * @var Action
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[XmlAttribute]
     private ?Action $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mailbox $mbox
      * @param  Action $action
      * @return self
@@ -112,8 +118,6 @@ class CompactIndexRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CompactIndexEnvelope(
-            new CompactIndexBody($this)
-        );
+        return new CompactIndexEnvelope(new CompactIndexBody($this));
     }
 }

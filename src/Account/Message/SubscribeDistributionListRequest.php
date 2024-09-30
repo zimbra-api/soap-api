@@ -10,14 +10,24 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\DistributionListSubscribeOp;
-use Zimbra\Common\Struct\{DistributionListSelector, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    DistributionListSelector,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SubscribeDistributionListRequest class
- * Subscribe to or unsubscribe from a distribution list 
- * 
+ * Subscribe to or unsubscribe from a distribution list
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,23 +38,23 @@ class SubscribeDistributionListRequest extends SoapRequest
 {
     /**
      * The operation to perform.
-     * 
+     *
      * @var DistributionListSubscribeOp
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private DistributionListSubscribeOp $op;
 
     /**
      * Selector for the distribution list
-     * 
+     *
      * @var DistributionListSelector
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionListSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private DistributionListSelector $dl;
 
     /**
@@ -55,11 +65,10 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        DistributionListSelector $dl, ?DistributionListSubscribeOp $op = null
-    )
-    {
-        $this->setDl($dl)
-             ->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE);
+        DistributionListSelector $dl,
+        ?DistributionListSubscribeOp $op = null
+    ) {
+        $this->setDl($dl)->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE);
     }
 
     /**

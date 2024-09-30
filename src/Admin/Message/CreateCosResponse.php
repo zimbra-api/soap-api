@@ -27,13 +27,13 @@ class CreateCosResponse extends SoapResponse
 {
     /**
      * Details of created Class Of Service (COS)
-     * 
+     *
      * @var CosInfo
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosInfo $cos;
 
     /**

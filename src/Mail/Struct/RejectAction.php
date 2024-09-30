@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlValue};
 
 /**
  * RejectAction struct class
@@ -25,24 +25,24 @@ class RejectAction extends FilterAction
 {
     /**
      * Reject content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $content
      * @return self
      */
     public function __construct(?int $index = null, ?string $content = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         if (null !== $content) {
             $this->setContent($content);
         }

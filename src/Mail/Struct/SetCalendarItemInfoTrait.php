@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\ParticipationStatus;
 
 /**
@@ -30,23 +36,23 @@ trait SetCalendarItemInfoTrait
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
+     *
      * @var ParticipationStatus
      */
-    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName('ptst')]
+    #[Accessor(getter: "getPartStat", setter: "setPartStat")]
+    #[SerializedName("ptst")]
     #[XmlAttribute]
     private ?ParticipationStatus $partStat;
 
     /**
      * Message
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -57,9 +63,9 @@ trait SetCalendarItemInfoTrait
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = null, ?Msg $msg = null
-    )
-    {
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
+    ) {
         $this->partStat = $partStat;
         $this->msg = $msg;
         return $this;

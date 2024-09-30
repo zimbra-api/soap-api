@@ -28,28 +28,28 @@ class RankingActionSpec
      * Action to perform - reset|delete.
      * reset: resets the contact ranking table for the account
      * delete: delete the ranking information for the email address
-     * 
+     *
      * @var RankingActionOp
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private RankingActionOp $operation;
 
     /**
      * Email
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Constructor
-     * 
+     *
      * @param RankingActionOp $operation
      * @param string $email
      * @return self
@@ -57,8 +57,7 @@ class RankingActionSpec
     public function __construct(
         ?RankingActionOp $operation = null,
         ?string $email = null
-    )
-    {
+    ) {
         $this->setOperation($operation ?? RankingActionOp::RESET);
         if (null !== $email) {
             $this->setEmail($email);

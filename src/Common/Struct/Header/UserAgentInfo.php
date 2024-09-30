@@ -25,39 +25,39 @@ class UserAgentInfo
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Version
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('version')]
-    #[Type('string')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("version")]
+    #[Type("string")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $version
      * @return self
      */
-    public function __construct(?string $name = NULL, ?string $version = NULL)
+    public function __construct(?string $name = null, ?string $version = null)
     {
-        if (NULL !== $name) {
+        if (null !== $name) {
             $this->setName($name);
         }
-        if (NULL !== $version) {
+        if (null !== $version) {
             $this->setVersion($version);
         }
     }

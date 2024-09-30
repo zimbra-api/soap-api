@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * RFCCompliantNotifyAction struct class
@@ -25,62 +31,62 @@ class RFCCompliantNotifyAction extends FilterAction
 {
     /**
      * Notify Tag ":from"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFrom', setter: 'setFrom')]
-    #[SerializedName('from')]
-    #[Type('string')]
+    #[Accessor(getter: "getFrom", setter: "setFrom")]
+    #[SerializedName("from")]
+    #[Type("string")]
     #[XmlAttribute]
     private $from;
 
     /**
      * Notify Tag ":importance"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getImportance', setter: 'setImportance')]
-    #[SerializedName('importance')]
-    #[Type('string')]
+    #[Accessor(getter: "getImportance", setter: "setImportance")]
+    #[SerializedName("importance")]
+    #[Type("string")]
     #[XmlAttribute]
     private $importance;
 
     /**
      * Notify Tag ":options"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOptions', setter: 'setOptions')]
-    #[SerializedName('options')]
-    #[Type('string')]
+    #[Accessor(getter: "getOptions", setter: "setOptions")]
+    #[SerializedName("options")]
+    #[Type("string")]
     #[XmlAttribute]
     private $options;
 
     /**
      * Notify Tag ":message"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
     #[XmlAttribute]
     private $message;
 
     /**
      * Notify Parameter "method"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMethod', setter: 'setMethod')]
-    #[SerializedName('method')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMethod", setter: "setMethod")]
+    #[SerializedName("method")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $method;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $from
      * @param string $importance
@@ -96,9 +102,8 @@ class RFCCompliantNotifyAction extends FilterAction
         ?string $options = null,
         ?string $message = null,
         ?string $method = null
-    )
-    {
-    	parent::__construct($index);
+    ) {
+        parent::__construct($index);
         if (null !== $from) {
             $this->setFrom($from);
         }

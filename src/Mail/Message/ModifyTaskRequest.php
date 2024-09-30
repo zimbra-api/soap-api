@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 /**
  * ModifyTaskRequest class
  * Modify Task
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class ModifyTaskRequest extends ModifyAppointmentRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyTaskEnvelope(
-            new ModifyTaskBody($this)
-        );
+        return new ModifyTaskEnvelope(new ModifyTaskBody($this));
     }
 }

@@ -26,50 +26,50 @@ class Policy
 {
     /**
      * Retention policy type
-     * 
+     *
      * @var EnumType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?EnumType $type;
 
     /**
      * The id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * The duration
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName('lifetime')]
-    #[Type('string')]
+    #[Accessor(getter: "getLifetime", setter: "setLifetime")]
+    #[SerializedName("lifetime")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lifetime;
 
     /**
      * Constructor
-     * 
+     *
      * @param EnumType $type
      * @param string $id
      * @param string $name
@@ -77,9 +77,11 @@ class Policy
      * @return self
      */
     public function __construct(
-        ?EnumType $type = null, ?string $id = null, ?string $name = null, ?string $lifetime = null
-    )
-    {
+        ?EnumType $type = null,
+        ?string $id = null,
+        ?string $name = null,
+        ?string $lifetime = null
+    ) {
         $this->type = $type;
         if (null !== $id) {
             $this->setId($id);
@@ -98,9 +100,10 @@ class Policy
     }
 
     public static function newSystemPolicy(
-        ?string $id = null, ?string $name = null, ?string $lifetime = null
-    ): Policy
-    {
+        ?string $id = null,
+        ?string $name = null,
+        ?string $lifetime = null
+    ): Policy {
         return new self(EnumType::SYSTEM, $id, $name, $lifetime);
     }
 

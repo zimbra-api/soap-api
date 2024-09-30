@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * RestoreContactsRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,17 @@ class RestoreContactsRequest extends SoapRequest
 {
     /**
      * Filename of contact backup file
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContactsBackupFileName', setter: 'setContactsBackupFileName')]
-    #[SerializedName('contactsBackupFileName')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getContactsBackupFileName",
+            setter: "setContactsBackupFileName"
+        )
+    ]
+    #[SerializedName("contactsBackupFileName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contactsBackupFileName;
 
@@ -43,11 +48,11 @@ class RestoreContactsRequest extends SoapRequest
      * modify - In case of conflict, merge the existing contact with contact in backup file.
      * replace - In case of conflict, replace the existing contact with contact in backup file.
      * reset - Delete all existing contacts and restore contacts from backup file.
-     * 
+     *
      * @var RestoreResolve
      */
-    #[Accessor(getter: 'getResolve', setter: 'setResolve')]
-    #[SerializedName('resolve')]
+    #[Accessor(getter: "getResolve", setter: "setResolve")]
+    #[SerializedName("resolve")]
     #[XmlAttribute]
     private ?RestoreResolve $resolve;
 
@@ -59,10 +64,9 @@ class RestoreContactsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $fileName = '',
+        string $fileName = "",
         ?RestoreResolve $resolve = null
-    )
-    {
+    ) {
         $this->setContactsBackupFileName($fileName);
         $this->resolve = $resolve;
     }
@@ -116,8 +120,6 @@ class RestoreContactsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RestoreContactsEnvelope(
-            new RestoreContactsBody($this)
-        );
+        return new RestoreContactsEnvelope(new RestoreContactsBody($this));
     }
 }

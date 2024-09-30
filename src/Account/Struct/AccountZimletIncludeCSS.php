@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\ZimletIncludeCSS;
 
 /**
  * AccountZimletIncludeCSS class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,17 +26,17 @@ class AccountZimletIncludeCSS implements ZimletIncludeCSS
 {
     /**
      * Included Cascading Style Sheet (CSS)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @return self
      */

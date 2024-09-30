@@ -23,14 +23,11 @@ use JMS\Serializer\Naming\{
     PropertyNamingStrategyInterface,
     SerializedNameAnnotationStrategy
 };
-use JMS\Serializer\Type\{
-    Parser,
-    ParserInterface
-};
+use JMS\Serializer\Type\{Parser, ParserInterface};
 
 /**
  * Attribute driver factory class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -41,44 +38,49 @@ class AttributeDriverFactory implements DriverFactoryInterface
 {
     /**
      * Property naming strategy
-     * 
+     *
      * @var PropertyNamingStrategyInterface
      */
     private readonly PropertyNamingStrategyInterface $propertyNamingStrategy;
 
     /**
      * Type parser
-     * 
+     *
      * @var ParserInterface
      */
     private readonly ParserInterface $typeParser;
 
     /**
      * Constructor
-     * 
+     *
      * @param PropertyNamingStrategyInterface $propertyNamingStrategy
      * @param ParserInterface $typeParser
      */
     public function __construct(
         ?PropertyNamingStrategyInterface $propertyNamingStrategy = null,
         ?ParserInterface $typeParser = null
-    )
-    {
-        $this->propertyNamingStrategy = $propertyNamingStrategy ?? new SerializedNameAnnotationStrategy(
-            new CamelCaseNamingStrategy()
-        );
+    ) {
+        $this->propertyNamingStrategy =
+            $propertyNamingStrategy ??
+            new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
         $this->typeParser = $typeParser ?? new Parser();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function createDriver(array $metadataDirs, ?Reader $annotationReader = null): DriverInterface
-    {
+    public function createDriver(
+        array $metadataDirs,
+        ?Reader $annotationReader = null
+    ): DriverInterface {
         $driver = new AttributeDriver(
-            $this->propertyNamingStrategy, $this->typeParser
+            $this->propertyNamingStrategy,
+            $this->typeParser
         );
 
-        return new TypedPropertiesDriver(new EnumPropertiesDriver($driver), $this->typeParser);
+        return new TypedPropertiesDriver(
+            new EnumPropertiesDriver($driver),
+            $this->typeParser
+        );
     }
 }

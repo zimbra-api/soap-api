@@ -30,12 +30,12 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
      * end (negative) of the month - format : [[+]|-]num[,...] where num between 1 to 31
      * e.g. modaylist="1,+2,-7"
      * means first day of the month, plus the 2nd day of the month, plus the 7th from last day of the month.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('modaylist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("modaylist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -45,7 +45,7 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -69,15 +69,19 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
     public function setList(string $list): self
     {
         $modaylist = [];
-        foreach (explode(',', $list) as $moday) {
+        foreach (explode(",", $list) as $moday) {
             if (is_numeric($moday)) {
                 $day = (int) $moday;
-                if($day != 0 && abs($day) < 32 && !in_array($moday, $modaylist)) {
+                if (
+                    $day != 0 &&
+                    abs($day) < 32 &&
+                    !in_array($moday, $modaylist)
+                ) {
                     $modaylist[] = $moday;
                 }
             }
         }
-        $this->list = implode(',', $modaylist);
+        $this->list = implode(",", $modaylist);
         return $this;
     }
 }

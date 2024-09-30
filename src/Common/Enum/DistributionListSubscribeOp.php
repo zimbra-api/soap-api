@@ -25,11 +25,11 @@ enum DistributionListSubscribeOp: string
      * Constant for value 'subscribe'
      * @return string 'subscribe'
      */
-    case SUBSCRIBE = 'subscribe';
+    case SUBSCRIBE = "subscribe";
 
     /**
      * Constant for value 'unsubscribe'
      * @return string 'unsubscribe'
      */
-    case UNSUBSCRIBE = 'unsubscribe';
+    case UNSUBSCRIBE = "unsubscribe";
 }

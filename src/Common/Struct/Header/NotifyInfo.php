@@ -25,24 +25,24 @@ class NotifyInfo
 {
     /**
      * Sequence num
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]
-    #[SerializedName('seq')]
-    #[Type('int')]
+    #[Accessor(getter: "getSequenceNum", setter: "setSequenceNum")]
+    #[SerializedName("seq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sequenceNum;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $sequenceNum
      * @return self
      */
-    public function __construct(?int $sequenceNum = NULL)
+    public function __construct(?int $sequenceNum = null)
     {
-        if (NULL !== $sequenceNum) {
+        if (null !== $sequenceNum) {
             $this->setSequenceNum($sequenceNum);
         }
     }

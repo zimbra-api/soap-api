@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetLastItemIdInMailboxRequest class
  * Returns the last ID assigned to an item successfully created in the mailbox
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

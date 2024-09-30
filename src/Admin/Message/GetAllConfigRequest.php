@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllConfigRequest class
  * Get all config
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class GetAllConfigRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllConfigEnvelope(
-            new GetAllConfigBody($this)
-        );
+        return new GetAllConfigEnvelope(new GetAllConfigBody($this));
     }
 }

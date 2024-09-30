@@ -25,13 +25,13 @@ class TagActionSelector extends ActionSelector
 {
     /**
      * Retention policy
-     * 
+     *
      * @var RetentionPolicy
      */
-    #[Accessor(getter: 'getRetentionPolicy', setter: 'setRetentionPolicy')]
-    #[SerializedName('retentionPolicy')]
+    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[SerializedName("retentionPolicy")]
     #[Type(RetentionPolicy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RetentionPolicy $retentionPolicy;
 
     /**
@@ -54,7 +54,7 @@ class TagActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
+        string $operation = "",
         ?RetentionPolicy $retentionPolicy = null,
         ?string $ids = null,
         ?string $constraint = null,
@@ -68,8 +68,7 @@ class TagActionSelector extends ActionSelector
         ?string $tagNames = null,
         ?bool $nonExistentIds = null,
         ?bool $newlyCreatedIds = null
-    )
-    {
+    ) {
         parent::__construct(
             $operation,
             $ids,

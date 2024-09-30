@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * XMPPComponentSpec struct class
@@ -25,40 +31,40 @@ class XMPPComponentSpec extends AdminAttrsImpl
 {
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Domain selector
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private DomainSelector $domain;
 
     /**
      * Server selector
-     * 
+     *
      * @var ServerSelector
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ServerSelector $server;
 
     /**
      * Constructor
-     * 
+     *
      * @param DomainSelector $domain
      * @param ServerSelector $server
      * @param string $name
@@ -68,14 +74,11 @@ class XMPPComponentSpec extends AdminAttrsImpl
     public function __construct(
         DomainSelector $domain,
         ServerSelector $server,
-        string $name = '',
+        string $name = "",
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($attrs);
-        $this->setName($name)
-             ->setDomain($domain)
-             ->setServer($server);
+        $this->setName($name)->setDomain($domain)->setServer($server);
     }
 
     /**

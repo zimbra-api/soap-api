@@ -25,11 +25,11 @@ enum ZeroOrOne: string
      * Constant for value '0'
      * @return string '0'
      */
-    case ZERO = '0';
+    case ZERO = "0";
 
     /**
      * Constant for value '1'
      * @return string '1'
      */
-    case ONE = '1';
+    case ONE = "1";
 }

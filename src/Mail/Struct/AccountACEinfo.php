@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\GranteeType;
 
 /**
  * AccountACEinfo struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -27,68 +27,68 @@ class AccountACEinfo
     /**
      * @var GranteeType
      */
-    #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName('gt')]
+    #[Accessor(getter: "getGranteeType", setter: "setGranteeType")]
+    #[SerializedName("gt")]
     #[XmlAttribute]
     private GranteeType $granteeType;
 
     /**
      * @var string
      */
-    #[Accessor(getter: 'getRight', setter: 'setRight')]
-    #[SerializedName('right')]
-    #[Type('string')]
+    #[Accessor(getter: "getRight", setter: "setRight")]
+    #[SerializedName("right")]
+    #[Type("string")]
     #[XmlAttribute]
     private $right;
 
     /**
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * @var string
      */
-    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessKey", setter: "setAccessKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessKey;
 
     /**
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('pw')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("pw")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * @var bool
      */
-    #[Accessor(getter: 'getDeny', setter: 'setDeny')]
-    #[SerializedName('deny')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDeny", setter: "setDeny")]
+    #[SerializedName("deny")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $deny;
 
     /**
      * Constructor
-     * 
+     *
      * @param GranteeType $granteeType
      * @param string $right
      * @param string $zimbraId
@@ -100,16 +100,16 @@ class AccountACEinfo
      */
     public function __construct(
         ?GranteeType $granteeType = null,
-        string $right = '',
+        string $right = "",
         ?string $zimbraId = null,
         ?string $displayName = null,
         ?string $accessKey = null,
         ?string $password = null,
         ?bool $deny = null
-    )
-    {
-        $this->setGranteeType($granteeType ?? GranteeType::ALL)
-             ->setRight($right);
+    ) {
+        $this->setGranteeType($granteeType ?? GranteeType::ALL)->setRight(
+            $right
+        );
         if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }

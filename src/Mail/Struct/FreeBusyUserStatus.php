@@ -27,22 +27,22 @@ class FreeBusyUserStatus
 {
     /**
      * Email address for a user who has a conflict with the instance
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
-     * 
+     *
      * @var FreeBusyStatus
      */
-    #[Accessor(getter: 'getFreebusyStatus', setter: 'setFreebusyStatus')]
-    #[SerializedName('fb')]
+    #[Accessor(getter: "getFreebusyStatus", setter: "setFreebusyStatus")]
+    #[SerializedName("fb")]
     #[XmlAttribute]
     private FreeBusyStatus $freebusyStatus;
 
@@ -53,10 +53,13 @@ class FreeBusyUserStatus
      * @param  FreeBusyStatus $freebusyStatus
      * @return self
      */
-    public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = null)
-    {
-        $this->setName($name)
-             ->setFreebusyStatus($freebusyStatus ?? FreeBusyStatus::FREE);
+    public function __construct(
+        string $name = "",
+        ?FreeBusyStatus $freebusyStatus = null
+    ) {
+        $this->setName($name)->setFreebusyStatus(
+            $freebusyStatus ?? FreeBusyStatus::FREE
+        );
     }
 
     /**

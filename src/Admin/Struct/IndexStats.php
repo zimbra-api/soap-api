@@ -25,23 +25,23 @@ class IndexStats
 {
     /**
      * total number of docs in this index
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxDocs', setter: 'setMaxDocs')]
-    #[SerializedName('maxDocs')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxDocs", setter: "setMaxDocs")]
+    #[SerializedName("maxDocs")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxDocs;
 
     /**
      * number of deleted docs for the index
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumDeletedDocs', setter: 'setNumDeletedDocs')]
-    #[SerializedName('deletedDocs')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumDeletedDocs", setter: "setNumDeletedDocs")]
+    #[SerializedName("deletedDocs")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numDeletedDocs;
 
@@ -54,8 +54,7 @@ class IndexStats
      */
     public function __construct(int $maxDocs = 0, int $numDeletedDocs = 0)
     {
-        $this->setMaxDocs($maxDocs)
-             ->setNumDeletedDocs($numDeletedDocs);
+        $this->setMaxDocs($maxDocs)->setNumDeletedDocs($numDeletedDocs);
     }
 
     /**

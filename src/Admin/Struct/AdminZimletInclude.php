@@ -10,12 +10,12 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlValue};
 use Zimbra\Common\Struct\ZimletInclude;
 
 /**
  * AdminZimletInclude class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,17 +26,17 @@ class AdminZimletInclude implements ZimletInclude
 {
     /**
      * Included script
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @return self
      */

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetICalRequest class
- * 
+ *
  * Retrieve the unparsed (but XML-encoded) iCalendar data for an Invite
  * This is intended for interfacing with 3rd party programs
  * If <id> attribute specified, gets the iCalendar representation for one invite
@@ -31,34 +31,34 @@ class GetICalRequest extends SoapRequest
 {
     /**
      * If specified, gets the iCalendar representation for one invite
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Range start in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
@@ -74,8 +74,7 @@ class GetICalRequest extends SoapRequest
         ?string $id = null,
         ?int $startTime = null,
         ?int $endTime = null
-    )
-    {
+    ) {
         if (null !== $id) {
             $this->setId($id);
         }
@@ -158,8 +157,6 @@ class GetICalRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetICalEnvelope(
-            new GetICalBody($this)
-        );
+        return new GetICalEnvelope(new GetICalBody($this));
     }
 }

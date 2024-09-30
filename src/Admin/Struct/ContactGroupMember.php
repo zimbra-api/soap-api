@@ -10,11 +10,17 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * ContactGroupMember class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Type
@@ -25,51 +31,51 @@ class ContactGroupMember
 {
     /**
      * Member type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Member value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Contact information for dereferenced member.
-     * 
+     *
      * @var ContactInfo
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ContactInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ContactInfo $contact;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $type
      * @param  string $value
      * @param  ContactInfo $contact
      * @return self
      */
     public function __construct(
-        string $type = '', string $value = '', ?ContactInfo $contact = null
-    )
-    {
-        $this->setType($type)
-             ->setValue($value);
+        string $type = "",
+        string $value = "",
+        ?ContactInfo $contact = null
+    ) {
+        $this->setType($type)->setValue($value);
         $this->contact = $contact;
     }
 

@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\AccountWithModifications;
 use Zimbra\Common\Struct\{IdAndType, SoapResponse};
 
 /**
  * AdminWaitSetResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,60 +33,60 @@ class AdminWaitSetResponse extends SoapResponse
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
     /**
      * Canceled flag
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanceled', setter: 'setCanceled')]
-    #[SerializedName('canceled')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCanceled", setter: "setCanceled")]
+    #[SerializedName("canceled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canceled;
 
     /**
      * Sequence number
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSeqNo', setter: 'setSeqNo')]
-    #[SerializedName('seq')]
-    #[Type('string')]
+    #[Accessor(getter: "getSeqNo", setter: "setSeqNo")]
+    #[SerializedName("seq")]
+    #[Type("string")]
     #[XmlAttribute]
     private $seqNo;
 
     /**
      * Information on signaled accounts.
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
-    #[Type('array<Zimbra\Mail\Struct\AccountWithModifications>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSignalledAccounts", setter: "setSignalledAccounts")]
+    #[Type("array<Zimbra\Mail\Struct\AccountWithModifications>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $signalledAccounts = [];
 
     /**
      * Error information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
-    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getErrors", setter: "setErrors")]
+    #[Type("array<Zimbra\Common\Struct\IdAndType>")]
+    #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraAdmin")]
     private $errors = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $waitSetId
      * @param bool   $canceled
      * @param string $seqNo
@@ -89,16 +95,15 @@ class AdminWaitSetResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        string $waitSetId = '',
+        string $waitSetId = "",
         ?bool $canceled = null,
         ?string $seqNo = null,
         array $signalledAccounts = [],
         array $errors = []
-    )
-    {
+    ) {
         $this->setWaitSetId($waitSetId)
-             ->setSignalledAccounts($signalledAccounts)
-             ->setErrors($errors);
+            ->setSignalledAccounts($signalledAccounts)
+            ->setErrors($errors);
         if (null !== $canceled) {
             $this->setCanceled($canceled);
         }
@@ -182,7 +187,8 @@ class AdminWaitSetResponse extends SoapResponse
     public function setSignalledAccounts(array $accounts): self
     {
         $this->signalledAccounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof AccountWithModifications
+            $accounts,
+            static fn($account) => $account instanceof AccountWithModifications
         );
         return $this;
     }
@@ -206,7 +212,8 @@ class AdminWaitSetResponse extends SoapResponse
     public function setErrors(array $errors): self
     {
         $this->errors = array_filter(
-            $errors, static fn ($error) => $error instanceof IdAndType
+            $errors,
+            static fn($error) => $error instanceof IdAndType
         );
         return $this;
     }

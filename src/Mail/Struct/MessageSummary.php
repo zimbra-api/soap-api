@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * MessageSummary class
@@ -25,67 +32,67 @@ class MessageSummary extends MessageCommon
 {
     /**
      * Message ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Auto send time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
-    #[SerializedName('autoSendTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getAutoSendTime", setter: "setAutoSendTime")]
+    #[SerializedName("autoSendTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $autoSendTime;
 
     /**
      * Email address information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmails", setter: "setEmails")]
+    #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emails = [];
 
     /**
      * Subject
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $subject;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false,namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Invite information
-     * 
+     *
      * @var InviteInfo
      */
-    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
-    #[SerializedName('inv')]
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName("inv")]
     #[Type(InviteInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteInfo $invite;
 
     /**
@@ -100,16 +107,14 @@ class MessageSummary extends MessageCommon
      * @return self
      */
     public function __construct(
-        string $id = '',
+        string $id = "",
         ?int $autoSendTime = null,
         array $emails = [],
         ?string $subject = null,
         ?string $fragment = null,
         ?InviteInfo $invite = null
-    )
-    {
-        $this->setId($id)
-             ->setEmails($emails);
+    ) {
+        $this->setId($id)->setEmails($emails);
         $this->invite = $invite;
         if (null !== $autoSendTime) {
             $this->setAutoSendTime($autoSendTime);
@@ -175,7 +180,8 @@ class MessageSummary extends MessageCommon
     public function setEmails(array $emails): self
     {
         $this->emails = array_filter(
-            $emails, static fn ($email) => $email instanceof EmailInfo
+            $emails,
+            static fn($email) => $email instanceof EmailInfo
         );
         return $this;
     }

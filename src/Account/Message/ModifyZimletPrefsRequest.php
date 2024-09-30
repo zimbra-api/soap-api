@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ModifyZimletPrefsRequest class
  * Modify zimlet preferences
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,12 +28,12 @@ class ModifyZimletPrefsRequest extends SoapRequest
 {
     /**
      * Zimlet Preference Specifications
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[Type('array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>')]
-    #[XmlList(inline: true, entry: 'zimlet', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")]
+    #[XmlList(inline: true, entry: "zimlet", namespace: "urn:zimbraAccount")]
     private $zimlets = [];
 
     /**
@@ -68,7 +68,8 @@ class ModifyZimletPrefsRequest extends SoapRequest
     public function setZimlets(array $zimlets): self
     {
         $this->zimlets = array_filter(
-            $zimlets, static fn ($zimlet) => $zimlet instanceof ModifyZimletPrefsSpec
+            $zimlets,
+            static fn($zimlet) => $zimlet instanceof ModifyZimletPrefsSpec
         );
         return $this;
     }
@@ -88,8 +89,6 @@ class ModifyZimletPrefsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyZimletPrefsEnvelope(
-            new ModifyZimletPrefsBody($this)
-        );
+        return new ModifyZimletPrefsEnvelope(new ModifyZimletPrefsBody($this));
     }
 }

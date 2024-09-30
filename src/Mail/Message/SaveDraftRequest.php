@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\SaveDraftMsg;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -28,7 +34,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * - Can optionally set autoSendTime to specify the time at which the draft should be automatically sent by the server
  * - The ID of the saved draft is returned in the "id" attribute of the response.
  * - The ID referenced in the response's "idnt" attribute specifies the folder where the sent message is saved.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -39,35 +45,40 @@ class SaveDraftRequest extends SoapRequest
 {
     /**
      * Set to return IMAP UID. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName('wantImapUid')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantImapUid", setter: "setWantImapUid")]
+    #[SerializedName("wantImapUid")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantImapUid;
 
     /**
      * Set to return Modified Sequence. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName('wantModSeq')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getWantModifiedSequence",
+            setter: "setWantModifiedSequence"
+        )
+    ]
+    #[SerializedName("wantModSeq")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
     /**
      * Details of draft to save
-     * 
+     *
      * @var SaveDraftMsg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(SaveDraftMsg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private SaveDraftMsg $msg;
 
     /**
@@ -82,8 +93,7 @@ class SaveDraftRequest extends SoapRequest
         SaveDraftMsg $msg,
         ?bool $wantImapUid = null,
         ?bool $wantModifiedSequence = null
-    )
-    {
+    ) {
         $this->setMsg($msg);
         if (null !== $wantImapUid) {
             $this->setWantImapUid($wantImapUid);
@@ -164,8 +174,6 @@ class SaveDraftRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SaveDraftEnvelope(
-            new SaveDraftBody($this)
-        );
+        return new SaveDraftEnvelope(new SaveDraftBody($this));
     }
 }

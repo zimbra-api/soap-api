@@ -25,51 +25,51 @@ class MailboxWithMailboxId
 {
     /**
      * Mailbox ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMbxid', setter: 'setMbxid')]
-    #[SerializedName('mbxid')]
-    #[Type('int')]
+    #[Accessor(getter: "getMbxid", setter: "setMbxid")]
+    #[SerializedName("mbxid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mbxid;
 
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccountId", setter: "setAccountId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accountId;
 
     /**
      * Size in bytes
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $mbxid
      * @param string $accountId
      * @param int $size
      * @return self
      */
     public function __construct(
-        int $mbxid = 0, string $accountId = '', ?int $size = null
-    )
-    {
-        $this->setMbxid($mbxid)
-             ->setAccountId($accountId);
+        int $mbxid = 0,
+        string $accountId = "",
+        ?int $size = null
+    ) {
+        $this->setMbxid($mbxid)->setAccountId($accountId);
         if (null !== $size) {
             $this->setSize($size);
         }
@@ -102,7 +102,7 @@ class MailboxWithMailboxId
      *
      * @return string
      */
-    public function getAccountId()
+    public function getAccountId(): string
     {
         return $this->accountId;
     }
@@ -113,7 +113,7 @@ class MailboxWithMailboxId
      * @param  string $accountId
      * @return self
      */
-    public function setAccountId(string $accountId)
+    public function setAccountId(string $accountId): self
     {
         $this->accountId = $accountId;
         return $this;

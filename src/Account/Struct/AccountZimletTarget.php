@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\ZimletTarget;
 
 /**
  * AccountZimletTarget class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,17 +26,17 @@ class AccountZimletTarget implements ZimletTarget
 {
     /**
      * Zimlet target
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @return self
      */

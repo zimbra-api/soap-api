@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ForwardAppointmentInviteResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

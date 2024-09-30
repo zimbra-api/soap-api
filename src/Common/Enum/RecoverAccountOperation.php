@@ -25,17 +25,17 @@ enum RecoverAccountOperation: string
      * Constant for value 'getRecoveryAccount'
      * @return string 'getRecoveryAccount'
      */
-    case GET_RECOVERY_ACCOUNT = 'getRecoveryAccount';
+    case GET_RECOVERY_ACCOUNT = "getRecoveryAccount";
 
     /**
      * Constant for value 'sendRecoveryCode'
      * @return string 'sendRecoveryCode'
      */
-    case SEND_RECOVERY_CODE = 'sendRecoveryCode';
+    case SEND_RECOVERY_CODE = "sendRecoveryCode";
 
     /**
      * Constant for value 'sendRecoveryLink'
      * @return string 'sendRecoveryLink'
      */
-    case SEND_RECOVERY_LINK = 'sendRecoveryLink';
+    case SEND_RECOVERY_LINK = "sendRecoveryLink";
 }

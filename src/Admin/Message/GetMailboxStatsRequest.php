@@ -29,8 +29,6 @@ class GetMailboxStatsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetMailboxStatsEnvelope(
-            new GetMailboxStatsBody($this)
-        );
+        return new GetMailboxStatsEnvelope(new GetMailboxStatsBody($this));
     }
 }

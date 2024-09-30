@@ -32,12 +32,12 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
 {
     /**
      * Duration
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
-    #[Type('int')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
+    #[Type("int")]
     #[XmlAttribute]
     private $duration;
 
@@ -97,8 +97,7 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
         ?bool $neverSent = null,
         ?int $taskDueDate = null,
         ?int $taskTzOffsetDue = null
-    )
-    {
+    ) {
         parent::__construct(
             $partStat,
             $recurIdZ,

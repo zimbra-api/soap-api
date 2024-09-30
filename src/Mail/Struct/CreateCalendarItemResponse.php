@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
@@ -27,79 +33,79 @@ class CreateCalendarItemResponse extends SoapResponse
 {
     /**
      * Appointment ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName('calItemId')]
-    #[Type('string')]
+    #[Accessor(getter: "getCalItemId", setter: "setCalItemId")]
+    #[SerializedName("calItemId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $calItemId;
 
     /**
      * Appointment ID (deprecated)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDeprecatedApptId', setter: 'setDeprecatedApptId')]
-    #[SerializedName('apptId')]
-    #[Type('string')]
+    #[Accessor(getter: "getDeprecatedApptId", setter: "setDeprecatedApptId")]
+    #[SerializedName("apptId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $deprecatedApptId;
 
     /**
      * Invite Message ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCalInvId', setter: 'setCalInvId')]
-    #[SerializedName('invId')]
-    #[Type('string')]
+    #[Accessor(getter: "getCalInvId", setter: "setCalInvId")]
+    #[SerializedName("invId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $calInvId;
 
     /**
      * Change sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Message information
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Id $msg;
 
     /**
      * Included if "echo" was set in the request
-     * 
+     *
      * @var CalEcho
      */
-    #[Accessor(getter: 'getEcho', setter: 'setEcho')]
-    #[SerializedName('echo')]
+    #[Accessor(getter: "getEcho", setter: "setEcho")]
+    #[SerializedName("echo")]
     #[Type(CalEcho::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalEcho $echo;
 
     /**
@@ -122,8 +128,7 @@ class CreateCalendarItemResponse extends SoapResponse
         ?int $revision = null,
         ?Id $msg = null,
         ?CalEcho $echo = null
-    )
-    {
+    ) {
         $this->msg = $msg;
         $this->echo = $echo;
         if (null !== $calItemId) {

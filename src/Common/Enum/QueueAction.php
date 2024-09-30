@@ -25,23 +25,23 @@ enum QueueAction: string
      * Constant for value 'hold'
      * @return string 'hold'
      */
-    case HOLD = 'hold';
+    case HOLD = "hold";
 
     /**
      * Constant for value 'release'
      * @return string 'release'
      */
-    case RELEASE = 'release';
+    case RELEASE = "release";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    case DELETE = 'delete';
+    case DELETE = "delete";
 
     /**
      * Constant for value 'requeue'
      * @return string 'requeue'
      */
-    case REQUEUE = 'requeue';
+    case REQUEUE = "requeue";
 }

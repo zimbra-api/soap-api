@@ -27,18 +27,18 @@ class GetIndexStatsRequest extends SoapRequest
 {
     /**
      * Mailbox by account selector
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Mailbox $mbox;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mailbox $mbox
      * @return self
      */
@@ -74,8 +74,6 @@ class GetIndexStatsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetIndexStatsEnvelope(
-            new GetIndexStatsBody($this)
-        );
+        return new GetIndexStatsEnvelope(new GetIndexStatsBody($this));
     }
 }

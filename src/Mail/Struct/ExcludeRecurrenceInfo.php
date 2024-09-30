@@ -21,6 +21,8 @@ use Zimbra\Common\Struct\ExcludeRecurrenceInfoInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ExcludeRecurrenceInfo extends RecurrenceInfo implements RecurRuleBase, ExcludeRecurrenceInfoInterface
+class ExcludeRecurrenceInfo extends RecurrenceInfo implements
+    RecurRuleBase,
+    ExcludeRecurrenceInfoInterface
 {
 }

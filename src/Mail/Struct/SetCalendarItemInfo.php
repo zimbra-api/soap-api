@@ -35,9 +35,9 @@ class SetCalendarItemInfo
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = null, ?Msg $msg = null
-    )
-    {
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
+    ) {
         $this->__traitConstruct($partStat, $msg);
     }
 }

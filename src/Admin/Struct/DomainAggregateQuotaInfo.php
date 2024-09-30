@@ -25,52 +25,51 @@ class DomainAggregateQuotaInfo
 {
     /**
      * Domain name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Domain id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Quota used on server
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
-    #[SerializedName('used')]
-    #[Type('int')]
+    #[Accessor(getter: "getQuotaUsed", setter: "setQuotaUsed")]
+    #[SerializedName("used")]
+    #[Type("int")]
     #[XmlAttribute]
     private $quotaUsed;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @param int    $quotaUsed
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', int $quotaUsed = 0
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setQuotaUsed($quotaUsed);
+        string $name = "",
+        string $id = "",
+        int $quotaUsed = 0
+    ) {
+        $this->setName($name)->setId($id)->setQuotaUsed($quotaUsed);
     }
 
     /**

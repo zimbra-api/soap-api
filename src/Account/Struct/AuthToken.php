@@ -10,11 +10,17 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * AuthToken struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,49 +31,50 @@ class AuthToken
 {
     /**
      * Value for authorization token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
      * If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getVerifyAccount', setter: 'setVerifyAccount')]
-    #[SerializedName('verifyAccount')]
-    #[Type('bool')]
+    #[Accessor(getter: "getVerifyAccount", setter: "setVerifyAccount")]
+    #[SerializedName("verifyAccount")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $verifyAccount;
 
     /**
      * Life time of the auth token
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName('lifetime')]
-    #[Type('int')]
+    #[Accessor(getter: "getLifetime", setter: "setLifetime")]
+    #[SerializedName("lifetime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lifetime;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $value
      * @param  bool   $verifyAccount
      * @param  int    $lifetime
      * @return self
      */
     public function __construct(
-        string $value = '', ?bool $verifyAccount = null, ?int $lifetime = null
-    )
-    {
+        string $value = "",
+        ?bool $verifyAccount = null,
+        ?int $lifetime = null
+    ) {
         $this->setValue($value);
         if (null !== $verifyAccount) {
             $this->setVerifyAccount($verifyAccount);

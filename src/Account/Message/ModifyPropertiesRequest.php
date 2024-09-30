@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ModifyPropertiesRequest class
  * Modify properties related to zimlets
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,12 +28,12 @@ class ModifyPropertiesRequest extends SoapRequest
 {
     /**
      * Property to be modified
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getProps', setter: 'setProps')]
-    #[Type('array<Zimbra\Account\Struct\Prop>')]
-    #[XmlList(inline: true, entry: 'prop', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getProps", setter: "setProps")]
+    #[Type("array<Zimbra\Account\Struct\Prop>")]
+    #[XmlList(inline: true, entry: "prop", namespace: "urn:zimbraAccount")]
     private $props = [];
 
     /**
@@ -68,7 +68,8 @@ class ModifyPropertiesRequest extends SoapRequest
     public function setProps(array $props): self
     {
         $this->props = array_filter(
-            $props, static fn ($prop) => $prop instanceof Prop
+            $props,
+            static fn($prop) => $prop instanceof Prop
         );
         return $this;
     }
@@ -88,8 +89,6 @@ class ModifyPropertiesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyPropertiesEnvelope(
-            new ModifyPropertiesBody($this)
-        );
+        return new ModifyPropertiesEnvelope(new ModifyPropertiesBody($this));
     }
 }

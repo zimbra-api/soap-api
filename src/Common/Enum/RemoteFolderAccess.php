@@ -25,17 +25,17 @@ enum RemoteFolderAccess: string
      * Constant for value 'c'
      * @return string 'c'
      */
-    case CREATE = 'c';
+    case CREATE = "c";
 
     /**
      * Constant for value 'i'
      * @return string 'i'
      */
-    case INSERT = 'i';
+    case INSERT = "i";
 
     /**
      * Constant for value 'r'
      * @return string 'r'
      */
-    case READ = 'r';
+    case READ = "r";
 }

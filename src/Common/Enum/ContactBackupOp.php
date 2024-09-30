@@ -25,11 +25,11 @@ enum ContactBackupOp: string
      * Constant for value 'start'
      * @return string 'start'
      */
-    case START = 'start';
+    case START = "start";
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    case STOP = 'stop';
+    case STOP = "stop";
 }

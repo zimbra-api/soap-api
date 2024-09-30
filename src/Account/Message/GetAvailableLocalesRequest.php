@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * GetAvailableLocalesRequest class
  * Get the intersection of all translated locales installed on the server and the list
  * specified in zimbraAvailableLocale. The locale list in the response is sorted by display name (name attribute).
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message

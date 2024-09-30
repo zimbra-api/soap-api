@@ -10,12 +10,18 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\DistributionListSubscribeOp;
 
 /**
  * DistributionListSubscribeReq struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,53 +32,54 @@ class DistributionListSubscribeReq
 {
     /**
      * Operation
-     * 
+     *
      * @var DistributionListSubscribeOp
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private DistributionListSubscribeOp $op;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Flag whether to bcc all other owners on the accept/reject notification emails.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBccOwners', setter: 'setBccOwners')]
-    #[SerializedName('bccOwners')]
-    #[Type('bool')]
+    #[Accessor(getter: "getBccOwners", setter: "setBccOwners")]
+    #[SerializedName("bccOwners")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $bccOwners;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DistributionListSubscribeOp $op
      * @param  string $value
      * @param  bool   $bccOwners
      * @return self
      */
     public function __construct(
-        ?DistributionListSubscribeOp $op = null, ?string $value = null, ?bool $bccOwners = null
-    )
-    {
-		$this->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE);
+        ?DistributionListSubscribeOp $op = null,
+        ?string $value = null,
+        ?bool $bccOwners = null
+    ) {
+        $this->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE);
         if (null !== $value) {
             $this->setValue($value);
         }
         if (null !== $bccOwners) {
-			$this->setBccOwners($bccOwners);
+            $this->setBccOwners($bccOwners);
         }
     }
 

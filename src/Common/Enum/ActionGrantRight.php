@@ -25,53 +25,53 @@ enum ActionGrantRight: string
      * Constant for value 'r'
      * @return string 'r'
      */
-    case READ = 'r';
+    case READ = "r";
 
     /**
      * Constant for value 'w'
      * @return string 'w'
      */
-    case WRITE = 'w';
+    case WRITE = "w";
 
     /**
      * Constant for value 'i'
      * @return string 'i'
      */
-    case INSERT = 'i';
+    case INSERT = "i";
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    case DELETE = 'd';
+    case DELETE = "d";
 
     /**
      * Constant for value 'a'
      * @return string 'a'
      */
-    case ADMINISTER = 'a';
+    case ADMINISTER = "a";
 
     /**
      * Constant for value 'x'
      * @return string 'x'
      */
-    case WORKFLOW_ACTION = 'x';
+    case WORKFLOW_ACTION = "x";
 
     /**
      * Constant for value 'p'
      * @return string 'p'
      */
-    case VIEW_PRIVATE = 'p';
+    case VIEW_PRIVATE = "p";
 
     /**
      * Constant for value 'f'
      * @return string 'f'
      */
-    case VIEW_FREEBUSY = 'f';
+    case VIEW_FREEBUSY = "f";
 
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    case CREATE_SUBFOLDER = 'c';
+    case CREATE_SUBFOLDER = "c";
 }

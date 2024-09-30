@@ -25,46 +25,46 @@ enum ConvActionOp: string
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    case DELETE = 'delete';
+    case DELETE = "delete";
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    case READ = 'read';
+    case READ = "read";
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    case FLAG = 'flag';
+    case FLAG = "flag";
 
     /**
      * Constant for value 'priority'
      * @return string 'priority'
      */
-    case PRIORITY = 'priority';
+    case PRIORITY = "priority";
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    case TAG = 'tag';
+    case TAG = "tag";
 
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    case MOVE = 'move';
+    case MOVE = "move";
 
     /**
      * Constant for value 'spam'
      * @return string 'spam'
      */
-    case SPAM = 'spam';
+    case SPAM = "spam";
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    case TRASH = 'trash';
+    case TRASH = "trash";
 }

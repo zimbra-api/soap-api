@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * EmptyDumpsterRequest class
  * Empty dumpster
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,8 +29,6 @@ class EmptyDumpsterRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new EmptyDumpsterEnvelope(
-            new EmptyDumpsterBody($this)
-        );
+        return new EmptyDumpsterEnvelope(new EmptyDumpsterBody($this));
     }
 }

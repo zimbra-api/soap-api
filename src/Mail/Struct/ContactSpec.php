@@ -10,12 +10,19 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\SpecifyContact;
 
 /**
  * ContactSpec struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -26,78 +33,83 @@ class ContactSpec implements SpecifyContact
 {
     /**
      * ID - specified when modifying a contact
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * ID of folder to create contact in. Un-specified means use the default Contacts folder.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Either a vcard or attributes can be specified but not both.
-     * 
+     *
      * @var VCardInfo
      */
-    #[Accessor(getter: 'getVcard', setter: 'setVcard')]
-    #[SerializedName('vcard')]
+    #[Accessor(getter: "getVcard", setter: "setVcard")]
+    #[SerializedName("vcard")]
     #[Type(VCardInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?VCardInfo $vcard;
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Mail\Struct\NewContactAttr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Mail\Struct\NewContactAttr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
     private $attrs = [];
 
     /**
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
-    #[Type('array<Zimbra\Mail\Struct\NewContactGroupMember>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getContactGroupMembers",
+            setter: "setContactGroupMembers"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $contactGroupMembers = [];
 
     /**
@@ -120,10 +132,8 @@ class ContactSpec implements SpecifyContact
         ?VCardInfo $vcard = null,
         array $attrs = [],
         array $contactGroupMembers = []
-    )
-    {
-        $this->setAttrs($attrs)
-             ->setContactGroupMembers($contactGroupMembers);
+    ) {
+        $this->setAttrs($attrs)->setContactGroupMembers($contactGroupMembers);
         $this->vcard = $vcard;
         if (null !== $id) {
             $this->setId($id);
@@ -268,7 +278,8 @@ class ContactSpec implements SpecifyContact
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof NewContactAttr
+            $attrs,
+            static fn($attr) => $attr instanceof NewContactAttr
         );
         return $this;
     }
@@ -304,7 +315,8 @@ class ContactSpec implements SpecifyContact
     public function setContactGroupMembers(array $members): self
     {
         $this->contactGroupMembers = array_filter(
-            $members, static fn ($member) => $member instanceof NewContactGroupMember
+            $members,
+            static fn($member) => $member instanceof NewContactGroupMember
         );
         return $this;
     }
@@ -315,8 +327,9 @@ class ContactSpec implements SpecifyContact
      * @param  NewContactGroupMember $contactGroupMember
      * @return self
      */
-    public function addContactGroupMember(NewContactGroupMember $contactGroupMember): self
-    {
+    public function addContactGroupMember(
+        NewContactGroupMember $contactGroupMember
+    ): self {
         $this->contactGroupMembers[] = $contactGroupMember;
         return $this;
     }

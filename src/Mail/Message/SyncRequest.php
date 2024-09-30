@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * If a {root-folder-id} other than the mailbox root (folder 1) is requested or if not all folders are visible
  * when syncing to another user's mailbox, all changed items in other folders are presented as deletes
  * If the response is a mail.MUST_RESYNC fault, client has fallen too far out of date and must re-initial sync
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -34,24 +34,24 @@ class SyncRequest extends SoapRequest
 {
     /**
      * Token - not provided for initial sync
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * Calendar date. If present, omit all appointments and tasks that don't have
      * a recurrence ending after that time (specified in ms)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCalendarCutoff', setter: 'setCalendarCutoff')]
-    #[SerializedName('calCutoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getCalendarCutoff", setter: "setCalendarCutoff")]
+    #[SerializedName("calCutoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $calendarCutoff;
 
@@ -59,57 +59,57 @@ class SyncRequest extends SoapRequest
      * Earliest Message date.
      * If present, omit all Messages and conversations that are older than time (specified in seconds)
      * "Note:value in seconds, unlike calCutoff which is in milliseconds"
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMsgCutoff', setter: 'setMsgCutoff')]
-    #[SerializedName('msgCutoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getMsgCutoff", setter: "setMsgCutoff")]
+    #[SerializedName("msgCutoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $msgCutoff;
 
     /**
      * Root folder ID.
      * If present, we start sync there rather than at folder 11
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * If specified and set, deletes are also broken down by item type
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTypedDeletes', setter: 'setTypedDeletes')]
-    #[SerializedName('typed')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTypedDeletes", setter: "setTypedDeletes")]
+    #[SerializedName("typed")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $typedDeletes;
 
     /**
      * maximum number of deleted item ids returned in a response.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDeleteLimit', setter: 'setDeleteLimit')]
-    #[SerializedName('deleteLimit')]
-    #[Type('int')]
+    #[Accessor(getter: "getDeleteLimit", setter: "setDeleteLimit")]
+    #[SerializedName("deleteLimit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $deleteLimit;
 
     /**
      * maximum number of modified item ids returned in a response.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeLimit', setter: 'setChangeLimit')]
-    #[SerializedName('changeLimit')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeLimit", setter: "setChangeLimit")]
+    #[SerializedName("changeLimit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeLimit;
 
@@ -133,8 +133,7 @@ class SyncRequest extends SoapRequest
         ?bool $typedDeletes = null,
         ?int $deleteLimit = null,
         ?int $changeLimit = null
-    )
-    {
+    ) {
         if (null !== $token) {
             $this->setToken($token);
         }
@@ -317,8 +316,6 @@ class SyncRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SyncEnvelope(
-            new SyncBody($this)
-        );
+        return new SyncEnvelope(new SyncBody($this));
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * GranteeWithType struct class
@@ -25,33 +31,33 @@ class GranteeWithType
 {
     /**
      * Target type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Target name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $type
      * @param  string $value
      * @return self
      */
-    public function __construct(string $type = '', ?string $value = null)
+    public function __construct(string $type = "", ?string $value = null)
     {
         $this->setType($type);
         if (null !== $value) {

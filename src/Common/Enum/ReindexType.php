@@ -25,47 +25,47 @@ enum ReindexType: string
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
-    case CONVERSATION = 'conversation';
+    case CONVERSATION = "conversation";
 
     /**
      * Constant for value 'message'
      * @return string 'message'
      */
-    case MESSAGE = 'message';
+    case MESSAGE = "message";
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    case CONTACT = 'contact';
+    case CONTACT = "contact";
 
     /**
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
-    case APPOINTMENT = 'appointment';
+    case APPOINTMENT = "appointment";
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    case TASK = 'task';
+    case TASK = "task";
 
     /**
      * Constant for value 'note'
      * @return string 'note'
      */
-    case NOTE = 'note';
+    case NOTE = "note";
 
     /**
      * Constant for value 'wiki'
      * @return string 'wiki'
      */
-    case WIKI = 'wiki';
+    case WIKI = "wiki";
 
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    case DOCUMENT = 'document';
+    case DOCUMENT = "document";
 }

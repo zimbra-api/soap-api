@@ -25,54 +25,51 @@ class Grantor
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('email')]
-    #[Type('string')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("email")]
+    #[Type("string")]
     #[XmlAttribute]
     private $email;
 
     /**
      * Grantor display name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $email
      * @param string $name
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $email = '',
-        string $name = ''
-    )
-    {
-        $this->setId($id)
-             ->setEmail($email)
-             ->setName($name);
+        string $id = "",
+        string $email = "",
+        string $name = ""
+    ) {
+        $this->setId($id)->setEmail($email)->setName($name);
     }
 
     /**

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * AddCommentRequest class
  * Add a comment to the specified item.  Currently comments can only be added to documents
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class AddCommentRequest extends SoapRequest
 {
     /**
      * Added comment
-     * 
+     *
      * @var AddedComment
      */
-    #[Accessor(getter: 'getComment', setter: 'setComment')]
-    #[SerializedName('comment')]
+    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[SerializedName("comment")]
     #[Type(AddedComment::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private AddedComment $comment;
 
     /**
@@ -75,8 +75,6 @@ class AddCommentRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AddCommentEnvelope(
-            new AddCommentBody($this)
-        );
+        return new AddCommentEnvelope(new AddCommentBody($this));
     }
 }

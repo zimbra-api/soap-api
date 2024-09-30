@@ -25,23 +25,23 @@ enum GalSearchType: string
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    case ACCOUNT = 'account';
+    case ACCOUNT = "account";
 
     /**
      * Constant for value 'resource'
      * @return string 'resource'
      */
-    case RESOURCE = 'resource';
+    case RESOURCE = "resource";
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    case GROUP = 'group';
+    case GROUP = "group";
 }

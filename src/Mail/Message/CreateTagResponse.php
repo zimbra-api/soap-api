@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CreateTagResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class CreateTagResponse extends SoapResponse
 {
     /**
      * Information about the newly created tag
-     * 
+     *
      * @var TagInfo
      */
-    #[Accessor(getter: 'getTag', setter: 'setTag')]
-    #[SerializedName('tag')]
+    #[Accessor(getter: "getTag", setter: "setTag")]
+    #[SerializedName("tag")]
     #[Type(TagInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TagInfo $tag;
 
     /**

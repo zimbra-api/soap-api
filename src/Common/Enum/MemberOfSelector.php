@@ -25,17 +25,17 @@ enum MemberOfSelector: string
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'directOnly'
      * @return string 'directOnly'
      */
-    case DIRECT_ONLY = 'directOnly';
+    case DIRECT_ONLY = "directOnly";
 
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    case NONE = 'none';
+    case NONE = "none";
 }

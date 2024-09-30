@@ -25,51 +25,51 @@ class CursorInfo
 {
     /**
      * Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Sort val
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortVal', setter: 'setSortVal')]
-    #[SerializedName('sortVal')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortVal", setter: "setSortVal")]
+    #[SerializedName("sortVal")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortVal;
 
     /**
      * End sort val
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEndSortVal', setter: 'setEndSortVal')]
-    #[SerializedName('endSortVal')]
-    #[Type('string')]
+    #[Accessor(getter: "getEndSortVal", setter: "setEndSortVal")]
+    #[SerializedName("endSortVal")]
+    #[Type("string")]
     #[XmlAttribute]
     private $endSortVal;
 
     /**
      * Include offset
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeOffset', setter: 'setIncludeOffset')]
-    #[SerializedName('includeOffset')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeOffset", setter: "setIncludeOffset")]
+    #[SerializedName("includeOffset")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeOffset;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $sortVal
      * @param string $endSortVal
@@ -80,9 +80,8 @@ class CursorInfo
         ?string $id = null,
         ?string $sortVal = null,
         ?string $endSortVal = null,
-        ?bool   $includeOffset = null
-    )
-    {
+        ?bool $includeOffset = null
+    ) {
         if (null !== $id) {
             $this->setId($id);
         }

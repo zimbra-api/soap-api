@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetMsgMetadataResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,22 +27,22 @@ class GetMsgMetadataResponse extends SoapResponse
 {
     /**
      * Chat message metadata
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getChatMessages', setter: 'setChatMessages')]
-    #[Type('array<Zimbra\Mail\Struct\ChatSummary>')]
-    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getChatMessages", setter: "setChatMessages")]
+    #[Type("array<Zimbra\Mail\Struct\ChatSummary>")]
+    #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
     private $chatMessages = [];
 
     /**
      * Message metadata
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMsgMessages', setter: 'setMsgMessages')]
-    #[Type('array<Zimbra\Mail\Struct\MessageSummary>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMsgMessages", setter: "setMsgMessages")]
+    #[Type("array<Zimbra\Mail\Struct\MessageSummary>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $msgMessages = [];
 
     /**
@@ -52,10 +52,11 @@ class GetMsgMetadataResponse extends SoapResponse
      * @param  array $msgMessages
      * @return self
      */
-    public function __construct(array $chatMessages = [], array $msgMessages = [])
-    {
-        $this->setChatMessages($chatMessages)
-             ->setMsgMessages($msgMessages);
+    public function __construct(
+        array $chatMessages = [],
+        array $msgMessages = []
+    ) {
+        $this->setChatMessages($chatMessages)->setMsgMessages($msgMessages);
     }
 
     /**
@@ -67,7 +68,8 @@ class GetMsgMetadataResponse extends SoapResponse
     public function setChatMessages(array $messages): self
     {
         $this->chatMessages = array_filter(
-            $messages, static fn ($msg) => $msg instanceof ChatSummary
+            $messages,
+            static fn($msg) => $msg instanceof ChatSummary
         );
         return $this;
     }
@@ -91,7 +93,8 @@ class GetMsgMetadataResponse extends SoapResponse
     public function setMsgMessages(array $messages): self
     {
         $this->msgMessages = array_filter(
-            $messages, static fn ($msg) => $msg instanceof MessageSummary
+            $messages,
+            static fn($msg) => $msg instanceof MessageSummary
         );
         return $this;
     }

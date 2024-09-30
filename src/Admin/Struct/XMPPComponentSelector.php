@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\XmppComponentBy;
 
 /**
@@ -26,33 +32,35 @@ class XMPPComponentSelector
 {
     /**
      * Select the meaning of {xmpp-comp-selector-key}
-     * 
+     *
      * @var XmppComponentBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private XmppComponentBy $by;
 
     /**
      * The key used to identify the XMPP component
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  XmppComponentBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?XmppComponentBy $by = null, ?string $value = null)
-    {
+    public function __construct(
+        ?XmppComponentBy $by = null,
+        ?string $value = null
+    ) {
         $this->setBy($by ?? XmppComponentBy::ID);
         if (null !== $value) {
             $this->setValue($value);

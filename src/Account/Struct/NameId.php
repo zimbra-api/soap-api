@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * NameId struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,37 +25,36 @@ class NameId
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @return self
      */
-    public function __construct(string $name = '', string $id = '')
+    public function __construct(string $name = "", string $id = "")
     {
-        $this->setName($name)
-             ->setId($id);
+        $this->setName($name)->setId($id);
     }
 
     /**

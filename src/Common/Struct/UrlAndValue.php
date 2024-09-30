@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * UrlAndValue class
@@ -25,28 +31,28 @@ class UrlAndValue
 {
     /**
      * Url
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $url
      * @param  string $value
      * @return self

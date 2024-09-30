@@ -25,11 +25,11 @@ enum ContentType: string
      * Constant for value 'text/plain'
      * @return string 'text/plain'
      */
-    case TEXT_PLAIN = 'text/plain';
+    case TEXT_PLAIN = "text/plain";
 
     /**
      * Constant for value 'text/html'
      * @return string 'text/html'
      */
-    case TEXT_HTML = 'text/html';
+    case TEXT_HTML = "text/html";
 }

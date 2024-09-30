@@ -25,5 +25,5 @@ enum Channel: string
      * Constant for value 'email'
      * @return string 'email'
      */
-    case EMAIL = 'email';
+    case EMAIL = "email";
 }

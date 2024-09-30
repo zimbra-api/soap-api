@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\ImapCursorInfo;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * OpenIMAPFolderRequest class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,35 +33,35 @@ class OpenIMAPFolderRequest extends SoapRequest
 {
     /**
      * The ID of the folder to open
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * The maximum number of results to return
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Cursor specifying the last item on the previous results page
-     * 
+     *
      * @var ImapCursorInfo
      */
-    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
-    #[SerializedName('cursor')]
+    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[SerializedName("cursor")]
     #[Type(ImapCursorInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ImapCursorInfo $cursor;
 
     /**
@@ -67,13 +73,11 @@ class OpenIMAPFolderRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $folderId = '',
+        string $folderId = "",
         int $limit = 0,
         ?ImapCursorInfo $cursor = null
-    )
-    {
-        $this->setFolderId($folderId)
-             ->setLimit($limit);
+    ) {
+        $this->setFolderId($folderId)->setLimit($limit);
         $this->cursor = $cursor;
     }
 
@@ -148,8 +152,6 @@ class OpenIMAPFolderRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new OpenIMAPFolderEnvelope(
-            new OpenIMAPFolderBody($this)
-        );
+        return new OpenIMAPFolderEnvelope(new OpenIMAPFolderBody($this));
     }
 }

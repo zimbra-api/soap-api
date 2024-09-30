@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\{
     CalTZInfo,
     ExpandedRecurrenceCancel,
@@ -26,7 +32,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Check conflicts in recurrence against list of users.
  * Set {all} attribute to get all instances, even those without conflicts.  By default only instances that have
  * conflicts are returned.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -37,97 +43,97 @@ class CheckRecurConflictsRequest extends SoapRequest
 {
     /**
      * Start time in millis.  If not specified, defaults to current time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * End time in millis.  If not specified, unlimited
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Set this to get all instances, even those without conflicts.  By default only
      * instances that have conflicts are returned.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllInstances', setter: 'setAllInstances')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllInstances", setter: "setAllInstances")]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allInstances;
 
     /**
      * UID of appointment to exclude from free/busy search
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExcludeUid', setter: 'setExcludeUid')]
-    #[SerializedName('excludeUid')]
-    #[Type('string')]
+    #[Accessor(getter: "getExcludeUid", setter: "setExcludeUid")]
+    #[SerializedName("excludeUid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $excludeUid;
 
     /**
      * Timezones
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
-    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTimezones", setter: "setTimezones")]
+    #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
+    #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
     private $timezones = [];
 
     /**
      * Cancel expanded recurrences
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCancelComponents', setter: 'setCancelComponents')]
-    #[Type('array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>')]
-    #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCancelComponents", setter: "setCancelComponents")]
+    #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")]
+    #[XmlList(inline: true, entry: "cancel", namespace: "urn:zimbraMail")]
     private $cancelComponents = [];
 
     /**
      * Invite expanded recurrences
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
-    #[Type('array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>')]
-    #[XmlList(inline: true, entry: 'comp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInviteComponents", setter: "setInviteComponents")]
+    #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")]
+    #[XmlList(inline: true, entry: "comp", namespace: "urn:zimbraMail")]
     private $inviteComponents = [];
 
     /**
      * Except expanded recurrences
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getExceptComponents', setter: 'setExceptComponents')]
-    #[Type('array<Zimbra\Mail\Struct\ExpandedRecurrenceException>')]
-    #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getExceptComponents", setter: "setExceptComponents")]
+    #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")]
+    #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
     private $exceptComponents = [];
 
     /**
      * Freebusy user specifications
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserSpec>')]
-    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
+    #[Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")]
+    #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
     private $freebusyUsers = [];
 
     /**
@@ -150,11 +156,10 @@ class CheckRecurConflictsRequest extends SoapRequest
         array $timezones = [],
         array $components = [],
         array $freebusyUsers = []
-    )
-    {
+    ) {
         $this->setTimezones($timezones)
-             ->setComponents($components)
-             ->setFreebusyUsers($freebusyUsers);
+            ->setComponents($components)
+            ->setFreebusyUsers($freebusyUsers);
         if (null !== $startTime) {
             $this->setStartTime($startTime);
         }
@@ -278,7 +283,8 @@ class CheckRecurConflictsRequest extends SoapRequest
     public function setTimezones(array $timezones): self
     {
         $this->timezones = array_filter(
-            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+            $timezones,
+            static fn($timezone) => $timezone instanceof CalTZInfo
         );
         return $this;
     }
@@ -303,11 +309,9 @@ class CheckRecurConflictsRequest extends SoapRequest
     {
         if ($component instanceof ExpandedRecurrenceCancel) {
             $this->cancelComponents[] = $component;
-        }
-        else if ($component instanceof ExpandedRecurrenceInvite) {
+        } elseif ($component instanceof ExpandedRecurrenceInvite) {
             $this->inviteComponents[] = $component;
-        }
-        else if ($component instanceof ExpandedRecurrenceException) {
+        } elseif ($component instanceof ExpandedRecurrenceException) {
             $this->exceptComponents[] = $component;
         }
         return $this;
@@ -338,7 +342,9 @@ class CheckRecurConflictsRequest extends SoapRequest
     public function getComponents(): array
     {
         return array_merge(
-            $this->cancelComponents, $this->inviteComponents, $this->exceptComponents
+            $this->cancelComponents,
+            $this->inviteComponents,
+            $this->exceptComponents
         );
     }
 
@@ -351,7 +357,9 @@ class CheckRecurConflictsRequest extends SoapRequest
     public function setCancelComponents(array $components): self
     {
         $this->cancelComponents = array_filter(
-            $components, static fn ($component) => $component instanceof ExpandedRecurrenceCancel
+            $components,
+            static fn($component) => $component instanceof
+                ExpandedRecurrenceCancel
         );
         return $this;
     }
@@ -375,7 +383,9 @@ class CheckRecurConflictsRequest extends SoapRequest
     public function setInviteComponents(array $components): self
     {
         $this->inviteComponents = array_filter(
-            $components, static fn ($component) => $component instanceof ExpandedRecurrenceInvite
+            $components,
+            static fn($component) => $component instanceof
+                ExpandedRecurrenceInvite
         );
         return $this;
     }
@@ -399,7 +409,9 @@ class CheckRecurConflictsRequest extends SoapRequest
     public function setExceptComponents(array $components): self
     {
         $this->exceptComponents = array_filter(
-            $components, static fn ($component) => $component instanceof ExpandedRecurrenceException
+            $components,
+            static fn($component) => $component instanceof
+                ExpandedRecurrenceException
         );
         return $this;
     }
@@ -435,7 +447,8 @@ class CheckRecurConflictsRequest extends SoapRequest
     public function setFreebusyUsers(array $users): self
     {
         $this->freebusyUsers = array_filter(
-            $users, static fn ($user) => $user instanceof FreeBusyUserSpec
+            $users,
+            static fn($user) => $user instanceof FreeBusyUserSpec
         );
         return $this;
     }

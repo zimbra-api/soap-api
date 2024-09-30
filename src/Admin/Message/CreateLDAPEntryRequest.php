@@ -30,28 +30,25 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
 
     /**
      * A valid LDAP DN String (RFC 2253) that describes the new DN to create
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDn', setter: 'setDn')]
-    #[SerializedName('dn')]
-    #[Type('string')]
+    #[Accessor(getter: "getDn", setter: "setDn")]
+    #[SerializedName("dn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dn;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $dn
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $dn = '', array $attrs = []
-    )
+    public function __construct(string $dn = "", array $attrs = [])
     {
-        $this->setDn($dn)
-             ->setAttrs($attrs);
+        $this->setDn($dn)->setAttrs($attrs);
     }
 
     /**
@@ -81,8 +78,6 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateLDAPEntryEnvelope(
-            new CreateLDAPEntryBody($this)
-        );
+        return new CreateLDAPEntryEnvelope(new CreateLDAPEntryBody($this));
     }
 }

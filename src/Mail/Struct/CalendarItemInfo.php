@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * CalendarItemInfo class
@@ -21,181 +28,181 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CalendarItemInfo 
+class CalendarItemInfo
 {
     /**
      * Flags
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * iCalendar UID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Appointment ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Revision number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Modified date in seconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Modified sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Next alarm time
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName('nextAlarm')]
-    #[Type('int')]
+    #[Accessor(getter: "getNextAlarm", setter: "setNextAlarm")]
+    #[SerializedName("nextAlarm")]
+    #[Type("int")]
     #[XmlAttribute]
     private $nextAlarm;
 
     /**
      * Has exceptions but no series
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getOrphan', setter: 'setOrphan')]
-    #[SerializedName('orphan')]
-    #[Type('bool')]
+    #[Accessor(getter: "getOrphan", setter: "setOrphan")]
+    #[SerializedName("orphan")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $orphan;
 
     /**
      * Invites
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInvites', setter: 'setInvites')]
-    #[Type('array<Zimbra\Mail\Struct\Invitation>')]
-    #[XmlList(inline: true, entry: 'inv', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInvites", setter: "setInvites")]
+    #[Type("array<Zimbra\Mail\Struct\Invitation>")]
+    #[XmlList(inline: true, entry: "inv", namespace: "urn:zimbraMail")]
     private $invites = [];
 
     /**
      * Replies
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
-    #[SerializedName('replies')]
-    #[Type('array<Zimbra\Mail\Struct\CalendarReply>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCalendarReplies", setter: "setCalendarReplies")]
+    #[SerializedName("replies")]
+    #[Type("array<Zimbra\Mail\Struct\CalendarReply>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
     private $calendarReplies = [];
 
     /**
      * Metadata
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
+    #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
     private $metadatas = [];
 
     /**
@@ -236,11 +243,10 @@ class CalendarItemInfo
         array $invites = [],
         array $calendarReplies = [],
         array $metadatas = []
-    )
-    {
+    ) {
         $this->setInvites($invites)
-             ->setCalendarReplies($calendarReplies)
-             ->setMetadatas($metadatas);
+            ->setCalendarReplies($calendarReplies)
+            ->setMetadatas($metadatas);
         if (null !== $flags) {
             $this->setFlags($flags);
         }
@@ -577,7 +583,8 @@ class CalendarItemInfo
     public function setInvites(array $invites): self
     {
         $this->invites = array_filter(
-            $invites, static fn ($invite) => $invite instanceof Invitation
+            $invites,
+            static fn($invite) => $invite instanceof Invitation
         );
         return $this;
     }
@@ -601,7 +608,8 @@ class CalendarItemInfo
     public function setCalendarReplies(array $replies): self
     {
         $this->calendarReplies = array_filter(
-            $replies, static fn ($reply) => $reply instanceof CalendarReply
+            $replies,
+            static fn($reply) => $reply instanceof CalendarReply
         );
         return $this;
     }
@@ -625,7 +633,8 @@ class CalendarItemInfo
     public function setMetadatas(array $metadatas): self
     {
         $this->metadatas = array_filter(
-            $metadatas, static fn ($meta) => $meta instanceof MailCustomMetadata
+            $metadatas,
+            static fn($meta) => $meta instanceof MailCustomMetadata
         );
         return $this;
     }

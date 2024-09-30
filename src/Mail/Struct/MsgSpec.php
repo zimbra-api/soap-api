@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\MsgContent;
 use Zimbra\Common\Struct\AttributeName;
 
@@ -29,12 +35,12 @@ class MsgSpec
     /**
      * Message ID. Can contain a subpart identifier (e.g. "775-778") to return a message
      * stored as a subpart of some other mail-item, specifically for Messages stored as part of Appointments
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -42,36 +48,36 @@ class MsgSpec
      * Supply a "part" and the retrieved data will be on the specified message/rfc822 subpart.
      * If the part does not exist or is not a message/rfc822 part,
      * mail.NO_SUCH_PART MailServiceException will be thrown
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Set to return the raw message content rather than a parsed mime structure;
      * (default is unset. If message is too big or not ASCII, a content servlet URL is returned)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getRaw', setter: 'setRaw')]
-    #[SerializedName('raw')]
-    #[Type('bool')]
+    #[Accessor(getter: "getRaw", setter: "setRaw")]
+    #[SerializedName("raw")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $raw;
 
     /**
      * Set to mark the message as read, unset to leave the read status unchanged.
      * By default, the read status is left unchanged.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMarkRead', setter: 'setMarkRead')]
-    #[SerializedName('read')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMarkRead", setter: "setMarkRead")]
+    #[SerializedName("read")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $markRead;
 
@@ -79,12 +85,12 @@ class MsgSpec
      * Use {max-inlined-length} to limit the length of the text inlined into body <content>.
      * Only applicable when <raw> is unset. Ignored when <raw> is set.
      * (Default is unset, meaning no limit)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
-    #[SerializedName('max')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxInlinedLength", setter: "setMaxInlinedLength")]
+    #[SerializedName("max")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxInlinedLength;
 
@@ -92,57 +98,62 @@ class MsgSpec
      * If set, never inline raw <content> for messages, specify by <url> instead.
      * Only applicable when <raw> is set. Ignored when <raw> is unset.
      * (Default is unset - meaning inline content unless it is too big, in which case the <url> method will be used)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getUseContentUrl', setter: 'setUseContentUrl')]
-    #[SerializedName('useContentUrl')]
-    #[Type('bool')]
+    #[Accessor(getter: "getUseContentUrl", setter: "setUseContentUrl")]
+    #[SerializedName("useContentUrl")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $useContentUrl;
 
     /**
      * Set to return defanged HTML content by default. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName('html')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantHtml", setter: "setWantHtml")]
+    #[SerializedName("html")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantHtml;
 
     /**
      * Set to return IMAP UID. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName('wantImapUid')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantImapUid", setter: "setWantImapUid")]
+    #[SerializedName("wantImapUid")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantImapUid;
 
     /**
      * Set to return Modified Sequence. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName('wantModSeq')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getWantModifiedSequence",
+            setter: "setWantModifiedSequence"
+        )
+    ]
+    #[SerializedName("wantModSeq")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
     /**
      * Set to "neuter" <IMG> tags returned in HTML content; this involves
      * switching the <src> attribute to <dfsrc> so that images don't display by default (default is set.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeuter', setter: 'setNeuter')]
-    #[SerializedName('neuter')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeuter", setter: "setNeuter")]
+    #[SerializedName("neuter")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $neuter;
 
@@ -150,23 +161,23 @@ class MsgSpec
      * Recurrence ID in format YYYYMMDD[ThhmmssZ].
      * Used only when making GetMsg call to open an instance of a recurring appointment.
      * The value specified is the date/time data of the RECURRENCE-ID of the instance being requested.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName('ridZ')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurIdZ", setter: "setRecurIdZ")]
+    #[SerializedName("ridZ")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurIdZ;
 
     /**
      * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
-    #[SerializedName('needExp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedCanExpand", setter: "setNeedCanExpand")]
+    #[SerializedName("needExp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needCanExpand;
 
@@ -177,23 +188,23 @@ class MsgSpec
      * By default wantContent = "full"
      * Only applicable when <raw> is unset.
      * Note: Quoted text identification is a best effort. It is not supported by any RFCs
-     * 
+     *
      * @var MsgContent
      */
-    #[Accessor(getter: 'getWantContent', setter: 'setWantContent')]
-    #[SerializedName('wantContent')]
+    #[Accessor(getter: "getWantContent", setter: "setWantContent")]
+    #[SerializedName("wantContent")]
     #[XmlAttribute]
     private ?MsgContent $wantContent;
 
     /**
      * Requested headers. If <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
-    #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[Type("array<Zimbra\Common\Struct\AttributeName>")]
+    #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
     private $headers = [];
 
     /**
@@ -230,8 +241,7 @@ class MsgSpec
         ?bool $needCanExpand = null,
         ?MsgContent $wantContent = null,
         array $headers = []
-    )
-    {
+    ) {
         $this->setHeaders($headers);
         $this->wantContent = $wantContent;
         if (null !== $id) {
@@ -567,7 +577,8 @@ class MsgSpec
     public function setHeaders(array $headers): self
     {
         $this->headers = array_filter(
-            $headers, static fn ($header) => $header instanceof AttributeName
+            $headers,
+            static fn($header) => $header instanceof AttributeName
         );
         return $this;
     }

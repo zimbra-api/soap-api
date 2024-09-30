@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * DeleteheaderAction struct class
@@ -25,40 +31,40 @@ class DeleteheaderAction extends FilterAction
 {
     /**
      * if true start from last
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getLast', setter: 'setLast')]
-    #[SerializedName('last')]
-    #[Type('bool')]
+    #[Accessor(getter: "getLast", setter: "setLast")]
+    #[SerializedName("last")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $last;
 
     /**
      * offset
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * tests
-     * 
+     *
      * @var EditheaderTest
      */
-    #[Accessor(getter: 'getTest', setter: 'setTest')]
-    #[SerializedName('test')]
+    #[Accessor(getter: "getTest", setter: "setTest")]
+    #[SerializedName("test")]
     #[Type(EditheaderTest::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?EditheaderTest $test;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $last
      * @param int $offset
@@ -66,10 +72,12 @@ class DeleteheaderAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = null, ?bool $last = null, ?int $offset = null, ?EditheaderTest $test = null
-    )
-    {
-    	parent::__construct($index);
+        ?int $index = null,
+        ?bool $last = null,
+        ?int $offset = null,
+        ?EditheaderTest $test = null
+    ) {
+        parent::__construct($index);
         $this->test = $test;
         if (null !== $last) {
             $this->setLast($last);

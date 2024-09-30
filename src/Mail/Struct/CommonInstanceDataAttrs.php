@@ -36,22 +36,22 @@ class CommonInstanceDataAttrs
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
+     *
      * @var ParticipationStatus
      */
-    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName('ptst')]
+    #[Accessor(getter: "getPartStat", setter: "setPartStat")]
+    #[SerializedName("ptst")]
     #[XmlAttribute]
     private ?ParticipationStatus $partStat;
 
     /**
      * Recurrence-id string in UTC timezone
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName('ridZ')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurIdZ", setter: "setRecurIdZ")]
+    #[SerializedName("ridZ")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -60,12 +60,12 @@ class CommonInstanceDataAttrs
      * this is useful because the instance time zone may not be the same as the time zone of the requesting client;
      * when rendering an all-day appointment, the client must shift the appointment by the difference between the instance
      * time zone and its local time zone to determine the correct date to render the all-day block
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
-    #[SerializedName('tzo')]
-    #[Type('int')]
+    #[Accessor(getter: "getTzOffset", setter: "setTzOffset")]
+    #[SerializedName("tzo")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tzOffset;
 
@@ -75,152 +75,157 @@ class CommonInstanceDataAttrs
      * status is the true free-busy state that depends on appt/invite free-busy, event scheduling status
      * (confirmed vs. tentative vs. cancel), and more importantly, the attendee's participation status. For example,
      * actual free-busy is busy-Tentative for an event with Busy free-busy value until the attendee has acted on the invite.
-     * 
+     *
      * @var FreeBusyStatus
      */
-    #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
-    #[SerializedName('fba')]
+    #[Accessor(getter: "getFreeBusyActual", setter: "setFreeBusyActual")]
+    #[SerializedName("fba")]
     #[XmlAttribute]
     private ?FreeBusyStatus $freeBusyActual;
 
     /**
      * Percent complete - only for tasks
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTaskPercentComplete', setter: 'setTaskPercentComplete')]
-    #[SerializedName('percentComplete')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getTaskPercentComplete",
+            setter: "setTaskPercentComplete"
+        )
+    ]
+    #[SerializedName("percentComplete")]
+    #[Type("string")]
     #[XmlAttribute]
     private $taskPercentComplete;
 
     /**
      * If set, this is a recurring appointment
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsRecurring', setter: 'setIsRecurring')]
-    #[SerializedName('recur')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsRecurring", setter: "setIsRecurring")]
+    #[SerializedName("recur")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isRecurring;
 
     /**
      * If set, this is a recurring appointment with exceptions
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getHasExceptions', setter: 'setHasExceptions')]
-    #[SerializedName('hasEx')]
-    #[Type('bool')]
+    #[Accessor(getter: "getHasExceptions", setter: "setHasExceptions")]
+    #[SerializedName("hasEx")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasExceptions;
 
     /**
      * Priority
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName('priority')]
-    #[Type('string')]
+    #[Accessor(getter: "getPriority", setter: "setPriority")]
+    #[SerializedName("priority")]
+    #[Type("string")]
     #[XmlAttribute]
     private $priority;
 
     /**
      * Intended Free/Busy
-     * 
+     *
      * @var FreeBusyStatus
      */
-    #[Accessor(getter: 'getFreeBusyIntended', setter: 'setFreeBusyIntended')]
-    #[SerializedName('fb')]
+    #[Accessor(getter: "getFreeBusyIntended", setter: "setFreeBusyIntended")]
+    #[SerializedName("fb")]
     #[XmlAttribute]
     private ?FreeBusyStatus $freeBusyIntended;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
-     * 
+     *
      * @var Transparency
      */
-    #[Accessor(getter: 'getTransparency', setter: 'setTransparency')]
-    #[SerializedName('transp')]
+    #[Accessor(getter: "getTransparency", setter: "setTransparency")]
+    #[SerializedName("transp")]
     #[XmlAttribute]
     private ?Transparency $transparency;
 
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Location
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName('loc')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocation", setter: "setLocation")]
+    #[SerializedName("loc")]
+    #[Type("string")]
     #[XmlAttribute]
     private $location;
 
     /**
      * If set, this appointment has other attendees
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getHasOtherAttendees', setter: 'setHasOtherAttendees')]
-    #[SerializedName('otherAtt')]
-    #[Type('bool')]
+    #[Accessor(getter: "getHasOtherAttendees", setter: "setHasOtherAttendees")]
+    #[SerializedName("otherAtt")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasOtherAttendees;
 
     /**
      * Set if has alarm
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getHasAlarm', setter: 'setHasAlarm')]
-    #[SerializedName('alarm')]
-    #[Type('bool')]
+    #[Accessor(getter: "getHasAlarm", setter: "setHasAlarm")]
+    #[SerializedName("alarm")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $hasAlarm;
 
     /**
      * Default invite "am I organizer" flag
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsOrganizer', setter: 'setIsOrganizer')]
-    #[SerializedName('isOrg')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsOrganizer", setter: "setIsOrganizer")]
+    #[SerializedName("isOrg")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isOrganizer;
 
     /**
      * Default invite mail item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName('invId')]
-    #[Type('string')]
+    #[Accessor(getter: "getInvId", setter: "setInvId")]
+    #[SerializedName("invId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $invId;
 
     /**
      * Default invite component number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('compNum')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("compNum")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
@@ -228,77 +233,77 @@ class CommonInstanceDataAttrs
      * Status - TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
      * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED
      * where waiting and Deferred are custom values not found in the iCalendar spec.
-     * 
+     *
      * @var InviteStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private ?InviteStatus $status;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
-     * 
+     *
      * @var InviteClass
      */
-    #[Accessor(getter: 'getCalClass', setter: 'setCalClass')]
-    #[SerializedName('class')]
+    #[Accessor(getter: "getCalClass", setter: "setCalClass")]
+    #[SerializedName("class")]
     #[XmlAttribute]
     private ?InviteClass $calClass;
 
     /**
      * If set, this is an "all day" appointment
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
-    #[SerializedName('allDay')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllDay", setter: "setAllDay")]
+    #[SerializedName("allDay")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allDay;
 
     /**
      * Set if invite has changes that haven't been sent to attendees; for organizer only
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDraft', setter: 'setDraft')]
-    #[SerializedName('draft')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDraft", setter: "setDraft")]
+    #[SerializedName("draft")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $draft;
 
     /**
      * Set if attendees were never notified of this invite; for organizer only
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeverSent', setter: 'setNeverSent')]
-    #[SerializedName('neverSent')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeverSent", setter: "setNeverSent")]
+    #[SerializedName("neverSent")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $neverSent;
 
     /**
      * Due date in milliseconds. For tasks only
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTaskDueDate', setter: 'setTaskDueDate')]
-    #[SerializedName('dueDate')]
-    #[Type('int')]
+    #[Accessor(getter: "getTaskDueDate", setter: "setTaskDueDate")]
+    #[SerializedName("dueDate")]
+    #[Type("int")]
     #[XmlAttribute]
     private $taskDueDate;
 
     /**
      * Similar to the "tzo" attribute but for "dueDate". "tzoDue" can be different from
      * "tzo" if start date and due date lie on different sides of a daylight savings transition
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTaskTzOffsetDue', setter: 'setTaskTzOffsetDue')]
-    #[SerializedName('tzoDue')]
-    #[Type('int')]
+    #[Accessor(getter: "getTaskTzOffsetDue", setter: "setTaskTzOffsetDue")]
+    #[SerializedName("tzoDue")]
+    #[Type("int")]
     #[XmlAttribute]
     private $taskTzOffsetDue;
 
@@ -356,8 +361,7 @@ class CommonInstanceDataAttrs
         ?bool $neverSent = null,
         ?int $taskDueDate = null,
         ?int $taskTzOffsetDue = null
-    )
-    {
+    ) {
         $this->partStat = $partStat;
         $this->freeBusyActual = $freeBusyActual;
         $this->freeBusyIntended = $freeBusyIntended;

@@ -25,41 +25,41 @@ enum Frequency: string
      * Constant for value 'SEC'
      * @return string 'SEC'
      */
-    case SECOND = 'SEC';
+    case SECOND = "SEC";
 
     /**
      * Constant for value 'MIN'
      * @return string 'MIN'
      */
-    case MINUTE = 'MIN';
+    case MINUTE = "MIN";
 
     /**
      * Constant for value 'HOU'
      * @return string 'HOU'
      */
-    case HOUR = 'HOU';
+    case HOUR = "HOU";
 
     /**
      * Constant for value 'DAI'
      * @return string 'DAI'
      */
-    case DAY = 'DAI';
+    case DAY = "DAI";
 
     /**
      * Constant for value 'WEE'
      * @return string 'WEE'
      */
-    case WEEK = 'WEE';
+    case WEEK = "WEE";
 
     /**
      * Constant for value 'MON'
      * @return string 'MON'
      */
-    case MONTH = 'MON';
+    case MONTH = "MON";
 
     /**
      * Constant for value 'YEA'
      * @return string 'YEA'
      */
-    case YEAR = 'YEA';
+    case YEAR = "YEA";
 }

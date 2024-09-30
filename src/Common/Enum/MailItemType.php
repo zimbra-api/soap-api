@@ -25,113 +25,113 @@ enum MailItemType: string
      * Constant for value 'UNKNOWN'
      * @return string 'UNKNOWN'
      */
-    case UNKNOWN = 'UNKNOWN';
+    case UNKNOWN = "UNKNOWN";
 
     /**
      * Item is a standard Folder
      * @return string 'FOLDER'
      */
-    case FOLDER = 'FOLDER';
+    case FOLDER = "FOLDER";
 
     /**
      * Item is a saved search - SearchFolder
      * @return string 'SEARCHFOLDER'
      */
-    case SEARCHFOLDER = 'SEARCHFOLDER';
+    case SEARCHFOLDER = "SEARCHFOLDER";
 
     /**
      * Item is a user-created Tag
      * @return string 'TAG'
      */
-    case TAG = 'TAG';
+    case TAG = "TAG";
 
     /**
      * Item is a real, persisted Conversation
      * @return string 'CONVERSATION'
      */
-    case CONVERSATION = 'CONVERSATION';
+    case CONVERSATION = "CONVERSATION";
 
     /**
      * Item is a mail Message
      * @return string 'MESSAGE'
      */
-    case MESSAGE = 'MESSAGE';
+    case MESSAGE = "MESSAGE";
 
     /**
      * Item is a Contact
      * @return string 'CONTACT'
      */
-    case CONTACT = 'CONTACT';
+    case CONTACT = "CONTACT";
 
     /**
      * Item is a InviteMessage with a MIME part
      * @return string 'INVITE'
      */
-    case INVITE = 'INVITE';
+    case INVITE = "INVITE";
 
     /**
      * Item is a bare Document
      * @return string 'DOCUMENT'
      */
-    case DOCUMENT = 'DOCUMENT';
+    case DOCUMENT = "DOCUMENT";
 
     /**
      * Item is a Note
      * @return string 'NOTE'
      */
-    case NOTE = 'NOTE';
+    case NOTE = "NOTE";
 
     /**
      * Item is a memory-only system Flag
      * @return string 'FLAG'
      */
-    case FLAG = 'FLAG';
+    case FLAG = "FLAG";
 
     /**
      * Item is a calendar Appointment
      * @return string 'APPOINTMENT'
      */
-    case APPOINTMENT = 'APPOINTMENT';
+    case APPOINTMENT = "APPOINTMENT";
 
     /**
      * Item is a memory-only, 1-message VirtualConversation
      * @return string 'VIRTUAL_CONVERSATION'
      */
-    case VIRTUAL_CONVERSATION = 'VIRTUAL_CONVERSATION';
+    case VIRTUAL_CONVERSATION = "VIRTUAL_CONVERSATION";
 
     /**
      * Item is a Mountpoint pointing to a Folder, possibly in another user's Mailbox
      * @return string 'MOUNTPOINT'
      */
-    case MOUNTPOINT = 'MOUNTPOINT';
+    case MOUNTPOINT = "MOUNTPOINT";
 
     /**
      * Item is a WikiItem
      * @return string 'WIKI'
      */
-    case WIKI = 'WIKI';
+    case WIKI = "WIKI";
 
     /**
      * Item is a Task
      * @return string 'TASK'
      */
-    case TASK = 'TASK';
+    case TASK = "TASK";
 
     /**
      * Item is a Chat
      * @return string 'CHAT'
      */
-    case CHAT = 'CHAT';
+    case CHAT = "CHAT";
 
     /**
      * Item is a Comment
      * @return string 'COMMENT'
      */
-    case COMMENT = 'COMMENT';
+    case COMMENT = "COMMENT";
 
     /**
      * Item is a Link pointing to a Document
      * @return string 'LINK'
      */
-    case LINK = 'LINK';
+    case LINK = "LINK";
 }

@@ -27,13 +27,13 @@ class GetMailboxStatsResponse extends SoapResponse
 {
     /**
      * Statistics about mailboxes
-     * 
+     *
      * @var MailboxStats
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName('stats')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[SerializedName("stats")]
     #[Type(MailboxStats::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?MailboxStats $stats;
 
     /**

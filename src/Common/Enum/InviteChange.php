@@ -25,23 +25,23 @@ enum InviteChange: string
      * Constant for value 'subject'
      * @return string 'subject'
      */
-    case SUBJECT = 'subject';
+    case SUBJECT = "subject";
 
     /**
      * Constant for value 'location'
      * @return string 'location'
      */
-    case LOCATION = 'location';
+    case LOCATION = "location";
 
     /**
      * Constant for value 'time'
      * @return string 'time'
      */
-    case TIME = 'time';
+    case TIME = "time";
 
     /**
      * Constant for value 'recurrence'
      * @return string 'recurrence'
      */
-    case RECURRENCE = 'recurrence';
+    case RECURRENCE = "recurrence";
 }

@@ -28,46 +28,51 @@ class RecurIdInfo implements RecurIdInfoInterface
 {
     /**
      * Recurrence range type
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRecurrenceRangeType', setter: 'setRecurrenceRangeType')]
-    #[SerializedName('rangeType')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getRecurrenceRangeType",
+            setter: "setRecurrenceRangeType"
+        )
+    ]
+    #[SerializedName("rangeType")]
+    #[Type("int")]
     #[XmlAttribute]
     private $recurrenceRangeType;
 
     /**
      * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
-    #[SerializedName('recurId')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurrenceId", setter: "setRecurrenceId")]
+    #[SerializedName("recurId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurrenceId;
 
     /**
      * Timezone name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
-    #[Type('string')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
+    #[Type("string")]
     #[XmlAttribute]
     private $timezone;
 
     /**
      * Recurrence-id in UTC time zone; used in non-all-day appointments only
      * Format: YYMMDDTHHMMSSZ
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName('ridZ')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurIdZ", setter: "setRecurIdZ")]
+    #[SerializedName("ridZ")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -82,13 +87,13 @@ class RecurIdInfo implements RecurIdInfoInterface
      */
     public function __construct(
         int $recurrenceRangeType = 0,
-        string $recurrenceId = '',
+        string $recurrenceId = "",
         ?string $timezone = null,
         ?string $recurIdZ = null
-    )
-    {
-        $this->setRecurrenceRangeType($recurrenceRangeType)
-             ->setRecurrenceId($recurrenceId);
+    ) {
+        $this->setRecurrenceRangeType($recurrenceRangeType)->setRecurrenceId(
+            $recurrenceId
+        );
         if (null !== $timezone) {
             $this->setTimezone($timezone);
         }
@@ -115,7 +120,9 @@ class RecurIdInfo implements RecurIdInfoInterface
      */
     public function setRecurrenceRangeType(int $rangeType): self
     {
-        $this->recurrenceRangeType = RangeType::tryFrom($rangeType) ? $rangeType : 1;
+        $this->recurrenceRangeType = RangeType::tryFrom($rangeType)
+            ? $rangeType
+            : 1;
         return $this;
     }
 

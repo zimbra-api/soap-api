@@ -25,56 +25,56 @@ class SimpleSessionInfo
 {
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Session ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName('sid')]
-    #[Type('string')]
+    #[Accessor(getter: "getSessionId", setter: "setSessionId")]
+    #[SerializedName("sid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sessionId;
 
     /**
      * Creation date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCreatedDate', setter: 'setCreatedDate')]
-    #[SerializedName('cd')]
-    #[Type('int')]
+    #[Accessor(getter: "getCreatedDate", setter: "setCreatedDate")]
+    #[SerializedName("cd")]
+    #[Type("int")]
     #[XmlAttribute]
     private $createdDate;
 
     /**
      * Last accessed date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastAccessedDate', setter: 'setLastAccessedDate')]
-    #[SerializedName('ld')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastAccessedDate", setter: "setLastAccessedDate")]
+    #[SerializedName("ld")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastAccessedDate;
 
@@ -89,19 +89,17 @@ class SimpleSessionInfo
      * @return self
      */
     public function __construct(
-        string $zimbraId = '',
-        string $name = '',
-        string $sessionId = '',
+        string $zimbraId = "",
+        string $name = "",
+        string $sessionId = "",
         int $createdDate = 0,
         int $lastAccessedDate = 0
-    )
-    {
+    ) {
         $this->setZimbraId($zimbraId)
-             ->setName($name)
-             ->setSessionId($sessionId)
-             ->setCreatedDate($createdDate)
-             ->setLastAccessedDate($lastAccessedDate);
-
+            ->setName($name)
+            ->setSessionId($sessionId)
+            ->setCreatedDate($createdDate)
+            ->setLastAccessedDate($lastAccessedDate);
     }
 
     /**

@@ -25,18 +25,18 @@ class ZimletInfo extends AdminObjectInfo
 {
     /**
      * Has keyword
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHasKeyword', setter: 'setHasKeyword')]
-    #[SerializedName('hasKeyword')]
-    #[Type('string')]
+    #[Accessor(getter: "getHasKeyword", setter: "setHasKeyword")]
+    #[SerializedName("hasKeyword")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hasKeyword;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  string $id
      * @param  array  $attrs
@@ -44,9 +44,11 @@ class ZimletInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', array $attrs = [], ?string $hasKeyword = null
-    )
-    {
+        string $name = "",
+        string $id = "",
+        array $attrs = [],
+        ?string $hasKeyword = null
+    ) {
         parent::__construct($name, $id, $attrs);
         if (null !== $hasKeyword) {
             $this->setHasKeyword($hasKeyword);

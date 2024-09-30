@@ -10,29 +10,36 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace,
+    XmlRoot
+};
 use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * GetAvailableLocalesEnvelope class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: 'urn')]
-#[XmlRoot(name: 'soap:Envelope')]
+#[XmlNamespace(uri: "urn:zimbraAccount", prefix: "urn")]
+#[XmlRoot(name: "soap:Envelope")]
 class GetAvailableLocalesEnvelope extends SoapEnvelope
 {
     /**
      * Soap body
-     * 
+     *
      * @var SoapBodyInterface
      */
-    #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName('Body')]
+    #[Accessor(getter: "getBody", setter: "setBody")]
+    #[SerializedName("Body")]
     #[Type(GetAvailableLocalesBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?SoapBodyInterface $body = null;
@@ -45,9 +52,9 @@ class GetAvailableLocalesEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?GetAvailableLocalesBody $body = null, ?SoapHeaderInterface $header = null
-    )
-    {
+        ?GetAvailableLocalesBody $body = null,
+        ?SoapHeaderInterface $header = null
+    ) {
         parent::__construct($body, $header);
     }
 

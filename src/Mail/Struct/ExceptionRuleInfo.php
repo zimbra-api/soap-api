@@ -23,28 +23,30 @@ use Zimbra\Common\Struct\{ExceptionRuleInfoInterface, RecurrenceInfoInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionRuleInfoInterface
+class ExceptionRuleInfo extends RecurIdInfo implements
+    RecurRuleBase,
+    ExceptionRuleInfoInterface
 {
     /**
      * Dates or rules which ADD instances. ADDs are evaluated before EXCLUDEs
-     * 
+     *
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: 'getAdd', setter: 'setAdd')]
-    #[SerializedName('add')]
+    #[Accessor(getter: "getAdd", setter: "setAdd")]
+    #[SerializedName("add")]
     #[Type(RecurrenceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RecurrenceInfoInterface $add;
 
     /**
      * Dates or rules which EXCLUDE instances
-     * 
+     *
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: 'getExclude', setter: 'setExclude')]
-    #[SerializedName('exclude')]
+    #[Accessor(getter: "getExclude", setter: "setExclude")]
+    #[SerializedName("exclude")]
     #[Type(RecurrenceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RecurrenceInfoInterface $exclude;
 
     /**
@@ -57,9 +59,8 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     public function __construct(
         ?RecurrenceInfoInterface $add = null,
         ?RecurrenceInfoInterface $exclude = null
-    )
-    {
-        parent::__construct(-1, '');
+    ) {
+        parent::__construct(-1, "");
         $this->add = $add;
         $this->exclude = $exclude;
     }

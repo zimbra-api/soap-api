@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetContactBackupListRequest class
  * Get list of available contact backups
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

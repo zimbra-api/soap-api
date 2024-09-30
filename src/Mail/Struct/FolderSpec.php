@@ -25,22 +25,22 @@ class FolderSpec
 {
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $folder
      * @return self
      */
-    public function __construct(string $folder = '')
+    public function __construct(string $folder = "")
     {
         $this->setFolder($folder);
     }

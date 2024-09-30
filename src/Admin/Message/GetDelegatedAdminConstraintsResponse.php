@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetDelegatedAdminConstraintsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class GetDelegatedAdminConstraintsResponse extends SoapResponse
 {
     /**
      * Constraint attributes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Admin\Struct\ConstraintAttr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Admin\Struct\ConstraintAttr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrs = [];
 
     /**
@@ -55,7 +55,8 @@ class GetDelegatedAdminConstraintsResponse extends SoapResponse
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof ConstraintAttr
+            $attrs,
+            static fn($attr) => $attr instanceof ConstraintAttr
         );
         return $this;
     }

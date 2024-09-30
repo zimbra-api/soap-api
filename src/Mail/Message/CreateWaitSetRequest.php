@@ -10,9 +10,21 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\InterestType;
-use Zimbra\Common\Struct\{CreateWaitSetReq, SoapEnvelopeInterface, SoapRequest, WaitSetAddSpec};
+use Zimbra\Common\Struct\{
+    CreateWaitSetReq,
+    SoapEnvelopeInterface,
+    SoapRequest,
+    WaitSetAddSpec
+};
 
 /**
  * CreateWaitSetRequest class
@@ -37,14 +49,14 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * t: tasks
      * d: documents
      * all: all types (equiv to "f,m,c,a,t,d")
-     * 
+     *
      * This is used if types isn't specified for an account
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName('defTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultInterests", setter: "setDefaultInterests")]
+    #[SerializedName("defTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultInterests;
 
@@ -58,25 +70,25 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * <WaitSetRequest> passing in your previous sequence number.
      * The server will attempt to resynchronize the waitset using the sequence number you provide
      * (the server's ability to do this is limited by the RedoLogs that are available)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllAccounts', setter: 'setAllAccounts')]
-    #[SerializedName('allAccounts')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllAccounts", setter: "setAllAccounts")]
+    #[SerializedName("allAccounts")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allAccounts;
 
     /**
      * Waitsets to add
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[SerializedName('add')]
-    #[Type('array<Zimbra\Common\Struct\WaitSetAddSpec>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[SerializedName("add")]
+    #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraMail")]
     private $accounts = [];
 
     /**
@@ -88,11 +100,11 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * @return self
      */
     public function __construct(
-        string $defaultInterests = '', ?bool $allAccounts = null, array $accounts = []
-    )
-    {
-        $this->setDefaultInterests($defaultInterests)
-             ->setAccounts($accounts);
+        string $defaultInterests = "",
+        ?bool $allAccounts = null,
+        array $accounts = []
+    ) {
+        $this->setDefaultInterests($defaultInterests)->setAccounts($accounts);
         if (null !== $allAccounts) {
             $this->setAllAccounts($allAccounts);
         }
@@ -119,7 +131,8 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     public function setAccounts(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof WaitSetAddSpec
+            $accounts,
+            static fn($account) => $account instanceof WaitSetAddSpec
         );
         return $this;
     }
@@ -153,10 +166,10 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     public function setDefaultInterests(string $defaultInterests): self
     {
         $types = array_filter(
-            explode(',', $defaultInterests),
-            static fn ($type) => InterestType::tryFrom($type) !== null
+            explode(",", $defaultInterests),
+            static fn($type) => InterestType::tryFrom($type) !== null
         );
-        $this->defaultInterests = implode(',', array_unique($types));
+        $this->defaultInterests = implode(",", array_unique($types));
         return $this;
     }
 
@@ -187,8 +200,6 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateWaitSetEnvelope(
-            new CreateWaitSetBody($this)
-        );
+        return new CreateWaitSetEnvelope(new CreateWaitSetBody($this));
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * TzFixupRuleMatchRules struct class
@@ -25,51 +31,51 @@ class TzFixupRuleMatchRules
 {
     /**
      * Standard match rule
-     * 
+     *
      * @var TzFixupRuleMatchRule
      */
-    #[Accessor(getter: 'getStandard', setter: 'setStandard')]
-    #[SerializedName('standard')]
+    #[Accessor(getter: "getStandard", setter: "setStandard")]
+    #[SerializedName("standard")]
     #[Type(TzFixupRuleMatchRule::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private TzFixupRuleMatchRule $standard;
 
     /**
      * Daylight saving match rule
-     * 
+     *
      * @var TzFixupRuleMatchRule
      */
-    #[Accessor(getter: 'getDaylight', setter: 'setDaylight')]
-    #[SerializedName('daylight')]
+    #[Accessor(getter: "getDaylight", setter: "setDaylight")]
+    #[SerializedName("daylight")]
     #[Type(TzFixupRuleMatchRule::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private TzFixupRuleMatchRule $daylight;
 
     /**
      * Offset from UTC in standard time; local = UTC + offset
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStdOffset', setter: 'setStdOffset')]
-    #[SerializedName('stdoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getStdOffset", setter: "setStdOffset")]
+    #[SerializedName("stdoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $stdOffset;
 
     /**
      * Offset from UTC in daylight time; present only if DST is used
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDstOffset', setter: 'setDstOffset')]
-    #[SerializedName('dayoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getDstOffset", setter: "setDstOffset")]
+    #[SerializedName("dayoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $dstOffset;
 
     /**
      * Constructor
-     * 
+     *
      * @param TzFixupRuleMatchRule $standard
      * @param TzFixupRuleMatchRule $daylight
      * @param int $stdoff
@@ -81,12 +87,11 @@ class TzFixupRuleMatchRules
         TzFixupRuleMatchRule $daylight,
         int $stdoff = 0,
         int $dayoff = 0
-    )
-    {
+    ) {
         $this->setStandard($standard)
-             ->setDaylight($daylight)
-             ->setStdOffset($stdoff)
-             ->setDstOffset($dayoff);
+            ->setDaylight($daylight)
+            ->setStdOffset($stdoff)
+            ->setDstOffset($dayoff);
     }
 
     /**

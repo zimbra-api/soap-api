@@ -27,12 +27,12 @@ class GetGrantsResponse extends SoapResponse
 {
     /**
      * Information about grants
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[Type('array<Zimbra\Admin\Struct\GrantInfo>')]
-    #[XmlList(inline: true, entry: 'grant', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getGrants", setter: "setGrants")]
+    #[Type("array<Zimbra\Admin\Struct\GrantInfo>")]
+    #[XmlList(inline: true, entry: "grant", namespace: "urn:zimbraAdmin")]
     private $grants = [];
 
     /**
@@ -55,7 +55,8 @@ class GetGrantsResponse extends SoapResponse
     public function setGrants(array $grants): self
     {
         $this->grants = array_filter(
-            $grants, static fn ($grant) => $grant instanceof GrantInfo
+            $grants,
+            static fn($grant) => $grant instanceof GrantInfo
         );
         return $this;
     }

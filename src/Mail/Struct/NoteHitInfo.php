@@ -26,12 +26,12 @@ class NoteHitInfo extends NoteInfo implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
@@ -71,8 +71,7 @@ class NoteHitInfo extends NoteInfo implements SearchHit
         ?int $modifiedSequence = null,
         ?string $content = null,
         array $metadatas = []
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $revision,

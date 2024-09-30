@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllAccountsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class GetAllAccountsResponse extends SoapResponse
 {
     /**
      * Information on accounts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccountList', setter: 'setAccountList')]
-    #[Type('array<Zimbra\Admin\Struct\AccountInfo>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccountList", setter: "setAccountList")]
+    #[Type("array<Zimbra\Admin\Struct\AccountInfo>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
@@ -55,7 +55,8 @@ class GetAllAccountsResponse extends SoapResponse
     public function setAccountList(array $accounts): self
     {
         $this->accounts = array_filter(
-            $accounts, static fn ($account) => $account instanceof AccountInfo
+            $accounts,
+            static fn($account) => $account instanceof AccountInfo
         );
         return $this;
     }

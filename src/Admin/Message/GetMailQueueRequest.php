@@ -17,10 +17,10 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetMailQueueRequest request class
  * Summarize and/or search a particular mail queue on a particular server.
- * 
+ *
  * The admin SOAP server initiates a MTA queue scan (via ssh) and then caches the result of the queue scan.
- * To force a queue scan, specify scan=1 in the request. 
- * 
+ * To force a queue scan, specify scan=1 in the request.
+ *
  * The response has two parts.
  *  - <qs> elements summarize queue by various types of data (sender addresses, recipient domain, etc).
  *    Only the deferred queue has error summary type.
@@ -29,7 +29,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * This allows us to let the user dictate when to do a queue scan.
  *
  * The scan-flag in the response indicates that the server has not completed scanning the MTA queue,
- * and that this scan is in progress, and the client should ask again in a little while. 
+ * and that this scan is in progress, and the client should ask again in a little while.
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -41,13 +41,13 @@ class GetMailQueueRequest extends SoapRequest
 {
     /**
      * Server Mail Queue Query
-     * 
+     *
      * @var Server
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(Server::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private Server $server;
 
     /**
@@ -88,8 +88,6 @@ class GetMailQueueRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetMailQueueEnvelope(
-            new GetMailQueueBody($this)
-        );
+        return new GetMailQueueEnvelope(new GetMailQueueBody($this));
     }
 }

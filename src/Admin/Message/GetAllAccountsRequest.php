@@ -28,35 +28,37 @@ class GetAllAccountsRequest extends SoapRequest
 {
     /**
      * Server
-     * 
+     *
      * @var ServerSelector
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ServerSelector $server;
 
     /**
      * Domain
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainSelector $domain;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ServerSelector $server
      * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(?ServerSelector $server = null, ?DomainSelector $domain = null)
-    {
+    public function __construct(
+        ?ServerSelector $server = null,
+        ?DomainSelector $domain = null
+    ) {
         $this->server = $server;
         $this->domain = $domain;
     }
@@ -110,8 +112,6 @@ class GetAllAccountsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllAccountsEnvelope(
-            new GetAllAccountsBody($this)
-        );
+        return new GetAllAccountsEnvelope(new GetAllAccountsBody($this));
     }
 }

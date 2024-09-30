@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * VCardInfo class
@@ -26,44 +32,44 @@ class VCardInfo
 {
     /**
      * Message ID.  Use in conjunction with part-identifier
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Part identifier.  Use in conjunction with message-id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Uploaded attachment ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachId', setter: 'setAttachId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachId", setter: "setAttachId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachId;
 
     /**
      * inlined VCARD data
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
@@ -81,8 +87,7 @@ class VCardInfo
         ?string $part = null,
         ?string $attachId = null,
         ?string $value = null
-    )
-    {
+    ) {
         if (null !== $messageId) {
             $this->setMessageId($messageId);
         }

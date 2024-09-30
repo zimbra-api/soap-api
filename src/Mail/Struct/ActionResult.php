@@ -26,45 +26,45 @@ class ActionResult
 {
     /**
      * Comma-separated list of ids which have been successfully processed
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Operation
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
-    #[Type('string')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
+    #[Type("string")]
     #[XmlAttribute]
     private $operation;
 
     /**
      * Comma-separated list of non-existent ids (if requested)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
-    #[SerializedName('nei')]
-    #[Type('string')]
+    #[Accessor(getter: "getNonExistentIds", setter: "setNonExistentIds")]
+    #[SerializedName("nei")]
+    #[Type("string")]
     #[XmlAttribute]
     private $nonExistentIds;
 
     /**
      * Comma-separated list of newly created ids (if requested)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewlyCreatedIds', setter: 'setNewlyCreatedIds')]
-    #[SerializedName('nci')]
-    #[Type('string')]
+    #[Accessor(getter: "getNewlyCreatedIds", setter: "setNewlyCreatedIds")]
+    #[SerializedName("nci")]
+    #[Type("string")]
     #[XmlAttribute]
     private $newlyCreatedIds;
 
@@ -78,14 +78,12 @@ class ActionResult
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $operation = '',
+        string $id = "",
+        string $operation = "",
         ?string $nonExistentIds = null,
         ?string $newlyCreatedIds = null
-    )
-    {
-        $this->setId($id)
-             ->setOperation($operation);
+    ) {
+        $this->setId($id)->setOperation($operation);
         if (null !== $nonExistentIds) {
             $this->setNonExistentIds($nonExistentIds);
         }

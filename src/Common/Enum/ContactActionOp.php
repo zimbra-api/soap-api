@@ -25,35 +25,35 @@ enum ContactActionOp: string
      * Constant for value 'move'
      * @return string 'move'
      */
-    case MOVE = 'move';
+    case MOVE = "move";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    case DELETE = 'delete';
+    case DELETE = "delete";
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    case FLAG = 'flag';
+    case FLAG = "flag";
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    case TRASH = 'trash';
+    case TRASH = "trash";
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    case TAG = 'tag';
+    case TAG = "tag";
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    case UPDATE = 'update';
+    case UPDATE = "update";
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllVolumesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class GetAllVolumesResponse extends SoapResponse
 {
     /**
      * Information about volumes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
-    #[Type('array<Zimbra\Admin\Struct\VolumeInfo>')]
-    #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getVolumes", setter: "setVolumes")]
+    #[Type("array<Zimbra\Admin\Struct\VolumeInfo>")]
+    #[XmlList(inline: true, entry: "volume", namespace: "urn:zimbraAdmin")]
     private $volumes = [];
 
     /**
@@ -55,7 +55,8 @@ class GetAllVolumesResponse extends SoapResponse
     public function setVolumes(array $volumes): self
     {
         $this->volumes = array_filter(
-            $volumes, static fn ($volume) => $volume instanceof VolumeInfo
+            $volumes,
+            static fn($volume) => $volume instanceof VolumeInfo
         );
         return $this;
     }

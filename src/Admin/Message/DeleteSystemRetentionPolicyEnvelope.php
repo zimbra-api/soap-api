@@ -10,30 +10,37 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace,
+    XmlRoot
+};
 use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * DeleteSystemRetentionPolicyEnvelope class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
-#[XmlNamespace(uri: 'urn:zimbraMail', prefix: 'urn1')]
-#[XmlRoot(name: 'soap:Envelope')]
+#[XmlNamespace(uri: "urn:zimbraAdmin", prefix: "urn")]
+#[XmlNamespace(uri: "urn:zimbraMail", prefix: "urn1")]
+#[XmlRoot(name: "soap:Envelope")]
 class DeleteSystemRetentionPolicyEnvelope extends SoapEnvelope
 {
     /**
      * Soap body
-     * 
+     *
      * @var SoapBodyInterface
      */
-    #[Accessor(getter: 'getBody', setter: 'setBody')]
-    #[SerializedName('Body')]
+    #[Accessor(getter: "getBody", setter: "setBody")]
+    #[SerializedName("Body")]
     #[Type(DeleteSystemRetentionPolicyBody::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?SoapBodyInterface $body = null;
@@ -46,9 +53,9 @@ class DeleteSystemRetentionPolicyEnvelope extends SoapEnvelope
      * @return self
      */
     public function __construct(
-        ?DeleteSystemRetentionPolicyBody $body = null, ?SoapHeaderInterface $header = null
-    )
-    {
+        ?DeleteSystemRetentionPolicyBody $body = null,
+        ?SoapHeaderInterface $header = null
+    ) {
         parent::__construct($body, $header);
     }
 

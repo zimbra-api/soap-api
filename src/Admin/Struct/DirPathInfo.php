@@ -25,62 +25,62 @@ class DirPathInfo
 {
     /**
      * Path
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Flag whether exists
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isExists', setter: 'setExists')]
-    #[SerializedName('exists')]
-    #[Type('bool')]
+    #[Accessor(getter: "isExists", setter: "setExists")]
+    #[SerializedName("exists")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $exists;
 
     /**
      * Flag whether is directory
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDirectory', setter: 'setIsDirectory')]
-    #[SerializedName('isDirectory')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDirectory", setter: "setIsDirectory")]
+    #[SerializedName("isDirectory")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $directory;
 
     /**
      * Path is readable
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isReadable', setter: 'setReadable')]
-    #[SerializedName('readable')]
-    #[Type('bool')]
+    #[Accessor(getter: "isReadable", setter: "setReadable")]
+    #[SerializedName("readable")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $readable;
 
     /**
      * Path is writable
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isWritable', setter: 'setWritable')]
-    #[SerializedName('writable')]
-    #[Type('bool')]
+    #[Accessor(getter: "isWritable", setter: "setWritable")]
+    #[SerializedName("writable")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $writable;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $path
      * @param bool   $exists
      * @param bool   $directory
@@ -89,18 +89,17 @@ class DirPathInfo
      * @return self
      */
     public function __construct(
-        string $path = '',
+        string $path = "",
         bool $exists = false,
         bool $directory = false,
         bool $readable = false,
         bool $writable = false
-    )
-    {
+    ) {
         $this->setPath($path)
-             ->setExists($exists)
-             ->setIsDirectory($directory)
-             ->setReadable($readable)
-             ->setWritable($writable);
+            ->setExists($exists)
+            ->setIsDirectory($directory)
+            ->setReadable($readable)
+            ->setWritable($writable);
     }
 
     /**

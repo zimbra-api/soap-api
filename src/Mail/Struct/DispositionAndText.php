@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * DispositionAndText class
@@ -26,22 +32,22 @@ class DispositionAndText
     /**
      * Disposition.  Sections of text that are identical to both versions are indicated with
      * disp="common".  For each conflict the chunk will show disp="first" or disp="second"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisposition', setter: 'setDisposition')]
-    #[SerializedName('disp')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisposition", setter: "setDisposition")]
+    #[SerializedName("disp")]
+    #[Type("string")]
     #[XmlAttribute]
     private $disposition;
 
     /**
      * Text
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getText', setter: 'setText')]
-    #[Type('string')]
+    #[Accessor(getter: "getText", setter: "setText")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $text;
 
@@ -53,9 +59,9 @@ class DispositionAndText
      * @return self
      */
     public function __construct(
-        ?string $disposition = null, ?string $text = null
-    )
-    {
+        ?string $disposition = null,
+        ?string $text = null
+    ) {
         if (null !== $disposition) {
             $this->setDisposition($disposition);
         }

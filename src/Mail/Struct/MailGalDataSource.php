@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\DataSource;
 
 /**
  * MailGalDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct

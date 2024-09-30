@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DistributionListActionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message

@@ -11,12 +11,17 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SearchDirectoryRequest class
  * Search directory
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,131 +34,131 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxResults', setter: 'setMaxResults')]
-    #[SerializedName('maxResults')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxResults", setter: "setMaxResults")]
+    #[SerializedName("maxResults")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxResults;
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * The domain name to limit the search to
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * applyCos - Flag whether or not to apply the COS policy to account.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
-    #[SerializedName('applyCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "getApplyCos", setter: "setApplyCos")]
+    #[SerializedName("applyCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyCos;
 
     /**
      * whether or not to apply the global config attrs to account.
      * specify 0 (false) if only requesting attrs that aren't inherited from global config
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName('applyConfig')]
-    #[Type('bool')]
+    #[Accessor(getter: "getApplyConfig", setter: "setApplyConfig")]
+    #[SerializedName("applyConfig")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyConfig;
 
     /**
      * Name of attribute to sort on. Default is the account name.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * Comma-separated list of types to return.
      * Legal values are: accounts|distributionlists|aliases|resources|domains|coses (default is accounts)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getTypes", setter: "setTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $types;
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
-    #[SerializedName('sortAscending')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSortAscending", setter: "setSortAscending")]
+    #[SerializedName("sortAscending")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sortAscending;
 
     /**
      * Whether response should be count only. Default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCountOnly', setter: 'setCountOnly')]
-    #[SerializedName('countOnly')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCountOnly", setter: "setCountOnly")]
+    #[SerializedName("countOnly")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isCountOnly;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $query
      * @param  int $maxResults
      * @param  int $limit
@@ -181,8 +186,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
         ?bool $sortAscending = null,
         ?bool $isCountOnly = null,
         ?string $attrs = null
-    )
-    {
+    ) {
         if (null !== $query) {
             $this->setQuery($query);
         }
@@ -468,8 +472,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchDirectoryEnvelope(
-            new SearchDirectoryBody($this)
-        );
+        return new SearchDirectoryEnvelope(new SearchDirectoryBody($this));
     }
 }

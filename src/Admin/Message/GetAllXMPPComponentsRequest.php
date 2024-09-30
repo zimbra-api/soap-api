@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllXMPPComponentsRequest class
  * Get all XMPP components
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

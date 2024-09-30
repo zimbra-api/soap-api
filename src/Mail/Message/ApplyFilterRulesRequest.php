@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\IdsAttr;
 use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
@@ -21,7 +27,7 @@ use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
  * existing messages that were affected.
  *
  * Note that redirect actions are ignored when applying filter rules to existing messages.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,36 +38,36 @@ class ApplyFilterRulesRequest extends SoapRequest
 {
     /**
      * Filter rules
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
-    #[SerializedName('filterRules')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFilterRules", setter: "setFilterRules")]
+    #[SerializedName("filterRules")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
     private $filterRules = [];
 
     /**
      * Comma-separated list of message IDs
-     * 
+     *
      * @var IdsAttr
      */
-    #[Accessor(getter: 'getMsgIds', setter: 'setMsgIds')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
+    #[SerializedName("m")]
     #[Type(IdsAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?IdsAttr $msgIds;
 
     /**
      * Query string
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $query;
 
     /**
@@ -73,9 +79,10 @@ class ApplyFilterRulesRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
-    )
-    {
+        array $filterRules = [],
+        ?IdsAttr $msgIds = null,
+        ?string $query = null
+    ) {
         $this->setFilterRules($filterRules);
         $this->msgIds = $msgIds;
         if (null !== $query) {
@@ -104,7 +111,8 @@ class ApplyFilterRulesRequest extends SoapRequest
     public function setFilterRules(array $rules): self
     {
         $this->filterRules = array_filter(
-            $rules, static fn ($rule) => $rule instanceof NamedElement
+            $rules,
+            static fn($rule) => $rule instanceof NamedElement
         );
         return $this;
     }
@@ -168,8 +176,6 @@ class ApplyFilterRulesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ApplyFilterRulesEnvelope(
-            new ApplyFilterRulesBody($this)
-        );
+        return new ApplyFilterRulesEnvelope(new ApplyFilterRulesBody($this));
     }
 }

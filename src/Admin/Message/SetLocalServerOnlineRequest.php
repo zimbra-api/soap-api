@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SetLocalServerOnlineRequest class
  * Set local server online
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

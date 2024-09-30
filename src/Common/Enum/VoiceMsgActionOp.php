@@ -25,29 +25,29 @@ enum VoiceMsgActionOp: string
      * Constant for value 'move'
      * @return string 'move'
      */
-    case MOVE = 'move';
+    case MOVE = "move";
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    case READ = 'read';
+    case READ = "read";
 
     /**
      * Constant for value '!read'
      * @return string '!read'
      */
-    case NOT_READ = '!read';
+    case NOT_READ = "!read";
 
     /**
      * Constant for value 'empty'
      * @return string 'empty'
      */
-    case IS_EMPTY = 'empty';
+    case IS_EMPTY = "empty";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    case DELETE = 'delete';
+    case DELETE = "delete";
 }

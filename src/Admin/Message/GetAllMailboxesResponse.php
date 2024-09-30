@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\MailboxInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllMailboxesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,33 +33,33 @@ class GetAllMailboxesResponse extends SoapResponse
 {
     /**
      * Mailboxes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMboxes', setter: 'setMboxes')]
-    #[Type('array<Zimbra\Admin\Struct\MailboxInfo>')]
-    #[XmlList(inline: true, entry: 'mbox', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMboxes", setter: "setMboxes")]
+    #[Type("array<Zimbra\Admin\Struct\MailboxInfo>")]
+    #[XmlList(inline: true, entry: "mbox", namespace: "urn:zimbraAdmin")]
     private $mboxes = [];
 
     /**
      * 1 (true) if more mailboxes left to return
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Total number of mailboxes that matched search (not affected by more/offset)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName('searchTotal')]
-    #[Type('int')]
+    #[Accessor(getter: "getSearchTotal", setter: "setSearchTotal")]
+    #[SerializedName("searchTotal")]
+    #[Type("int")]
     #[XmlAttribute]
     private $searchTotal;
 
@@ -65,11 +71,12 @@ class GetAllMailboxesResponse extends SoapResponse
      * @param array $mboxes
      * @return self
      */
-    public function __construct(bool $more = false, int $searchTotal = 0, array $mboxes = [])
-    {
-        $this->setMore($more)
-             ->setSearchTotal($searchTotal)
-             ->setMboxes($mboxes);
+    public function __construct(
+        bool $more = false,
+        int $searchTotal = 0,
+        array $mboxes = []
+    ) {
+        $this->setMore($more)->setSearchTotal($searchTotal)->setMboxes($mboxes);
     }
 
     /**
@@ -125,7 +132,8 @@ class GetAllMailboxesResponse extends SoapResponse
     public function setMboxes(array $mboxes): self
     {
         $this->mboxes = array_filter(
-            $mboxes, static fn ($mbox) => $mbox instanceof MailboxInfo
+            $mboxes,
+            static fn($mbox) => $mbox instanceof MailboxInfo
         );
         return $this;
     }

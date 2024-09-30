@@ -26,12 +26,12 @@ class WikiHitInfo extends CommonDocumentInfo implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
@@ -91,8 +91,7 @@ class WikiHitInfo extends CommonDocumentInfo implements SearchHit
         array $metadatas = [],
         ?string $fragment = null,
         ?Acl $acl = null
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $uuid,

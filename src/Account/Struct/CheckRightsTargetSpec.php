@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\{TargetBy, TargetType};
 
 /**
@@ -27,39 +33,39 @@ class CheckRightsTargetSpec
     /**
      * @var TargetType
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private TargetType $targetType;
 
     /**
      * @var TargetBy
      */
-    #[Accessor(getter: 'getTargetBy', setter: 'setTargetBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getTargetBy", setter: "setTargetBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private TargetBy $targetBy;
 
     /**
      * @var string
      */
-    #[Accessor(getter: 'getTargetKey', setter: 'setTargetKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetKey", setter: "setTargetKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetKey;
 
     /**
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
     private $rights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  TargetType $type
      * @param  TargetBy $by
      * @param  string $key
@@ -67,13 +73,15 @@ class CheckRightsTargetSpec
      * @return self
      */
     public function __construct(
-        ?TargetType $type = null, ?TargetBy $by = null, string $key = '', array $rights = []
-    )
-    {
+        ?TargetType $type = null,
+        ?TargetBy $by = null,
+        string $key = "",
+        array $rights = []
+    ) {
         $this->setTargetType($type ?? TargetType::ACCOUNT)
-             ->setTargetBy($by ?? TargetBy::NAME)
-             ->setTargetKey($key)
-             ->setRights($rights);
+            ->setTargetBy($by ?? TargetBy::NAME)
+            ->setTargetKey($key)
+            ->setRights($rights);
     }
 
     /**
@@ -166,7 +174,7 @@ class CheckRightsTargetSpec
     public function setRights(array $rights): self
     {
         $this->rights = array_unique(
-            array_map(static fn ($right) => trim($right), $rights)
+            array_map(static fn($right) => trim($right), $rights)
         );
         return $this;
     }

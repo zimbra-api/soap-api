@@ -10,7 +10,14 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\NamedElement;
 
 /**
@@ -26,37 +33,37 @@ class CmdRightsInfo
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Rights
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
-    #[Type('array<Zimbra\Common\Struct\NamedElement>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'right', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
+    #[Type("array<Zimbra\Common\Struct\NamedElement>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "right", namespace: "urn:zimbraAdmin")]
     private $rights = [];
 
     /**
      * Notes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getNotes', setter: 'setNotes')]
-    #[SerializedName('desc')]
-    #[Type('array<string>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'note', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getNotes", setter: "setNotes")]
+    #[SerializedName("desc")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "note", namespace: "urn:zimbraAdmin")]
     private $notes = [];
 
     /**
@@ -68,14 +75,14 @@ class CmdRightsInfo
      * @return self
      */
     public function __construct(
-        ?string $name = null, array $rights = [], array $notes = []
-    )
-    {
+        ?string $name = null,
+        array $rights = [],
+        array $notes = []
+    ) {
         if (null !== $name) {
             $this->setName($name);
         }
-        $this->setRights($rights)
-             ->setNotes($notes);
+        $this->setRights($rights)->setNotes($notes);
     }
 
     /**
@@ -119,7 +126,7 @@ class CmdRightsInfo
     public function setNotes(array $notes)
     {
         $this->notes = array_unique(
-            array_map(static fn ($note) => trim($note), $notes)
+            array_map(static fn($note) => trim($note), $notes)
         );
         return $this;
     }
@@ -155,7 +162,8 @@ class CmdRightsInfo
     public function setRights(array $rights)
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof NamedElement
+            $rights,
+            static fn($right) => $right instanceof NamedElement
         );
         return $this;
     }

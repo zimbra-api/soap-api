@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\{EffectiveRightsTargetSelector, GranteeSelector};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetEffectiveRightsRequest request class
- * Returns effective ADMIN rights the authenticated admin has on the specified target entry. 
+ * Returns effective ADMIN rights the authenticated admin has on the specified target entry.
  * Effective rights are the rights the admin is actually allowed.
  * It is the net result of applying ACL checking rules given the target and grantee.
  * Specifically denied rights will not be returned.
@@ -31,49 +37,49 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  */
 class GetEffectiveRightsRequest extends SoapRequest
 {
-    const EXPAND_GET_ATTRS = 'getAttrs';
-    const EXPAND_SET_ATTRS = 'setAttrs';
+    const EXPAND_GET_ATTRS = "getAttrs";
+    const EXPAND_SET_ATTRS = "setAttrs";
 
     /**
-     * Whether to include all attribute names in the <getAttrs>/<setAttrs> elements in the response if all attributes of the target are gettable/settable Valid values are: 
+     * Whether to include all attribute names in the <getAttrs>/<setAttrs> elements in the response if all attributes of the target are gettable/settable Valid values are:
      * getAttrs:    expand attrs in getAttrs in the response
      * setAttrs:     expand attrs in setAttrs in the response
-     * getAttrs,setAttrs:    expand attrs in both getAttrs and setAttrs in the response 
-     * 
+     * getAttrs,setAttrs:    expand attrs in both getAttrs and setAttrs in the response
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
-    #[SerializedName('expandAllAttrs')]
-    #[Type('string')]
+    #[Accessor(getter: "getExpandAllAttrs", setter: "setExpandAllAttrs")]
+    #[SerializedName("expandAllAttrs")]
+    #[Type("string")]
     #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
      * Target
-     * 
+     *
      * @var EffectiveRightsTargetSelector
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(EffectiveRightsTargetSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee
      * If <grantee> is omitted, the account identified by the auth token is regarded as the grantee.
-     * 
+     *
      * @var GranteeSelector
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeSelector $grantee;
 
     /**
      * Constructor
-     * 
+     *
      * @param  EffectiveRightsTargetSelector $target
      * @param  GranteeSelector $grantee
      * @param  bool $expandSetAttrs
@@ -85,8 +91,7 @@ class GetEffectiveRightsRequest extends SoapRequest
         ?GranteeSelector $grantee = null,
         ?bool $expandSetAttrs = null,
         ?bool $expandGetAttrs = null
-    )
-    {
+    ) {
         $this->setTarget($target);
         $this->grantee = $grantee;
         $attrs = [];
@@ -97,7 +102,7 @@ class GetEffectiveRightsRequest extends SoapRequest
             $attrs[self::EXPAND_GET_ATTRS] = self::EXPAND_GET_ATTRS;
         }
         if (!empty($attrs)) {
-            $this->setExpandAllAttrs(implode(',', $attrs));
+            $this->setExpandAllAttrs(implode(",", $attrs));
         }
     }
 
@@ -119,9 +124,9 @@ class GetEffectiveRightsRequest extends SoapRequest
      */
     public function setExpandAllAttrs(string $expandAllAttrs): self
     {
-        $this->expandAllAttrs = '';
+        $this->expandAllAttrs = "";
         $attrs = [];
-        foreach (explode(',', $expandAllAttrs) as $attr) {
+        foreach (explode(",", $expandAllAttrs) as $attr) {
             if ($attr === self::EXPAND_SET_ATTRS) {
                 $attrs[self::EXPAND_SET_ATTRS] = self::EXPAND_SET_ATTRS;
             }
@@ -130,7 +135,7 @@ class GetEffectiveRightsRequest extends SoapRequest
             }
         }
         if (!empty($attrs)) {
-            $this->expandAllAttrs = implode(',', $attrs);
+            $this->expandAllAttrs = implode(",", $attrs);
         }
         return $this;
     }

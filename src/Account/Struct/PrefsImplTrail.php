@@ -10,11 +10,11 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * AuthPrefs struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,17 +25,17 @@ trait PrefsImplTrail
 {
     /**
      * Prefs
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
-    #[Type('array<Zimbra\Account\Struct\Pref>')]
-    #[XmlList(inline: true, entry: 'pref', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getPrefs", setter: "setPrefs")]
+    #[Type("array<Zimbra\Account\Struct\Pref>")]
+    #[XmlList(inline: true, entry: "pref", namespace: "urn:zimbraAccount")]
     private $prefs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $prefs
      * @return self
      */
@@ -64,7 +64,10 @@ trait PrefsImplTrail
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
+        $this->prefs = array_filter(
+            $prefs,
+            static fn($pref) => $pref instanceof Pref
+        );
         return $this;
     }
 

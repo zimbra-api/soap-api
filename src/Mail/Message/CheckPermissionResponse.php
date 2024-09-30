@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\RightPermission;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CheckPermissionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,23 +33,23 @@ class CheckPermissionResponse extends SoapResponse
 {
     /**
      * Set if the authed user has ALL the rights for each <right> element.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllow', setter: 'setAllow')]
-    #[SerializedName('allow')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllow", setter: "setAllow")]
+    #[SerializedName("allow")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allow;
 
     /**
      * Individual right information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<Zimbra\Mail\Struct\RightPermission>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<Zimbra\Mail\Struct\RightPermission>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraMail")]
     private $rights = [];
 
     /**
@@ -53,13 +59,9 @@ class CheckPermissionResponse extends SoapResponse
      * @param  array $rights
      * @return self
      */
-    public function __construct(
-        bool $allow = false,
-        array $rights = []
-    )
+    public function __construct(bool $allow = false, array $rights = [])
     {
-        $this->setAllow($allow)
-             ->setRights($rights);
+        $this->setAllow($allow)->setRights($rights);
     }
 
     /**
@@ -93,7 +95,8 @@ class CheckPermissionResponse extends SoapResponse
     public function setRights(array $rights): self
     {
         $this->rights = array_filter(
-            $rights, static fn ($right) => $right instanceof RightPermission
+            $rights,
+            static fn($right) => $right instanceof RightPermission
         );
         return $this;
     }

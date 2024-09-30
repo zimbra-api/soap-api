@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\{QueueAction, QueueActionBy};
 
 /**
@@ -27,43 +33,44 @@ class MailQueueAction
     /**
      * @var QueueQuery
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
     #[Type(QueueQuery::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private $query;
 
     /**
      * @var QueueAction
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private QueueAction $op;
 
     /**
      * @var QueueActionBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private QueueActionBy $by;
 
     /**
      * Constructor
-     * 
+     *
      * @param  QueueQuery $query Query
      * @param  QueueAction $op Operation
      * @param  QueueActionBy $by By selector
      * @return self
      */
     public function __construct(
-        QueueQuery $query, ?QueueAction $op = null, ?QueueActionBy $by = null
-    )
-    {
+        QueueQuery $query,
+        ?QueueAction $op = null,
+        ?QueueActionBy $by = null
+    ) {
         $this->setQuery($query)
-             ->setOp($op ?? QueueAction::HOLD)
-             ->setBy($by ?? QueueActionBy::QUERY);
+            ->setOp($op ?? QueueAction::HOLD)
+            ->setBy($by ?? QueueActionBy::QUERY);
     }
 
     /**

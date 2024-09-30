@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * VerifyCodeRequest class
  * Validate the verification code sent to a device. After successful validation the
  * server sets the device email address as the value of zimbraCalendarReminderDeviceEmail account attribute.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,23 +28,23 @@ class VerifyCodeRequest extends SoapRequest
 {
     /**
      * Device email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * recovery account verification code
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVerificationCode', setter: 'setVerificationCode')]
-    #[SerializedName('code')]
-    #[Type('string')]
+    #[Accessor(getter: "getVerificationCode", setter: "setVerificationCode")]
+    #[SerializedName("code")]
+    #[Type("string")]
     #[XmlAttribute]
     private $verificationCode;
 
@@ -56,9 +56,9 @@ class VerifyCodeRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $address = null, ?string $verificationCode = null
-    )
-    {
+        ?string $address = null,
+        ?string $verificationCode = null
+    ) {
         if (null !== $address) {
             $this->setAddress($address);
         }
@@ -116,8 +116,6 @@ class VerifyCodeRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new VerifyCodeEnvelope(
-            new VerifyCodeBody($this)
-        );
+        return new VerifyCodeEnvelope(new VerifyCodeBody($this));
     }
 }

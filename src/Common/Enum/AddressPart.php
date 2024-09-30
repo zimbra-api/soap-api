@@ -25,17 +25,17 @@ enum AddressPart: string
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'localpart'
      * @return string 'localpart'
      */
-    case LOCALPART = 'localpart';
+    case LOCALPART = "localpart";
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    case DOMAIN = 'domain';
+    case DOMAIN = "domain";
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 /**
  * GetIMAPRecentCutoffResponse class
  * Return the count of recent items in the folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,12 +29,12 @@ class GetIMAPRecentCutoffResponse extends SoapResponse
      * The last recorded assigned item ID in the enclosing
      * Mailbox the last time the folder was accessed via a read/write IMAP session.
      * Note that this value is only updated on session closes
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCutoff', setter: 'setCutoff')]
-    #[SerializedName('cutoff')]
-    #[Type('int')]
+    #[Accessor(getter: "getCutoff", setter: "setCutoff")]
+    #[SerializedName("cutoff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $cutoff;
 

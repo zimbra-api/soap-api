@@ -26,24 +26,24 @@ class DelegateAuthResponse extends SoapResponse
 {
     /**
      * Auth token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $authToken;
 
     /**
      * Life time for the authorization
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
-    #[SerializedName('lifetime')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getLifetime", setter: "setLifetime")]
+    #[SerializedName("lifetime")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $lifetime;
 
     /**
@@ -53,10 +53,9 @@ class DelegateAuthResponse extends SoapResponse
      * @param int    $lifetime
      * @return self
      */
-    public function __construct(string $authToken = '', int $lifetime = 0)
+    public function __construct(string $authToken = "", int $lifetime = 0)
     {
-        $this->setAuthToken($authToken)
-             ->setLifetime($lifetime);
+        $this->setAuthToken($authToken)->setLifetime($lifetime);
     }
 
     /**

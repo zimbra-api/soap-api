@@ -28,12 +28,12 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
     /**
      * BYWEEKNO Week list.  Format : [[+]|-]num[,...] where num is between 1 and 53
      * e.g. wklist="1,+2,-1" means first week, 2nd week, and last week of the year.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getList', setter: 'setList')]
-    #[SerializedName('wklist')]
-    #[Type('string')]
+    #[Accessor(getter: "getList", setter: "setList")]
+    #[SerializedName("wklist")]
+    #[Type("string")]
     #[XmlAttribute]
     private $list;
 
@@ -43,7 +43,7 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list = '')
+    public function __construct(string $list = "")
     {
         $this->setList($list);
     }
@@ -67,15 +67,15 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
     public function setList(string $list): self
     {
         $wklist = [];
-        foreach (explode(',', $list) as $wkno) {
+        foreach (explode(",", $list) as $wkno) {
             if (is_numeric($wkno)) {
                 $wk = (int) $wkno;
-                if($wk != 0 && abs($wk) < 54 && !in_array($wkno, $wklist)) {
+                if ($wk != 0 && abs($wk) < 54 && !in_array($wkno, $wklist)) {
                     $wklist[] = $wkno;
                 }
             }
         }
-        $this->list = implode(',', $wklist);
+        $this->list = implode(",", $wklist);
         return $this;
     }
 }

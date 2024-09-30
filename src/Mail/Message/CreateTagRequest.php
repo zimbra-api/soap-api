@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CreateTagRequest class
  * Create a tag
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class CreateTagRequest extends SoapRequest
 {
     /**
      * Tag specification
-     * 
+     *
      * @var TagSpec
      */
-    #[Accessor(getter: 'getTag', setter: 'setTag')]
-    #[SerializedName('tag')]
+    #[Accessor(getter: "getTag", setter: "setTag")]
+    #[SerializedName("tag")]
     #[Type(TagSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TagSpec $tag;
 
     /**
@@ -75,8 +75,6 @@ class CreateTagRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateTagEnvelope(
-            new CreateTagBody($this)
-        );
+        return new CreateTagEnvelope(new CreateTagBody($this));
     }
 }

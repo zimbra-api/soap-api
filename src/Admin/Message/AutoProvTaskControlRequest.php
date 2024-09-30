@@ -31,17 +31,17 @@ class AutoProvTaskControlRequest extends SoapRequest
 {
     /**
      * Action to perform - one of start|status|stop
-     * 
+     *
      * @var AutoProvTaskAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[XmlAttribute]
     private AutoProvTaskAction $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param AutoProvTaskAction $action
      * @return self
      */

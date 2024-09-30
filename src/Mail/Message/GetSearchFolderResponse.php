@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetSearchFolderResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class GetSearchFolderResponse extends SoapResponse
 {
     /**
      * Search folder information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSearchFolders', setter: 'setSearchFolders')]
-    #[Type('array<Zimbra\Mail\Struct\SearchFolder>')]
-    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSearchFolders", setter: "setSearchFolders")]
+    #[Type("array<Zimbra\Mail\Struct\SearchFolder>")]
+    #[XmlList(inline: true, entry: "search", namespace: "urn:zimbraMail")]
     private $searchFolders = [];
 
     /**
@@ -55,7 +55,8 @@ class GetSearchFolderResponse extends SoapResponse
     public function setSearchFolders(array $folders): self
     {
         $this->searchFolders = array_filter(
-            $folders, static fn ($folder) => $folder instanceof SearchFolder
+            $folders,
+            static fn($folder) => $folder instanceof SearchFolder
         );
         return $this;
     }

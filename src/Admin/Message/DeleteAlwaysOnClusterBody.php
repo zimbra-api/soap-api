@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * DeleteAlwaysOnClusterBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class DeleteAlwaysOnClusterBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('DeleteAlwaysOnClusterRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("DeleteAlwaysOnClusterRequest")]
     #[Type(DeleteAlwaysOnClusterRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('DeleteAlwaysOnClusterResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("DeleteAlwaysOnClusterResponse")]
     #[Type(DeleteAlwaysOnClusterResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?DeleteAlwaysOnClusterRequest $request = null, ?DeleteAlwaysOnClusterResponse $response = null
-    )
-    {
+        ?DeleteAlwaysOnClusterRequest $request = null,
+        ?DeleteAlwaysOnClusterResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

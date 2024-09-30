@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetEffectiveFolderPermsRequest class
  * Returns the effective permissions of the specified folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
 {
     /**
      * Folder specification
-     * 
+     *
      * @var FolderSpec
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('folder')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("folder")]
     #[Type(FolderSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private FolderSpec $folder;
 
     /**

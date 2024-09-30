@@ -25,89 +25,89 @@ enum DataSourceType: string
      * Constant for value 'pop3'
      * @return string 'pop3'
      */
-    case POP3 = 'pop3';
+    case POP3 = "pop3";
 
     /**
      * Constant for value 'imap'
      * @return string 'imap'
      */
-    case IMAP = 'imap';
+    case IMAP = "imap";
 
     /**
      * Constant for value 'caldav'
      * @return string 'caldav'
      */
-    case CALDAV = 'caldav';
+    case CALDAV = "caldav";
 
     /**
      * Constant for value 'contacts'
      * @return string 'contacts'
      */
-    case CONTACTS = 'contacts';
+    case CONTACTS = "contacts";
 
     /**
      * Constant for value 'yab'
      * @return string 'yab'
      */
-    case YAB = 'yab';
+    case YAB = "yab";
 
     /**
      * Constant for value 'rss'
      * @return string 'rss'
      */
-    case RSS = 'rss';
+    case RSS = "rss";
 
     /**
      * Constant for value 'cal'
      * @return string 'cal'
      */
-    case CAL = 'cal';
+    case CAL = "cal";
 
     /**
      * Constant for value 'gal'
      * @return string 'gal'
      */
-    case GAL = 'gal';
+    case GAL = "gal";
 
     /**
      * Constant for value 'xsync'
      * @return string 'xsync'
      */
-    case XSYNC = 'xsync';
+    case XSYNC = "xsync";
 
     /**
      * Constant for value 'tagmap'
      * @return string 'tagmap'
      */
-    case TAGMAP = 'tagmap';
+    case TAGMAP = "tagmap";
 
     /**
      * Constant for value 'unknown'
      * @return string 'unknown'
      */
-    case UNKNOWN = 'unknown';
+    case UNKNOWN = "unknown";
 
     /**
      * Constant for value 'oauth2contact'
      * @return string 'oauth2contact'
      */
-    case OAUTH2CONTACT = 'oauth2contact';
+    case OAUTH2CONTACT = "oauth2contact";
 
     /**
      * Constant for value 'oauth2calendar'
      * @return string 'oauth2calendar'
      */
-    case OAUTH2CALENDAR = 'oauth2calendar';
+    case OAUTH2CALENDAR = "oauth2calendar";
 
     /**
      * Constant for value 'oauth2caldav'
      * @return string 'oauth2caldav'
      */
-    case OAUTH2CALDAV = 'oauth2caldav';
+    case OAUTH2CALDAV = "oauth2caldav";
 
     /**
      * Constant for value 'oauth2noop'
      * @return string 'oauth2noop'
      */
-    case OAUTH2NOOP = 'oauth2noop';
+    case OAUTH2NOOP = "oauth2noop";
 }

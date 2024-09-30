@@ -25,17 +25,17 @@ enum ComparisonComparator: string
      * Constant for value 'i;ascii-numeric'
      * @return string 'i;ascii-numeric'
      */
-    case ASCII_NUMERIC = 'i;ascii-numeric';
+    case ASCII_NUMERIC = "i;ascii-numeric";
 
     /**
      * Constant for value 'i;ascii-casemap'
      * @return string 'i;ascii-casemap'
      */
-    case ASCII_CASEMAP = 'i;ascii-casemap';
+    case ASCII_CASEMAP = "i;ascii-casemap";
 
     /**
      * Constant for value 'i;octet'
      * @return string 'i;octet'
      */
-    case OCTET = 'i;octet';
+    case OCTET = "i;octet";
 }

@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\VolumeInfo;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyVolumeRequest class
- * Modify volume 
+ * Modify volume
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -28,37 +34,36 @@ class ModifyVolumeRequest extends SoapRequest
 {
     /**
      * Volume ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Volume information
-     * 
+     *
      * @var VolumeInfo
      */
-    #[Accessor(getter: 'getVolume', setter: 'setVolume')]
-    #[SerializedName('volume')]
+    #[Accessor(getter: "getVolume", setter: "setVolume")]
+    #[SerializedName("volume")]
     #[Type(VolumeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private VolumeInfo $volume;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $id
      * @param VolumeInfo $volume
      * @return self
      */
     public function __construct(VolumeInfo $volume, int $id = 0)
     {
-        $this->setId($id)
-             ->setVolume($volume);
+        $this->setId($id)->setVolume($volume);
     }
 
     /**
@@ -110,8 +115,6 @@ class ModifyVolumeRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyVolumeEnvelope(
-            new ModifyVolumeBody($this)
-        );
+        return new ModifyVolumeEnvelope(new ModifyVolumeBody($this));
     }
 }

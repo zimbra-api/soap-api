@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * AnnounceOrganizerChangeRequest class
  * Announce change of organizer
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class AnnounceOrganizerChangeRequest extends SoapRequest
 {
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -42,7 +42,7 @@ class AnnounceOrganizerChangeRequest extends SoapRequest
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }

@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\CreateCalendarItemResponse;
 /**
  * ModifyAppointmentResponse class
  * Contains response information for modify appointment
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

@@ -29,22 +29,22 @@ class AdminDestroyWaitSetRequest extends SoapRequest
 {
     /**
      * Waitset ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $waitSetId
      * @return self
      */
-    public function __construct(string $waitSetId = '')
+    public function __construct(string $waitSetId = "")
     {
         $this->setWaitSetId($waitSetId);
     }

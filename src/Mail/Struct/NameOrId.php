@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * NameOrId struct class
@@ -25,29 +25,29 @@ class NameOrId
 {
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @return self

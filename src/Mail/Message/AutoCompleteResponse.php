@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\AutoCompleteMatch;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AutoCompleteResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,23 +33,23 @@ class AutoCompleteResponse extends SoapResponse
 {
     /**
      * Flag whether can be cached
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanBeCached', setter: 'setCanBeCached')]
-    #[SerializedName('canBeCached')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCanBeCached", setter: "setCanBeCached")]
+    #[SerializedName("canBeCached")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canBeCached;
 
     /**
      * Matches
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMatches', setter: 'setMatches')]
-    #[Type('array<Zimbra\Mail\Struct\AutoCompleteMatch>')]
-    #[XmlList(inline: true, entry: 'match', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMatches", setter: "setMatches")]
+    #[Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")]
+    #[XmlList(inline: true, entry: "match", namespace: "urn:zimbraMail")]
     private $matches = [];
 
     /**
@@ -53,10 +59,7 @@ class AutoCompleteResponse extends SoapResponse
      * @param  bool $canBeCached
      * @return self
      */
-    public function __construct(
-        array $matches = [],
-        ?bool $canBeCached = null
-    )
+    public function __construct(array $matches = [], ?bool $canBeCached = null)
     {
         $this->setMatches($matches);
         if (null !== $canBeCached) {
@@ -73,7 +76,8 @@ class AutoCompleteResponse extends SoapResponse
     public function setMatches(array $matches): self
     {
         $this->matches = array_filter(
-            $matches, static fn ($match) => $match instanceof AutoCompleteMatch
+            $matches,
+            static fn($match) => $match instanceof AutoCompleteMatch
         );
         return $this;
     }

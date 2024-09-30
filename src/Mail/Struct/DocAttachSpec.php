@@ -25,40 +25,40 @@ class DocAttachSpec extends AttachSpec
 {
     /**
      * Document path. If specified "id" and "ver" attributes are ignored
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Optional Version.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('ver')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("ver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $path
      * @param string $id
      * @param int $version
@@ -66,9 +66,11 @@ class DocAttachSpec extends AttachSpec
      * @return self
      */
     public function __construct(
-        ?string $path = null, ?string $id = null, ?int $version = null, ?bool $optional = null
-    )
-    {
+        ?string $path = null,
+        ?string $id = null,
+        ?int $version = null,
+        ?bool $optional = null
+    ) {
         parent::__construct($optional);
         if (null !== $path) {
             $this->setPath($path);

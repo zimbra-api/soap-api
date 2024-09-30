@@ -10,12 +10,12 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlValue};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetDocumentShareURLResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,11 +26,11 @@ class GetDocumentShareURLResponse extends SoapResponse
 {
     /**
      * url
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $url;
 
@@ -40,7 +40,7 @@ class GetDocumentShareURLResponse extends SoapResponse
      * @param  string $url
      * @return self
      */
-    public function __construct(string $url = '')
+    public function __construct(string $url = "")
     {
         $this->setUrl($url);
     }

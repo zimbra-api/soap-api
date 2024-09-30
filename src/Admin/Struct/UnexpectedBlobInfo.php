@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * UnexpectedBlobInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,51 +25,51 @@ class UnexpectedBlobInfo
 {
     /**
      * Volume ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName('volumeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getVolumeId", setter: "setVolumeId")]
+    #[SerializedName("volumeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $volumeId;
 
     /**
      * Path
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * File size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName('fileSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getFileSize", setter: "setFileSize")]
+    #[SerializedName("fileSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fileSize;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
-    #[SerializedName('external')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExternal", setter: "setExternal")]
+    #[SerializedName("external")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $external;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $volumeId
      * @param string $path
      * @param int $fileSize
@@ -78,15 +78,14 @@ class UnexpectedBlobInfo
      */
     public function __construct(
         int $volumeId = 0,
-        string $path = '',
+        string $path = "",
         int $fileSize = 0,
         bool $external = false
-    )
-    {
+    ) {
         $this->setVolumeId($volumeId)
-             ->setPath($path)
-             ->setFileSize($fileSize)
-             ->setExternal($external);
+            ->setPath($path)
+            ->setFileSize($fileSize)
+            ->setExternal($external);
     }
 
     /**

@@ -12,8 +12,6 @@ namespace Zimbra\Account;
 
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Account\Struct\{
-    AuthAttrs,
-    AuthPrefs,
     AuthToken,
     DistributionListAction,
     EntrySearchFilterInfo,
@@ -52,7 +50,7 @@ interface AccountApiInterface extends ApiInterface
      * If {verifyAccount}="1", <account> is required and the account in the auth token is compared to the named account.
      * Mismatch results in auth failure.
      * An external app that relies on ZCS for user identification can use this to test if the auth token provided by the user belongs to that user.
-     * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored. 
+     * If {verifyAccount}="0" (default), only the auth token is verified and any <account> element specified is ignored.
      *
      * @param  AccountSelector   $account
      * @param  string    $password
@@ -104,7 +102,10 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $password
      * @return Message\AuthResponse
      */
-    function authByAccountName(string $name, string $password): ?Message\AuthResponse;
+    function authByAccountName(
+        string $name,
+        string $password
+    ): ?Message\AuthResponse;
 
     /**
      * Authenticate by account id
@@ -113,7 +114,10 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $password
      * @return Message\AuthResponse
      */
-    function authByAccountId(string $id, string $password): ?Message\AuthResponse;
+    function authByAccountId(
+        string $id,
+        string $password
+    ): ?Message\AuthResponse;
 
     /**
      * Authenticate by auth token
@@ -130,7 +134,10 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $preauthKey
      * @return Message\AuthResponse
      */
-    function authByPreauth(string $name, string $preauthKey): ?Message\AuthResponse;
+    function authByPreauth(
+        string $name,
+        string $preauthKey
+    ): ?Message\AuthResponse;
 
     /**
      * Perform an autocomplete for a name against the Global Address List
@@ -187,9 +194,9 @@ interface AccountApiInterface extends ApiInterface
     function clientInfo(DomainSelector $domain): ?Message\ClientInfoResponse;
 
     /**
-     * Create a Distribution List 
+     * Create a Distribution List
      * Notes:
-     * authed account must have the privilege to create dist lists in the domain 
+     * authed account must have the privilege to create dist lists in the domain
      *
      * @param  string $name
      * @param  bool $dynamic
@@ -197,7 +204,9 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\CreateDistributionListResponse
      */
     function createDistributionList(
-        string $name, ?bool $dynamic = null, array $attrs = []
+        string $name,
+        ?bool $dynamic = null,
+        array $attrs = []
     ): ?Message\CreateDistributionListResponse;
 
     /**
@@ -208,19 +217,23 @@ interface AccountApiInterface extends ApiInterface
      * @param  Identity $identity
      * @return Message\CreateIdentityResponse
      */
-    function createIdentity(Identity $identity): ?Message\CreateIdentityResponse;
+    function createIdentity(
+        Identity $identity
+    ): ?Message\CreateIdentityResponse;
 
     /**
      * Create a signature.
-     * If an id is provided it will be honored as the id for the signature. 
+     * If an id is provided it will be honored as the id for the signature.
      * CreateSignature will set account default signature to the signature being created
      * if there is currently no default signature for the account.
-     * There can be at most one text/plain signatue and one text/html signature. 
+     * There can be at most one text/plain signatue and one text/html signature.
      *
      * @param  Signature $signature
      * @return Message\CreateSignatureResponse
      */
-    function createSignature(Signature $signature): ?Message\CreateSignatureResponse;
+    function createSignature(
+        Signature $signature
+    ): ?Message\CreateSignatureResponse;
 
     /**
      * Delete an Identity
@@ -238,13 +251,15 @@ interface AccountApiInterface extends ApiInterface
      * @param  NameId $signature
      * @return Message\DeleteSignatureResponse
      */
-    function deleteSignature(NameId $signature): ?Message\DeleteSignatureResponse;
+    function deleteSignature(
+        NameId $signature
+    ): ?Message\DeleteSignatureResponse;
 
     /**
      * Return all targets of the specified rights applicable to the requested account.
      * Notes:
      * 1. This call only discovers grants granted on the designated target type of the specified rights.
-     *    It does not return grants granted on target types the rights can inherit from. 
+     *    It does not return grants granted on target types the rights can inherit from.
      * 2. For sendAs, sendOnBehalfOf, sendAsDistList, sendOnBehalfOfDistList rights, name attribute
      *    is not returned on <target> elements.
      *    Instead, addresses in the target entry's zimbraPrefAllowAddressForDelegatedSender are returned
@@ -258,12 +273,14 @@ interface AccountApiInterface extends ApiInterface
      * @param  array $rights
      * @return Message\DiscoverRightsResponse
      */
-    function discoverRights(array $rights = []): ?Message\DiscoverRightsResponse;
+    function discoverRights(
+        array $rights = []
+    ): ?Message\DiscoverRightsResponse;
 
     /**
      * Perform an action on a Distribution List
      * Notes:
-     *  - Authorized account must be one of the list owners 
+     *  - Authorized account must be one of the list owners
      *  - For owners/rights, only grants on the group itself will be modified,
      *    grants on domain and globalgrant (from which the right can be inherited) will not be touched.
      *    Only admins can modify grants on domains and globalgrant, owners of groups
@@ -274,13 +291,14 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\DistributionListActionResponse
      */
     function distributionListAction(
-        DistributionListSelector $dl, DistributionListAction $action
+        DistributionListSelector $dl,
+        DistributionListAction $action
     ): ?Message\DistributionListActionResponse;
 
     /**
      * End the current session, removing it from all caches.
      * Called when the browser app (or other session-using app) shuts down.
-     * Has no effect if called in a <nosession> context. 
+     * Has no effect if called in a <nosession> context.
      *
      * @param  bool $logoff
      * @param  bool $clearAllSoapSessions
@@ -296,7 +314,7 @@ interface AccountApiInterface extends ApiInterface
     ): ?Message\EndSessionResponse;
 
     /**
-     * Returns groups the user is either a member or an owner of. 
+     * Returns groups the user is either a member or an owner of.
      * Notes:
      *  - isOwner is returned only if ownerOf on the request is 1 (true).
      *  - isMember is returned only if memberOf on the request is not "none".
@@ -318,11 +336,13 @@ interface AccountApiInterface extends ApiInterface
      * @param  AccountSelector $account
      * @return Message\GetAccountInfoResponse
      */
-    function getAccountInfo(AccountSelector $account): ?Message\GetAccountInfoResponse;
+    function getAccountInfo(
+        AccountSelector $account
+    ): ?Message\GetAccountInfoResponse;
 
     /**
      * Returns all locales defined in the system.  This is the same list returned by
-     * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute). 
+     * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute).
      *
      * @return Message\GetAllLocalesResponse
      */
@@ -400,7 +420,8 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\GetInfoResponse
      */
     function getInfo(
-        ?string $sections = null, ?string $rights = null
+        ?string $sections = null,
+        ?string $rights = null
     ): ?Message\GetInfoResponse;
 
     /**
@@ -481,7 +502,9 @@ interface AccountApiInterface extends ApiInterface
      * @param  Identity $identity
      * @return Message\ModifyIdentityResponse
      */
-    function modifyIdentity(Identity $identity): ?Message\ModifyIdentityResponse;
+    function modifyIdentity(
+        Identity $identity
+    ): ?Message\ModifyIdentityResponse;
 
     /**
      * Modify Preferences
@@ -501,19 +524,23 @@ interface AccountApiInterface extends ApiInterface
      * @param  array $props
      * @return Message\ModifyPropertiesResponse
      */
-    function modifyProperties(array $props = []): ?Message\ModifyPropertiesResponse;
+    function modifyProperties(
+        array $props = []
+    ): ?Message\ModifyPropertiesResponse;
 
     /**
      * Create a signature.
-     * If an id is provided it will be honored as the id for the signature. 
+     * If an id is provided it will be honored as the id for the signature.
      * CreateSignature will set account default signature to the signature being created
      * if there is currently no default signature for the account.
-     * There can be at most one text/plain signatue and one text/html signature. 
+     * There can be at most one text/plain signatue and one text/html signature.
      *
      * @param  Signature $signature
      * @return Message\ModifySignatureResponse
      */
-    function modifySignature(Signature $signature): ?Message\ModifySignatureResponse;
+    function modifySignature(
+        Signature $signature
+    ): ?Message\ModifySignatureResponse;
 
     /**
      * Modify the anti-spam WhiteList and BlackList addresses
@@ -523,7 +550,8 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\ModifyWhiteBlackListResponse
      */
     function modifyWhiteBlackList(
-        array $whiteListEntries = [], array $blackListEntries = []
+        array $whiteListEntries = [],
+        array $blackListEntries = []
     ): ?Message\ModifyWhiteBlackListResponse;
 
     /**
@@ -532,7 +560,9 @@ interface AccountApiInterface extends ApiInterface
      * @param  array $zimlets
      * @return Message\ModifyZimletPrefsResponse
      */
-    function modifyZimletPrefs(array $zimlets = []): ?Message\ModifyZimletPrefsResponse;
+    function modifyZimletPrefs(
+        array $zimlets = []
+    ): ?Message\ModifyZimletPrefsResponse;
 
     /**
      * Reset password
@@ -548,7 +578,9 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $accessToken
      * @return Message\RevokeOAuthConsumerResponse
      */
-    function revokeOAuthConsumer(string $accessToken): ?Message\RevokeOAuthConsumerResponse;
+    function revokeOAuthConsumer(
+        string $accessToken
+    ): ?Message\RevokeOAuthConsumerResponse;
 
     /**
      * Revoke account level rights
@@ -626,14 +658,15 @@ interface AccountApiInterface extends ApiInterface
     ): ?Message\SearchGalResponse;
 
     /**
-     * Subscribe to or unsubscribe from a distribution list 
+     * Subscribe to or unsubscribe from a distribution list
      *
      * @param  DistributionListSelector $dl
      * @param  DistributionListSubscribeOp $op
      * @return Message\SubscribeDistributionListResponse
      */
     function subscribeDistributionList(
-        DistributionListSelector $dl, DistributionListSubscribeOp $op
+        DistributionListSelector $dl,
+        DistributionListSubscribeOp $op
     ): ?Message\SubscribeDistributionListResponse;
 
     /**

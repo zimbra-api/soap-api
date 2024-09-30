@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * CommonDocumentInfo struct class
@@ -25,266 +32,266 @@ class CommonDocumentInfo
 {
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Item's UUID - a globally unique identifier
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
-    #[SerializedName('uuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUuid", setter: "setUuid")]
+    #[SerializedName("uuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uuid;
 
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Date the item's content was last modified in milliseconds since 1970-01-01 00:00:00 UTC.
      * For immutable objects (e.g. received messages), this will be the same as the date the item was created.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Folder UUID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName('luuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderUuid", setter: "setFolderUuid")]
+    #[SerializedName("luuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderUuid;
 
     /**
      * Modified sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Metadata version
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMetadataVersion', setter: 'setMetadataVersion')]
-    #[SerializedName('mdver')]
-    #[Type('int')]
+    #[Accessor(getter: "getMetadataVersion", setter: "setMetadataVersion")]
+    #[SerializedName("mdver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $metadataVersion;
 
     /**
      * The date the item's metadata and/or content was last modified in seconds since 1970-01-01 00:00:00 UTC.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
-    #[SerializedName('md')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeDate", setter: "setChangeDate")]
+    #[SerializedName("md")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeDate;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Flags
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma-separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * Optional description
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('desc')]
-    #[Type('string')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("desc")]
+    #[Type("string")]
     #[XmlAttribute]
     private $description;
 
     /**
      * Content type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Flags whether description is enabled or not
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDescEnabled', setter: 'setDescEnabled')]
-    #[SerializedName('descEnabled')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDescEnabled", setter: "setDescEnabled")]
+    #[SerializedName("descEnabled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $descEnabled;
 
     /**
      * Version
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('ver')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("ver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Last edited by
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLastEditedBy', setter: 'setLastEditedBy')]
-    #[SerializedName('leb')]
-    #[Type('string')]
+    #[Accessor(getter: "getLastEditedBy", setter: "setLastEditedBy")]
+    #[SerializedName("leb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lastEditedBy;
 
     /**
      * Revision creator
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCreator', setter: 'setCreator')]
-    #[SerializedName('cr')]
-    #[Type('string')]
+    #[Accessor(getter: "getCreator", setter: "setCreator")]
+    #[SerializedName("cr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $creator;
 
     /**
      * Revision creation date in milliseconds since 1970-01-01 00:00:00 UTC.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCreatedDate', setter: 'setCreatedDate')]
-    #[SerializedName('cd')]
-    #[Type('int')]
+    #[Accessor(getter: "getCreatedDate", setter: "setCreatedDate")]
+    #[SerializedName("cd")]
+    #[Type("int")]
     #[XmlAttribute]
     private $createdDate;
 
     /**
      * Custom metadata information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
-    #[Type('array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
+    #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
     private $metadatas = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * ACL for sharing
-     * 
+     *
      * @var Acl
      */
-    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName('acl')]
+    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[SerializedName("acl")]
     #[Type(Acl::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Acl $acl;
 
     /**
@@ -341,8 +348,7 @@ class CommonDocumentInfo
         array $metadatas = [],
         ?string $fragment = null,
         ?Acl $acl = null
-    )
-    {
+    ) {
         $this->setMetadatas($metadatas);
         $this->acl = $acl;
         if (null !== $id) {
@@ -894,7 +900,8 @@ class CommonDocumentInfo
     public function setMetadatas(array $metadatas): self
     {
         $this->metadatas = array_filter(
-            $metadatas, static fn($metadata) => $metadata instanceof MailCustomMetadata
+            $metadatas,
+            static fn($metadata) => $metadata instanceof MailCustomMetadata
         );
         return $this;
     }

@@ -25,40 +25,40 @@ class ImapMessageInfo extends IMAPItemInfo
 {
     /**
      * Item type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Flags
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('int')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("int")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Comma separated list of name of tags associated with this item
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id Message ID
      * @param  int $imapUid IMAP UID
      * @param  string $type IMAP UID
@@ -67,13 +67,14 @@ class ImapMessageInfo extends IMAPItemInfo
      * @return self
      */
     public function __construct(
-        int $id = 0, int $imapUid = 0, string $type = '', int $flags = 0, string $tags = ''
-    )
-    {
+        int $id = 0,
+        int $imapUid = 0,
+        string $type = "",
+        int $flags = 0,
+        string $tags = ""
+    ) {
         parent::__construct($id, $imapUid);
-        $this->setType($type)
-             ->setFlags($flags)
-             ->setTags($tags);
+        $this->setType($type)->setFlags($flags)->setTags($tags);
     }
 
     /**
@@ -114,7 +115,7 @@ class ImapMessageInfo extends IMAPItemInfo
      * @param  int $flags
      * @return self
      */
-    public function setFlags(int$flags): self
+    public function setFlags(int $flags): self
     {
         $this->flags = $flags;
         return $this;

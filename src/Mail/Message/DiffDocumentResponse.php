@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DiffDocumentResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class DiffDocumentResponse extends SoapResponse
 {
     /**
      * Difference information in chunks
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getChunks', setter: 'setChunks')]
-    #[Type('array<Zimbra\Mail\Struct\DispositionAndText>')]
-    #[XmlList(inline: true, entry: 'chunk', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getChunks", setter: "setChunks")]
+    #[Type("array<Zimbra\Mail\Struct\DispositionAndText>")]
+    #[XmlList(inline: true, entry: "chunk", namespace: "urn:zimbraMail")]
     private $chunks = [];
 
     /**
@@ -55,7 +55,8 @@ class DiffDocumentResponse extends SoapResponse
     public function setChunks(array $chunks): self
     {
         $this->chunks = array_filter(
-            $chunks, static fn ($chunk) => $chunk instanceof DispositionAndText
+            $chunks,
+            static fn($chunk) => $chunk instanceof DispositionAndText
         );
         return $this;
     }

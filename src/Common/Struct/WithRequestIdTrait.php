@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * With request id trait.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct
@@ -25,12 +25,12 @@ trait WithRequestIdTrait
 {
     /**
      * Request id. Used with BatchRequestInterface & BatchResponseInterface
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRequestId', setter: 'setRequestId')]
-    #[SerializedName('requestId')]
-    #[Type('string')]
+    #[Accessor(getter: "getRequestId", setter: "setRequestId")]
+    #[SerializedName("requestId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $requestId;
 

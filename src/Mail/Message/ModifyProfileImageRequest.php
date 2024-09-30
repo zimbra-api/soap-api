@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyProfileImageRequest class
  * Modify profile image
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,22 +33,22 @@ class ModifyProfileImageRequest extends SoapRequest
 {
     /**
      * Upload ID of uploaded image to use
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUploadId', setter: 'setUploadId')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUploadId", setter: "setUploadId")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uploadId;
 
     /**
      * Base64 encoded image data
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getImageB64Data', setter: 'setImageB64Data')]
-    #[Type('string')]
+    #[Accessor(getter: "getImageB64Data", setter: "setImageB64Data")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $imageB64Data;
 
@@ -54,9 +60,9 @@ class ModifyProfileImageRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?string $uploadId = null, ?string $imageB64Data = null
-    )
-    {
+        ?string $uploadId = null,
+        ?string $imageB64Data = null
+    ) {
         if (null !== $uploadId) {
             $this->setUploadId($uploadId);
         }

@@ -24,12 +24,12 @@ trait AttributeSelectorTrait
 {
     /**
      * Attributes
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attrs;
 
@@ -55,7 +55,6 @@ trait AttributeSelectorTrait
         return $this;
     }
 
-
     /**
      * Add attributes
      *
@@ -64,7 +63,9 @@ trait AttributeSelectorTrait
     public function addAttrs(string ...$attrs): self
     {
         if (!empty($attrs)) {
-            $this->attrs = empty($this->attrs) ? implode(',', $attrs) : $this->attrs . ',' . implode(',', $attrs);
+            $this->attrs = empty($this->attrs)
+                ? implode(",", $attrs)
+                : $this->attrs . "," . implode(",", $attrs);
         }
         return $this;
     }

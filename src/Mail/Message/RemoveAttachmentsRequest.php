@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * RemoveAttachmentsRequest class
  * Remove attachments from a message body
  * NOTE: that this operation is effectively a create and a delete, and thus the message's item ID will change
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,13 +29,13 @@ class RemoveAttachmentsRequest extends SoapRequest
 {
     /**
      * Specification of parts to remove
-     * 
+     *
      * @var MsgPartIds
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(MsgPartIds::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private MsgPartIds $msg;
 
     /**
@@ -76,8 +76,6 @@ class RemoveAttachmentsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RemoveAttachmentsEnvelope(
-            new RemoveAttachmentsBody($this)
-        );
+        return new RemoveAttachmentsEnvelope(new RemoveAttachmentsBody($this));
     }
 }

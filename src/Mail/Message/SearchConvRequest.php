@@ -13,7 +13,12 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Mail\Struct\{CalTZInfo, MailSearchParams};
 use Zimbra\Common\Enum\{MsgContent, SearchSortBy, WantRecipsSetting};
-use Zimbra\Common\Struct\{CursorInfo, SearchParameters, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    CursorInfo,
+    SearchParameters,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SearchConvRequest class
@@ -31,12 +36,12 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
 
     /**
      * The ID of the conversation to search within. REQUIRED.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
-    #[SerializedName('cid')]
-    #[Type('string')]
+    #[Accessor(getter: "getConversationId", setter: "setConversationId")]
+    #[SerializedName("cid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $conversationId;
 
@@ -44,18 +49,18 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
      * If set then the response will contain a top level <c> element representing
      * the conversation with child <m> elements representing messages in the conversation.
      * If unset, no <c> element is included - <m> elements will be top level elements.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNestMessages', setter: 'setNestMessages')]
-    #[SerializedName('nest')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNestMessages", setter: "setNestMessages")]
+    #[SerializedName("nest")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $nestMessages;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $conversationId
      * @param string $query
      * @param bool $inDumpster
@@ -91,7 +96,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
      * @return self
      */
     public function __construct(
-        string $conversationId = '',
+        string $conversationId = "",
         ?string $query = null,
         ?bool $inDumpster = null,
         ?string $searchTypes = null,
@@ -123,10 +128,8 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
         ?MsgContent $wantContent = null,
         ?bool $includeMemberOf = null,
         ?bool $nestMessages = null
-    )
-    {
-        $this->setHeaders($headers)
-             ->setConversationId($conversationId);
+    ) {
+        $this->setHeaders($headers)->setConversationId($conversationId);
         $this->sortBy = $sortBy;
         $this->wantRecipients = $wantRecipients;
         $this->calTz = $calTz;
@@ -258,8 +261,6 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchConvEnvelope(
-            new SearchConvBody($this)
-        );
+        return new SearchConvEnvelope(new SearchConvBody($this));
     }
 }

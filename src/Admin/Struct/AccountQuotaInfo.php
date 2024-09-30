@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * AccountQuotaInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,45 +25,45 @@ class AccountQuotaInfo
 {
     /**
      * Account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Used quota in bytes, or 0 if no quota used
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
-    #[SerializedName('used')]
-    #[Type('int')]
+    #[Accessor(getter: "getQuotaUsed", setter: "setQuotaUsed")]
+    #[SerializedName("used")]
+    #[Type("int")]
     #[XmlAttribute]
     private $quotaUsed;
 
     /**
      * Quota limit in bytes, or 0 if unlimited
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getQuotaLimit', setter: 'setQuotaLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getQuotaLimit", setter: "setQuotaLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $quotaLimit;
 
@@ -77,16 +77,15 @@ class AccountQuotaInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
-        string $id = '',
+        string $name = "",
+        string $id = "",
         int $quotaUsed = 0,
         int $quotaLimit = 0
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setId($id)
-             ->setQuotaUsed($quotaUsed)
-             ->setQuotaLimit($quotaLimit);
+            ->setId($id)
+            ->setQuotaUsed($quotaUsed)
+            ->setQuotaLimit($quotaLimit);
     }
 
     /**

@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * MimePartInfo struct class
@@ -25,56 +32,56 @@ class MimePartInfo
 {
     /**
      * Content type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
     #[XmlAttribute]
     private $content;
 
     /**
      * Content ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentId', setter: 'setContentId')]
-    #[SerializedName('ci')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentId", setter: "setContentId")]
+    #[SerializedName("ci")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentId;
 
     /**
      * MIME Parts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
-    #[Type('array<Zimbra\Mail\Struct\MimePartInfo>')]
-    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMimeParts", setter: "setMimeParts")]
+    #[Type("array<Zimbra\Mail\Struct\MimePartInfo>")]
+    #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
     private $mimeParts = [];
 
     /**
      * Attachments
-     * 
+     *
      * @var AttachmentsInfo
      */
-    #[Accessor(getter: 'getAttachments', setter: 'setAttachments')]
-    #[SerializedName('attach')]
+    #[Accessor(getter: "getAttachments", setter: "setAttachments")]
+    #[SerializedName("attach")]
     #[Type(AttachmentsInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AttachmentsInfo $attachments;
 
     /**
@@ -93,8 +100,7 @@ class MimePartInfo
         ?string $contentId = null,
         ?AttachmentsInfo $attachments = null,
         array $mimeParts = []
-    )
-    {
+    ) {
         $this->setMimeParts($mimeParts);
         $this->attachments = $attachments;
         if (null !== $contentType) {
@@ -193,7 +199,8 @@ class MimePartInfo
     public function setMimeParts(array $mimeParts): self
     {
         $this->mimeParts = array_filter(
-            $mimeParts, static fn ($mimePart) => $mimePart instanceof MimePartInfo
+            $mimeParts,
+            static fn($mimePart) => $mimePart instanceof MimePartInfo
         );
         return $this;
     }

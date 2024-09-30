@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetMemcachedClientConfigResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,62 +26,77 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 {
     /**
      * Comma separated list of host:port for memcached servers
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServerList', setter: 'setServerList')]
-    #[SerializedName('serverList')]
-    #[Type('string')]
+    #[Accessor(getter: "getServerList", setter: "setServerList")]
+    #[SerializedName("serverList")]
+    #[Type("string")]
     #[XmlAttribute]
     private $serverList;
 
     /**
      * KETAMA_HASH, etc.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHashAlgorithm', setter: 'setHashAlgorithm')]
-    #[SerializedName('hashAlgorithm')]
-    #[Type('string')]
+    #[Accessor(getter: "getHashAlgorithm", setter: "setHashAlgorithm")]
+    #[SerializedName("hashAlgorithm")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hashAlgorithm;
 
     /**
      * Flags whether memcached binary protocol is in use or not
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getBinaryProtocolEnabled', setter: 'setBinaryProtocolEnabled')]
-    #[SerializedName('binaryProtocol')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getBinaryProtocolEnabled",
+            setter: "setBinaryProtocolEnabled"
+        )
+    ]
+    #[SerializedName("binaryProtocol")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $binaryProtocolEnabled;
 
     /**
      * Default entry expiry in seconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDefaultExpirySeconds', setter: 'setDefaultExpirySeconds')]
-    #[SerializedName('defaultExpirySeconds')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getDefaultExpirySeconds",
+            setter: "setDefaultExpirySeconds"
+        )
+    ]
+    #[SerializedName("defaultExpirySeconds")]
+    #[Type("int")]
     #[XmlAttribute]
     private $defaultExpirySeconds;
 
     /**
      * Default timeout in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDefaultTimeoutMillis', setter: 'setDefaultTimeoutMillis')]
-    #[SerializedName('defaultTimeoutMillis')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getDefaultTimeoutMillis",
+            setter: "setDefaultTimeoutMillis"
+        )
+    ]
+    #[SerializedName("defaultTimeoutMillis")]
+    #[Type("int")]
     #[XmlAttribute]
     private $defaultTimeoutMillis;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $serverList
      * @param string $hashAlgorithm
      * @param bool $binaryProtocolEnabled
@@ -95,8 +110,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
         ?bool $binaryProtocolEnabled = null,
         ?int $defaultExpirySeconds = null,
         ?int $defaultTimeoutMillis = null
-    )
-    {
+    ) {
         if (null !== $serverList) {
             $this->setServerList($serverList);
         }

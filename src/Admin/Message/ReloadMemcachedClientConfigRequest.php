@@ -16,8 +16,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * ReloadMemcachedClientConfigRequest class
  * Reloads the memcached client configuration on this server.
  * Memcached client layer is reinitialized accordingly.
- * Call this command after updating the memcached server list, for example. 
- * 
+ * Call this command after updating the memcached server list, for example.
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

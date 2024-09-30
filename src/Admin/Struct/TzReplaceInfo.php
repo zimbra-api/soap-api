@@ -25,36 +25,38 @@ use Zimbra\Common\Struct\Id;
 class TzReplaceInfo
 {
     /**
-     * TzID from /opt/zimbra/conf/timezones.ics 
-     * 
+     * TzID from /opt/zimbra/conf/timezones.ics
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getWellKnownTz', setter: 'setWellKnownTz')]
-    #[SerializedName('wellKnownTz')]
+    #[Accessor(getter: "getWellKnownTz", setter: "setWellKnownTz")]
+    #[SerializedName("wellKnownTz")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Id $wellKnownTz;
 
     /**
      * Timezone
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getCalTz', setter: 'setCalTz')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getCalTz", setter: "setCalTz")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CalTZInfo $calTz;
 
     /**
      * Constructor
-     * 
+     *
      * @param Id $wellKnownTz
      * @param CalTZInfo $calTz
      * @return self
      */
-    public function __construct(?Id $wellKnownTz = null, ?CalTZInfo $calTz = null)
-    {
+    public function __construct(
+        ?Id $wellKnownTz = null,
+        ?CalTZInfo $calTz = null
+    ) {
         $this->wellKnownTz = $wellKnownTz;
         $this->calTz = $calTz;
     }

@@ -15,11 +15,11 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAttributeInfoRequest class
- * Get attribute information 
+ * Get attribute information
  * Only one of attrs or entryTypes can be specified.
  * If both are specified, INVALID_REQUEST will be thrown.
  * If neither is specified, all attributes will be returned.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,12 +30,12 @@ class GetAttributeInfoRequest extends SoapRequest
 {
     /**
      * Comma separated list of attributes to return
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attrs;
 
@@ -45,24 +45,26 @@ class GetAttributeInfoRequest extends SoapRequest
      *    account,alias,distributionList,cos,globalConfig,domain,server,mimeEntry,zimletEntry,
      *    calendarResource,identity,dataSource,pop3DataSource,imapDataSource,rssDataSource,
      *    liveDataSource,galDataSource,signature,xmppComponent,aclTarget,oauth2DataSource
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getEntryTypes', setter: 'setEntryTypes')]
-    #[SerializedName('entryTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getEntryTypes", setter: "setEntryTypes")]
+    #[SerializedName("entryTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $entryTypes;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $attrs
      * @param  string $entryTypes
      * @return self
      */
-    public function __construct(?string $attrs = null, ?string $entryTypes = null)
-    {
+    public function __construct(
+        ?string $attrs = null,
+        ?string $entryTypes = null
+    ) {
         if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
@@ -120,8 +122,6 @@ class GetAttributeInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAttributeInfoEnvelope(
-            new GetAttributeInfoBody($this)
-        );
+        return new GetAttributeInfoEnvelope(new GetAttributeInfoBody($this));
     }
 }

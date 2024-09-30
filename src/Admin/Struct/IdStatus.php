@@ -25,29 +25,29 @@ class IdStatus
 {
     /**
      * Id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Status
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('string')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("string")]
     #[XmlAttribute]
     private $status;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $status
      * @return self

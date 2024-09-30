@@ -27,13 +27,13 @@ class CreateIdentityResponse extends SoapResponse
 {
     /**
      * Information about created identity
-     * 
+     *
      * @var Identity
      */
-    #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName('identity')]
+    #[Accessor(getter: "getIdentity", setter: "setIdentity")]
+    #[SerializedName("identity")]
     #[Type(Identity::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?Identity $identity;
 
     /**

@@ -25,12 +25,12 @@ class DLInfo extends AdminObjectInfo
 {
     /**
      * Is dynamic
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
@@ -38,18 +38,18 @@ class DLInfo extends AdminObjectInfo
      * Via
      * Present if the account is a member of the returned list because they are either a
      * direct or indirect member of another list that is a member of the returned list.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName('via')]
-    #[Type('string')]
+    #[Accessor(getter: "getVia", setter: "setVia")]
+    #[SerializedName("via")]
+    #[Type("string")]
     #[XmlAttribute]
     private $via;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $via
      * @param  string $name
      * @param  string $id
@@ -58,9 +58,12 @@ class DLInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $via = '', string $name = '', string $id = '', ?bool $dynamic = null, array $attrs = []
-    )
-    {
+        string $via = "",
+        string $name = "",
+        string $id = "",
+        ?bool $dynamic = null,
+        array $attrs = []
+    ) {
         parent::__construct($name, $id, $attrs);
         $this->setVia($via);
         if (null !== $dynamic) {

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 /**
  * PurgeFreeBusyQueueRequest class
  * Purges the queue for the given freebusy provider on the current host
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,13 +27,13 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
 {
     /**
      * FreeBusy provider specification
-     * 
+     *
      * @var NamedElement
      */
-    #[Accessor(getter: 'getProvider', setter: 'setProvider')]
-    #[SerializedName('provider')]
+    #[Accessor(getter: "getProvider", setter: "setProvider")]
+    #[SerializedName("provider")]
     #[Type(NamedElement::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?NamedElement $provider;
 
     /**

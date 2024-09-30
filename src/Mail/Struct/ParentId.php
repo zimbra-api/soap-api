@@ -25,12 +25,12 @@ class ParentId
 {
     /**
      * Item ID of parent
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getParentId', setter: 'setParentId')]
-    #[SerializedName('parentId')]
-    #[Type('string')]
+    #[Accessor(getter: "getParentId", setter: "setParentId")]
+    #[SerializedName("parentId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $parentId;
 
@@ -40,7 +40,7 @@ class ParentId
      * @param  string $parentId
      * @return self
      */
-    public function __construct(string $parentId = '')
+    public function __construct(string $parentId = "")
     {
         $this->setParentId($parentId);
     }

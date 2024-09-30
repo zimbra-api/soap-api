@@ -27,51 +27,51 @@ class SetPasswordRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * New password
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewPassword', setter: 'setNewPassword')]
-    #[SerializedName('newPassword')]
-    #[Type('string')]
+    #[Accessor(getter: "getNewPassword", setter: "setNewPassword")]
+    #[SerializedName("newPassword")]
+    #[Type("string")]
     #[XmlAttribute]
     private $newPassword;
 
     /**
      * is dry run
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDryRun', setter: 'setDryRun')]
-    #[SerializedName('dryRun')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDryRun", setter: "setDryRun")]
+    #[SerializedName("dryRun")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dryRun;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $newPassword
      * @param bool $dryRun
      * @return self
      */
     public function __construct(
-        string $id = '', string $newPassword = '', ?bool $dryRun = false
-    )
-    {
-        $this->setId($id)
-             ->setNewPassword($newPassword);
+        string $id = "",
+        string $newPassword = "",
+        ?bool $dryRun = false
+    ) {
+        $this->setId($id)->setNewPassword($newPassword);
         if (null !== $dryRun) {
             $this->setDryRun($dryRun);
         }
@@ -148,8 +148,6 @@ class SetPasswordRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SetPasswordEnvelope(
-            new SetPasswordBody($this)
-        );
+        return new SetPasswordEnvelope(new SetPasswordBody($this));
     }
 }

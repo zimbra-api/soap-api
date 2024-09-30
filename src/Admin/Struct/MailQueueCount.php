@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MailQueueCount class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,23 +25,23 @@ class MailQueueCount
 {
     /**
      * Queue name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Count of the number of files in a queue directory
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCount', setter: 'setCount')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getCount", setter: "setCount")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $count;
 
@@ -52,10 +52,9 @@ class MailQueueCount
      * @param int $count
      * @return self
      */
-    public function __construct(string $name = '', int $count = 0)
+    public function __construct(string $name = "", int $count = 0)
     {
-        $this->setName($name)
-             ->setCount($count);
+        $this->setName($name)->setCount($count);
     }
 
     /**

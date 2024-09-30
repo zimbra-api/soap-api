@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\AdminZimletInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -27,14 +33,14 @@ class GetAdminExtensionZimletsResponse extends SoapResponse
 {
     /**
      * Admin zimlet info
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[SerializedName('zimlets')]
-    #[Type('array<Zimbra\Admin\Struct\AdminZimletInfo>')]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
-    #[XmlList(inline: false, entry: 'zimlet', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[SerializedName("zimlets")]
+    #[Type("array<Zimbra\Admin\Struct\AdminZimletInfo>")]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlList(inline: false, entry: "zimlet", namespace: "urn:zimbraAdmin")]
     private $zimlets = [];
 
     /**
@@ -57,7 +63,8 @@ class GetAdminExtensionZimletsResponse extends SoapResponse
     public function setZimlets(array $zimlets): self
     {
         $this->zimlets = array_filter(
-            $zimlets, static fn ($zimlet) => $zimlet instanceof AdminZimletInfo
+            $zimlets,
+            static fn($zimlet) => $zimlet instanceof AdminZimletInfo
         );
         return $this;
     }

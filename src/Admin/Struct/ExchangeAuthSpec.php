@@ -26,61 +26,61 @@ class ExchangeAuthSpec
 {
     /**
      * URL to Exchange server
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Exchange user
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthUserName', setter: 'setAuthUserName')]
-    #[SerializedName('user')]
-    #[Type('string')]
+    #[Accessor(getter: "getAuthUserName", setter: "setAuthUserName")]
+    #[SerializedName("user")]
+    #[Type("string")]
     #[XmlAttribute]
     private $authUserName;
 
     /**
      * Exchange password
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthPassword', setter: 'setAuthPassword')]
-    #[SerializedName('pass')]
-    #[Type('string')]
+    #[Accessor(getter: "getAuthPassword", setter: "setAuthPassword")]
+    #[SerializedName("pass")]
+    #[Type("string")]
     #[XmlAttribute]
     private $authPassword;
 
     /**
      * Auth scheme
-     * 
+     *
      * @var AuthScheme
      */
-    #[Accessor(getter: 'getScheme', setter: 'setScheme')]
-    #[SerializedName('scheme')]
+    #[Accessor(getter: "getScheme", setter: "setScheme")]
+    #[SerializedName("scheme")]
     #[XmlAttribute]
     private AuthScheme $scheme;
 
     /**
      * Auth type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $url
      * @param string $user
      * @param string $pass
@@ -89,17 +89,16 @@ class ExchangeAuthSpec
      * @return self
      */
     public function __construct(
-        string $url = '',
-        string $user = '',
-        string $pass = '',
+        string $url = "",
+        string $user = "",
+        string $pass = "",
         ?AuthScheme $scheme = null,
         ?string $type = null
-    )
-    {
+    ) {
         $this->setUrl($url)
-             ->setAuthUserName($user)
-             ->setAuthPassword($pass)
-             ->setScheme($scheme ?? AuthScheme::BASIC);
+            ->setAuthUserName($user)
+            ->setAuthPassword($pass)
+            ->setScheme($scheme ?? AuthScheme::BASIC);
         if (null !== $type) {
             $this->setType($type);
         }

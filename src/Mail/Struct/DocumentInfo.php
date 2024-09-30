@@ -25,34 +25,39 @@ class DocumentInfo extends CommonDocumentInfo
 {
     /**
      * Lock owner account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLockOwnerId', setter: 'setLockOwnerId')]
-    #[SerializedName('loid')]
-    #[Type('string')]
+    #[Accessor(getter: "getLockOwnerId", setter: "setLockOwnerId")]
+    #[SerializedName("loid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lockOwnerId;
 
     /**
      * Lock owner account email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLockOwnerEmail', setter: 'setLockOwnerEmail')]
-    #[SerializedName('loe')]
-    #[Type('string')]
+    #[Accessor(getter: "getLockOwnerEmail", setter: "setLockOwnerEmail")]
+    #[SerializedName("loe")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lockOwnerEmail;
 
     /**
      * Lock timestamp
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLockOwnerTimestamp', setter: 'setLockOwnerTimestamp')]
-    #[SerializedName('lt')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getLockOwnerTimestamp",
+            setter: "setLockOwnerTimestamp"
+        )
+    ]
+    #[SerializedName("lt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $lockOwnerTimestamp;
 
@@ -116,8 +121,7 @@ class DocumentInfo extends CommonDocumentInfo
         array $metadatas = [],
         ?string $fragment = null,
         ?Acl $acl = null
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $uuid,

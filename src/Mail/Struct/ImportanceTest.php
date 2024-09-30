@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, XmlAttribute};
 use Zimbra\Common\Enum\Importance;
 
 /**
@@ -26,17 +26,17 @@ class ImportanceTest extends FilterTest
 {
     /**
      * Importance - high|normal|low
-     * 
+     *
      * @var Importance
      */
-    #[Accessor(getter: 'getImportance', setter: 'setImportance')]
-    #[SerializedName('imp')]
+    #[Accessor(getter: "getImportance", setter: "setImportance")]
+    #[SerializedName("imp")]
     #[XmlAttribute]
     private ?Importance $importance;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param Importance $importance
@@ -46,9 +46,8 @@ class ImportanceTest extends FilterTest
         ?int $index = null,
         ?bool $negative = null,
         ?Importance $importance = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         $this->importance = $importance;
     }
 

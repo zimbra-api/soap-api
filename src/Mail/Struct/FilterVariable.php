@@ -25,37 +25,36 @@ class FilterVariable
 {
     /**
      * Rule name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $value
      * @return self
      */
-    public function __construct(string $name = '', string $value = '')
+    public function __construct(string $name = "", string $value = "")
     {
-        $this->setName($name)
-             ->setValue($value);
+        $this->setName($name)->setValue($value);
     }
 
     /**

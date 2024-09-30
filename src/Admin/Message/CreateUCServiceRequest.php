@@ -30,28 +30,25 @@ class CreateUCServiceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New server name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $name = '', array $attrs = []
-    )
+    public function __construct(string $name = "", array $attrs = [])
     {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        $this->setName($name)->setAttrs($attrs);
     }
 
     /**
@@ -81,8 +78,6 @@ class CreateUCServiceRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateUCServiceEnvelope(
-            new CreateUCServiceBody($this)
-        );
+        return new CreateUCServiceEnvelope(new CreateUCServiceBody($this));
     }
 }

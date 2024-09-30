@@ -29,29 +29,29 @@ class BulkAction
      * - move: move the search result to specified folder location
      * - read: mark the search result as read
      * - unread: mark the search result as unread
-     * 
+     *
      * @var BulkOperation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private BulkOperation $op;
 
     /**
      * Folder
      * Required if op="move". Folder pathname where all matching items should be moved.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Constructor
-     * 
+     *
      * @param BulkOperation $op
      * @param string $folder
      * @return self
@@ -59,8 +59,7 @@ class BulkAction
     public function __construct(
         ?BulkOperation $op = null,
         ?string $folder = null
-    )
-    {
+    ) {
         $this->setOp($op ?? BulkOperation::READ);
         if (null !== $folder) {
             $this->setFolder($folder);

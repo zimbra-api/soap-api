@@ -26,40 +26,40 @@ class SearchFolder extends Folder
 {
     /**
      * Query
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
-    #[Type('string')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
+    #[Type("string")]
     #[XmlAttribute]
     private $query;
 
     /**
      * Sort by
-     * 
+     *
      * @var SearchSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
     #[XmlAttribute]
     private ?SearchSortBy $sortBy;
 
     /**
      * Comma-separated list.  Legal values in list are:
      * appointment|chat|contact|conversation|document|message|tag|task|wiki
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getTypes", setter: "setTypes")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $types;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $uuid
      * @param  string $query
@@ -68,14 +68,13 @@ class SearchFolder extends Folder
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $uuid = '',
+        string $id = "",
+        string $uuid = "",
         ?string $query = null,
         ?SearchSortBy $sortBy = null,
         ?string $types = null
-    )
-    {
-    	parent::__construct($id, $uuid);
+    ) {
+        parent::__construct($id, $uuid);
         $this->sortBy = $sortBy;
         if (null !== $query) {
             $this->setQuery($query);
@@ -148,12 +147,12 @@ class SearchFolder extends Folder
     public function setTypes(string $types)
     {
         $validTypes = [];
-        foreach (explode(',', $types) as $type) {
+        foreach (explode(",", $types) as $type) {
             if (ItemType::tryFrom($type) && !in_array($type, $validTypes)) {
                 $validTypes[] = $type;
             }
         }
-        $this->types = implode(',', $validTypes);
+        $this->types = implode(",", $validTypes);
         return $this;
     }
 }

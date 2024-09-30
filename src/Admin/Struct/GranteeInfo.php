@@ -26,50 +26,50 @@ class GranteeInfo
 {
     /**
      * Grantee id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Grantee name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Grantee type
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?GranteeType $type;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $name
      * @param  GranteeType $type
      * @return self
      */
     public function __construct(
-        string $id = '', string $name = '', ?GranteeType $type = null
-    )
-    {
-        $this->setId($id)
-             ->setName($name);
+        string $id = "",
+        string $name = "",
+        ?GranteeType $type = null
+    ) {
+        $this->setId($id)->setName($name);
         $this->type = $type;
     }
 

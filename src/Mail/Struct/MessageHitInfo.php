@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\ReplyType;
 use Zimbra\Common\Struct\SearchHit;
 
@@ -28,34 +34,34 @@ class MessageHitInfo extends MessageInfo implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * If the message matched the specified query string
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getContentMatched', setter: 'setContentMatched')]
-    #[SerializedName('cm')]
-    #[Type('bool')]
+    #[Accessor(getter: "getContentMatched", setter: "setContentMatched")]
+    #[SerializedName("cm")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $contentMatched;
 
     /**
      * Hit Parts -- indicators that the named parts matched the search string
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessagePartHits', setter: 'setMessagePartHits')]
-    #[Type('array<Zimbra\Mail\Struct\Part>')]
-    #[XmlList(inline: true, entry: 'hp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessagePartHits", setter: "setMessagePartHits")]
+    #[Type("array<Zimbra\Mail\Struct\Part>")]
+    #[XmlList(inline: true, entry: "hp", namespace: "urn:zimbraMail")]
     private $messagePartHits = [];
 
     /**
@@ -134,8 +140,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
         ?int $changeDate = null,
         ?int $modifiedSequence = null,
         array $metadatas = []
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $imapUid,
@@ -238,7 +243,8 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     public function setMessagePartHits(array $hits): self
     {
         $this->messagePartHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof Part
+            $hits,
+            static fn($hit) => $hit instanceof Part
         );
         return $this;
     }

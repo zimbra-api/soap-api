@@ -27,37 +27,36 @@ class RenameAccountRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * New account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('newName')]
-    #[Type('string')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("newName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $newName;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $newName
      * @return self
      */
-    public function __construct(string $id = '', string $newName = '')
+    public function __construct(string $id = "", string $newName = "")
     {
-        $this->setId($id)
-             ->setNewName($newName);
+        $this->setId($id)->setNewName($newName);
     }
 
     /**
@@ -109,8 +108,6 @@ class RenameAccountRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RenameAccountEnvelope(
-            new RenameAccountBody($this)
-        );
+        return new RenameAccountEnvelope(new RenameAccountBody($this));
     }
 }

@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetEffectiveRightsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,37 +27,37 @@ class GetEffectiveRightsResponse extends SoapResponse
 {
     /**
      * Information about grantee
-     * 
+     *
      * @var GranteeInfo
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeInfo $grantee;
 
     /**
      * Information about target
-     * 
+     *
      * @var EffectiveRightsTargetInfo
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(EffectiveRightsTargetInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?EffectiveRightsTargetInfo $target;
 
     /**
      * Constructor
-     * 
+     *
      * @param GranteeInfo $grantee
      * @param EffectiveRightsTargetInfo $target
      * @return self
      */
     public function __construct(
-        ?GranteeInfo $grantee = null, ?EffectiveRightsTargetInfo $target = null
-    )
-    {
+        ?GranteeInfo $grantee = null,
+        ?EffectiveRightsTargetInfo $target = null
+    ) {
         $this->grantee = $grantee;
         $this->target = $target;
     }

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ListIMAPSubscriptionsRequest class
  * Return a list of subscribed folder names
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

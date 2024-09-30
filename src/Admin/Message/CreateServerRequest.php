@@ -32,28 +32,25 @@ class CreateServerRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New server name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param array  $attrs
      * @return self
      */
-    public function __construct(
-        string $name = '', array $attrs = []
-    )
+    public function __construct(string $name = "", array $attrs = [])
     {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        $this->setName($name)->setAttrs($attrs);
     }
 
     /**
@@ -83,8 +80,6 @@ class CreateServerRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateServerEnvelope(
-            new CreateServerBody($this)
-        );
+        return new CreateServerEnvelope(new CreateServerBody($this));
     }
 }

@@ -25,17 +25,17 @@ enum RightClass: string
      * Constant for value 'ADMIN'
      * @return string 'ADMIN'
      */
-    case ADMIN = 'ADMIN';
+    case ADMIN = "ADMIN";
 
     /**
      * Constant for value 'USER'
      * @return string 'USER'
      */
-    case USER = 'USER';
+    case USER = "USER";
 
     /**
      * Constant for value 'ALL'
      * @return string 'ALL'
      */
-    case ALL = 'ALL';
+    case ALL = "ALL";
 }

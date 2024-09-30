@@ -16,7 +16,7 @@ use Zimbra\Common\Enum\{ActionGrantRight, GranteeType};
 /**
  * ActionGrantSelector struct class
  * Input for grants
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -27,83 +27,83 @@ class ActionGrantSelector
 {
     /**
      * Rights - Some combination of (r)ead, (w)rite, (i)nsert, (d)elete, (a)dminister, workflow action (x), view (p)rivate, view (f)reebusy, (c)reate subfolder
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('perm')]
-    #[Type('string')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("perm")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rights;
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getGrantType', setter: 'setGrantType')]
-    #[SerializedName('gt')]
+    #[Accessor(getter: "getGrantType", setter: "setGrantType")]
+    #[SerializedName("gt")]
     #[XmlAttribute]
     private GranteeType $grantType;
 
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Name or email address of the grantee. Not present if granteeType is all or pub
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * Retained for backwards compatibility.  Old way of specifying password
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getArgs', setter: 'setArgs')]
-    #[SerializedName('args')]
-    #[Type('string')]
+    #[Accessor(getter: "getArgs", setter: "setArgs")]
+    #[SerializedName("args")]
+    #[Type("string")]
     #[XmlAttribute]
     private $args;
 
     /**
      * Password when granteeType is gst
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('pw')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("pw")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * Optional argument.  Access key when granteeType is "key"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessKey", setter: "setAccessKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessKey;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $rights
      * @param GranteeType $grantType
      * @param string $zimbraId
@@ -114,17 +114,15 @@ class ActionGrantSelector
      * @return self
      */
     public function __construct(
-        string $rights = '',
+        string $rights = "",
         ?GranteeType $grantType = null,
         ?string $zimbraId = null,
         ?string $displayName = null,
         ?string $args = null,
         ?string $password = null,
         ?string $accessKey = null
-    )
-    {
-        $this->setRights($rights)
-             ->setGrantType($grantType ?? GranteeType::ALL);
+    ) {
+        $this->setRights($rights)->setGrantType($grantType ?? GranteeType::ALL);
         if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
@@ -162,7 +160,10 @@ class ActionGrantSelector
     {
         $validRights = [];
         foreach (str_split($rights) as $right) {
-            if (ActionGrantRight::tryFrom($right) && !in_array($right, $validRights)) {
+            if (
+                ActionGrantRight::tryFrom($right) &&
+                !in_array($right, $validRights)
+            ) {
                 $validRights[] = $right;
             }
         }

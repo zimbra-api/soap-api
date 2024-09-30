@@ -10,13 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SearchGalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,34 +33,34 @@ class SearchGalResponse extends SoapResponse
 {
     /**
      * Name of attribute sorted on.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * The 0-based offset into the results list returned as the first result for this search operation.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Flags whether there are more results
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
@@ -62,12 +68,12 @@ class SearchGalResponse extends SoapResponse
      * Flag whether the underlying search supported pagination.
      * 1 (true) - limit and offset in the request was honored
      * 0 (false) - the underlying search does not support pagination. limit and offset in the request was not honored
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
-    #[SerializedName('paginationSupported')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPagingSupported", setter: "setPagingSupported")]
+    #[SerializedName("paginationSupported")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $pagingSupported;
 
@@ -77,23 +83,23 @@ class SearchGalResponse extends SoapResponse
      * - Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more
      *   generic key, and it checks cached results instead of issuing another SOAP request to the server.
      *   If search key was tokenized and expanded with AND or OR, this cannot be assumed.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName('tokenizeKey')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTokenizeKey", setter: "setTokenizeKey")]
+    #[SerializedName("tokenizeKey")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $tokenizeKey;
 
     /**
      * Matching contacts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Account\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Account\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAccount")]
     private $contacts;
 
     /**
@@ -114,8 +120,7 @@ class SearchGalResponse extends SoapResponse
         ?bool $pagingSupported = null,
         ?bool $tokenizeKey = null,
         array $contacts = []
-    )
-    {
+    ) {
         if (null !== $sortBy) {
             $this->setSortBy($sortBy);
         }
@@ -253,7 +258,8 @@ class SearchGalResponse extends SoapResponse
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof ContactInfo
         );
         return $this;
     }

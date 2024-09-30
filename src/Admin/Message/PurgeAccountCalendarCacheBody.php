@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * PurgeAccountCalendarCacheBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class PurgeAccountCalendarCacheBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('PurgeAccountCalendarCacheRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("PurgeAccountCalendarCacheRequest")]
     #[Type(PurgeAccountCalendarCacheRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('PurgeAccountCalendarCacheResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("PurgeAccountCalendarCacheResponse")]
     #[Type(PurgeAccountCalendarCacheResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class PurgeAccountCalendarCacheBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?PurgeAccountCalendarCacheRequest $request = null, ?PurgeAccountCalendarCacheResponse $response = null
-    )
-    {
+        ?PurgeAccountCalendarCacheRequest $request = null,
+        ?PurgeAccountCalendarCacheResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

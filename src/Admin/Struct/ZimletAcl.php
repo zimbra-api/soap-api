@@ -26,28 +26,28 @@ class ZimletAcl
 {
     /**
      * Name of Class Of Service (COS)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
-    #[Type('string')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
+    #[Type("string")]
     #[XmlAttribute]
     private $cos;
 
     /**
      * ACL
-     * 
+     *
      * @var AclType
      */
-    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName('acl')]
+    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[SerializedName("acl")]
     #[XmlAttribute]
     private ?AclType $acl;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $cos
      * @param  AclType $acl
      * @return self

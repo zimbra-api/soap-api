@@ -10,24 +10,35 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Struct\{
-    AttributeSelector, AttributeSelectorTrait, CursorInfo, SoapEnvelopeInterface, SoapRequest
+    AttributeSelector,
+    AttributeSelectorTrait,
+    CursorInfo,
+    SoapEnvelopeInterface,
+    SoapRequest
 };
 
 /**
  * SearchCalendarResourcesRequest class
  * Search Global Address List (GAL) for calendar resources
  * "attrs" attribute - comma-separated list of attrs to return ("displayName", "zimbraId", "zimbraCalResType")
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSelector
+class SearchCalendarResourcesRequest extends SoapRequest implements
+    AttributeSelector
 {
     use AttributeSelectorTrait;
 
@@ -38,106 +49,106 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * pending messages right before a search. To lower latencies, this option gives a hint to the index system not to
      * trigger this catch-up index prior to the search by giving up the freshness of the search results, i.e. recent
      * messages may not be included in the search results.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getQuick', setter: 'setQuick')]
-    #[SerializedName('quick')]
-    #[Type('bool')]
+    #[Accessor(getter: "getQuick", setter: "setQuick")]
+    #[SerializedName("quick")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $quick;
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25, etc)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Client locale identification.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocale', setter: 'setLocale')]
-    #[SerializedName('locale')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getLocale", setter: "setLocale")]
+    #[SerializedName("locale")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $locale;
 
     /**
      * Cursor specification
-     * 
+     *
      * @var CursorInfo
      */
-    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
-    #[SerializedName('cursor')]
+    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[SerializedName("cursor")]
     #[Type(CursorInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?CursorInfo $cursor;
 
     /**
      * GAL Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
-    #[SerializedName('galAcctId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGalAccountId", setter: "setGalAccountId")]
+    #[SerializedName("galAcctId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galAccountId;
 
     /**
      * If specified, passed through to the GAL search as the search key
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $name;
 
     /**
      * Search Filter
-     * 
+     *
      * @var EntrySearchFilterInfo
      */
-    #[Accessor(getter: 'getSearchFilter', setter: 'setSearchFilter')]
-    #[SerializedName('searchFilter')]
+    #[Accessor(getter: "getSearchFilter", setter: "setSearchFilter")]
+    #[SerializedName("searchFilter")]
     #[Type(EntrySearchFilterInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?EntrySearchFilterInfo $searchFilter;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CursorInfo $cursor
      * @param  EntrySearchFilterInfo $searchFilter
      * @param  bool $quick
@@ -161,8 +172,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
         ?string $galAccountId = null,
         ?string $name = null,
         ?string $attrs = null
-    )
-    {
+    ) {
         $this->cursor = $cursor;
         $this->searchFilter = $searchFilter;
         if (null !== $quick) {

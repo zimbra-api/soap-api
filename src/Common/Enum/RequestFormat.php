@@ -25,11 +25,11 @@ enum RequestFormat: string
      * Constant for value 'xml'
      * @return string 'xml'
      */
-    case XML = 'xml';
+    case XML = "xml";
 
     /**
      * Constant for value 'js'
      * @return string 'js'
      */
-    case JS = 'js';
+    case JS = "js";
 }

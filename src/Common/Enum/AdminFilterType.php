@@ -25,11 +25,11 @@ enum AdminFilterType: string
      * Constant for value 'before'
      * @return string 'before'
      */
-    case BEFORE = 'before';
+    case BEFORE = "before";
 
     /**
      * Constant for value 'after'
      * @return string 'after'
      */
-    case AFTER = 'after';
+    case AFTER = "after";
 }

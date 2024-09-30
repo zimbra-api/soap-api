@@ -13,7 +13,12 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Mail\Struct\{CalTZInfo, MailSearchParams};
 use Zimbra\Common\Enum\{MsgContent, SearchSortBy, WantRecipsSetting};
-use Zimbra\Common\Struct\{CursorInfo, SearchParameters, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    CursorInfo,
+    SearchParameters,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * SearchRequest class
@@ -40,18 +45,18 @@ class SearchRequest extends SoapRequest implements SearchParameters
      * (HTTP 1.1 Keep-Alive) to the server, hence smaller latencies in subseqent search requests.
      * Sending this warm-up request too early (e.g. login time) will be in vain in most cases because
      * the index data is evicted from the cache due to inactivity timeout by the time you actually send a search request.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWarmup', setter: 'setWarmup')]
-    #[SerializedName('warmup')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWarmup", setter: "setWarmup")]
+    #[SerializedName("warmup")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $warmup;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $query
      * @param bool $inDumpster
      * @param string $searchTypes
@@ -117,8 +122,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
         ?MsgContent $wantContent = null,
         ?bool $includeMemberOf = null,
         ?bool $warmup = null
-    )
-    {
+    ) {
         $this->setHeaders($headers);
         $this->sortBy = $sortBy;
         $this->wantRecipients = $wantRecipients;
@@ -229,8 +233,6 @@ class SearchRequest extends SoapRequest implements SearchParameters
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SearchEnvelope(
-            new SearchBody($this)
-        );
+        return new SearchEnvelope(new SearchBody($this));
     }
 }

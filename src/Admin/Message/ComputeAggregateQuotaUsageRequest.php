@@ -18,8 +18,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * The request handler issues GetAggregateQuotaUsageOnServerRequest
  * to all mailbox servers and computes the aggregate quota used by each domain.
  * The request handler updates the zimbraAggregateQuotaLastUsage domain attribute
- * and sends out warning messages for each domain having quota usage greater than a defined percentage threshold. 
- * 
+ * and sends out warning messages for each domain having quota usage greater than a defined percentage threshold.
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

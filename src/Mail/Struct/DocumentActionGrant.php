@@ -26,12 +26,12 @@ class DocumentActionGrant extends ActionGrantSelector
 {
     /**
      * (Optional) Time when this grant expires in milliseconds since the Epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getExpiry', setter: 'setExpiry')]
-    #[SerializedName('expiry')]
-    #[Type('int')]
+    #[Accessor(getter: "getExpiry", setter: "setExpiry")]
+    #[SerializedName("expiry")]
+    #[Type("int")]
     #[XmlAttribute]
     private ?int $expiry;
 
@@ -49,7 +49,7 @@ class DocumentActionGrant extends ActionGrantSelector
      * @return self
      */
     public function __construct(
-        string $rights = '',
+        string $rights = "",
         ?GranteeType $grantType = null,
         ?int $expiry = null,
         ?string $zimbraId = null,
@@ -57,8 +57,7 @@ class DocumentActionGrant extends ActionGrantSelector
         ?string $args = null,
         ?string $password = null,
         ?string $accessKey = null
-    )
-    {
+    ) {
         parent::__construct(
             $rights,
             $grantType,

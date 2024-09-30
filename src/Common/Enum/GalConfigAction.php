@@ -25,17 +25,17 @@ enum GalConfigAction: string
      * Constant for value 'autocomplete'
      * @return string 'autocomplete'
      */
-    case AUTOCOMPLETE = 'autocomplete';
+    case AUTOCOMPLETE = "autocomplete";
 
     /**
      * Constant for value 'search'
      * @return string 'search'
      */
-    case SEARCH = 'search';
+    case SEARCH = "search";
 
     /**
      * Constant for value 'sync'
      * @return string 'sync'
      */
-    case SYNC = 'sync';
+    case SYNC = "sync";
 }

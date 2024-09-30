@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetCommentsRequest class
  * Get comments
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class GetCommentsRequest extends SoapRequest
 {
     /**
      * Select parent for comments
-     * 
+     *
      * @var ParentId
      */
-    #[Accessor(getter: 'getComment', setter: 'setComment')]
-    #[SerializedName('comment')]
+    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[SerializedName("comment")]
     #[Type(ParentId::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ParentId $comment;
 
     /**
@@ -75,8 +75,6 @@ class GetCommentsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetCommentsEnvelope(
-            new GetCommentsBody($this)
-        );
+        return new GetCommentsEnvelope(new GetCommentsBody($this));
     }
 }

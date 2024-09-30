@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * DocumentActionSelector class
@@ -25,24 +31,24 @@ class DocumentActionSelector extends ActionSelector
 {
     /**
      * Zimbra ID of the grant to revoke (Used for "!grant" operation)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Used for "grant" operation
-     * 
+     *
      * @var DocumentActionGrant
      */
-    #[Accessor(getter: 'getGrant', setter: 'setGrant')]
-    #[SerializedName('grant')]
-    #[Type('Zimbra\Mail\Struct\DocumentActionGrant')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGrant", setter: "setGrant")]
+    #[SerializedName("grant")]
+    #[Type("Zimbra\Mail\Struct\DocumentActionGrant")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DocumentActionGrant $grant;
 
     /**
@@ -66,7 +72,7 @@ class DocumentActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
+        string $operation = "",
         ?string $ids = null,
         ?string $zimbraId = null,
         ?DocumentActionGrant $grant = null,
@@ -81,8 +87,7 @@ class DocumentActionSelector extends ActionSelector
         ?string $tagNames = null,
         ?bool $nonExistentIds = null,
         ?bool $newlyCreatedIds = null
-    )
-    {
+    ) {
         parent::__construct(
             $operation,
             $ids,

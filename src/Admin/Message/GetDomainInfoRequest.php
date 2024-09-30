@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -19,8 +25,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Get Domain information
  * This call does not require an auth token.
  * It returns attributes that are pertinent to domain settings for cases when the user is not authenticated.
- * For example, URL to direct the user to upon logging out or when auth token is expired. 
- * 
+ * For example, URL to direct the user to upon logging out or when auth token is expired.
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,31 +36,31 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetDomainInfoRequest extends SoapRequest
 {
     /**
-     * If {apply-config} is 1 (true), then certain unset attrs on a domain will get their values from the global config. 
+     * If {apply-config} is 1 (true), then certain unset attrs on a domain will get their values from the global config.
      * if {apply-config} is 0 (false), then only attributes directly set on the domain will be returned
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
-    #[SerializedName('applyConfig')]
-    #[Type('bool')]
+    #[Accessor(getter: "isApplyConfig", setter: "setApplyConfig")]
+    #[SerializedName("applyConfig")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyConfig;
 
     /**
      * Domain
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainSelector $domain;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DomainSelector $domain
      * @param  bool $applyConfig
      * @return self
@@ -62,8 +68,7 @@ class GetDomainInfoRequest extends SoapRequest
     public function __construct(
         ?DomainSelector $domain = null,
         ?bool $applyConfig = null
-    )
-    {
+    ) {
         $this->domain = $domain;
         if (null !== $applyConfig) {
             $this->setApplyConfig($applyConfig);
@@ -119,8 +124,6 @@ class GetDomainInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetDomainInfoEnvelope(
-            new GetDomainInfoBody($this)
-        );
+        return new GetDomainInfoEnvelope(new GetDomainInfoBody($this));
     }
 }

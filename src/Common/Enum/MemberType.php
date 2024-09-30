@@ -25,17 +25,17 @@ enum MemberType: string
      * Constant for value 'contact'
      * @return string 'C'
      */
-    case CONTACT = 'C';
+    case CONTACT = "C";
 
     /**
      * Constant for value 'GAL entry'
      * @return string 'deny'
      */
-    case GAL_ENTRY = 'G';
+    case GAL_ENTRY = "G";
 
     /**
      * Constant for value 'inlined member'
      * @return string 'I'
      */
-    case INLINED_MEMBER = 'I';
+    case INLINED_MEMBER = "I";
 }

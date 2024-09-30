@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * If no <ace> elements are provided, all ACEs are returned in the response.
  * If <ace> elements are provided, only those ACEs with specified rights are returned in the response.
  * Note: to be deprecated in Zimbra 9.  Use zimbraAccount GetRights instead.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,12 +31,12 @@ class GetPermissionRequest extends SoapRequest
 {
     /**
      * Specification of rights
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Mail\Struct\Right>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAces", setter: "setAces")]
+    #[Type("array<Zimbra\Mail\Struct\Right>")]
+    #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraMail")]
     private $aces = [];
 
     /**
@@ -71,7 +71,8 @@ class GetPermissionRequest extends SoapRequest
     public function setAces(array $aces): self
     {
         $this->aces = array_filter(
-            $aces, static fn ($ace) => $ace instanceof Right
+            $aces,
+            static fn($ace) => $ace instanceof Right
         );
         return $this;
     }
@@ -91,8 +92,6 @@ class GetPermissionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetPermissionEnvelope(
-            new GetPermissionBody($this)
-        );
+        return new GetPermissionEnvelope(new GetPermissionBody($this));
     }
 }

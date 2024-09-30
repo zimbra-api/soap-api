@@ -25,51 +25,51 @@ class NestedRule
 {
     /**
      * Filter Variables
-     * 
+     *
      * @var FilterVariables
      */
-    #[Accessor(getter: 'getFilterVariables', setter: 'setFilterVariables')]
-    #[SerializedName('filterVariables')]
+    #[Accessor(getter: "getFilterVariables", setter: "setFilterVariables")]
+    #[SerializedName("filterVariables")]
     #[Type(FilterVariables::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?FilterVariables $filterVariables;
 
     /**
      * Filter tests
-     * 
+     *
      * @var FilterTests
      */
-    #[Accessor(getter: 'getFilterTests', setter: 'setFilterTests')]
-    #[SerializedName('filterTests')]
+    #[Accessor(getter: "getFilterTests", setter: "setFilterTests")]
+    #[SerializedName("filterTests")]
     #[Type(FilterTests::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?FilterTests $tests;
 
     /**
      * Filter actions
-     * 
+     *
      * @var FilterActions
      */
-    #[Accessor(getter: 'getActions', setter: 'setActions')]
-    #[SerializedName('filterActions')]
+    #[Accessor(getter: "getActions", setter: "setActions")]
+    #[SerializedName("filterActions")]
     #[Type(FilterActions::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private $actions;
 
     /**
      * NestedRule child
-     * 
+     *
      * @var NestedRule
      */
-    #[Accessor(getter: 'getChild', setter: 'setChild')]
-    #[SerializedName('nestedRule')]
+    #[Accessor(getter: "getChild", setter: "setChild")]
+    #[SerializedName("nestedRule")]
     #[Type(NestedRule::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?NestedRule $child;
 
     /**
      * Constructor
-     * 
+     *
      * @param FilterTests $tests
      * @param FilterVariables $filterVariables
      * @param array $actions
@@ -81,8 +81,7 @@ class NestedRule
         ?FilterVariables $filterVariables = null,
         array $actions = [],
         ?NestedRule $child = null
-    )
-    {
+    ) {
         $this->setFilterActions($actions);
         $this->tests = $tests;
         $this->filterVariables = $filterVariables;

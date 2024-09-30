@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\ZimletStatus;
 
 /**
  * ZimletPrefsSpec struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,38 +26,37 @@ class ZimletPrefsSpec
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Presence
-     * 
+     *
      * @var ZimletStatus
      */
-    #[Accessor(getter: 'getPresence', setter: 'setPresence')]
-    #[SerializedName('presence')]
+    #[Accessor(getter: "getPresence", setter: "setPresence")]
+    #[SerializedName("presence")]
     #[XmlAttribute]
     private ZimletStatus $presence;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  ZimletStatus $presence
      * @return self
      */
     public function __construct(
-        string $name = '', ?ZimletStatus $presence = null
-    )
-    {
-        $this->setName($name)
-             ->setPresence($presence ?? ZimletStatus::ENABLED);
+        string $name = "",
+        ?ZimletStatus $presence = null
+    ) {
+        $this->setName($name)->setPresence($presence ?? ZimletStatus::ENABLED);
     }
 
     /**

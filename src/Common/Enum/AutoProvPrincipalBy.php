@@ -25,11 +25,11 @@ enum AutoProvPrincipalBy: string
      * Constant for value 'dn'
      * @return string 'dn'
      */
-    case DN = 'dn';
+    case DN = "dn";
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    case NAME = 'name';
+    case NAME = "name";
 }

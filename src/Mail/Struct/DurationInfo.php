@@ -28,90 +28,90 @@ class DurationInfo implements DurationInfoInterface
 {
     /**
      * Set if the duration is negative.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDurationNegative', setter: 'setDurationNegative')]
-    #[SerializedName('neg')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDurationNegative", setter: "setDurationNegative")]
+    #[SerializedName("neg")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $durationNegative;
 
     /**
      * Weeks component of the duration
      * Special note: if WEEKS are specified, NO OTHER OFFSET MAY BE SPECIFIED (weeks must be alone, per RFC2445)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getWeeks', setter: 'setWeeks')]
-    #[SerializedName('w')]
-    #[Type('int')]
+    #[Accessor(getter: "getWeeks", setter: "setWeeks")]
+    #[SerializedName("w")]
+    #[Type("int")]
     #[XmlAttribute]
     private $weeks;
 
     /**
      * Days component of the duration
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDays', setter: 'setDays')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDays", setter: "setDays")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $days;
 
     /**
      * Hours component of the duration
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getHours', setter: 'setHours')]
-    #[SerializedName('h')]
-    #[Type('int')]
+    #[Accessor(getter: "getHours", setter: "setHours")]
+    #[SerializedName("h")]
+    #[Type("int")]
     #[XmlAttribute]
     private $hours;
 
     /**
      * Minutes component of the duration
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMinutes', setter: 'setMinutes')]
-    #[SerializedName('m')]
-    #[Type('int')]
+    #[Accessor(getter: "getMinutes", setter: "setMinutes")]
+    #[SerializedName("m")]
+    #[Type("int")]
     #[XmlAttribute]
     private $minutes;
 
     /**
      * Seconds component of the duration
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSeconds', setter: 'setSeconds')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSeconds", setter: "setSeconds")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $seconds;
 
     /**
      * Specifies whether the alarm is related to the start of end.
      * Valid values are : START|END
-     * 
+     *
      * @var AlarmRelated
      */
-    #[Accessor(getter: 'getRelated', setter: 'setRelated')]
-    #[SerializedName('related')]
+    #[Accessor(getter: "getRelated", setter: "setRelated")]
+    #[SerializedName("related")]
     #[XmlAttribute]
     private ?AlarmRelated $related;
 
     /**
      * Alarm repeat count
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRepeatCount', setter: 'setRepeatCount')]
-    #[SerializedName('count')]
-    #[Type('int')]
+    #[Accessor(getter: "getRepeatCount", setter: "setRepeatCount")]
+    #[SerializedName("count")]
+    #[Type("int")]
     #[XmlAttribute]
     private $repeatCount;
 
@@ -133,8 +133,7 @@ class DurationInfo implements DurationInfoInterface
         ?int $minutes = null,
         ?int $seconds = null,
         ?AlarmRelated $related = null
-    )
-    {
+    ) {
         $this->related = $related;
         if (null !== $weeks) {
             $this->setWeeks($weeks);

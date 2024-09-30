@@ -28,18 +28,18 @@ class CheckExchangeAuthRequest extends SoapRequest
 {
     /**
      * Exchange auth details
-     * 
+     *
      * @var ExchangeAuthSpec
      */
-    #[Accessor(getter: 'getAuth', setter: 'setAuth')]
-    #[SerializedName('auth')]
+    #[Accessor(getter: "getAuth", setter: "setAuth")]
+    #[SerializedName("auth")]
     #[Type(ExchangeAuthSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ExchangeAuthSpec $auth;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ExchangeAuthSpec  $auth
      * @return self
      */
@@ -75,8 +75,6 @@ class CheckExchangeAuthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckExchangeAuthEnvelope(
-            new CheckExchangeAuthBody($this)
-        );
+        return new CheckExchangeAuthEnvelope(new CheckExchangeAuthBody($this));
     }
 }

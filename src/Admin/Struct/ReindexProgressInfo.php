@@ -25,34 +25,34 @@ class ReindexProgressInfo
 {
     /**
      * Number of reindexes that succeeded
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumSucceeded', setter: 'setNumSucceeded')]
-    #[SerializedName('numSucceeded')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumSucceeded", setter: "setNumSucceeded")]
+    #[SerializedName("numSucceeded")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numSucceeded;
 
     /**
      * Number of reindexes that failed
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumFailed', setter: 'setNumFailed')]
-    #[SerializedName('numFailed')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumFailed", setter: "setNumFailed")]
+    #[SerializedName("numFailed")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numFailed;
 
     /**
      * Number of reindexes that remaining
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNumRemaining', setter: 'setNumRemaining')]
-    #[SerializedName('numRemaining')]
-    #[Type('int')]
+    #[Accessor(getter: "getNumRemaining", setter: "setNumRemaining")]
+    #[SerializedName("numRemaining")]
+    #[Type("int")]
     #[XmlAttribute]
     private $numRemaining;
 
@@ -65,12 +65,13 @@ class ReindexProgressInfo
      * @return self
      */
     public function __construct(
-        int $numSucceeded = 0, int $numFailed = 0, int $numRemaining = 0
-    )
-    {
+        int $numSucceeded = 0,
+        int $numFailed = 0,
+        int $numRemaining = 0
+    ) {
         $this->setNumSucceeded($numSucceeded)
-             ->setNumFailed($numFailed)
-             ->setNumRemaining($numRemaining);
+            ->setNumFailed($numFailed)
+            ->setNumRemaining($numRemaining);
     }
 
     /**

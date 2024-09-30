@@ -10,12 +10,18 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\DistributionListBy;
 
 /**
  * DistributionListSelector struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,33 +32,35 @@ class DistributionListSelector
 {
     /**
      * Distribution list by
-     * 
+     *
      * @var DistributionListBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private DistributionListBy $by;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DistributionListBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?DistributionListBy $by = null, ?string $value = null)
-    {
+    public function __construct(
+        ?DistributionListBy $by = null,
+        ?string $value = null
+    ) {
         $this->setBy($by ?? DistributionListBy::NAME);
         if (null !== $value) {
             $this->setValue($value);

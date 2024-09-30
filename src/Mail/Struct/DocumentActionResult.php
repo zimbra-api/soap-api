@@ -26,34 +26,34 @@ class DocumentActionResult extends ActionResult
 {
     /**
      * Grantee Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
-    #[SerializedName('zid')]
-    #[Type('string')]
+    #[Accessor(getter: "getZimbraId", setter: "setZimbraId")]
+    #[SerializedName("zid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $zimbraId;
 
     /**
      * Display name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * Access key (Password)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
-    #[SerializedName('key')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessKey", setter: "setAccessKey")]
+    #[SerializedName("key")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessKey;
 
@@ -70,15 +70,14 @@ class DocumentActionResult extends ActionResult
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $operation = '',
+        string $id = "",
+        string $operation = "",
         ?string $nonExistentIds = null,
         ?string $newlyCreatedIds = null,
         ?string $zimbraId = null,
         ?string $displayName = null,
         ?string $accessKey = null
-    )
-    {
+    ) {
         parent::__construct($id, $operation, $nonExistentIds, $newlyCreatedIds);
         if (null !== $zimbraId) {
             $this->setZimbraId($zimbraId);

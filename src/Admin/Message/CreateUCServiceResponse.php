@@ -27,13 +27,13 @@ class CreateUCServiceResponse extends SoapResponse
 {
     /**
      * Information about the newly created uc service
-     * 
+     *
      * @var UCServiceInfo
      */
-    #[Accessor(getter: 'getUCService', setter: 'setUCService')]
-    #[SerializedName('ucservice')]
+    #[Accessor(getter: "getUCService", setter: "setUCService")]
+    #[SerializedName("ucservice")]
     #[Type(UCServiceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?UCServiceInfo $ucService;
 
     /**

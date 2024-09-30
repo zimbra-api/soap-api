@@ -25,38 +25,41 @@ class RedirectAction extends FilterAction
 {
     /**
      * Email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * If true, item's copy will be redirected, leaving the original in place.
      * See https://tools.ietf.org/html/rfc3894 "Sieve Extension: Copying Without Side Effects"
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCopy', setter: 'setCopy')]
-    #[SerializedName('copy')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCopy", setter: "setCopy")]
+    #[SerializedName("copy")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $copy;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $address
      * @param bool $copy
      * @return self
      */
-    public function __construct(?int $index = null, ?string $address = null, ?bool $copy = null)
-    {
-    	parent::__construct($index);
+    public function __construct(
+        ?int $index = null,
+        ?string $address = null,
+        ?bool $copy = null
+    ) {
+        parent::__construct($index);
         if (null !== $address) {
             $this->setAddress($address);
         }

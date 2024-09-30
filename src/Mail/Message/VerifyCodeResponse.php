@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * VerifyCodeResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,12 +26,12 @@ class VerifyCodeResponse extends SoapResponse
 {
     /**
      * Flags whether verification was successful
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
-    #[SerializedName('success')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSuccess", setter: "setSuccess")]
+    #[SerializedName("success")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $success = false;
 
@@ -41,9 +41,7 @@ class VerifyCodeResponse extends SoapResponse
      * @param  bool $success
      * @return self
      */
-    public function __construct(
-        bool $success = false
-    )
+    public function __construct(bool $success = false)
     {
         $this->setSuccess($success);
     }

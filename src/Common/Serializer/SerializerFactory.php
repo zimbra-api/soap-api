@@ -10,17 +10,16 @@
 
 namespace Zimbra\Common\Serializer;
 
-use JMS\Serializer\{
-    Handler\EnumHandler,
-    Handler\HandlerRegistryInterface,
-    Handler\SubscribingHandlerInterface,
-    SerializerBuilder,
-    SerializerInterface,
+use JMS\Serializer\Handler\{
+    EnumHandler,
+    HandlerRegistryInterface,
+    SubscribingHandlerInterface
 };
+use JMS\Serializer\{SerializerBuilder, SerializerInterface};
 
 /**
  * Serializer factory class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -45,7 +44,7 @@ final class SerializerFactory
 
     /**
      * Cache dir
-     * 
+     *
      * @var string
      */
     private static ?string $cacheDir = null;
@@ -85,8 +84,9 @@ final class SerializerFactory
      * @param  SubscribingHandlerInterface $handler
      * @return array
      */
-    public static function addSerializerHandler(SubscribingHandlerInterface $handler): array
-    {
+    public static function addSerializerHandler(
+        SubscribingHandlerInterface $handler
+    ): array {
         self::$serializerHandlers[] = $handler;
         return self::$serializerHandlers;
     }
@@ -100,7 +100,9 @@ final class SerializerFactory
     public static function setSerializerHandlers(array $handlers = []): array
     {
         self::$serializerHandlers = array_filter(
-            $handlers, static fn ($handler) => $handler instanceof SubscribingHandlerInterface
+            $handlers,
+            static fn($handler) => $handler instanceof
+                SubscribingHandlerInterface
         );
         return self::$serializerHandlers;
     }
@@ -124,16 +126,19 @@ final class SerializerFactory
             self::$builder->setCacheDir(self::$cacheDir);
         }
 
-        return self::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
-            if (!empty(self::$serializerHandlers)) {
-                foreach (self::$serializerHandlers as $key => $handler) {
-                    $registry->registerSubscribingHandler($handler);
-                    unset(self::$serializerHandlers[$key]);
+        return self::$builder
+            ->configureHandlers(static function (
+                HandlerRegistryInterface $registry
+            ) {
+                if (!empty(self::$serializerHandlers)) {
+                    foreach (self::$serializerHandlers as $key => $handler) {
+                        $registry->registerSubscribingHandler($handler);
+                        unset(self::$serializerHandlers[$key]);
+                    }
                 }
-            }
-        })
-        ->setMetadataDriverFactory(new AttributeDriverFactory())
-        ->setObjectConstructor(new ObjectConstructor())
-        ->build();
+            })
+            ->setMetadataDriverFactory(new AttributeDriverFactory())
+            ->setObjectConstructor(new ObjectConstructor())
+            ->build();
     }
 }

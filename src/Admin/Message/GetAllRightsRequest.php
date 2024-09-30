@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllRightsRequest class
  * Get all system defined rights
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -32,52 +32,53 @@ class GetAllRightsRequest extends SoapRequest
      * Don't confuse this with "whether a right is executable on a target type".
      * e.g. the renameAccount right is "executable" on account entries, but it is "grantable" on account,
      * distribuiton list, domain, and globalgrant entries.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('targetType')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("targetType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetType;
 
     /**
      * Flags whether to include all attribute names in the <attrs> elements in GetRightResponse
      * if the right is meant for all attributes
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isExpandAllAttrs', setter: 'setExpandAllAttrs')]
-    #[SerializedName('expandAllAttrs')]
-    #[Type('bool')]
+    #[Accessor(getter: "isExpandAllAttrs", setter: "setExpandAllAttrs")]
+    #[SerializedName("expandAllAttrs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
      * Right class to return
      * ADMIN: return admin rights only
-     * USER:  return user rights only 
+     * USER:  return user rights only
      * ALL:   return both admin rights and user rights
-     * 
+     *
      * @var RightClass
      */
-    #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
-    #[SerializedName('rightClass')]
+    #[Accessor(getter: "getRightClass", setter: "setRightClass")]
+    #[SerializedName("rightClass")]
     #[XmlAttribute]
     private ?RightClass $rightClass;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $targetType
      * @param  bool $expandAllAttrs
      * @param  RightClass $rightClass
      * @return self
      */
     public function __construct(
-        ?string $targetType = null, ?bool $expandAllAttrs = null, ?RightClass $rightClass = null
-    )
-    {
+        ?string $targetType = null,
+        ?bool $expandAllAttrs = null,
+        ?RightClass $rightClass = null
+    ) {
         if (null !== $targetType) {
             $this->setTargetType($targetType);
         }
@@ -158,8 +159,6 @@ class GetAllRightsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllRightsEnvelope(
-            new GetAllRightsBody($this)
-        );
+        return new GetAllRightsEnvelope(new GetAllRightsBody($this));
     }
 }

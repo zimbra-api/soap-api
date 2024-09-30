@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAdminExtensionZimletsRequest class
  * Returns the admin extension addon Zimlets.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

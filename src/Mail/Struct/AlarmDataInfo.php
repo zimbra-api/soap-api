@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * AlarmDataInfo struct class
@@ -25,84 +31,89 @@ class AlarmDataInfo
 {
     /**
      * Time in millis to show the alarm
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
-    #[SerializedName('nextAlarm')]
-    #[Type('int')]
+    #[Accessor(getter: "getNextAlarm", setter: "setNextAlarm")]
+    #[SerializedName("nextAlarm")]
+    #[Type("int")]
     #[XmlAttribute]
     private $nextAlarm;
 
     /**
      * Start time of the meeting instance the alarm is reminding about
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAlarmInstanceStart', setter: 'setAlarmInstanceStart')]
-    #[SerializedName('alarmInstStart')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getAlarmInstanceStart",
+            setter: "setAlarmInstanceStart"
+        )
+    ]
+    #[SerializedName("alarmInstStart")]
+    #[Type("int")]
     #[XmlAttribute]
     private $alarmInstanceStart;
 
     /**
      * Mail Item ID of the invite message with detailed information
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName('invId')]
-    #[Type('int')]
+    #[Accessor(getter: "getInvId", setter: "setInvId")]
+    #[SerializedName("invId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $invId;
 
     /**
      * Component number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('compNum')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("compNum")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
     /**
      * Meeting subject
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Meeting location
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
-    #[SerializedName('loc')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocation", setter: "setLocation")]
+    #[SerializedName("loc")]
+    #[Type("string")]
     #[XmlAttribute]
     private $location;
 
     /**
      * Details of the alarm
-     * 
+     *
      * @var AlarmInfo
      */
-    #[Accessor(getter: 'getAlarm', setter: 'setAlarm')]
-    #[SerializedName('alarm')]
+    #[Accessor(getter: "getAlarm", setter: "setAlarm")]
+    #[SerializedName("alarm")]
     #[Type(AlarmInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AlarmInfo $alarm;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $nextAlarm
      * @param int $alarmInstanceStart
      * @param int $invId
@@ -120,8 +131,7 @@ class AlarmDataInfo
         ?string $name = null,
         ?string $location = null,
         ?AlarmInfo $alarm = null
-    )
-    {
+    ) {
         $this->alarm = $alarm;
         if (null !== $nextAlarm) {
             $this->setNextAlarm($nextAlarm);

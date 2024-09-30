@@ -10,12 +10,22 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInfo};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
+use Zimbra\Common\Struct\{
+    ZimletConfigInfo,
+    ZimletGlobalConfigInfo,
+    ZimletHostConfigInfo
+};
 
 /**
  * AdminZimletConfigInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -26,95 +36,95 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 {
     /**
      * Zimlet name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Version string
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('version')]
-    #[Type('string')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("version")]
+    #[Type("string")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Zimlet description
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
-    #[SerializedName('description')]
-    #[Type('string')]
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName("description")]
+    #[Type("string")]
     #[XmlAttribute]
     private $description;
 
     /**
      * Zimlet extension
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName('extension')]
-    #[Type('string')]
+    #[Accessor(getter: "getExtension", setter: "setExtension")]
+    #[SerializedName("extension")]
+    #[Type("string")]
     #[XmlAttribute]
     private $extension;
 
     /**
      * Zimlet target
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
-    #[Type('string')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
+    #[Type("string")]
     #[XmlAttribute]
     private $target;
 
     /**
      * Zimlet label
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLabel', setter: 'setLabel')]
-    #[SerializedName('label')]
-    #[Type('string')]
+    #[Accessor(getter: "getLabel", setter: "setLabel")]
+    #[SerializedName("label")]
+    #[Type("string")]
     #[XmlAttribute]
     private $label;
 
     /**
      * Zimlet global configuration information
-     * 
+     *
      * @var ZimletGlobalConfigInfo
      */
-    #[Accessor(getter: 'getGlobal', setter: 'setGlobal')]
-    #[SerializedName('global')]
+    #[Accessor(getter: "getGlobal", setter: "setGlobal")]
+    #[SerializedName("global")]
     #[Type(AdminZimletGlobalConfigInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletGlobalConfigInfo $global = null;
 
     /**
      * Zimlet host configuration information
-     * 
+     *
      * @var ZimletHostConfigInfo
      */
-    #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName('host')]
+    #[Accessor(getter: "getHost", setter: "setHost")]
+    #[SerializedName("host")]
     #[Type(AdminZimletHostConfigInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletHostConfigInfo $host = null;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $version
      * @param string $description
@@ -130,8 +140,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
         ?string $extension = null,
         ?string $target = null,
         ?string $label = null
-    )
-    {
+    ) {
         if (null !== $name) {
             $this->setName($name);
         }

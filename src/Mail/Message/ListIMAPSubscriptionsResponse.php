@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ListIMAPSubscriptionsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,12 +26,12 @@ class ListIMAPSubscriptionsResponse extends SoapResponse
 {
     /**
      * list of folder paths subscribed via IMAP
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSubscriptions', setter: 'setSubscriptions')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'sub', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubscriptions", setter: "setSubscriptions")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "sub", namespace: "urn:zimbraMail")]
     private $subs = [];
 
     /**

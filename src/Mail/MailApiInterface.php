@@ -15,7 +15,6 @@ use Zimbra\Common\Enum\{
     BrowseBy,
     Channel,
     GalSearchType,
-    InterestType,
     MailItemType,
     MsgContent,
     ParticipationStatus,
@@ -27,11 +26,7 @@ use Zimbra\Common\Enum\{
     VerbType,
     WantRecipsSetting
 };
-use Zimbra\Common\Struct\{
-    CursorInfo,
-    Id,
-    SectionAttr
-};
+use Zimbra\Common\Struct\{CursorInfo, Id, SectionAttr};
 use Zimbra\Mail\Struct\{
     AddedComment,
     AddMsgSpec,
@@ -49,13 +44,8 @@ use Zimbra\Mail\Struct\{
     DiffDocumentVersionSpec,
     DocumentActionSelector,
     DocumentSpec,
-    ExpandedRecurrenceCancel,
-    ExpandedRecurrenceComponent,
-    ExpandedRecurrenceException,
-    ExpandedRecurrenceInvite,
     FolderActionSelector,
     FolderSpec,
-    FreeBusyUserSpec,
     GetFolderSpec,
     IdsAttr,
     ImapCursorInfo,
@@ -109,7 +99,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\AddAppointmentInviteResponse
      */
     function addAppointmentInvite(
-        ?ParticipationStatus $partStat = null, ?Msg $msg = null
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
     ): ?Message\AddAppointmentInviteResponse;
 
     /**
@@ -128,7 +119,10 @@ interface MailApiInterface extends AccountApiInterface
      * @param  bool $filterSent
      * @return Message\AddMsgResponse
      */
-    function addMsg(AddMsgSpec $msg, ?bool $filterSent = null): ?Message\AddMsgResponse;
+    function addMsg(
+        AddMsgSpec $msg,
+        ?bool $filterSent = null
+    ): ?Message\AddMsgResponse;
 
     /**
      * Add a task invite
@@ -138,7 +132,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\AddTaskInviteResponse
      */
     function addTaskInvite(
-        ?ParticipationStatus $partStat = null, ?Msg $msg = null
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
     ): ?Message\AddTaskInviteResponse;
 
     /**
@@ -147,7 +142,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $id
      * @return Message\AnnounceOrganizerChangeResponse
      */
-    function announceOrganizerChange(string $id): ?Message\AnnounceOrganizerChangeResponse;
+    function announceOrganizerChange(
+        string $id
+    ): ?Message\AnnounceOrganizerChangeResponse;
 
     /**
      * Applies one or more filter rules to messages specified by a comma-separated ID list,
@@ -163,7 +160,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ApplyFilterRulesResponse
      */
     function applyFilterRules(
-        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
+        array $filterRules = [],
+        ?IdsAttr $msgIds = null,
+        ?string $query = null
     ): ?Message\ApplyFilterRulesResponse;
 
     /**
@@ -180,7 +179,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ApplyOutgoingFilterRulesResponse
      */
     function applyOutgoingFilterRules(
-        array $filterRules = [], ?IdsAttr $msgIds = null, ?string $query = null
+        array $filterRules = [],
+        ?IdsAttr $msgIds = null,
+        ?string $query = null
     ): ?Message\ApplyOutgoingFilterRulesResponse;
 
     /**
@@ -210,7 +211,7 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Resend a message
-     * 
+     *
      * Supports (f)rom, (t)o, (c)c, (b)cc, (s)ender "type" on <e> elements
      * (these get mapped to Resent-From, Resent-To, Resent-CC, Resent-Bcc, Resent-Sender headers,
      * which are prepended to copy of existing message)
@@ -230,7 +231,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\BrowseResponse
      */
     function browse(
-        ?BrowseBy $browseBy = null, ?string $regex = null, ?int $max = null
+        ?BrowseBy $browseBy = null,
+        ?string $regex = null,
+        ?int $max = null
     ): ?Message\BrowseResponse;
 
     /**
@@ -288,7 +291,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CheckPermissionResponse
      */
     function checkPermission(
-        ?TargetSpec $target = null, array $rights = []
+        ?TargetSpec $target = null,
+        array $rights = []
     ): ?Message\CheckPermissionResponse;
 
     /**
@@ -326,7 +330,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CheckSpellingResponse
      */
     function checkSpelling(
-        ?string $dictionary = null, ?string $ignoreList = null, ?string $text = null
+        ?string $dictionary = null,
+        ?string $ignoreList = null,
+        ?string $text = null
     ): ?Message\CheckSpellingResponse;
 
     /**
@@ -338,7 +344,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CompleteTaskInstanceResponse
      */
     function completeTaskInstance(
-        DtTimeInfo $exceptionId, string $id, ?CalTZInfo $timezone = null
+        DtTimeInfo $exceptionId,
+        string $id,
+        ?CalTZInfo $timezone = null
     ): ?Message\CompleteTaskInstanceResponse;
 
     /**
@@ -347,7 +355,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  ContactActionSelector $action
      * @return Message\ContactActionResponse
      */
-    function contactAction(ContactActionSelector $action): ?Message\ContactActionResponse;
+    function contactAction(
+        ContactActionSelector $action
+    ): ?Message\ContactActionResponse;
 
     /**
      * Conv action
@@ -355,7 +365,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  ConvActionSelector $action
      * @return Message\ConvActionResponse
      */
-    function convAction(ConvActionSelector $action): ?Message\ConvActionResponse;
+    function convAction(
+        ConvActionSelector $action
+    ): ?Message\ConvActionResponse;
 
     /**
      * Propose a new time/location.
@@ -450,7 +462,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MailDataSource $dataSource
      * @return Message\CreateDataSourceResponse
      */
-    function createDataSource(?MailDataSource $dataSource = null): ?Message\CreateDataSourceResponse;
+    function createDataSource(
+        ?MailDataSource $dataSource = null
+    ): ?Message\CreateDataSourceResponse;
 
     /**
      * Create folder
@@ -466,7 +480,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  NewMountpointSpec $folder
      * @return Message\CreateMountpointResponse
      */
-    function createMountpoint(NewMountpointSpec $folder): ?Message\CreateMountpointResponse;
+    function createMountpoint(
+        NewMountpointSpec $folder
+    ): ?Message\CreateMountpointResponse;
 
     /**
      * Create a note
@@ -482,7 +498,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  NewSearchFolderSpec $searchFolder
      * @return Message\CreateSearchFolderResponse
      */
-    function createSearchFolder(NewSearchFolderSpec $searchFolder): ?Message\CreateSearchFolderResponse;
+    function createSearchFolder(
+        NewSearchFolderSpec $searchFolder
+    ): ?Message\CreateSearchFolderResponse;
 
     /**
      * Create a tag
@@ -551,7 +569,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\CreateWaitSetResponse
      */
     function createWaitSet(
-        string $defaultInterests, ?bool $allAccounts = null, array $accounts = []
+        string $defaultInterests,
+        ?bool $allAccounts = null,
+        array $accounts = []
     ): ?Message\CreateWaitSetResponse;
 
     /**
@@ -562,7 +582,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  Msg $msg
      * @return Message\DeclineCounterAppointmentResponse
      */
-    function declineCounterAppointment(?Msg $msg = null): ?Message\DeclineCounterAppointmentResponse;
+    function declineCounterAppointment(
+        ?Msg $msg = null
+    ): ?Message\DeclineCounterAppointmentResponse;
 
     /**
      * Deletes the given data sources.
@@ -571,7 +593,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $dataSources
      * @return Message\DeleteDataSourceResponse
      */
-    function deleteDataSource(array $dataSources = []): ?Message\DeleteDataSourceResponse;
+    function deleteDataSource(
+        array $dataSources = []
+    ): ?Message\DeleteDataSourceResponse;
 
     /**
      * Use this to close out the waitset.
@@ -592,7 +616,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  DiffDocumentVersionSpec $doc
      * @return Message\DiffDocumentResponse
      */
-    function diffDocument(?DiffDocumentVersionSpec $doc = null): ?Message\DiffDocumentResponse;
+    function diffDocument(
+        ?DiffDocumentVersionSpec $doc = null
+    ): ?Message\DiffDocumentResponse;
 
     /**
      * Dismiss calendar item alarm
@@ -600,7 +626,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $alarms
      * @return Message\DismissCalendarItemAlarmResponse
      */
-    function dismissCalendarItemAlarm(array $alarms = []): ?Message\DismissCalendarItemAlarmResponse;
+    function dismissCalendarItemAlarm(
+        array $alarms = []
+    ): ?Message\DismissCalendarItemAlarmResponse;
 
     /**
      * Document action
@@ -608,7 +636,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  DocumentActionSelector $action
      * @return Message\DocumentActionResponse
      */
-    function documentAction(DocumentActionSelector $action): ?Message\DocumentActionResponse;
+    function documentAction(
+        DocumentActionSelector $action
+    ): ?Message\DocumentActionResponse;
 
     /**
      * Empty dumpster
@@ -623,7 +653,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  SharedReminderMount $mount
      * @return Message\EnableSharedReminderResponse
      */
-    function enableSharedReminder(SharedReminderMount $mount): ?Message\EnableSharedReminderResponse;
+    function enableSharedReminder(
+        SharedReminderMount $mount
+    ): ?Message\EnableSharedReminderResponse;
 
     /**
      * Expand recurrences
@@ -676,21 +708,21 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\FileSharedWithMeResponse
      */
     function fileSharedWithMe(
-        string $action = '',
-        string $fileName = '',
+        string $action = "",
+        string $fileName = "",
         int $ownerFileId = 0,
-        string $fileUUID = '',
-        string $fileOwnerName = '',
-        string $rights = '',
-        string $contentType = '',
+        string $fileUUID = "",
+        string $fileOwnerName = "",
+        string $rights = "",
+        string $contentType = "",
         int $size = 0,
-        string $ownerAccountId = '',
+        string $ownerAccountId = "",
         int $date = 0
     ): ?Message\FileSharedWithMeResponse;
 
     /**
      * Perform an action on a folder
-     * 
+     *
      * Actions:
      *   <action op="read" id="{list}"/>
      *     - mark all items in the folder as read
@@ -749,7 +781,7 @@ interface MailApiInterface extends AccountApiInterface
      *
      *   <action op="[!]syncon" id="{list}"/>
      *     - set or unset the "sync" flag of the folder to sync a local folder with a remote source
-     *     
+     *
      *   <action op="[!]disableactivesync" id="{list}"/>
      *     - If set, disable access to the folder via activesync.
      *       Note: Only works for user folders, doesn't have any effect on system folders.
@@ -777,13 +809,15 @@ interface MailApiInterface extends AccountApiInterface
      *
      * output of "grant" action includes the zimbra id the rights were granted on
      *
-     * note that "delete", "empty", "rename", "move", "color", "update" can be used on search folders as well as standard 
+     * note that "delete", "empty", "rename", "move", "color", "update" can be used on search folders as well as standard
      * folders
      *
      * @param  FolderActionSelector $action
      * @return Message\FolderActionResponse
      */
-    function folderAction(FolderActionSelector $action): ?Message\FolderActionResponse;
+    function folderAction(
+        FolderActionSelector $action
+    ): ?Message\FolderActionResponse;
 
     /**
      * Used by an attendee to forward an appointment invite email to another user who is not already an attendee.
@@ -794,7 +828,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ForwardAppointmentInviteResponse
      */
     function forwardAppointmentInvite(
-        ?string $id = null, ?Msg $msg = null
+        ?string $id = null,
+        ?Msg $msg = null
     ): ?Message\ForwardAppointmentInviteResponse;
 
     /**
@@ -840,7 +875,7 @@ interface MailApiInterface extends AccountApiInterface
     ): ?Message\GetAppointmentResponse;
 
     /**
-     * Get appointment ids for given range 
+     * Get appointment ids for given range
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -848,7 +883,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetAppointmentIdsInRangeResponse
      */
     function getAppointmentIdsInRange(
-        int $startTime, int $endTime, string $folderId = ''
+        int $startTime,
+        int $endTime,
+        string $folderId = ""
     ): ?Message\GetAppointmentIdsInRangeResponse;
 
     /**
@@ -859,7 +896,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetAppointmentIdsSinceResponse
      */
     function getAppointmentIdsSince(
-        int $lastSync, string $folderId = ''
+        int $lastSync,
+        string $folderId = ""
     ): ?Message\GetAppointmentIdsSinceResponse;
 
     /**
@@ -871,7 +909,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetApptSummariesResponse
      */
     function getApptSummaries(
-        int $startTime, int $endTime, ?string $folderId = null
+        int $startTime,
+        int $endTime,
+        ?string $folderId = null
     ): ?Message\GetApptSummariesResponse;
 
     /**
@@ -883,7 +923,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetCalendarItemSummariesResponse
      */
     function getCalendarItemSummaries(
-        int $startTime, int $endTime, ?string $folderId = null
+        int $startTime,
+        int $endTime,
+        ?string $folderId = null
     ): ?Message\GetCalendarItemSummariesResponse;
 
     /**
@@ -910,7 +952,7 @@ interface MailApiInterface extends AccountApiInterface
      * - for contact ref (type="C"): the fileAs field of the Contact
      * - for GAL ref (type="G"): email address of the GAL entry
      * - for inlined member (type="I"): the value
-     * 
+     *
      * Contact group members are returned as sub-elements of <m>.
      * If for any(transient or permanent) reason a member cannot be dereferenced,
      * then there will be no sub-element under <m>.
@@ -946,13 +988,13 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Get Conversation
-     * 
+     *
      * GetConvRequest gets information about the 1 conversation named by id's value.
      * It will return exactly 1 conversation element.
-     * 
+     *
      * If fetch="1|all" is included, the full expanded message structure is inlined for the first (or for all) messages
      * in the conversation.  If fetch="{item-id}", only the message with the given {item-id} is expanded inline.
-     * 
+     *
      * if headers are requested, any matching headers are inlined into the response (not available when raw="1")
      *
      * @return Message\GetConvResponse
@@ -967,7 +1009,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetCustomMetadataResponse
      */
     function getCustomMetadata(
-        SectionAttr $metadata, ?string $id = null
+        SectionAttr $metadata,
+        ?string $id = null
     ): ?Message\GetCustomMetadataResponse;
 
     /**
@@ -991,7 +1034,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  ItemSpec $item
      * @return Message\GetDocumentShareURLResponse
      */
-    function getDocumentShareURL(ItemSpec $item): ?Message\GetDocumentShareURLResponse;
+    function getDocumentShareURL(
+        ItemSpec $item
+    ): ?Message\GetDocumentShareURLResponse;
 
     /**
      * Returns the effective permissions of the specified folder
@@ -999,7 +1044,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  FolderSpec $folder
      * @return Message\GetEffectiveFolderPermsResponse
      */
-    function getEffectiveFolderPerms(FolderSpec $folder): ?Message\GetEffectiveFolderPermsResponse;
+    function getEffectiveFolderPerms(
+        FolderSpec $folder
+    ): ?Message\GetEffectiveFolderPermsResponse;
 
     /**
      * Get filter rules
@@ -1010,10 +1057,10 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Get folder
-     * 
+     *
      * A {base-folder-id}, a {base-folder-uuid} or a {fully-qualified-path} can optionally be specified in the folder
      * element; if none is present, the descent of the folder hierarchy begins at the mailbox's root folder (id 1).
-     * 
+     *
      * If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present, the path is
      * treated as relative to the folder that was specified by id/uuid.  {base-folder-id} is ignored if {base-folder-uuid}
      * is present.
@@ -1071,7 +1118,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetICalResponse
      */
     function getICal(
-        ?string $id = null, ?int $startTime = null, ?int $endTime = null
+        ?string $id = null,
+        ?int $startTime = null,
+        ?int $endTime = null
     ): ?Message\GetICalResponse;
 
     /**
@@ -1080,7 +1129,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $id
      * @return Message\GetIMAPRecentCutoffResponse
      */
-    function getIMAPRecentCutoff(string $id): ?Message\GetIMAPRecentCutoffResponse;
+    function getIMAPRecentCutoff(
+        string $id
+    ): ?Message\GetIMAPRecentCutoffResponse;
 
     /**
      * Return the count of recent items in the specified folder
@@ -1122,7 +1173,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  SectionAttr $metadata
      * @return Message\GetMailboxMetadataResponse
      */
-    function getMailboxMetadata(SectionAttr $metadata): ?Message\GetMailboxMetadataResponse;
+    function getMailboxMetadata(
+        SectionAttr $metadata
+    ): ?Message\GetMailboxMetadataResponse;
 
     /**
      * Get information needed for Mini Calendar.
@@ -1149,7 +1202,10 @@ interface MailApiInterface extends AccountApiInterface
      * @param  int $modSeq
      * @return Message\GetModifiedItemsIDsResponse
      */
-    function getModifiedItemsIDs(string $folderId, int $modSeq): ?Message\GetModifiedItemsIDsResponse;
+    function getModifiedItemsIDs(
+        string $folderId,
+        int $modSeq
+    ): ?Message\GetModifiedItemsIDsResponse;
 
     /**
      * Get message metadata
@@ -1264,7 +1320,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetTaskSummariesResponse
      */
     function getTaskSummaries(
-        int $startTime, int $endTime, ?string $folderId = null
+        int $startTime,
+        int $endTime,
+        ?string $folderId = null
     ): ?Message\GetTaskSummariesResponse;
 
     /**
@@ -1280,7 +1338,10 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetWorkingHoursResponse
      */
     function getWorkingHours(
-        int $startTime, int $endTime, ?string $id = null, ?string $name = null
+        int $startTime,
+        int $endTime,
+        ?string $id = null,
+        ?string $name = null
     ): ?Message\GetWorkingHoursResponse;
 
     /**
@@ -1290,7 +1351,10 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $password
      * @return Message\GetYahooAuthTokenResponse
      */
-    function getYahooAuthToken(string $user, string $password): ?Message\GetYahooAuthTokenResponse;
+    function getYahooAuthToken(
+        string $user,
+        string $password
+    ): ?Message\GetYahooAuthTokenResponse;
 
     /**
      * Get Yahoo cookie
@@ -1308,7 +1372,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $aces
      * @return Message\GrantPermissionResponse
      */
-    function grantPermission(array $aces = []): ?Message\GrantPermissionResponse;
+    function grantPermission(
+        array $aces = []
+    ): ?Message\GrantPermissionResponse;
 
     /**
      * Do an iCalendar Reply
@@ -1326,7 +1392,11 @@ interface MailApiInterface extends AccountApiInterface
      * @param  int $folder
      * @return Message\IMAPCopyResponse
      */
-    function imapCopy(string $ids, ?MailItemType $type = null, int $folder = 0): ?Message\IMAPCopyResponse;
+    function imapCopy(
+        string $ids,
+        ?MailItemType $type = null,
+        int $folder = 0
+    ): ?Message\IMAPCopyResponse;
 
     /**
      * Import appointments
@@ -1338,7 +1408,7 @@ interface MailApiInterface extends AccountApiInterface
      */
     function importAppointments(
         ContentSpec $content,
-        string $contentType = 'text/calendar',
+        string $contentType = "text/calendar",
         ?string $folderId = null
     ): ?Message\ImportAppointmentsResponse;
 
@@ -1354,7 +1424,7 @@ interface MailApiInterface extends AccountApiInterface
      */
     function importContacts(
         Content $content,
-        string $contentType = 'text/csv',
+        string $contentType = "text/csv",
         ?string $folderId = null,
         ?string $csvFormat = null,
         ?string $csvLocale = null
@@ -1377,7 +1447,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $address
      * @return Message\InvalidateReminderDeviceResponse
      */
-    function invalidateReminderDevice(string $address): ?Message\InvalidateReminderDeviceResponse;
+    function invalidateReminderDevice(
+        string $address
+    ): ?Message\InvalidateReminderDeviceResponse;
 
     /**
      * Perform an action on an item
@@ -1395,7 +1467,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  ListDocumentRevisionsSpec $doc
      * @return Message\ListDocumentRevisionsResponse
      */
-    function listDocumentRevisions(ListDocumentRevisionsSpec $doc): ?Message\ListDocumentRevisionsResponse;
+    function listDocumentRevisions(
+        ListDocumentRevisionsSpec $doc
+    ): ?Message\ListDocumentRevisionsResponse;
 
     /**
      * Return a list of subscribed folder names
@@ -1464,7 +1538,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MailDataSource $dataSource
      * @return Message\ModifyDataSourceResponse
      */
-    function modifyDataSource(?MailDataSource $dataSource = null): ?Message\ModifyDataSourceResponse;
+    function modifyDataSource(
+        ?MailDataSource $dataSource = null
+    ): ?Message\ModifyDataSourceResponse;
 
     /**
      * Modify Filter rules
@@ -1472,7 +1548,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $filterRules
      * @return Message\ModifyFilterRulesResponse
      */
-    function modifyFilterRules(array $filterRules = []): ?Message\ModifyFilterRulesResponse;
+    function modifyFilterRules(
+        array $filterRules = []
+    ): ?Message\ModifyFilterRulesResponse;
 
     /**
      * Modify Mailbox Metadata
@@ -1506,7 +1584,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\ModifyProfileImageResponse
      */
     function modifyProfileImage(
-        ?string $uploadId = null, ?string $imageB64Data = null
+        ?string $uploadId = null,
+        ?string $imageB64Data = null
     ): ?Message\ModifyProfileImageResponse;
 
     /**
@@ -1565,21 +1644,21 @@ interface MailApiInterface extends AccountApiInterface
      * If "wait" is set, and if the current session allows them, this request will block until there are new notifications
      * for the client.  Note that the soap envelope must reference an existing session that has notifications enabled, and
      * the notification sequencing number should be specified.
-     * 
+     *
      * If "wait" is set, the caller can specify whether notifications on delegate sessions will cause the operation to
      * return.  If "delegate" is unset, delegate mailbox notifications will be ignored.  "delegate" is set by default.
-     * 
+     *
      * Some clients (notably browsers) have a global-limit on the number of outstanding sockets...in situations with two
      * App Instances connected to one Zimbra Server, the browser app my appear to 'hang' if two app sessions attempt to do
      * a blocking-NoOp simultaneously.  Since the apps are completely separate in the browser, it is impossible for the
      * apps to coordinate with each other -- therefore the 'limitToOneBlocked' setting is exposed by the server.  If
      * specified, the server will only allow a given user to have one single waiting-NoOp on the server at a time, it will
      * complete (with waitDisallowed set) any existing limited hanging NoOpRequests when a new request comes in.
-     * 
+     *
      * The server may reply with a "waitDisallowed" attribute on response to a request with wait set.  If "waitDisallowed"
      * is set, then blocking-NoOpRequests (ie requests with wait set) are <b>not</b> allowed by the server right now, and
      * the client should stop attempting them.
-     * 
+     *
      * The client may specify a custom timeout-length for their request if they know something about the particular
      * underlying network.  The server may or may not honor this request (depending on server configured max/min values:
      * see LocalConfig variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
@@ -1603,7 +1682,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  NoteActionSelector $action
      * @return Message\NoteActionResponse
      */
-    function noteAction(NoteActionSelector $action): ?Message\NoteActionResponse;
+    function noteAction(
+        NoteActionSelector $action
+    ): ?Message\NoteActionResponse;
 
     /**
      * Open IMAP folder
@@ -1614,7 +1695,9 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\OpenIMAPFolderResponse
      */
     function openIMAPFolder(
-        string $folderId, int $limit, ?ImapCursorInfo $cursor = null
+        string $folderId,
+        int $limit,
+        ?ImapCursorInfo $cursor = null
     ): ?Message\OpenIMAPFolderResponse;
 
     /**
@@ -1623,7 +1706,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  PurgeRevisionSpec $revision
      * @return Message\PurgeRevisionResponse
      */
-    function purgeRevision(PurgeRevisionSpec $revision): ?Message\PurgeRevisionResponse;
+    function purgeRevision(
+        PurgeRevisionSpec $revision
+    ): ?Message\PurgeRevisionResponse;
 
     /**
      * Perform an action on the contact ranking table
@@ -1631,7 +1716,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  RankingActionSpec $action
      * @return Message\RankingActionResponse
      */
-    function rankingAction(RankingActionSpec $action): ?Message\RankingActionResponse;
+    function rankingAction(
+        RankingActionSpec $action
+    ): ?Message\RankingActionResponse;
 
     /**
      * Record that an IMAP client has seen all the messages in this folder as they
@@ -1642,7 +1729,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $folderId
      * @return Message\RecordIMAPSessionResponse
      */
-    function recordIMAPSession(string $folderId): ?Message\RecordIMAPSessionResponse;
+    function recordIMAPSession(
+        string $folderId
+    ): ?Message\RecordIMAPSessionResponse;
 
     /**
      * Recover account request
@@ -1665,7 +1754,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MsgPartIds $msg
      * @return Message\RemoveAttachmentsResponse
      */
-    function removeAttachments(MsgPartIds $msg): ?Message\RemoveAttachmentsResponse;
+    function removeAttachments(
+        MsgPartIds $msg
+    ): ?Message\RemoveAttachmentsResponse;
 
     /**
      * Resets the mailbox's "recent message count" to 0.  A message is considered "recent" if:
@@ -1684,7 +1775,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\RestoreContactsResponse
      */
     function restoreContacts(
-        string $fileName, ?RestoreResolve $resolve = null
+        string $fileName,
+        ?RestoreResolve $resolve = null
     ): ?Message\RestoreContactsResponse;
 
     /**
@@ -1695,32 +1787,34 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $aces
      * @return Message\RevokePermissionResponse
      */
-    function revokePermission(array $aces = []): ?Message\RevokePermissionResponse;
+    function revokePermission(
+        array $aces = []
+    ): ?Message\RevokePermissionResponse;
 
     /**
      * Save Document
      * One mechanism for Creating and updating a Document is:
      * - Use FileUploadServlet to upload the document
      * - Call SaveDocumentRequest using the upload-id returned from FileUploadServlet.
-     * 
+     *
      * A Document represents a file.  A file can be created by uploading to FileUploadServlet.  Or it can refer to an
      * attachment of an existing message.
-     * 
+     *
      * Documents are versioned.  The server maintains the metadata of each version, such as by who and when the version
      * was edited, and the fragment.
-     * 
+     *
      * When updating an existing Document, the client must supply the id of Document, and the last known version of the
      * document in the 'ver' attribute.  This is used to prevent blindly overwriting someone else's change made after
      * the version this update was based upon.  The update will succeed only when the last known version supplied by the
      * client matches the current version of the item identified by item-id.
-     * 
+     *
      * Saving a new document, as opposed to adding a revision of existing document, should leave the id and ver fields
      * empty in the request.  Then the server checks and see if the named document already exists, if so returns an error.
-     * 
+     *
      * The request should contain either an <upload> element or a <msg> element, but not both.
      * When <upload> is used, the document should first be uploaded to FileUploadServlet, and then use the
      * upload-id from the FileUploadResponse.
-     * 
+     *
      * When <m> is used, the document is retrieved from an existing message in the mailbox, identified by the
      * msg-id and part-id.  The content of the document can be inlined in the <content> element.
      * The content can come from another document / revision specified in the <doc> sub element.
@@ -1761,7 +1855,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $subscriptions
      * @return Message\SaveIMAPSubscriptionsResponse
      */
-    function saveIMAPSubscriptions(array $subscriptions = []): ?Message\SaveIMAPSubscriptionsResponse;
+    function saveIMAPSubscriptions(
+        array $subscriptions = []
+    ): ?Message\SaveIMAPSubscriptionsResponse;
 
     /**
      * Search action
@@ -1771,7 +1867,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SearchActionResponse
      */
     function searchAction(
-        Message\SearchRequest $searchRequest, BulkAction $bulkAction
+        Message\SearchRequest $searchRequest,
+        BulkAction $bulkAction
     ): ?Message\SearchActionResponse;
 
     /**
@@ -1812,7 +1909,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SearchConvResponse
      */
     function searchConv(
-        string $conversationId = '',
+        string $conversationId = "",
         ?string $query = null,
         ?bool $inDumpster = null,
         ?string $searchTypes = null,
@@ -1924,7 +2021,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $messageId
      * @return Message\SendDeliveryReportResponse
      */
-    function sendDeliveryReport(string $messageId): ?Message\SendDeliveryReportResponse;
+    function sendDeliveryReport(
+        string $messageId
+    ): ?Message\SendDeliveryReportResponse;
 
     /**
      * Send a reply to an invite
@@ -1950,7 +2049,7 @@ interface MailApiInterface extends AccountApiInterface
 
     /**
      * Send message
-     * 
+     *
      * - Supports (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification "type" on <e> elements.
      * - Only allowed one top-level <mp> but can nest <mp>s within if multipart/*
      * - A leaf <mp> can have inlined content (<mp ct="{content-type}"><content>...</content></mp>)
@@ -2000,7 +2099,10 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SendShareNotificationResponse
      */
     function sendShareNotification(
-        Id $item, array $emailAddresses = [], ?ShareAction $action = null, ?string $notes = null
+        Id $item,
+        array $emailAddresses = [],
+        ?ShareAction $action = null,
+        ?string $notes = null
     ): ?Message\SendShareNotificationResponse;
 
     /**
@@ -2055,7 +2157,8 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SetCustomMetadataResponse
      */
     function setCustomMetadata(
-        MailCustomMetadata $metadata, string $id
+        MailCustomMetadata $metadata,
+        string $id
     ): ?Message\SetCustomMetadataResponse;
 
     /**
@@ -2123,7 +2226,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  array $alarms
      * @return Message\SnoozeCalendarItemAlarmResponse
      */
-    function snoozeCalendarItemAlarm(array $alarms = []): ?Message\SnoozeCalendarItemAlarmResponse;
+    function snoozeCalendarItemAlarm(
+        array $alarms = []
+    ): ?Message\SnoozeCalendarItemAlarmResponse;
 
     /**
      * Sync
@@ -2170,7 +2275,9 @@ interface MailApiInterface extends AccountApiInterface
      * @param  MailDataSource $dataSource
      * @return Message\TestDataSourceResponse
      */
-    function testDataSource(?MailDataSource $dataSource = null): ?Message\TestDataSourceResponse;
+    function testDataSource(
+        ?MailDataSource $dataSource = null
+    ): ?Message\TestDataSourceResponse;
 
     /**
      * Validate the verification code sent to a device.
@@ -2182,22 +2289,23 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\VerifyCodeResponse
      */
     function verifyCode(
-        ?string $address = null, ?string $verificationCode = null
+        ?string $address = null,
+        ?string $verificationCode = null
     ): ?Message\VerifyCodeResponse;
 
     /**
      * WaitSetRequest optionally modifies the wait set and checks for any notifications.
      * If <block> is set and there are no notifications, then this API will BLOCK until there is data.
-     * 
+     *
      * Client should always set 'seq' to be the highest known value it has received from the server.  The server will use
      * this information to retransmit lost data.
-     * 
+     *
      * If the client sends a last known sync token then the notification is calculated by comparing the accounts current
      * token with the client's last known.
-     * 
+     *
      * If the client does not send a last known sync token, then notification is based on change since last Wait
      * (or change since &lt;add> if this is the first time Wait has been called with the account)
-     * 
+     *
      * The client may specify a custom timeout-length for their request if they know something about the particular
      * underlying network.  The server may or may not honor this request (depending on server configured max/min values).
      * See LocalConfig values:

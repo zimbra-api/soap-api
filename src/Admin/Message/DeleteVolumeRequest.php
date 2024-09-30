@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteVolumeRequest class
  * Delete a volume
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,18 @@ class DeleteVolumeRequest extends SoapRequest
 {
     /**
      * Volume ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id
      * @return self
      */
@@ -74,8 +74,6 @@ class DeleteVolumeRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteVolumeEnvelope(
-            new DeleteVolumeBody($this)
-        );
+        return new DeleteVolumeEnvelope(new DeleteVolumeBody($this));
     }
 }

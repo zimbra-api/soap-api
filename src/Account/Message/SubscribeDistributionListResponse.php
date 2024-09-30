@@ -10,13 +10,13 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, XmlAttribute};
 use Zimbra\Common\Enum\DistributionListSubscribeStatus as SubscribeStatus;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SubscribeDistributionListResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,11 +27,11 @@ class SubscribeDistributionListResponse extends SoapResponse
 {
     /**
      * Status of subscription attempt
-     * 
+     *
      * @var SubscribeStatus
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private SubscribeStatus $status;
 

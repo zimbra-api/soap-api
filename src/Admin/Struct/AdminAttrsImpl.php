@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Struct;
 
 /**
  * AdminAttrsImpl struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,7 +25,7 @@ abstract class AdminAttrsImpl implements AdminAttrs
 
     /**
      * Constructor
-     * 
+     *
      * @param array $attrs
      * @return self
      */

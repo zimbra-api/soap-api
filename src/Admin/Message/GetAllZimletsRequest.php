@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllZimletsRequest class
  * Get all Zimlets
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,20 +28,20 @@ class GetAllZimletsRequest extends SoapRequest
 {
     /**
      * {exclude} can be "none|extension|mail"
-     * extension:    return only mail Zimlets 
-     * mail:     return only admin extensions 
+     * extension:    return only mail Zimlets
+     * mail:     return only admin extensions
      * none [default]:   return both mail and admin zimlets
-     * 
+     *
      * @var ZimletExcludeType
      */
-    #[Accessor(getter: 'getExclude', setter: 'setExclude')]
-    #[SerializedName('exclude')]
+    #[Accessor(getter: "getExclude", setter: "setExclude")]
+    #[SerializedName("exclude")]
     #[XmlAttribute]
     private ?ZimletExcludeType $exclude;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ZimletExcludeType $exclude
      * @return self
      */
@@ -77,8 +77,6 @@ class GetAllZimletsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllZimletsEnvelope(
-            new GetAllZimletsBody($this)
-        );
+        return new GetAllZimletsEnvelope(new GetAllZimletsBody($this));
     }
 }

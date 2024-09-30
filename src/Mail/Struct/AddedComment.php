@@ -25,23 +25,23 @@ class AddedComment
 {
     /**
      * Item ID of parent
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getParentId', setter: 'setParentId')]
-    #[SerializedName('parentId')]
-    #[Type('string')]
+    #[Accessor(getter: "getParentId", setter: "setParentId")]
+    #[SerializedName("parentId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $parentId;
 
     /**
      * Comment text
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getText', setter: 'setText')]
-    #[SerializedName('text')]
-    #[Type('string')]
+    #[Accessor(getter: "getText", setter: "setText")]
+    #[SerializedName("text")]
+    #[Type("string")]
     #[XmlAttribute]
     private $text;
 
@@ -52,10 +52,9 @@ class AddedComment
      * @param  string $text
      * @return self
      */
-    public function __construct(string $parentId = '', string $text = '')
+    public function __construct(string $parentId = "", string $text = "")
     {
-        $this->setParentId($parentId)
-             ->setText($text);
+        $this->setParentId($parentId)->setText($text);
     }
 
     /**

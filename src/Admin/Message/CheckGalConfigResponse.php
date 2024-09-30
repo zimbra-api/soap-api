@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\GalContactInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -27,34 +33,34 @@ class CheckGalConfigResponse extends SoapResponse
 {
     /**
      * Code
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName('code')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCode", setter: "setCode")]
+    #[SerializedName("code")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $code;
 
     /**
      * Message
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $message;
 
     /**
      * Information for GAL contacts
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGalContacts', setter: 'setGalContacts')]
-    #[Type('array<Zimbra\Admin\Struct\GalContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getGalContacts", setter: "setGalContacts")]
+    #[Type("array<Zimbra\Admin\Struct\GalContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAdmin")]
     private $galContacts = [];
 
     /**
@@ -66,11 +72,10 @@ class CheckGalConfigResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        string $code = '',
+        string $code = "",
         ?string $message = null,
         array $galContacts = []
-    )
-    {
+    ) {
         $this->setCode($code);
         if (null !== $message) {
             $this->setMessage($message);
@@ -131,7 +136,8 @@ class CheckGalConfigResponse extends SoapResponse
     public function setGalContacts(array $contacts): self
     {
         $this->galContacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof GalContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof GalContactInfo
         );
         return $this;
     }

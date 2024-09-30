@@ -27,22 +27,22 @@ class WkDay implements WkDayInterface
 {
     /**
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
-     * 
+     *
      * @var WeekDay
      */
-    #[Accessor(getter: 'getDay', setter: 'setDay')]
-    #[SerializedName('day')]
+    #[Accessor(getter: "getDay", setter: "setDay")]
+    #[SerializedName("day")]
     #[XmlAttribute]
     private WeekDay $day;
 
     /**
      * Week number.  [[+]|-]num: 1 to 53
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOrdWk', setter: 'setOrdWk')]
-    #[SerializedName('ordwk')]
-    #[Type('int')]
+    #[Accessor(getter: "getOrdWk", setter: "setOrdWk")]
+    #[SerializedName("ordwk")]
+    #[Type("int")]
     #[XmlAttribute]
     private $ordWk;
 
@@ -101,7 +101,7 @@ class WkDay implements WkDayInterface
      */
     public function setOrdWk(int $ordWk): self
     {
-        if($ordWk != 0 && abs($ordWk) < 54) {
+        if ($ordWk != 0 && abs($ordWk) < 54) {
             $this->ordWk = $ordWk;
         }
         return $this;

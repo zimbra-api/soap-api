@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\{RightClass, RightType};
 
 /**
@@ -26,82 +32,82 @@ class RightInfo
 {
     /**
      * Right name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Right type.  Valid values : getAttrs | setAttrs | combo | preset
-     * 
+     *
      * @var RightType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private RightType $type;
 
     /**
      * Target type.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('targetType')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("targetType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetType;
 
     /**
      * Right class
-     * 
+     *
      * @var RightClass
      */
-    #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
-    #[SerializedName('rightClass')]
+    #[Accessor(getter: "getRightClass", setter: "setRightClass")]
+    #[SerializedName("rightClass")]
     #[XmlAttribute]
     private RightClass $rightClass;
 
     /**
      * Right description
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDesc', setter: 'setDesc')]
-    #[SerializedName('desc')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDesc", setter: "setDesc")]
+    #[SerializedName("desc")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $desc;
 
     /**
      * Attrs
-     * 
+     *
      * @var RightsAttrs
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
     #[Type(RightsAttrs::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?RightsAttrs $attrs;
 
     /**
      * Rights
-     * 
+     *
      * @var ComboRights
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
     #[Type(ComboRights::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ComboRights $rights;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  RightType $type
      * @param  RightClass $rightClass
@@ -112,19 +118,18 @@ class RightInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         ?RightType $type = null,
         ?RightClass $rightClass = null,
-        string $desc = '',
+        string $desc = "",
         ?string $targetType = null,
         ?RightsAttrs $attrs = null,
         ?ComboRights $rights = null
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setType($type ?? RightType::PRESET)
-             ->setRightClass($rightClass ?? RightClass::ALL)
-             ->setDesc($desc);
+            ->setType($type ?? RightType::PRESET)
+            ->setRightClass($rightClass ?? RightClass::ALL)
+            ->setDesc($desc);
         $this->attrs = $attrs;
         $this->rights = $rights;
         if (null !== $targetType) {

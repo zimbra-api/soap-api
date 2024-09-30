@@ -25,53 +25,53 @@ enum ItemType: string
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
-    case APPOINTMENT = 'appointment';
+    case APPOINTMENT = "appointment";
 
     /**
      * Constant for value 'chat'
      * @return string 'chat'
      */
-    case CHAT = 'chat';
+    case CHAT = "chat";
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    case CONTACT = 'contact';
+    case CONTACT = "contact";
 
     /**
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
-    case CONVERSATION = 'conversation';
+    case CONVERSATION = "conversation";
 
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    case DOCUMENT = 'document';
+    case DOCUMENT = "document";
 
     /**
      * Constant for value 'message'
      * @return string 'message'
      */
-    case MESSAGE = 'message';
+    case MESSAGE = "message";
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    case TAG = 'tag';
+    case TAG = "tag";
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    case TASK = 'task';
+    case TASK = "task";
 
     /**
      * Constant for value 'wiki'
      * @return string 'wiki'
      */
-    case WIKI = 'wiki';
+    case WIKI = "wiki";
 }

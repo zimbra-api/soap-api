@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * UpdatedAlarmInfo struct class
@@ -25,38 +31,37 @@ class UpdatedAlarmInfo
 {
     /**
      * Calendar item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName('calItemId')]
-    #[Type('string')]
+    #[Accessor(getter: "getCalItemId", setter: "setCalItemId")]
+    #[SerializedName("calItemId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $calItemId;
 
     /**
      * Updated alarm information
-     * 
+     *
      * @var AlarmDataInfo
      */
-    #[Accessor(getter: 'getAlarmData', setter: 'setAlarmData')]
-    #[SerializedName('alarmData')]
+    #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
+    #[SerializedName("alarmData")]
     #[Type(AlarmDataInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AlarmDataInfo $alarmData;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $calItemId
      * @param AlarmDataInfo $alarmData
      * @return self
      */
     public function __construct(
-        string $calItemId = '',
+        string $calItemId = "",
         ?AlarmDataInfo $alarmData = null
-    )
-    {
+    ) {
         $this->setCalItemId($calItemId);
         $this->alarmData = $alarmData;
     }

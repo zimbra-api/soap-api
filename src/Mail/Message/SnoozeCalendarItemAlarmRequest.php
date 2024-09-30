@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SnoozeCalendarItemAlarmRequest class
  * Snooze alarm(s) for appointments or tasks
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,22 +28,22 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
 {
     /**
      * Details of appt alarms
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getApptAlarms', setter: 'setApptAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\SnoozeAppointmentAlarm>')]
-    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getApptAlarms", setter: "setApptAlarms")]
+    #[Type("array<Zimbra\Mail\Struct\SnoozeAppointmentAlarm>")]
+    #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
     private $apptAlarms = [];
 
     /**
      * Details of task alarms
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTaskAlarms', setter: 'setTaskAlarms')]
-    #[Type('array<Zimbra\Mail\Struct\SnoozeTaskAlarm>')]
-    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTaskAlarms", setter: "setTaskAlarms")]
+    #[Type("array<Zimbra\Mail\Struct\SnoozeTaskAlarm>")]
+    #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
     private $taskAlarms = [];
 
     /**
@@ -54,8 +54,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
      */
     public function __construct(array $alarms = [])
     {
-        $this->setApptAlarms($alarms)
-             ->setTaskAlarms($alarms);
+        $this->setApptAlarms($alarms)->setTaskAlarms($alarms);
     }
 
     /**
@@ -79,7 +78,10 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     public function setApptAlarms(array $alarms): self
     {
         $this->apptAlarms = array_values(
-            array_filter($alarms, static fn ($alarm) => $alarm instanceof SnoozeAppointmentAlarm)
+            array_filter(
+                $alarms,
+                static fn($alarm) => $alarm instanceof SnoozeAppointmentAlarm
+            )
         );
         return $this;
     }
@@ -115,7 +117,10 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     public function setTaskAlarms(array $alarms): self
     {
         $this->taskAlarms = array_values(
-            array_filter($alarms, static fn ($alarm) => $alarm instanceof SnoozeTaskAlarm)
+            array_filter(
+                $alarms,
+                static fn($alarm) => $alarm instanceof SnoozeTaskAlarm
+            )
         );
         return $this;
     }

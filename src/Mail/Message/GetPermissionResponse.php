@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetPermissionResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,17 +27,17 @@ class GetPermissionResponse extends SoapResponse
 {
     /**
      * Account ACE information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Mail\Struct\AccountACEinfo>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAces", setter: "setAces")]
+    #[Type("array<Zimbra\Mail\Struct\AccountACEinfo>")]
+    #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraMail")]
     private $aces = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $aces
      * @return self
      */
@@ -55,7 +55,8 @@ class GetPermissionResponse extends SoapResponse
     public function setAces(array $aces): self
     {
         $this->aces = array_filter(
-            $aces, static fn ($ace) => $ace instanceof AccountACEinfo
+            $aces,
+            static fn($ace) => $ace instanceof AccountACEinfo
         );
         return $this;
     }

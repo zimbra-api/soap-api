@@ -10,7 +10,12 @@
 
 namespace Zimbra\Common\Struct;
 
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, Transparency};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    Transparency
+};
 
 /**
  * InviteComponentCommonInterface interface

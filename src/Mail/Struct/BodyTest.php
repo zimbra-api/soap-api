@@ -25,29 +25,29 @@ class BodyTest extends FilterTest
 {
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Case sensitive setting
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName('caseSensitive')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCaseSensitive", setter: "setCaseSensitive")]
+    #[SerializedName("caseSensitive")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $caseSensitive;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $value
@@ -59,9 +59,8 @@ class BodyTest extends FilterTest
         ?bool $negative = null,
         ?string $value = null,
         ?bool $caseSensitive = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         if (null !== $value) {
             $this->setValue($value);
         }

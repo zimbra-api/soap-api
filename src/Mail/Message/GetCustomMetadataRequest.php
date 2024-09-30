@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{SectionAttr, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetCustomMetadataRequest class
  * Get custom metadata
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,24 +33,24 @@ class GetCustomMetadataRequest extends SoapRequest
 {
     /**
      * Item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Metadata section selector
-     * 
+     *
      * @var SectionAttr
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(SectionAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private SectionAttr $metadata;
 
     /**
@@ -54,9 +60,7 @@ class GetCustomMetadataRequest extends SoapRequest
      * @param  string $id
      * @return self
      */
-    public function __construct(
-        SectionAttr $metadata, ?string $id = null
-    )
+    public function __construct(SectionAttr $metadata, ?string $id = null)
     {
         $this->setMetadata($metadata);
         if (null !== $id) {
@@ -113,8 +117,6 @@ class GetCustomMetadataRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetCustomMetadataEnvelope(
-            new GetCustomMetadataBody($this)
-        );
+        return new GetCustomMetadataEnvelope(new GetCustomMetadataBody($this));
     }
 }

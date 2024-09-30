@@ -12,13 +12,17 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\{
-    AttributeSelector, AttributeSelectorTrait, NamedElement, SoapEnvelopeInterface, SoapRequest
+    AttributeSelector,
+    AttributeSelectorTrait,
+    NamedElement,
+    SoapEnvelopeInterface,
+    SoapRequest
 };
 
 /**
  * GetZimletRequest class
  * Get Zimlet
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -31,18 +35,18 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Zimlet selector
-     * 
+     *
      * @var NamedElement
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
     #[Type(NamedElement::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private NamedElement $zimlet;
 
     /**
      * Constructor
-     * 
+     *
      * @param  NamedElement $zimlet
      * @param  string $attrs
      * @return self
@@ -82,8 +86,6 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetZimletEnvelope(
-            new GetZimletBody($this)
-        );
+        return new GetZimletEnvelope(new GetZimletBody($this));
     }
 }

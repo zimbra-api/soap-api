@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * OAuthConsumer struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,45 +25,45 @@ class OAuthConsumer
 {
     /**
      * Access token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccessToken', setter: 'setAccessToken')]
-    #[SerializedName('accessToken')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccessToken", setter: "setAccessToken")]
+    #[SerializedName("accessToken")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accessToken;
 
     /**
      * Approved on
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getApprovedOn', setter: 'setApprovedOn')]
-    #[SerializedName('approvedOn')]
-    #[Type('string')]
+    #[Accessor(getter: "getApprovedOn", setter: "setApprovedOn")]
+    #[SerializedName("approvedOn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $approvedOn;
 
     /**
      * Application name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getApplicationName', setter: 'setApplicationName')]
-    #[SerializedName('appName')]
-    #[Type('string')]
+    #[Accessor(getter: "getApplicationName", setter: "setApplicationName")]
+    #[SerializedName("appName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $applicationName;
 
     /**
      * Device
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDevice', setter: 'setDevice')]
-    #[SerializedName('device')]
-    #[Type('string')]
+    #[Accessor(getter: "getDevice", setter: "setDevice")]
+    #[SerializedName("device")]
+    #[Type("string")]
     #[XmlAttribute]
     private $device;
 
@@ -81,8 +81,7 @@ class OAuthConsumer
         ?string $approvedOn = null,
         ?string $applicationName = null,
         ?string $device = null
-    )
-    {
+    ) {
         if (null !== $accessToken) {
             $this->setAccessToken($accessToken);
         }

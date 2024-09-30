@@ -25,11 +25,11 @@ enum ReplyType: string
      * Constant for value 'REPLIED'
      * @return string 'r'
      */
-    case REPLIED = 'r';
+    case REPLIED = "r";
 
     /**
      * Constant for value 'FORWARDED'
      * @return string 'w'
      */
-    case FORWARDED = 'w';
+    case FORWARDED = "w";
 }

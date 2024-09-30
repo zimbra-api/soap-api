@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * SetRecoveryAccountRequest class
  * Set recovery account request
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,43 +28,43 @@ class SetRecoveryAccountRequest extends SoapRequest
 {
     /**
      * op can be sendCode, validateCode, resendCode or reset.
-     * 
+     *
      * @var RecoveryAccountOperation
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private RecoveryAccountOperation $op;
 
     /**
      * recovery account
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecoveryAccount', setter: 'setRecoveryAccount')]
-    #[SerializedName('recoveryAccount')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecoveryAccount", setter: "setRecoveryAccount")]
+    #[SerializedName("recoveryAccount")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recoveryAccount;
 
     /**
      * recovery account verification code
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVerificationCode', setter: 'setVerificationCode')]
-    #[SerializedName('recoveryAccountVerificationCode')]
-    #[Type('string')]
+    #[Accessor(getter: "getVerificationCode", setter: "setVerificationCode")]
+    #[SerializedName("recoveryAccountVerificationCode")]
+    #[Type("string")]
     #[XmlAttribute]
     private $verificationCode;
 
     /**
      * recovery channel
-     * 
+     *
      * @var Channel
      */
-    #[Accessor(getter: 'getChannel', setter: 'setChannel')]
-    #[SerializedName('channel')]
+    #[Accessor(getter: "getChannel", setter: "setChannel")]
+    #[SerializedName("channel")]
     #[XmlAttribute]
     private ?Channel $channel;
 
@@ -82,8 +82,7 @@ class SetRecoveryAccountRequest extends SoapRequest
         ?string $recoveryAccount = null,
         ?string $verificationCode = null,
         ?Channel $channel = null
-    )
-    {
+    ) {
         $this->setOp($op ?? RecoveryAccountOperation::SEND_CODE);
         $this->channel = $channel;
         if (null !== $recoveryAccount) {

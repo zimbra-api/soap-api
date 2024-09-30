@@ -12,7 +12,7 @@ namespace Zimbra\Account\Struct;
 
 /**
  * AttrsImpl struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

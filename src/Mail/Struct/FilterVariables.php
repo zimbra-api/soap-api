@@ -25,24 +25,30 @@ class FilterVariables extends FilterAction
 {
     /**
      * Filter variables
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getVariables', setter: 'setVariables')]
-    #[Type('array<Zimbra\Mail\Struct\FilterVariable>')]
-    #[XmlList(inline: true, entry: 'filterVariable', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getVariables", setter: "setVariables")]
+    #[Type("array<Zimbra\Mail\Struct\FilterVariable>")]
+    #[
+        XmlList(
+            inline: true,
+            entry: "filterVariable",
+            namespace: "urn:zimbraMail"
+        )
+    ]
     private $variables = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param array $variables
      * @return self
      */
     public function __construct(?int $index = null, array $variables = [])
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         $this->setVariables($variables);
     }
 
@@ -65,7 +71,8 @@ class FilterVariables extends FilterAction
     public function setVariables(array $variables)
     {
         $this->variables = array_filter(
-            $variables, static fn ($variable) => $variable instanceof FilterVariable
+            $variables,
+            static fn($variable) => $variable instanceof FilterVariable
         );
         return $this;
     }

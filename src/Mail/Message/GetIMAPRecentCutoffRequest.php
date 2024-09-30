@@ -27,12 +27,12 @@ class GetIMAPRecentCutoffRequest extends SoapRequest
 {
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -42,7 +42,7 @@ class GetIMAPRecentCutoffRequest extends SoapRequest
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }

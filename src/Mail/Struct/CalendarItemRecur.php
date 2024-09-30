@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{
     DtTimeInfoInterface,
     DurationInfoInterface,
     ExceptionRecurIdInfoInterface,
-    RecurrenceInfoInterface,
+    RecurrenceInfoInterface
 };
 
 /**
@@ -31,57 +31,57 @@ class CalendarItemRecur
 {
     /**
      * Information for iCalendar RECURRENCE-ID
-     * 
+     *
      * @var ExceptionRecurIdInfoInterface
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(ExceptionRecurIdInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ExceptionRecurIdInfoInterface $exceptionId;
 
     /**
      * Start time
-     * 
+     *
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: 'getDtStart', setter: 'setDtStart')]
-    #[SerializedName('s')]
+    #[Accessor(getter: "getDtStart", setter: "setDtStart")]
+    #[SerializedName("s")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfoInterface $dtStart;
 
     /**
      * End time
-     * 
+     *
      * @var DtTimeInfoInterface
      */
-    #[Accessor(getter: 'getDtEnd', setter: 'setDtEnd')]
-    #[SerializedName('e')]
+    #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
+    #[SerializedName("e")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfoInterface $dtEnd;
 
     /**
      * Duration information
-     * 
+     *
      * @var DurationInfoInterface
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfoInterface $duration;
 
     /**
      * Recurrence information
-     * 
+     *
      * @var RecurrenceInfoInterface
      */
-    #[Accessor(getter: 'getRecurrence', setter: 'setRecurrence')]
-    #[SerializedName('recur')]
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName("recur")]
     #[Type(RecurrenceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RecurrenceInfoInterface $recurrence;
 
     /**
@@ -100,8 +100,7 @@ class CalendarItemRecur
         ?DtTimeInfo $dtEnd = null,
         ?DurationInfo $duration = null,
         ?RecurrenceInfo $recurrence = null
-    )
-    {
+    ) {
         $this->exceptionId = $exceptionId;
         $this->dtStart = $dtStart;
         $this->dtEnd = $dtEnd;
@@ -147,8 +146,9 @@ class CalendarItemRecur
      * @param  ExceptionRecurIdInfoInterface $exceptionId
      * @return self
      */
-    public function setExceptionId(ExceptionRecurIdInfoInterface $exceptionId): self
-    {
+    public function setExceptionId(
+        ExceptionRecurIdInfoInterface $exceptionId
+    ): self {
         $this->exceptionId = $exceptionId;
         return $this;
     }

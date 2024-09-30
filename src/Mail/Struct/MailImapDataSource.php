@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\ImapDataSource;
 
 /**
  * MailImapDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -26,45 +26,45 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
 {
     /**
      * oauthToken for data source
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOAuthToken', setter: 'setOAuthToken')]
-    #[SerializedName('oauthToken')]
-    #[Type('string')]
+    #[Accessor(getter: "getOAuthToken", setter: "setOAuthToken")]
+    #[SerializedName("oauthToken")]
+    #[Type("string")]
     #[XmlAttribute]
     private $oauthToken;
 
     /**
      * client Id for refreshing data source oauth token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getClientId', setter: 'setClientId')]
-    #[SerializedName('clientId')]
-    #[Type('string')]
+    #[Accessor(getter: "getClientId", setter: "setClientId")]
+    #[SerializedName("clientId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $clientId;
 
     /**
      * client secret for refreshing data source oauth token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getClientSecret', setter: 'setClientSecret')]
-    #[SerializedName('clientSecret')]
-    #[Type('string')]
+    #[Accessor(getter: "getClientSecret", setter: "setClientSecret")]
+    #[SerializedName("clientSecret")]
+    #[Type("string")]
     #[XmlAttribute]
     private $clientSecret;
 
     /**
      * bool field for client to denote if it wants to test the data source before creating
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isTest', setter: 'setTest')]
-    #[SerializedName('test')]
-    #[Type('bool')]
+    #[Accessor(getter: "isTest", setter: "setTest")]
+    #[SerializedName("test")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $test;
 

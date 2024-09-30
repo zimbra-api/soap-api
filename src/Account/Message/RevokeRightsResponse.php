@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\SoapResponse;
 /**
  * RevokeRightsResponse class
  * Returns rights that are successfully revoked
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -28,17 +28,17 @@ class RevokeRightsResponse extends SoapResponse
 {
     /**
      * Access Control Entries
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAces', setter: 'setAces')]
-    #[Type('array<Zimbra\Account\Struct\AccountACEInfo>')]
-    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAces", setter: "setAces")]
+    #[Type("array<Zimbra\Account\Struct\AccountACEInfo>")]
+    #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraAccount")]
     private $aces = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $aces
      * @return self
      */
@@ -56,7 +56,8 @@ class RevokeRightsResponse extends SoapResponse
     public function setAces(array $aces): self
     {
         $this->aces = array_filter(
-            $aces, static fn ($ace) => $ace instanceof AccountACEInfo
+            $aces,
+            static fn($ace) => $ace instanceof AccountACEInfo
         );
         return $this;
     }

@@ -26,33 +26,33 @@ class DistributionListGranteeInfo
 {
     /**
      * Grantee Type.
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private GranteeType $type;
 
     /**
      * Grantee id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Grantee name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -65,12 +65,13 @@ class DistributionListGranteeInfo
      * @return self
      */
     public function __construct(
-        ?GranteeType $type = null, string $id = '', string $name = ''
-    )
-    {
+        ?GranteeType $type = null,
+        string $id = "",
+        string $name = ""
+    ) {
         $this->setType($type ?? GranteeType::ALL)
-             ->setId($id)
-             ->setName($name);
+            ->setId($id)
+            ->setName($name);
     }
 
     /**

@@ -25,11 +25,11 @@ enum InviteType: string
      * Constant for value 'appt'
      * @return string 'appt'
      */
-    case APPOINTMENT = 'appt';
+    case APPOINTMENT = "appt";
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    case TASK = 'task';
+    case TASK = "task";
 }

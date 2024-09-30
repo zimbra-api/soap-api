@@ -28,18 +28,18 @@ class CheckDomainMXRecordRequest extends SoapRequest
 {
     /**
      * Domain
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainSelector $domain;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DomainSelector $domain
      * @return self
      */

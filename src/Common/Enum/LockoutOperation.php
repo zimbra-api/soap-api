@@ -25,11 +25,11 @@ enum LockoutOperation: string
      * Constant for value 'start'
      * @return string 'start'
      */
-    case START = 'start';
+    case START = "start";
 
     /**
      * Constant for value 'end'
      * @return string 'end'
      */
-    case END = 'end';
+    case END = "end";
 }

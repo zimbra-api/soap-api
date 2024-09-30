@@ -26,39 +26,39 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 {
     /**
      * Target type
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private TargetType $type;
 
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param  EffectiveAttrsInfo $setAttrs
      * @param  EffectiveAttrsInfo $getAttrs
      * @param  TargetType $type
@@ -71,15 +71,14 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
         EffectiveAttrsInfo $setAttrs,
         EffectiveAttrsInfo $getAttrs,
         ?TargetType $type = null,
-        string $id = '',
-        string $name = '',
+        string $id = "",
+        string $name = "",
         array $rights = []
-    )
-    {
+    ) {
         parent::__construct($setAttrs, $getAttrs, $rights);
         $this->setType($type ?? TargetType::ACCOUNT)
-             ->setId($id)
-             ->setName($name);
+            ->setId($id)
+            ->setName($name);
     }
 
     /**

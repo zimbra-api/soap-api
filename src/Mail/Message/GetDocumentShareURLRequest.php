@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetDocumentShareURLRequest class
  * Get the download URL of shared document
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class GetDocumentShareURLRequest extends SoapRequest
 {
     /**
      * Item specification
-     * 
+     *
      * @var ItemSpec
      */
-    #[Accessor(getter: 'getItem', setter: 'setItem')]
-    #[SerializedName('item')]
+    #[Accessor(getter: "getItem", setter: "setItem")]
+    #[SerializedName("item")]
     #[Type(ItemSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ItemSpec $item;
 
     /**

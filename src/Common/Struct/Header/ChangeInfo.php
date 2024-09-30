@@ -25,39 +25,41 @@ class ChangeInfo
 {
     /**
      * Change id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getChangeId', setter: 'setChangeId')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getChangeId", setter: "setChangeId")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $changeId;
 
     /**
      * Change type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getChangeType', setter: 'setChangeType')]
-    #[SerializedName('type')]
-    #[Type('string')]
+    #[Accessor(getter: "getChangeType", setter: "setChangeType")]
+    #[SerializedName("type")]
+    #[Type("string")]
     #[XmlAttribute]
     private $changeType;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $changeId
      * @param string $changeType
      * @return self
      */
-    public function __construct(?string $changeId = NULL, ?string $changeType = NULL)
-    {
-        if (NULL !== $changeId) {
+    public function __construct(
+        ?string $changeId = null,
+        ?string $changeType = null
+    ) {
+        if (null !== $changeId) {
             $this->setChangeId($changeId);
         }
-        if (NULL !== $changeType) {
+        if (null !== $changeType) {
             $this->setChangeType($changeType);
         }
     }

@@ -26,54 +26,54 @@ enum GrantGranteeType: string
      * Constant for value 'usr'
      * @return string 'usr'
      */
-    case USR = 'usr';
+    case USR = "usr";
 
     /**
      * access is granted to a group of users
      * Constant for value 'grp'
      * @return string 'grp'
      */
-    case GRP = 'grp';
+    case GRP = "grp";
 
     /**
      * access is granted to users on a cos
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    case COS = 'cos';
+    case COS = "cos";
 
     /**
      * access is granted to public. no authentication needed.
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    case PUB = 'pub';
+    case PUB = "pub";
 
     /**
      * access is granted to all authenticated users
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * access is granted to all users in a domain
      * Constant for value 'dom'
      * @return string 'dom'
      */
-    case DOM = 'dom';
+    case DOM = "dom";
 
     /**
      * access is granted to a non-Zimbra email address and a password
      * Constant for value 'guest'
      * @return string 'guest'
      */
-    case GUEST = 'guest';
+    case GUEST = "guest";
 
     /**
      * access is granted to a non-Zimbra email address and an accesskey
      * Constant for value 'key'
      * @return string 'key'
      */
-    case KEY = 'key';
+    case KEY = "key";
 }

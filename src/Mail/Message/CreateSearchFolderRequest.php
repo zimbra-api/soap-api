@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CreateSearchFolderRequest class
  * Create a search folder
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class CreateSearchFolderRequest extends SoapRequest
 {
     /**
      * New Search Folder specification
-     * 
+     *
      * @var NewSearchFolderSpec
      */
-    #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]
-    #[SerializedName('search')]
+    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[SerializedName("search")]
     #[Type(NewSearchFolderSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private NewSearchFolderSpec $searchFolder;
 
     /**

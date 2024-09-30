@@ -25,161 +25,161 @@ enum SearchSortBy: string
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    case DATE_DESC = 'dateDesc';
+    case DATE_DESC = "dateDesc";
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    case DATE_ASC = 'dateAsc';
+    case DATE_ASC = "dateAsc";
 
     /**
      * Constant for value 'idDesc'
      * @return string 'idDesc'
      */
-    case ID_DESC = 'idDesc';
+    case ID_DESC = "idDesc";
 
     /**
      * Constant for value 'idAsc'
      * @return string 'idAsc'
      */
-    case ID_ASC = 'idAsc';
+    case ID_ASC = "idAsc";
 
     /**
      * Constant for value 'subjDesc'
      * @return string 'subjDesc'
      */
-    case SUBJ_DESC = 'subjDesc';
+    case SUBJ_DESC = "subjDesc";
 
     /**
      * Constant for value 'subjAsc'
      * @return string 'subjAsc'
      */
-    case SUBJ_ASC = 'subjAsc';
+    case SUBJ_ASC = "subjAsc";
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    case NAME_DESC = 'nameDesc';
+    case NAME_DESC = "nameDesc";
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    case NAME_ASC = 'nameAsc';
+    case NAME_ASC = "nameAsc";
 
     /**
      * Constant for value 'durDesc'
      * @return string 'durDesc'
      */
-    case DUR_DESC = 'durDesc';
+    case DUR_DESC = "durDesc";
 
     /**
      * Constant for value 'durAsc'
      * @return string 'durAsc'
      */
-    case DUR_ASC = 'durAsc';
+    case DUR_ASC = "durAsc";
 
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    case NONE = 'none';
+    case NONE = "none";
 
     /**
      * Constant for value 'taskDueAsc'
      * @return string 'taskDueAsc'
      */
-    case TASK_DUE_ASC = 'taskDueAsc';
+    case TASK_DUE_ASC = "taskDueAsc";
 
     /**
      * Constant for value 'taskDueDesc'
      * @return string 'taskDueDesc'
      */
-    case TASK_DUE_DESC = 'taskDueDesc';
+    case TASK_DUE_DESC = "taskDueDesc";
 
     /**
      * Constant for value 'taskStatusAsc'
      * @return string 'taskStatusAsc'
      */
-    case TASK_STATUS_ASC = 'taskStatusAsc';
+    case TASK_STATUS_ASC = "taskStatusAsc";
 
     /**
      * Constant for value 'taskStatusDesc'
      * @return string 'taskStatusDesc'
      */
-    case TASK_STATUS_DESC = 'taskStatusDesc';
+    case TASK_STATUS_DESC = "taskStatusDesc";
 
     /**
      * Constant for value 'taskPercCompletedAsc'
      * @return string 'taskPercCompletedAsc'
      */
-    case TASK_PERC_COMPLETED_ASC = 'taskPercCompletedAsc';
+    case TASK_PERC_COMPLETED_ASC = "taskPercCompletedAsc";
 
     /**
      * Constant for value 'taskPercCompletedDesc'
      * @return string 'taskPercCompletedDesc'
      */
-    case TASK_PERC_COMPLETED_DESC = 'taskPercCompletedDesc';
+    case TASK_PERC_COMPLETED_DESC = "taskPercCompletedDesc";
 
     /**
      * Constant for value 'rcptAsc'
      * @return string 'rcptAsc'
      */
-    case RCPT_ASC = 'rcptAsc';
+    case RCPT_ASC = "rcptAsc";
 
     /**
      * Constant for value 'rcptDesc'
      * @return string 'rcptDesc'
      */
-    case RCPT_DESC = 'rcptDesc';
+    case RCPT_DESC = "rcptDesc";
 
     /**
      * Constant for value 'readAsc'
      * @return string 'readAsc'
      */
-    case READ_ASC = 'readAsc';
+    case READ_ASC = "readAsc";
 
     /**
      * Constant for value 'readDesc'
      * @return string 'readDesc'
      */
-    case READ_DESC = 'readDesc';
+    case READ_DESC = "readDesc";
 
     /**
      * Constant for value 'calTzAsc'
      * @return string 'calTzAsc'
      */
-    case CAL_TZ_ASC = 'calTzAsc';
+    case CAL_TZ_ASC = "calTzAsc";
 
     /**
      * Constant for value 'calTzDesc'
      * @return string 'calTzDesc'
      */
-    case CAL_TZ_DESC = 'calTzDesc';
+    case CAL_TZ_DESC = "calTzDesc";
 
     /**
      * Constant for value 'flagAsc'
      * @return string 'flagAsc'
      */
-    case FLAG_ASC = 'flagAsc';
+    case FLAG_ASC = "flagAsc";
 
     /**
      * Constant for value 'flagDesc'
      * @return string 'flagDesc'
      */
-    case FLAG_DESC = 'flagDesc';
+    case FLAG_DESC = "flagDesc";
 
     /**
      * Constant for value 'priorityAsc'
      * @return string 'priorityAsc'
      */
-    case PRIORITY_ASC = 'priorityAsc';
+    case PRIORITY_ASC = "priorityAsc";
 
     /**
      * Constant for value 'priorityDesc'
      * @return string 'priorityDesc'
      */
-    case PRIORITY_DESC = 'priorityDesc';
+    case PRIORITY_DESC = "priorityDesc";
 }

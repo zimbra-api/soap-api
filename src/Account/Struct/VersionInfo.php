@@ -25,45 +25,45 @@ class VersionInfo
 {
     /**
      * Full version string
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFullVersion', setter: 'setFullVersion')]
-    #[SerializedName('version')]
-    #[Type('string')]
+    #[Accessor(getter: "getFullVersion", setter: "setFullVersion")]
+    #[SerializedName("version")]
+    #[Type("string")]
     #[XmlAttribute]
     private $fullVersion;
 
     /**
      * Release string
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRelease', setter: 'setRelease')]
-    #[SerializedName('release')]
-    #[Type('string')]
+    #[Accessor(getter: "getRelease", setter: "setRelease")]
+    #[SerializedName("release")]
+    #[Type("string")]
     #[XmlAttribute]
     private $release;
 
     /**
      * Build date in format: YYYYMMDD-hhmm
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('buildDate')]
-    #[Type('string')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("buildDate")]
+    #[Type("string")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Build host name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHost', setter: 'setHost')]
-    #[SerializedName('host')]
-    #[Type('string')]
+    #[Accessor(getter: "getHost", setter: "setHost")]
+    #[SerializedName("host")]
+    #[Type("string")]
     #[XmlAttribute]
     private $host;
 
@@ -77,13 +77,15 @@ class VersionInfo
      * @return self
      */
     public function __construct(
-        string $fullVersion = '', string $release = '', string $date = '', string $host = ''
-    )
-    {
+        string $fullVersion = "",
+        string $release = "",
+        string $date = "",
+        string $host = ""
+    ) {
         $this->setFullVersion($fullVersion)
-             ->setRelease($release)
-             ->setDate($date)
-             ->setHost($host);
+            ->setRelease($release)
+            ->setDate($date)
+            ->setHost($host);
     }
 
     /**

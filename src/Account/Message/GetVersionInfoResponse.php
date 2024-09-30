@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetVersionInfoResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,13 +27,13 @@ class GetVersionInfoResponse extends SoapResponse
 {
     /**
      * Version information
-     * 
+     *
      * @var VersionInfo
      */
-    #[Accessor(getter: 'getVersionInfo', setter: 'setVersionInfo')]
-    #[SerializedName('info')]
+    #[Accessor(getter: "getVersionInfo", setter: "setVersionInfo")]
+    #[SerializedName("info")]
     #[Type(VersionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?VersionInfo $versionInfo;
 
     /**

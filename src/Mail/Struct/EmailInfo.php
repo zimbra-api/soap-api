@@ -28,68 +28,73 @@ class EmailInfo implements EmailInfoInterface
 {
     /**
      * Email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * Display name. If we have personal name, first word in "word1 word2" format, or last
      * word in "word1, word2" format.  If no personal name, take string before "@" in email-address.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplay', setter: 'setDisplay')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplay", setter: "setDisplay")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $display;
 
     /**
      * The comment/name part of an address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPersonal', setter: 'setPersonal')]
-    #[SerializedName('p')]
-    #[Type('string')]
+    #[Accessor(getter: "getPersonal", setter: "setPersonal")]
+    #[SerializedName("p")]
+    #[Type("string")]
     #[XmlAttribute]
     private $personal;
 
     /**
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
      * (s)ender, read-receipt (n)otification, (rf) resent-from
-     * 
+     *
      * @var AddressType
      */
-    #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
-    #[SerializedName('t')]
+    #[Accessor(getter: "getAddressType", setter: "setAddressType")]
+    #[SerializedName("t")]
     #[XmlAttribute]
     private ?AddressType $addressType;
 
     /**
      * Set if the email address is a group
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getGroup', setter: 'setGroup')]
-    #[SerializedName('isGroup')]
-    #[Type('bool')]
+    #[Accessor(getter: "getGroup", setter: "setGroup")]
+    #[SerializedName("isGroup")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $group;
 
     /**
      * Flags whether can expand group members
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
-    #[SerializedName('exp')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getCanExpandGroupMembers",
+            setter: "setCanExpandGroupMembers"
+        )
+    ]
+    #[SerializedName("exp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $canExpandGroupMembers;
 
@@ -111,8 +116,7 @@ class EmailInfo implements EmailInfoInterface
         ?AddressType $addressType = null,
         ?bool $group = null,
         ?bool $canExpandGroupMembers = null
-    )
-    {
+    ) {
         $this->addressType = $addressType;
         if (null !== $address) {
             $this->setAddress($address);

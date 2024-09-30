@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * FilterRule struct class
@@ -25,73 +31,73 @@ class FilterRule
 {
     /**
      * Rule name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Active flag. Set by default.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isActive', setter: 'setActive')]
-    #[SerializedName('active')]
-    #[Type('bool')]
+    #[Accessor(getter: "isActive", setter: "setActive")]
+    #[SerializedName("active")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $active;
 
     /**
      * Filter variables
-     * 
+     *
      * @var FilterVariables
      */
-    #[Accessor(getter: 'getFilterVariables', setter: 'setFilterVariables')]
-    #[SerializedName('filterVariables')]
+    #[Accessor(getter: "getFilterVariables", setter: "setFilterVariables")]
+    #[SerializedName("filterVariables")]
     #[Type(FilterVariables::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?FilterVariables $filterVariables;
 
     /**
      * Filter tests
-     * 
+     *
      * @var FilterTests
      */
-    #[Accessor(getter: 'getFilterTests', setter: 'setFilterTests')]
-    #[SerializedName('filterTests')]
+    #[Accessor(getter: "getFilterTests", setter: "setFilterTests")]
+    #[SerializedName("filterTests")]
     #[Type(FilterTests::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?FilterTests $tests;
 
     /**
      * Filter actions
-     * 
+     *
      * @var FilterActions
      */
-    #[Accessor(getter: 'getActions', setter: 'setActions')]
-    #[SerializedName('filterActions')]
+    #[Accessor(getter: "getActions", setter: "setActions")]
+    #[SerializedName("filterActions")]
     #[Type(FilterActions::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private $actions;
 
     /**
      * Nested rule
-     * 
+     *
      * @var NestedRule
      */
-    #[Accessor(getter: 'getChild', setter: 'setChild')]
-    #[SerializedName('nestedRule')]
+    #[Accessor(getter: "getChild", setter: "setChild")]
+    #[SerializedName("nestedRule")]
     #[Type(NestedRule::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?NestedRule $child;
 
     /**
      * Constructor
-     * 
+     *
      * @param FilterTests $tests
      * @param string $name
      * @param bool $active
@@ -102,16 +108,13 @@ class FilterRule
      */
     public function __construct(
         ?FilterTests $tests = null,
-        string $name = '',
+        string $name = "",
         bool $active = false,
         ?FilterVariables $filterVariables = null,
         array $actions = [],
         ?NestedRule $child = null
-    )
-    {
-        $this->setName($name)
-             ->setActive($active)
-             ->setFilterActions($actions);
+    ) {
+        $this->setName($name)->setActive($active)->setFilterActions($actions);
         $this->tests = $tests;
         $this->filterVariables = $filterVariables;
         $this->child = $child;

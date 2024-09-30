@@ -26,12 +26,12 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
@@ -97,8 +97,7 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
         array $metadatas = [],
         ?string $fragment = null,
         ?Acl $acl = null
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $lockOwnerId,

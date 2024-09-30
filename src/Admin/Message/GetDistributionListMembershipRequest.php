@@ -10,14 +10,20 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\DistributionListSelector as DistributionList;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetDistributionListMembershipRequest class
  * Request a list of DLs that a particular DL is a member of
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,40 +34,40 @@ class GetDistributionListMembershipRequest extends SoapRequest
 {
     /**
      * The maximum number of accounts to return (0 is default and means all)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * The starting offset (0, 25 etc)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Distribution List
-     * 
+     *
      * @var DistributionList
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionList::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DistributionList $dl;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DistributionList $dl
      * @param  int $limit
      * @param  int $offset
@@ -71,8 +77,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
         ?DistributionList $dl = null,
         ?int $limit = null,
         ?int $offset = null
-    )
-    {
+    ) {
         $this->dl = $dl;
         if (null !== $limit) {
             $this->setLimit($limit);

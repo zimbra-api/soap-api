@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AddAppointmentInviteResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,34 +26,34 @@ class AddAppointmentInviteResponse extends SoapResponse
 {
     /**
      * Calendar item ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
-    #[SerializedName('calItemId')]
-    #[Type('int')]
+    #[Accessor(getter: "getCalItemId", setter: "setCalItemId")]
+    #[SerializedName("calItemId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $calItemId;
 
     /**
      * Invite ID of the added invite
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getInvId', setter: 'setInvId')]
-    #[SerializedName('invId')]
-    #[Type('int')]
+    #[Accessor(getter: "getInvId", setter: "setInvId")]
+    #[SerializedName("invId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $invId;
 
     /**
      * Component number of the added invite
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('compNum')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("compNum")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
@@ -66,9 +66,10 @@ class AddAppointmentInviteResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?int $calItemId = null, ?int $invId = null, ?int $componentNum = null
-    )
-    {
+        ?int $calItemId = null,
+        ?int $invId = null,
+        ?int $componentNum = null
+    ) {
         if (null !== $calItemId) {
             $this->setCalItemId($calItemId);
         }

@@ -10,12 +10,18 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetWhiteBlackListResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -26,26 +32,26 @@ class GetWhiteBlackListResponse extends SoapResponse
 {
     /**
      * White list
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getWhiteListEntries', setter: 'setWhiteListEntries')]
-    #[SerializedName('whiteList')]
-    #[Type('array<string>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getWhiteListEntries", setter: "setWhiteListEntries")]
+    #[SerializedName("whiteList")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
     private $whiteListEntries = [];
 
     /**
      * Black list
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBlackListEntries', setter: 'setBlackListEntries')]
-    #[SerializedName('blackList')]
-    #[Type('array<string>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'addr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getBlackListEntries", setter: "setBlackListEntries")]
+    #[SerializedName("blackList")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
     private $blackListEntries = [];
 
     /**
@@ -56,11 +62,12 @@ class GetWhiteBlackListResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        array $whiteListEntries = [], array $blackListEntries = []
-    )
-    {
-        $this->setWhiteListEntries($whiteListEntries)
-             ->setBlackListEntries($blackListEntries);
+        array $whiteListEntries = [],
+        array $blackListEntries = []
+    ) {
+        $this->setWhiteListEntries($whiteListEntries)->setBlackListEntries(
+            $blackListEntries
+        );
     }
 
     /**
@@ -72,7 +79,7 @@ class GetWhiteBlackListResponse extends SoapResponse
     public function setWhiteListEntries(array $entries): self
     {
         $this->whiteListEntries = array_unique(
-            array_map(static fn ($entry) => trim($entry), $entries)
+            array_map(static fn($entry) => trim($entry), $entries)
         );
         return $this;
     }
@@ -96,7 +103,7 @@ class GetWhiteBlackListResponse extends SoapResponse
     public function setBlackListEntries(array $entries): self
     {
         $this->blackListEntries = array_unique(
-            array_map(static fn ($entry) => trim($entry), $entries)
+            array_map(static fn($entry) => trim($entry), $entries)
         );
         return $this;
     }

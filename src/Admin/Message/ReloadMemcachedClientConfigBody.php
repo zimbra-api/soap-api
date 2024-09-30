@@ -11,11 +11,15 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapBody,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * ReloadMemcachedClientConfigBody class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,24 +30,24 @@ class ReloadMemcachedClientConfigBody extends SoapBody
 {
     /**
      * Soap request
-     * 
+     *
      * @var SoapRequestInterface
      */
-    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
-    #[SerializedName('ReloadMemcachedClientConfigRequest')]
+    #[Accessor(getter: "getRequest", setter: "setRequest")]
+    #[SerializedName("ReloadMemcachedClientConfigRequest")]
     #[Type(ReloadMemcachedClientConfigRequest::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapRequestInterface $request = null;
 
     /**
      * Soap response
-     * 
+     *
      * @var SoapResponseInterface
      */
-    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
-    #[SerializedName('ReloadMemcachedClientConfigResponse')]
+    #[Accessor(getter: "getResponse", setter: "setResponse")]
+    #[SerializedName("ReloadMemcachedClientConfigResponse")]
     #[Type(ReloadMemcachedClientConfigResponse::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?SoapResponseInterface $response = null;
 
     /**
@@ -54,9 +58,9 @@ class ReloadMemcachedClientConfigBody extends SoapBody
      * @return self
      */
     public function __construct(
-        ?ReloadMemcachedClientConfigRequest $request = null, ?ReloadMemcachedClientConfigResponse $response = null
-    )
-    {
+        ?ReloadMemcachedClientConfigRequest $request = null,
+        ?ReloadMemcachedClientConfigResponse $response = null
+    ) {
         parent::__construct($request, $response);
     }
 

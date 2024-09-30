@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{ShareInfo, SoapResponse};
 
 /**
  * GetShareInfoResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,17 +26,17 @@ class GetShareInfoResponse extends SoapResponse
 {
     /**
      * Share information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getShares', setter: 'setShares')]
-    #[Type('array<Zimbra\Common\Struct\ShareInfo>')]
-    #[XmlList(inline: true, entry: 'share', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getShares", setter: "setShares")]
+    #[Type("array<Zimbra\Common\Struct\ShareInfo>")]
+    #[XmlList(inline: true, entry: "share", namespace: "urn:zimbraAdmin")]
     private $shares = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $shares
      * @return self
      */
@@ -54,7 +54,8 @@ class GetShareInfoResponse extends SoapResponse
     public function setShares(array $shares): self
     {
         $this->shares = array_filter(
-            $shares, static fn ($share) => $share instanceof ShareInfo
+            $shares,
+            static fn($share) => $share instanceof ShareInfo
         );
         return $this;
     }

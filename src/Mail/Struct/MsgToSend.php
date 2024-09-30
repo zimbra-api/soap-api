@@ -27,34 +27,34 @@ class MsgToSend extends Msg
 {
     /**
      * Saved draft ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDraftId', setter: 'setDraftId')]
-    #[SerializedName('did')]
-    #[Type('string')]
+    #[Accessor(getter: "getDraftId", setter: "setDraftId")]
+    #[SerializedName("did")]
+    #[Type("string")]
     #[XmlAttribute]
     private $draftId;
 
     /**
      * If set, message gets constructed based on the "did" (id of the draft).
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSendFromDraft', setter: 'setSendFromDraft')]
-    #[SerializedName('sfd')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSendFromDraft", setter: "setSendFromDraft")]
+    #[SerializedName("sfd")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sendFromDraft;
 
     /**
      * Id of the data source in case SMTP settings of that data source must be used for sending the message.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDataSourceId', setter: 'setDataSourceId')]
-    #[SerializedName('dsId')]
-    #[Type('string')]
+    #[Accessor(getter: "getDataSourceId", setter: "setDataSourceId")]
+    #[SerializedName("dsId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dataSourceId;
 
@@ -102,8 +102,7 @@ class MsgToSend extends Msg
         ?string $draftId = null,
         ?bool $sendFromDraft = null,
         ?string $dataSourceId = null
-    )
-    {
+    ) {
         parent::__construct(
             $attachmentId,
             $origId,

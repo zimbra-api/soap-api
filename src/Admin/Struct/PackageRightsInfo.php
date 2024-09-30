@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * PackageRightsInfo struct class
@@ -25,23 +31,23 @@ class PackageRightsInfo
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Command cmds information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCmds', setter: 'setCmds')]
-    #[Type('array<Zimbra\Admin\Struct\CmdRightsInfo>')]
-    #[XmlList(inline: true, entry: 'cmd', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCmds", setter: "setCmds")]
+    #[Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")]
+    #[XmlList(inline: true, entry: "cmd", namespace: "urn:zimbraAdmin")]
     private $cmds = [];
 
     /**
@@ -100,7 +106,8 @@ class PackageRightsInfo
     public function setCmds(array $cmds)
     {
         $this->cmds = array_filter(
-            $cmds, static fn ($cmd) => $cmd instanceof CmdRightsInfo
+            $cmds,
+            static fn($cmd) => $cmd instanceof CmdRightsInfo
         );
         return $this;
     }

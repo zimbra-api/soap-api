@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * InvalidateReminderDeviceRequest class
  * Invalidate reminder device
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +27,12 @@ class InvalidateReminderDeviceRequest extends SoapRequest
 {
     /**
      * Device email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
@@ -42,7 +42,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest
      * @param  string $address
      * @return self
      */
-    public function __construct(string $address = '')
+    public function __construct(string $address = "")
     {
         $this->setAddress($address);
     }

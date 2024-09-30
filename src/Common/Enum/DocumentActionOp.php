@@ -25,23 +25,23 @@ enum DocumentActionOp: string
      * Constant for value 'watch'
      * @return string 'watch'
      */
-    case WATCH = 'watch';
+    case WATCH = "watch";
 
     /**
      * Constant for value '!watch'
      * @return string '!watch'
      */
-    case NOT_WATCH = '!watch';
+    case NOT_WATCH = "!watch";
 
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    case GRANT = 'grant';
+    case GRANT = "grant";
 
     /**
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    case NOT_GRANT = '!grant';
+    case NOT_GRANT = "!grant";
 }

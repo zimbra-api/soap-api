@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct\Header;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * SessionInfo struct class
@@ -25,50 +31,50 @@ class SessionInfo
 {
     /**
      * Session proxied
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSessionProxied', setter: 'setSessionProxied')]
-    #[SerializedName('proxy')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSessionProxied", setter: "setSessionProxied")]
+    #[SerializedName("proxy")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sessionProxied;
 
     /**
      * Session id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getSessionId", setter: "setSessionId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sessionId;
 
     /**
      * Sequence num
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]
-    #[SerializedName('seq')]
-    #[Type('int')]
+    #[Accessor(getter: "getSequenceNum", setter: "setSequenceNum")]
+    #[SerializedName("seq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sequenceNum;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param bool $sessionProxied
      * @param string $sessionId
      * @param int $sequenceNum
@@ -76,22 +82,21 @@ class SessionInfo
      * @return self
      */
     public function __construct(
-        ?bool $sessionProxied = NULL,
-        ?string $sessionId = NULL,
-        ?int $sequenceNum = NULL,
-        ?string $value = NULL
-    )
-    {
-        if (NULL !== $sessionProxied) {
+        ?bool $sessionProxied = null,
+        ?string $sessionId = null,
+        ?int $sequenceNum = null,
+        ?string $value = null
+    ) {
+        if (null !== $sessionProxied) {
             $this->setSessionProxied($sessionProxied);
         }
-        if (NULL !== $sessionId) {
+        if (null !== $sessionId) {
             $this->setSessionId($sessionId);
         }
-        if (NULL !== $sequenceNum) {
+        if (null !== $sequenceNum) {
             $this->setSequenceNum($sequenceNum);
         }
-        if (NULL !== $value) {
+        if (null !== $value) {
             $this->setValue($value);
         }
     }

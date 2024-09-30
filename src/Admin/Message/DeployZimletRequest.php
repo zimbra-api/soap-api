@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
 use Zimbra\Common\Enum\ZimletDeployAction;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * DeployZimletRequest class
  * Deploy Zimlet(s)
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,50 +35,50 @@ class DeployZimletRequest extends SoapRequest
 {
     /**
      * Action - valid values : deployAll|deployLocal|status
-     * 
+     *
      * @var ZimletDeployAction
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[XmlAttribute]
     private ZimletDeployAction $action;
 
     /**
      * Flag whether to flush the cache
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFlushCache', setter: 'setFlushCache')]
-    #[SerializedName('flush')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFlushCache", setter: "setFlushCache")]
+    #[SerializedName("flush")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $flushCache;
 
     /**
      * Synchronous flag
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSynchronous', setter: 'setSynchronous')]
-    #[SerializedName('synchronous')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSynchronous", setter: "setSynchronous")]
+    #[SerializedName("synchronous")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $synchronous;
 
     /**
      * Content
-     * 
+     *
      * @var AttachmentIdAttrib
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
     #[Type(AttachmentIdAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private AttachmentIdAttrib $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AttachmentIdAttrib $content
      * @param  ZimletDeployAction $action
      * @param  bool $flushCache
@@ -84,10 +90,10 @@ class DeployZimletRequest extends SoapRequest
         ?ZimletDeployAction $action = null,
         ?bool $flushCache = null,
         ?bool $synchronous = null
-    )
-    {
-        $this->setAction($action ?? ZimletDeployAction::DEPLOY_ALL)
-             ->setContent($content);
+    ) {
+        $this->setAction($action ?? ZimletDeployAction::DEPLOY_ALL)->setContent(
+            $content
+        );
         if (null !== $flushCache) {
             $this->setFlushCache($flushCache);
         }
@@ -189,8 +195,6 @@ class DeployZimletRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeployZimletEnvelope(
-            new DeployZimletBody($this)
-        );
+        return new DeployZimletEnvelope(new DeployZimletBody($this));
     }
 }

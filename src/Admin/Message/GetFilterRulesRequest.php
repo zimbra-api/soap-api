@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\{CosSelector, DomainSelector, ServerSelector};
 use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
@@ -29,61 +35,61 @@ class GetFilterRulesRequest extends SoapRequest
 {
     /**
      * Type can be either before or after
-     * 
+     *
      * @var AdminFilterType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private AdminFilterType $type;
 
     /**
      * Account
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * Domain
-     * 
+     *
      * @var DomainSelector
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainSelector $domain;
 
     /**
      * COS
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosSelector $cos;
 
     /**
      * Server
-     * 
+     *
      * @var ServerSelector
      */
-    #[Accessor(getter: 'getServer', setter: 'setServer')]
-    #[SerializedName('server')]
+    #[Accessor(getter: "getServer", setter: "setServer")]
+    #[SerializedName("server")]
     #[Type(ServerSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ServerSelector $server;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AdminFilterType $type
      * @param  AccountSelector $account
      * @param  DomainSelector $domain
@@ -97,8 +103,7 @@ class GetFilterRulesRequest extends SoapRequest
         ?DomainSelector $domain = null,
         ?CosSelector $cos = null,
         ?ServerSelector $server = null
-    )
-    {
+    ) {
         $this->setType($type ?? AdminFilterType::BEFORE);
         $this->account = $account;
         $this->domain = $domain;
@@ -221,8 +226,6 @@ class GetFilterRulesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetFilterRulesEnvelope(
-            new GetFilterRulesBody($this)
-        );
+        return new GetFilterRulesEnvelope(new GetFilterRulesBody($this));
     }
 }

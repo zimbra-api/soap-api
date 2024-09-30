@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * MailQueueQuery struct class
@@ -25,51 +31,51 @@ class MailQueueQuery
 {
     /**
      * Query
-     * 
+     *
      * @var QueueQuery
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
     #[Type(QueueQuery::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private QueueQuery $query;
 
     /**
      * Queue name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQueueName', setter: 'setQueueName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getQueueName", setter: "setQueueName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $queueName;
 
     /**
      * To fora a queue scan, set this to 1 (true)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getScan', setter: 'setScan')]
-    #[SerializedName('scan')]
-    #[Type('bool')]
+    #[Accessor(getter: "getScan", setter: "setScan")]
+    #[SerializedName("scan")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $scan;
 
     /**
      * Maximum time to wait for the scan to complete in seconds (default 3)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getWaitSeconds', setter: 'setWaitSeconds')]
-    #[SerializedName('wait')]
-    #[Type('int')]
+    #[Accessor(getter: "getWaitSeconds", setter: "setWaitSeconds")]
+    #[SerializedName("wait")]
+    #[Type("int")]
     #[XmlAttribute]
     private $waitSeconds;
 
     /**
      * Constructor
-     * 
+     *
      * @param  QueueQuery $query
      * @param  string $name
      * @param  bool $scan
@@ -77,11 +83,12 @@ class MailQueueQuery
      * @return self
      */
     public function __construct(
-        QueueQuery $query, string $name = '', ?bool $scan = null, ?int $wait = null
-    )
-    {
-        $this->setQuery($query)
-             ->setQueueName($name);
+        QueueQuery $query,
+        string $name = "",
+        ?bool $scan = null,
+        ?int $wait = null
+    ) {
+        $this->setQuery($query)->setQueueName($name);
         if (null !== $scan) {
             $this->setScan($scan);
         }

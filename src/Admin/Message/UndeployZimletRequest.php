@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * UndeployZimletRequest class
  * Undeploy Zimlet
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,23 +27,23 @@ class UndeployZimletRequest extends SoapRequest
 {
     /**
      * Zimlet name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Action
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('string')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("string")]
     #[XmlAttribute]
     private $action;
 
@@ -54,7 +54,7 @@ class UndeployZimletRequest extends SoapRequest
      * @param  string $action
      * @return self
      */
-    public function __construct(string $name = '', ?string $action = null)
+    public function __construct(string $name = "", ?string $action = null)
     {
         $this->setName($name);
         if (null !== $action) {
@@ -111,8 +111,6 @@ class UndeployZimletRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new UndeployZimletEnvelope(
-            new UndeployZimletBody($this)
-        );
+        return new UndeployZimletEnvelope(new UndeployZimletBody($this));
     }
 }

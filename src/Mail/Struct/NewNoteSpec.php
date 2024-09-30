@@ -26,45 +26,45 @@ class NewNoteSpec
 {
     /**
      * Parent Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folder;
 
     /**
      * Content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
     #[XmlAttribute]
     private $content;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
-    #[SerializedName('pos')]
-    #[Type('string')]
+    #[Accessor(getter: "getBounds", setter: "setBounds")]
+    #[SerializedName("pos")]
+    #[Type("string")]
     #[XmlAttribute]
     private $bounds;
 
@@ -78,14 +78,12 @@ class NewNoteSpec
      * @return self
      */
     public function __construct(
-        string $folder = '',
-        string $content = '',
+        string $folder = "",
+        string $content = "",
         ?int $color = null,
         ?string $bounds = null
-    )
-    {
-        $this->setFolder($folder)
-             ->setContent($content);
+    ) {
+        $this->setFolder($folder)->setContent($content);
         if (null !== $color) {
             $this->setColor($color);
         }

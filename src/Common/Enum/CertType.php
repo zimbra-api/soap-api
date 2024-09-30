@@ -25,35 +25,35 @@ enum CertType: string
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'mta'
      * @return string 'mta'
      */
-    case MTA = 'mta';
+    case MTA = "mta";
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    case LDAP = 'ldap';
+    case LDAP = "ldap";
 
     /**
      * Constant for value 'mailboxd'
      * @return string 'mailboxd'
      */
-    case MAILBOXD = 'mailboxd';
+    case MAILBOXD = "mailboxd";
 
     /**
      * Constant for value 'proxy'
      * @return string 'proxy'
      */
-    case PROXY = 'proxy';
+    case PROXY = "proxy";
 
     /**
      * Constant for value 'staged'
      * @return string 'staged'
      */
-    case STAGED = 'staged';
+    case STAGED = "staged";
 }

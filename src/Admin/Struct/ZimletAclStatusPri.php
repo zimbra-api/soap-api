@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\ZimletStatus;
 
 /**
@@ -26,51 +32,51 @@ class ZimletAclStatusPri
 {
     /**
      * Name of Class Of Service (COS)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Zimlet ACL
-     * 
+     *
      * @var ZimletAcl
      */
-    #[Accessor(getter: 'getAcl', setter: 'setAcl')]
-    #[SerializedName('acl')]
+    #[Accessor(getter: "getAcl", setter: "setAcl")]
+    #[SerializedName("acl")]
     #[Type(ZimletAcl::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletAcl $acl;
 
     /**
      * Status - valid values for value attribute - enabled|disabled
-     * 
+     *
      * @var ValueAttrib
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[Type(ValueAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ValueAttrib $status;
 
     /**
      * Priority
-     * 
+     *
      * @var IntegerValueAttrib
      */
-    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName('priority')]
+    #[Accessor(getter: "getPriority", setter: "setPriority")]
+    #[SerializedName("priority")]
     #[Type(IntegerValueAttrib::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?IntegerValueAttrib $priority;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  ZimletAcl $acl
      * @param  ValueAttrib $status
@@ -78,12 +84,11 @@ class ZimletAclStatusPri
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         ?ZimletAcl $acl = null,
         ?ValueAttrib $status = null,
         ?IntegerValueAttrib $priority = null
-    )
-    {
+    ) {
         $this->setName($name);
         $this->acl = $acl;
         $this->status = $status;

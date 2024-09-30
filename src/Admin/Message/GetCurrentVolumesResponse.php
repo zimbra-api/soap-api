@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetCurrentVolumesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,12 +28,12 @@ class GetCurrentVolumesResponse extends SoapResponse
     /**
      * Current volume information.
      * Entry for secondary message type (2) is optional
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
-    #[Type('array<Zimbra\Admin\Struct\CurrentVolumeInfo>')]
-    #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getVolumes", setter: "setVolumes")]
+    #[Type("array<Zimbra\Admin\Struct\CurrentVolumeInfo>")]
+    #[XmlList(inline: true, entry: "volume", namespace: "urn:zimbraAdmin")]
     private $volumes = [];
 
     /**
@@ -56,7 +56,8 @@ class GetCurrentVolumesResponse extends SoapResponse
     public function setVolumes(array $volumes): self
     {
         $this->volumes = array_filter(
-            $volumes, static fn ($volume) => $volume instanceof CurrentVolumeInfo
+            $volumes,
+            static fn($volume) => $volume instanceof CurrentVolumeInfo
         );
         return $this;
     }

@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\CalDataSource;
 
 /**
  * AccountCalDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

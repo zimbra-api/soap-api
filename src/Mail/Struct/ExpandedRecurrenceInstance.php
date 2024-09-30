@@ -25,56 +25,56 @@ class ExpandedRecurrenceInstance
 {
     /**
      * Start time in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Duration in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
-    #[Type('int')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
+    #[Type("int")]
     #[XmlAttribute]
     private $duration;
 
     /**
      * Set if the instance is for an all day appointment
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
-    #[SerializedName('allDay')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAllDay", setter: "setAllDay")]
+    #[SerializedName("allDay")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allDay;
 
     /**
      * GMT offset of start time in milliseconds; returned only when allDay is set
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
-    #[SerializedName('tzo')]
-    #[Type('int')]
+    #[Accessor(getter: "getTzOffset", setter: "setTzOffset")]
+    #[SerializedName("tzo")]
+    #[Type("int")]
     #[XmlAttribute]
     private $tzOffset;
 
     /**
      * Recurrence ID string in UTC timezone
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
-    #[SerializedName('ridZ')]
-    #[Type('string')]
+    #[Accessor(getter: "getRecurIdZ", setter: "setRecurIdZ")]
+    #[SerializedName("ridZ")]
+    #[Type("string")]
     #[XmlAttribute]
     private $recurIdZ;
 
@@ -94,8 +94,7 @@ class ExpandedRecurrenceInstance
         ?bool $allDay = null,
         ?int $tzOffset = null,
         ?string $recurIdZ = null
-    )
-    {
+    ) {
         if (null !== $startTime) {
             $this->setStartTime($startTime);
         }

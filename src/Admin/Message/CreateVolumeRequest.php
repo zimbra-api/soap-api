@@ -28,18 +28,18 @@ class CreateVolumeRequest extends SoapRequest
 {
     /**
      * Volume information
-     * 
+     *
      * @var VolumeInfo
      */
-    #[Accessor(getter: 'getVolume', setter: 'setVolume')]
-    #[SerializedName('volume')]
+    #[Accessor(getter: "getVolume", setter: "setVolume")]
+    #[SerializedName("volume")]
     #[Type(VolumeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private VolumeInfo $volume;
 
     /**
      * Constructor
-     * 
+     *
      * @param VolumeInfo $volume
      * @return self
      */
@@ -75,8 +75,6 @@ class CreateVolumeRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateVolumeEnvelope(
-            new CreateVolumeBody($this)
-        );
+        return new CreateVolumeEnvelope(new CreateVolumeBody($this));
     }
 }

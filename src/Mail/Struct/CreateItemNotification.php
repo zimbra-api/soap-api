@@ -25,18 +25,18 @@ class CreateItemNotification
 {
     /**
      * Message info of created item
-     * 
+     *
      * @var ImapMessageInfo
      */
-    #[Accessor(getter: 'getMessageInfo', setter: 'setMessageInfo')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMessageInfo", setter: "setMessageInfo")]
+    #[SerializedName("m")]
     #[Type(ImapMessageInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ImapMessageInfo $msgInfo;
 
     /**
      * Constructor
-     * 
+     *
      * @param  ImapMessageInfo $msgInfo
      * @return self
      */

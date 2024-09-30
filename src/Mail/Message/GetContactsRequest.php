@@ -10,8 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Common\Struct\{AttributeName, Id, SoapEnvelopeInterface, SoapRequest};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
+use Zimbra\Common\Struct\{
+    AttributeName,
+    Id,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetContactsRequest class
@@ -23,7 +34,7 @@ use Zimbra\Common\Struct\{AttributeName, Id, SoapEnvelopeInterface, SoapRequest}
  * - for contact ref (type="C"): the fileAs field of the Contact
  * - for GAL ref (type="G"): email address of the GAL entry
  * - for inlined member (type="I"): the value
- * 
+ *
  * Contact group members are returned as sub-elements of <m>.
  * If for any(transient or permanent) reason a member cannot be dereferenced,
  * then there will be no sub-element under <m>.
@@ -38,132 +49,132 @@ class GetContactsRequest extends SoapRequest
 {
     /**
      * If set, return modified date (md) on contacts.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getSync', setter: 'setSync')]
-    #[SerializedName('sync')]
-    #[Type('bool')]
+    #[Accessor(getter: "getSync", setter: "setSync")]
+    #[SerializedName("sync")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sync;
 
     /**
      * If is present, return only contacts in the specified folder.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Sort by
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * If set, deref contact group members.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDerefGroupMember', setter: 'setDerefGroupMember')]
-    #[SerializedName('derefGroupMember')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDerefGroupMember", setter: "setDerefGroupMember")]
+    #[SerializedName("derefGroupMember")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $derefGroupMember;
 
     /**
      * If set, Include the list of contact groups this contact is a member of.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeMemberOf', setter: 'setIncludeMemberOf')]
-    #[SerializedName('memberOf')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeMemberOf", setter: "setIncludeMemberOf")]
+    #[SerializedName("memberOf")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeMemberOf;
 
     /**
      * Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReturnHiddenAttrs', setter: 'setReturnHiddenAttrs')]
-    #[SerializedName('returnHiddenAttrs')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReturnHiddenAttrs", setter: "setReturnHiddenAttrs")]
+    #[SerializedName("returnHiddenAttrs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $returnHiddenAttrs;
 
     /**
      * Whether to return smime certificate info
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReturnCertInfo', setter: 'setReturnCertInfo')]
-    #[SerializedName('returnCertInfo')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReturnCertInfo", setter: "setReturnCertInfo")]
+    #[SerializedName("returnCertInfo")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $returnCertInfo;
 
     /**
      * Set to return IMAP UID.  (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName('wantImapUid')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantImapUid", setter: "setWantImapUid")]
+    #[SerializedName("wantImapUid")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantImapUid;
 
     /**
      * Max members
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxMembers', setter: 'setMaxMembers')]
-    #[SerializedName('maxMembers')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxMembers", setter: "setMaxMembers")]
+    #[SerializedName("maxMembers")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxMembers;
 
     /**
      * Attrs - if present, return only the specified attribute(s).
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttributes', setter: 'setAttributes')]
-    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getAttributes", setter: "setAttributes")]
+    #[Type("array<Zimbra\Common\Struct\AttributeName>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
     private $attributes = [];
 
     /**
      * If present, return only the specified attribute(s) for derefed members, applicable
      * only when derefGroupMember is set.
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMemberAttributes', setter: 'setMemberAttributes')]
-    #[Type('array<Zimbra\Common\Struct\AttributeName>')]
-    #[XmlList(inline: true, entry: 'ma', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMemberAttributes", setter: "setMemberAttributes")]
+    #[Type("array<Zimbra\Common\Struct\AttributeName>")]
+    #[XmlList(inline: true, entry: "ma", namespace: "urn:zimbraMail")]
     private $memberAttributes = [];
 
     /**
      * If present, only get the specified contact(s).
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Common\Struct\Id>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Common\Struct\Id>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
     private $contacts = [];
 
     /**
@@ -196,11 +207,10 @@ class GetContactsRequest extends SoapRequest
         array $attributes = [],
         array $memberAttributes = [],
         array $contacts = []
-    )
-    {
+    ) {
         $this->setAttributes($attributes)
-             ->setMemberAttributes($memberAttributes)
-             ->setContacts($contacts);
+            ->setMemberAttributes($memberAttributes)
+            ->setContacts($contacts);
         if (null !== $sync) {
             $this->setSync($sync);
         }
@@ -449,7 +459,8 @@ class GetContactsRequest extends SoapRequest
     public function setAttributes(array $attrs): self
     {
         $this->attributes = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof AttributeName
+            $attrs,
+            static fn($attr) => $attr instanceof AttributeName
         );
         return $this;
     }
@@ -485,7 +496,8 @@ class GetContactsRequest extends SoapRequest
     public function setMemberAttributes(array $attrs): self
     {
         $this->memberAttributes = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof AttributeName
+            $attrs,
+            static fn($attr) => $attr instanceof AttributeName
         );
         return $this;
     }
@@ -521,7 +533,8 @@ class GetContactsRequest extends SoapRequest
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($cn) => $cn instanceof Id
+            $contacts,
+            static fn($cn) => $cn instanceof Id
         );
         return $this;
     }
@@ -541,8 +554,6 @@ class GetContactsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetContactsEnvelope(
-            new GetContactsBody($this)
-        );
+        return new GetContactsEnvelope(new GetContactsBody($this));
     }
 }

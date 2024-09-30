@@ -26,78 +26,78 @@ class SaveDraftMsg extends Msg
 {
     /**
      * Existing draft ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Account ID the draft is for
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDraftAccountId', setter: 'setDraftAccountId')]
-    #[SerializedName('forAcct')]
-    #[Type('string')]
+    #[Accessor(getter: "getDraftAccountId", setter: "setDraftAccountId")]
+    #[SerializedName("forAcct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $draftAccountId;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTags', setter: 'setTags')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getTags", setter: "setTags")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tags;
 
     /**
      * Comma separated list of tag names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
-    #[SerializedName('tn')]
-    #[Type('string')]
+    #[Accessor(getter: "getTagNames", setter: "setTagNames")]
+    #[SerializedName("tn")]
+    #[Type("string")]
     #[XmlAttribute]
     private $tagNames;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
-    #[SerializedName('rgb')]
-    #[Type('string')]
+    #[Accessor(getter: "getRgb", setter: "setRgb")]
+    #[SerializedName("rgb")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rgb;
 
     /**
      * Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getColor', setter: 'setColor')]
-    #[SerializedName('color')]
-    #[Type('int')]
+    #[Accessor(getter: "getColor", setter: "setColor")]
+    #[SerializedName("color")]
+    #[Type("int")]
     #[XmlAttribute]
     private $color;
 
     /**
      * Auto send time in milliseconds since the epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
-    #[SerializedName('autoSendTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getAutoSendTime", setter: "setAutoSendTime")]
+    #[SerializedName("autoSendTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $autoSendTime;
 
@@ -146,8 +146,7 @@ class SaveDraftMsg extends Msg
         ?string $rgb = null,
         ?int $color = null,
         ?int $autoSendTime = null
-    )
-    {
+    ) {
         parent::__construct(
             $attachmentId,
             $origId,

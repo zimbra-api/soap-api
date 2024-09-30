@@ -25,22 +25,22 @@ class TestResultInfo
 {
     /**
      * Information for completed tests
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCompletedTests', setter: 'setCompletedTests')]
-    #[Type('array<Zimbra\Admin\Struct\CompletedTestInfo>')]
-    #[XmlList(inline: true, entry: 'completed', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCompletedTests", setter: "setCompletedTests")]
+    #[Type("array<Zimbra\Admin\Struct\CompletedTestInfo>")]
+    #[XmlList(inline: true, entry: "completed", namespace: "urn:zimbraAdmin")]
     private $completedTests = [];
 
     /**
      * Information for failed tests
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFailedTests', setter: 'setFailedTests')]
-    #[Type('array<Zimbra\Admin\Struct\FailedTestInfo>')]
-    #[XmlList(inline: true, entry: 'failure', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getFailedTests", setter: "setFailedTests")]
+    #[Type("array<Zimbra\Admin\Struct\FailedTestInfo>")]
+    #[XmlList(inline: true, entry: "failure", namespace: "urn:zimbraAdmin")]
     private $failedTests = [];
 
     /**
@@ -50,10 +50,11 @@ class TestResultInfo
      * @param  array $failedTests
      * @return self
      */
-    public function __construct(array $completedTests = [], array $failedTests = [])
-    {
-        $this->setCompletedTests($completedTests)
-             ->setFailedTests($failedTests);
+    public function __construct(
+        array $completedTests = [],
+        array $failedTests = []
+    ) {
+        $this->setCompletedTests($completedTests)->setFailedTests($failedTests);
     }
 
     /**
@@ -65,7 +66,8 @@ class TestResultInfo
     public function setCompletedTests(array $tests): self
     {
         $this->completedTests = array_filter(
-            $tests, static fn ($test) => $test instanceof CompletedTestInfo
+            $tests,
+            static fn($test) => $test instanceof CompletedTestInfo
         );
         return $this;
     }
@@ -89,7 +91,8 @@ class TestResultInfo
     public function setFailedTests(array $tests): self
     {
         $this->failedTests = array_filter(
-            $tests, static fn ($test) => $test instanceof FailedTestInfo
+            $tests,
+            static fn($test) => $test instanceof FailedTestInfo
         );
         return $this;
     }

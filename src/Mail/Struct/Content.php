@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * Content struct class
@@ -25,36 +31,36 @@ class Content
 {
     /**
      * Attachment upload ID of uploaded object to use
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttachUploadId', setter: 'setAttachUploadId')]
-    #[SerializedName('aid')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttachUploadId", setter: "setAttachUploadId")]
+    #[SerializedName("aid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attachUploadId;
 
     /**
      * Inlined content data. Ignored if "aid" is specified
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $attachUploadId
      * @param string $value
      * @return self
      */
     public function __construct(
-        ?string $attachUploadId = null, ?string $value = null
-    )
-    {
+        ?string $attachUploadId = null,
+        ?string $value = null
+    ) {
         if (null !== $attachUploadId) {
             $this->setAttachUploadId($attachUploadId);
         }

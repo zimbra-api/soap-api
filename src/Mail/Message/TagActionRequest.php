@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * TagActionRequest class
  * Perform an action on a tag
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,13 +31,13 @@ class TagActionRequest extends SoapRequest
      * Caller must supply one of "id" or "tn"
      * Supported operations: "read|!read|color|delete|rename|update|retentionpolicy"
      * If op="update", the caller can specify "name" and/or "color"
-     * 
+     *
      * @var TagActionSelector
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(TagActionSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private TagActionSelector $action;
 
     /**
@@ -78,8 +78,6 @@ class TagActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new TagActionEnvelope(
-            new TagActionBody($this)
-        );
+        return new TagActionEnvelope(new TagActionBody($this));
     }
 }

@@ -25,23 +25,23 @@ class NameAndValue
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
@@ -52,7 +52,7 @@ class NameAndValue
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name = '', ?string $value = null)
+    public function __construct(string $name = "", ?string $value = null)
     {
         $this->setName($name);
         if (null !== $value) {

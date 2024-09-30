@@ -25,17 +25,17 @@ enum WantRecipsSetting: string
      * Constant for value '0'
      * @return string '0'
      */
-    case PUT_SENDERS = '0';
+    case PUT_SENDERS = "0";
 
     /**
      * Constant for value '1'
      * @return string '1'
      */
-    case PUT_RECIPIENTS = '1';
+    case PUT_RECIPIENTS = "1";
 
     /**
      * Constant for value '2'
      * @return string '2'
      */
-    case PUT_BOTH = '2';
+    case PUT_BOTH = "2";
 }

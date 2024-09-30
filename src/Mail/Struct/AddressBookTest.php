@@ -25,27 +25,28 @@ class AddressBookTest extends FilterTest
 {
     /**
      * Header name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeader', setter: 'setHeader')]
-    #[SerializedName('header')]
-    #[Type('string')]
+    #[Accessor(getter: "getHeader", setter: "setHeader")]
+    #[SerializedName("header")]
+    #[Type("string")]
     #[XmlAttribute]
     private $header;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $header
      * @return self
      */
     public function __construct(
-        ?int $index = null, ?bool $negative = null, ?string $header = null
-    )
-    {
+        ?int $index = null,
+        ?bool $negative = null,
+        ?string $header = null
+    ) {
         parent::__construct($index, $negative);
         if (null !== $header) {
             $this->setHeader($header);

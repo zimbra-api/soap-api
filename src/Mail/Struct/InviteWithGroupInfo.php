@@ -10,7 +10,14 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Enum\InviteType;
 
 /**
@@ -27,44 +34,44 @@ class InviteWithGroupInfo
 {
     /**
      * Invite type - appt|task
-     * 
+     *
      * @var InviteType
      */
-    #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getCalItemType", setter: "setCalItemType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private InviteType $calItemType;
 
     /**
      * Timezones
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
-    #[Type('array<Zimbra\Mail\Struct\CalTZInfo>')]
-    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getTimezones", setter: "setTimezones")]
+    #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
+    #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
     private $timezones = [];
 
     /**
      * Invite components
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
-    #[Type('array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>')]
-    #[XmlList(inline: true, entry: 'comp', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInviteComponents", setter: "setInviteComponents")]
+    #[Type("array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>")]
+    #[XmlList(inline: true, entry: "comp", namespace: "urn:zimbraMail")]
     private $inviteComponents = [];
 
     /**
      * Replies
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
-    #[SerializedName('replies')]
-    #[Type('array<Zimbra\Mail\Struct\CalendarReply>')]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCalendarReplies", setter: "setCalendarReplies")]
+    #[SerializedName("replies")]
+    #[Type("array<Zimbra\Mail\Struct\CalendarReply>")]
+    #[XmlElement(namespace: "urn:zimbraMail")]
+    #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
     private $calendarReplies = [];
 
     /**
@@ -81,12 +88,11 @@ class InviteWithGroupInfo
         array $timezones = [],
         array $inviteComponents = [],
         array $calendarReplies = []
-    )
-    {
+    ) {
         $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT)
-             ->setTimezones($timezones)
-             ->setInviteComponents($inviteComponents)
-             ->setCalendarReplies($calendarReplies);
+            ->setTimezones($timezones)
+            ->setInviteComponents($inviteComponents)
+            ->setCalendarReplies($calendarReplies);
     }
 
     /**
@@ -120,7 +126,8 @@ class InviteWithGroupInfo
     public function setTimezones(array $timezones): self
     {
         $this->timezones = array_filter(
-            $timezones, static fn ($timezone) => $timezone instanceof CalTZInfo
+            $timezones,
+            static fn($timezone) => $timezone instanceof CalTZInfo
         );
         return $this;
     }
@@ -166,7 +173,9 @@ class InviteWithGroupInfo
     public function setInviteComponents(array $components): self
     {
         $this->inviteComponents = array_filter(
-            $components, static fn ($component) => $component instanceof InviteComponentWithGroupInfo
+            $components,
+            static fn($component) => $component instanceof
+                InviteComponentWithGroupInfo
         );
         return $this;
     }
@@ -177,8 +186,9 @@ class InviteWithGroupInfo
      * @param  InviteComponentWithGroupInfo $component
      * @return self
      */
-    public function addInviteComponent(InviteComponentWithGroupInfo $component): self
-    {
+    public function addInviteComponent(
+        InviteComponentWithGroupInfo $component
+    ): self {
         $this->inviteComponents[] = $component;
         return $this;
     }
@@ -192,7 +202,8 @@ class InviteWithGroupInfo
     public function setCalendarReplies(array $replies): self
     {
         $this->calendarReplies = array_filter(
-            $replies, static fn ($reply) => $reply instanceof CalendarReply
+            $replies,
+            static fn($reply) => $reply instanceof CalendarReply
         );
         return $this;
     }

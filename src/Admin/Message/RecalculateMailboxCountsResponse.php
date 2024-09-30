@@ -27,13 +27,13 @@ class RecalculateMailboxCountsResponse extends SoapResponse
 {
     /**
      * Information about mailbox quotas
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMailbox', setter: 'setMailbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMailbox", setter: "setMailbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mailbox;
 
     /**

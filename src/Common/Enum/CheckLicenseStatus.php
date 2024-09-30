@@ -25,17 +25,17 @@ enum CheckLicenseStatus: string
      * Constant for value 'ok'
      * @return string 'ok'
      */
-    case OK = 'ok';
+    case OK = "ok";
 
     /**
      * Constant for value 'no'
      * @return string 'no'
      */
-    case NO = 'no';
+    case NO = "no";
 
     /**
      * Constant for value 'inGracePeriod'
      * @return string 'inGracePeriod'
      */
-    case IN_GRACE_PERIOD = 'inGracePeriod';
+    case IN_GRACE_PERIOD = "inGracePeriod";
 }

@@ -33,40 +33,40 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name for distribution list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * If 1 (true) then create a dynamic distribution list
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param bool   $dynamic
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '', ?bool $dynamic = null, array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        string $name = "",
+        ?bool $dynamic = null,
+        array $attrs = []
+    ) {
+        $this->setName($name)->setAttrs($attrs);
         if (null !== $dynamic) {
             $this->setDynamic($dynamic);
         }

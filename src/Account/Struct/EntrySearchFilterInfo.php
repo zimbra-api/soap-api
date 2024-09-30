@@ -28,29 +28,29 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
 {
     /**
      * Search filter simple condition
-     * 
+     *
      * @var SearchFilterCondition
      */
-    #[Accessor(getter: 'getCondition', setter: 'setCondition')]
-    #[SerializedName('cond')]
+    #[Accessor(getter: "getCondition", setter: "setCondition")]
+    #[SerializedName("cond")]
     #[Type(EntrySearchFilterSingleCond::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SearchFilterCondition $condition;
 
     /**
      * Search filter compound condition
-     * 
+     *
      * @var SearchFilterCondition
      */
-    #[Accessor(getter: 'getConditions', setter: 'setConditions')]
-    #[SerializedName('conds')]
+    #[Accessor(getter: "getConditions", setter: "setConditions")]
+    #[SerializedName("conds")]
     #[Type(EntrySearchFilterMultiCond::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?SearchFilterCondition $conditions;
 
     /**
      * Constructor
-     * 
+     *
      * @param SearchFilterCondition $condition
      * @return self
      */

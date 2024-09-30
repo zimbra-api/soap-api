@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetSessionsRequest class
  * Get Sessions
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -28,54 +28,54 @@ class GetSessionsRequest extends SoapRequest
 {
     /**
      * Type - valid values soap|imap|admin
-     * 
+     *
      * @var SessionType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private SessionType $type;
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
-     * 
+     *
      * @var GetSessionsSortBy
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
     #[XmlAttribute]
     private ?GetSessionsSortBy $sortBy;
 
     /**
      * Offset - the starting offset (0, 25, etc)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * Limit - the number of sessions to return per page (0 is default and means all)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Refresh. If 1 (true), ignore any cached results and start fresh.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getRefresh', setter: 'setRefresh')]
-    #[SerializedName('refresh')]
-    #[Type('bool')]
+    #[Accessor(getter: "getRefresh", setter: "setRefresh")]
+    #[SerializedName("refresh")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $refresh;
 
@@ -95,8 +95,7 @@ class GetSessionsRequest extends SoapRequest
         ?int $offset = null,
         ?int $limit = null,
         ?bool $refresh = null
-    )
-    {
+    ) {
         $this->setType($type ?? SessionType::SOAP);
         $this->sortBy = $sortBy;
         if (null !== $offset) {
@@ -225,8 +224,6 @@ class GetSessionsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetSessionsEnvelope(
-            new GetSessionsBody($this)
-        );
+        return new GetSessionsEnvelope(new GetSessionsBody($this));
     }
 }

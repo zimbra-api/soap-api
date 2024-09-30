@@ -12,7 +12,11 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\{
-    AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison
+    AddressPart,
+    ComparisonComparator,
+    CountComparison,
+    StringComparison,
+    ValueComparison
 };
 
 /**
@@ -28,90 +32,95 @@ class AddressTest extends FilterTest
 {
     /**
      * Comma separated list of header names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeader', setter: 'setHeader')]
-    #[SerializedName('header')]
-    #[Type('string')]
+    #[Accessor(getter: "getHeader", setter: "setHeader")]
+    #[SerializedName("header")]
+    #[Type("string")]
     #[XmlAttribute]
     private $header;
 
     /**
      * Part of address to affect - all|localpart|domain
-     * 
+     *
      * @var AddressPart
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
     #[XmlAttribute]
     private ?AddressPart $part;
 
     /**
      * comparison type - is|contains|matches
-     * 
+     *
      * @var StringComparison
      */
-    #[Accessor(getter: 'getStringComparison', setter: 'setStringComparison')]
-    #[SerializedName('stringComparison')]
+    #[Accessor(getter: "getStringComparison", setter: "setStringComparison")]
+    #[SerializedName("stringComparison")]
     #[XmlAttribute]
     private ?StringComparison $comparison;
 
     /**
      * Case sensitive setting
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isCaseSensitive', setter: 'setCaseSensitive')]
-    #[SerializedName('caseSensitive')]
-    #[Type('bool')]
+    #[Accessor(getter: "isCaseSensitive", setter: "setCaseSensitive")]
+    #[SerializedName("caseSensitive")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $caseSensitive;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
-     * 
+     *
      * @var ValueComparison
      */
-    #[Accessor(getter: 'getValueComparison', setter: 'setValueComparison')]
-    #[SerializedName('valueComparison')]
+    #[Accessor(getter: "getValueComparison", setter: "setValueComparison")]
+    #[SerializedName("valueComparison")]
     #[XmlAttribute]
     private ?ValueComparison $valueComparison;
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
-     * 
+     *
      * @var CountComparison
      */
-    #[Accessor(getter: 'getCountComparison', setter: 'setCountComparison')]
-    #[SerializedName('countComparison')]
+    #[Accessor(getter: "getCountComparison", setter: "setCountComparison")]
+    #[SerializedName("countComparison")]
     #[XmlAttribute]
     private ?CountComparison $countComparison;
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
-     * 
+     *
      * @var ComparisonComparator
      */
-    #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
-    #[SerializedName('valueComparisonComparator')]
+    #[
+        Accessor(
+            getter: "getValueComparisonComparator",
+            setter: "setValueComparisonComparator"
+        )
+    ]
+    #[SerializedName("valueComparisonComparator")]
     #[XmlAttribute]
     private ?ComparisonComparator $valueComparisonComparator;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $header
@@ -135,9 +144,8 @@ class AddressTest extends FilterTest
         ?ValueComparison $valueComparison = null,
         ?CountComparison $countComparison = null,
         ?ComparisonComparator $valueComparisonComparator = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         $this->part = $part;
         $this->comparison = $comparison;
         $this->valueComparison = $valueComparison;
@@ -324,8 +332,9 @@ class AddressTest extends FilterTest
      * @param  ComparisonComparator $valueComparisonComparator
      * @return self
      */
-    public function setValueComparisonComparator(ComparisonComparator $valueComparisonComparator)
-    {
+    public function setValueComparisonComparator(
+        ComparisonComparator $valueComparisonComparator
+    ) {
         $this->valueComparisonComparator = $valueComparisonComparator;
         return $this;
     }

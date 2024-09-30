@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllAdminAccountsRequest class
  * Get all Admin accounts
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,18 @@ class GetAllAdminAccountsRequest extends SoapRequest
 {
     /**
      * Apply COS [default 1 (true)]
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isApplyCos', setter: 'setApplyCos')]
-    #[SerializedName('applyCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "isApplyCos", setter: "setApplyCos")]
+    #[SerializedName("applyCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $applyCos;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $applyCos
      * @return self
      */

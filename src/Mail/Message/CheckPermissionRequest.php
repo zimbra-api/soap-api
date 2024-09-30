@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Mail\Struct\TargetSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -18,7 +24,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * CheckPermissionRequest class
  * Check if the authed user has the specified right(s) on a target.
  * Note: to be deprecated in Zimbra 9.  Use zimbraAccount CheckRights instead.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,23 +35,23 @@ class CheckPermissionRequest extends SoapRequest
 {
     /**
      * Target specification
-     * 
+     *
      * @var TargetSpec
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(TargetSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TargetSpec $target;
 
     /**
      * Rights to check
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraMail")]
     private $rights = [];
 
     /**
@@ -128,8 +134,6 @@ class CheckPermissionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckPermissionEnvelope(
-            new CheckPermissionBody($this)
-        );
+        return new CheckPermissionEnvelope(new CheckPermissionBody($this));
     }
 }

@@ -27,13 +27,13 @@ class GetDomainResponse extends SoapResponse
 {
     /**
      * Information about domain
-     * 
+     *
      * @var DomainInfo
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
     #[Type(DomainInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?DomainInfo $domain;
 
     /**

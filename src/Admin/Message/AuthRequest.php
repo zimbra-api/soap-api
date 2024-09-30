@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -27,90 +33,95 @@ class AuthRequest extends SoapRequest
 {
     /**
      * Name. Only one of {auth-name} or <account> can be specified
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Password - must be present if not using AuthToken
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * An authToken can be passed instead of account/password/name to validate an existing auth authToken.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
-    #[SerializedName('authToken')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $authToken;
 
     /**
      * The account
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * Virtual host
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
-    #[SerializedName('virtualHost')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getVirtualHost", setter: "setVirtualHost")]
+    #[SerializedName("virtualHost")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $virtualHost;
 
     /**
      * Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
-    #[SerializedName('persistAuthTokenCookie')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getPersistAuthTokenCookie",
+            setter: "setPersistAuthTokenCookie"
+        )
+    ]
+    #[SerializedName("persistAuthTokenCookie")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $persistAuthTokenCookie;
 
     /**
      * Controls whether the client supports CSRF token
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
-    #[SerializedName('csrfTokenSecured')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCsrfSupported", setter: "setCsrfSupported")]
+    #[SerializedName("csrfTokenSecured")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $csrfSupported;
 
     /**
      * The TOTP code used for two-factor authentication
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
-    #[SerializedName('twoFactorCode')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getTwoFactorCode", setter: "setTwoFactorCode")]
+    #[SerializedName("twoFactorCode")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $twoFactorCode;
 
     /**
@@ -135,13 +146,12 @@ class AuthRequest extends SoapRequest
         ?bool $persistAuthTokenCookie = null,
         ?bool $csrfSupported = null,
         ?string $twoFactorCode = null
-    )
-    {
+    ) {
         $this->account = $account;
         if (null !== $name) {
             $this->setName($name);
         }
-        if (null !== $password){
+        if (null !== $password) {
             $this->setPassword($password);
         }
         if (null !== $authToken) {
@@ -287,8 +297,9 @@ class AuthRequest extends SoapRequest
      * @param  bool $persistAuthTokenCookie
      * @return self
      */
-    public function setPersistAuthTokenCookie(bool $persistAuthTokenCookie): self
-    {
+    public function setPersistAuthTokenCookie(
+        bool $persistAuthTokenCookie
+    ): self {
         $this->persistAuthTokenCookie = $persistAuthTokenCookie;
         return $this;
     }
@@ -342,8 +353,6 @@ class AuthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AuthEnvelope(
-            new AuthBody($this)
-        );
+        return new AuthEnvelope(new AuthBody($this));
     }
 }

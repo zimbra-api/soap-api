@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 
 /**
  * RawInvite struct class
@@ -26,48 +32,49 @@ class RawInvite
 {
     /**
      * UID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Summary
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSummary', setter: 'setSummary')]
-    #[SerializedName('summary')]
-    #[Type('string')]
+    #[Accessor(getter: "getSummary", setter: "setSummary")]
+    #[SerializedName("summary")]
+    #[Type("string")]
     #[XmlAttribute]
     private $summary;
 
     /**
      * Raw iCalendar data
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $uid
      * @param string $summary
      * @param string $content
      * @return self
      */
     public function __construct(
-        ?string $uid = null, ?string $summary = null, ?string $content = null
-    )
-    {
+        ?string $uid = null,
+        ?string $summary = null,
+        ?string $content = null
+    ) {
         if (null !== $uid) {
             $this->setUid($uid);
         }

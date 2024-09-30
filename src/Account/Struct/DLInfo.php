@@ -25,34 +25,34 @@ class DLInfo extends ObjectInfo
 {
     /**
      * ldap dn of the DL.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRef', setter: 'setRef')]
-    #[SerializedName('ref')]
-    #[Type('string')]
+    #[Accessor(getter: "getRef", setter: "setRef")]
+    #[SerializedName("ref")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ref;
 
     /**
      * Display name of group
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * Flags whether the group is dynamic or not
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
-    #[SerializedName('dynamic')]
-    #[Type('bool')]
+    #[Accessor(getter: "isDynamic", setter: "setDynamic")]
+    #[SerializedName("dynamic")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $dynamic;
 
@@ -60,42 +60,42 @@ class DLInfo extends ObjectInfo
      * Via
      * Present if the account is a member of the returned list because they are either a
      * direct or indirect member of another list that is a member of the returned list.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVia', setter: 'setVia')]
-    #[SerializedName('via')]
-    #[Type('string')]
+    #[Accessor(getter: "getVia", setter: "setVia")]
+    #[SerializedName("via")]
+    #[Type("string")]
     #[XmlAttribute]
     private $via;
 
     /**
      * Flags whether user is the owner of the group.
      * Only returned if ownerOf on the request is 1 (true)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
-    #[SerializedName('isOwner')]
-    #[Type('bool')]
+    #[Accessor(getter: "isOwner", setter: "setIsOwner")]
+    #[SerializedName("isOwner")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isOwner;
 
     /**
      * Flags whether user is a member of the group.
      * Only returned if memberOf on the request is 1 (true)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMember', setter: 'setIsMember')]
-    #[SerializedName('isMember')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMember", setter: "setIsMember")]
+    #[SerializedName("isMember")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isMember;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @param  string $ref
      * @param  string $name
@@ -108,17 +108,16 @@ class DLInfo extends ObjectInfo
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $ref = '',
-        string $name = '',
+        string $id = "",
+        string $ref = "",
+        string $name = "",
         ?string $displayName = null,
         ?bool $dynamic = null,
         ?string $via = null,
         ?bool $isOwner = null,
         ?bool $isMember = null,
         array $attrs = []
-    )
-    {
+    ) {
         parent::__construct($name, $id, $attrs);
         $this->setRef($ref);
         if (null !== $displayName) {

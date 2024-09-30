@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CreateMountpointRequest class
  * Create mountpoint
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class CreateMountpointRequest extends SoapRequest
 {
     /**
      * New mountpoint specification
-     * 
+     *
      * @var NewMountpointSpec
      */
-    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
-    #[SerializedName('link')]
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName("link")]
     #[Type(NewMountpointSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private NewMountpointSpec $folder;
 
     /**
@@ -75,8 +75,6 @@ class CreateMountpointRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateMountpointEnvelope(
-            new CreateMountpointBody($this)
-        );
+        return new CreateMountpointEnvelope(new CreateMountpointBody($this));
     }
 }

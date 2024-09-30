@@ -27,58 +27,58 @@ class ExportContactsRequest extends SoapRequest
 {
     /**
      * Content type. Currently, the only supported content type is "csv" (comma-separated values)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Optional folder id to export contacts from
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Optional csv format for exported contacts.  the supported formats are defined in
      * $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsvFormat', setter: 'setCsvFormat')]
-    #[SerializedName('csvfmt')]
-    #[Type('string')]
+    #[Accessor(getter: "getCsvFormat", setter: "setCsvFormat")]
+    #[SerializedName("csvfmt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $csvFormat;
 
     /**
      * The locale to use when there are multiple {csv-format} locales defined.
      * When it is not specified, the {csv-format} with no locale specification is used.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsvLocale', setter: 'setCsvLocale')]
-    #[SerializedName('csvlocale')]
-    #[Type('string')]
+    #[Accessor(getter: "getCsvLocale", setter: "setCsvLocale")]
+    #[SerializedName("csvlocale")]
+    #[Type("string")]
     #[XmlAttribute]
     private $csvLocale;
 
     /**
      * Optional delimiter character to use in the resulting csv file - usually "," or ";"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCsvDelimiter', setter: 'setCsvDelimiter')]
-    #[SerializedName('csvsep')]
-    #[Type('string')]
+    #[Accessor(getter: "getCsvDelimiter", setter: "setCsvDelimiter")]
+    #[SerializedName("csvsep")]
+    #[Type("string")]
     #[XmlAttribute]
     private $csvDelimiter;
 
@@ -93,13 +93,12 @@ class ExportContactsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        string $contentType = '',
+        string $contentType = "",
         ?string $folderId = null,
         ?string $csvFormat = null,
         ?string $csvLocale = null,
         ?string $csvDelimiter = null
-    )
-    {
+    ) {
         $this->setContentType($contentType);
         if (null !== $folderId) {
             $this->setFolderId($folderId);
@@ -230,8 +229,6 @@ class ExportContactsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ExportContactsEnvelope(
-            new ExportContactsBody($this)
-        );
+        return new ExportContactsEnvelope(new ExportContactsBody($this));
     }
 }

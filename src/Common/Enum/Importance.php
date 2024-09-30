@@ -25,17 +25,17 @@ enum Importance: string
      * Constant for value 'high'
      * @return string 'high'
      */
-    case HIGH = 'high';
+    case HIGH = "high";
 
     /**
      * Constant for value 'normal'
      * @return string 'normal'
      */
-    case NORMAL = 'normal';
+    case NORMAL = "normal";
 
     /**
      * Constant for value 'low'
      * @return string 'low'
      */
-    case LOW = 'low';
+    case LOW = "low";
 }

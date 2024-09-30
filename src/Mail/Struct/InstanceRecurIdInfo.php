@@ -26,12 +26,12 @@ class InstanceRecurIdInfo
 {
     /**
      * Range - THISANDFUTURE|THISANDPRIOR
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRange', setter: 'setRange')]
-    #[SerializedName('range')]
-    #[Type('string')]
+    #[Accessor(getter: "getRange", setter: "setRange")]
+    #[SerializedName("range")]
+    #[Type("string")]
     #[XmlAttribute]
     private $range;
 
@@ -42,7 +42,7 @@ class InstanceRecurIdInfo
      *     MM   - 2 digit month
      *     DD   - 2 digit day
      * Optionally:
-     *     'T' the literal char "T" then 
+     *     'T' the literal char "T" then
      *     HH - 2 digit hour (00-23)
      *     MM - 2 digit minute (00-59)
      *     SS - 2 digit second (00-59)
@@ -51,23 +51,23 @@ class InstanceRecurIdInfo
      *     e.g:
      *         20050612  June 12, 2005
      *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDateTime", setter: "setDateTime")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dateTime;
 
     /**
      * Java timezone identifier
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
-    #[Type('string')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
+    #[Type("string")]
     #[XmlAttribute]
     private $timezone;
 
@@ -83,8 +83,7 @@ class InstanceRecurIdInfo
         ?string $range = null,
         ?string $dateTime = null,
         ?string $timezone = null
-    )
-    {
+    ) {
         if (null !== $range) {
             $this->setRange($range);
         }
@@ -114,7 +113,7 @@ class InstanceRecurIdInfo
      */
     public function setRange(string $range): self
     {
-        if (in_array(trim($range), ['THISANDFUTURE', 'THISANDPRIOR'])) {
+        if (in_array(trim($range), ["THISANDFUTURE", "THISANDPRIOR"])) {
             $this->range = trim($range);
         }
         return $this;

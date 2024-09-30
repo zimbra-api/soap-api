@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * ExpandedRecurrenceComponent class
@@ -26,57 +32,57 @@ class ExpandedRecurrenceComponent
 {
     /**
      * Recurrence ID
-     * 
+     *
      * @var InstanceRecurIdInfo
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(InstanceRecurIdInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InstanceRecurIdInfo $exceptionId;
 
     /**
      * DTSTART time in milliseconds since the Epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * DTEND time in milliseconds since the Epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Duration
-     * 
+     *
      * @var DurationInfo
      */
-    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
-    #[SerializedName('dur')]
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName("dur")]
     #[Type(DurationInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DurationInfo $duration;
 
     /**
      * RRULE/RDATE/EXDATE information
-     * 
+     *
      * @var RecurrenceInfo
      */
-    #[Accessor(getter: 'getRecurrence', setter: 'setRecurrence')]
-    #[SerializedName('recur')]
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName("recur")]
     #[Type(RecurrenceInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?RecurrenceInfo $recurrence;
 
     /**
@@ -95,8 +101,7 @@ class ExpandedRecurrenceComponent
         ?int $endTime = null,
         ?DurationInfo $duration = null,
         ?RecurrenceInfo $recurrence = null
-    )
-    {
+    ) {
         $this->exceptionId = $exceptionId;
         $this->duration = $duration;
         $this->recurrence = $recurrence;

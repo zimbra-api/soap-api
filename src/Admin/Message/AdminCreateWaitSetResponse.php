@@ -10,12 +10,18 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{IdAndType, SoapResponse};
 
 /**
  * AdminCreateWaitSetResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -26,50 +32,50 @@ class AdminCreateWaitSetResponse extends SoapResponse
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
     /**
      * Default interest types: comma-separated list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
-    #[SerializedName('defTypes')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultInterests", setter: "setDefaultInterests")]
+    #[SerializedName("defTypes")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultInterests;
 
     /**
      * Sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSequence', setter: 'setSequence')]
-    #[SerializedName('seq')]
-    #[Type('int')]
+    #[Accessor(getter: "getSequence", setter: "setSequence")]
+    #[SerializedName("seq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sequence;
 
     /**
      * Error information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type('array<Zimbra\Common\Struct\IdAndType>')]
-    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getErrors", setter: "setErrors")]
+    #[Type("array<Zimbra\Common\Struct\IdAndType>")]
+    #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraAdmin")]
     private $errors = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $waitSetId
      * @param string $defaultInterests
      * @param int $sequence
@@ -77,15 +83,15 @@ class AdminCreateWaitSetResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-    	string $waitSetId = '',
-        string $defaultInterests = '',
+        string $waitSetId = "",
+        string $defaultInterests = "",
         int $sequence = 0,
-        array $errors = [])
-    {
+        array $errors = []
+    ) {
         $this->setWaitSetId($waitSetId)
-        	 ->setDefaultInterests($defaultInterests)
-        	 ->setSequence($sequence)
-        	 ->setErrors($errors);
+            ->setDefaultInterests($defaultInterests)
+            ->setSequence($sequence)
+            ->setErrors($errors);
     }
 
     /**
@@ -163,7 +169,8 @@ class AdminCreateWaitSetResponse extends SoapResponse
     public function setErrors(array $errors): self
     {
         $this->errors = array_filter(
-            $errors, static fn ($error) => $error instanceof IdAndType
+            $errors,
+            static fn($error) => $error instanceof IdAndType
         );
         return $this;
     }

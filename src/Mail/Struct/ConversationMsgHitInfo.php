@@ -26,68 +26,68 @@ class ConversationMsgHitInfo
 {
     /**
      * Conversation ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Folder ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('l')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("l")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * flags
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
-    #[SerializedName('f')]
-    #[Type('string')]
+    #[Accessor(getter: "getFlags", setter: "setFlags")]
+    #[SerializedName("f")]
+    #[Type("string")]
     #[XmlAttribute]
     private $flags;
 
     /**
      * Can optionally set autoSendTime to specify the time at which the draft should be
      * automatically sent by the server
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
-    #[SerializedName('autoSendTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getAutoSendTime", setter: "setAutoSendTime")]
+    #[SerializedName("autoSendTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $autoSendTime;
 
     /**
      * date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
@@ -103,14 +103,13 @@ class ConversationMsgHitInfo
      * @return self
      */
     public function __construct(
-        string $id = '',
+        string $id = "",
         ?int $size = null,
         ?string $folderId = null,
         ?string $flags = null,
         ?int $autoSendTime = null,
         ?int $date = null
-    )
-    {
+    ) {
         $this->setId($id);
         if (null !== $size) {
             $this->setSize($size);

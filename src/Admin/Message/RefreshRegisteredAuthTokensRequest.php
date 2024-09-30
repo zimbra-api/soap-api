@@ -27,12 +27,12 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
 {
     /**
      * Tokens
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getTokens', setter: 'setTokens')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'token', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getTokens", setter: "setTokens")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "token", namespace: "urn:zimbraAdmin")]
     private $tokens = [];
 
     /**
@@ -70,7 +70,7 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
     public function setTokens(array $tokens): self
     {
         $this->tokens = array_unique(
-            array_map(static fn ($token) => trim($token), $tokens)
+            array_map(static fn($token) => trim($token), $tokens)
         );
         return $this;
     }

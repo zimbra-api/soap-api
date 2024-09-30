@@ -30,35 +30,37 @@ class GetInfoRequest extends SoapRequest
     /**
      * Comma separated list of sections to return information about.
      * Sections are: mbox,prefs,attrs,zimlets,props,idents,sigs,dsrcs,children
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSections', setter: 'setSections')]
-    #[SerializedName('sections')]
-    #[Type('string')]
+    #[Accessor(getter: "getSections", setter: "setSections")]
+    #[SerializedName("sections")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sections = [];
 
     /**
      * Comma separated list of rights to return information about.
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
-    #[Type('string')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $sections
      * @param string $rights
      * @return self
      */
-    public function __construct(?string $sections = null, ?string $rights = null)
-    {
+    public function __construct(
+        ?string $sections = null,
+        ?string $rights = null
+    ) {
         if (null !== $sections) {
             $this->setSections($sections);
         }
@@ -74,7 +76,7 @@ class GetInfoRequest extends SoapRequest
      */
     public function getSections(): ?string
     {
-        return !empty($this->sections) ? implode(',', $this->sections) : null;
+        return !empty($this->sections) ? implode(",", $this->sections) : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class GetInfoRequest extends SoapRequest
     public function setSections(string $sections): self
     {
         $this->sections = [];
-        foreach (explode(',', $sections) as $section) {
+        foreach (explode(",", $sections) as $section) {
             $this->addSections($section);
         }
         return $this;
@@ -102,7 +104,10 @@ class GetInfoRequest extends SoapRequest
     {
         if (!empty($sections)) {
             foreach ($sections as $section) {
-                if (InfoSection::tryFrom($section) && !in_array($section, $this->sections)) {
+                if (
+                    InfoSection::tryFrom($section) &&
+                    !in_array($section, $this->sections)
+                ) {
                     $this->sections[] = $section;
                 }
             }
@@ -117,7 +122,7 @@ class GetInfoRequest extends SoapRequest
      */
     public function getRights(): ?string
     {
-        return !empty($this->rights) ? implode(',', $this->rights) : null;
+        return !empty($this->rights) ? implode(",", $this->rights) : null;
     }
 
     /**
@@ -129,7 +134,7 @@ class GetInfoRequest extends SoapRequest
     public function setRights(string $rights): self
     {
         $this->rights = array_unique(
-            array_map(static fn ($right) => trim($right), explode(',', $rights))
+            array_map(static fn($right) => trim($right), explode(",", $rights))
         );
         return $this;
     }
@@ -157,8 +162,6 @@ class GetInfoRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetInfoEnvelope(
-            new GetInfoBody($this)
-        );
+        return new GetInfoEnvelope(new GetInfoBody($this));
     }
 }

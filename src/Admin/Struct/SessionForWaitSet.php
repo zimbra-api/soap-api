@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * SessionForWaitSet struct class
@@ -25,83 +31,83 @@ class SessionForWaitSet
 {
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
+    #[Type("string")]
     #[XmlAttribute]
     private $account;
 
     /**
-     * Interest types - Either all or some combination of the letters: 
+     * Interest types - Either all or some combination of the letters:
      * mcatd Which stand for Message, Contact, Appointment, Task and Document respectively
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInterests', setter: 'setInterests')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getInterests", setter: "setInterests")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $interests;
 
     /**
      * Last known sync token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * Mailbox sync token
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMboxSyncToken', setter: 'setMboxSyncToken')]
-    #[SerializedName('mboxSyncToken')]
-    #[Type('int')]
+    #[Accessor(getter: "getMboxSyncToken", setter: "setMboxSyncToken")]
+    #[SerializedName("mboxSyncToken")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mboxSyncToken;
 
     /**
      * @var int
      */
-    #[Accessor(getter: 'getMboxSyncTokenDiff', setter: 'setMboxSyncTokenDiff')]
-    #[SerializedName('mboxSyncTokenDiff')]
-    #[Type('int')]
+    #[Accessor(getter: "getMboxSyncTokenDiff", setter: "setMboxSyncTokenDiff")]
+    #[SerializedName("mboxSyncTokenDiff")]
+    #[Type("int")]
     #[XmlAttribute]
     private $mboxSyncTokenDiff;
 
     /**
      * Account ID stored in WaitSetAccount object.  Differs from account value.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAcctIdError', setter: 'setAcctIdError')]
-    #[SerializedName('acctIdError')]
-    #[Type('string')]
+    #[Accessor(getter: "getAcctIdError", setter: "setAcctIdError")]
+    #[SerializedName("acctIdError")]
+    #[Type("string")]
     #[XmlAttribute]
     private $acctIdError;
 
     /**
      * WaitSet session Information
-     * 
+     *
      * @var WaitSetSessionInfo
      */
-    #[Accessor(getter: 'getWaitSetSession', setter: 'setWaitSetSession')]
-    #[SerializedName('WaitSetSession')]
+    #[Accessor(getter: "getWaitSetSession", setter: "setWaitSetSession")]
+    #[SerializedName("WaitSetSession")]
     #[Type(WaitSetSessionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?WaitSetSessionInfo $waitSetSession;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $account
      * @param string $interests
      * @param string $token
@@ -112,17 +118,15 @@ class SessionForWaitSet
      * @return self
      */
     public function __construct(
-        string $account = '',
-        string $interests = '',
+        string $account = "",
+        string $interests = "",
         ?string $token = null,
         ?int $mboxSyncToken = null,
         ?int $mboxSyncTokenDiff = null,
         ?string $acctIdError = null,
         ?WaitSetSessionInfo $waitSetSession = null
-    )
-    {
-        $this->setAccount($account)
-             ->setInterests($interests);
+    ) {
+        $this->setAccount($account)->setInterests($interests);
         if (null !== $token) {
             $this->setToken($token);
         }

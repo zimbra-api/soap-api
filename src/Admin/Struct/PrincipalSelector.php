@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\AutoProvPrincipalBy;
 
 /**
@@ -26,33 +32,35 @@ class PrincipalSelector
 {
     /**
      * Meaning determined by {principal-selector-by}
-     * 
+     *
      * @var AutoProvPrincipalBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private AutoProvPrincipalBy $by;
 
     /**
      * The key used to identify the principal
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param  AutoProvPrincipalBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?AutoProvPrincipalBy $by = null, ?string $value = null)
-    {
+    public function __construct(
+        ?AutoProvPrincipalBy $by = null,
+        ?string $value = null
+    ) {
         $this->setBy($by ?? AutoProvPrincipalBy::DN);
         if (null !== $value) {
             $this->setValue($value);

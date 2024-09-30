@@ -25,22 +25,22 @@ class TimeAttr
 {
     /**
      * Time
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName('time')]
-    #[Type('string')]
+    #[Accessor(getter: "getTime", setter: "setTime")]
+    #[SerializedName("time")]
+    #[Type("string")]
     #[XmlAttribute]
     private $time;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $time
      * @return self
      */
-    public function __construct(string $time = '')
+    public function __construct(string $time = "")
     {
         $this->setTime($time);
     }

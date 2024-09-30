@@ -25,11 +25,11 @@ enum Transparency: string
      * Constant for value 'Opaque'
      * @return string 'O'
      */
-    case OPAQUE = 'O';
+    case OPAQUE = "O";
 
     /**
      * Constant for value 'Transparent'
      * @return string 'T'
      */
-    case TRANSPARENT = 'T';
+    case TRANSPARENT = "T";
 }

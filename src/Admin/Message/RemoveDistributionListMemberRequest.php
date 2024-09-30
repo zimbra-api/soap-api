@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -28,33 +34,33 @@ class RemoveDistributionListMemberRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Members
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMembers', setter: 'setMembers')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMembers", setter: "setMembers")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAdmin")]
     private $members = [];
 
     /**
      * Specify accounts insteaf of members if you want to remove all addresses that belong to an account from the list
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccounts", setter: "setAccounts")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accounts = [];
 
     /**
@@ -65,11 +71,12 @@ class RemoveDistributionListMemberRequest extends SoapRequest
      * @param  array  $accounts
      * @return self
      */
-    public function __construct(string $id = '', array $members = [], array $accounts = [])
-    {
-        $this->setId($id)
-             ->setMembers($members)
-             ->setAccounts($accounts);
+    public function __construct(
+        string $id = "",
+        array $members = [],
+        array $accounts = []
+    ) {
+        $this->setId($id)->setMembers($members)->setAccounts($accounts);
     }
 
     /**

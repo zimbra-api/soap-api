@@ -25,29 +25,29 @@ class ReplaceheaderAction extends DeleteheaderAction
 {
     /**
      * New name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
-    #[SerializedName('newName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNewName", setter: "setNewName")]
+    #[SerializedName("newName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $newName;
 
     /**
      * New value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNewValue', setter: 'setNewValue')]
-    #[SerializedName('newValue')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getNewValue", setter: "setNewValue")]
+    #[SerializedName("newValue")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $newValue;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $last
      * @param int $offset
@@ -63,9 +63,8 @@ class ReplaceheaderAction extends DeleteheaderAction
         ?EditheaderTest $test = null,
         ?string $newName = null,
         ?string $newValue = null
-    )
-    {
-    	parent::__construct($index, $last, $offset, $test);
+    ) {
+        parent::__construct($index, $last, $offset, $test);
         if (null !== $newName) {
             $this->setNewName($newName);
         }

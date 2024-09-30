@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 use Zimbra\Common\Struct\{CalendarAttendeeInterface, XParamInterface};
 
@@ -28,158 +34,158 @@ class CalendarAttendee implements CalendarAttendeeInterface
 {
     /**
      * Email address (without "MAILTO:")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * URL - has same value as email-address.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
-    #[SerializedName('url')]
-    #[Type('string')]
+    #[Accessor(getter: "getUrl", setter: "setUrl")]
+    #[SerializedName("url")]
+    #[Type("string")]
     #[XmlAttribute]
     private $url;
 
     /**
      * Friendly name - "CN" in iCalendar
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDisplayName", setter: "setDisplayName")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $displayName;
 
     /**
      * iCalendar SENT-BY
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
-    #[SerializedName('sentBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSentBy", setter: "setSentBy")]
+    #[SerializedName("sentBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sentBy;
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user. the property.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDir', setter: 'setDir')]
-    #[SerializedName('dir')]
-    #[Type('string')]
+    #[Accessor(getter: "getDir", setter: "setDir")]
+    #[SerializedName("dir")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dir;
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLanguage', setter: 'setLanguage')]
-    #[SerializedName('lang')]
-    #[Type('string')]
+    #[Accessor(getter: "getLanguage", setter: "setLanguage")]
+    #[SerializedName("lang")]
+    #[Type("string")]
     #[XmlAttribute]
     private $language;
 
     /**
      * iCalendar CUTYPE (Calendar user type)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCuType', setter: 'setCuType')]
-    #[SerializedName('cutype')]
-    #[Type('string')]
+    #[Accessor(getter: "getCuType", setter: "setCuType")]
+    #[SerializedName("cutype")]
+    #[Type("string")]
     #[XmlAttribute]
     private $cuType;
 
     /**
      * iCalendar ROLE
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRole', setter: 'setRole')]
-    #[SerializedName('role')]
-    #[Type('string')]
+    #[Accessor(getter: "getRole", setter: "setRole")]
+    #[SerializedName("role")]
+    #[Type("string")]
     #[XmlAttribute]
     private $role;
 
     /**
      * iCalendar PTST (Participation status)
      * Valid values - NE|AC|TE|DE|DG|CO|IN|WE|DF
-     * Meanings: 
+     * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
+     *
      * @var PartStat
      */
-    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName('ptst')]
+    #[Accessor(getter: "getPartStat", setter: "setPartStat")]
+    #[SerializedName("ptst")]
     #[XmlAttribute]
     private ?PartStat $partStat;
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getRsvp', setter: 'setRsvp')]
-    #[SerializedName('rsvp')]
-    #[Type('bool')]
+    #[Accessor(getter: "getRsvp", setter: "setRsvp")]
+    #[SerializedName("rsvp")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $rsvp;
 
     /**
      * iCalendar MEMBER - The group or list membership of the calendar user
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMember', setter: 'setMember')]
-    #[SerializedName('member')]
-    #[Type('string')]
+    #[Accessor(getter: "getMember", setter: "setMember")]
+    #[SerializedName("member")]
+    #[Type("string")]
     #[XmlAttribute]
     private $member;
 
     /**
      * iCalendar DELEGATED-TO
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDelegatedTo', setter: 'setDelegatedTo')]
-    #[SerializedName('delegatedTo')]
-    #[Type('string')]
+    #[Accessor(getter: "getDelegatedTo", setter: "setDelegatedTo")]
+    #[SerializedName("delegatedTo")]
+    #[Type("string")]
     #[XmlAttribute]
     private $delegatedTo;
 
     /**
      * iCalendar DELEGATED-FROM
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDelegatedFrom', setter: 'setDelegatedFrom')]
-    #[SerializedName('delegatedFrom')]
-    #[Type('string')]
+    #[Accessor(getter: "getDelegatedFrom", setter: "setDelegatedFrom")]
+    #[SerializedName("delegatedFrom")]
+    #[Type("string")]
     #[XmlAttribute]
     private $delegatedFrom;
 
     /**
      * Non-standard parameters (XPARAMs)
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getXParams', setter: 'setXParams')]
-    #[Type('array<Zimbra\Mail\Struct\XParam>')]
-    #[XmlList(inline: true, entry: 'xparam', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getXParams", setter: "setXParams")]
+    #[Type("array<Zimbra\Mail\Struct\XParam>")]
+    #[XmlList(inline: true, entry: "xparam", namespace: "urn:zimbraMail")]
     private $xParams;
 
     /**
@@ -200,8 +206,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
         ?PartStat $partStat = null,
         ?bool $rsvp = null,
         array $xParams = []
-    )
-    {
+    ) {
         $this->setXParams($xParams);
         $this->partStat = $partStat;
         if (null !== $attendeeEmail) {
@@ -525,7 +530,8 @@ class CalendarAttendee implements CalendarAttendeeInterface
     public function setXParams(array $xParams): self
     {
         $this->xParams = array_filter(
-            $xParams, static fn ($xParam) => $xParam instanceof XParamInterface
+            $xParams,
+            static fn($xParam) => $xParam instanceof XParamInterface
         );
         return $this;
     }

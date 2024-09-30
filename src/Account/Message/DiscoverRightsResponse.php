@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DiscoverRightsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,17 +27,17 @@ class DiscoverRightsResponse extends SoapResponse
 {
     /**
      * Information about targets for rights
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDiscoveredRights', setter: 'setDiscoveredRights')]
-    #[Type('array<Zimbra\Account\Struct\DiscoverRightsInfo>')]
-    #[XmlList(inline: true, entry: 'targets', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getDiscoveredRights", setter: "setDiscoveredRights")]
+    #[Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")]
+    #[XmlList(inline: true, entry: "targets", namespace: "urn:zimbraAccount")]
     private $discoveredRights = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $targets
      * @return self
      */
@@ -55,7 +55,8 @@ class DiscoverRightsResponse extends SoapResponse
     public function setDiscoveredRights(array $rights): self
     {
         $this->discoveredRights = array_filter(
-            $rights, static fn ($right) => $right instanceof DiscoverRightsInfo
+            $rights,
+            static fn($right) => $right instanceof DiscoverRightsInfo
         );
         return $this;
     }

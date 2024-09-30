@@ -10,14 +10,24 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Account\Struct\{Attrs, AttrsImplTrait};
-use Zimbra\Common\Struct\{DistributionListSelector, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    DistributionListSelector,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetDistributionListRequest class
  * Get a distribution list, optionally with ownership information an granted rights.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -30,40 +40,40 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
 
     /**
      * Whether to return owners, default is 0 (i.e. Don't return owners)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedOwners', setter: 'setNeedOwners')]
-    #[SerializedName('needOwners')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeedOwners", setter: "setNeedOwners")]
+    #[SerializedName("needOwners")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needOwners;
 
     /**
      * return grants for the specified (comma-seperated) rights. e.g. needRights="sendToDistList,viewDistList"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getNeedRights', setter: 'setNeedRights')]
-    #[SerializedName('needRights')]
-    #[Type('string')]
+    #[Accessor(getter: "getNeedRights", setter: "setNeedRights")]
+    #[SerializedName("needRights")]
+    #[Type("string")]
     #[XmlAttribute]
     private $needRights;
 
     /**
      * Specify the distribution list
-     * 
+     *
      * @var DistributionListSelector
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionListSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private DistributionListSelector $dl;
 
     /**
      * Constructor
-     * 
+     *
      * @param  DistributionListSelector $dl
      * @param  bool $needOwners
      * @param  string $needRights
@@ -75,10 +85,8 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
         ?bool $needOwners = null,
         ?string $needRights = null,
         array $attrs = []
-    )
-    {
-        $this->setDl($dl)
-             ->setAttrs($attrs);
+    ) {
+        $this->setDl($dl)->setAttrs($attrs);
         if (null !== $needOwners) {
             $this->setNeedOwners($needOwners);
         }

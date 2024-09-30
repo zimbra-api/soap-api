@@ -27,7 +27,9 @@ interface InviteInfoInterface
 
     function setTimezones(array $timezones): self;
     function addTimezone(CalTZInfoInterface $timezone): self;
-    function setInviteComponent(InviteComponentInterface $inviteComponent): self;
+    function setInviteComponent(
+        InviteComponentInterface $inviteComponent
+    ): self;
     function setCalendarReplies(array $calendarReplies): self;
     function addCalendarReply(CalendarReplyInterface $calendarReply): self;
 

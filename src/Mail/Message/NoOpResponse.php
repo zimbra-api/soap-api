@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * NoOpResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,12 +26,12 @@ class NoOpResponse extends SoapResponse
 {
     /**
      * Set if wait was disallowed
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWaitDisallowed', setter: 'setWaitDisallowed')]
-    #[SerializedName('waitDisallowed')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWaitDisallowed", setter: "setWaitDisallowed")]
+    #[SerializedName("waitDisallowed")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $waitDisallowed;
 
@@ -41,9 +41,7 @@ class NoOpResponse extends SoapResponse
      * @param  bool $waitDisallowed
      * @return self
      */
-    public function __construct(
-        ?bool $waitDisallowed = null
-    )
+    public function __construct(?bool $waitDisallowed = null)
     {
         if (null !== $waitDisallowed) {
             $this->setWaitDisallowed($waitDisallowed);

@@ -25,17 +25,17 @@ enum IpType: string
      * Constant for value 'ipV4'
      * @return string 'ipV4'
      */
-    case IPV4 = 'ipV4';
+    case IPV4 = "ipV4";
 
     /**
      * Constant for value 'ipV6'
      * @return string 'ipV6'
      */
-    case IPV6 = 'ipV6';
+    case IPV6 = "ipV6";
 
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    case BOTH = 'both';
+    case BOTH = "both";
 }

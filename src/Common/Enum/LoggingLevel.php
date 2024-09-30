@@ -25,25 +25,25 @@ enum LoggingLevel: string
      * Constant for value 'error'
      * @return string 'error'
      */
-    case ERROR = 'error';
+    case ERROR = "error";
     /**
      * Constant for value 'warn'
      * @return string 'warn'
      */
-    case WARN = 'warn';
+    case WARN = "warn";
     /**
      * Constant for value 'info'
      * @return string 'info'
      */
-    case INFO = 'info';
+    case INFO = "info";
     /**
      * Constant for value 'debug'
      * @return string 'debug'
      */
-    case DEBUG = 'debug';
+    case DEBUG = "debug";
     /**
      * Constant for value 'trace'
      * @return string 'trace'
      */
-    case TRACE = 'trace';
+    case TRACE = "trace";
 }

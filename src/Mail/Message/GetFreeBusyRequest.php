@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Mail\Struct\FreeBusyUserSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -30,79 +36,79 @@ class GetFreeBusyRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * DEPRECATED. Comma-separated list of Zimbra IDs or emails.
      * Each value can be a Ziimbra ID or an email.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getUid', setter: 'setUid')]
-    #[SerializedName('uid')]
-    #[Type('string')]
+    #[Accessor(getter: "getUid", setter: "setUid")]
+    #[SerializedName("uid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $uid;
 
     /**
      * Comma separated list of Zimbra IDs
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Comma separated list of emails
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * UID of appointment to exclude from free/busy search
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getExcludeUid', setter: 'setExcludeUid')]
-    #[SerializedName('excludeUid')]
-    #[Type('string')]
+    #[Accessor(getter: "getExcludeUid", setter: "setExcludeUid")]
+    #[SerializedName("excludeUid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $excludeUid;
 
     /**
      * To view free/busy for a single folders in particular accounts, use these.
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
-    #[Type('array<Zimbra\Mail\Struct\FreeBusyUserSpec>')]
-    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
+    #[Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")]
+    #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
     private $freebusyUsers = [];
 
     /**
@@ -125,11 +131,10 @@ class GetFreeBusyRequest extends SoapRequest
         ?string $name = null,
         ?string $excludeUid = null,
         array $freebusyUsers = []
-    )
-    {
+    ) {
         $this->setStartTime($startTime)
-             ->setEndTime($endTime)
-             ->setFreebusyUsers($freebusyUsers);
+            ->setEndTime($endTime)
+            ->setFreebusyUsers($freebusyUsers);
         if (null !== $uid) {
             $this->setUid($uid);
         }
@@ -297,7 +302,8 @@ class GetFreeBusyRequest extends SoapRequest
     public function setFreebusyUsers(array $users): self
     {
         $this->freebusyUsers = array_filter(
-            $users, static fn ($usr) => $usr instanceof FreeBusyUserSpec
+            $users,
+            static fn($usr) => $usr instanceof FreeBusyUserSpec
         );
         return $this;
     }
@@ -317,8 +323,6 @@ class GetFreeBusyRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetFreeBusyEnvelope(
-            new GetFreeBusyBody($this)
-        );
+        return new GetFreeBusyEnvelope(new GetFreeBusyBody($this));
     }
 }

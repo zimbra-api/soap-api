@@ -33,46 +33,46 @@ class GetLoggerStatsRequest extends SoapRequest
 {
     /**
      * Hostname
-     * 
+     *
      * @var HostName
      */
-    #[Accessor(getter: 'getHostName', setter: 'setHostName')]
-    #[SerializedName('hostname')]
+    #[Accessor(getter: "getHostName", setter: "setHostName")]
+    #[SerializedName("hostname")]
     #[Type(HostName::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?HostName $hostName;
 
     /**
      * Stats
-     * 
+     *
      * @var StatsSpec
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[SerializedName('stats')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[SerializedName("stats")]
     #[Type(StatsSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?StatsSpec $stats;
 
     /**
      * Start time
-     * 
+     *
      * @var TimeAttr
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('startTime')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("startTime")]
     #[Type(TimeAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TimeAttr $startTime;
 
     /**
      * End time
-     * 
+     *
      * @var TimeAttr
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('endTime')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("endTime")]
     #[Type(TimeAttr::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?TimeAttr $endTime;
 
     /**
@@ -85,9 +85,11 @@ class GetLoggerStatsRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?HostName $hostName = null, ?StatsSpec $stats = null, ?TimeAttr $startTime = null, ?TimeAttr $endTime = null
-    )
-    {
+        ?HostName $hostName = null,
+        ?StatsSpec $stats = null,
+        ?TimeAttr $startTime = null,
+        ?TimeAttr $endTime = null
+    ) {
         $this->hostName = $hostName;
         $this->stats = $stats;
         $this->startTime = $startTime;
@@ -187,8 +189,6 @@ class GetLoggerStatsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetLoggerStatsEnvelope(
-            new GetLoggerStatsBody($this)
-        );
+        return new GetLoggerStatsEnvelope(new GetLoggerStatsBody($this));
     }
 }

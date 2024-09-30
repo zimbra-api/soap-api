@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * Revoke account level permissions
  * RevokePermissionResponse returns permissions that are successfully revoked.
  * Note: to be deprecated in Zimbra 9. Use zimbraAccount RevokeRights instead.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,8 +31,6 @@ class RevokePermissionRequest extends GrantPermissionRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RevokePermissionEnvelope(
-            new RevokePermissionBody($this)
-        );
+        return new RevokePermissionEnvelope(new RevokePermissionBody($this));
     }
 }

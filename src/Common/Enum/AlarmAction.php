@@ -25,35 +25,35 @@ enum AlarmAction: string
      * Constant for value 'DISPLAY'
      * @return string 'DISPLAY'
      */
-    case DISPLAY = 'DISPLAY';
+    case DISPLAY = "DISPLAY";
 
     /**
      * Constant for value 'AUDIO'
      * @return string 'AUDIO'
      */
-    case AUDIO = 'AUDIO';
+    case AUDIO = "AUDIO";
 
     /**
      * Constant for value 'EMAIL'
      * @return string 'EMAIL'
      */
-    case EMAIL = 'EMAIL';
+    case EMAIL = "EMAIL";
 
     /**
      * Constant for value 'PROCEDURE'
      * @return string 'PROCEDURE'
      */
-    case PROCEDURE = 'PROCEDURE';
+    case PROCEDURE = "PROCEDURE";
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_IM'
      * @return string 'X_YAHOO_CALENDAR_ACTION_IM'
      */
-    case YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
+    case YAHOO_IM = "X_YAHOO_CALENDAR_ACTION_IM";
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      * @return string 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      */
-    case YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
+    case YAHOO_MOBILE = "X_YAHOO_CALENDAR_ACTION_MOBILE";
 }

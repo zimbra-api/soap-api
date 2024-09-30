@@ -25,39 +25,41 @@ class RenameFolderNotification extends ModifyNotification
 {
     /**
      * ID of renamed folder
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * New path of renamed folder
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPath', setter: 'setPath')]
-    #[SerializedName('path')]
-    #[Type('string')]
+    #[Accessor(getter: "getPath", setter: "setPath")]
+    #[SerializedName("path")]
+    #[Type("string")]
     #[XmlAttribute]
     private $path;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $folderId
      * @param  string $path
      * @param  int $changeBitmask
      * @return self
      */
-    public function __construct(int $folderId = 0, string $path = '', int $changeBitmask = 0)
-    {
+    public function __construct(
+        int $folderId = 0,
+        string $path = "",
+        int $changeBitmask = 0
+    ) {
         parent::__construct($changeBitmask);
-        $this->setFolderId($folderId)
-             ->setPath($path);
+        $this->setFolderId($folderId)->setPath($path);
     }
 
     /**

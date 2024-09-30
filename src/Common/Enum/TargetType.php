@@ -25,77 +25,77 @@ enum TargetType: string
      * Constant for value 'account'
      * @return string 'account'
      */
-    case ACCOUNT = 'account';
+    case ACCOUNT = "account";
 
     /**
      * Constant for value 'calresource'
      * @return string 'calresource'
      */
-    case CALRESOURCE = 'calresource';
+    case CALRESOURCE = "calresource";
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    case COS = 'cos';
+    case COS = "cos";
 
     /**
      * Constant for value 'dl'
      * @return string 'dl'
      */
-    case DL = 'dl';
+    case DL = "dl";
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    case GROUP = 'group';
+    case GROUP = "group";
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    case DOMAIN = 'domain';
+    case DOMAIN = "domain";
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    case SERVER = 'server';
+    case SERVER = "server";
 
     /**
      * Constant for value 'alwaysoncluster'
      * @return string 'alwaysoncluster'
      */
-    case ALWAYSONCLUSTER = 'alwaysoncluster';
+    case ALWAYSONCLUSTER = "alwaysoncluster";
 
     /**
      * Constant for value 'ucservice'
      * @return string 'ucservice'
      */
-    case UCSERVICE = 'ucservice';
+    case UCSERVICE = "ucservice";
 
     /**
      * Constant for value 'xmppcomponent'
      * @return string 'xmppcomponent'
      */
-    case XMPPCOMPONENT = 'xmppcomponent';
+    case XMPPCOMPONENT = "xmppcomponent";
 
     /**
      * Constant for value 'zimlet'
      * @return string 'zimlet'
      */
-    case ZIMLET = 'zimlet';
+    case ZIMLET = "zimlet";
 
     /**
      * Constant for value 'config'
      * @return string 'config'
      */
-    case CONFIG = 'config';
+    case CONFIG = "config";
 
     /**
      * Constant for value 'global'
      * @return string 'global'
      */
-    case GLOBALTYPE = 'global';
+    case GLOBALTYPE = "global";
 }

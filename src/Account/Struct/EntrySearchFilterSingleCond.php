@@ -27,50 +27,50 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
 {
     /**
      * Attribute
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttr', setter: 'setAttr')]
-    #[SerializedName('attr')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttr", setter: "setAttr")]
+    #[SerializedName("attr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attr;
 
     /**
      * Condition operator
-     * 
+     *
      * @var ConditionOperator
      */
-    #[Accessor(getter: 'getOp', setter: 'setOp')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOp", setter: "setOp")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private ConditionOperator $op;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * is not
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isNot', setter: 'setNot')]
-    #[SerializedName('not')]
-    #[Type('bool')]
+    #[Accessor(getter: "isNot", setter: "setNot")]
+    #[SerializedName("not")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $not;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $attr
      * @param ConditionOperator $op
      * @param string $value
@@ -78,15 +78,14 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        string $attr = '',
+        string $attr = "",
         ?ConditionOperator $op = null,
-        string $value = '',
+        string $value = "",
         ?bool $not = null
-    )
-    {
+    ) {
         $this->setAttr($attr)
-             ->setOp($op ?? ConditionOperator::EQUAL)
-             ->setValue($value);
+            ->setOp($op ?? ConditionOperator::EQUAL)
+            ->setValue($value);
         if (null !== $not) {
             $this->setNot($not);
         }

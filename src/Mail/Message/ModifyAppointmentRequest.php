@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * That is, all instances that do not have exceptions.
  * If the appointment has a <recur>, then the following caveats are worth mentioning:
  * If any of: START, DURATION, END or RECUR change, then all exceptions are implicitly canceled!
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -31,23 +31,23 @@ class ModifyAppointmentRequest extends CalItemRequestBase
 {
     /**
      * Invite ID of default invite
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component number of default component
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
@@ -57,23 +57,23 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * By setting this, the request indicates which version of the appointment it is attempting to modify.
      * If the appointment was updated on the server between the fetch and modify,
      * an INVITE_OUT_OF_DATE exception will be thrown.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
@@ -103,8 +103,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
         ?bool $wantHtml = null,
         ?bool $neuter = null,
         ?bool $forceSend = null
-    )
-    {
+    ) {
         parent::__construct(
             $msg,
             $echo,
@@ -220,8 +219,6 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyAppointmentEnvelope(
-            new ModifyAppointmentBody($this)
-        );
+        return new ModifyAppointmentEnvelope(new ModifyAppointmentBody($this));
     }
 }

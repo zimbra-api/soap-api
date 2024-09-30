@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MailboxInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,150 +25,150 @@ class MailboxInfo
 {
     /**
      * ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Group ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getGroupId', setter: 'setGroupId')]
-    #[SerializedName('groupId')]
-    #[Type('int')]
+    #[Accessor(getter: "getGroupId", setter: "setGroupId")]
+    #[SerializedName("groupId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $groupId;
 
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
-    #[SerializedName('accountId')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccountId", setter: "setAccountId")]
+    #[SerializedName("accountId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accountId;
 
     /**
      * Index volume ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getIndexVolumeId', setter: 'setIndexVolumeId')]
-    #[SerializedName('indexVolumeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getIndexVolumeId", setter: "setIndexVolumeId")]
+    #[SerializedName("indexVolumeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $indexVolumeId;
 
     /**
      * Item ID checkpoint
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getItemIdCheckPoint', setter: 'setItemIdCheckPoint')]
-    #[SerializedName('itemIdCheckPoint')]
-    #[Type('int')]
+    #[Accessor(getter: "getItemIdCheckPoint", setter: "setItemIdCheckPoint")]
+    #[SerializedName("itemIdCheckPoint")]
+    #[Type("int")]
     #[XmlAttribute]
     private $itemIdCheckPoint;
 
     /**
      * Contact count
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getContactCount', setter: 'setContactCount')]
-    #[SerializedName('contactCount')]
-    #[Type('int')]
+    #[Accessor(getter: "getContactCount", setter: "setContactCount")]
+    #[SerializedName("contactCount")]
+    #[Type("int")]
     #[XmlAttribute]
     private $contactCount;
 
     /**
      * Size checkpoint
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSizeCheckPoint', setter: 'setSizeCheckPoint')]
-    #[SerializedName('sizeCheckPoint')]
-    #[Type('int')]
+    #[Accessor(getter: "getSizeCheckPoint", setter: "setSizeCheckPoint")]
+    #[SerializedName("sizeCheckPoint")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sizeCheckPoint;
 
     /**
      * Change checkpoint
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getChangeCheckPoint', setter: 'setChangeCheckPoint')]
-    #[SerializedName('changeCheckPoint')]
-    #[Type('int')]
+    #[Accessor(getter: "getChangeCheckPoint", setter: "setChangeCheckPoint")]
+    #[SerializedName("changeCheckPoint")]
+    #[Type("int")]
     #[XmlAttribute]
     private $changeCheckPoint;
 
     /**
      * Tracking Sync
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTrackingSync', setter: 'setTrackingSync')]
-    #[SerializedName('trackingSync')]
-    #[Type('int')]
+    #[Accessor(getter: "getTrackingSync", setter: "setTrackingSync")]
+    #[SerializedName("trackingSync")]
+    #[Type("int")]
     #[XmlAttribute]
     private $trackingSync;
 
     /**
      * Tracking IMAP
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isTrackingImap', setter: 'setTrackingImap')]
-    #[SerializedName('trackingImap')]
-    #[Type('bool')]
+    #[Accessor(getter: "isTrackingImap", setter: "setTrackingImap")]
+    #[SerializedName("trackingImap")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $trackingImap;
 
     /**
      * Last Backup At
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastBackupAt', setter: 'setLastBackupAt')]
-    #[SerializedName('lastBackupAt')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastBackupAt", setter: "setLastBackupAt")]
+    #[SerializedName("lastBackupAt")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastBackupAt;
 
     /**
      * Last SOAP access
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLastSoapAccess', setter: 'setLastSoapAccess')]
-    #[SerializedName('lastSoapAccess')]
-    #[Type('int')]
+    #[Accessor(getter: "getLastSoapAccess", setter: "setLastSoapAccess")]
+    #[SerializedName("lastSoapAccess")]
+    #[Type("int")]
     #[XmlAttribute]
     private $lastSoapAccess;
 
     /**
      * New Messages
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNewMessages', setter: 'setNewMessages')]
-    #[SerializedName('newMessages')]
-    #[Type('int')]
+    #[Accessor(getter: "getNewMessages", setter: "setNewMessages")]
+    #[SerializedName("newMessages")]
+    #[Type("int")]
     #[XmlAttribute]
     private $newMessages;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $id
      * @param int $groupId
      * @param string $accountId
@@ -187,7 +187,7 @@ class MailboxInfo
     public function __construct(
         int $id = 0,
         int $groupId = 0,
-        string $accountId = '',
+        string $accountId = "",
         int $indexVolumeId = 0,
         int $itemIdCheckPoint = 0,
         int $contactCount = 0,
@@ -198,21 +198,20 @@ class MailboxInfo
         int $lastBackupAt = 0,
         int $lastSoapAccess = 0,
         int $newMessages = 0
-    )
-    {
+    ) {
         $this->setId($id)
-             ->setGroupId($groupId)
-             ->setAccountId($accountId)
-             ->setIndexVolumeId($indexVolumeId)
-             ->setItemIdCheckPoint($itemIdCheckPoint)
-             ->setContactCount($contactCount)
-             ->setSizeCheckPoint($sizeCheckPoint)
-             ->setChangeCheckPoint($changeCheckPoint)
-             ->setTrackingSync($trackingSync)
-             ->setTrackingImap($trackingImap)
-             ->setLastBackupAt($lastBackupAt)
-             ->setLastSoapAccess($lastSoapAccess)
-             ->setNewMessages($newMessages);
+            ->setGroupId($groupId)
+            ->setAccountId($accountId)
+            ->setIndexVolumeId($indexVolumeId)
+            ->setItemIdCheckPoint($itemIdCheckPoint)
+            ->setContactCount($contactCount)
+            ->setSizeCheckPoint($sizeCheckPoint)
+            ->setChangeCheckPoint($changeCheckPoint)
+            ->setTrackingSync($trackingSync)
+            ->setTrackingImap($trackingImap)
+            ->setLastBackupAt($lastBackupAt)
+            ->setLastSoapAccess($lastSoapAccess)
+            ->setNewMessages($newMessages);
     }
 
     /**

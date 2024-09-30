@@ -25,18 +25,18 @@ class HeaderExistsTest extends FilterTest
 {
     /**
      * Header name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeader', setter: 'setHeader')]
-    #[SerializedName('header')]
-    #[Type('string')]
+    #[Accessor(getter: "getHeader", setter: "setHeader")]
+    #[SerializedName("header")]
+    #[Type("string")]
     #[XmlAttribute]
     private $header;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param string $header
@@ -46,9 +46,8 @@ class HeaderExistsTest extends FilterTest
         ?int $index = null,
         ?bool $negative = null,
         ?string $header = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         if (null !== $header) {
             $this->setHeader($header);
         }

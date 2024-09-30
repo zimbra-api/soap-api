@@ -29,18 +29,18 @@ class DeleteIdentityRequest extends SoapRequest
 {
     /**
      * Details of the identity to delete.
-     * 
+     *
      * @var NameId
      */
-    #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
-    #[SerializedName('identity')]
+    #[Accessor(getter: "getIdentity", setter: "setIdentity")]
+    #[SerializedName("identity")]
     #[Type(NameId::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private NameId $identity;
 
     /**
      * Constructor
-     * 
+     *
      * @param NameId $identity
      * @return self
      */
@@ -76,8 +76,6 @@ class DeleteIdentityRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteIdentityEnvelope(
-            new DeleteIdentityBody($this)
-        );
+        return new DeleteIdentityEnvelope(new DeleteIdentityBody($this));
     }
 }

@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SaveIMAPSubscriptionsRequest class
  * Save a list of folder names subscribed to via IMAP
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,12 +33,12 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest
 {
     /**
      * list of folder paths subscribed via IMAP
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSubscriptions', setter: 'setSubscriptions')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'sub', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubscriptions", setter: "setSubscriptions")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "sub", namespace: "urn:zimbraMail")]
     private $subscriptions = [];
 
     /**
@@ -55,7 +61,10 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest
     public function addSubscription($subscription): self
     {
         $subscription = trim($subscription);
-        if (!empty($subscription) && !in_array($subscription, $this->subscriptions)) {
+        if (
+            !empty($subscription) &&
+            !in_array($subscription, $this->subscriptions)
+        ) {
             $this->subscriptions[] = $subscription;
         }
         return $this;

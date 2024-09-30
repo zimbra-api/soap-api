@@ -10,8 +10,20 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus,
+    InviteClass,
+    InviteStatus,
+    ParticipationStatus,
+    Transparency
+};
 
 /**
  * LegacyCalendaringData struct class
@@ -22,70 +34,71 @@ use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, Participation
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class LegacyCalendaringData extends CommonCalendaringData implements CalendaringDataInterface
+class LegacyCalendaringData extends CommonCalendaringData implements
+    CalendaringDataInterface
 {
     /**
      * Organizer
-     * 
+     *
      * @var CalOrganizer
      */
-    #[Accessor(getter: 'getOrganizer', setter: 'setOrganizer')]
-    #[SerializedName('or')]
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName("or")]
     #[Type(CalOrganizer::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalOrganizer $organizer;
 
     /**
      * Categories
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCategories", setter: "setCategories")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
     private $categories = [];
 
     /**
      * Information for iCalendar GEO property
-     * 
+     *
      * @var GeoInfo
      */
-    #[Accessor(getter: 'getGeo', setter: 'setGeo')]
-    #[SerializedName('geo')]
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName("geo")]
     #[Type(GeoInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?GeoInfo $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Instances
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getInstances', setter: 'setInstances')]
-    #[Type('array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>')]
-    #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInstances", setter: "setInstances")]
+    #[Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")]
+    #[XmlList(inline: true, entry: "inst", namespace: "urn:zimbraMail")]
     private $instances = [];
 
     /**
      * Alarm information
-     * 
+     *
      * @var AlarmDataInfo
      */
-    #[Accessor(getter: 'getAlarmData', setter: 'setAlarmData')]
-    #[SerializedName('alarmData')]
+    #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
+    #[SerializedName("alarmData")]
     #[Type(AlarmDataInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?AlarmDataInfo $alarmData;
 
     /**
@@ -136,8 +149,8 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @return self
      */
     public function __construct(
-        string $xUid = '',
-        string $uid = '',
+        string $xUid = "",
+        string $uid = "",
         ?CalOrganizer $organizer = null,
         array $categories = [],
         ?GeoInfo $geo = null,
@@ -178,8 +191,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
         ?bool $neverSent = null,
         ?int $taskDueDate = null,
         ?int $taskTzOffsetDue = null
-    )
-    {
+    ) {
         parent::__construct(
             $xUid,
             $uid,
@@ -218,8 +230,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
             $taskDueDate,
             $taskTzOffsetDue
         );
-        $this->setCategories($categories)
-             ->setInstances($instances);
+        $this->setCategories($categories)->setInstances($instances);
         $this->organizer = $organizer;
         $this->geo = $geo;
         $this->alarmData = $alarmData;
@@ -269,7 +280,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     public function setCategories(array $categories): self
     {
         $this->categories = array_unique(
-            array_map(static fn ($category) => trim($category), $categories)
+            array_map(static fn($category) => trim($category), $categories)
         );
         return $this;
     }
@@ -327,7 +338,8 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     public function setInstances(array $instances): self
     {
         $this->instances = array_filter(
-            $instances, static fn ($inst) => $inst instanceof LegacyInstanceDataInfo
+            $instances,
+            static fn($inst) => $inst instanceof LegacyInstanceDataInfo
         );
         return $this;
     }

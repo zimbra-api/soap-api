@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\LocaleInterface;
 
 /**
  * LocaleInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,53 +26,51 @@ class LocaleInfo implements LocaleInterface
 {
     /**
      * Locale ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Name of the locale in the locale itself
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Name of the locale in the users' locale
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLocalName', setter: 'setLocalName')]
-    #[SerializedName('localName')]
-    #[Type('string')]
+    #[Accessor(getter: "getLocalName", setter: "setLocalName")]
+    #[SerializedName("localName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $localName;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $name
      * @param string $localName
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $name = '',
+        string $id = "",
+        string $name = "",
         ?string $localName = null
-    )
-    {
-        $this->setId($id)
-             ->setName($name);
+    ) {
+        $this->setId($id)->setName($name);
         if (null !== $localName) {
             $this->setLocalName($localName);
         }

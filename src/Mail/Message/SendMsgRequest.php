@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\MsgToSend;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SendMsgRequest class
  * Send message
- * 
+ *
  * - Supports (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification "type" on <e> elements.
  * - Only allowed one top-level <mp> but can nest <mp>s within if multipart/*
  * - A leaf <mp> can have inlined content (<mp ct="{content-type}"><content>...</content></mp>)
@@ -48,87 +54,92 @@ class SendMsgRequest extends SoapRequest
 {
     /**
      * Message
-     * 
+     *
      * @var MsgToSend
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(MsgToSend::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private MsgToSend $msg;
 
     /**
      * If set then Add SENT-BY parameter to ORGANIZER and/or ATTENDEE properties
      * in iCalendar part when sending message on behalf of another user.
      * Default is unset.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeedCalendarSentbyFixup', setter: 'setNeedCalendarSentbyFixup')]
-    #[SerializedName('needCalendarSentByFixup')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getNeedCalendarSentbyFixup",
+            setter: "setNeedCalendarSentbyFixup"
+        )
+    ]
+    #[SerializedName("needCalendarSentByFixup")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $needCalendarSentbyFixup;
 
     /**
      * Indicates whether this a forward of calendar invitation in which
      * case the server sends Forward Invitation Notification, default is unset.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsCalendarForward', setter: 'setIsCalendarForward')]
-    #[SerializedName('isCalendarForward')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsCalendarForward", setter: "setIsCalendarForward")]
+    #[SerializedName("isCalendarForward")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isCalendarForward;
 
     /**
      * If set, a copy will not be saved to sent regardless of account/identity settings
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNoSaveToSent', setter: 'setNoSaveToSent')]
-    #[SerializedName('noSave')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNoSaveToSent", setter: "setNoSaveToSent")]
+    #[SerializedName("noSave")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $noSaveToSent;
 
     /**
      * If set, return the copy of the sent message, if it was saved, in the response.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFetchSavedMsg', setter: 'setFetchSavedMsg')]
-    #[SerializedName('fetchSavedMsg')]
-    #[Type('bool')]
+    #[Accessor(getter: "getFetchSavedMsg", setter: "setFetchSavedMsg")]
+    #[SerializedName("fetchSavedMsg")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $fetchSavedMsg;
 
     /**
      * Send UID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSendUid', setter: 'setSendUid')]
-    #[SerializedName('suid')]
-    #[Type('string')]
+    #[Accessor(getter: "getSendUid", setter: "setSendUid")]
+    #[SerializedName("suid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sendUid;
 
     /**
      * If set, delivery receipt notification will be sent.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getDeliveryReport', setter: 'setDeliveryReport')]
-    #[SerializedName('deliveryReport')]
-    #[Type('bool')]
+    #[Accessor(getter: "getDeliveryReport", setter: "setDeliveryReport")]
+    #[SerializedName("deliveryReport")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $deliveryReport;
 
     /**
      * Constructor
-     * 
+     *
      * @param MsgToSend $msg
      * @param bool $needCalendarSentbyFixup
      * @param bool $isCalendarForward
@@ -146,8 +157,7 @@ class SendMsgRequest extends SoapRequest
         ?bool $fetchSavedMsg = null,
         ?string $sendUid = null,
         ?bool $deliveryReport = null
-    )
-    {
+    ) {
         $this->setMsg($msg);
         if (null !== $needCalendarSentbyFixup) {
             $this->setNeedCalendarSentbyFixup($needCalendarSentbyFixup);
@@ -207,8 +217,9 @@ class SendMsgRequest extends SoapRequest
      * @param  bool $needCalendarSentbyFixup
      * @return self
      */
-    public function setNeedCalendarSentbyFixup(bool $needCalendarSentbyFixup): self
-    {
+    public function setNeedCalendarSentbyFixup(
+        bool $needCalendarSentbyFixup
+    ): self {
         $this->needCalendarSentbyFixup = $needCalendarSentbyFixup;
         return $this;
     }
@@ -328,8 +339,6 @@ class SendMsgRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new SendMsgEnvelope(
-            new SendMsgBody($this)
-        );
+        return new SendMsgEnvelope(new SendMsgBody($this));
     }
 }

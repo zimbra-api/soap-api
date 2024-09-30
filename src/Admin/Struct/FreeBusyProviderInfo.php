@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * FreeBusyProviderInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,73 +25,73 @@ class FreeBusyProviderInfo
 {
     /**
      * Provider name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Propagate flag
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPropagate', setter: 'setPropagate')]
-    #[SerializedName('propagate')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPropagate", setter: "setPropagate")]
+    #[SerializedName("propagate")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $propagate;
 
     /**
      * Free/Busy cache start time in seconds since the epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStart', setter: 'setStart')]
-    #[SerializedName('start')]
-    #[Type('int')]
+    #[Accessor(getter: "getStart", setter: "setStart")]
+    #[SerializedName("start")]
+    #[Type("int")]
     #[XmlAttribute]
     private $start;
 
     /**
      * Free/Busy cache end time in seconds since the epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEnd', setter: 'setEnd')]
-    #[SerializedName('end')]
-    #[Type('int')]
+    #[Accessor(getter: "getEnd", setter: "setEnd")]
+    #[SerializedName("end")]
+    #[Type("int")]
     #[XmlAttribute]
     private $end;
 
     /**
      * Queue location
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getQueue', setter: 'setQueue')]
-    #[SerializedName('queue')]
-    #[Type('string')]
+    #[Accessor(getter: "getQueue", setter: "setQueue")]
+    #[SerializedName("queue")]
+    #[Type("string")]
     #[XmlAttribute]
     private $queue;
 
     /**
      * Prefix used in Zimbra ForeignPrincipal
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPrefix', setter: 'setPrefix')]
-    #[SerializedName('prefix')]
-    #[Type('string')]
+    #[Accessor(getter: "getPrefix", setter: "setPrefix")]
+    #[SerializedName("prefix")]
+    #[Type("string")]
     #[XmlAttribute]
     private $prefix;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param bool $propagate
      * @param int $start
@@ -101,20 +101,19 @@ class FreeBusyProviderInfo
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         bool $propagate = false,
         int $start = 0,
         int $end = 0,
-        string $queue = '',
-        string $prefix = ''
-    )
-    {
+        string $queue = "",
+        string $prefix = ""
+    ) {
         $this->setName($name)
-             ->setPropagate($propagate)
-             ->setStart($start)
-             ->setEnd($end)
-             ->setQueue($queue)
-             ->setPrefix($prefix);
+            ->setPropagate($propagate)
+            ->setStart($start)
+            ->setEnd($end)
+            ->setQueue($queue)
+            ->setPrefix($prefix);
     }
 
     /**

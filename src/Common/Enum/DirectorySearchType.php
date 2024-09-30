@@ -25,35 +25,35 @@ enum DirectorySearchType: string
      * Constant for value 'accounts'
      * @return string 'accounts'
      */
-    case ACCOUNTS = 'accounts';
+    case ACCOUNTS = "accounts";
 
     /**
      * Constant for value 'distributionlists'
      * @return string 'distributionlists'
      */
-    case DISTRIBUTION_LISTS = 'distributionlists';
+    case DISTRIBUTION_LISTS = "distributionlists";
 
     /**
      * Constant for value 'aliases'
      * @return string 'aliases'
      */
-    case ALIASES = 'aliases';
+    case ALIASES = "aliases";
 
     /**
      * Constant for value 'resources'
      * @return string 'resources'
      */
-    case RESOURCES = 'resources';
+    case RESOURCES = "resources";
 
     /**
      * Constant for value 'domains'
      * @return string 'domains'
      */
-    case DOMAINS = 'domains';
+    case DOMAINS = "domains";
 
     /**
      * Constant for value 'coses'
      * @return string 'coses'
      */
-    case COSES = 'coses';
+    case COSES = "coses";
 }

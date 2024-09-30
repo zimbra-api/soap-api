@@ -25,23 +25,23 @@ enum RecoveryAccountOperation: string
      * Constant for value 'sendCode'
      * @return string 'sendCode'
      */
-    case SEND_CODE = 'sendCode';
+    case SEND_CODE = "sendCode";
 
     /**
      * Constant for value 'validateCode'
      * @return string 'validateCode'
      */
-    case VALIDATE_CODE = 'validateCode';
+    case VALIDATE_CODE = "validateCode";
 
     /**
      * Constant for value 'resendCode'
      * @return string 'resendCode'
      */
-    case RESEND_CODE = 'resendCode';
+    case RESEND_CODE = "resendCode";
 
     /**
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    case RESET = 'reset';
+    case RESET = "reset";
 }

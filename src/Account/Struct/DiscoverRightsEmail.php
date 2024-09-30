@@ -25,22 +25,22 @@ class DiscoverRightsEmail
 {
     /**
      * Email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddr', setter: 'setAddr')]
-    #[SerializedName('addr')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddr", setter: "setAddr")]
+    #[SerializedName("addr")]
+    #[Type("string")]
     #[XmlAttribute]
     private $addr;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $addr
      * @return self
      */
-    public function __construct(string $addr = '')
+    public function __construct(string $addr = "")
     {
         $this->setAddr($addr);
     }

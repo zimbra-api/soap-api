@@ -26,28 +26,28 @@ class CurrentTimeTest extends FilterTest
 {
     /**
      * Date comparison setting - before|after
-     * 
+     *
      * @var DateComparison
      */
-    #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
-    #[SerializedName('dateComparison')]
+    #[Accessor(getter: "getDateComparison", setter: "setDateComparison")]
+    #[SerializedName("dateComparison")]
     #[XmlAttribute]
     private ?DateComparison $dateComparison;
 
     /**
      * Time in HHmm format
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTime', setter: 'setTime')]
-    #[SerializedName('time')]
-    #[Type('string')]
+    #[Accessor(getter: "getTime", setter: "setTime")]
+    #[SerializedName("time")]
+    #[Type("string")]
     #[XmlAttribute]
     private $time;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param DateComparison $dateComparison
@@ -59,9 +59,8 @@ class CurrentTimeTest extends FilterTest
         ?bool $negative = null,
         ?DateComparison $dateComparison = null,
         ?string $time = null
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         $this->dateComparison = $dateComparison;
         if (null !== $time) {
             $this->setTime($time);

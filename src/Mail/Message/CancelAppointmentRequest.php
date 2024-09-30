@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\{CalTZInfo, InstanceRecurIdInfo, Msg};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -19,7 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Cancel appointment
  * NOTE: If canceling an exception, the original instance (ie the one the exception was "excepting") WILL NOT be
  * restored when you cancel this exception.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,79 +36,79 @@ class CancelAppointmentRequest extends SoapRequest
 {
     /**
      * ID of default invite
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Component number of default invite
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
-    #[SerializedName('comp')]
-    #[Type('int')]
+    #[Accessor(getter: "getComponentNum", setter: "setComponentNum")]
+    #[SerializedName("comp")]
+    #[Type("int")]
     #[XmlAttribute]
     private $componentNum;
 
     /**
      * Modified sequence
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
-    #[SerializedName('ms')]
-    #[Type('int')]
+    #[Accessor(getter: "getModifiedSequence", setter: "setModifiedSequence")]
+    #[SerializedName("ms")]
+    #[Type("int")]
     #[XmlAttribute]
     private $modifiedSequence;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Instance recurrence ID information
-     * 
+     *
      * @var InstanceRecurIdInfo
      */
-    #[Accessor(getter: 'getInstance', setter: 'setInstance')]
-    #[SerializedName('inst')]
+    #[Accessor(getter: "getInstance", setter: "setInstance")]
+    #[SerializedName("inst")]
     #[Type(InstanceRecurIdInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InstanceRecurIdInfo $instance;
 
     /**
      * Definition for TZID referenced by DATETIME in instance
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
      * Message
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -125,8 +131,7 @@ class CancelAppointmentRequest extends SoapRequest
         ?InstanceRecurIdInfo $instance = null,
         ?CalTZInfo $timezone = null,
         ?Msg $msg = null
-    )
-    {
+    ) {
         $this->instance = $instance;
         $this->timezone = $timezone;
         $this->msg = $msg;
@@ -303,8 +308,6 @@ class CancelAppointmentRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CancelAppointmentEnvelope(
-            new CancelAppointmentBody($this)
-        );
+        return new CancelAppointmentEnvelope(new CancelAppointmentBody($this));
     }
 }

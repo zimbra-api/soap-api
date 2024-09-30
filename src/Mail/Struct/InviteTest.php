@@ -25,17 +25,17 @@ class InviteTest extends FilterTest
 {
     /**
      * Methods
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMethods', setter: 'setMethods')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'method', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMethods", setter: "setMethods")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "method", namespace: "urn:zimbraMail")]
     private $methods;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @param array $methods
@@ -45,9 +45,8 @@ class InviteTest extends FilterTest
         ?int $index = null,
         ?bool $negative = null,
         array $methods = []
-    )
-    {
-    	parent::__construct($index, $negative);
+    ) {
+        parent::__construct($index, $negative);
         $this->setMethods($methods);
     }
 

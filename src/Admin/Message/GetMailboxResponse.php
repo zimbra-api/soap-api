@@ -27,13 +27,13 @@ class GetMailboxResponse extends SoapResponse
 {
     /**
      * Information about mailbox
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**

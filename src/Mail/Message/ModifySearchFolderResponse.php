@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ModifySearchFolderResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class ModifySearchFolderResponse extends SoapResponse
 {
     /**
      * Information about search folder, if and only if Search folder was modified.
-     * 
+     *
      * @var SearchFolder
      */
-    #[Accessor(getter: 'getSearchFolder', setter: 'setSearchFolder')]
-    #[SerializedName('search')]
+    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[SerializedName("search")]
     #[Type(SearchFolder::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?SearchFolder $searchFolder;
 
     /**

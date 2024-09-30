@@ -25,17 +25,17 @@ enum AttrMethod: string
      * Constant for value 'getAttrs'
      * @return string 'getAttrs'
      */
-    case GET_ATTRS = 'getAttrs';
+    case GET_ATTRS = "getAttrs";
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    case SET_ATTRS = 'setAttrs';
+    case SET_ATTRS = "setAttrs";
 
     /**
      * Constant for value 'getAttrs,setAttrs'
      * @return string 'getAttrs,setAttrs'
      */
-    case GET_SET = 'getAttrs,setAttrs';
+    case GET_SET = "getAttrs,setAttrs";
 }

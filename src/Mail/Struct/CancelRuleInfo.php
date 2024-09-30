@@ -22,6 +22,8 @@ use Zimbra\Common\Struct\CancelRuleInfoInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CancelRuleInfo extends RecurIdInfo implements RecurRuleBase, CancelRuleInfoInterface
+class CancelRuleInfo extends RecurIdInfo implements
+    RecurRuleBase,
+    CancelRuleInfoInterface
 {
 }

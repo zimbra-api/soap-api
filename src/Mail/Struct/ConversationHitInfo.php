@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Common\Struct\SearchHit;
 
 /**
@@ -27,23 +33,23 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
 {
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Hits
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMessageHits', setter: 'setMessageHits')]
-    #[Type('array<Zimbra\Mail\Struct\ConversationMsgHitInfo>')]
-    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessageHits", setter: "setMessageHits")]
+    #[Type("array<Zimbra\Mail\Struct\ConversationMsgHitInfo>")]
+    #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
     private $messageHits = [];
 
     /**
@@ -86,8 +92,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
         ?string $subject = null,
         ?string $fragment = null,
         array $emails = []
-    )
-    {
+    ) {
         parent::__construct(
             $id,
             $num,
@@ -148,7 +153,8 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     public function setMessageHits(array $hits): self
     {
         $this->messageHits = array_filter(
-            $hits, static fn($hit) => $hit instanceof ConversationMsgHitInfo
+            $hits,
+            static fn($hit) => $hit instanceof ConversationMsgHitInfo
         );
         return $this;
     }

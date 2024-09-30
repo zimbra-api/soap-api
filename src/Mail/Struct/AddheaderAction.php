@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * AddheaderAction struct class
@@ -25,40 +31,40 @@ class AddheaderAction extends FilterAction
 {
     /**
      * New header name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaderName', setter: 'setHeaderName')]
-    #[SerializedName('headerName')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[SerializedName("headerName")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $headerName;
 
     /**
      * New header value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHeaderValue', setter: 'setHeaderValue')]
-    #[SerializedName('headerValue')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
+    #[SerializedName("headerValue")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $headerValue;
 
     /**
      * Last header
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getLast', setter: 'setLast')]
-    #[SerializedName('last')]
-    #[Type('bool')]
+    #[Accessor(getter: "getLast", setter: "setLast")]
+    #[SerializedName("last")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $last;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $headerName
      * @param string $headerValue
@@ -66,9 +72,11 @@ class AddheaderAction extends FilterAction
      * @return self
      */
     public function __construct(
-        ?int $index = null, ?string $headerName = null, ?string $headerValue = null, ?bool $last = null
-    )
-    {
+        ?int $index = null,
+        ?string $headerName = null,
+        ?string $headerValue = null,
+        ?bool $last = null
+    ) {
         parent::__construct($index);
         if (null !== $headerName) {
             $this->setHeaderName($headerName);

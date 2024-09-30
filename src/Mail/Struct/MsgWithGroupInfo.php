@@ -11,7 +11,12 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
 };
 use Zimbra\Common\Enum\ReplyType;
 use Zimbra\Common\Struct\{KeyValuePair, UrlAndValue};
@@ -30,241 +35,246 @@ class MsgWithGroupInfo extends MessageCommon
 {
     /**
      * Message ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * IMAP UID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
-    #[SerializedName('i4uid')]
-    #[Type('int')]
+    #[Accessor(getter: "getImapUid", setter: "setImapUid")]
+    #[SerializedName("i4uid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $imapUid;
 
     /**
      * X-Zimbra-Calendar-Intended-For header
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCalendarIntendedFor', setter: 'setCalendarIntendedFor')]
-    #[SerializedName('cif')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getCalendarIntendedFor",
+            setter: "setCalendarIntendedFor"
+        )
+    ]
+    #[SerializedName("cif")]
+    #[Type("string")]
     #[XmlAttribute]
     private $calendarIntendedFor;
 
     /**
      * Message id of the message being replied to/forwarded (outbound messages only)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOrigId', setter: 'setOrigId')]
-    #[SerializedName('origid')]
-    #[Type('string')]
+    #[Accessor(getter: "getOrigId", setter: "setOrigId")]
+    #[SerializedName("origid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $origId;
 
     /**
      * Reply type - r|w
-     * 
+     *
      * @var ReplyType
      */
-    #[Accessor(getter: 'getDraftReplyType', setter: 'setDraftReplyType')]
-    #[SerializedName('rt')]
+    #[Accessor(getter: "getDraftReplyType", setter: "setDraftReplyType")]
+    #[SerializedName("rt")]
     #[XmlAttribute]
     private ?ReplyType $draftReplyType;
 
     /**
      * If set, this specifies the identity being used to compose the message
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIdentityId', setter: 'setIdentityId')]
-    #[SerializedName('idnt')]
-    #[Type('string')]
+    #[Accessor(getter: "getIdentityId", setter: "setIdentityId")]
+    #[SerializedName("idnt")]
+    #[Type("string")]
     #[XmlAttribute]
     private $identityId;
 
     /**
      * Draft account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDraftAccountId', setter: 'setDraftAccountId')]
-    #[SerializedName('forAcct')]
-    #[Type('string')]
+    #[Accessor(getter: "getDraftAccountId", setter: "setDraftAccountId")]
+    #[SerializedName("forAcct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $draftAccountId;
 
     /**
      * Can optionally set this to specify the time at which the draft should be automatically sent by the server
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDraftAutoSendTime', setter: 'setDraftAutoSendTime')]
-    #[SerializedName('autoSendTime')]
-    #[Type('int')]
+    #[Accessor(getter: "getDraftAutoSendTime", setter: "setDraftAutoSendTime")]
+    #[SerializedName("autoSendTime")]
+    #[Type("int")]
     #[XmlAttribute]
     private $draftAutoSendTime;
 
     /**
      * Date header
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSentDate', setter: 'setSentDate')]
-    #[SerializedName('sd')]
-    #[Type('int')]
+    #[Accessor(getter: "getSentDate", setter: "setSentDate")]
+    #[SerializedName("sd")]
+    #[Type("int")]
     #[XmlAttribute]
     private $sentDate;
 
     /**
      * Resent date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getResentDate', setter: 'setResentDate')]
-    #[SerializedName('rd')]
-    #[Type('int')]
+    #[Accessor(getter: "getResentDate", setter: "setResentDate")]
+    #[SerializedName("rd")]
+    #[Type("int")]
     #[XmlAttribute]
     private $resentDate;
 
     /**
      * Part
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFragment', setter: 'setFragment')]
-    #[SerializedName('fr')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName("fr")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $fragment;
 
     /**
      * Email addresses
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEmails', setter: 'setEmails')]
-    #[Type('array<Zimbra\Mail\Struct\EmailInfo>')]
-    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getEmails", setter: "setEmails")]
+    #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
+    #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
     private $emails = [];
 
     /**
      * Subject
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $subject;
 
     /**
      * Message ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageIdHeader', setter: 'setMessageIdHeader')]
-    #[SerializedName('mid')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMessageIdHeader", setter: "setMessageIdHeader")]
+    #[SerializedName("mid")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $messageIdHeader;
 
     /**
      * Message-ID header for message being replied to
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInReplyTo', setter: 'setInReplyTo')]
-    #[SerializedName('irt')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getInReplyTo", setter: "setInReplyTo")]
+    #[SerializedName("irt")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $inReplyTo;
 
     /**
      * Invite information
-     * 
+     *
      * @var InviteWithGroupInfo
      */
-    #[Accessor(getter: 'getInvite', setter: 'setInvite')]
-    #[SerializedName('inv')]
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName("inv")]
     #[Type(InviteWithGroupInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?InviteWithGroupInfo $invite;
 
     /**
      * Headers
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'header', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getHeaders", setter: "setHeaders")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
     private $headers = [];
 
     /**
      * Mime part information
-     * 
+     *
      * @var PartInfo
      */
-    #[Accessor(getter: 'getMimePart', setter: 'setMimePart')]
-    #[SerializedName('mp')]
+    #[Accessor(getter: "getMimePart", setter: "setMimePart")]
+    #[SerializedName("mp")]
     #[Type(PartInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?PartInfo $mimePart;
 
     /**
      * Share Notification information
-     * 
+     *
      * @var ShareNotification
      */
-    #[Accessor(getter: 'getShareNotification', setter: 'setShareNotification')]
-    #[SerializedName('shr')]
+    #[Accessor(getter: "getShareNotification", setter: "setShareNotification")]
+    #[SerializedName("shr")]
     #[Type(ShareNotification::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ShareNotification $shr;
 
     /**
      * DL Subscription Notification information
-     * 
+     *
      * @var DLSubscriptionNotification
      */
-    #[Accessor(getter: 'getDLSubscription', setter: 'setDLSubscription')]
-    #[SerializedName('dlSubs')]
+    #[Accessor(getter: "getDLSubscription", setter: "setDLSubscription")]
+    #[SerializedName("dlSubs")]
     #[Type(DLSubscriptionNotification::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DLSubscriptionNotification $dlSubs;
 
     /**
      * Content
-     * 
+     *
      * @var UrlAndValue
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
     #[Type(UrlAndValue::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?UrlAndValue $content;
 
     /**
@@ -317,10 +327,8 @@ class MsgWithGroupInfo extends MessageCommon
         ?ShareNotification $shr = null,
         ?DLSubscriptionNotification $dlSubs = null,
         ?UrlAndValue $content = null
-    )
-    {
-        $this->setHeaders($headers)
-             ->setEmails($emails);
+    ) {
+        $this->setHeaders($headers)->setEmails($emails);
         $this->draftReplyType = $draftReplyType;
         $this->invite = $invite;
         $this->mimePart = $mimePart;
@@ -644,7 +652,8 @@ class MsgWithGroupInfo extends MessageCommon
     public function setEmails(array $emails): self
     {
         $this->emails = array_filter(
-            $emails, static fn ($email) => $email instanceof EmailInfo
+            $emails,
+            static fn($email) => $email instanceof EmailInfo
         );
         return $this;
     }
@@ -756,7 +765,8 @@ class MsgWithGroupInfo extends MessageCommon
     public function setHeaders(array $headers): self
     {
         $this->headers = array_filter(
-            $headers, static fn ($header) => $header instanceof KeyValuePair
+            $headers,
+            static fn($header) => $header instanceof KeyValuePair
         );
         return $this;
     }

@@ -28,7 +28,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetItemResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -39,123 +39,123 @@ class GetItemResponse extends SoapResponse
 {
     /**
      * Folder item
-     * 
+     *
      * @var Folder
      */
-    #[Accessor(getter: 'getFolderItem', setter: 'setFolderItem')]
-    #[SerializedName('folder')]
+    #[Accessor(getter: "getFolderItem", setter: "setFolderItem")]
+    #[SerializedName("folder")]
     #[Type(Folder::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Folder $folderItem;
 
     /**
      * Tag item
-     * 
+     *
      * @var TagInfo
      */
-    #[Accessor(getter: 'getTagItem', setter: 'setTagItem')]
-    #[SerializedName('tag')]
+    #[Accessor(getter: "getTagItem", setter: "setTagItem")]
+    #[SerializedName("tag")]
     #[Type(TagInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TagInfo $tagItem;
 
     /**
      * Note item
-     * 
+     *
      * @var NoteInfo
      */
-    #[Accessor(getter: 'getNoteItem', setter: 'setNoteItem')]
-    #[SerializedName('note')]
+    #[Accessor(getter: "getNoteItem", setter: "setNoteItem")]
+    #[SerializedName("note")]
     #[Type(NoteInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?NoteInfo $noteItem;
 
     /**
      * Contact item
-     * 
+     *
      * @var ContactInfo
      */
-    #[Accessor(getter: 'getContactItem', setter: 'setContactItem')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContactItem", setter: "setContactItem")]
+    #[SerializedName("cn")]
     #[Type(ContactInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ContactInfo $contactItem;
 
     /**
      * Calendar item
-     * 
+     *
      * @var CalendarItemInfo
      */
-    #[Accessor(getter: 'getApptItem', setter: 'setApptItem')]
-    #[SerializedName('appt')]
+    #[Accessor(getter: "getApptItem", setter: "setApptItem")]
+    #[SerializedName("appt")]
     #[Type(CalendarItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalendarItemInfo $apptItem;
 
     /**
      * Task item
-     * 
+     *
      * @var TaskItemInfo
      */
-    #[Accessor(getter: 'getTaskItem', setter: 'setTaskItem')]
-    #[SerializedName('task')]
+    #[Accessor(getter: "getTaskItem", setter: "setTaskItem")]
+    #[SerializedName("task")]
     #[Type(TaskItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TaskItemInfo $taskItem;
 
     /**
      * Conversation item
-     * 
+     *
      * @var ConversationSummary
      */
-    #[Accessor(getter: 'getConvItem', setter: 'setConvItem')]
-    #[SerializedName('c')]
+    #[Accessor(getter: "getConvItem", setter: "setConvItem")]
+    #[SerializedName("c")]
     #[Type(ConversationSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ConversationSummary $convItem;
 
     /**
      * Wiki item
-     * 
+     *
      * @var CommonDocumentInfo
      */
-    #[Accessor(getter: 'getWikiItem', setter: 'setWikiItem')]
-    #[SerializedName('w')]
+    #[Accessor(getter: "getWikiItem", setter: "setWikiItem")]
+    #[SerializedName("w")]
     #[Type(CommonDocumentInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CommonDocumentInfo $wikiItem;
 
     /**
      * Document item
-     * 
+     *
      * @var DocumentInfo
      */
-    #[Accessor(getter: 'getDocItem', setter: 'setDocItem')]
-    #[SerializedName('doc')]
+    #[Accessor(getter: "getDocItem", setter: "setDocItem")]
+    #[SerializedName("doc")]
     #[Type(DocumentInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DocumentInfo $docItem;
 
     /**
      * Message item
-     * 
+     *
      * @var MessageSummary
      */
-    #[Accessor(getter: 'getMsgItem', setter: 'setMsgItem')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsgItem", setter: "setMsgItem")]
+    #[SerializedName("m")]
     #[Type(MessageSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MessageSummary $msgItem;
 
     /**
      * Chat item
-     * 
+     *
      * @var ChatSummary
      */
-    #[Accessor(getter: 'getChatItem', setter: 'setChatItem')]
-    #[SerializedName('chat')]
+    #[Accessor(getter: "getChatItem", setter: "setChatItem")]
+    #[SerializedName("chat")]
     #[Type(ChatSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ChatSummary $chatItem;
 
     /**
@@ -166,17 +166,7 @@ class GetItemResponse extends SoapResponse
      */
     public function __construct($item = null)
     {
-        $this->folderItem = 
-        $this->tagItem = 
-        $this->noteItem = 
-        $this->contactItem = 
-        $this->apptItem = 
-        $this->taskItem = 
-        $this->convItem = 
-        $this->wikiItem = 
-        $this->docItem = 
-        $this->msgItem = 
-        $this->chatItem = null;
+        $this->folderItem = $this->tagItem = $this->noteItem = $this->contactItem = $this->apptItem = $this->taskItem = $this->convItem = $this->wikiItem = $this->docItem = $this->msgItem = $this->chatItem = null;
         if (null !== $item) {
             $this->setItem($item);
         }
@@ -184,7 +174,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set item
-     * 
+     *
      * @param  mixed $item
      * @return self
      */
@@ -205,8 +195,7 @@ class GetItemResponse extends SoapResponse
 
         if ($item instanceof TaskItemInfo) {
             return $this->setTaskItem($item);
-        }
-        else if ($item instanceof CalendarItemInfo) {
+        } elseif ($item instanceof CalendarItemInfo) {
             return $this->setApptItem($item);
         }
 
@@ -216,15 +205,13 @@ class GetItemResponse extends SoapResponse
 
         if ($item instanceof DocumentInfo) {
             return $this->setDocItem($item);
-        }
-        else if ($item instanceof CommonDocumentInfo) {
+        } elseif ($item instanceof CommonDocumentInfo) {
             return $this->setWikiItem($item);
         }
 
         if ($item instanceof ChatSummary) {
             return $this->setChatItem($item);
-        }
-        else if ($item instanceof MessageSummary) {
+        } elseif ($item instanceof MessageSummary) {
             return $this->setMsgItem($item);
         }
         return $this;
@@ -232,7 +219,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get folder item
-     * 
+     *
      * @return Folder
      */
     public function getFolderItem(): ?Folder
@@ -242,7 +229,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set folder item
-     * 
+     *
      * @param  Folder $item
      * @return self
      */
@@ -254,7 +241,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get tag item
-     * 
+     *
      * @return TagInfo
      */
     public function getTagItem(): ?TagInfo
@@ -264,7 +251,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set tag item
-     * 
+     *
      * @param  TagInfo $item
      * @return self
      */
@@ -276,7 +263,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get note item
-     * 
+     *
      * @return NoteInfo
      */
     public function getNoteItem(): ?NoteInfo
@@ -286,7 +273,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set note item
-     * 
+     *
      * @param  NoteInfo $item
      * @return self
      */
@@ -298,7 +285,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get contact item
-     * 
+     *
      * @return ContactInfo
      */
     public function getContactItem(): ?ContactInfo
@@ -308,7 +295,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set contact item
-     * 
+     *
      * @param  ContactInfo $item
      * @return self
      */
@@ -320,7 +307,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get appt item
-     * 
+     *
      * @return CalendarItemInfo
      */
     public function getApptItem(): ?CalendarItemInfo
@@ -330,7 +317,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set appt item
-     * 
+     *
      * @param  CalendarItemInfo $item
      * @return self
      */
@@ -342,7 +329,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get task item
-     * 
+     *
      * @return TaskItemInfo
      */
     public function getTaskItem(): ?TaskItemInfo
@@ -352,7 +339,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set task item
-     * 
+     *
      * @param  TaskItemInfo $item
      * @return self
      */
@@ -364,7 +351,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get conv item
-     * 
+     *
      * @return ConversationSummary
      */
     public function getConvItem(): ?ConversationSummary
@@ -374,7 +361,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set conv item
-     * 
+     *
      * @param  ConversationSummary $item
      * @return self
      */
@@ -386,7 +373,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get wiki item
-     * 
+     *
      * @return CommonDocumentInfo
      */
     public function getWikiItem(): ?CommonDocumentInfo
@@ -396,7 +383,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set wiki item
-     * 
+     *
      * @param  CommonDocumentInfo $item
      * @return self
      */
@@ -408,7 +395,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get doc item
-     * 
+     *
      * @return DocumentInfo
      */
     public function getDocItem(): ?DocumentInfo
@@ -418,7 +405,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set doc item
-     * 
+     *
      * @param  DocumentInfo $item
      * @return self
      */
@@ -430,7 +417,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get msg item
-     * 
+     *
      * @return MessageSummary
      */
     public function getMsgItem(): ?MessageSummary
@@ -440,7 +427,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set msg item
-     * 
+     *
      * @param  MessageSummary $item
      * @return self
      */
@@ -452,7 +439,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Get chat item
-     * 
+     *
      * @return ChatSummary
      */
     public function getChatItem(): ?ChatSummary
@@ -462,7 +449,7 @@ class GetItemResponse extends SoapResponse
 
     /**
      * Set chat item
-     * 
+     *
      * @param  ChatSummary $item
      * @return self
      */

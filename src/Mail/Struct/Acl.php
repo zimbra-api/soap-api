@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * Acl class
@@ -26,34 +32,39 @@ class Acl
 {
     /**
      * Time when grants to internal grantees expire.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getInternalGrantExpiry', setter: 'setInternalGrantExpiry')]
-    #[SerializedName('internalGrantExpiry')]
-    #[Type('int')]
+    #[
+        Accessor(
+            getter: "getInternalGrantExpiry",
+            setter: "setInternalGrantExpiry"
+        )
+    ]
+    #[SerializedName("internalGrantExpiry")]
+    #[Type("int")]
     #[XmlAttribute]
     private $internalGrantExpiry;
 
     /**
      * Time when grants to guest grantees expire.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getGuestGrantExpiry', setter: 'setGuestGrantExpiry')]
-    #[SerializedName('guestGrantExpiry')]
-    #[Type('int')]
+    #[Accessor(getter: "getGuestGrantExpiry", setter: "setGuestGrantExpiry")]
+    #[SerializedName("guestGrantExpiry")]
+    #[Type("int")]
     #[XmlAttribute]
     private $guestGrantExpiry;
 
     /**
      * Grants
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
-    #[Type('array<Zimbra\Mail\Struct\Grant>')]
-    #[XmlList(inline: true, entry: 'grant', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGrants", setter: "setGrants")]
+    #[Type("array<Zimbra\Mail\Struct\Grant>")]
+    #[XmlList(inline: true, entry: "grant", namespace: "urn:zimbraMail")]
     private $grants = [];
 
     /**
@@ -68,8 +79,7 @@ class Acl
         ?int $internalGrantExpiry = null,
         ?int $guestGrantExpiry = null,
         array $grants = []
-    )
-    {
+    ) {
         $this->setGrants($grants);
         if (null !== $internalGrantExpiry) {
             $this->setInternalGrantExpiry($internalGrantExpiry);
@@ -132,7 +142,8 @@ class Acl
     public function setGrants(array $grants): self
     {
         $this->grants = array_filter(
-            $grants, static fn ($grant) => $grant instanceof Grant
+            $grants,
+            static fn($grant) => $grant instanceof Grant
         );
         return $this;
     }

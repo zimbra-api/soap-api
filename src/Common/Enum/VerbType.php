@@ -25,29 +25,29 @@ enum VerbType: string
      * Constant for value 'ACCEPT'
      * @return string 'ACCEPT'
      */
-    case ACCEPT = 'ACCEPT';
+    case ACCEPT = "ACCEPT";
 
     /**
      * Constant for value 'DECLINE'
      * @return string 'DECLINE'
      */
-    case DECLINE = 'DECLINE';
+    case DECLINE = "DECLINE";
 
     /**
      * Constant for value 'TENTATIVE'
      * @return string 'TENTATIVE'
      */
-    case TENTATIVE = 'TENTATIVE';
+    case TENTATIVE = "TENTATIVE";
 
     /**
      * Constant for value 'COMPLETED'
      * @return string 'COMPLETED'
      */
-    case COMPLETED = 'COMPLETED';
+    case COMPLETED = "COMPLETED";
 
     /**
      * Constant for value 'DELEGATED'
      * @return string 'DELEGATED'
      */
-    case DELEGATED = 'DELEGATED';
+    case DELEGATED = "DELEGATED";
 }

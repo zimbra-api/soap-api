@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllCalendarResourcesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,17 @@ class GetAllCalendarResourcesResponse extends SoapResponse
 {
     /**
      * Information on calendar resources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalendarResourceList', setter: 'setCalendarResourceList')]
-    #[Type('array<Zimbra\Admin\Struct\CalendarResourceInfo>')]
-    #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAdmin')]
+    #[
+        Accessor(
+            getter: "getCalendarResourceList",
+            setter: "setCalendarResourceList"
+        )
+    ]
+    #[Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")]
+    #[XmlList(inline: true, entry: "calresource", namespace: "urn:zimbraAdmin")]
     private $calResources = [];
 
     /**
@@ -55,7 +60,8 @@ class GetAllCalendarResourcesResponse extends SoapResponse
     public function setCalendarResourceList(array $resources): self
     {
         $this->calResources = array_filter(
-            $resources, static fn ($resource) => $resource instanceof CalendarResourceInfo
+            $resources,
+            static fn($resource) => $resource instanceof CalendarResourceInfo
         );
         return $this;
     }

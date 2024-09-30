@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllDistributionListsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class GetAllDistributionListsResponse extends SoapResponse
 {
     /**
      * Information on distribution lists
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDls', setter: 'setDls')]
-    #[Type('array<Zimbra\Admin\Struct\DistributionListInfo>')]
-    #[XmlList(inline: true, entry: 'dl', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getDls", setter: "setDls")]
+    #[Type("array<Zimbra\Admin\Struct\DistributionListInfo>")]
+    #[XmlList(inline: true, entry: "dl", namespace: "urn:zimbraAdmin")]
     private $dls = [];
 
     /**
@@ -55,7 +55,8 @@ class GetAllDistributionListsResponse extends SoapResponse
     public function setDls(array $dls): self
     {
         $this->dls = array_filter(
-            $dls, static fn ($dl) => $dl instanceof DistributionListInfo
+            $dls,
+            static fn($dl) => $dl instanceof DistributionListInfo
         );
         return $this;
     }

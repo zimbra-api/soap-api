@@ -10,11 +10,17 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * IncorrectBlobRevisionInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,62 +31,62 @@ class IncorrectBlobRevisionInfo
 {
     /**
      * Item ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Volume ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName('volumeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getVolumeId", setter: "setVolumeId")]
+    #[SerializedName("volumeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $volumeId;
 
     /**
      * Blob size information
-     * 
+     *
      * @var BlobRevisionInfo
      */
-    #[Accessor(getter: 'getBlob', setter: 'setBlob')]
-    #[SerializedName('blob')]
+    #[Accessor(getter: "getBlob", setter: "setBlob")]
+    #[SerializedName("blob")]
     #[Type(BlobRevisionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?BlobRevisionInfo $blob;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $id
      * @param int $revision
      * @param int $size
@@ -94,12 +100,11 @@ class IncorrectBlobRevisionInfo
         int $size = 0,
         int $volumeId = 0,
         ?BlobRevisionInfo $blob = null
-    )
-    {
+    ) {
         $this->setId($id)
-             ->setRevision($revision)
-             ->setSize($size)
-             ->setVolumeId($volumeId);
+            ->setRevision($revision)
+            ->setSize($size)
+            ->setVolumeId($volumeId);
         $this->blob = $blob;
     }
 

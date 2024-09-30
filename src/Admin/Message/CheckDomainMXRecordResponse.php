@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -26,34 +32,34 @@ class CheckDomainMXRecordResponse extends SoapResponse
 {
     /**
      * MX Record entries
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getEntries', setter: 'setEntries')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getEntries", setter: "setEntries")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
     private $entries = [];
 
     /**
      * Code - Ok or Failed
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName('code')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCode", setter: "setCode")]
+    #[SerializedName("code")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $code;
 
     /**
      * Message associated with code="Failed"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $message;
 
     /**
@@ -66,12 +72,10 @@ class CheckDomainMXRecordResponse extends SoapResponse
      */
     public function __construct(
         array $entries = [],
-        string $code = '',
+        string $code = "",
         ?string $message = null
-    )
-    {
-        $this->setEntries($entries)
-             ->setCode($code);
+    ) {
+        $this->setEntries($entries)->setCode($code);
         if (null !== $message) {
             $this->setMessage($message);
         }
@@ -96,7 +100,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     public function setEntries(array $entries): self
     {
         $this->entries = array_unique(
-            array_map(static fn ($entry) => trim($entry), $entries)
+            array_map(static fn($entry) => trim($entry), $entries)
         );
         return $this;
     }

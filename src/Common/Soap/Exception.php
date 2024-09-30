@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\SoapFaultInterface;
 
 /**
  * Exception class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Soap
@@ -25,14 +25,14 @@ class Exception extends \RuntimeException implements ExceptionInterface
 {
     /**
      * Constructor
-     * 
+     *
      * @param SoapFaultInterface $soapFault
      * @param int $code
      */
     public function __construct(
-        private readonly SoapFaultInterface $soapFault, int $code = 0
-    )
-    {
+        private readonly SoapFaultInterface $soapFault,
+        int $code = 0
+    ) {
         parent::__construct($soapFault->faultString(), $code);
     }
 

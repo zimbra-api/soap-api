@@ -10,13 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * SyncGalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,89 +33,99 @@ class SyncGalResponse extends SoapResponse
 {
     /**
      * Flags whether there are more results
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * New synchronization token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * galDefinitionLastModified is the time at which the GAL definition is last modified.
      * This is returned if the sync does not happen using GAL sync account.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGalDefinitionLastModified', setter: 'setGalDefinitionLastModified')]
-    #[SerializedName('galDefinitionLastModified')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getGalDefinitionLastModified",
+            setter: "setGalDefinitionLastModified"
+        )
+    ]
+    #[SerializedName("galDefinitionLastModified")]
+    #[Type("string")]
     #[XmlAttribute]
     private $galDefinitionLastModified;
 
     /**
      * True if the SyncGal request is throttled
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getThrottled', setter: 'setThrottled')]
-    #[SerializedName('throttled')]
-    #[Type('bool')]
+    #[Accessor(getter: "getThrottled", setter: "setThrottled")]
+    #[SerializedName("throttled")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $throttled;
 
     /**
      * True if the fullSync is recommended
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getFullSyncRecommended', setter: 'setFullSyncRecommended')]
-    #[SerializedName('fullSyncRecommended')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getFullSyncRecommended",
+            setter: "setFullSyncRecommended"
+        )
+    ]
+    #[SerializedName("fullSyncRecommended")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $fullSyncRecommended;
 
     /**
      * count of records still to be returned in paginated response
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRemain', setter: 'setRemain')]
-    #[SerializedName('remain')]
-    #[Type('int')]
+    #[Accessor(getter: "getRemain", setter: "setRemain")]
+    #[SerializedName("remain")]
+    #[Type("int")]
     #[XmlAttribute]
     private $remain;
 
     /**
      * Details of contact
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Account\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Account\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAccount")]
     private $contacts = [];
 
     /**
      * Details of deleted entries
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
-    #[Type('array<Zimbra\Common\Struct\Id>')]
-    #[XmlList(inline: true, entry: 'deleted', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getDeleted", setter: "setDeleted")]
+    #[Type("array<Zimbra\Common\Struct\Id>")]
+    #[XmlList(inline: true, entry: "deleted", namespace: "urn:zimbraAccount")]
     private $deleted = [];
 
     /**
@@ -134,26 +150,24 @@ class SyncGalResponse extends SoapResponse
         ?int $remain = null,
         array $contacts = [],
         array $deleted = []
-    )
-    {
-        $this->setContacts($contacts)
-             ->setDeleted($deleted);
-        if(null !== $more) {
+    ) {
+        $this->setContacts($contacts)->setDeleted($deleted);
+        if (null !== $more) {
             $this->setMore($more);
         }
-        if(null !== $token) {
+        if (null !== $token) {
             $this->setToken($token);
         }
-        if(null !== $galDefinitionLastModified) {
+        if (null !== $galDefinitionLastModified) {
             $this->setGalDefinitionLastModified($galDefinitionLastModified);
         }
-        if(null !== $throttled) {
+        if (null !== $throttled) {
             $this->setThrottled($throttled);
         }
-        if(null !== $fullSyncRecommended) {
+        if (null !== $fullSyncRecommended) {
             $this->setFullSyncRecommended($fullSyncRecommended);
         }
-        if(null !== $remain) {
+        if (null !== $remain) {
             $this->setRemain($remain);
         }
     }
@@ -218,8 +232,9 @@ class SyncGalResponse extends SoapResponse
      * @param  string $galDefinitionLastModified
      * @return self
      */
-    public function setGalDefinitionLastModified(string $galDefinitionLastModified): self
-    {
+    public function setGalDefinitionLastModified(
+        string $galDefinitionLastModified
+    ): self {
         $this->galDefinitionLastModified = $galDefinitionLastModified;
         return $this;
     }
@@ -303,13 +318,14 @@ class SyncGalResponse extends SoapResponse
     /**
      * Set contacts matching the autocomplete request
      *
-     * @param  array $contacts 
+     * @param  array $contacts
      * @return self
      */
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof ContactInfo
         );
         return $this;
     }
@@ -327,13 +343,14 @@ class SyncGalResponse extends SoapResponse
     /**
      * Set deleted
      *
-     * @param  array $contacts 
+     * @param  array $contacts
      * @return self
      */
     public function setDeleted(array $contacts): self
     {
         $this->deleted = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof Id
+            $contacts,
+            static fn($contact) => $contact instanceof Id
         );
         return $this;
     }

@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MissingBlobInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,84 +25,84 @@ class MissingBlobInfo
 {
     /**
      * id
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
-    #[SerializedName('rev')]
-    #[Type('int')]
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName("rev")]
+    #[Type("int")]
     #[XmlAttribute]
     private $revision;
 
     /**
      * Data size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * volume id
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName('volumeId')]
-    #[Type('int')]
+    #[Accessor(getter: "getVolumeId", setter: "setVolumeId")]
+    #[SerializedName("volumeId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $volumeId;
 
     /**
      * Blob path
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBlobPath', setter: 'setBlobPath')]
-    #[SerializedName('blobPath')]
-    #[Type('string')]
+    #[Accessor(getter: "getBlobPath", setter: "setBlobPath")]
+    #[SerializedName("blobPath")]
+    #[Type("string")]
     #[XmlAttribute]
     private $blobPath;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
-    #[SerializedName('external')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExternal", setter: "setExternal")]
+    #[SerializedName("external")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $external;
 
     /**
      * version
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('version')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("version")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $id
      * @param int $revision
      * @param int $size
@@ -117,18 +117,17 @@ class MissingBlobInfo
         int $revision = 0,
         int $size = 0,
         int $volumeId = 0,
-        string $blobPath = '',
+        string $blobPath = "",
         bool $external = false,
         int $version = 0
-    )
-    {
+    ) {
         $this->setId($id)
-             ->setRevision($revision)
-             ->setSize($size)
-             ->setVolumeId($volumeId)
-             ->setBlobPath($blobPath)
-             ->setExternal($external)
-             ->setVersion($version);
+            ->setRevision($revision)
+            ->setSize($size)
+            ->setVolumeId($volumeId)
+            ->setBlobPath($blobPath)
+            ->setExternal($external)
+            ->setVersion($version);
     }
 
     /**

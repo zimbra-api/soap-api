@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * CosInfo struct class
@@ -25,63 +31,63 @@ class CosInfo implements AdminObjectInterface
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Flag whether is the default Class Of Service (COS)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIsDefaultCos', setter: 'setIsDefaultCos')]
-    #[SerializedName('isDefaultCos')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIsDefaultCos", setter: "setIsDefaultCos")]
+    #[SerializedName("isDefaultCos")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isDefaultCos;
 
     /**
      * Attribute list
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type('array<Zimbra\Admin\Struct\CosInfoAttr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrList", setter: "setAttrList")]
+    #[Type("array<Zimbra\Admin\Struct\CosInfoAttr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrs = [];
 
     /**
      * Constructor
-     * 
-     * @param  string $name 
+     *
+     * @param  string $name
      * @param  string $id
      * @param  bool $isDefaultCos
      * @param  array  $attrs Attributes
      * @return self
      */
     public function __construct(
-        string $name = '', string $id = '', ?bool $isDefaultCos = null, array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setId($id)
-             ->setAttrList($attrs);
+        string $name = "",
+        string $id = "",
+        ?bool $isDefaultCos = null,
+        array $attrs = []
+    ) {
+        $this->setName($name)->setId($id)->setAttrList($attrs);
         if (null !== $isDefaultCos) {
             $this->setIsDefaultCos($isDefaultCos);
         }
@@ -162,7 +168,8 @@ class CosInfo implements AdminObjectInterface
     public function setAttrList(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof CosInfoAttr
+            $attrs,
+            static fn($attr) => $attr instanceof CosInfoAttr
         );
         return $this;
     }

@@ -30,45 +30,45 @@ class GetWorkingHoursRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds since the epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getStartTime", setter: "setStartTime")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $startTime;
 
     /**
      * Range end in milliseconds since the epoch
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
-    #[SerializedName('e')]
-    #[Type('int')]
+    #[Accessor(getter: "getEndTime", setter: "setEndTime")]
+    #[SerializedName("e")]
+    #[Type("int")]
     #[XmlAttribute]
     private $endTime;
 
     /**
      * Comma-separated list of Zimbra IDs
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Comma-separated list of email addresses
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
@@ -86,10 +86,8 @@ class GetWorkingHoursRequest extends SoapRequest
         int $endTime = 0,
         ?string $id = null,
         ?string $name = null
-    )
-    {
-        $this->setStartTime($startTime)
-             ->setEndTime($endTime);
+    ) {
+        $this->setStartTime($startTime)->setEndTime($endTime);
         if (null !== $id) {
             $this->setId($id);
         }
@@ -191,8 +189,6 @@ class GetWorkingHoursRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetWorkingHoursEnvelope(
-            new GetWorkingHoursBody($this)
-        );
+        return new GetWorkingHoursEnvelope(new GetWorkingHoursBody($this));
     }
 }

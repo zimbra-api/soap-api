@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Enum\MemberType;
 use Zimbra\Common\Struct\{ContactGroupMemberInterface, ContactInterface};
 
 /**
  * ContactGroupMember struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
@@ -30,11 +36,11 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * C: reference to another contact
      * G: reference to a GAL entry
      * I: inlined member (member name and email address is embeded in the contact group)
-     * 
+     *
      * @var MemberType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private MemberType $type;
 
@@ -44,40 +50,40 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * If the referenced contact is in a shared folder, the item ID must be qualified by zimbraId of the owner. e.g. {zimbraId}:{itemId}
      * type="G"     GAL entry reference (returned in SearchGalResponse)
      * type="I"     name and email address in the form of: "{name}" <{email}>
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[SerializedName('value')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[SerializedName("value")]
+    #[Type("string")]
     #[XmlAttribute]
     private $value;
 
     /**
      * Contact information for dereferenced member.
-     * 
+     *
      * @var ContactInterface
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ContactInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ContactInterface $contact;
 
     /**
      * Constructor
-     * 
+     *
      * @param  MemberType $type
      * @param  string $value
      * @param  ContactInfo $contact
      * @return self
      */
     public function __construct(
-        ?MemberType $type = null, string $value = '', ?ContactInfo $contact = null
-    )
-    {
-        $this->setType($type ?? MemberType::CONTACT)
-             ->setValue($value);
+        ?MemberType $type = null,
+        string $value = "",
+        ?ContactInfo $contact = null
+    ) {
+        $this->setType($type ?? MemberType::CONTACT)->setValue($value);
         $this->contact = $contact;
     }
 

@@ -29,8 +29,6 @@ class CheckHealthRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckHealthEnvelope(
-            new CheckHealthBody($this)
-        );
+        return new CheckHealthEnvelope(new CheckHealthBody($this));
     }
 }

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * ShareNotificationInfo struct class
@@ -25,58 +31,58 @@ class ShareNotificationInfo
 {
     /**
      * Status - "new" if the message is unread or "seen" if the message is read.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
-    #[Type('string')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
+    #[Type("string")]
     #[XmlAttribute]
     private $status;
 
     /**
      * The item ID of the share notification message.
      * The message must be in the Inbox folder.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Date
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Grantor information
-     * 
+     *
      * @var Grantor
      */
-    #[Accessor(getter: 'getGrantor', setter: 'setGrantor')]
-    #[SerializedName('grantor')]
+    #[Accessor(getter: "getGrantor", setter: "setGrantor")]
+    #[SerializedName("grantor")]
     #[Type(Grantor::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Grantor $grantor;
 
     /**
      * Link information
-     * 
+     *
      * @var LinkInfo
      */
-    #[Accessor(getter: 'getLink', setter: 'setLink')]
-    #[SerializedName('link')]
+    #[Accessor(getter: "getLink", setter: "setLink")]
+    #[SerializedName("link")]
     #[Type(LinkInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?LinkInfo $link;
 
     /**
@@ -90,16 +96,13 @@ class ShareNotificationInfo
      * @return self
      */
     public function __construct(
-        string $status = '',
-        string $id = '',
+        string $status = "",
+        string $id = "",
         int $date = 0,
         ?Grantor $grantor = null,
         ?LinkInfo $link = null
-    )
-    {
-        $this->setId($id)
-             ->setStatus($status)
-             ->setDate($date);
+    ) {
+        $this->setId($id)->setStatus($status)->setDate($date);
         $this->grantor = $grantor;
         $this->link = $link;
     }

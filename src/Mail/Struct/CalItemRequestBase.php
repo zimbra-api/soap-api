@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\SoapRequest;
 
 /**
@@ -27,45 +33,45 @@ abstract class CalItemRequestBase extends SoapRequest
     /**
      * If specified, the created appointment is echoed back in the response as if a
      * GetMsgRequest was made
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getEcho', setter: 'setEcho')]
-    #[SerializedName('echo')]
-    #[Type('bool')]
+    #[Accessor(getter: "getEcho", setter: "setEcho")]
+    #[SerializedName("echo")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $echo;
 
     /**
      * Maximum inlined length
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxSize', setter: 'setMaxSize')]
-    #[SerializedName('max')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxSize", setter: "setMaxSize")]
+    #[SerializedName("max")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxSize;
 
     /**
      * Set if want HTML included in echoing
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
-    #[SerializedName('want')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantHtml", setter: "setWantHtml")]
+    #[SerializedName("want")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantHtml;
 
     /**
      * Set if want "neuter" set for echoed response
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getNeuter', setter: 'setNeuter')]
-    #[SerializedName('neuter')]
-    #[Type('bool')]
+    #[Accessor(getter: "getNeuter", setter: "setNeuter")]
+    #[SerializedName("neuter")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $neuter;
 
@@ -74,24 +80,24 @@ abstract class CalItemRequestBase extends SoapRequest
      * If unset, throw the soapfaultexception with invalid addresses so that client can give the forcesend option to
      * the end user.
      * The default is 1.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getForceSend', setter: 'setForceSend')]
-    #[SerializedName('forcesend')]
-    #[Type('bool')]
+    #[Accessor(getter: "getForceSend", setter: "setForceSend")]
+    #[SerializedName("forcesend")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $forceSend;
 
     /**
      * Message information
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -112,8 +118,7 @@ abstract class CalItemRequestBase extends SoapRequest
         ?bool $wantHtml = null,
         ?bool $neuter = null,
         ?bool $forceSend = null
-    )
-    {
+    ) {
         $this->msg = $msg;
         if (null !== $echo) {
             $this->setEcho($echo);

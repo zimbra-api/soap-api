@@ -21,7 +21,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * in the default calendar if necessary.  If an appointment with the same UID exists, the appointment is updated with
  * the new invite only if the invite is not outdated, according to the iCalendar sequencing rule (based on SEQUENCE,
  * RECURRENCE-ID and DTSTAMP).
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -42,9 +42,9 @@ class AddAppointmentInviteRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?ParticipationStatus $partStat = null, ?Msg $msg = null
-    )
-    {
+        ?ParticipationStatus $partStat = null,
+        ?Msg $msg = null
+    ) {
         $this->__traitConstruct($partStat, $msg);
     }
 

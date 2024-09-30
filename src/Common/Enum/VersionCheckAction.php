@@ -25,10 +25,10 @@ enum VersionCheckAction: string
      * Constant for value 'check'
      * @return string 'check'
      */
-    case CHECK = 'check';
+    case CHECK = "check";
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case STATUS = 'status';
+    case STATUS = "status";
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 /**
  * GetTaskSummariesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

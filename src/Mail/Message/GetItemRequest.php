@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Get item
  * A successful GetItemResponse will contain a single element appropriate for the type of the requested item if there
  * is no matching item, a fault containing the code mail.NO_SUCH_ITEM is returned
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -30,13 +30,13 @@ class GetItemRequest extends SoapRequest
 {
     /**
      * Item specification
-     * 
+     *
      * @var ItemSpec
      */
-    #[Accessor(getter: 'getItem', setter: 'setItem')]
-    #[SerializedName('item')]
+    #[Accessor(getter: "getItem", setter: "setItem")]
+    #[SerializedName("item")]
     #[Type(ItemSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ItemSpec $item;
 
     /**
@@ -77,8 +77,6 @@ class GetItemRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetItemEnvelope(
-            new GetItemBody($this)
-        );
+        return new GetItemEnvelope(new GetItemBody($this));
     }
 }

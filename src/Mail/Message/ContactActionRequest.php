@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ContactActionRequest class
  * Contact Action
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class ContactActionRequest extends SoapRequest
 {
     /**
      * Contact action selector
-     * 
+     *
      * @var ContactActionSelector
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(ContactActionSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ContactActionSelector $action;
 
     /**
@@ -75,8 +75,6 @@ class ContactActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ContactActionEnvelope(
-            new ContactActionBody($this)
-        );
+        return new ContactActionEnvelope(new ContactActionBody($this));
     }
 }

@@ -25,35 +25,35 @@ enum GetSessionsSortBy: string
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    case NAME_ASC = 'nameAsc';
+    case NAME_ASC = "nameAsc";
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    case NAME_DESC = 'nameDesc';
+    case NAME_DESC = "nameDesc";
 
     /**
      * Constant for value 'createdAsc'
      * @return string 'createdAsc'
      */
-    case CREATED_ASC = 'createdAsc';
+    case CREATED_ASC = "createdAsc";
 
     /**
      * Constant for value 'createdDesc'
      * @return string 'createdDesc'
      */
-    case CREATED_DESC = 'createdDesc';
+    case CREATED_DESC = "createdDesc";
 
     /**
      * Constant for value 'accessedAsc'
      * @return string 'accessedAsc'
      */
-    case ACCESSED_ASC = 'accessedAsc';
+    case ACCESSED_ASC = "accessedAsc";
 
     /**
      * Constant for value 'accessedDesc'
      * @return string 'accessedDesc'
      */
-    case ACCESSED_DESC = 'accessedDesc';
+    case ACCESSED_DESC = "accessedDesc";
 }

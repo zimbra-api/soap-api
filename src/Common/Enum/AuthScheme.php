@@ -25,11 +25,11 @@ enum AuthScheme: string
      * Constant for value 'basic'
      * @return string 'basic'
      */
-    case BASIC = 'basic';
+    case BASIC = "basic";
 
     /**
      * Constant for value 'form'
      * @return string 'form'
      */
-    case FORM = 'form';
+    case FORM = "form";
 }

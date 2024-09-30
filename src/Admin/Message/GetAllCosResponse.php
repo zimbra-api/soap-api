@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAllCosResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class GetAllCosResponse extends SoapResponse
 {
     /**
      * Information on Classes of Service (COS)
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCosList', setter: 'setCosList')]
-    #[Type('array<Zimbra\Admin\Struct\CosInfo>')]
-    #[XmlList(inline: true, entry: 'cos', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCosList", setter: "setCosList")]
+    #[Type("array<Zimbra\Admin\Struct\CosInfo>")]
+    #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
     private $cosList = [];
 
     /**
@@ -55,7 +55,8 @@ class GetAllCosResponse extends SoapResponse
     public function setCosList(array $cosList): self
     {
         $this->cosList = array_filter(
-            $cosList, static fn ($cos) => $cos instanceof CosInfo
+            $cosList,
+            static fn($cos) => $cos instanceof CosInfo
         );
         return $this;
     }

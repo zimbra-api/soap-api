@@ -15,25 +15,26 @@ use Zimbra\Common\Struct\CustomMetadataInterface;
 
 /**
  * MailCustomMetadata struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInterface
+class MailCustomMetadata extends MailKeyValuePairs implements
+    CustomMetadataInterface
 {
     /**
      * Section
      * Normally present.
      * If absent this indicates that CustomMetadata info is present but there are no sections to report on.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSection', setter: 'setSection')]
-    #[SerializedName('section')]
-    #[Type('string')]
+    #[Accessor(getter: "getSection", setter: "setSection")]
+    #[SerializedName("section")]
+    #[Type("string")]
     #[XmlAttribute]
     private $section;
 
@@ -44,8 +45,10 @@ class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInte
      * @param array $keyValuePairs
      * @return self
      */
-    public function __construct(?string $section = null, array $keyValuePairs = [])
-    {
+    public function __construct(
+        ?string $section = null,
+        array $keyValuePairs = []
+    ) {
         parent::__construct($keyValuePairs);
         if (null !== $section) {
             $this->setSection($section);

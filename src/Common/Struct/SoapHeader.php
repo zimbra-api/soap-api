@@ -10,7 +10,13 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlNamespace
+};
 use Zimbra\Common\Struct\Header\Context;
 
 /**
@@ -22,23 +28,23 @@ use Zimbra\Common\Struct\Header\Context;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'urn:zimbra', prefix: 'zm')]
+#[XmlNamespace(uri: "urn:zimbra", prefix: "zm")]
 class SoapHeader implements SoapHeaderInterface
 {
     /**
      * Soap header context
-     * 
+     *
      * @var Context
      */
-    #[Accessor(getter: 'getContext', setter: 'setContext')]
-    #[SerializedName('context')]
+    #[Accessor(getter: "getContext", setter: "setContext")]
+    #[SerializedName("context")]
     #[Type(Context::class)]
-    #[XmlElement(namespace: 'urn:zimbra')]
+    #[XmlElement(namespace: "urn:zimbra")]
     private ?Context $context;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Context $context
      * @return self
      */

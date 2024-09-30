@@ -10,17 +10,23 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Admin\Struct\DataSourceSpecifier;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CreateDataSourceRequest class
- * Creates a data source that imports mail items into the specified folder. 
+ * Creates a data source that imports mail items into the specified folder.
  * Notes:
- *    Currently the only type supported is pop3. 
- *    Every attribute value is returned except password. 
- *    This request is by default proxied to the account's home server 
+ *    Currently the only type supported is pop3.
+ *    Every attribute value is returned except password.
+ *    This request is by default proxied to the account's home server
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -32,39 +38,38 @@ class CreateDataSourceRequest extends SoapRequest
 {
     /**
      * Id for an existing Account
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Details of data source
-     * 
+     *
      * @var DataSourceSpecifier
      */
-    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
-    #[SerializedName('dataSource')]
+    #[Accessor(getter: "getDataSource", setter: "setDataSource")]
+    #[SerializedName("dataSource")]
     #[Type(DataSourceSpecifier::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private DataSourceSpecifier $dataSource;
 
     /**
      * Constructor
-     * 
+     *
      * @param DataSourceSpecifier $dataSource
      * @param string $id
      * @return self
      */
     public function __construct(
-        DataSourceSpecifier $dataSource, string $id = ''
-    )
-    {
-        $this->setId($id)
-             ->setDataSource($dataSource);
+        DataSourceSpecifier $dataSource,
+        string $id = ""
+    ) {
+        $this->setId($id)->setDataSource($dataSource);
     }
 
     /**
@@ -116,8 +121,6 @@ class CreateDataSourceRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateDataSourceEnvelope(
-            new CreateDataSourceBody($this)
-        );
+        return new CreateDataSourceEnvelope(new CreateDataSourceBody($this));
     }
 }

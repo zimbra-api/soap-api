@@ -30,38 +30,39 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Query
-     * 
+     *
      * @var LimitedQuery
      */
-    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
-    #[SerializedName('query')]
+    #[Accessor(getter: "getQuery", setter: "setQuery")]
+    #[SerializedName("query")]
     #[Type(LimitedQuery::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?LimitedQuery $query;
 
     /**
      * GAL action
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $action;
 
     /**
      * Constructor
-     * 
+     *
      * @param  LimitedQuery $query
      * @param  string $action
      * @param  array  $attrs
      * @return self
      */
     public function __construct(
-        ?LimitedQuery $query = null, ?string $action = null, array $attrs = []
-    )
-    {
+        ?LimitedQuery $query = null,
+        ?string $action = null,
+        array $attrs = []
+    ) {
         $this->setAttrs($attrs);
         $this->query = $query;
         if (null !== $action) {
@@ -118,8 +119,6 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CheckGalConfigEnvelope(
-            new CheckGalConfigBody($this)
-        );
+        return new CheckGalConfigEnvelope(new CheckGalConfigBody($this));
     }
 }

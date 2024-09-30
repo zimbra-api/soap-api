@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\LoggingLevel;
 
 /**
@@ -26,37 +32,38 @@ class LogAction extends FilterAction
 {
     /**
      * level - fatal|error|warn|info|debug|trace, info is default if not specified.
-     * 
+     *
      * @var LoggingLevel
      */
-    #[Accessor(getter: 'getLevel', setter: 'setLevel')]
-    #[SerializedName('level')]
+    #[Accessor(getter: "getLevel", setter: "setLevel")]
+    #[SerializedName("level")]
     #[XmlAttribute]
     private ?LoggingLevel $level;
 
     /**
      * message text
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param LoggingLevel $level
      * @param string $content
      * @return self
      */
     public function __construct(
-        ?int $index = null, ?LoggingLevel $level = null, ?string $content = null
-    )
-    {
-    	parent::__construct($index);
+        ?int $index = null,
+        ?LoggingLevel $level = null,
+        ?string $content = null
+    ) {
+        parent::__construct($index);
         $this->level = $level;
         if (null !== $content) {
             $this->setContent($content);

@@ -12,12 +12,15 @@ namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\{
-    ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface
+    ZimletConfigInfo,
+    ZimletContextInterface,
+    ZimletDesc,
+    ZimletInterface
 };
 
 /**
  * AccountZimletInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -28,40 +31,40 @@ class AccountZimletInfo implements ZimletInterface
 {
     /**
      * Zimlet context
-     * 
+     *
      * @var ZimletContextInterface
      */
-    #[Accessor(getter: 'getZimletContext', setter: 'setZimletContext')]
-    #[SerializedName('zimletContext')]
+    #[Accessor(getter: "getZimletContext", setter: "setZimletContext")]
+    #[SerializedName("zimletContext")]
     #[Type(AccountZimletContext::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?ZimletContextInterface $zimletContext;
 
     /**
      * Zimlet description
-     * 
+     *
      * @var ZimletDesc
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
     #[Type(AccountZimletDesc::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?ZimletDesc $zimlet;
 
     /**
      * Zimlet config
-     * 
+     *
      * @var ZimletConfigInfo
      */
-    #[Accessor(getter: 'getZimletConfig', setter: 'setZimletConfig')]
-    #[SerializedName('zimletConfig')]
+    #[Accessor(getter: "getZimletConfig", setter: "setZimletConfig")]
+    #[SerializedName("zimletConfig")]
     #[Type(AccountZimletConfigInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?ZimletConfigInfo $zimletConfig;
 
     /**
      * Constructor
-     * 
+     *
      * @param AccountZimletContext $zimletContext
      * @param AccountZimletDesc $zimlet
      * @param AccountZimletConfigInfo $zimletConfig
@@ -71,8 +74,7 @@ class AccountZimletInfo implements ZimletInterface
         ?AccountZimletContext $zimletContext = null,
         ?AccountZimletDesc $zimlet = null,
         ?AccountZimletConfigInfo $zimletConfig = null
-    )
-    {
+    ) {
         $this->zimletContext = $zimletContext;
         $this->zimlet = $zimlet;
         $this->zimletConfig = $zimletConfig;
@@ -94,8 +96,9 @@ class AccountZimletInfo implements ZimletInterface
      * @param  ZimletContextInterface $zimletContext
      * @return self
      */
-    public function setZimletContext(ZimletContextInterface $zimletContext): self
-    {
+    public function setZimletContext(
+        ZimletContextInterface $zimletContext
+    ): self {
         if ($zimletContext instanceof AccountZimletContext) {
             $this->zimletContext = $zimletContext;
         }

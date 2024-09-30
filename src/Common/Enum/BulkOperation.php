@@ -25,17 +25,17 @@ enum BulkOperation: string
      * Constant for value 'move'
      * @return string 'move'
      */
-    case MOVE = 'move';
+    case MOVE = "move";
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    case READ = 'read';
+    case READ = "read";
 
     /**
      * Constant for value 'unread'
      * @return string 'unread'
      */
-    case UNREAD = 'unread';
+    case UNREAD = "unread";
 }

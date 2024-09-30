@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetSystemRetentionPolicyRequest class
  * Get system retention policy
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message

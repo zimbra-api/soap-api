@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\Fault\{Code, Reason};
 
 /**
  * Soap fault class
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct
@@ -26,37 +26,37 @@ class SoapFault implements SoapFaultInterface
 {
     /**
      * Fault code
-     * 
+     *
      * @var Code
      */
-    #[Accessor(getter: 'getFaultCode', setter: 'setFaultCode')]
-    #[SerializedName('Code')]
+    #[Accessor(getter: "getFaultCode", setter: "setFaultCode")]
+    #[SerializedName("Code")]
     #[Type(Code::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?Code $faultCode;
 
     /**
      * Fault reason
-     * 
+     *
      * @var Reason
      */
-    #[Accessor(getter: 'getFaultReason', setter: 'setFaultReason')]
-    #[SerializedName('Reason')]
+    #[Accessor(getter: "getFaultReason", setter: "setFaultReason")]
+    #[SerializedName("Reason")]
     #[Type(Reason::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?Reason $faultReason;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Code $faultCode
      * @param  Reason $faultReason
      * @return self
      */
     public function __construct(
-        ?Code $faultCode = null, ?Reason $faultReason = null
-    )
-    {
+        ?Code $faultCode = null,
+        ?Reason $faultReason = null
+    ) {
         $this->faultCode = $faultCode;
         $this->faultReason = $faultReason;
     }

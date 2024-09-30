@@ -15,7 +15,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 /**
  * ZmgDeviceSpec struct class
  * Zmg Device specification
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,45 +26,45 @@ class ZmgDeviceSpec
 {
     /**
      * App ID.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAppId', setter: 'setAppId')]
-    #[SerializedName('appId')]
-    #[Type('string')]
+    #[Accessor(getter: "getAppId", setter: "setAppId")]
+    #[SerializedName("appId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $appId;
 
     /**
      * The registration id of the device for push notifications.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRegistrationId', setter: 'setRegistrationId')]
-    #[SerializedName('registrationId')]
-    #[Type('string')]
+    #[Accessor(getter: "getRegistrationId", setter: "setRegistrationId")]
+    #[SerializedName("registrationId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $registrationId;
 
     /**
      * The provider for pushing notifications to the device
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPushProvider', setter: 'setPushProvider')]
-    #[SerializedName('pushProvider')]
-    #[Type('string')]
+    #[Accessor(getter: "getPushProvider", setter: "setPushProvider")]
+    #[SerializedName("pushProvider")]
+    #[Type("string")]
     #[XmlAttribute]
     private $pushProvider;
 
     /**
      * The name of the operating system installed on the device. Example - ios, android.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOSName', setter: 'setOSName')]
-    #[SerializedName('osName')]
-    #[Type('string')]
+    #[Accessor(getter: "getOSName", setter: "setOSName")]
+    #[SerializedName("osName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $osName;
 
@@ -74,12 +74,12 @@ class ZmgDeviceSpec
      *    b) majorVersion.minorVersion
      *    Example - iOS having versions like 7.0, 8.0.3, 8.1 etc.
      *    Android has OS version like 2.0, 3.1, 4.4, 5.0 etc
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOSVersion', setter: 'setOSVersion')]
-    #[SerializedName('osVersion')]
-    #[Type('string')]
+    #[Accessor(getter: "getOSVersion", setter: "setOSVersion")]
+    #[SerializedName("osVersion")]
+    #[Type("string")]
     #[XmlAttribute]
     private $osVersion;
 
@@ -87,18 +87,18 @@ class ZmgDeviceSpec
      * The maximum number of bytes allowed for the push notification payload
      *    Example - iOS 7.0 default maxPayloadSize is 256 bytes iOS 8.0 onwards default maxPayloadSize is 2048 bytes
      *    Android default maxPayloadSize is 4096 bytes In case, the maxPayloadSize is not specified the default payload size defined in the above examples will be used while sending push notifications.
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMaxPayloadSize', setter: 'setMaxPayloadSize')]
-    #[SerializedName('maxPayloadSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getMaxPayloadSize", setter: "setMaxPayloadSize")]
+    #[SerializedName("maxPayloadSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $maxPayloadSize;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $appId
      * @param  string $registrationId
      * @param  string $pushProvider
@@ -108,22 +108,21 @@ class ZmgDeviceSpec
      * @return self
      */
     public function __construct(
-        string $appId = '',
-        string $registrationId = '',
-        string $pushProvider = '',
+        string $appId = "",
+        string $registrationId = "",
+        string $pushProvider = "",
         ?string $osName = null,
         ?string $osVersion = null,
         ?int $maxPayloadSize = null
-    )
-    {
+    ) {
         $this->setAppId($appId)
-             ->setRegistrationId($registrationId)
-             ->setPushProvider($pushProvider);
+            ->setRegistrationId($registrationId)
+            ->setPushProvider($pushProvider);
         if (null !== $osName) {
-            $this->setOSName($osName);
+            $this->setOsName($osName);
         }
         if (null !== $osVersion) {
-            $this->setOSVersion($osVersion);
+            $this->setOsVersion($osVersion);
         }
         if (null !== $maxPayloadSize) {
             $this->setMaxPayloadSize($maxPayloadSize);

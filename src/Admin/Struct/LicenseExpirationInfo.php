@@ -25,22 +25,22 @@ class LicenseExpirationInfo
 {
     /**
      * Expiration date in format : YYYYMMDD
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('date')]
-    #[Type('string')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("date")]
+    #[Type("string")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $date
      * @return self
      */
-    public function __construct(string $date = '')
+    public function __construct(string $date = "")
     {
         $this->setDate($date);
     }

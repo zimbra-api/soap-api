@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * CreateNoteRequest class
  * Create a note
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class CreateNoteRequest extends SoapRequest
 {
     /**
      * New note specification
-     * 
+     *
      * @var NewNoteSpec
      */
-    #[Accessor(getter: 'getNote', setter: 'setNote')]
-    #[SerializedName('note')]
+    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[SerializedName("note")]
     #[Type(NewNoteSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private NewNoteSpec $note;
 
     /**
@@ -75,8 +75,6 @@ class CreateNoteRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new CreateNoteEnvelope(
-            new CreateNoteBody($this)
-        );
+        return new CreateNoteEnvelope(new CreateNoteBody($this));
     }
 }

@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Get Quota Usage
  * The target server should be specified in the soap header (see soap.txt, targetServer).
  * When sorting by "quotaLimit", 0 is treated as the highest value possible.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,80 +29,80 @@ class GetQuotaUsageRequest extends SoapRequest
 {
     /**
      * Domain - the domain name to limit the search to
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
-    #[SerializedName('domain')]
-    #[Type('string')]
+    #[Accessor(getter: "getDomain", setter: "setDomain")]
+    #[SerializedName("domain")]
+    #[Type("string")]
     #[XmlAttribute]
     private $domain;
 
     /**
      * whether to fetch quota usage for all domain accounts from across all mailbox servers,
      * default is false, applicable when domain attribute is specified
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isAllServers', setter: 'setAllServers')]
-    #[SerializedName('allServers')]
-    #[Type('bool')]
+    #[Accessor(getter: "isAllServers", setter: "setAllServers")]
+    #[SerializedName("allServers")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $allServers;
 
     /**
      * Limit - the number of accounts to return (0 is default and means all)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('int')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("int")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Offset - the starting offset (0, 25, etc)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
-    #[SerializedName('offset')]
-    #[Type('int')]
+    #[Accessor(getter: "getOffset", setter: "setOffset")]
+    #[SerializedName("offset")]
+    #[Type("int")]
     #[XmlAttribute]
     private $offset;
 
     /**
      * SortBy - valid values: "percentUsed", "totalUsed", "quotaLimit"
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
-    #[SerializedName('sortBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortBy", setter: "setSortBy")]
+    #[SerializedName("sortBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortBy;
 
     /**
      * Whether to sort in ascending order 0 (false) is default, so highest quotas are returned first
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isSortAscending', setter: 'setSortAscending')]
-    #[SerializedName('sortAscending')]
-    #[Type('bool')]
+    #[Accessor(getter: "isSortAscending", setter: "setSortAscending")]
+    #[SerializedName("sortAscending")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $sortAscending;
 
     /**
      * Refresh - whether to always recalculate the data even when cached values are available.
      * 0 (false) is the default.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
-    #[SerializedName('refresh')]
-    #[Type('bool')]
+    #[Accessor(getter: "isRefresh", setter: "setRefresh")]
+    #[SerializedName("refresh")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $refresh;
 
@@ -126,8 +126,7 @@ class GetQuotaUsageRequest extends SoapRequest
         ?string $sortBy = null,
         ?bool $sortAscending = null,
         ?bool $refresh = null
-    )
-    {
+    ) {
         if (null !== $domain) {
             $this->setDomain($domain);
         }
@@ -310,8 +309,6 @@ class GetQuotaUsageRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetQuotaUsageEnvelope(
-            new GetQuotaUsageBody($this)
-        );
+        return new GetQuotaUsageEnvelope(new GetQuotaUsageBody($this));
     }
 }

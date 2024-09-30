@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllSkinsRequest class
  * Get all installed skins on the server.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class GetAllSkinsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAllSkinsEnvelope(
-            new GetAllSkinsBody($this)
-        );
+        return new GetAllSkinsEnvelope(new GetAllSkinsBody($this));
     }
 }

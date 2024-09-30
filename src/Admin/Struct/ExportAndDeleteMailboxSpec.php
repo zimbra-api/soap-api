@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * ExportAndDeleteMailboxSpec struct class
@@ -25,36 +31,35 @@ class ExportAndDeleteMailboxSpec
 {
     /**
      * ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getItems', setter: 'setItems')]
-    #[Type('array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>')]
-    #[XmlList(inline: true, entry: 'item', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getItems", setter: "setItems")]
+    #[Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")]
+    #[XmlList(inline: true, entry: "item", namespace: "urn:zimbraAdmin")]
     private $items = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id
      * @param  array $items
      * @return self
      */
     public function __construct(int $id = 0, array $items = [])
     {
-        $this->setId($id)
-             ->setItems($items);
+        $this->setId($id)->setItems($items);
     }
 
     /**
@@ -100,7 +105,8 @@ class ExportAndDeleteMailboxSpec
     public function setItems(array $items): self
     {
         $this->items = array_filter(
-            $items, static fn ($item) => $item instanceof ExportAndDeleteItemSpec
+            $items,
+            static fn($item) => $item instanceof ExportAndDeleteItemSpec
         );
         return $this;
     }

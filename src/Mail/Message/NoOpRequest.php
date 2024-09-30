@@ -21,25 +21,25 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * If "wait" is set, and if the current session allows them, this request will block until there are new notifications
  * for the client.  Note that the soap envelope must reference an existing session that has notifications enabled, and
  * the notification sequencing number should be specified.
- * 
+ *
  * If "wait" is set, the caller can specify whether notifications on delegate sessions will cause the operation to
  * return.  If "delegate" is unset, delegate mailbox notifications will be ignored.  "delegate" is set by default.
- * 
+ *
  * Some clients (notably browsers) have a global-limit on the number of outstanding sockets...in situations with two
  * App Instances connected to one Zimbra Server, the browser app my appear to 'hang' if two app sessions attempt to do
  * a blocking-NoOp simultaneously.  Since the apps are completely separate in the browser, it is impossible for the
  * apps to coordinate with each other -- therefore the 'limitToOneBlocked' setting is exposed by the server.  If
  * specified, the server will only allow a given user to have one single waiting-NoOp on the server at a time, it will
  * complete (with waitDisallowed set) any existing limited hanging NoOpRequests when a new request comes in.
- * 
+ *
  * The server may reply with a "waitDisallowed" attribute on response to a request with wait set.  If "waitDisallowed"
  * is set, then blocking-NoOpRequests (ie requests with wait set) are <b>not</b> allowed by the server right now, and
  * the client should stop attempting them.
- * 
+ *
  * The client may specify a custom timeout-length for their request if they know something about the particular
  * underlying network.  The server may or may not honor this request (depending on server configured max/min values:
  * see LocalConfig variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -50,12 +50,12 @@ class NoOpRequest extends SoapRequest
 {
     /**
      * Wait setting
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWait', setter: 'setWait')]
-    #[SerializedName('wait')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWait", setter: "setWait")]
+    #[SerializedName("wait")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wait;
 
@@ -63,12 +63,12 @@ class NoOpRequest extends SoapRequest
      * If "wait" is set, the caller can use this setting to determine whether notifications
      * on delegate sessions will cause the operation to return.  If "delegate" is unset, delegate mailbox
      * notifications will be ignored.  "delegate" is set by default.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeDelegates', setter: 'setIncludeDelegates')]
-    #[SerializedName('delegate')]
-    #[Type('bool')]
+    #[Accessor(getter: "getIncludeDelegates", setter: "setIncludeDelegates")]
+    #[SerializedName("delegate")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeDelegates;
 
@@ -76,12 +76,12 @@ class NoOpRequest extends SoapRequest
      * If specified, the server will only allow a given user to have one single
      * waiting-NoOp on the server at a time, it will complete (with waitDisallowed set) any existing limited hanging
      * NoOpRequests when a new request comes in.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getEnforceLimit', setter: 'setEnforceLimit')]
-    #[SerializedName('limitToOneBlocked')]
-    #[Type('bool')]
+    #[Accessor(getter: "getEnforceLimit", setter: "setEnforceLimit")]
+    #[SerializedName("limitToOneBlocked")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $enforceLimit;
 
@@ -90,12 +90,12 @@ class NoOpRequest extends SoapRequest
      * something about the particular underlying network.
      * The server may or may not honor this request (depending on server configured max/min values: see LocalConfig
      * variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
-    #[SerializedName('timeout')]
-    #[Type('int')]
+    #[Accessor(getter: "getTimeout", setter: "setTimeout")]
+    #[SerializedName("timeout")]
+    #[Type("int")]
     #[XmlAttribute]
     private $timeout;
 
@@ -113,8 +113,7 @@ class NoOpRequest extends SoapRequest
         ?bool $includeDelegates = null,
         ?bool $enforceLimit = null,
         ?int $timeout = null
-    )
-    {
+    ) {
         if (null !== $wait) {
             $this->setWait($wait);
         }
@@ -222,8 +221,6 @@ class NoOpRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new NoOpEnvelope(
-            new NoOpBody($this)
-        );
+        return new NoOpEnvelope(new NoOpBody($this));
     }
 }

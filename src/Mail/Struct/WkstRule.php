@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, XmlAttribute};
 use Zimbra\Common\Enum\WeekDay;
 use Zimbra\Common\Struct\WkstRuleInterface;
 
@@ -28,11 +28,11 @@ class WkstRule implements WkstRuleInterface
 {
     /**
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
-     * 
+     *
      * @var WeekDay
      */
-    #[Accessor(getter: 'getDay', setter: 'setDay')]
-    #[SerializedName('day')]
+    #[Accessor(getter: "getDay", setter: "setDay")]
+    #[SerializedName("day")]
     #[XmlAttribute]
     private WeekDay $day;
 

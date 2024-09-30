@@ -15,7 +15,7 @@ use Zimbra\Common\Enum\OnError;
 
 /**
  * Batch request class, not to be instantiated.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Struct
@@ -26,25 +26,26 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
 {
     /**
      * On error
-     * 
+     *
      * @var OnError
      */
-    #[Accessor(getter: 'getOnError', setter: 'setOnError')]
-    #[SerializedName('onerror')]
+    #[Accessor(getter: "getOnError", setter: "setOnError")]
+    #[SerializedName("onerror")]
     #[XmlAttribute]
     private OnError $onerror;
 
     /**
      * Constructor
-     * 
+     *
      * @param array   $requests
      * @param OnError $onerror
      * @return self
      */
     public function __construct(array $requests = [], ?OnError $onerror = null)
     {
-        $this->setOnError($onerror ?? OnError::CONTINUE)
-             ->setRequests($requests);
+        $this->setOnError($onerror ?? OnError::CONTINUE)->setRequests(
+            $requests
+        );
     }
 
     /**

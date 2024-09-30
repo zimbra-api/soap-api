@@ -17,8 +17,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * EndSessionRequest class
  * End the current session, removing it from all caches.
  * Called when the browser app (or other session-using app) shuts down.
- * Has no effect if called in a <nosession> context. 
- * 
+ * Has no effect if called in a <nosession> context.
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -30,45 +30,55 @@ class EndSessionRequest extends SoapRequest
     /**
      * Flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isLogOff', setter: 'setLogOff')]
-    #[SerializedName('logoff')]
-    #[Type('bool')]
+    #[Accessor(getter: "isLogOff", setter: "setLogOff")]
+    #[SerializedName("logoff")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $logoff;
 
     /**
      * Flag to clear all web sessions of the user default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isClearAllSoapSessions', setter: 'setClearAllSoapSessions')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "isClearAllSoapSessions",
+            setter: "setClearAllSoapSessions"
+        )
+    ]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $clearAllSoapSessions;
 
     /**
      * Flag to decide current session will be cleared or not default is 0 (false)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isExcludeCurrentSession', setter: 'setExcludeCurrentSession')]
-    #[SerializedName('excludeCurrent')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "isExcludeCurrentSession",
+            setter: "setExcludeCurrentSession"
+        )
+    ]
+    #[SerializedName("excludeCurrent")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $excludeCurrentSession;
 
     /**
      * End session for given session id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
-    #[SerializedName('sessionId')]
-    #[Type('string')]
+    #[Accessor(getter: "getSessionId", setter: "setSessionId")]
+    #[SerializedName("sessionId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sessionId;
 
@@ -86,18 +96,17 @@ class EndSessionRequest extends SoapRequest
         ?bool $clearAllSoapSessions = null,
         ?bool $excludeCurrentSession = null,
         ?string $sessionId = null
-    )
-    {
-        if(null !== $logoff) {
+    ) {
+        if (null !== $logoff) {
             $this->setLogOff($logoff);
         }
-        if(null !== $clearAllSoapSessions) {
+        if (null !== $clearAllSoapSessions) {
             $this->setClearAllSoapSessions($clearAllSoapSessions);
         }
-        if(null !== $excludeCurrentSession) {
+        if (null !== $excludeCurrentSession) {
             $this->setExcludeCurrentSession($excludeCurrentSession);
         }
-        if(null !== $sessionId) {
+        if (null !== $sessionId) {
             $this->setSessionId($sessionId);
         }
     }
@@ -195,8 +204,6 @@ class EndSessionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new EndSessionEnvelope(
-            new EndSessionBody($this)
-        );
+        return new EndSessionEnvelope(new EndSessionBody($this));
     }
 }

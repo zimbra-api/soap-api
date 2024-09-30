@@ -27,15 +27,15 @@ class PolicyHolder
     /**
      * @var Policy
      */
-    #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
-    #[SerializedName('policy')]
+    #[Accessor(getter: "getPolicy", setter: "setPolicy")]
+    #[SerializedName("policy")]
     #[Type(Policy::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Policy $policy;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Policy $policy
      * @return self
      */

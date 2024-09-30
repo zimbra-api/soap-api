@@ -25,11 +25,11 @@ enum CSRType: string
      * Constant for value 'self'
      * @return string 'self'
      */
-    case SELF = 'self';
+    case SELF = "self";
 
     /**
      * Constant for value 'comm'
      * @return string 'comm'
      */
-    case COMM = 'comm';
+    case COMM = "comm";
 }

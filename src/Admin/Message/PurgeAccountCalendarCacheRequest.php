@@ -15,8 +15,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * PurgeAccountCalendarCacheRequest class
- * Purge the calendar cache for an account 
- * 
+ * Purge the calendar cache for an account
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,12 +27,12 @@ class PurgeAccountCalendarCacheRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
@@ -42,7 +42,7 @@ class PurgeAccountCalendarCacheRequest extends SoapRequest
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }

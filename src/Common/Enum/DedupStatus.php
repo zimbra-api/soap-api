@@ -25,11 +25,11 @@ enum DedupStatus: string
      * Constant for value 'running'
      * @return string 'running'
      */
-    case RUNNING = 'running';
+    case RUNNING = "running";
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    case STOPPED = 'stopped';
+    case STOPPED = "stopped";
 }

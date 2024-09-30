@@ -28,45 +28,45 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 {
     /**
      * Sequence number
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSeq', setter: 'setSeq')]
-    #[SerializedName('seq')]
-    #[Type('int')]
+    #[Accessor(getter: "getSeq", setter: "setSeq")]
+    #[SerializedName("seq")]
+    #[Type("int")]
     #[XmlAttribute]
     private $seq;
 
     /**
      * DTSTAMP date in milliseconds
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Attendee address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttendee', setter: 'setAttendee')]
-    #[SerializedName('at')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttendee", setter: "setAttendee")]
+    #[SerializedName("at")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attendee;
 
     /**
      * iCalendar SENT-BY
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
-    #[SerializedName('sentBy')]
-    #[Type('string')]
+    #[Accessor(getter: "getSentBy", setter: "setSentBy")]
+    #[SerializedName("sentBy")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sentBy;
 
@@ -76,11 +76,11 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
+     *
      * @var ParticipationStatus
      */
-    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
-    #[SerializedName('ptst')]
+    #[Accessor(getter: "getPartStat", setter: "setPartStat")]
+    #[SerializedName("ptst")]
     #[XmlAttribute]
     private ?ParticipationStatus $partStat;
 
@@ -98,18 +98,15 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      */
     public function __construct(
         int $recurrenceRangeType = 0,
-        string $recurrenceId = '',
+        string $recurrenceId = "",
         int $seq = 0,
         int $date = 0,
-        string $attendee = '',
+        string $attendee = "",
         ?string $sentBy = null,
         ?ParticipationStatus $partStat = null
-    )
-    {
+    ) {
         parent::__construct($recurrenceRangeType, $recurrenceId);
-        $this->setSeq($seq)
-             ->setDate($date)
-             ->setAttendee($attendee);
+        $this->setSeq($seq)->setDate($date)->setAttendee($attendee);
         $this->partStat = $partStat;
         if (null != $sentBy) {
             $this->setSentBy($sentBy);

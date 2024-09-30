@@ -27,13 +27,13 @@ class GetVersionInfoResponse extends SoapResponse
 {
     /**
      * Version information
-     * 
+     *
      * @var VersionInfo
      */
-    #[Accessor(getter: 'getInfo', setter: 'setInfo')]
-    #[SerializedName('info')]
+    #[Accessor(getter: "getInfo", setter: "setInfo")]
+    #[SerializedName("info")]
     #[Type(VersionInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?VersionInfo $info;
 
     /**

@@ -27,40 +27,40 @@ class VerifyStoreManagerRequest extends SoapRequest
 {
     /**
      * file size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
-    #[SerializedName('fileSize')]
-    #[Type('int')]
+    #[Accessor(getter: "getFileSize", setter: "setFileSize")]
+    #[SerializedName("fileSize")]
+    #[Type("int")]
     #[XmlAttribute]
     private $fileSize;
 
     /**
      * num
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('num')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("num")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
     /**
      * check blobs
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCheckBlobs', setter: 'setCheckBlobs')]
-    #[SerializedName('checkBlobs')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCheckBlobs", setter: "setCheckBlobs")]
+    #[SerializedName("checkBlobs")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $checkBlobs;
 
     /**
      * Constructor
-     * 
+     *
      * @param int  $fileSize
      * @param int  $num
      * @param bool  $checkBlobs
@@ -70,8 +70,7 @@ class VerifyStoreManagerRequest extends SoapRequest
         ?int $fileSize = null,
         ?int $num = null,
         ?bool $checkBlobs = null
-    )
-    {
+    ) {
         if (null !== $fileSize) {
             $this->setFileSize($fileSize);
         }

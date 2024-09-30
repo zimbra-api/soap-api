@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, XmlAttribute};
 use Zimbra\Common\Enum\{MemberType, ModifyGroupMemberOperation};
 
 /**
@@ -27,17 +27,17 @@ class ModifyContactGroupMember extends NewContactGroupMember
 {
     /**
      * Operation - +|-|reset
-     * 
+     *
      * @var ModifyGroupMemberOperation
      */
-    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
-    #[SerializedName('op')]
+    #[Accessor(getter: "getOperation", setter: "setOperation")]
+    #[SerializedName("op")]
     #[XmlAttribute]
     private ?ModifyGroupMemberOperation $operation;
 
     /**
      * Constructor
-     * 
+     *
      * @param ModifyGroupMemberOperation $operation
      * @param MemberType $type
      * @param MemberType $type
@@ -46,9 +46,8 @@ class ModifyContactGroupMember extends NewContactGroupMember
     public function __construct(
         ?ModifyGroupMemberOperation $operation = null,
         ?MemberType $type = null,
-        string $value = ''
-    )
-    {
+        string $value = ""
+    ) {
         parent::__construct($type, $value);
         $this->operation = $operation;
     }

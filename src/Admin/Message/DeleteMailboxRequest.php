@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * The request includes the account ID (uuid) of the target mailbox on success, the response includes the mailbox
  * ID (numeric) of the deleted mailbox the mbox element is left out of the response if no mailbox existed
  * for that account.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -31,18 +31,18 @@ class DeleteMailboxRequest extends SoapRequest
 {
     /**
      * Mailbox
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**
      * Constructor
-     * 
+     *
      * @param  Mailbox $mbox
      * @return self
      */
@@ -78,8 +78,6 @@ class DeleteMailboxRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteMailboxEnvelope(
-            new DeleteMailboxBody($this)
-        );
+        return new DeleteMailboxEnvelope(new DeleteMailboxBody($this));
     }
 }

@@ -10,13 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetCustomMetadataResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,24 +33,24 @@ class GetCustomMetadataResponse extends SoapResponse
 {
     /**
      * Item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Custom metadata
-     * 
+     *
      * @var MailCustomMetadata
      */
-    #[Accessor(getter: 'getMetadata', setter: 'setMetadata')]
-    #[SerializedName('meta')]
+    #[Accessor(getter: "getMetadata", setter: "setMetadata")]
+    #[SerializedName("meta")]
     #[Type(MailCustomMetadata::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MailCustomMetadata $metadata;
 
     /**
@@ -55,9 +61,9 @@ class GetCustomMetadataResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?string $id = null, ?MailCustomMetadata $metadata = null
-    )
-    {
+        ?string $id = null,
+        ?MailCustomMetadata $metadata = null
+    ) {
         $this->metadata = $metadata;
         if (null !== $id) {
             $this->setId($id);

@@ -34,40 +34,40 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New account's name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * New account's password
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
-    #[SerializedName('password')]
-    #[Type('string')]
+    #[Accessor(getter: "getPassword", setter: "setPassword")]
+    #[SerializedName("password")]
+    #[Type("string")]
     #[XmlAttribute]
     private $password;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $password
      * @param array  $attrs
      * @return self
      */
     public function __construct(
-        string $name = '', ?string $password = null, array $attrs = []
-    )
-    {
-        $this->setName($name)
-             ->setAttrs($attrs);
+        string $name = "",
+        ?string $password = null,
+        array $attrs = []
+    ) {
+        $this->setName($name)->setAttrs($attrs);
         if (null !== $password) {
             $this->setPassword($password);
         }

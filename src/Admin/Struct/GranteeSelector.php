@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{GranteeType, GranteeBy};
 
 /**
@@ -26,60 +32,60 @@ class GranteeSelector
 {
     /**
      * Grantee type
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private ?GranteeType $type;
 
     /**
      * Grantee by
-     * 
+     *
      * @var GranteeBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private ?GranteeBy $by;
 
     /**
      * The key used to secretentify the grantee
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Password for guest grantee or the access key for key grantee For user right only
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSecret', setter: 'setSecret')]
-    #[SerializedName('secret')]
-    #[Type('string')]
+    #[Accessor(getter: "getSecret", setter: "setSecret")]
+    #[SerializedName("secret")]
+    #[Type("string")]
     #[XmlAttribute]
     private $secret;
 
     /**
      * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to.
      * Default is 1 (true)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAll', setter: 'setAll')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAll", setter: "setAll")]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $all;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $value
      * @param GranteeType $type
      * @param GranteeBy $by
@@ -93,8 +99,7 @@ class GranteeSelector
         ?GranteeBy $by = null,
         ?string $secret = null,
         ?bool $all = null
-    )
-    {
+    ) {
         $this->type = $type;
         $this->by = $by;
         if (null !== $value) {

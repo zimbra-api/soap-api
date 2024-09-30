@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * This API dumps the internal state of all active waitsets.
  * It is intended for debugging use only and should not be used for production uses.
  * This API is not guaranteed to be stable between releases in any way and might be removed without warning.
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,12 +30,12 @@ class QueryWaitSetRequest extends SoapRequest
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -79,8 +79,6 @@ class QueryWaitSetRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new QueryWaitSetEnvelope(
-            new QueryWaitSetBody($this)
-        );
+        return new QueryWaitSetEnvelope(new QueryWaitSetBody($this));
     }
 }

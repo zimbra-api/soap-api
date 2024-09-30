@@ -26,44 +26,44 @@ class ZimletStatus
 {
     /**
      * Zimlet name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Status
-     * 
+     *
      * @var ZimletStatusSetting
      */
-    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
-    #[SerializedName('status')]
+    #[Accessor(getter: "getStatus", setter: "setStatus")]
+    #[SerializedName("status")]
     #[XmlAttribute]
     private ZimletStatusSetting $status;
 
     /**
      * Extension
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getExtension', setter: 'setExtension')]
-    #[SerializedName('extension')]
-    #[Type('bool')]
+    #[Accessor(getter: "getExtension", setter: "setExtension")]
+    #[SerializedName("extension")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $extension;
 
     /**
      * Priority
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
-    #[SerializedName('priority')]
-    #[Type('int')]
+    #[Accessor(getter: "getPriority", setter: "setPriority")]
+    #[SerializedName("priority")]
+    #[Type("int")]
     #[XmlAttribute]
     private $priority;
 
@@ -77,15 +77,14 @@ class ZimletStatus
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         ?ZimletStatusSetting $status = null,
         bool $extension = false,
         ?int $priority = null
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setStatus($status ?? ZimletStatusSetting::ENABLED)
-             ->setExtension($extension);
+            ->setStatus($status ?? ZimletStatusSetting::ENABLED)
+            ->setExtension($extension);
         if (null !== $priority) {
             $this->setPriority($priority);
         }

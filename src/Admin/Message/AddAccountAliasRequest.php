@@ -15,8 +15,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AddAccountAliasRequest class
- * Add an alias for the account 
- * 
+ * Add an alias for the account
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,23 +27,23 @@ class AddAccountAliasRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Alias
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAlias', setter: 'setAlias')]
-    #[SerializedName('alias')]
-    #[Type('string')]
+    #[Accessor(getter: "getAlias", setter: "setAlias")]
+    #[SerializedName("alias")]
+    #[Type("string")]
     #[XmlAttribute]
     private $alias;
 
@@ -54,10 +54,9 @@ class AddAccountAliasRequest extends SoapRequest
      * @param  string $alias
      * @return self
      */
-    public function __construct(string $id = '', string $alias = '')
+    public function __construct(string $id = "", string $alias = "")
     {
-        $this->setId($id)
-             ->setAlias($alias);
+        $this->setId($id)->setAlias($alias);
     }
 
     /**
@@ -109,8 +108,6 @@ class AddAccountAliasRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new AddAccountAliasEnvelope(
-            new AddAccountAliasBody($this)
-        );
+        return new AddAccountAliasEnvelope(new AddAccountAliasBody($this));
     }
 }

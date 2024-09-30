@@ -25,29 +25,29 @@ class CosInfoAttr extends Attr
 {
     /**
      * Flags that this is a Class Of Service (COS) attribute.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getCosAttr', setter: 'setCosAttr')]
-    #[SerializedName('c')]
-    #[Type('bool')]
+    #[Accessor(getter: "getCosAttr", setter: "setCosAttr")]
+    #[SerializedName("c")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $cosAttr;
 
     /**
      * Flags that the value of this attribute has been suppressed for permissions reasons
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPermDenied', setter: 'setPermDenied')]
-    #[SerializedName('pd')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPermDenied", setter: "setPermDenied")]
+    #[SerializedName("pd")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $permDenied;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $key
      * @param  string $value
      * @param  bool $cosAttr
@@ -55,10 +55,12 @@ class CosInfoAttr extends Attr
      * @return self
      */
     public function __construct(
-        string $key = '', ?string $value = null, ?bool $cosAttr = null, ?bool $permDenied = null
-    )
-    {
-    	parent::__construct($key, $value);
+        string $key = "",
+        ?string $value = null,
+        ?bool $cosAttr = null,
+        ?bool $permDenied = null
+    ) {
+        parent::__construct($key, $value);
         if (null !== $cosAttr) {
             $this->setCosAttr($cosAttr);
         }

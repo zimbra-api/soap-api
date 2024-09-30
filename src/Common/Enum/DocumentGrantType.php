@@ -25,11 +25,11 @@ enum DocumentGrantType: string
      * Constant for value 'all'
      * @return string 'all'
      */
-    case ALL = 'all';
+    case ALL = "all";
 
     /**
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    case PUB = 'pub';
+    case PUB = "pub";
 }

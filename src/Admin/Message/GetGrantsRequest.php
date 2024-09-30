@@ -31,29 +31,29 @@ class GetGrantsRequest extends SoapRequest
 {
     /**
      * Target
-     * 
+     *
      * @var EffectiveRightsTargetSelector
      */
-    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
-    #[SerializedName('target')]
+    #[Accessor(getter: "getTarget", setter: "setTarget")]
+    #[SerializedName("target")]
     #[Type(EffectiveRightsTargetSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee
-     * 
+     *
      * @var GranteeSelector
      */
-    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
-    #[SerializedName('grantee')]
+    #[Accessor(getter: "getGrantee", setter: "setGrantee")]
+    #[SerializedName("grantee")]
     #[Type(GranteeSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?GranteeSelector $grantee;
 
     /**
      * Constructor
-     * 
+     *
      * @param  EffectiveRightsTargetSelector $target
      * @param  GranteeSelector $grantee
      * @return self
@@ -61,8 +61,7 @@ class GetGrantsRequest extends SoapRequest
     public function __construct(
         ?EffectiveRightsTargetSelector $target = null,
         ?GranteeSelector $grantee = null
-    )
-    {
+    ) {
         $this->target = $target;
         $this->grantee = $grantee;
     }
@@ -116,8 +115,6 @@ class GetGrantsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetGrantsEnvelope(
-            new GetGrantsBody($this)
-        );
+        return new GetGrantsEnvelope(new GetGrantsBody($this));
     }
 }

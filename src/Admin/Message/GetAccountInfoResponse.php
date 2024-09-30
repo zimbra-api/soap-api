@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\{Attr, CosInfo};
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -27,66 +33,66 @@ class GetAccountInfoResponse extends SoapResponse
 {
     /**
      * Account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $name;
 
     /**
      * Currently only these attributes are returned: zimbraId, zimbraMailHost
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
-    #[Type('array<Zimbra\Admin\Struct\Attr>')]
-    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAttrList", setter: "setAttrList")]
+    #[Type("array<Zimbra\Admin\Struct\Attr>")]
+    #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
     private $attrList = [];
 
     /**
      * Class of Service (COS) information for account
-     * 
+     *
      * @var CosInfo
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?CosInfo $cos;
 
     /**
      * URL to talk to for SOAP service for this account.
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSoapURLList', setter: 'setSoapURLList')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'soapURL', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getSoapURLList", setter: "setSoapURLList")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "soapURL", namespace: "urn:zimbraAdmin")]
     private $soapURLList = [];
 
     /**
      * URL for the Admin SOAP service
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAdminSoapURL', setter: 'setAdminSoapURL')]
-    #[SerializedName('adminSoapURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAdminSoapURL", setter: "setAdminSoapURL")]
+    #[SerializedName("adminSoapURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $adminSoapURL;
 
     /**
      * URL for Web Mail application
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPublicMailURL', setter: 'setPublicMailURL')]
-    #[SerializedName('publicMailURL')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getPublicMailURL", setter: "setPublicMailURL")]
+    #[SerializedName("publicMailURL")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $publicMailURL;
 
     /**
@@ -101,17 +107,16 @@ class GetAccountInfoResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        string $name = '',
+        string $name = "",
         array $attrList = [],
         ?CosInfo $cos = null,
         array $soapURLList = [],
         string $adminSoapURL = null,
         string $publicMailURL = null
-    )
-    {
+    ) {
         $this->setName($name)
-             ->setAttrList($attrList)
-             ->setSoapURLList($soapURLList);
+            ->setAttrList($attrList)
+            ->setSoapURLList($soapURLList);
         $this->cos = $cos;
         if (null !== $adminSoapURL) {
             $this->setAdminSoapURL($adminSoapURL);
@@ -152,7 +157,8 @@ class GetAccountInfoResponse extends SoapResponse
     public function setAttrList(array $attrs): self
     {
         $this->attrList = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof Attr
+            $attrs,
+            static fn($attr) => $attr instanceof Attr
         );
         return $this;
     }
@@ -198,7 +204,7 @@ class GetAccountInfoResponse extends SoapResponse
     public function setSoapURLList(array $soapURLList): self
     {
         $this->soapURLList = array_unique(
-            array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList)
+            array_map(static fn($soapUrl) => trim($soapUrl), $soapURLList)
         );
         return $this;
     }

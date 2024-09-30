@@ -25,23 +25,23 @@ enum RestoreResolve: string
      * Constant for value 'ignore'
      * @return string 'ignore'
      */
-    case IGNORE = 'ignore';
+    case IGNORE = "ignore";
 
     /**
      * Constant for value 'modify'
      * @return string 'modify'
      */
-    case MODIFY = 'modify';
+    case MODIFY = "modify";
 
     /**
      * Constant for value 'replace'
      * @return string 'replace'
      */
-    case REPLACE = 'replace';
+    case REPLACE = "replace";
 
     /**
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    case RESET = 'reset';
+    case RESET = "reset";
 }

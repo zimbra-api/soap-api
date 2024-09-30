@@ -10,14 +10,20 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\{CalTZInfo, DtTimeInfo, Msg};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ForwardAppointmentRequest class
  * Used by an attendee to forward an instance or entire appointment to another user who is not already an attendee.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,46 +34,46 @@ class ForwardAppointmentRequest extends SoapRequest
 {
     /**
      * Appointment item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * RECURRENCE-ID information if forwarding a single instance of a recurring appointment
-     * 
+     *
      * @var DtTimeInfo
      */
-    #[Accessor(getter: 'getExceptionId', setter: 'setExceptionId')]
-    #[SerializedName('exceptId')]
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName("exceptId")]
     #[Type(DtTimeInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?DtTimeInfo $exceptionId;
 
     /**
      * Definition for TZID referenced by DATETIME in <exceptId>
-     * 
+     *
      * @var CalTZInfo
      */
-    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
-    #[SerializedName('tz')]
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName("tz")]
     #[Type(CalTZInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalTZInfo $timezone;
 
     /**
      * Details of the appointment
-     * 
+     *
      * @var Msg
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(Msg::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?Msg $msg;
 
     /**
@@ -84,8 +90,7 @@ class ForwardAppointmentRequest extends SoapRequest
         ?DtTimeInfo $exceptionId = null,
         ?CalTZInfo $timezone = null,
         ?Msg $msg = null
-    )
-    {
+    ) {
         if (null !== $id) {
             $this->setId($id);
         }

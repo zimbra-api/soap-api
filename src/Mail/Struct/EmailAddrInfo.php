@@ -27,49 +27,50 @@ class EmailAddrInfo
 {
     /**
      * Email address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
-    #[SerializedName('a')]
-    #[Type('string')]
+    #[Accessor(getter: "getAddress", setter: "setAddress")]
+    #[SerializedName("a")]
+    #[Type("string")]
     #[XmlAttribute]
     private $address;
 
     /**
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
      * (s)ender, read-receipt (n)otification, (rf) resent-from
-     * 
+     *
      * @var AddressType
      */
-    #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
-    #[SerializedName('t')]
+    #[Accessor(getter: "getAddressType", setter: "setAddressType")]
+    #[SerializedName("t")]
     #[XmlAttribute]
     private ?AddressType $addressType;
 
     /**
      * The comment/name part of an address
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPersonal', setter: 'setPersonal')]
-    #[SerializedName('p')]
-    #[Type('string')]
+    #[Accessor(getter: "getPersonal", setter: "setPersonal")]
+    #[SerializedName("p")]
+    #[Type("string")]
     #[XmlAttribute]
     private $personal;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $address
      * @param AddressType $addressType
      * @param string $personal
      * @return self
      */
     public function __construct(
-        string $address = '', ?AddressType $addressType = null, ?string $personal = null
-    )
-    {
+        string $address = "",
+        ?AddressType $addressType = null,
+        ?string $personal = null
+    ) {
         $this->setAddress($address);
         $this->addressType = $addressType;
         if (null !== $personal) {

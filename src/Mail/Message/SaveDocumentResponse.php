@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SaveDocumentResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class SaveDocumentResponse extends SoapResponse
 {
     /**
      * Details of saved document revision
-     * 
+     *
      * @var IdVersionName
      */
-    #[Accessor(getter: 'getDoc', setter: 'setDoc')]
-    #[SerializedName('doc')]
+    #[Accessor(getter: "getDoc", setter: "setDoc")]
+    #[SerializedName("doc")]
     #[Type(IdVersionName::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?IdVersionName $doc;
 
     /**

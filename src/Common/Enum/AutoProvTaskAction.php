@@ -25,17 +25,17 @@ enum AutoProvTaskAction: string
      * Constant for value 'start'
      * @return string 'start'
      */
-    case START = 'start';
+    case START = "start";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case STATUS = 'status';
+    case STATUS = "status";
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    case STOP = 'stop';
+    case STOP = "stop";
 }

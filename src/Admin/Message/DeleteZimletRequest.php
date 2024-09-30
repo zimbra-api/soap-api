@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 /**
  * DeleteZimletRequest class
  * Delete a Zimlet
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,18 +27,18 @@ class DeleteZimletRequest extends SoapRequest
 {
     /**
      * Zimlet name
-     * 
+     *
      * @var NamedElement
      */
-    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
-    #[SerializedName('zimlet')]
+    #[Accessor(getter: "getZimlet", setter: "setZimlet")]
+    #[SerializedName("zimlet")]
     #[Type(NamedElement::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private NamedElement $zimlet;
 
     /**
      * Constructor
-     * 
+     *
      * @param  NamedElement $zimlet
      * @return self
      */
@@ -74,8 +74,6 @@ class DeleteZimletRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new DeleteZimletEnvelope(
-            new DeleteZimletBody($this)
-        );
+        return new DeleteZimletEnvelope(new DeleteZimletBody($this));
     }
 }

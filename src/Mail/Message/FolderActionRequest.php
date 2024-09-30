@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * FolderActionRequest class
  * Perform an action on a folder
- * 
+ *
  * Actions:
  *   <action op="read" id="{list}"/>
  *     - mark all items in the folder as read
@@ -76,7 +76,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *
  *   <action op="[!]syncon" id="{list}"/>
  *     - set or unset the "sync" flag of the folder to sync a local folder with a remote source
- *     
+ *
  *   <action op="[!]disableactivesync" id="{list}"/>
  *     - If set, disable access to the folder via activesync.
  *       Note: Only works for user folders, doesn't have any effect on system folders.
@@ -105,7 +105,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * output of "grant" action includes the zimbra id the rights were granted on
  *
  * note that "delete", "empty", "rename", "move", "color", "update" can be used on search folders as well as standard folders
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -116,13 +116,13 @@ class FolderActionRequest extends SoapRequest
 {
     /**
      * Select action to perform on folder
-     * 
+     *
      * @var FolderActionSelector
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(FolderActionSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private FolderActionSelector $action;
 
     /**
@@ -163,8 +163,6 @@ class FolderActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new FolderActionEnvelope(
-            new FolderActionBody($this)
-        );
+        return new FolderActionEnvelope(new FolderActionBody($this));
     }
 }

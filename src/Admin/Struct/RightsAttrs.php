@@ -27,18 +27,18 @@ class RightsAttrs
 
     /**
      * All flag
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getAll', setter: 'setAll')]
-    #[SerializedName('all')]
-    #[Type('bool')]
+    #[Accessor(getter: "getAll", setter: "setAll")]
+    #[SerializedName("all")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $all;
 
     /**
      * Constructor
-     * 
+     *
      * @param  bool $all
      * @param  array $attrs
      * @return self

@@ -30,13 +30,13 @@ class SendMsgResponse extends SoapResponse
      * Note, "m" element will have no content if the message was not saved.
      * Note, Full information will be provided if fetchSavedMsg was specified in the request,
      * otherwise only the message id will be returned.
-     * 
+     *
      * @var MsgWithGroupInfo
      */
-    #[Accessor(getter: 'getMsg', setter: 'setMsg')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName("m")]
     #[Type(MsgWithGroupInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MsgWithGroupInfo $msg;
 
     /**

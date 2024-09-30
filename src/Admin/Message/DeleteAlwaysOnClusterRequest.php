@@ -17,8 +17,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * DeleteAlwaysOnClusterRequest class
  * Delete a alwaysOnCluster
  * Notes:
- *     this request is by default proxied to the referenced server 
- * 
+ *     this request is by default proxied to the referenced server
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,22 +29,22 @@ class DeleteAlwaysOnClusterRequest extends SoapRequest
 {
     /**
      * Zimbra ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id = '')
+    public function __construct(string $id = "")
     {
         $this->setId($id);
     }

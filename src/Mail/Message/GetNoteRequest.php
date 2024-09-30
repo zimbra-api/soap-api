@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\{Id, SoapEnvelopeInterface, SoapRequest};
 /**
  * GetNoteRequest class
  * Get Note
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,13 +27,13 @@ class GetNoteRequest extends SoapRequest
 {
     /**
      * Specification for note
-     * 
+     *
      * @var Id
      */
-    #[Accessor(getter: 'getNote', setter: 'setNote')]
-    #[SerializedName('note')]
+    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[SerializedName("note")]
     #[Type(Id::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private Id $note;
 
     /**
@@ -74,8 +74,6 @@ class GetNoteRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetNoteEnvelope(
-            new GetNoteBody($this)
-        );
+        return new GetNoteEnvelope(new GetNoteBody($this));
     }
 }

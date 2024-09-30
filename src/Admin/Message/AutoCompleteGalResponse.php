@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AutoCompleteGalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,50 +33,50 @@ class AutoCompleteGalResponse extends SoapResponse
 {
     /**
      * Set to 1 if the results were truncated
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "getMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Either "and" or "or" (if present)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
-    #[SerializedName('tokenizeKey')]
-    #[Type('bool')]
+    #[Accessor(getter: "getTokenizeKey", setter: "setTokenizeKey")]
+    #[SerializedName("tokenizeKey")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $tokenizeKey;
 
     /**
      * Flag if pagination is supported
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
-    #[SerializedName('paginationSupported')]
-    #[Type('bool')]
+    #[Accessor(getter: "getPagingSupported", setter: "setPagingSupported")]
+    #[SerializedName("paginationSupported")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $pagingSupported;
 
     /**
      * Contacts matching the autocomplete request
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
-    #[Type('array<Zimbra\Admin\Struct\ContactInfo>')]
-    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getContacts", setter: "setContacts")]
+    #[Type("array<Zimbra\Admin\Struct\ContactInfo>")]
+    #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAdmin")]
     private $contacts = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param bool  $more
      * @param bool  $tokenizeKey
      * @param bool  $pagingSupported
@@ -78,9 +84,11 @@ class AutoCompleteGalResponse extends SoapResponse
      * @return self
      */
     public function __construct(
-        ?bool $more = null, ?bool $tokenizeKey = null, ?bool $pagingSupported = null, array $contacts = []
-    )
-    {
+        ?bool $more = null,
+        ?bool $tokenizeKey = null,
+        ?bool $pagingSupported = null,
+        array $contacts = []
+    ) {
         if (null !== $more) {
             $this->setMore($more);
         }
@@ -168,7 +176,8 @@ class AutoCompleteGalResponse extends SoapResponse
     public function setContacts(array $contacts): self
     {
         $this->contacts = array_filter(
-            $contacts, static fn ($contact) => $contact instanceof ContactInfo
+            $contacts,
+            static fn($contact) => $contact instanceof ContactInfo
         );
         return $this;
     }

@@ -26,50 +26,50 @@ class ComboRightInfo
 {
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('n')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("n")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Right type
-     * 
+     *
      * @var RightType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private RightType $type;
 
     /**
      * Target type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
-    #[SerializedName('targetType')]
-    #[Type('string')]
+    #[Accessor(getter: "getTargetType", setter: "setTargetType")]
+    #[SerializedName("targetType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $targetType;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  RightType $type
      * @param  string $targetType
      * @return self
      */
     public function __construct(
-        string $name = '', ?RightType $type = null, ?string $targetType = null
-    )
-    {
-        $this->setName($name)
-             ->setType($type ?? RightType::PRESET);
+        string $name = "",
+        ?RightType $type = null,
+        ?string $targetType = null
+    ) {
+        $this->setName($name)->setType($type ?? RightType::PRESET);
         if (null !== $targetType) {
             $this->setTargetType($targetType);
         }

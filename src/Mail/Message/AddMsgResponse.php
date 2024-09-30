@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * AddMsgResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,24 +27,24 @@ class AddMsgResponse extends SoapResponse
 {
     /**
      * Details of added message
-     * 
+     *
      * @var MessageSummary
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('m')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("m")]
     #[Type(MessageSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?MessageSummary $message;
 
     /**
      * Details of added chat message
-     * 
+     *
      * @var ChatSummary
      */
-    #[Accessor(getter: 'getChatMessage', setter: 'setMessage')]
-    #[SerializedName('chat')]
+    #[Accessor(getter: "getChatMessage", setter: "setMessage")]
+    #[SerializedName("chat")]
     #[Type(ChatSummary::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?ChatSummary $chatMessage;
 
     /**
@@ -71,8 +71,7 @@ class AddMsgResponse extends SoapResponse
         $this->message = $this->chatMessage = null;
         if ($message instanceof ChatSummary) {
             $this->chatMessage = $message;
-        }
-        else {
+        } else {
             $this->message = $message;
         }
         return $this;

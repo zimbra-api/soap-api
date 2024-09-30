@@ -10,13 +10,19 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 use Zimbra\Admin\Struct\AccountQuotaInfo;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetQuotaUsageResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -27,52 +33,52 @@ class GetQuotaUsageResponse extends SoapResponse
 {
     /**
      * 1 (true) if there are more accounts left to return
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isMore', setter: 'setMore')]
-    #[SerializedName('more')]
-    #[Type('bool')]
+    #[Accessor(getter: "isMore", setter: "setMore")]
+    #[SerializedName("more")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
-    #[SerializedName('searchTotal')]
-    #[Type('int')]
+    #[Accessor(getter: "getSearchTotal", setter: "setSearchTotal")]
+    #[SerializedName("searchTotal")]
+    #[Type("int")]
     #[XmlAttribute]
     private $searchTotal;
 
     /**
      * Account quota information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAccountQuotas', setter: 'setAccountQuotas')]
-    #[Type('array<Zimbra\Admin\Struct\AccountQuotaInfo>')]
-    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getAccountQuotas", setter: "setAccountQuotas")]
+    #[Type("array<Zimbra\Admin\Struct\AccountQuotaInfo>")]
+    #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
     private $accountQuotas = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param bool $more
      * @param int $searchTotal
      * @param array $accountQuotas
      * @return self
      */
     public function __construct(
-    	bool $more = false,
+        bool $more = false,
         int $searchTotal = 0,
-        array $accountQuotas = [])
-    {
+        array $accountQuotas = []
+    ) {
         $this->setMore($more)
-        	 ->setSearchTotal($searchTotal)
-        	 ->setAccountQuotas($accountQuotas);
+            ->setSearchTotal($searchTotal)
+            ->setAccountQuotas($accountQuotas);
     }
 
     /**
@@ -128,7 +134,8 @@ class GetQuotaUsageResponse extends SoapResponse
     public function setAccountQuotas(array $quotas): self
     {
         $this->accountQuotas = array_filter(
-            $quotas, static fn ($quota) => $quota instanceof AccountQuotaInfo
+            $quotas,
+            static fn($quota) => $quota instanceof AccountQuotaInfo
         );
         return $this;
     }

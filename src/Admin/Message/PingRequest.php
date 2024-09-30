@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * PingRequest class
  * Ping
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class PingRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new PingEnvelope(
-            new PingBody($this)
-        );
+        return new PingEnvelope(new PingBody($this));
     }
 }

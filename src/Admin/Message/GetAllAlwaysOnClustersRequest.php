@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetAllAlwaysOnClustersRequest class
  * Get all alwaysOnClusters
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message

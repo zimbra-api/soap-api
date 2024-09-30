@@ -12,7 +12,7 @@ namespace Zimbra\Account\Struct;
 
 /**
  * AccountYabDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

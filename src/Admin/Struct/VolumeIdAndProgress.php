@@ -25,37 +25,36 @@ class VolumeIdAndProgress
 {
     /**
      * Volume id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
-    #[SerializedName('volumeId')]
-    #[Type('string')]
+    #[Accessor(getter: "getVolumeId", setter: "setVolumeId")]
+    #[SerializedName("volumeId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $volumeId;
 
     /**
      * Progress
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getProgress', setter: 'setProgress')]
-    #[SerializedName('progress')]
-    #[Type('string')]
+    #[Accessor(getter: "getProgress", setter: "setProgress")]
+    #[SerializedName("progress")]
+    #[Type("string")]
     #[XmlAttribute]
     private $progress;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $volumeId
      * @param string $progress
      * @return self
      */
-    public function __construct(string $volumeId = '', string $progress = '')
+    public function __construct(string $volumeId = "", string $progress = "")
     {
-        $this->setVolumeId($volumeId)
-             ->setProgress($progress);
+        $this->setVolumeId($volumeId)->setProgress($progress);
     }
 
     /**

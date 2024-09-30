@@ -25,23 +25,23 @@ class LDAPEntryInfo extends AdminAttrsImpl
 {
     /**
      * LDAP Entry name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $name = '', array $attrs = [])
+    public function __construct(string $name = "", array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setName($name);

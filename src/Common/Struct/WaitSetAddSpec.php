@@ -34,51 +34,51 @@ class WaitSetAddSpec
 {
     /**
      * The name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * The id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Last known sync token
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getToken', setter: 'setToken')]
-    #[SerializedName('token')]
-    #[Type('string')]
+    #[Accessor(getter: "getToken", setter: "setToken")]
+    #[SerializedName("token")]
+    #[Type("string")]
     #[XmlAttribute]
     private $token;
 
     /**
      * Comma-separated list
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getInterests', setter: 'setInterests')]
-    #[SerializedName('types')]
-    #[Type('string')]
+    #[Accessor(getter: "getInterests", setter: "setInterests")]
+    #[SerializedName("types")]
+    #[Type("string")]
     #[XmlAttribute]
     private $interests;
 
     /**
      * Folder interests
-     * 
+     *
      * @var array
      */
     #[Exclude]
@@ -86,7 +86,7 @@ class WaitSetAddSpec
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @param string $id
      * @param string $token
@@ -98,8 +98,7 @@ class WaitSetAddSpec
         ?string $id = null,
         ?string $token = null,
         ?string $interests = null
-    )
-    {
+    ) {
         if (null !== $name) {
             $this->setName($name);
         }
@@ -189,10 +188,12 @@ class WaitSetAddSpec
     public function setInterests(string $interests): self
     {
         $types = array_filter(
-            explode(',', $interests),
-            static fn ($type) => InterestType::tryFrom($type) !== null
+            explode(",", $interests),
+            static fn($type) => InterestType::tryFrom($type) !== null
         );
-        $this->interests = !empty($types) ? implode(',', array_unique($types)) : null;
+        $this->interests = !empty($types)
+            ? implode(",", array_unique($types))
+            : null;
         return $this;
     }
 
@@ -220,14 +221,14 @@ class WaitSetAddSpec
         $this->folderInterests = [];
         if (is_array($folderInterests)) {
             $folderInterests = array_map(
-                static fn ($folderId) => (int) $folderId, $folderInterests
+                static fn($folderId) => (int) $folderId,
+                $folderInterests
             );
             $this->folderInterests = array_unique($folderInterests);
-        }
-        else {
+        } else {
             $folderInterests = array_map(
-                static fn ($folderId) => (int) $folderId,
-                explode(',', $folderInterests)
+                static fn($folderId) => (int) $folderId,
+                explode(",", $folderInterests)
             );
             $this->folderInterests = array_unique($folderInterests);
         }
@@ -239,13 +240,15 @@ class WaitSetAddSpec
      *
      * @return string
      */
-    #[SerializedName('folderInterests')]
+    #[SerializedName("folderInterests")]
     #[SkipWhenEmpty]
-    #[Type('string')]
+    #[Type("string")]
     #[VirtualProperty]
     #[XmlAttribute]
     public function getFolderInterests(): ?string
     {
-        return !empty($this->folderInterests) ? implode(',', $this->folderInterests) : null;
+        return !empty($this->folderInterests)
+            ? implode(",", $this->folderInterests)
+            : null;
     }
 }

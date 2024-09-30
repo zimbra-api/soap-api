@@ -25,29 +25,29 @@ class FilterTest
 {
     /**
      * Index - specifies a guaranteed order for the test elements
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getIndex', setter: 'setIndex')]
-    #[SerializedName('index')]
-    #[Type('int')]
+    #[Accessor(getter: "getIndex", setter: "setIndex")]
+    #[SerializedName("index")]
+    #[Type("int")]
     #[XmlAttribute]
     private $index;
 
     /**
      * Specifies a "not" condition for the test
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isNegative', setter: 'setNegative')]
-    #[SerializedName('negative')]
-    #[Type('bool')]
+    #[Accessor(getter: "isNegative", setter: "setNegative")]
+    #[SerializedName("negative")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $negative;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param bool $negative
      * @return self

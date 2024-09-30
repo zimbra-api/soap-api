@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ExportContactsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,13 +26,13 @@ class ExportContactsResponse extends SoapResponse
 {
     /**
      * Content of the export
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
@@ -41,7 +41,7 @@ class ExportContactsResponse extends SoapResponse
      * @param  string $content
      * @return self
      */
-    public function __construct(string $content = '')
+    public function __construct(string $content = "")
     {
         $this->setContent($content);
     }

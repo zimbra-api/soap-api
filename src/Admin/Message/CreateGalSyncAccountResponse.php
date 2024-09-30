@@ -27,13 +27,13 @@ class CreateGalSyncAccountResponse extends SoapResponse
 {
     /**
      * Information about the newly created GalSync account
-     * 
+     *
      * @var AccountInfo
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountInfo $account;
 
     /**

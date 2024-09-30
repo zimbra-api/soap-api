@@ -20,7 +20,7 @@ use JMS\Serializer\Visitor\DeserializationVisitorInterface as Visitor;
 
 /**
  * Object constructor class.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Serializer
@@ -31,40 +31,42 @@ class ObjectConstructor implements ObjectConstructorInterface
 {
     /**
      * Fallback object constructor
-     * 
+     *
      * @var ObjectConstructorInterface
      */
     private readonly ObjectConstructorInterface $fallbackConstructor;
 
     /**
      * Constructor
-     * 
+     *
      * @param ObjectConstructorInterface $fallbackConstructor
      */
     public function __construct(
         ?ObjectConstructorInterface $fallbackConstructor = null
     ) {
-        $this->fallbackConstructor = $fallbackConstructor ?? new UnserializeObjectConstructor();
+        $this->fallbackConstructor =
+            $fallbackConstructor ?? new UnserializeObjectConstructor();
     }
 
     /**
      * {@inheritdoc}
      */
     public function construct(
-        Visitor $visitor, ClassMetadata $metadata, $data, array $type, Context $context
-    ): ?object
-    {
+        Visitor $visitor,
+        ClassMetadata $metadata,
+        $data,
+        array $type,
+        Context $context
+    ): ?object {
         $reflection = new \ReflectionClass($metadata->name);
         $constructor = $reflection->getConstructor();
         if (empty($constructor)) {
             return $reflection->newInstanceArgs();
-        }
-        else {
+        } else {
             $parameters = $constructor->getParameters();
             if (empty($parameters)) {
                 return $reflection->newInstanceArgs();
-            }
-            else {
+            } else {
                 $isDefaultConstructor = true;
                 foreach ($parameters as $parameter) {
                     if (!$parameter->isOptional()) {
@@ -77,6 +79,12 @@ class ObjectConstructor implements ObjectConstructorInterface
                 }
             }
         }
-        return $this->fallbackConstructor->construct($visitor, $metadata, $data, $type, $context);
+        return $this->fallbackConstructor->construct(
+            $visitor,
+            $metadata,
+            $data,
+            $type,
+            $context
+        );
     }
 }

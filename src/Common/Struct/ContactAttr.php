@@ -25,51 +25,51 @@ class ContactAttr extends KeyValuePair
 {
     /**
      * part
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Content type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * Size
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Content file name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]
-    #[SerializedName('filename')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentFilename", setter: "setContentFilename")]
+    #[SerializedName("filename")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentFilename;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $key
      * @param  string $value
      * @param  string $part
@@ -79,14 +79,13 @@ class ContactAttr extends KeyValuePair
      * @return self
      */
     public function __construct(
-        string $key = '',
-        ?string$value = null,
+        string $key = "",
+        ?string $value = null,
         ?string $part = null,
         ?string $contentType = null,
         ?int $size = null,
         ?string $contentFilename = null
-    )
-    {
+    ) {
         parent::__construct($key, $value);
         if (null !== $part) {
             $this->setPart($part);

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Common\Struct\SearchHit;
 
 /**
@@ -26,123 +32,123 @@ class MessagePartHitInfo implements SearchHit
 {
     /**
      * Message ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Sort field value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
-    #[SerializedName('sf')]
-    #[Type('string')]
+    #[Accessor(getter: "getSortField", setter: "setSortField")]
+    #[SerializedName("sf")]
+    #[Type("string")]
     #[XmlAttribute]
     private $sortField;
 
     /**
      * Size in bytes
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSize', setter: 'setSize')]
-    #[SerializedName('s')]
-    #[Type('int')]
+    #[Accessor(getter: "getSize", setter: "setSize")]
+    #[SerializedName("s")]
+    #[Type("int")]
     #[XmlAttribute]
     private $size;
 
     /**
      * Secs since epoch, from date header in message
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getDate', setter: 'setDate')]
-    #[SerializedName('d')]
-    #[Type('int')]
+    #[Accessor(getter: "getDate", setter: "setDate")]
+    #[SerializedName("d")]
+    #[Type("int")]
     #[XmlAttribute]
     private $date;
 
     /**
      * Converstation id. only present if <m> is not enclosed within a <c> element
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
-    #[SerializedName('cid')]
-    #[Type('int')]
+    #[Accessor(getter: "getConversationId", setter: "setConversationId")]
+    #[SerializedName("cid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $conversationId;
 
     /**
      * Message item ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('int')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("int")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Content type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
-    #[SerializedName('ct')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentType", setter: "setContentType")]
+    #[SerializedName("ct")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentType;
 
     /**
      * File name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContentName', setter: 'setContentName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getContentName", setter: "setContentName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $contentName;
 
     /**
      * MIME part name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Email address information
-     * 
+     *
      * @var EmailInfo
      */
-    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
-    #[SerializedName('e')]
+    #[Accessor(getter: "getEmail", setter: "setEmail")]
+    #[SerializedName("e")]
     #[Type(EmailInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?EmailInfo $email;
 
     /**
      * Subject
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
-    #[SerializedName('su')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName("su")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $subject;
 
     /**
@@ -173,8 +179,7 @@ class MessagePartHitInfo implements SearchHit
         ?string $part = null,
         ?EmailInfo $email = null,
         ?string $subject = null
-    )
-    {
+    ) {
         $this->email = $email;
         if (null !== $id) {
             $this->setId($id);

@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * StatsValues class
@@ -25,23 +31,23 @@ class StatsValues
 {
     /**
      * t
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getT', setter: 'setT')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getT", setter: "setT")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $t;
 
     /**
      * Stats
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getStats', setter: 'setStats')]
-    #[Type('array<Zimbra\Admin\Struct\NameAndValue>')]
-    #[XmlList(inline: true, entry: 'stat', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getStats", setter: "setStats")]
+    #[Type("array<Zimbra\Admin\Struct\NameAndValue>")]
+    #[XmlList(inline: true, entry: "stat", namespace: "urn:zimbraAdmin")]
     private $stats = [];
 
     /**
@@ -51,10 +57,9 @@ class StatsValues
      * @param  array $stats
      * @return self
      */
-    public function __construct(string $t = '', array $stats = [])
+    public function __construct(string $t = "", array $stats = [])
     {
-        $this->setT($t)
-             ->setStats($stats);
+        $this->setT($t)->setStats($stats);
     }
 
     /**
@@ -100,7 +105,8 @@ class StatsValues
     public function setStats(array $stats): self
     {
         $this->stats = array_filter(
-            $stats, static fn ($stat) => $stat instanceof NameAndValue
+            $stats,
+            static fn($stat) => $stat instanceof NameAndValue
         );
         return $this;
     }

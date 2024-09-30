@@ -25,11 +25,11 @@ enum AceRightType: string
      * Constant for value 'viewFreeBusy'
      * @return string 'viewFreeBusy'
      */
-    case VIEW_FREE_BUSY = 'viewFreeBusy';
+    case VIEW_FREE_BUSY = "viewFreeBusy";
 
     /**
      * Constant for value 'invite'
      * @return string 'invite'
      */
-    case INVITE = 'invite';
+    case INVITE = "invite";
 }

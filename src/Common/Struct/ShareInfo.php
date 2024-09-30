@@ -25,145 +25,150 @@ class ShareInfo
 {
     /**
      * Owner ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerId', setter: 'setOwnerId')]
-    #[SerializedName('ownerId')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerId", setter: "setOwnerId")]
+    #[SerializedName("ownerId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerId;
 
     /**
      * Owner email
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
-    #[SerializedName('ownerEmail')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerEmail", setter: "setOwnerEmail")]
+    #[SerializedName("ownerEmail")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerEmail;
 
     /**
      * Owner display name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getOwnerDisplayName', setter: 'setOwnerDisplayName')]
-    #[SerializedName('ownerName')]
-    #[Type('string')]
+    #[Accessor(getter: "getOwnerDisplayName", setter: "setOwnerDisplayName")]
+    #[SerializedName("ownerName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ownerDisplayName;
 
     /**
      * Folder ID
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
-    #[SerializedName('folderId')]
-    #[Type('int')]
+    #[Accessor(getter: "getFolderId", setter: "setFolderId")]
+    #[SerializedName("folderId")]
+    #[Type("int")]
     #[XmlAttribute]
     private $folderId;
 
     /**
      * Folder UUID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
-    #[SerializedName('folderUuid')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderUuid", setter: "setFolderUuid")]
+    #[SerializedName("folderUuid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderUuid;
 
     /**
      * Fully qualified path
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getFolderPath', setter: 'setFolderPath')]
-    #[SerializedName('folderPath')]
-    #[Type('string')]
+    #[Accessor(getter: "getFolderPath", setter: "setFolderPath")]
+    #[SerializedName("folderPath")]
+    #[Type("string")]
     #[XmlAttribute]
     private $folderPath;
 
     /**
      * Default type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
-    #[SerializedName('view')]
-    #[Type('string')]
+    #[Accessor(getter: "getDefaultView", setter: "setDefaultView")]
+    #[SerializedName("view")]
+    #[Type("string")]
     #[XmlAttribute]
     private $defaultView;
 
     /**
      * Rights
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getRights', setter: 'setRights')]
-    #[SerializedName('rights')]
-    #[Type('string')]
+    #[Accessor(getter: "getRights", setter: "setRights")]
+    #[SerializedName("rights")]
+    #[Type("string")]
     #[XmlAttribute]
     private $rights;
 
     /**
      * Grantee type
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
-    #[SerializedName('granteeType')]
-    #[Type('string')]
+    #[Accessor(getter: "getGranteeType", setter: "setGranteeType")]
+    #[SerializedName("granteeType")]
+    #[Type("string")]
     #[XmlAttribute]
     private $granteeType;
 
     /**
      * Grantee ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
-    #[SerializedName('granteeId')]
-    #[Type('string')]
+    #[Accessor(getter: "getGranteeId", setter: "setGranteeId")]
+    #[SerializedName("granteeId")]
+    #[Type("string")]
     #[XmlAttribute]
     private $granteeId;
 
     /**
      * Grantee name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGranteeName', setter: 'setGranteeName')]
-    #[SerializedName('granteeName')]
-    #[Type('string')]
+    #[Accessor(getter: "getGranteeName", setter: "setGranteeName")]
+    #[SerializedName("granteeName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $granteeName;
 
     /**
      * Grantee display name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getGranteeDisplayName', setter: 'setGranteeDisplayName')]
-    #[SerializedName('granteeDisplayName')]
-    #[Type('string')]
+    #[
+        Accessor(
+            getter: "getGranteeDisplayName",
+            setter: "setGranteeDisplayName"
+        )
+    ]
+    #[SerializedName("granteeDisplayName")]
+    #[Type("string")]
     #[XmlAttribute]
     private $granteeDisplayName;
 
     /**
      * Returned if the share is already mounted.
      * Contains the folder id of the mountpoint in the local mailbox.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMountpointId', setter: 'setMountpointId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMountpointId", setter: "setMountpointId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $mountpointId;
 
@@ -186,33 +191,32 @@ class ShareInfo
      * @return self
      */
     public function __construct(
-        string $ownerId = '',
-        string $ownerEmail = '',
-        string $ownerDisplayName = '',
+        string $ownerId = "",
+        string $ownerEmail = "",
+        string $ownerDisplayName = "",
         int $folderId = 0,
-        string $folderUuid = '',
-        string $folderPath = '',
-        string $defaultView = '',
-        string $rights = '',
-        string $granteeType = '',
-        string $granteeId = '',
-        string $granteeName = '',
-        string $granteeDisplayName = '',
+        string $folderUuid = "",
+        string $folderPath = "",
+        string $defaultView = "",
+        string $rights = "",
+        string $granteeType = "",
+        string $granteeId = "",
+        string $granteeName = "",
+        string $granteeDisplayName = "",
         string $mountpointId = null
-    )
-    {
+    ) {
         $this->setOwnerId($ownerId)
-             ->setOwnerEmail($ownerEmail)
-             ->setOwnerDisplayName($ownerDisplayName)
-             ->setFolderId($folderId)
-             ->setFolderUuid($folderUuid)
-             ->setFolderPath($folderPath)
-             ->setDefaultView($defaultView)
-             ->setRights($rights)
-             ->setGranteeType($granteeType)
-             ->setGranteeId($granteeId)
-             ->setGranteeName($granteeName)
-             ->setGranteeDisplayName($granteeDisplayName);
+            ->setOwnerEmail($ownerEmail)
+            ->setOwnerDisplayName($ownerDisplayName)
+            ->setFolderId($folderId)
+            ->setFolderUuid($folderUuid)
+            ->setFolderPath($folderPath)
+            ->setDefaultView($defaultView)
+            ->setRights($rights)
+            ->setGranteeType($granteeType)
+            ->setGranteeId($granteeId)
+            ->setGranteeName($granteeName)
+            ->setGranteeDisplayName($granteeDisplayName);
 
         if (null !== $mountpointId) {
             $this->setMountpointId($mountpointId);

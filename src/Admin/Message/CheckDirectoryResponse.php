@@ -27,12 +27,12 @@ class CheckDirectoryResponse extends SoapResponse
 {
     /**
      * Information for directories
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPaths', setter: 'setPaths')]
-    #[Type('array<Zimbra\Admin\Struct\DirPathInfo>')]
-    #[XmlList(inline: true, entry: 'directory', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getPaths", setter: "setPaths")]
+    #[Type("array<Zimbra\Admin\Struct\DirPathInfo>")]
+    #[XmlList(inline: true, entry: "directory", namespace: "urn:zimbraAdmin")]
     private $paths = [];
 
     /**
@@ -55,7 +55,8 @@ class CheckDirectoryResponse extends SoapResponse
     public function setPaths(array $paths): self
     {
         $this->paths = array_filter(
-            $paths, static fn ($path) => $path instanceof DirPathInfo
+            $paths,
+            static fn($path) => $path instanceof DirPathInfo
         );
         return $this;
     }

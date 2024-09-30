@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MailboxQuotaInfo class
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Struct
@@ -25,23 +25,23 @@ class MailboxQuotaInfo
 {
     /**
      * Account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getAccountId", setter: "setAccountId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $accountId;
 
     /**
      * Quota used
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
-    #[SerializedName('used')]
-    #[Type('int')]
+    #[Accessor(getter: "getQuotaUsed", setter: "setQuotaUsed")]
+    #[SerializedName("used")]
+    #[Type("int")]
     #[XmlAttribute]
     private $quotaUsed;
 
@@ -52,10 +52,9 @@ class MailboxQuotaInfo
      * @param int $quotaUsed
      * @return self
      */
-    public function __construct(string $accountId = '', int $quotaUsed = 0)
+    public function __construct(string $accountId = "", int $quotaUsed = 0)
     {
-        $this->setAccountId($accountId)
-             ->setQuotaUsed($quotaUsed);
+        $this->setAccountId($accountId)->setQuotaUsed($quotaUsed);
     }
 
     /**

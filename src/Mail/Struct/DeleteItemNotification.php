@@ -25,37 +25,36 @@ class DeleteItemNotification
 {
     /**
      * ID of deleted item
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Type of deleted item
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('t')]
-    #[Type('string')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("t")]
+    #[Type("string")]
     #[XmlAttribute]
     private $type;
 
     /**
      * Constructor
-     * 
+     *
      * @param  int $id
      * @param  string $type
      * @return self
      */
-    public function __construct(int $id = 0, string $type = '')
+    public function __construct(int $id = 0, string $type = "")
     {
-        $this->setId($id)
-             ->setType($type);
+        $this->setId($id)->setType($type);
     }
 
     /**

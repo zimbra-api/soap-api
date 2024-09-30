@@ -12,14 +12,11 @@ namespace Zimbra\Common\Soap;
 
 use PsrDiscovery\Discover;
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
-use Psr\Http\Message\{
-    RequestFactoryInterface,
-    StreamFactoryInterface
-};
+use Psr\Http\Message\{RequestFactoryInterface, StreamFactoryInterface};
 
 /**
  * Factory for client instances.
- * 
+ *
  * @package    Zimbra
  * @subpackage Common
  * @category   Soap
@@ -42,8 +39,7 @@ final class ClientFactory
         ?HttpClientInterface $httpClient = null,
         ?RequestFactoryInterface $requestFactory = null,
         ?StreamFactoryInterface $streamFactory = null
-    ): ClientInterface
-    {
+    ): ClientInterface {
         return new Client(
             $serviceUrl,
             $httpClient ?? Discover::httpClient(),

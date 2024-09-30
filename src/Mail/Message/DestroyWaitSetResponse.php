@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * DestroyWaitSetResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,12 +26,12 @@ class DestroyWaitSetResponse extends SoapResponse
 {
     /**
      * WaitSet ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
-    #[SerializedName('waitSet')]
-    #[Type('string')]
+    #[Accessor(getter: "getWaitSetId", setter: "setWaitSetId")]
+    #[SerializedName("waitSet")]
+    #[Type("string")]
     #[XmlAttribute]
     private $waitSetId;
 
@@ -41,7 +41,7 @@ class DestroyWaitSetResponse extends SoapResponse
      * @param  string $waitSetId
      * @return self
      */
-    public function __construct(string $waitSetId = '')
+    public function __construct(string $waitSetId = "")
     {
         $this->setWaitSetId($waitSetId);
     }

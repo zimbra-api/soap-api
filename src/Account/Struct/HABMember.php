@@ -10,7 +10,13 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * HABMember struct class
@@ -25,34 +31,34 @@ abstract class HABMember
 {
     /**
      * HAB Member name - an email address (user@domain)
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
     private $name;
 
     /**
      * Seniority index of the HAB group member
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getSeniorityIndex', setter: 'setSeniorityIndex')]
-    #[SerializedName('seniorityIndex')]
-    #[Type('int')]
+    #[Accessor(getter: "getSeniorityIndex", setter: "setSeniorityIndex")]
+    #[SerializedName("seniorityIndex")]
+    #[Type("int")]
     #[XmlAttribute]
     private $seniorityIndex;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $name
      * @param  int $seniorityIndex
      * @return self
      */
-    public function __construct(string $name = '', ?int $seniorityIndex = null)
+    public function __construct(string $name = "", ?int $seniorityIndex = null)
     {
         $this->setName($name);
         if (null !== $seniorityIndex) {

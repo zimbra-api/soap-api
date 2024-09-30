@@ -27,12 +27,12 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
 {
     /**
      * Date in format : YYYYMMDD[ThhmmssZ]
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
-    #[SerializedName('d')]
-    #[Type('string')]
+    #[Accessor(getter: "getDateTime", setter: "setDateTime")]
+    #[SerializedName("d")]
+    #[Type("string")]
     #[XmlAttribute]
     private $dateTime;
 
@@ -42,7 +42,7 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
      * @param  string $dateTime
      * @return self
      */
-    public function __construct(string $dateTime = '')
+    public function __construct(string $dateTime = "")
     {
         $this->setDateTime($dateTime);
     }

@@ -12,12 +12,17 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{
+    AttributeSelector,
+    AttributeSelectorTrait,
+    SoapEnvelopeInterface,
+    SoapRequest
+};
 
 /**
  * GetCosRequest class
  * Get Class Of Service (COS)
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -30,18 +35,18 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
 
     /**
      * COS
-     * 
+     *
      * @var CosSelector
      */
-    #[Accessor(getter: 'getCos', setter: 'setCos')]
-    #[SerializedName('cos')]
+    #[Accessor(getter: "getCos", setter: "setCos")]
+    #[SerializedName("cos")]
     #[Type(CosSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private CosSelector $cos;
 
     /**
      * Constructor
-     * 
+     *
      * @param  CosSelector $cos
      * @param  string $attrs
      * @return self
@@ -81,8 +86,6 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetCosEnvelope(
-            new GetCosBody($this)
-        );
+        return new GetCosEnvelope(new GetCosBody($this));
     }
 }

@@ -25,18 +25,18 @@ class FilterAction
 {
     /**
      * Index - specifies a guaranteed order for the action elements
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getIndex', setter: 'setIndex')]
-    #[SerializedName('index')]
-    #[Type('int')]
+    #[Accessor(getter: "getIndex", setter: "setIndex")]
+    #[SerializedName("index")]
+    #[Type("int")]
     #[XmlAttribute]
     private $index;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @return self
      */
@@ -63,7 +63,7 @@ class FilterAction
      * @param  int $index
      * @return self
      */
-    public function setIndex(int $index)
+    public function setIndex(int $index): self
     {
         $this->index = $index;
         return $this;

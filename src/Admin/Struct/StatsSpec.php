@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 
 /**
  * StatsSpec struct class
@@ -25,49 +31,50 @@ class StatsSpec
 {
     /**
      * Values
-     * 
+     *
      * @var StatsValueWrapper
      */
-    #[Accessor(getter: 'getValues', setter: 'setValues')]
-    #[SerializedName('values')]
+    #[Accessor(getter: "getValues", setter: "setValues")]
+    #[SerializedName("values")]
     #[Type(StatsValueWrapper::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private StatsValueWrapper $values;
 
     /**
      * Name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Limit
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
-    #[SerializedName('limit')]
-    #[Type('string')]
+    #[Accessor(getter: "getLimit", setter: "setLimit")]
+    #[SerializedName("limit")]
+    #[Type("string")]
     #[XmlAttribute]
     private $limit;
 
     /**
      * Constructor
-     * 
+     *
      * @param  StatsValueWrapper $values
      * @param  string $name
      * @param  string $limit
      * @return self
      */
     public function __construct(
-        StatsValueWrapper $values, ?string $name = null, ?string $limit = null
-    )
-    {
+        StatsValueWrapper $values,
+        ?string $name = null,
+        ?string $limit = null
+    ) {
         $this->setValues($values);
         if (null !== $name) {
             $this->setName($name);

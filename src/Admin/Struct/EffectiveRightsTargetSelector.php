@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{TargetType, TargetBy};
 
 /**
@@ -26,46 +32,47 @@ class EffectiveRightsTargetSelector
 {
     /**
      * Target type
-     * 
+     *
      * @var TargetType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private TargetType $type;
 
     /**
      * Target by
-     * 
+     *
      * @var TargetBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private ?TargetBy $by;
 
     /**
      * The value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param TargetType $type
      * @param TargetBy   $by
      * @param string     $value
      * @return self
      */
     public function __construct(
-        ?TargetType $type = null, ?TargetBy $by = null, ?string $value = null
-    )
-    {
+        ?TargetType $type = null,
+        ?TargetBy $by = null,
+        ?string $value = null
+    ) {
         $this->setType($type ?? TargetType::ACCOUNT);
         $this->by = $by;
         if (null !== $value) {

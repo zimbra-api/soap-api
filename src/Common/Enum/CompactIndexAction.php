@@ -25,11 +25,11 @@ enum CompactIndexAction: string
      * Constant for value 'start'
      * @return string 'start'
      */
-    case START = 'start';
+    case START = "start";
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    case STATUS = 'status';
+    case STATUS = "status";
 }

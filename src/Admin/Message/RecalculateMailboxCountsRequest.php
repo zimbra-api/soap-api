@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * RecalculateMailboxCountsRequest class
  * Recalculate Mailbox counts.
  * Forces immediate recalculation of total mailbox quota usage and all folder unread and size counts
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,13 +29,13 @@ class RecalculateMailboxCountsRequest extends SoapRequest
 {
     /**
      * Mailbox by account id selector
-     * 
+     *
      * @var Mailbox
      */
-    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
-    #[SerializedName('mbox')]
+    #[Accessor(getter: "getMbox", setter: "setMbox")]
+    #[SerializedName("mbox")]
     #[Type(Mailbox::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?Mailbox $mbox;
 
     /**

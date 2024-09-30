@@ -10,7 +10,13 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement
+};
 use Zimbra\Mail\Struct\ModifyContactSpec;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -19,7 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * Modify contact
  * When modifying tags, all specified tags are set and all others are unset.
  * If tn="{tag-names}" is NOT specified then any existing tags will remain set.
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -32,58 +38,63 @@ class ModifyContactRequest extends SoapRequest
      * If set, all attrs and group members in the specified contact are replaced with specified attrs and group members,
      * otherwise the attrs and group members are merged with the existing contact.
      * Unset by default.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getReplace', setter: 'setReplace')]
-    #[SerializedName('replace')]
-    #[Type('bool')]
+    #[Accessor(getter: "getReplace", setter: "setReplace")]
+    #[SerializedName("replace")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $replace;
 
     /**
      * If unset, the returned <cn> is just a placeholder containing the contact ID
      * (i.e. <cn id="{id}">). {verbose} is set by default.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getVerbose', setter: 'setVerbose')]
-    #[SerializedName('verbose')]
-    #[Type('bool')]
+    #[Accessor(getter: "getVerbose", setter: "setVerbose")]
+    #[SerializedName("verbose")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $verbose;
 
     /**
      * Set to return IMAP UID. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
-    #[SerializedName('wantImapUid')]
-    #[Type('bool')]
+    #[Accessor(getter: "getWantImapUid", setter: "setWantImapUid")]
+    #[SerializedName("wantImapUid")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantImapUid;
 
     /**
      * Set to return Modified Sequence. (default is unset.)
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
-    #[SerializedName('wantModSeq')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getWantModifiedSequence",
+            setter: "setWantModifiedSequence"
+        )
+    ]
+    #[SerializedName("wantModSeq")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $wantModifiedSequence;
 
     /**
      * Specification of contact modifications
-     * 
+     *
      * @var ModifyContactSpec
      */
-    #[Accessor(getter: 'getContact', setter: 'setContact')]
-    #[SerializedName('cn')]
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName("cn")]
     #[Type(ModifyContactSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ModifyContactSpec $contact;
 
     /**
@@ -102,8 +113,7 @@ class ModifyContactRequest extends SoapRequest
         ?bool $verbose = null,
         ?bool $wantImapUid = null,
         ?bool $wantModifiedSequence = null
-    )
-    {
+    ) {
         $this->setContact($contact);
         if (null !== $replace) {
             $this->setReplace($replace);
@@ -234,8 +244,6 @@ class ModifyContactRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ModifyContactEnvelope(
-            new ModifyContactBody($this)
-        );
+        return new ModifyContactEnvelope(new ModifyContactBody($this));
     }
 }

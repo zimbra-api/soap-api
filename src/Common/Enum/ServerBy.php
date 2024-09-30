@@ -25,17 +25,17 @@ enum ServerBy: string
      * Constant for value 'id'
      * @return string 'id'
      */
-    case ID = 'id';
+    case ID = "id";
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    case NAME = 'name';
+    case NAME = "name";
 
     /**
      * Constant for value 'serviceHostname'
      * @return string 'serviceHostname'
      */
-    case SERVICE_HOSTNAME = 'serviceHostname';
+    case SERVICE_HOSTNAME = "serviceHostname";
 }

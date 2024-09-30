@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * AttrsImpl trait
- * 
+ *
  * @package    Zimbra
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
@@ -24,12 +24,12 @@ trait AttrsImplTrait
 {
     /**
      * Attributes
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[Type('array<Zimbra\Common\Struct\KeyValuePair>')]
-    #[XmlList(inline: true, entry: 'a')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
+    #[XmlList(inline: true, entry: "a")]
     protected $attrs = [];
 
     /**
@@ -53,7 +53,8 @@ trait AttrsImplTrait
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof KeyValuePair
+            $attrs,
+            static fn($attr) => $attr instanceof KeyValuePair
         );
         return $this;
     }

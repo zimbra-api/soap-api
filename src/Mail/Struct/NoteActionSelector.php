@@ -25,23 +25,23 @@ class NoteActionSelector extends ActionSelector
 {
     /**
      * Content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
     #[XmlAttribute]
     private $content;
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
-    #[SerializedName('pos')]
-    #[Type('string')]
+    #[Accessor(getter: "getBounds", setter: "setBounds")]
+    #[SerializedName("pos")]
+    #[Type("string")]
     #[XmlAttribute]
     private $bounds;
 
@@ -66,7 +66,7 @@ class NoteActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation = '',
+        string $operation = "",
         ?string $ids = null,
         ?string $content = null,
         ?string $bounds = null,
@@ -81,8 +81,7 @@ class NoteActionSelector extends ActionSelector
         ?string $tagNames = null,
         ?bool $nonExistentIds = null,
         ?bool $newlyCreatedIds = null
-    )
-    {
+    ) {
         parent::__construct(
             $operation,
             $ids,

@@ -25,18 +25,18 @@ abstract class SoapBody implements SoapBodyInterface
 {
     /**
      * Soap fault
-     * 
+     *
      * @var SoapFaultInterface
      */
-    #[Accessor(getter: 'getSoapFault', setter: 'setSoapFault')]
-    #[SerializedName('Fault')]
+    #[Accessor(getter: "getSoapFault", setter: "setSoapFault")]
+    #[SerializedName("Fault")]
     #[Type(SoapFault::class)]
     #[XmlElement(namespace: SoapEnvelope::SOAP_NAMESPACE)]
     private ?SoapFaultInterface $soapFault;
 
     /**
      * Constructor
-     * 
+     *
      * @param  SoapRequestInterface $request
      * @param  SoapResponseInterface $response
      * @param  SoapFaultInterface $soapFault
@@ -46,8 +46,7 @@ abstract class SoapBody implements SoapBodyInterface
         ?SoapRequestInterface $request = null,
         ?SoapResponseInterface $response = null,
         ?SoapFaultInterface $soapFault = null
-    )
-    {
+    ) {
         $this->soapFault = $soapFault;
         if ($request instanceof SoapRequestInterface) {
             $this->setRequest($request);

@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * RankingActionRequest class
  * Perform an action on the contact ranking table
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -29,10 +29,10 @@ class RankingActionRequest extends SoapRequest
     /**
      * @var RankingActionSpec
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(RankingActionSpec::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private RankingActionSpec $action;
 
     /**
@@ -73,8 +73,6 @@ class RankingActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new RankingActionEnvelope(
-            new RankingActionBody($this)
-        );
+        return new RankingActionEnvelope(new RankingActionBody($this));
     }
 }

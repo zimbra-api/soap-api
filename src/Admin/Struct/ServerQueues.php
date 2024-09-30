@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlList
+};
 
 /**
  * ServerQueues struct class
@@ -25,36 +31,35 @@ class ServerQueues
 {
     /**
      * MTA server
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getServerName', setter: 'setServerName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getServerName", setter: "setServerName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $serverName;
 
     /**
      * Queue information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getQueues', setter: 'setQueues')]
-    #[Type('array<Zimbra\Admin\Struct\MailQueueCount>')]
-    #[XmlList(inline: true, entry: 'queue', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getQueues", setter: "setQueues")]
+    #[Type("array<Zimbra\Admin\Struct\MailQueueCount>")]
+    #[XmlList(inline: true, entry: "queue", namespace: "urn:zimbraAdmin")]
     private $queues = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $serverName
      * @param  array  $queues
      * @return self
      */
-    public function __construct(string $serverName = '', array $queues = [])
+    public function __construct(string $serverName = "", array $queues = [])
     {
-        $this->setServerName($serverName)
-             ->setQueues($queues);
+        $this->setServerName($serverName)->setQueues($queues);
     }
 
     /**
@@ -88,7 +93,8 @@ class ServerQueues
     public function setQueues(array $queues): self
     {
         $this->queues = array_filter(
-            $queues, static fn ($queue) => $queue instanceof MailQueueCount
+            $queues,
+            static fn($queue) => $queue instanceof MailQueueCount
         );
         return $this;
     }

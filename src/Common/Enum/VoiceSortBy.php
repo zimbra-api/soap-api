@@ -25,35 +25,35 @@ enum VoiceSortBy: string
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    case DATE_DESC = 'dateDesc';
+    case DATE_DESC = "dateDesc";
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    case DATE_ASC = 'dateAsc';
+    case DATE_ASC = "dateAsc";
 
     /**
      * Constant for value 'durDesc'
      * @return string 'durDesc'
      */
-    case DUR_DESC = 'durDesc';
+    case DUR_DESC = "durDesc";
 
     /**
      * Constant for value 'durAsc'
      * @return string 'durAsc'
      */
-    case DUR_ASC = 'durAsc';
+    case DUR_ASC = "durAsc";
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    case NAME_DESC = 'nameDesc';
+    case NAME_DESC = "nameDesc";
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    case NAME_ASC = 'nameAsc';
+    case NAME_ASC = "nameAsc";
 }

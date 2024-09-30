@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetMiniCalResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,22 +27,22 @@ class GetMiniCalResponse extends SoapResponse
 {
     /**
      * Matching busy dates in format : yyyymmdd
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getBusyDates', setter: 'setBusyDates')]
-    #[Type('array<string>')]
-    #[XmlList(inline: true, entry: 'date', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getBusyDates", setter: "setBusyDates")]
+    #[Type("array<string>")]
+    #[XmlList(inline: true, entry: "date", namespace: "urn:zimbraMail")]
     private $busyDates = [];
 
     /**
      * Error for each calendar folder that couldn't be accessed
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
-    #[Type('array<Zimbra\Mail\Struct\MiniCalError>')]
-    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getErrors", setter: "setErrors")]
+    #[Type("array<Zimbra\Mail\Struct\MiniCalError>")]
+    #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraMail")]
     private $errors = [];
 
     /**
@@ -54,8 +54,7 @@ class GetMiniCalResponse extends SoapResponse
      */
     public function __construct(array $busyDates = [], array $errors = [])
     {
-        $this->setBusyDates($busyDates)
-             ->setErrors($errors);
+        $this->setBusyDates($busyDates)->setErrors($errors);
     }
 
     /**
@@ -89,7 +88,8 @@ class GetMiniCalResponse extends SoapResponse
     public function setErrors(array $errors): self
     {
         $this->errors = array_filter(
-            $errors, static fn ($error) => $error instanceof MiniCalError
+            $errors,
+            static fn($error) => $error instanceof MiniCalError
         );
         return $this;
     }

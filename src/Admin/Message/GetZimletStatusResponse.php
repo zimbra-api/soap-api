@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlElement,
+    XmlList
+};
 use Zimbra\Admin\Struct\{ZimletStatusCos, ZimletStatusParent};
 use Zimbra\Common\Struct\SoapResponse;
 
@@ -27,23 +33,23 @@ class GetZimletStatusResponse extends SoapResponse
 {
     /**
      * Zimlet information
-     * 
+     *
      * @var ZimletStatusParent
      */
-    #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
-    #[SerializedName('zimlets')]
+    #[Accessor(getter: "getZimlets", setter: "setZimlets")]
+    #[SerializedName("zimlets")]
     #[Type(ZimletStatusParent::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?ZimletStatusParent $zimlets;
 
     /**
      * Class Of Service (COS) Information
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCoses', setter: 'setCoses')]
-    #[Type('array<Zimbra\Admin\Struct\ZimletStatusCos>')]
-    #[XmlList(inline: true, entry: 'cos', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCoses", setter: "setCoses")]
+    #[Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")]
+    #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
     private $coses = [];
 
     /**
@@ -53,8 +59,10 @@ class GetZimletStatusResponse extends SoapResponse
      * @param array $coses
      * @return self
      */
-    public function __construct(?ZimletStatusParent $zimlets = null, array $coses = [])
-    {
+    public function __construct(
+        ?ZimletStatusParent $zimlets = null,
+        array $coses = []
+    ) {
         $this->setCoses($coses);
         $this->zimlets = $zimlets;
     }
@@ -90,7 +98,8 @@ class GetZimletStatusResponse extends SoapResponse
     public function setCoses(array $coses): self
     {
         $this->coses = array_filter(
-            $coses, static fn ($cos) => $cos instanceof ZimletStatusCos
+            $coses,
+            static fn($cos) => $cos instanceof ZimletStatusCos
         );
         return $this;
     }

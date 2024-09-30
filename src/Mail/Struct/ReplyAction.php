@@ -25,25 +25,25 @@ class ReplyAction extends FilterAction
 {
     /**
      * Reply content
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getContent', setter: 'setContent')]
-    #[SerializedName('content')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName("content")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $content;
 
     /**
      * Constructor
-     * 
+     *
      * @param int $index
      * @param string $content
      * @return self
      */
     public function __construct(?int $index = null, ?string $content = null)
     {
-    	parent::__construct($index);
+        parent::__construct($index);
         if (null !== $content) {
             $this->setContent($content);
         }

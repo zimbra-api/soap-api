@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetAppointmentResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,24 +27,24 @@ class GetAppointmentResponse extends SoapResponse
 {
     /**
      * Appointment information
-     * 
+     *
      * @var CalendarItemInfo
      */
-    #[Accessor(getter: 'getApptItem', setter: 'setApptItem')]
-    #[SerializedName('appt')]
+    #[Accessor(getter: "getApptItem", setter: "setApptItem")]
+    #[SerializedName("appt")]
     #[Type(CalendarItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?CalendarItemInfo $appt;
 
     /**
      * Task information
-     * 
+     *
      * @var TaskItemInfo
      */
-    #[Accessor(getter: 'getTaskItem', setter: 'setTaskItem')]
-    #[SerializedName('task')]
+    #[Accessor(getter: "getTaskItem", setter: "setTaskItem")]
+    #[SerializedName("task")]
     #[Type(TaskItemInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private ?TaskItemInfo $task;
 
     /**
@@ -56,8 +56,7 @@ class GetAppointmentResponse extends SoapResponse
     public function __construct(
         ?CalendarItemInfo $appt = null,
         ?TaskItemInfo $task = null
-    )
-    {
+    ) {
         $this->appt = $appt;
         $this->task = $task;
     }

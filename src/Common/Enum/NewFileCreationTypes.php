@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common\Enum;
 
-use MyCLabs\Enum\Enum;
-
 /**
  * NewFileCreationTypes enum class
  *
@@ -27,17 +25,17 @@ enum NewFileCreationTypes: string
      * Constant for value 'document'
      * @return string 'document'
      */
-    case DOCUMENT = 'document';
+    case DOCUMENT = "document";
 
     /**
      * Constant for value 'presentation'
      * @return string 'presentation'
      */
-    case PRESENTATION = 'presentation';
+    case PRESENTATION = "presentation";
 
     /**
      * Constant for value 'spreadsheet'
      * @return string 'spreadsheet'
      */
-    case SPREADSHEET = 'spreadsheet';
+    case SPREADSHEET = "spreadsheet";
 }

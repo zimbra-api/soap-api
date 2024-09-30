@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ImportAppointmentsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,23 +26,23 @@ class ImportAppointmentsResponse extends SoapResponse
 {
     /**
      * List of created IDs
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[SerializedName('ids')]
-    #[Type('string')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[SerializedName("ids")]
+    #[Type("string")]
     #[XmlAttribute]
     private $ids;
 
     /**
      * Number of imported appointments
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getNum', setter: 'setNum')]
-    #[SerializedName('n')]
-    #[Type('int')]
+    #[Accessor(getter: "getNum", setter: "setNum")]
+    #[SerializedName("n")]
+    #[Type("int")]
     #[XmlAttribute]
     private $num;
 
@@ -53,10 +53,9 @@ class ImportAppointmentsResponse extends SoapResponse
      * @param  int $num
      * @return self
      */
-    public function __construct(string $ids = '', int $num = 0)
+    public function __construct(string $ids = "", int $num = 0)
     {
-        $this->setIds($ids)
-             ->setNum($num);
+        $this->setIds($ids)->setNum($num);
     }
 
     /**

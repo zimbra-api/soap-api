@@ -27,25 +27,25 @@ class CheckHostnameResolveRequest extends SoapRequest
 {
     /**
      * Hostname
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getHostname', setter: 'setHostname')]
-    #[SerializedName('hostname')]
-    #[Type('string')]
+    #[Accessor(getter: "getHostname", setter: "setHostname")]
+    #[SerializedName("hostname")]
+    #[Type("string")]
     #[XmlAttribute]
     private $hostname;
 
     /**
      * Constructor
-     * 
+     *
      * @param  string $hostname
      * @return self
      */
     public function __construct(?string $hostname = null)
     {
         if (null !== $hostname) {
-	        $this->setHostname($hostname);
+            $this->setHostname($hostname);
         }
     }
 

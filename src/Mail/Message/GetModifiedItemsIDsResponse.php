@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetModifiedItemsIDsResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,32 +26,32 @@ class GetModifiedItemsIDsResponse extends SoapResponse
 {
     /**
      * IDs of modified items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getMids', setter: 'setMids')]
-    #[Type('array<int>')]
-    #[XmlList(inline: true, entry: 'mids', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getMids", setter: "setMids")]
+    #[Type("array<int>")]
+    #[XmlList(inline: true, entry: "mids", namespace: "urn:zimbraMail")]
     private $mids = [];
 
     /**
      * IDs of deleted items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getDids', setter: 'setDids')]
-    #[Type('array<int>')]
-    #[XmlList(inline: true, entry: 'dids', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getDids", setter: "setDids")]
+    #[Type("array<int>")]
+    #[XmlList(inline: true, entry: "dids", namespace: "urn:zimbraMail")]
     private $dids = [];
 
     /**
      * IDs of modified items
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getIds', setter: 'setIds')]
-    #[Type('array<int>')]
-    #[XmlList(inline: true, entry: 'ids', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getIds", setter: "setIds")]
+    #[Type("array<int>")]
+    #[XmlList(inline: true, entry: "ids", namespace: "urn:zimbraMail")]
     private $ids = [];
 
     /**
@@ -62,11 +62,12 @@ class GetModifiedItemsIDsResponse extends SoapResponse
      * @param  array $ids
      * @return self
      */
-    public function __construct(array $mids = [], array $dids = [], array $ids = [])
-    {
-        $this->setMids($mids)
-             ->setDids($dids)
-             ->setIds($ids);
+    public function __construct(
+        array $mids = [],
+        array $dids = [],
+        array $ids = []
+    ) {
+        $this->setMids($mids)->setDids($dids)->setIds($ids);
     }
 
     /**
@@ -77,7 +78,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
      */
     public function setMids(array $mids): self
     {
-        $mids = array_map(static fn ($id) => (int) $id, $mids);
+        $mids = array_map(static fn($id) => (int) $id, $mids);
         $this->mids = array_unique($mids);
         return $this;
     }
@@ -100,7 +101,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
      */
     public function setDids(array $dids): self
     {
-        $dids = array_map(static fn ($id) => (int) $id, $dids);
+        $dids = array_map(static fn($id) => (int) $id, $dids);
         $this->dids = array_unique($dids);
         return $this;
     }
@@ -123,7 +124,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
      */
     public function setIds(array $ids): self
     {
-        $ids = array_map(static fn ($id) => (int) $id, $ids);
+        $ids = array_map(static fn($id) => (int) $id, $ids);
         $this->ids = array_unique($ids);
         return $this;
     }

@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetLastItemIdInMailboxResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -26,13 +26,13 @@ class GetLastItemIdInMailboxResponse extends SoapResponse
 {
     /**
      * ID of last item created in mailbox
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('int')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("int")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
     private $id;
 
     /**

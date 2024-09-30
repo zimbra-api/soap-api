@@ -16,11 +16,11 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAccountDistributionListsRequest class
- * Returns groups the user is either a member or an owner of. 
+ * Returns groups the user is either a member or an owner of.
  * Notes:
  *  - isOwner is returned only if ownerOf on the request is 1 (true).
  *  - isMember is returned only if memberOf on the request is not "none".
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -32,22 +32,22 @@ class GetAccountDistributionListsRequest extends SoapRequest
     /**
      * Set to 1 if the response should include groups the user is an owner of.
      * Set to 0 (default) if do not need to know which groups the user is an owner of.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getOwnerOf', setter: 'setOwnerOf')]
-    #[SerializedName('ownerOf')]
-    #[Type('bool')]
+    #[Accessor(getter: "getOwnerOf", setter: "setOwnerOf")]
+    #[SerializedName("ownerOf")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $ownerOf;
 
     /**
      * Possible values: all|directOnly|none
-     * 
+     *
      * @var MemberOfSelector
      */
-    #[Accessor(getter: 'getMemberOf', setter: 'setMemberOf')]
-    #[SerializedName('memberOf')]
+    #[Accessor(getter: "getMemberOf", setter: "setMemberOf")]
+    #[SerializedName("memberOf")]
     #[XmlAttribute]
     private ?MemberOfSelector $memberOf;
 
@@ -55,12 +55,12 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * comma-seperated attributes to return.
      * Note: non-owner user can see only certain attributes of a group.
      * If a specified attribute is not visible to the user, it will not be returned.
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('string')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("string")]
     #[XmlAttribute]
     private $attrs;
 
@@ -76,13 +76,12 @@ class GetAccountDistributionListsRequest extends SoapRequest
         ?bool $ownerOf = null,
         ?MemberOfSelector $memberOf = null,
         ?string $attrs = null
-    )
-    {
+    ) {
         $this->memberOf = $memberOf;
-        if(null !== $ownerOf) {
+        if (null !== $ownerOf) {
             $this->setOwnerOf($ownerOf);
         }
-        if(null !== $attrs) {
+        if (null !== $attrs) {
             $this->setAttrs($attrs);
         }
     }

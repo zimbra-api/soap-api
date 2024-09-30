@@ -14,7 +14,7 @@ use Zimbra\Common\Struct\RssDataSource;
 
 /**
  * AccountRssDataSource struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct

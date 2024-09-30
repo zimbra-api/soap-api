@@ -28,17 +28,17 @@ class ClearCookieRequest extends SoapRequest
 {
     /**
      * Specifies cookies to clean
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCookies', setter: 'setCookies')]
-    #[Type('array<Zimbra\Admin\Struct\CookieSpec>')]
-    #[XmlList(inline: true, entry: 'cookie', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCookies", setter: "setCookies")]
+    #[Type("array<Zimbra\Admin\Struct\CookieSpec>")]
+    #[XmlList(inline: true, entry: "cookie", namespace: "urn:zimbraAdmin")]
     private $cookies = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $cookies
      * @return self
      */
@@ -68,7 +68,8 @@ class ClearCookieRequest extends SoapRequest
     public function setCookies(array $cookies): self
     {
         $this->cookies = array_filter(
-            $cookies, static fn ($cookie) => $cookie instanceof CookieSpec
+            $cookies,
+            static fn($cookie) => $cookie instanceof CookieSpec
         );
         return $this;
     }
@@ -88,8 +89,6 @@ class ClearCookieRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ClearCookieEnvelope(
-            new ClearCookieBody($this)
-        );
+        return new ClearCookieEnvelope(new ClearCookieBody($this));
     }
 }

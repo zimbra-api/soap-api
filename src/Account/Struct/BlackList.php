@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\OpValue;
 
 /**
  * BlackList struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -27,14 +27,14 @@ class BlackList
     /**
      * @var array
      */
-    #[Accessor(getter: 'getAddrs', setter: 'setAddrs')]
-    #[Type('array<Zimbra\Common\Struct\OpValue>')]
-    #[XmlList(inline: true, entry: 'addr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAddrs", setter: "setAddrs")]
+    #[Type("array<Zimbra\Common\Struct\OpValue>")]
+    #[XmlList(inline: true, entry: "addr", namespace: "urn:zimbraAccount")]
     private $addrs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param array $addrs
      * @return self
      */
@@ -64,7 +64,8 @@ class BlackList
     public function setAddrs(array $addrs): self
     {
         $this->addrs = array_filter(
-            $addrs, static fn ($addr) => $addr instanceof OpValue
+            $addrs,
+            static fn($addr) => $addr instanceof OpValue
         );
         return $this;
     }

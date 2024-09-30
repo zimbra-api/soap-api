@@ -26,34 +26,36 @@ class LoggerInfo
 {
     /**
      * Category
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCategory', setter: 'setCategory')]
-    #[SerializedName('category')]
-    #[Type('string')]
+    #[Accessor(getter: "getCategory", setter: "setCategory")]
+    #[SerializedName("category")]
+    #[Type("string")]
     #[XmlAttribute]
     private $category;
 
     /**
      * Logging level
-     * 
+     *
      * @var LoggingLevel
      */
-    #[Accessor(getter: 'getLevel', setter: 'setLevel')]
-    #[SerializedName('level')]
+    #[Accessor(getter: "getLevel", setter: "setLevel")]
+    #[SerializedName("level")]
     #[XmlAttribute]
     private ?LoggingLevel $level;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $category
      * @param LoggingLevel $level
      * @return self
      */
-    public function __construct(string $category = '', ?LoggingLevel $level = null)
-    {
+    public function __construct(
+        string $category = "",
+        ?LoggingLevel $level = null
+    ) {
         $this->setCategory($category);
         $this->level = $level;
     }

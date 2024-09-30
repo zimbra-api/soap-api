@@ -27,13 +27,13 @@ class GetDistributionListResponse extends SoapResponse
 {
     /**
      * Information about distribution list
-     * 
+     *
      * @var DistributionListInfo
      */
-    #[Accessor(getter: 'getDl', setter: 'setDl')]
-    #[SerializedName('dl')]
+    #[Accessor(getter: "getDl", setter: "setDl")]
+    #[SerializedName("dl")]
     #[Type(DistributionListInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?DistributionListInfo $dl;
 
     /**

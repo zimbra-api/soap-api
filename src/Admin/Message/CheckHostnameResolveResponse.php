@@ -10,7 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    AccessType,
+    SerializedName,
+    Type,
+    XmlElement
+};
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -26,24 +32,24 @@ class CheckHostnameResolveResponse extends SoapResponse
 {
     /**
      * Code
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getCode', setter: 'setCode')]
-    #[SerializedName('code')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getCode", setter: "setCode")]
+    #[SerializedName("code")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $code;
 
     /**
      * Message
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
-    #[SerializedName('message')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName("message")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $message;
 
     /**
@@ -53,10 +59,7 @@ class CheckHostnameResolveResponse extends SoapResponse
      * @param string $message
      * @return self
      */
-    public function __construct(
-        string $code = '',
-        ?string $message = null
-    )
+    public function __construct(string $code = "", ?string $message = null)
     {
         $this->setCode($code);
         if (null !== $message) {

@@ -25,11 +25,11 @@ enum RankingActionOp: string
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    case RESET = 'reset';
+    case RESET = "reset";
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    case DELETE = 'delete';
+    case DELETE = "delete";
 }

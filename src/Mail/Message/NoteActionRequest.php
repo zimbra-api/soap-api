@@ -17,7 +17,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * NoteActionRequest class
  * Perform an action on an note
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -28,13 +28,13 @@ class NoteActionRequest extends SoapRequest
 {
     /**
      * Specify the action to perform
-     * 
+     *
      * @var NoteActionSelector
      */
-    #[Accessor(getter: 'getAction', setter: 'setAction')]
-    #[SerializedName('action')]
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName("action")]
     #[Type(NoteActionSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlElement(namespace: "urn:zimbraMail")]
     private NoteActionSelector $action;
 
     /**
@@ -75,8 +75,6 @@ class NoteActionRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new NoteActionEnvelope(
-            new NoteActionBody($this)
-        );
+        return new NoteActionEnvelope(new NoteActionBody($this));
     }
 }

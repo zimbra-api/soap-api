@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * ReloadLocalConfigRequest class
  * Reload LocalConfig
- * 
+ *
  * @package    Zimbra
  * @subpackage Admin
  * @category   Message
@@ -29,8 +29,6 @@ class ReloadLocalConfigRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new ReloadLocalConfigEnvelope(
-            new ReloadLocalConfigBody($this)
-        );
+        return new ReloadLocalConfigEnvelope(new ReloadLocalConfigBody($this));
     }
 }

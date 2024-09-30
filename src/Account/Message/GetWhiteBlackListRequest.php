@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetWhiteBlackListRequest class
  * Get the anti-spam WhiteList and BlackList addresses
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,8 +29,6 @@ class GetWhiteBlackListRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetWhiteBlackListEnvelope(
-            new GetWhiteBlackListBody($this)
-        );
+        return new GetWhiteBlackListEnvelope(new GetWhiteBlackListBody($this));
     }
 }

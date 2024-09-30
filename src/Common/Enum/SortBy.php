@@ -25,89 +25,89 @@ enum SortBy: string
      * Constant for value 'none'
      * @return string 'none'
      */
-    case NONE = 'none';
+    case NONE = "none";
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    case DATE_ASC = 'dateAsc';
+    case DATE_ASC = "dateAsc";
 
     /**
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    case DATE_DESC = 'dateDesc';
+    case DATE_DESC = "dateDesc";
 
     /**
      * Constant for value 'subjAsc'
      * @return string 'subjAsc'
      */
-    case SUBJ_ASC = 'subjAsc';
+    case SUBJ_ASC = "subjAsc";
 
     /**
      * Constant for value 'subjDesc'
      * @return string 'subjDesc'
      */
-    case SUBJ_DESC = 'subjDesc';
+    case SUBJ_DESC = "subjDesc";
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    case NAME_ASC = 'nameAsc';
+    case NAME_ASC = "nameAsc";
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    case NAME_DESC = 'nameDesc';
+    case NAME_DESC = "nameDesc";
 
     /**
      * Constant for value 'rcptAsc'
      * @return string 'rcptAsc'
      */
-    case RCPT_ASC = 'rcptAsc';
+    case RCPT_ASC = "rcptAsc";
 
     /**
      * Constant for value 'rcptDesc'
      * @return string 'rcptDesc'
      */
-    case RCPT_DESC = 'rcptDesc';
+    case RCPT_DESC = "rcptDesc";
 
     /**
      * Constant for value 'attachAsc'
      * @return string 'attachAsc'
      */
-    case ATTACH_ASC = 'attachAsc';
+    case ATTACH_ASC = "attachAsc";
 
     /**
      * Constant for value 'attachDesc'
      * @return string 'attachDesc'
      */
-    case ATTACH_DESC = 'attachDesc';
+    case ATTACH_DESC = "attachDesc";
 
     /**
      * Constant for value 'flagAsc'
      * @return string 'flagAsc'
      */
-    case FLAG_ASC = 'flagAsc';
+    case FLAG_ASC = "flagAsc";
 
     /**
      * Constant for value 'flagDesc'
      * @return string 'flagDesc'
      */
-    case FLAG_DESC = 'flagDesc';
+    case FLAG_DESC = "flagDesc";
 
     /**
      * Constant for value 'priorityAsc'
      * @return string 'priorityAsc'
      */
-    case PRIORITY_ASC = 'priorityAsc';
+    case PRIORITY_ASC = "priorityAsc";
 
     /**
      * Constant for value 'priorityDesc'
      * @return string 'priorityDesc'
      */
-    case PRIORITY_DESC = 'priorityDesc';
+    case PRIORITY_DESC = "priorityDesc";
 }

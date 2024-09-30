@@ -10,11 +10,18 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlElement,
+    XmlList
+};
 
 /**
  * ChildAccount struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -25,63 +32,63 @@ class ChildAccount
 {
     /**
      * Child account ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Child account name
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Flag whether child account is visible or not
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isVisible', setter: 'setIsVisible')]
-    #[SerializedName('visible')]
-    #[Type('bool')]
+    #[Accessor(getter: "isVisible", setter: "setIsVisible")]
+    #[SerializedName("visible")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isVisible;
 
     /**
      * Flag whether child account is active or not
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'isActive', setter: 'setIsActive')]
-    #[SerializedName('active')]
-    #[Type('bool')]
+    #[Accessor(getter: "isActive", setter: "setIsActive")]
+    #[SerializedName("active")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $isActive;
 
     /**
      * Attributes of the child account, including displayName
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
-    #[SerializedName('attrs')]
-    #[Type('array<Zimbra\Account\Struct\Attr>')]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
-    #[XmlList(inline: false, entry: 'attr', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[SerializedName("attrs")]
+    #[Type("array<Zimbra\Account\Struct\Attr>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
     private $attrs = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param string $name
      * @param bool $isVisible
@@ -90,18 +97,17 @@ class ChildAccount
      * @return self
      */
     public function __construct(
-        string $id = '',
-        string $name = '',
+        string $id = "",
+        string $name = "",
         bool $isVisible = false,
         bool $isActive = false,
         array $attrs = []
-    )
-    {
+    ) {
         $this->setId($id)
-             ->setName($name)
-             ->setIsVisible($isVisible)
-             ->setIsActive($isActive)
-             ->setAttrs($attrs);
+            ->setName($name)
+            ->setIsVisible($isVisible)
+            ->setIsActive($isActive)
+            ->setAttrs($attrs);
     }
 
     /**
@@ -211,7 +217,8 @@ class ChildAccount
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter(
-            $attrs, static fn ($attr) => $attr instanceof Attr
+            $attrs,
+            static fn($attr) => $attr instanceof Attr
         );
         return $this;
     }

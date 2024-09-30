@@ -25,11 +25,11 @@ enum OnError: string
      * Constant for value 'continue'
      * @return string 'continue'
      */
-    case CONTINUE = 'continue';
+    case CONTINUE = "continue";
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    case STOP = 'stop';
+    case STOP = "stop";
 }

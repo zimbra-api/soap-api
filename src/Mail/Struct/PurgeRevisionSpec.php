@@ -25,52 +25,57 @@ class PurgeRevisionSpec
 {
     /**
      * Item ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
     #[XmlAttribute]
     private $id;
 
     /**
      * Revision
-     * 
+     *
      * @var int
      */
-    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
-    #[SerializedName('ver')]
-    #[Type('int')]
+    #[Accessor(getter: "getVersion", setter: "setVersion")]
+    #[SerializedName("ver")]
+    #[Type("int")]
     #[XmlAttribute]
     private $version;
 
     /**
      * When set, the server will purge all the old revisions inclusive of the revision
      * specified in the request.
-     * 
+     *
      * @var bool
      */
-    #[Accessor(getter: 'getIncludeOlderRevisions', setter: 'setIncludeOlderRevisions')]
-    #[SerializedName('includeOlderRevisions')]
-    #[Type('bool')]
+    #[
+        Accessor(
+            getter: "getIncludeOlderRevisions",
+            setter: "setIncludeOlderRevisions"
+        )
+    ]
+    #[SerializedName("includeOlderRevisions")]
+    #[Type("bool")]
     #[XmlAttribute]
     private $includeOlderRevisions;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $id
      * @param int $version
      * @param bool $includeOlderRevisions
      * @return self
      */
     public function __construct(
-        string $id = '', int $version = 0, ?bool $includeOlderRevisions = null
-    )
-    {
-        $this->setId($id)
-             ->setVersion($version);
+        string $id = "",
+        int $version = 0,
+        ?bool $includeOlderRevisions = null
+    ) {
+        $this->setId($id)->setVersion($version);
         if (null !== $includeOlderRevisions) {
             $this->setIncludeOlderRevisions($includeOlderRevisions);
         }

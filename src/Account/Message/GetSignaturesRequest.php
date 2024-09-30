@@ -15,7 +15,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 /**
  * GetSignaturesRequest class
  * Get signatures associated with an account
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -29,8 +29,6 @@ class GetSignaturesRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetSignaturesEnvelope(
-            new GetSignaturesBody($this)
-        );
+        return new GetSignaturesEnvelope(new GetSignaturesBody($this));
     }
 }

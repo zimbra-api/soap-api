@@ -25,41 +25,41 @@ class MimePartAttachSpec extends AttachSpec
 {
     /**
      * Message ID
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
-    #[SerializedName('mid')]
-    #[Type('string')]
+    #[Accessor(getter: "getMessageId", setter: "setMessageId")]
+    #[SerializedName("mid")]
+    #[Type("string")]
     #[XmlAttribute]
     private $messageId;
 
     /**
      * Part
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getPart', setter: 'setPart')]
-    #[SerializedName('part')]
-    #[Type('string')]
+    #[Accessor(getter: "getPart", setter: "setPart")]
+    #[SerializedName("part")]
+    #[Type("string")]
     #[XmlAttribute]
     private $part;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $messageId
      * @param string $part
      * @param bool $optional
      * @return self
      */
     public function __construct(
-        string $messageId = '', string $part = '', ?bool $optional = null
-    )
-    {
+        string $messageId = "",
+        string $part = "",
+        ?bool $optional = null
+    ) {
         parent::__construct($optional);
-        $this->setMessageId($messageId)
-             ->setPart($part);
+        $this->setMessageId($messageId)->setPart($part);
     }
 
     /**

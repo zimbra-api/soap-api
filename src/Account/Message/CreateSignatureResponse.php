@@ -27,13 +27,13 @@ class CreateSignatureResponse extends SoapResponse
 {
     /**
      * Information about created signature
-     * 
+     *
      * @var NameId
      */
-    #[Accessor(getter: 'getSignature', setter: 'setSignature')]
-    #[SerializedName('signature')]
+    #[Accessor(getter: "getSignature", setter: "setSignature")]
+    #[SerializedName("signature")]
     #[Type(NameId::class)]
-    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?NameId $signature;
 
     /**

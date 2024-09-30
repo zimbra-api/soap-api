@@ -26,17 +26,17 @@ class AdminZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
 {
     /**
      * Global zimlet configuration property
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]
-    #[Type('array<Zimbra\Admin\Struct\AdminZimletProperty>')]
-    #[XmlList(inline: true, entry: 'property', namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getZimletProperties", setter: "setZimletProperties")]
+    #[Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")]
+    #[XmlList(inline: true, entry: "property", namespace: "urn:zimbraAdmin")]
     private $properties = [];
 
     /**
      * Constructor
-     * 
+     *
      * @param  array $properties
      * @return self
      */
@@ -68,7 +68,8 @@ class AdminZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     public function setZimletProperties(array $properties): self
     {
         $this->properties = array_filter(
-            $properties, static fn ($prop) => $prop instanceof AdminZimletProperty
+            $properties,
+            static fn($prop) => $prop instanceof AdminZimletProperty
         );
         return $this;
     }

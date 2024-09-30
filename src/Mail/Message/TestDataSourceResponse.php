@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * TestDataSourceResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Mail
  * @category   Message
@@ -27,82 +27,87 @@ class TestDataSourceResponse extends SoapResponse
 {
     /**
      * Imap data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getImapDataSources", setter: "setImapDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "imap", namespace: "urn:zimbraMail")]
     private $imapDataSources = [];
 
     /**
      * Pop3 data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getPop3DataSources", setter: "setPop3DataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "pop3", namespace: "urn:zimbraMail")]
     private $pop3DataSources = [];
 
     /**
      * Caldav data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCaldavDataSources", setter: "setCaldavDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "caldav", namespace: "urn:zimbraMail")]
     private $caldavDataSources = [];
 
     /**
      * Yab data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getYabDataSources", setter: "setYabDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "yab", namespace: "urn:zimbraMail")]
     private $yabDataSources = [];
 
     /**
      * Rss data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getRssDataSources", setter: "setRssDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "rss", namespace: "urn:zimbraMail")]
     private $rssDataSources = [];
 
     /**
      * Gal data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getGalDataSources", setter: "setGalDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "gal", namespace: "urn:zimbraMail")]
     private $galDataSources = [];
 
     /**
      * Cal data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraMail')]
+    #[Accessor(getter: "getCalDataSources", setter: "setCalDataSources")]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "cal", namespace: "urn:zimbraMail")]
     private $calDataSources = [];
 
     /**
      * Unknown data sources
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
-    #[Type('array<Zimbra\Mail\Struct\TestDataSource>')]
-    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraMail')]
+    #[
+        Accessor(
+            getter: "getUnknownDataSources",
+            setter: "setUnknownDataSources"
+        )
+    ]
+    #[Type("array<Zimbra\Mail\Struct\TestDataSource>")]
+    #[XmlList(inline: true, entry: "unknown", namespace: "urn:zimbraMail")]
     private $unknownDataSources = [];
 
     /**
@@ -118,12 +123,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set imap data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setImapDataSources(array $dataSources): self
     {
         $this->imapDataSources = array_values(
-            array_filter($dataSources, static fn ($imap) => $imap instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($imap) => $imap instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -141,12 +150,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set pop3 data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setPop3DataSources(array $dataSources): self
     {
         $this->pop3DataSources = array_values(
-            array_filter($dataSources, static fn ($pop3) => $pop3 instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($pop3) => $pop3 instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -164,12 +177,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set caldav data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setCaldavDataSources(array $dataSources): self
     {
         $this->caldavDataSources = array_values(
-            array_filter($dataSources, static fn ($caldav) => $caldav instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($caldav) => $caldav instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -187,12 +204,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set yab data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setYabDataSources(array $dataSources): self
     {
         $this->yabDataSources = array_values(
-            array_filter($dataSources, static fn ($yab) => $yab instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($yab) => $yab instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -210,12 +231,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set rss data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setRssDataSources(array $dataSources): self
     {
         $this->rssDataSources = array_values(
-            array_filter($dataSources, static fn ($rss) => $rss instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($rss) => $rss instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -233,12 +258,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set gal data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setGalDataSources(array $dataSources): self
     {
         $this->galDataSources = array_values(
-            array_filter($dataSources, static fn ($gal) => $gal instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($gal) => $gal instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -256,12 +285,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set cal data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setCalDataSources(array $dataSources): self
     {
         $this->calDataSources = array_values(
-            array_filter($dataSources, static fn ($cal) => $cal instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($cal) => $cal instanceof TestDataSource
+            )
         );
         return $this;
     }
@@ -279,12 +312,16 @@ class TestDataSourceResponse extends SoapResponse
     /**
      * Set unknown data sources
      *
+     * @param array $dataSources
      * @return self
      */
     public function setUnknownDataSources(array $dataSources): self
     {
         $this->unknownDataSources = array_values(
-            array_filter($dataSources, static fn ($unknown) => $unknown instanceof TestDataSource)
+            array_filter(
+                $dataSources,
+                static fn($unknown) => $unknown instanceof TestDataSource
+            )
         );
         return $this;
     }

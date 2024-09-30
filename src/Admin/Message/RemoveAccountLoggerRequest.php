@@ -32,35 +32,35 @@ class RemoveAccountLoggerRequest extends SoapRequest
 {
     /**
      * Logger category
-     * 
+     *
      * @var LoggerInfo
      */
-    #[Accessor(getter: 'getLogger', setter: 'setLogger')]
-    #[SerializedName('logger')]
+    #[Accessor(getter: "getLogger", setter: "setLogger")]
+    #[SerializedName("logger")]
     #[Type(LoggerInfo::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?LoggerInfo $logger;
 
     /**
      * Use to select account
-     * 
+     *
      * @var AccountSelector
      */
-    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
-    #[SerializedName('account')]
+    #[Accessor(getter: "getAccount", setter: "setAccount")]
+    #[SerializedName("account")]
     #[Type(AccountSelector::class)]
-    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
     private ?AccountSelector $account;
 
     /**
      * id
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getId', setter: 'setId')]
-    #[SerializedName('id')]
-    #[Type('string')]
-    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
+    #[Accessor(getter: "getId", setter: "setId")]
+    #[SerializedName("id")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
     private $id;
 
     /**
@@ -72,9 +72,10 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @return self
      */
     public function __construct(
-        ?LoggerInfo $logger = null, ?AccountSelector $account = null, ?string $id = null
-    )
-    {
+        ?LoggerInfo $logger = null,
+        ?AccountSelector $account = null,
+        ?string $id = null
+    ) {
         $this->logger = $logger;
         $this->account = $account;
         if (null !== $id) {

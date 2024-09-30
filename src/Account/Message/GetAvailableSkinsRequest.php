@@ -18,7 +18,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * zimbraAvailableSkin on an account (or its CoS).  If none is set in zimbraAvailableSkin, get the entire
  * list of installed skins.  The installed skin list is obtained by a directory scan of the designated location of
  * skins on a server.
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -32,8 +32,6 @@ class GetAvailableSkinsRequest extends SoapRequest
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
-        return new GetAvailableSkinsEnvelope(
-            new GetAvailableSkinsBody($this)
-        );
+        return new GetAvailableSkinsEnvelope(new GetAvailableSkinsBody($this));
     }
 }

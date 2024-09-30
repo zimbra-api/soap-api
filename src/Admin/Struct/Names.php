@@ -25,22 +25,22 @@ class Names
 {
     /**
      * Comma separated list of names
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getName', setter: 'setName')]
-    #[SerializedName('name')]
-    #[Type('string')]
+    #[Accessor(getter: "getName", setter: "setName")]
+    #[SerializedName("name")]
+    #[Type("string")]
     #[XmlAttribute]
     private $name;
 
     /**
      * Constructor
-     * 
+     *
      * @param string $name
      * @return self
      */
-    public function __construct(string $name = '')
+    public function __construct(string $name = "")
     {
         $this->setName($name);
     }

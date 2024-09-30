@@ -10,12 +10,18 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use JMS\Serializer\Annotation\{
+    Accessor,
+    SerializedName,
+    Type,
+    XmlAttribute,
+    XmlValue
+};
 use Zimbra\Common\Enum\{DistributionListGranteeBy, GranteeType};
 
 /**
  * DistributionListGranteeSelector struct class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -26,48 +32,50 @@ class DistributionListGranteeSelector
 {
     /**
      * Type
-     * 
+     *
      * @var GranteeType
      */
-    #[Accessor(getter: 'getType', setter: 'setType')]
-    #[SerializedName('type')]
+    #[Accessor(getter: "getType", setter: "setType")]
+    #[SerializedName("type")]
     #[XmlAttribute]
     private GranteeType $type;
 
     /**
      * Grantee by
-     * 
+     *
      * @var DistributionListGranteeBy
      */
-    #[Accessor(getter: 'getBy', setter: 'setBy')]
-    #[SerializedName('by')]
+    #[Accessor(getter: "getBy", setter: "setBy")]
+    #[SerializedName("by")]
     #[XmlAttribute]
     private DistributionListGranteeBy $by;
 
     /**
      * Value
-     * 
+     *
      * @var string
      */
-    #[Accessor(getter: 'getValue', setter: 'setValue')]
-    #[Type('string')]
+    #[Accessor(getter: "getValue", setter: "setValue")]
+    #[Type("string")]
     #[XmlValue(cdata: false)]
     private $value;
 
     /**
      * Constructor
-     * 
+     *
      * @param GranteeType $type
      * @param DistributionListGranteeBy $by
      * @param string $value
      * @return self
      */
     public function __construct(
-        ?GranteeType $type = null, ?DistributionListGranteeBy $by = null, ?string $value = null
-    )
-    {
-        $this->setType($type ?? GranteeType::ALL)
-             ->setBy($by ?? DistributionListGranteeBy::NAME);
+        ?GranteeType $type = null,
+        ?DistributionListGranteeBy $by = null,
+        ?string $value = null
+    ) {
+        $this->setType($type ?? GranteeType::ALL)->setBy(
+            $by ?? DistributionListGranteeBy::NAME
+        );
         if (null !== $value) {
             $this->setValue($value);
         }

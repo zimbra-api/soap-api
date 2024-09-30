@@ -16,7 +16,7 @@ use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetSignaturesResponse class
- * 
+ *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
@@ -27,12 +27,12 @@ class GetSignaturesResponse extends SoapResponse
 {
     /**
      * Signatures
-     * 
+     *
      * @var array
      */
-    #[Accessor(getter: 'getSignatures', setter: 'setSignatures')]
-    #[Type('array<Zimbra\Account\Struct\Signature>')]
-    #[XmlList(inline: true, entry: 'signature', namespace: 'urn:zimbraAccount')]
+    #[Accessor(getter: "getSignatures", setter: "setSignatures")]
+    #[Type("array<Zimbra\Account\Struct\Signature>")]
+    #[XmlList(inline: true, entry: "signature", namespace: "urn:zimbraAccount")]
     private $signatures = [];
 
     /**
@@ -55,7 +55,8 @@ class GetSignaturesResponse extends SoapResponse
     public function setSignatures(array $signatures): self
     {
         $this->signatures = array_filter(
-            $signatures, static fn ($signature) => $signature instanceof Signature
+            $signatures,
+            static fn($signature) => $signature instanceof Signature
         );
         return $this;
     }
