@@ -4811,6 +4811,25 @@ EOT;
         $this->assertInstanceOf(\Zimbra\Admin\Message\MailQueueFlushResponse::class, $response);
     }
 
+    public function testManageIndexEnvelope()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ManageIndexResponse status="started" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->manageIndex(
+            new \Zimbra\Admin\Struct\MailboxByAccountIdSelector(),
+            \Zimbra\Common\Enum\ManageIndexAction::ENABLE
+        );
+        $this->assertEquals(\Zimbra\Common\Enum\ManageIndexStatus::STARTED, $response->getStatus());
+    }
+
     public function testMigrateAccount()
     {
         $xml = <<<EOT

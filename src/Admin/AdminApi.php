@@ -63,6 +63,7 @@ use Zimbra\Common\Enum\{
     GetSessionsSortBy,
     IpType,
     LockoutOperation,
+    ManageIndexAction,
     ReIndexAction,
     RightClass,
     SessionType,
@@ -1853,6 +1854,16 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         NamedElement $server
     ): ?Message\MailQueueFlushResponse {
         return $this->invoke(new Message\MailQueueFlushRequest($server));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function manageIndex(
+        MailboxByAccountIdSelector $mbox,
+        ManageIndexAction $action
+    ): ?Message\ManageIndexResponse {
+        return $this->invoke(new Message\ManageIndexRequest($mbox, $action));
     }
 
     /**
