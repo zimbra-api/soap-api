@@ -28,14 +28,14 @@ enum CompactIndexStatus: string
     case STARTED = "started";
 
     /**
-     * Constant for value 'status'
-     * @return string 'status'
+     * Constant for value 'running'
+     * @return string 'running'
      */
     case RUNNING = "running";
 
     /**
-     * Constant for value 'status'
-     * @return string 'status'
+     * Constant for value 'idle'
+     * @return string 'idle'
      */
     case IDLE = "idle";
 }
