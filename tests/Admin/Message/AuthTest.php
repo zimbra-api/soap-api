@@ -11,7 +11,7 @@ use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for AuthResponse.
+ * Testcase class for Auth.
  */
 class AuthResponseTest extends ZimbraTestCase
 {
