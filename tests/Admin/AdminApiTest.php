@@ -362,6 +362,29 @@ EOT;
         $this->assertEquals(\Zimbra\Common\Enum\AutoProvTaskStatus::STARTED, $response->getStatus());
     }
 
+    public function testChangePassword()
+    {
+        $authToken = $this->faker->sha256;
+        $lifetime = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ChangePasswordResponse>
+            <urn:authToken>$authToken</urn:authToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
+        </urn:ChangePasswordResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->changePassword(new \Zimbra\Common\Struct\AccountSelector());
+        $this->assertSame($authToken, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+    }
+
     public function testChangePrimaryEmail()
     {
         $id = $this->faker->uuid;

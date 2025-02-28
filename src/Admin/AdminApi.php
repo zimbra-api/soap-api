@@ -10,6 +10,7 @@
 
 namespace Zimbra\Admin;
 
+use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Admin\Struct\{
     AlwaysOnClusterSelector,
     AttachmentIdAttrib,
@@ -292,6 +293,29 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         AutoProvTaskAction $action
     ): ?Message\AutoProvTaskControlResponse {
         return $this->invoke(new Message\AutoProvTaskControlRequest($action));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function changePassword(
+        AccountSelector $account,
+        string $oldPassword = "",
+        string $password = "",
+        ?string $virtualHost = null,
+        ?bool $dryRun = null,
+        ?AuthToken $authToken = null
+    ): ?Message\ChangePasswordResponse {
+        return $this->invoke(
+            new Message\ChangePasswordRequest(
+                $account,
+                $oldPassword,
+                $password,
+                $virtualHost,
+                $dryRun,
+                $authToken
+            )
+        );
     }
 
     /**
