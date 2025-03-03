@@ -47,7 +47,7 @@ class ChangePasswordTest extends ZimbraTestCase
             ->setPassword($newPassword)
             ->setVirtualHost($virtualHost)
             ->setDryRun(TRUE)
-            ->setAuthToken(token);
+            ->setAuthToken($token);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($oldPassword, $request->getOldPassword());
         $this->assertSame($newPassword, $request->getPassword());
