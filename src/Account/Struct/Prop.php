@@ -38,7 +38,7 @@ class Prop
     #[SerializedName("zimlet")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimlet;
+    private string $zimlet;
 
     /**
      * Name
@@ -49,7 +49,7 @@ class Prop
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Value
@@ -59,7 +59,7 @@ class Prop
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class SetPasswordResponse extends SoapResponse
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $message;
+    private ?string $message = null;
 
     /**
      * Constructor

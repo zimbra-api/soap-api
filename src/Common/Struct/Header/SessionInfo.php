@@ -38,7 +38,7 @@ class SessionInfo
     #[SerializedName("proxy")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sessionProxied;
+    private ?bool $sessionProxied = null;
 
     /**
      * Session id
@@ -49,7 +49,7 @@ class SessionInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sessionId;
+    private ?string $sessionId = null;
 
     /**
      * Sequence num
@@ -60,7 +60,7 @@ class SessionInfo
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sequenceNum;
+    private ?int $sequenceNum = null;
 
     /**
      * Value
@@ -70,7 +70,7 @@ class SessionInfo
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

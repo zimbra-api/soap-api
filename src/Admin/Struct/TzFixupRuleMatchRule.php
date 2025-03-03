@@ -32,7 +32,7 @@ class TzFixupRuleMatchRule
     #[SerializedName("mon")]
     #[Type("int")]
     #[XmlAttribute]
-    private $month;
+    private int $month;
 
     /**
      * Match week. -1 means last week of month else between 1 and 4
@@ -43,7 +43,7 @@ class TzFixupRuleMatchRule
     #[SerializedName("week")]
     #[Type("int")]
     #[XmlAttribute]
-    private $week;
+    private int $week;
 
     /**
      * Match week day. Value between 1 (Sunday) and 7 (Saturday)
@@ -54,7 +54,7 @@ class TzFixupRuleMatchRule
     #[SerializedName("wkday")]
     #[Type("int")]
     #[XmlAttribute]
-    private $weekDay;
+    private int $weekDay;
 
     /**
      * Constructor

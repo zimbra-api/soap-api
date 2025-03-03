@@ -38,7 +38,7 @@ class HostStats
     #[SerializedName("hn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $hostName;
+    private string $hostName;
 
     /**
      * Stats information

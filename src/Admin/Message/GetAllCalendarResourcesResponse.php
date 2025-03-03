@@ -38,7 +38,7 @@ class GetAllCalendarResourcesResponse extends SoapResponse
     ]
     #[Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")]
     #[XmlList(inline: true, entry: "calresource", namespace: "urn:zimbraAdmin")]
-    private $calResources = [];
+    private array $calResources = [];
 
     /**
      * Constructor

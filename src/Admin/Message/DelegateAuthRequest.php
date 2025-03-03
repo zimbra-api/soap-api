@@ -54,7 +54,7 @@ class DelegateAuthRequest extends SoapRequest
     #[SerializedName("duration")]
     #[Type("int")]
     #[XmlAttribute]
-    private $duration;
+    private ?int $duration = null;
 
     /**
      * Constructor

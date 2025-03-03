@@ -33,7 +33,7 @@ class CheckExchangeAuthResponse extends SoapResponse
     #[SerializedName("code")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $code;
+    private string $code;
 
     /**
      * Message
@@ -44,7 +44,7 @@ class CheckExchangeAuthResponse extends SoapResponse
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $message;
+    private ?string $message = null;
 
     /**
      * Constructor

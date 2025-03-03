@@ -38,7 +38,7 @@ class DiscoverRightsInfo
     #[SerializedName("right")]
     #[Type("string")]
     #[XmlAttribute]
-    private $right;
+    private string $right;
 
     /**
      * Targets
@@ -48,7 +48,7 @@ class DiscoverRightsInfo
     #[Accessor(getter: "getTargets", setter: "setTargets")]
     #[Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")]
     #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAccount")]
-    private $targets = [];
+    private array $targets = [];
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class DelegateAuthResponse extends SoapResponse
     #[SerializedName("authToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $authToken;
+    private string $authToken;
 
     /**
      * Life time for the authorization
@@ -44,7 +44,7 @@ class DelegateAuthResponse extends SoapResponse
     #[SerializedName("lifetime")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $lifetime;
+    private int $lifetime;
 
     /**
      * Constructor

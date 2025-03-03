@@ -34,7 +34,7 @@ class GetAllServersRequest extends SoapRequest
     #[SerializedName("service")]
     #[Type("string")]
     #[XmlAttribute]
-    private $service;
+    private ?string $service = null;
 
     /**
      * alwaysOnClusterId
@@ -45,7 +45,7 @@ class GetAllServersRequest extends SoapRequest
     #[SerializedName("alwaysOnClusterId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $alwaysOnClusterId;
+    private ?string $alwaysOnClusterId = null;
 
     /**
      * if {apply-config} is 1 (true), then certain unset attrs on a server will get their value from the global config.
@@ -57,7 +57,7 @@ class GetAllServersRequest extends SoapRequest
     #[SerializedName("applyConfig")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyConfig;
+    private ?bool $applyConfig = null;
 
     /**
      * Constructor

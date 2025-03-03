@@ -34,7 +34,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("authToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $authToken;
+    private ?string $authToken = null;
 
     /**
      * If client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
@@ -45,7 +45,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("csrfToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $csrfToken;
+    private ?string $csrfToken = null;
 
     /**
      * Life time for the authorization
@@ -56,7 +56,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("lifetime")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $lifetime;
+    private ?int $lifetime = null;
 
     /**
      * Two Factor Auth Required
@@ -72,7 +72,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("twoFactorAuthRequired")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $twoFactorAuthRequired;
+    private ?bool $twoFactorAuthRequired = null;
 
     /**
      * Reset password
@@ -83,7 +83,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("resetPassword")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $resetPassword;
+    private ?bool $resetPassword = null;
 
     /**
      * Constructor

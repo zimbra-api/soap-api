@@ -38,7 +38,7 @@ class LimitedQuery
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Query string
@@ -48,7 +48,7 @@ class LimitedQuery
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

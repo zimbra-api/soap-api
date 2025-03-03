@@ -34,7 +34,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Password
@@ -45,7 +45,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private string $password;
 
     /**
      * Constructor

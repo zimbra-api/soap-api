@@ -35,7 +35,7 @@ class AutoCompleteGalRequest extends SoapRequest
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private string $domain;
 
     /**
      * The name to test for autocompletion
@@ -46,7 +46,7 @@ class AutoCompleteGalRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Type of addresses to auto-complete on
@@ -67,7 +67,7 @@ class AutoCompleteGalRequest extends SoapRequest
     #[SerializedName("galAcctId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $galAccountId;
+    private ?string $galAccountId = null;
 
     /**
      * An integer specifying the maximum number of results to return
@@ -78,7 +78,7 @@ class AutoCompleteGalRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Constructor

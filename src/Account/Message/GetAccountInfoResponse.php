@@ -39,7 +39,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $name;
+    private string $name;
 
     /**
      * Account attributes.  Currently only these attributes are returned:
@@ -52,7 +52,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Common\Struct\NamedValue>")]
     #[XmlList(inline: true, entry: "attr", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * URL to talk to for soap service for this account.
@@ -63,7 +63,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("soapURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $soapURL;
+    private ?string $soapURL = null;
 
     /**
      * Base public URL for the requested account
@@ -74,7 +74,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("publicURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $publicURL;
+    private ?string $publicURL = null;
 
     /**
      * URL to talk to in order to change a password.
@@ -86,7 +86,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("changePasswordURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $changePasswordURL;
+    private ?string $changePasswordURL = null;
 
     /**
      * Zimbra Community URL to load in Community tab.
@@ -97,7 +97,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("communityURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $communityURL;
+    private ?string $communityURL = null;
 
     /**
      * Base URL for accessing the admin console
@@ -108,7 +108,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("adminURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $adminURL;
+    private ?string $adminURL = null;
 
     /**
      * Proxy URL for accessing XMPP over BOSH.
@@ -120,7 +120,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("boshURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $boshURL;
+    private ?string $boshURL = null;
 
     /**
      * Constructor

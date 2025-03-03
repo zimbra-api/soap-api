@@ -51,7 +51,7 @@ class GetCalendarResourceRequest extends SoapRequest implements
     #[SerializedName("applyCos")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyCos;
+    private ?bool $applyCos = null;
 
     /**
      * Specify calendar resource

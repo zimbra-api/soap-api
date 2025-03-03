@@ -37,7 +37,7 @@ class QueueQuery
     #[Accessor(getter: "getFields", setter: "setFields")]
     #[Type("array<Zimbra\Admin\Struct\QueueQueryField>")]
     #[XmlList(inline: true, entry: "field", namespace: "urn:zimbraAdmin")]
-    private $fields = [];
+    private array $fields = [];
 
     /**
      * Limit the number of queue items to return in the response
@@ -48,7 +48,7 @@ class QueueQuery
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Offset
@@ -59,7 +59,7 @@ class QueueQuery
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Constructor

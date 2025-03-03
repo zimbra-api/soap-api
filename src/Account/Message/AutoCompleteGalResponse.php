@@ -40,7 +40,7 @@ class AutoCompleteGalResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * Either "and" or "or" (if present)
@@ -55,7 +55,7 @@ class AutoCompleteGalResponse extends SoapResponse
     #[SerializedName("tokenizeKey")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $tokenizeKey;
+    private ?bool $tokenizeKey = null;
 
     /**
      * Flag if pagination is supported
@@ -66,7 +66,7 @@ class AutoCompleteGalResponse extends SoapResponse
     #[SerializedName("paginationSupported")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $pagingSupported;
+    private ?bool $pagingSupported = null;
 
     /**
      * Contacts matching the autocomplete request
@@ -76,7 +76,7 @@ class AutoCompleteGalResponse extends SoapResponse
     #[Accessor(getter: "getContacts", setter: "setContacts")]
     #[Type("array<Zimbra\Account\Struct\ContactInfo>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAccount")]
-    private $contacts = [];
+    private array $contacts = [];
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class GetAllCosResponse extends SoapResponse
     #[Accessor(getter: "getCosList", setter: "setCosList")]
     #[Type("array<Zimbra\Admin\Struct\CosInfo>")]
     #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
-    private $cosList = [];
+    private array $cosList = [];
 
     /**
      * Constructor

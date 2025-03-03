@@ -34,7 +34,7 @@ class SetPasswordRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * New password
@@ -45,7 +45,7 @@ class SetPasswordRequest extends SoapRequest
     #[SerializedName("newPassword")]
     #[Type("string")]
     #[XmlAttribute]
-    private $newPassword;
+    private string $newPassword;
 
     /**
      * is dry run
@@ -56,7 +56,7 @@ class SetPasswordRequest extends SoapRequest
     #[SerializedName("dryRun")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dryRun;
+    private ?bool $dryRun = null;
 
     /**
      * Constructor
@@ -69,7 +69,7 @@ class SetPasswordRequest extends SoapRequest
     public function __construct(
         string $id = "",
         string $newPassword = "",
-        ?bool $dryRun = false
+        ?bool $dryRun = null
     ) {
         $this->setId($id)->setNewPassword($newPassword);
         if (null !== $dryRun) {

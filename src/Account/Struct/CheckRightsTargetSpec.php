@@ -53,7 +53,7 @@ class CheckRightsTargetSpec
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $targetKey;
+    private string $targetKey;
 
     /**
      * @var array
@@ -61,7 +61,7 @@ class CheckRightsTargetSpec
     #[Accessor(getter: "getRights", setter: "setRights")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

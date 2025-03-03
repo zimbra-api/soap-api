@@ -39,7 +39,7 @@ class ChildAccount
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Child account name
@@ -50,7 +50,7 @@ class ChildAccount
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Flag whether child account is visible or not
@@ -61,7 +61,7 @@ class ChildAccount
     #[SerializedName("visible")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isVisible;
+    private bool $isVisible;
 
     /**
      * Flag whether child account is active or not
@@ -72,7 +72,7 @@ class ChildAccount
     #[SerializedName("active")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isActive;
+    private bool $isActive;
 
     /**
      * Attributes of the child account, including displayName
@@ -84,7 +84,7 @@ class ChildAccount
     #[Type("array<Zimbra\Account\Struct\Attr>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Constructor

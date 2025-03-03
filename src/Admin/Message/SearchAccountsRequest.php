@@ -35,7 +35,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private string $query;
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
@@ -46,7 +46,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -57,7 +57,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * The domain name to limit the search to
@@ -68,7 +68,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private ?string $domain = null;
 
     /**
      * Flag whether or not to apply the COS policy to account.
@@ -80,7 +80,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("applyCos")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyCos;
+    private ?bool $applyCos = null;
 
     /**
      * Comma-seperated list of attrs to return ("displayName", "zimbraId", "zimbraAccountStatus")
@@ -91,7 +91,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("attrs")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attrs;
+    private ?string $attrs = null;
 
     /**
      * Name of attribute to sort on. Default is the account name.
@@ -102,7 +102,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * Comma-separated list of types to return. Legal values are: accounts|resources (default is accounts)
@@ -113,7 +113,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $types;
+    private ?string $types = null;
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
@@ -124,7 +124,7 @@ class SearchAccountsRequest extends SoapRequest
     #[SerializedName("sortAscending")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sortAscending;
+    private ?bool $sortAscending = null;
 
     /**
      * Constructor

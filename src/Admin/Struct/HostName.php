@@ -32,7 +32,7 @@ class HostName
     #[SerializedName("hn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $hostName;
+    private string $hostName;
 
     /**
      * Constructor

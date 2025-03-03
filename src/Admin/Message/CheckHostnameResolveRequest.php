@@ -34,7 +34,7 @@ class CheckHostnameResolveRequest extends SoapRequest
     #[SerializedName("hostname")]
     #[Type("string")]
     #[XmlAttribute]
-    private $hostname;
+    private ?string $hostname = null;
 
     /**
      * Constructor

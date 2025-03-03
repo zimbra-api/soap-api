@@ -33,7 +33,7 @@ class ZimletStatus
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Status
@@ -54,7 +54,7 @@ class ZimletStatus
     #[SerializedName("extension")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $extension;
+    private bool $extension;
 
     /**
      * Priority
@@ -65,7 +65,7 @@ class ZimletStatus
     #[SerializedName("priority")]
     #[Type("int")]
     #[XmlAttribute]
-    private $priority;
+    private ?int $priority = null;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class GetAllMailboxesResponse extends SoapResponse
     #[Accessor(getter: "getMboxes", setter: "setMboxes")]
     #[Type("array<Zimbra\Admin\Struct\MailboxInfo>")]
     #[XmlList(inline: true, entry: "mbox", namespace: "urn:zimbraAdmin")]
-    private $mboxes = [];
+    private array $mboxes = [];
 
     /**
      * 1 (true) if more mailboxes left to return
@@ -50,7 +50,7 @@ class GetAllMailboxesResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private bool $more;
 
     /**
      * Total number of mailboxes that matched search (not affected by more/offset)
@@ -61,7 +61,7 @@ class GetAllMailboxesResponse extends SoapResponse
     #[SerializedName("searchTotal")]
     #[Type("int")]
     #[XmlAttribute]
-    private $searchTotal;
+    private int $searchTotal;
 
     /**
      * Constructor

@@ -43,7 +43,7 @@ class StoreManagerRuntimeSwitchResult
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlAttribute]
-    private $message;
+    private ?string $message = null;
 
     /**
      * Constructor

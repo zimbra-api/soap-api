@@ -41,7 +41,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\OpValue>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
-    private $whiteListEntries = [];
+    private array $whiteListEntries = [];
 
     /**
      * Modifications for BlackList
@@ -53,7 +53,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\OpValue>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
-    private $blackListEntries = [];
+    private array $blackListEntries = [];
 
     /**
      * Constructor

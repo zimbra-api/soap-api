@@ -32,7 +32,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * ID of calendar resource
@@ -43,7 +43,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Constructor

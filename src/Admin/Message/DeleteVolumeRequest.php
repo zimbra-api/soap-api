@@ -34,7 +34,7 @@ class DeleteVolumeRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Constructor

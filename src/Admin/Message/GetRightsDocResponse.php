@@ -39,7 +39,7 @@ class GetRightsDocResponse extends SoapResponse
     #[Accessor(getter: "getPackages", setter: "setPackages")]
     #[Type("array<Zimbra\Admin\Struct\PackageRightsInfo>")]
     #[XmlList(inline: true, entry: "package", namespace: "urn:zimbraAdmin")]
-    private $pkgs = [];
+    private array $pkgs = [];
 
     /**
      * Unused admin rights
@@ -49,7 +49,7 @@ class GetRightsDocResponse extends SoapResponse
     #[Accessor(getter: "getNotUsed", setter: "setNotUsed")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "notUsed", namespace: "urn:zimbraAdmin")]
-    private $notUsed = [];
+    private array $notUsed = [];
 
     /**
      * Domain admin rights
@@ -65,7 +65,7 @@ class GetRightsDocResponse extends SoapResponse
     #[Type("array<Zimbra\Admin\Struct\DomainAdminRight>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "right", namespace: "urn:zimbraAdmin")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

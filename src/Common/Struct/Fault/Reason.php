@@ -37,7 +37,7 @@ class Reason
             namespace: "http://www.w3.org/2003/05/soap-envelope"
         )
     ]
-    private $text;
+    private ?string $text = null;
 
     /**
      * Constructor

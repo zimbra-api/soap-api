@@ -53,7 +53,7 @@ class CheckRightsTargetInfo
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $targetKey;
+    private string $targetKey;
 
     /**
      * @var bool
@@ -62,7 +62,7 @@ class CheckRightsTargetInfo
     #[SerializedName("allow")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allow;
+    private bool $allow;
 
     /**
      * @var array
@@ -70,7 +70,7 @@ class CheckRightsTargetInfo
     #[Accessor(getter: "getRights", setter: "setRights")]
     #[Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")]
     #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements
     #[SerializedName("section")]
     #[Type("string")]
     #[XmlAttribute]
-    private $section;
+    private ?string $section = null;
 
     /**
      * Constructor

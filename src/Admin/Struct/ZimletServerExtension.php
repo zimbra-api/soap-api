@@ -33,7 +33,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     #[SerializedName("hasKeyword")]
     #[Type("string")]
     #[XmlAttribute]
-    private $hasKeyword;
+    private ?string $hasKeyword = null;
 
     /**
      * Extension class
@@ -44,7 +44,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     #[SerializedName("extensionClass")]
     #[Type("string")]
     #[XmlAttribute]
-    private $extensionClass;
+    private ?string $extensionClass = null;
 
     /**
      * Regex
@@ -55,7 +55,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     #[SerializedName("regex")]
     #[Type("string")]
     #[XmlAttribute]
-    private $regex;
+    private ?string $regex = null;
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[SerializedName("ldapSearchBase")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $ldapSearchBase;
+    private string $ldapSearchBase;
 
     /**
      * Name of attribute to sort on. default is null
@@ -51,7 +51,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * Flag whether to sort in ascending order 1 (true) is default
@@ -62,7 +62,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[SerializedName("sortAscending")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sortAscending;
+    private ?bool $sortAscending = null;
 
     /**
      * The number of mailboxes to return (0 is default and means all)
@@ -73,7 +73,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -84,7 +84,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Query string. Should be an LDAP-style filter string (RFC 2254)
@@ -95,7 +95,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Constructor

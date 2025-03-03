@@ -40,7 +40,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Password - must be present if not using AuthToken
@@ -51,7 +51,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * An authToken can be passed instead of account/password/name to validate an existing auth authToken.
@@ -62,7 +62,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("authToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $authToken;
+    private ?string $authToken = null;
 
     /**
      * The account
@@ -84,7 +84,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("virtualHost")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $virtualHost;
+    private ?string $virtualHost = null;
 
     /**
      * Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
@@ -100,7 +100,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("persistAuthTokenCookie")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $persistAuthTokenCookie;
+    private ?bool $persistAuthTokenCookie = null;
 
     /**
      * Controls whether the client supports CSRF token
@@ -111,7 +111,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("csrfTokenSecured")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $csrfSupported;
+    private ?bool $csrfSupported = null;
 
     /**
      * The TOTP code used for two-factor authentication
@@ -122,7 +122,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("twoFactorCode")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $twoFactorCode;
+    private ?string $twoFactorCode = null;
 
     /**
      * Constructor

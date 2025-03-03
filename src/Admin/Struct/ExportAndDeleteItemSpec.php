@@ -32,7 +32,7 @@ class ExportAndDeleteItemSpec
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Version
@@ -43,7 +43,7 @@ class ExportAndDeleteItemSpec
     #[SerializedName("version")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private int $version;
 
     /**
      * Constructor

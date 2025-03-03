@@ -38,7 +38,7 @@ class CheckRightsRightInfo
     #[SerializedName("allow")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allow;
+    private bool $allow;
 
     /**
      * Name of right
@@ -48,7 +48,7 @@ class CheckRightsRightInfo
     #[Accessor(getter: "getRight", setter: "setRight")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $right;
+    private string $right;
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class ContactBackupServer
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Backup status

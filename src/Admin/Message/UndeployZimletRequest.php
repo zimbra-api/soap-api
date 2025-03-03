@@ -34,7 +34,7 @@ class UndeployZimletRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Action
@@ -45,7 +45,7 @@ class UndeployZimletRequest extends SoapRequest
     #[SerializedName("action")]
     #[Type("string")]
     #[XmlAttribute]
-    private $action;
+    private ?string $action = null;
 
     /**
      * Constructor

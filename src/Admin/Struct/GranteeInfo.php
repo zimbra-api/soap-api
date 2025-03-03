@@ -33,7 +33,7 @@ class GranteeInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Grantee name
@@ -44,7 +44,7 @@ class GranteeInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Grantee type

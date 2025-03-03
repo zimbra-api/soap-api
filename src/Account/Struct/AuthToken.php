@@ -37,7 +37,7 @@ class AuthToken
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private string $value;
 
     /**
      * If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
@@ -49,7 +49,7 @@ class AuthToken
     #[SerializedName("verifyAccount")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $verifyAccount;
+    private ?bool $verifyAccount = null;
 
     /**
      * Life time of the auth token
@@ -60,7 +60,7 @@ class AuthToken
     #[SerializedName("lifetime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lifetime;
+    private ?int $lifetime = null;
 
     /**
      * Constructor

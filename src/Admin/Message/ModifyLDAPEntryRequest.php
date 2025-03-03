@@ -37,7 +37,7 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("dn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dn;
+    private string $dn;
 
     /**
      * Constructor

@@ -41,7 +41,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Members
@@ -51,7 +51,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     #[Accessor(getter: "getMembers", setter: "setMembers")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAdmin")]
-    private $members = [];
+    private array $members = [];
 
     /**
      * Specify accounts insteaf of members if you want to remove all addresses that belong to an account from the list
@@ -61,7 +61,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

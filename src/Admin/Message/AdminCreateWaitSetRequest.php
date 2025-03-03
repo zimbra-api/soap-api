@@ -43,7 +43,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
     #[SerializedName("defTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultInterests;
+    private string $defaultInterests;
 
     /**
      * All accounts
@@ -54,7 +54,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
     #[SerializedName("allAccounts")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allAccounts;
+    private ?bool $allAccounts = null;
 
     /**
      * Waitsets to add
@@ -66,7 +66,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

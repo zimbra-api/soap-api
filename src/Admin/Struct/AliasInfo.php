@@ -33,7 +33,7 @@ class AliasInfo extends AdminObjectInfo
     #[SerializedName("targetName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $targetName;
+    private string $targetName;
 
     /**
      * Target type

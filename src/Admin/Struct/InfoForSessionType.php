@@ -38,7 +38,7 @@ class InfoForSessionType
     #[SerializedName("activeAccounts")]
     #[Type("int")]
     #[XmlAttribute]
-    private $activeAccounts;
+    private ?int $activeAccounts = null;
 
     /**
      * Count of number of active sessions
@@ -49,7 +49,7 @@ class InfoForSessionType
     #[SerializedName("activeSessions")]
     #[Type("int")]
     #[XmlAttribute]
-    private $activeSessions;
+    private int $activeSessions;
 
     /**
      * If the request selected "groupByAccount" and "listSessions" then
@@ -60,7 +60,7 @@ class InfoForSessionType
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")]
     #[XmlList(inline: true, entry: "zid", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * If the request selected "listSessions" but NOT "groupByAccount" then
@@ -71,7 +71,7 @@ class InfoForSessionType
     #[Accessor(getter: "getSessions", setter: "setSessions")]
     #[Type("array<Zimbra\Admin\Struct\SessionInfo>")]
     #[XmlList(inline: true, entry: "s", namespace: "urn:zimbraAdmin")]
-    private $sessions = [];
+    private array $sessions = [];
 
     /**
      * Constructor

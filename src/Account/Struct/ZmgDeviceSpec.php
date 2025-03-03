@@ -33,7 +33,7 @@ class ZmgDeviceSpec
     #[SerializedName("appId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $appId;
+    private string $appId;
 
     /**
      * The registration id of the device for push notifications.
@@ -44,7 +44,7 @@ class ZmgDeviceSpec
     #[SerializedName("registrationId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $registrationId;
+    private string $registrationId;
 
     /**
      * The provider for pushing notifications to the device
@@ -55,7 +55,7 @@ class ZmgDeviceSpec
     #[SerializedName("pushProvider")]
     #[Type("string")]
     #[XmlAttribute]
-    private $pushProvider;
+    private string $pushProvider;
 
     /**
      * The name of the operating system installed on the device. Example - ios, android.
@@ -66,7 +66,7 @@ class ZmgDeviceSpec
     #[SerializedName("osName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $osName;
+    private ?string $osName = null;
 
     /**
      * The osVersion should be specified in the following formats
@@ -81,7 +81,7 @@ class ZmgDeviceSpec
     #[SerializedName("osVersion")]
     #[Type("string")]
     #[XmlAttribute]
-    private $osVersion;
+    private ?string $osVersion = null;
 
     /**
      * The maximum number of bytes allowed for the push notification payload
@@ -94,7 +94,7 @@ class ZmgDeviceSpec
     #[SerializedName("maxPayloadSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxPayloadSize;
+    private ?int $maxPayloadSize = null;
 
     /**
      * Constructor

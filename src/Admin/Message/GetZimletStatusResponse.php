@@ -50,7 +50,7 @@ class GetZimletStatusResponse extends SoapResponse
     #[Accessor(getter: "getCoses", setter: "setCoses")]
     #[Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")]
     #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
-    private $coses = [];
+    private array $coses = [];
 
     /**
      * Constructor

@@ -44,7 +44,7 @@ class GetAllEffectiveRightsRequest extends SoapRequest
     #[SerializedName("expandAllAttrs")]
     #[Type("string")]
     #[XmlAttribute]
-    private $expandAllAttrs;
+    private ?string $expandAllAttrs = null;
 
     /**
      * Grantee

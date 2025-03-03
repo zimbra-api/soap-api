@@ -39,7 +39,7 @@ class ContactInfo
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * Can expand
@@ -50,7 +50,7 @@ class ContactInfo
     #[SerializedName("exp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canExpand;
+    private ?bool $canExpand = null;
 
     /**
      * Id
@@ -61,7 +61,7 @@ class ContactInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Folder
@@ -72,7 +72,7 @@ class ContactInfo
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Flags
@@ -83,7 +83,7 @@ class ContactInfo
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags
@@ -94,7 +94,7 @@ class ContactInfo
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Tag names
@@ -105,7 +105,7 @@ class ContactInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Change date
@@ -116,7 +116,7 @@ class ContactInfo
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Modified sequence id
@@ -132,7 +132,7 @@ class ContactInfo
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequenceId;
+    private ?int $modifiedSequenceId = null;
 
     /**
      * Date
@@ -143,7 +143,7 @@ class ContactInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Revision id
@@ -154,7 +154,7 @@ class ContactInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revisionId;
+    private ?int $revisionId = null;
 
     /**
      * File as
@@ -165,7 +165,7 @@ class ContactInfo
     #[SerializedName("fileAsStr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fileAs;
+    private ?string $fileAs = null;
 
     /**
      * Email
@@ -176,7 +176,7 @@ class ContactInfo
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private ?string $email = null;
 
     /**
      * Email2
@@ -187,7 +187,7 @@ class ContactInfo
     #[SerializedName("email2")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email2;
+    private ?string $email2 = null;
 
     /**
      * Email3
@@ -198,7 +198,7 @@ class ContactInfo
     #[SerializedName("email3")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email3;
+    private ?string $email3 = null;
 
     /**
      * Type
@@ -209,7 +209,7 @@ class ContactInfo
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private ?string $type = null;
 
     /**
      * Dlist
@@ -220,7 +220,7 @@ class ContactInfo
     #[SerializedName("dlist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dlist;
+    private ?string $dlist = null;
 
     /**
      * Reference
@@ -231,7 +231,7 @@ class ContactInfo
     #[SerializedName("ref")]
     #[Type("string")]
     #[XmlAttribute]
-    private $reference;
+    private ?string $reference = null;
 
     /**
      * Too many members
@@ -242,7 +242,7 @@ class ContactInfo
     #[SerializedName("tooManyMembers")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $tooManyMembers;
+    private ?bool $tooManyMembers = null;
 
     /**
      * Metadatas
@@ -252,7 +252,7 @@ class ContactInfo
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Account\Struct\AccountCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraAccount")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Attributes
@@ -262,7 +262,7 @@ class ContactInfo
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Common\Struct\ContactAttr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Contact group members
@@ -277,7 +277,7 @@ class ContactInfo
     ]
     #[Type("array<Zimbra\Account\Struct\ContactGroupMember>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraAccount")]
-    private $contactGroupMembers = [];
+    private array $contactGroupMembers = [];
 
     /**
      * is owner
@@ -288,7 +288,7 @@ class ContactInfo
     #[SerializedName("isOwner")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isOwner;
+    private ?bool $isOwner = null;
 
     /**
      * is member
@@ -299,7 +299,7 @@ class ContactInfo
     #[SerializedName("isMember")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isMember;
+    private ?bool $isMember = null;
 
     /**
      * Constructor

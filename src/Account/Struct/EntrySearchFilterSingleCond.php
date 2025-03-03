@@ -34,7 +34,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     #[SerializedName("attr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attr;
+    private string $attr;
 
     /**
      * Condition operator
@@ -55,7 +55,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private string $value;
 
     /**
      * is not
@@ -66,7 +66,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     #[SerializedName("not")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $not;
+    private ?bool $not = null;
 
     /**
      * Constructor

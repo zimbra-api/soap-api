@@ -34,7 +34,7 @@ class CheckRightsRequest extends SoapRequest
     #[Accessor(getter: "getTargets", setter: "setTargets")]
     #[Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")]
     #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAccount")]
-    private $targets = [];
+    private array $targets = [];
 
     /**
      * Constructor

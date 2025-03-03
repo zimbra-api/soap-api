@@ -33,7 +33,7 @@ class DataSourceInfo extends AdminAttrsImpl
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Data source id
@@ -44,7 +44,7 @@ class DataSourceInfo extends AdminAttrsImpl
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Data source type

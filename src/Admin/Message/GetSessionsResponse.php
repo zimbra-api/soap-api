@@ -40,7 +40,7 @@ class GetSessionsResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private bool $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
@@ -51,7 +51,7 @@ class GetSessionsResponse extends SoapResponse
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $total;
+    private int $total;
 
     /**
      * Session information
@@ -61,7 +61,7 @@ class GetSessionsResponse extends SoapResponse
     #[Accessor(getter: "getSessions", setter: "setSessions")]
     #[Type("array<Zimbra\Admin\Struct\SimpleSessionInfo>")]
     #[XmlList(inline: true, entry: "s", namespace: "urn:zimbraAdmin")]
-    private $sessions = [];
+    private array $sessions = [];
 
     /**
      * Constructor

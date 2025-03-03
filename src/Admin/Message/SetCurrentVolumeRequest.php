@@ -35,7 +35,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Volume type: 1 (primary message), 2 (secondary message) or 10 (index)
@@ -46,7 +46,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     #[SerializedName("type")]
     #[Type("int")]
     #[XmlAttribute]
-    private $type;
+    private int $type;
 
     /**
      * Constructor

@@ -44,7 +44,7 @@ class FixCalendarTZRequest extends SoapRequest
     #[SerializedName("sync")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sync;
+    private ?bool $sync = null;
 
     /**
      * Fix appts/tasks that have instances after this time
@@ -56,7 +56,7 @@ class FixCalendarTZRequest extends SoapRequest
     #[SerializedName("after")]
     #[Type("int")]
     #[XmlAttribute]
-    private $after;
+    private ?int $after = null;
 
     /**
      * Accounts
@@ -66,7 +66,7 @@ class FixCalendarTZRequest extends SoapRequest
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private  array$accounts = [];
 
     /**
      * Fixup rules wrapper

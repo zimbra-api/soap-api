@@ -34,7 +34,7 @@ class RenameDistributionListRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * New Distribution List name
@@ -45,7 +45,7 @@ class RenameDistributionListRequest extends SoapRequest
     #[SerializedName("newName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $newName;
+    private string $newName;
 
     /**
      * Constructor

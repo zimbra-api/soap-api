@@ -32,7 +32,7 @@ class MailQueueCount
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Count of the number of files in a queue directory
@@ -43,7 +43,7 @@ class MailQueueCount
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $count;
+    private int $count;
 
     /**
      * Constructor

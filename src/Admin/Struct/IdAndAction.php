@@ -32,7 +32,7 @@ class IdAndAction
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * bug72174 or wiki or contactGroup
@@ -43,7 +43,7 @@ class IdAndAction
     #[SerializedName("action")]
     #[Type("string")]
     #[XmlAttribute]
-    private $action;
+    private ?string $action = null;
 
     /**
      * Constructor

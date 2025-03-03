@@ -34,7 +34,7 @@ class ClearCookieRequest extends SoapRequest
     #[Accessor(getter: "getCookies", setter: "setCookies")]
     #[Type("array<Zimbra\Admin\Struct\CookieSpec>")]
     #[XmlList(inline: true, entry: "cookie", namespace: "urn:zimbraAdmin")]
-    private $cookies = [];
+    private array $cookies = [];
 
     /**
      * Constructor

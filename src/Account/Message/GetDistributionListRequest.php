@@ -47,7 +47,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     #[SerializedName("needOwners")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needOwners;
+    private ?bool $needOwners = null;
 
     /**
      * return grants for the specified (comma-seperated) rights. e.g. needRights="sendToDistList,viewDistList"
@@ -58,7 +58,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     #[SerializedName("needRights")]
     #[Type("string")]
     #[XmlAttribute]
-    private $needRights;
+    private ?string $needRights = null;
 
     /**
      * Specify the distribution list

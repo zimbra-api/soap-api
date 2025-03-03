@@ -32,7 +32,7 @@ class ContactAttr extends KeyValuePair
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * Content type
@@ -43,7 +43,7 @@ class ContactAttr extends KeyValuePair
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * Size
@@ -54,7 +54,7 @@ class ContactAttr extends KeyValuePair
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Content file name
@@ -65,7 +65,7 @@ class ContactAttr extends KeyValuePair
     #[SerializedName("filename")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentFilename;
+    private ?string $contentFilename = null;
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class CheckGalConfigResponse extends SoapResponse
     #[SerializedName("code")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $code;
+    private string $code;
 
     /**
      * Message
@@ -51,7 +51,7 @@ class CheckGalConfigResponse extends SoapResponse
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $message;
+    private ?string $message = null;
 
     /**
      * Information for GAL contacts
@@ -61,7 +61,7 @@ class CheckGalConfigResponse extends SoapResponse
     #[Accessor(getter: "getGalContacts", setter: "setGalContacts")]
     #[Type("array<Zimbra\Admin\Struct\GalContactInfo>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAdmin")]
-    private $galContacts = [];
+    private array $galContacts = [];
 
     /**
      * Constructor

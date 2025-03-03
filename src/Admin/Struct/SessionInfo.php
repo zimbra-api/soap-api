@@ -38,7 +38,7 @@ class SessionInfo
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * Account name
@@ -49,7 +49,7 @@ class SessionInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Session ID
@@ -60,7 +60,7 @@ class SessionInfo
     #[SerializedName("sid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sessionId;
+    private string $sessionId;
 
     /**
      * Creation date
@@ -71,7 +71,7 @@ class SessionInfo
     #[SerializedName("cd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $createdDate;
+    private int $createdDate;
 
     /**
      * Last accessed date
@@ -82,7 +82,7 @@ class SessionInfo
     #[SerializedName("ld")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastAccessedDate;
+    private int $lastAccessedDate;
 
     /**
      * Extra attributes - possibly including "push"
@@ -92,7 +92,7 @@ class SessionInfo
     #[Accessor(getter: "getExtraAttributes", setter: "setExtraAttributes")]
     #[Type("array<string, string>")]
     #[XmlAttributeMap]
-    private $extraAttributes = [];
+    private array $extraAttributes = [];
 
     /**
      * Constructor

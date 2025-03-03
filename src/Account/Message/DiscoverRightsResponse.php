@@ -33,7 +33,7 @@ class DiscoverRightsResponse extends SoapResponse
     #[Accessor(getter: "getDiscoveredRights", setter: "setDiscoveredRights")]
     #[Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")]
     #[XmlList(inline: true, entry: "targets", namespace: "urn:zimbraAccount")]
-    private $discoveredRights = [];
+    private array $discoveredRights = [];
 
     /**
      * Constructor

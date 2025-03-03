@@ -44,7 +44,7 @@ class ContactBackupRequest extends SoapRequest
     #[Type("array<Zimbra\Admin\Struct\ServerSelector>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "server", namespace: "urn:zimbraAdmin")]
-    private $servers = [];
+    private array $servers = [];
 
     /**
      * op can be either start or stop

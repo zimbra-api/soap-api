@@ -39,7 +39,7 @@ class DistributionListInfo extends AdminObjectInfo
     #[SerializedName("dynamic")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dynamic;
+    private ?bool $dynamic = null;
 
     /**
      * dl members
@@ -49,7 +49,7 @@ class DistributionListInfo extends AdminObjectInfo
     #[Accessor(getter: "getMembers", setter: "setMembers")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAdmin")]
-    private $members = [];
+    private array $members = [];
 
     /**
      * Owner information
@@ -61,7 +61,7 @@ class DistributionListInfo extends AdminObjectInfo
     #[Type("array<Zimbra\Admin\Struct\GranteeInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "owner", namespace: "urn:zimbraAdmin")]
-    private $owners = [];
+    private array $owners = [];
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -51,7 +51,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * The name of the distribution list
@@ -62,7 +62,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     #[SerializedName("dl")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $dl;
+    private string $dl;
 
     /**
      * Constructor

@@ -58,7 +58,7 @@ class GranteeSelector
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Password for guest grantee or the access key for key grantee For user right only
@@ -69,7 +69,7 @@ class GranteeSelector
     #[SerializedName("secret")]
     #[Type("string")]
     #[XmlAttribute]
-    private $secret;
+    private ?string $secret = null;
 
     /**
      * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to.
@@ -81,7 +81,7 @@ class GranteeSelector
     #[SerializedName("all")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $all;
+    private ?bool $all = null;
 
     /**
      * Constructor

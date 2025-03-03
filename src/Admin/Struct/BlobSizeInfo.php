@@ -32,7 +32,7 @@ class BlobSizeInfo
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private string $path;
 
     /**
      * Data size
@@ -43,7 +43,7 @@ class BlobSizeInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private int $size;
 
     /**
      * File size
@@ -54,7 +54,7 @@ class BlobSizeInfo
     #[SerializedName("fileSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fileSize;
+    private int $fileSize;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
@@ -65,7 +65,7 @@ class BlobSizeInfo
     #[SerializedName("external")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $external;
+    private bool $external;
 
     /**
      * Constructor

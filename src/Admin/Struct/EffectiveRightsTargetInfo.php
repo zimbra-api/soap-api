@@ -43,7 +43,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Name
@@ -54,7 +54,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class UserAgentInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Version
@@ -43,7 +43,7 @@ class UserAgentInfo
     #[SerializedName("version")]
     #[Type("string")]
     #[XmlAttribute]
-    private $version;
+    private ?string $version = null;
 
     /**
      * Constructor

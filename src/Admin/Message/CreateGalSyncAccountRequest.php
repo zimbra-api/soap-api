@@ -44,7 +44,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Domain name
@@ -55,7 +55,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private string $domain;
 
     /**
      * GalMode type
@@ -87,7 +87,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * Contact folder name
@@ -98,7 +98,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("folder")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * The mailhost on which this account resides
@@ -109,7 +109,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("server")]
     #[Type("string")]
     #[XmlAttribute]
-    private $mailHost;
+    private string $mailHost;
 
     /**
      * Constructor

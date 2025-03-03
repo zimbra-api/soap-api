@@ -38,7 +38,7 @@ class ServerQueues
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $serverName;
+    private string $serverName;
 
     /**
      * Queue information
@@ -48,7 +48,7 @@ class ServerQueues
     #[Accessor(getter: "getQueues", setter: "setQueues")]
     #[Type("array<Zimbra\Admin\Struct\MailQueueCount>")]
     #[XmlList(inline: true, entry: "queue", namespace: "urn:zimbraAdmin")]
-    private $queues = [];
+    private array $queues = [];
 
     /**
      * Constructor

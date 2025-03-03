@@ -32,7 +32,7 @@ class VolumeExternalInfo extends BaseExternalVolume
     #[SerializedName("volumePrefix")]
     #[Type("string")]
     #[XmlAttribute]
-    private $volumePrefix;
+    private ?string $volumePrefix = null;
 
     /**
      * Specifies global bucket configuration Id
@@ -48,7 +48,7 @@ class VolumeExternalInfo extends BaseExternalVolume
     #[SerializedName("globalBucketConfigId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $globalBucketConfigId;
+    private ?string $globalBucketConfigId = null;
 
     /**
      * Specifies frequent access enabled or not
@@ -64,7 +64,7 @@ class VolumeExternalInfo extends BaseExternalVolume
     #[SerializedName("useInFrequentAccess")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $useInFrequentAccess;
+    private ?bool $useInFrequentAccess = null;
 
     /**
      * Specifies threshold value of useInFrequentAccess
@@ -80,7 +80,7 @@ class VolumeExternalInfo extends BaseExternalVolume
     #[SerializedName("useInFrequentAccessThreshold")]
     #[Type("int")]
     #[XmlAttribute]
-    private $useInFrequentAccessThreshold;
+    private ?int $useInFrequentAccessThreshold = null;
 
     /**
      * Specifies intelligent tiering enabled or not
@@ -96,7 +96,7 @@ class VolumeExternalInfo extends BaseExternalVolume
     #[SerializedName("useIntelligentTiering")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $useIntelligentTiering;
+    private ?bool $useIntelligentTiering = null;
 
     /**
      * Specifies unified/shared enabled or not
@@ -107,7 +107,7 @@ class VolumeExternalInfo extends BaseExternalVolume
     #[SerializedName("unified")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $unified;
+    private ?bool $unified = null;
 
     /**
      * Constructor

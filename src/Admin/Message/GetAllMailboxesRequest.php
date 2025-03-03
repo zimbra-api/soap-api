@@ -34,7 +34,7 @@ class GetAllMailboxesRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -45,7 +45,7 @@ class GetAllMailboxesRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Constructor

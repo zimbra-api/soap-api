@@ -40,7 +40,7 @@ class InheritedFlaggedValue
     #[SerializedName("inherited")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $inherited;
+    private bool $inherited;
 
     /**
      * Value
@@ -50,7 +50,7 @@ class InheritedFlaggedValue
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

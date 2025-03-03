@@ -32,7 +32,7 @@ class AccountInfo extends AdminObjectInfo
     #[SerializedName("isExternal")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isExternal;
+    private ?bool $isExternal = null;
 
     /**
      * Constructor

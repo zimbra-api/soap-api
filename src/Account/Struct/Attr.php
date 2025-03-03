@@ -38,7 +38,7 @@ class Attr
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Value
@@ -48,7 +48,7 @@ class Attr
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Perm denied
@@ -59,27 +59,27 @@ class Attr
     #[SerializedName("pd")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $permDenied;
+    private ?bool $permDenied = null;
 
     /**
      * Constructor
      *
      * @param  string $name
      * @param  string $value
-     * @param  bool   $pd
+     * @param  bool   $permDenied
      * @return self
      */
     public function __construct(
         string $name = "",
         ?string $value = null,
-        ?bool $pd = null
+        ?bool $permDenied = null
     ) {
         $this->setName($name);
         if (null !== $value) {
             $this->setValue($value);
         }
-        if (null !== $pd) {
-            $this->setPermDenied($pd);
+        if (null !== $permDenied) {
+            $this->setPermDenied($permDenied);
         }
     }
 

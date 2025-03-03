@@ -32,7 +32,7 @@ class TypeIdName
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Id
@@ -43,7 +43,7 @@ class TypeIdName
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Name
@@ -54,7 +54,7 @@ class TypeIdName
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

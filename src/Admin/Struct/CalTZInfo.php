@@ -41,7 +41,7 @@ class CalTZInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Standard Time's offset in minutes from UTC; local = UTC + offset
@@ -52,7 +52,7 @@ class CalTZInfo
     #[SerializedName("stdoff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $tzStdOffset;
+    private int $tzStdOffset;
 
     /**
      * Daylight Saving Time's offset in minutes from UTC; present only if DST is used
@@ -63,7 +63,7 @@ class CalTZInfo
     #[SerializedName("dayoff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $tzDayOffset;
+    private int $tzDayOffset;
 
     /**
      * Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
@@ -96,7 +96,7 @@ class CalTZInfo
     #[SerializedName("stdname")]
     #[Type("string")]
     #[XmlAttribute]
-    private $standardTZName;
+    private ?string $standardTZName = null;
 
     /**
      * Daylight Saving Time component's timezone name
@@ -107,7 +107,7 @@ class CalTZInfo
     #[SerializedName("dayname")]
     #[Type("string")]
     #[XmlAttribute]
-    private $daylightTZName;
+    private ?string $daylightTZName = null;
 
     /**
      * Constructor

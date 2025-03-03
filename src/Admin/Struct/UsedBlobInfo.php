@@ -38,7 +38,7 @@ class UsedBlobInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Revision
@@ -49,7 +49,7 @@ class UsedBlobInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private int $revision;
 
     /**
      * Size
@@ -60,7 +60,7 @@ class UsedBlobInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private int $size;
 
     /**
      * Volume ID
@@ -71,7 +71,7 @@ class UsedBlobInfo
     #[SerializedName("volumeId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $volumeId;
+    private int $volumeId;
 
     /**
      * Blob size information

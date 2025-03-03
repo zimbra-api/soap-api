@@ -59,7 +59,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[SerializedName("waitSet")]
     #[Type("string")]
     #[XmlAttribute]
-    private $waitSetId;
+    private string $waitSetId;
 
     /**
      * Last known sequence number
@@ -70,7 +70,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[SerializedName("seq")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lastKnownSeqNo;
+    private string $lastKnownSeqNo;
 
     /**
      * Flag whether or not to block until some account has new data
@@ -81,7 +81,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[SerializedName("block")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $block;
+    private ?bool $block = null;
 
     /**
      * If true, WaitSetResponse will include details of Pending Modifications.
@@ -92,7 +92,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[SerializedName("expand")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $expand;
+    private ?bool $expand = null;
 
     /**
      * Default interest types: comma-separated list
@@ -103,7 +103,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[SerializedName("defTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultInterests;
+    private ?string $defaultInterests = null;
 
     /**
      * Timeout length
@@ -114,7 +114,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[SerializedName("timeout")]
     #[Type("int")]
     #[XmlAttribute]
-    private $timeout;
+    private ?int $timeout = null;
 
     /**
      * Waitsets to add
@@ -126,7 +126,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $addAccounts = [];
+    private array $addAccounts = [];
 
     /**
      * Waitsets to update
@@ -138,7 +138,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $updateAccounts = [];
+    private array $updateAccounts = [];
 
     /**
      * Waitsets to remove
@@ -150,7 +150,7 @@ class AdminWaitSetRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $removeAccounts = [];
+    private array $removeAccounts = [];
 
     /**
      * Constructor

@@ -36,7 +36,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private string $domain;
 
     /**
      * Name
@@ -47,7 +47,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * The maximum number of entries to return (0 is default and means all)
@@ -58,7 +58,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Type of addresses to search.
@@ -79,7 +79,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("galAcctId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $galAccountId;
+    private ?string $galAccountId = null;
 
     /**
      * Constructor

@@ -60,7 +60,7 @@ class TzFixupRuleMatchRules
     #[SerializedName("stdoff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $stdOffset;
+    private int $stdOffset;
 
     /**
      * Offset from UTC in daylight time; present only if DST is used
@@ -71,7 +71,7 @@ class TzFixupRuleMatchRules
     #[SerializedName("dayoff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $dstOffset;
+    private int $dstOffset;
 
     /**
      * Constructor

@@ -54,7 +54,7 @@ class PushFreeBusyRequest extends SoapRequest
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

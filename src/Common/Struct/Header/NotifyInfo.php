@@ -32,7 +32,7 @@ class NotifyInfo
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sequenceNum;
+    private ?int $sequenceNum = null;
 
     /**
      * Constructor

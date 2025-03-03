@@ -38,7 +38,7 @@ class Pref
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Value
@@ -48,7 +48,7 @@ class Pref
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Modified
@@ -59,7 +59,7 @@ class Pref
     #[SerializedName("modified")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modified;
+    private ?int $modified = null;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class GetAllAccountLoggersResponse extends SoapResponse
             namespace: "urn:zimbraAdmin"
         )
     ]
-    private $loggers = [];
+    private array $loggers = [];
 
     /**
      * Constructor

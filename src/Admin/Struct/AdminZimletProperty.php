@@ -39,7 +39,7 @@ class AdminZimletProperty implements ZimletProperty
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Value
@@ -49,7 +49,7 @@ class AdminZimletProperty implements ZimletProperty
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

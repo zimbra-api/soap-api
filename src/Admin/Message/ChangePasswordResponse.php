@@ -34,7 +34,7 @@ class ChangePasswordResponse extends SoapResponse
     #[SerializedName("authToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $authToken;
+    private ?string $authToken = null;
 
     /**
      * Life time associated with new authToken
@@ -45,7 +45,7 @@ class ChangePasswordResponse extends SoapResponse
     #[SerializedName("lifetime")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $lifetime;
+    private ?int $lifetime = null;
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class DeleteLDAPEntryRequest extends SoapRequest
     #[SerializedName("dn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dn;
+    private string $dn;
 
     /**
      * Constructor

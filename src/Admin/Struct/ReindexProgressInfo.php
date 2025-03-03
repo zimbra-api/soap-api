@@ -32,7 +32,7 @@ class ReindexProgressInfo
     #[SerializedName("numSucceeded")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numSucceeded;
+    private int $numSucceeded;
 
     /**
      * Number of reindexes that failed
@@ -43,7 +43,7 @@ class ReindexProgressInfo
     #[SerializedName("numFailed")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numFailed;
+    private int $numFailed;
 
     /**
      * Number of reindexes that remaining
@@ -54,7 +54,7 @@ class ReindexProgressInfo
     #[SerializedName("numRemaining")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numRemaining;
+    private int $numRemaining;
 
     /**
      * Constructor

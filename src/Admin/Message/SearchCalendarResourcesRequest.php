@@ -49,7 +49,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -60,7 +60,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * The domain name to limit the search to
@@ -71,7 +71,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private ?string $domain = null;
 
     /**
      * applyCos - Flag whether or not to apply the COS policy to calendar resource.
@@ -83,7 +83,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("applyCos")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyCos;
+    private ?bool $applyCos = null;
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
@@ -94,7 +94,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
@@ -105,7 +105,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("sortAscending")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sortAscending;
+    private ?bool $sortAscending = null;
 
     /**
      * Search Filter

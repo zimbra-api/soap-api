@@ -32,7 +32,7 @@ class MailboxStats
     #[SerializedName("numMboxes")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numMboxes;
+    private int $numMboxes;
 
     /**
      * Total size of all mailboxes
@@ -43,7 +43,7 @@ class MailboxStats
     #[SerializedName("totalSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private int $totalSize;
 
     /**
      * Constructor

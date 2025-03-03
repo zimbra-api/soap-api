@@ -32,7 +32,7 @@ class IdStatus
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Status
@@ -43,7 +43,7 @@ class IdStatus
     #[SerializedName("status")]
     #[Type("string")]
     #[XmlAttribute]
-    private $status;
+    private ?string $status = null;
 
     /**
      * Constructor

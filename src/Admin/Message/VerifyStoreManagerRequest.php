@@ -34,7 +34,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     #[SerializedName("fileSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fileSize;
+    private ?int $fileSize = null;
 
     /**
      * num
@@ -45,7 +45,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     #[SerializedName("num")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private ?int $num = null;
 
     /**
      * check blobs
@@ -56,14 +56,14 @@ class VerifyStoreManagerRequest extends SoapRequest
     #[SerializedName("checkBlobs")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $checkBlobs;
+    private ?bool $checkBlobs = null;
 
     /**
      * Constructor
      *
      * @param int  $fileSize
      * @param int  $num
-     * @param bool  $checkBlobs
+     * @param bool $checkBlobs
      * @return self
      */
     public function __construct(

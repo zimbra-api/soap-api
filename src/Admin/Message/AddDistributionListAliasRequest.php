@@ -34,7 +34,7 @@ class AddDistributionListAliasRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Alias
@@ -45,7 +45,7 @@ class AddDistributionListAliasRequest extends SoapRequest
     #[SerializedName("alias")]
     #[Type("string")]
     #[XmlAttribute]
-    private $alias;
+    private string $alias;
 
     /**
      * Constructor

@@ -38,7 +38,7 @@ class CosCountInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Class Of Service (COS) ID
@@ -49,7 +49,7 @@ class CosCountInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Account count.
@@ -61,7 +61,7 @@ class CosCountInfo
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("int")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?int $value = null;
 
     /**
      * Constructor

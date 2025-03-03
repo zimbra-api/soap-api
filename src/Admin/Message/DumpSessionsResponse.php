@@ -45,7 +45,7 @@ class DumpSessionsResponse extends SoapResponse
     #[SerializedName("activeSessions")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalActiveSessions;
+    private int $totalActiveSessions;
 
     /**
      * Information about SOAP sessions

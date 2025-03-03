@@ -41,7 +41,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Name for data source
@@ -52,7 +52,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Folder ID for data source
@@ -63,7 +63,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Flag whether or not the data source is enabled
@@ -74,7 +74,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("isEnabled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $enabled;
+    private ?bool $enabled = null;
 
     /**
      * indicates that this datasource is used for one way (incoming) import versus two-way sync
@@ -85,7 +85,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("importOnly")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $importOnly;
+    private ?bool $importOnly = null;
 
     /**
      * Name of server
@@ -98,7 +98,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("host")]
     #[Type("string")]
     #[XmlAttribute]
-    private $host;
+    private ?string $host = null;
 
     /**
      * Port number of server
@@ -110,7 +110,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("port")]
     #[Type("int")]
     #[XmlAttribute]
-    private $port;
+    private ?int $port = null;
 
     /**
      * Which security layer to use for connection (cleartext, ssl, tls, or tls if available).
@@ -132,7 +132,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("username")]
     #[Type("string")]
     #[XmlAttribute]
-    private $username;
+    private ?string $username = null;
 
     /**
      * Login password for data source
@@ -143,7 +143,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * Polling interval.  For instance "10m"
@@ -154,7 +154,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("pollingInterval")]
     #[Type("string")]
     #[XmlAttribute]
-    private $pollingInterval;
+    private ?string $pollingInterval = null;
 
     /**
      * Email address for the data-source
@@ -165,7 +165,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("emailAddress")]
     #[Type("string")]
     #[XmlAttribute]
-    private $emailAddress;
+    private ?string $emailAddress = null;
 
     /**
      * When forwarding or replying to messages sent to this data source, this flags whether
@@ -183,7 +183,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("useAddressForForwardReply")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $useAddressForForwardReply;
+    private ?bool $useAddressForForwardReply = null;
 
     /**
      * ID for default signature
@@ -194,7 +194,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("defaultSignature")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultSignature;
+    private ?string $defaultSignature = null;
 
     /**
      * Forward / Reply Signature ID for data source
@@ -210,7 +210,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("forwardReplySignature")]
     #[Type("string")]
     #[XmlAttribute]
-    private $forwardReplySignature;
+    private ?string $forwardReplySignature = null;
 
     /**
      * Personal part of email address to put in the from header
@@ -221,7 +221,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("fromDisplay")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fromDisplay;
+    private ?string $fromDisplay = null;
 
     /**
      * Email address to put in the reply-to header
@@ -232,7 +232,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("replyToAddress")]
     #[Type("string")]
     #[XmlAttribute]
-    private $replyToAddress;
+    private ?string $replyToAddress = null;
 
     /**
      * Personal part of Email address to put in the reply-to header
@@ -243,7 +243,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("replyToDisplay")]
     #[Type("string")]
     #[XmlAttribute]
-    private $replyToDisplay;
+    private ?string $replyToDisplay = null;
 
     /**
      * Data import class used bt this data source
@@ -254,7 +254,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("importClass")]
     #[Type("string")]
     #[XmlAttribute]
-    private $importClass;
+    private ?string $importClass = null;
 
     /**
      * Failing Since
@@ -265,7 +265,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("failingSince")]
     #[Type("int")]
     #[XmlAttribute]
-    private $failingSince;
+    private ?int $failingSince = null;
 
     /**
      * Last Error
@@ -276,7 +276,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("lastError")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $lastError;
+    private ?string $lastError = null;
 
     /**
      * Properties for the data source
@@ -286,7 +286,7 @@ class AccountDataSource implements DataSource
     #[Accessor(getter: "getAttributes", setter: "setAttributes")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
-    private $attributes;
+    private array $attributes = [];
 
     /**
      * refresh token for refreshing data source oauth token
@@ -297,7 +297,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("refreshToken")]
     #[Type("string")]
     #[XmlAttribute]
-    private $refreshToken;
+    private ?string $refreshToken = null;
 
     /**
      * refreshTokenUrl for refreshing data source oauth token
@@ -308,7 +308,7 @@ class AccountDataSource implements DataSource
     #[SerializedName("refreshTokenUrl")]
     #[Type("string")]
     #[XmlAttribute]
-    private $refreshTokenUrl;
+    private ?string $refreshTokenUrl = null;
 
     /**
      * Constructor

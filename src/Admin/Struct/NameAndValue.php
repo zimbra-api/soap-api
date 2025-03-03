@@ -32,7 +32,7 @@ class NameAndValue
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Value
@@ -43,7 +43,7 @@ class NameAndValue
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

@@ -37,7 +37,7 @@ class Code
             namespace: "http://www.w3.org/2003/05/soap-envelope"
         )
     ]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

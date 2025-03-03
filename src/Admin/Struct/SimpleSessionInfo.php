@@ -32,7 +32,7 @@ class SimpleSessionInfo
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private string $zimbraId;
 
     /**
      * Account name
@@ -43,7 +43,7 @@ class SimpleSessionInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Session ID
@@ -54,7 +54,7 @@ class SimpleSessionInfo
     #[SerializedName("sid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sessionId;
+    private string $sessionId;
 
     /**
      * Creation date
@@ -65,7 +65,7 @@ class SimpleSessionInfo
     #[SerializedName("cd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $createdDate;
+    private int $createdDate;
 
     /**
      * Last accessed date
@@ -76,7 +76,7 @@ class SimpleSessionInfo
     #[SerializedName("ld")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastAccessedDate;
+    private int $lastAccessedDate;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class RightWithName
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Constructor

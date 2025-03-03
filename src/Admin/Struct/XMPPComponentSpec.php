@@ -38,7 +38,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Domain selector

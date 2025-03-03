@@ -52,7 +52,7 @@ class DeployZimletRequest extends SoapRequest
     #[SerializedName("flush")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $flushCache;
+    private ?bool $flushCache = null;
 
     /**
      * Synchronous flag
@@ -63,7 +63,7 @@ class DeployZimletRequest extends SoapRequest
     #[SerializedName("synchronous")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $synchronous;
+    private ?bool $synchronous = null;
 
     /**
      * Content

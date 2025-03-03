@@ -44,7 +44,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Data source ID

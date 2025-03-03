@@ -62,7 +62,7 @@ class CountObjectsRequest extends SoapRequest
     #[Accessor(getter: "getDomains", setter: "setDomains")]
     #[Type("array<Zimbra\Admin\Struct\DomainSelector>")]
     #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
-    private $domains = [];
+    private array $domains = [];
 
     /**
      * UCService
@@ -84,7 +84,7 @@ class CountObjectsRequest extends SoapRequest
     #[SerializedName("onlyrelated")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $onlyRelated;
+    private ?bool $onlyRelated = null;
 
     /**
      * Constructor

@@ -43,7 +43,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("ref")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ref;
+    private ?string $ref = null;
 
     /**
      * Query string.
@@ -55,7 +55,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * type of addresses to auto-complete on.
@@ -82,7 +82,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("needExp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needCanExpand;
+    private ?bool $needCanExpand = null;
 
     /**
      * Set this if the "isOwner" flag is needed in the response for group entries.
@@ -94,7 +94,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("needIsOwner")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needIsOwner;
+    private ?bool $needIsOwner = null;
 
     /**
      * Specify if the "isMember" flag is needed in the response for group entries.
@@ -118,7 +118,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("needSMIMECerts")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needSMIMECerts;
+    private ?bool $needSMIMECerts = null;
 
     /**
      * GAL Account ID
@@ -129,7 +129,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("galAcctId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $galAccountId;
+    private ?string $galAccountId = null;
 
     /**
      * "Quick" flag.
@@ -145,7 +145,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("quick")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $quick;
+    private ?bool $quick = null;
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
@@ -156,7 +156,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
@@ -167,7 +167,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -178,7 +178,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Client locale identification.
@@ -189,7 +189,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("locale")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $locale;
+    private ?string $locale = null;
 
     /**
      * Cursor specification
@@ -211,7 +211,7 @@ class SearchGalRequest extends SoapRequest
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Search Filter

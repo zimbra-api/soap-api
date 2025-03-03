@@ -39,7 +39,7 @@ class EffectiveAttrsInfo
     #[SerializedName("all")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $all;
+    private ?bool $all = null;
 
     /**
      * Attributes
@@ -49,7 +49,7 @@ class EffectiveAttrsInfo
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class Context
     #[SerializedName("hops")]
     #[Type("int")]
     #[XmlAttribute]
-    private $hopCount;
+    private ?int $hopCount = null;
 
     /**
      * Auth token
@@ -50,7 +50,7 @@ class Context
     #[SerializedName("authToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $authToken;
+    private ?string $authToken = null;
 
     /**
      * Session
@@ -61,7 +61,7 @@ class Context
     #[SerializedName("session")]
     #[Type(SessionInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?SessionInfo $session;
+    private ?SessionInfo $session = null;
 
     /**
      * Legacy session id
@@ -72,7 +72,7 @@ class Context
     #[SerializedName("sessionId")]
     #[Type(SessionInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?SessionInfo $legacySessionId;
+    private ?SessionInfo $legacySessionId = null;
 
     /**
      * No session
@@ -83,7 +83,7 @@ class Context
     #[SerializedName("nosession")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $noSession;
+    private ?string $noSession = null;
 
     /**
      * Account info
@@ -94,7 +94,7 @@ class Context
     #[SerializedName("account")]
     #[Type(AccountInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?AccountInfo $account;
+    private ?AccountInfo $account = null;
 
     /**
      * Change info
@@ -105,7 +105,7 @@ class Context
     #[SerializedName("change")]
     #[Type(ChangeInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?ChangeInfo $change;
+    private ?ChangeInfo $change = null;
 
     /**
      * Target server
@@ -116,7 +116,7 @@ class Context
     #[SerializedName("targetServer")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $targetServer;
+    private ?string $targetServer = null;
 
     /**
      * User agent
@@ -127,7 +127,7 @@ class Context
     #[SerializedName("userAgent")]
     #[Type(UserAgentInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?UserAgentInfo $userAgent;
+    private ?UserAgentInfo $userAgent = null;
 
     /**
      * Auth token control
@@ -138,7 +138,7 @@ class Context
     #[SerializedName("authTokenControl")]
     #[Type(AuthTokenControl::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?AuthTokenControl $authTokenControl;
+    private ?AuthTokenControl $authTokenControl = null;
 
     /**
      * Format info
@@ -149,7 +149,7 @@ class Context
     #[SerializedName("format")]
     #[Type(FormatInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?FormatInfo $format;
+    private ?FormatInfo $format = null;
 
     /**
      * Notify info
@@ -160,7 +160,7 @@ class Context
     #[SerializedName("notify")]
     #[Type(NotifyInfo::class)]
     #[XmlElement(namespace: "urn:zimbra")]
-    private ?NotifyInfo $notify;
+    private ?NotifyInfo $notify = null;
 
     /**
      * No notify
@@ -171,7 +171,7 @@ class Context
     #[SerializedName("nonotify")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $noNotify;
+    private ?string $noNotify = null;
 
     /**
      * No qualify
@@ -182,7 +182,7 @@ class Context
     #[SerializedName("noqualify")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $noQualify;
+    private ?string $noQualify = null;
 
     /**
      * Via
@@ -193,7 +193,7 @@ class Context
     #[SerializedName("via")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $via;
+    private ?string $via = null;
 
     /**
      * Soap request id
@@ -204,7 +204,7 @@ class Context
     #[SerializedName("soapId")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $soapRequestId;
+    private ?string $soapRequestId = null;
 
     /**
      * Csrf token
@@ -215,7 +215,7 @@ class Context
     #[SerializedName("csrfToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbra")]
-    private $csrfToken;
+    private ?string $csrfToken = null;
 
     /**
      * Constructor

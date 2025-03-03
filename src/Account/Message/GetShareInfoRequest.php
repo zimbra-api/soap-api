@@ -46,7 +46,7 @@ class GetShareInfoRequest extends SoapRequest
     #[SerializedName("internal")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $internal;
+    private ?bool $internal = null;
 
     /**
      * Flag whether own shares should be included:
@@ -59,7 +59,7 @@ class GetShareInfoRequest extends SoapRequest
     #[SerializedName("includeSelf")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeSelf;
+    private ?bool $includeSelf = null;
 
     /**
      * Filter by the specified grantee type

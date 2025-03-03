@@ -48,7 +48,7 @@ class DistributionListSubscribeReq
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Flag whether to bcc all other owners on the accept/reject notification emails.
@@ -59,7 +59,7 @@ class DistributionListSubscribeReq
     #[SerializedName("bccOwners")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $bccOwners;
+    private ?bool $bccOwners = null;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class ServiceStatus
     #[SerializedName("server")]
     #[Type("string")]
     #[XmlAttribute]
-    private $server;
+    private string $server;
 
     /**
      * Service
@@ -50,7 +50,7 @@ class ServiceStatus
     #[SerializedName("service")]
     #[Type("string")]
     #[XmlAttribute]
-    private $service;
+    private string $service;
 
     /**
      * Number of seconds since the epoch (1970), UTC time
@@ -61,7 +61,7 @@ class ServiceStatus
     #[SerializedName("t")]
     #[Type("int")]
     #[XmlAttribute]
-    private $time;
+    private int $time;
 
     /**
      * Status

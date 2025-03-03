@@ -37,7 +37,7 @@ class GetInfoRequest extends SoapRequest
     #[SerializedName("sections")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sections = [];
+    private array $sections = [];
 
     /**
      * Comma separated list of rights to return information about.
@@ -48,7 +48,7 @@ class GetInfoRequest extends SoapRequest
     #[SerializedName("rights")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

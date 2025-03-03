@@ -39,7 +39,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Zimlet version
@@ -50,7 +50,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName("version")]
     #[Type("string")]
     #[XmlAttribute]
-    private $version;
+    private ?string $version = null;
 
     /**
      * Zimlet description
@@ -61,7 +61,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName("description")]
     #[Type("string")]
     #[XmlAttribute]
-    private $description;
+    private ?string $description = null;
 
     /**
      * Zimlet extension
@@ -72,7 +72,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName("extension")]
     #[Type("string")]
     #[XmlAttribute]
-    private $extension;
+    private ?string $extension = null;
 
     /**
      * Zimlet target
@@ -83,7 +83,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName("target")]
     #[Type("string")]
     #[XmlAttribute]
-    private $target;
+    private ?string $target = null;
 
     /**
      * Zimlet label
@@ -94,7 +94,7 @@ class AccountZimletDesc implements ZimletDesc
     #[SerializedName("label")]
     #[Type("string")]
     #[XmlAttribute]
-    private $label;
+    private ?string $label = null;
 
     /**
      * @var ZimletServerExtension

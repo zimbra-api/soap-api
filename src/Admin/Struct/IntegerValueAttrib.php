@@ -32,7 +32,7 @@ class IntegerValueAttrib
     #[SerializedName("value")]
     #[Type("int")]
     #[XmlAttribute]
-    private $value;
+    private ?int $value = null;
 
     /**
      * Constructor

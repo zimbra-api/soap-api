@@ -33,7 +33,7 @@ class CountAccountResponse extends SoapResponse
     #[Accessor(getter: "getCos", setter: "setCos")]
     #[Type("array<Zimbra\Admin\Struct\CosCountInfo>")]
     #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
-    private $cos = [];
+    private array $cos = [];
 
     /**
      * Constructor

@@ -50,7 +50,7 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     #[Accessor(getter: "getTargets", setter: "setTargets")]
     #[Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")]
     #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAdmin")]
-    private $targets = [];
+    private array $targets = [];
 
     /**
      * Constructor

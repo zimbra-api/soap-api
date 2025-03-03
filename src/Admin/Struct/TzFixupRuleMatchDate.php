@@ -32,7 +32,7 @@ class TzFixupRuleMatchDate
     #[SerializedName("mon")]
     #[Type("int")]
     #[XmlAttribute]
-    private $month;
+    private int $month;
 
     /**
      * Match day of month (1..31)
@@ -43,7 +43,7 @@ class TzFixupRuleMatchDate
     #[SerializedName("mday")]
     #[Type("int")]
     #[XmlAttribute]
-    private $monthDay;
+    private int $monthDay;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class GetLoggerStatsResponse extends SoapResponse
     #[Accessor(getter: "getHostNames", setter: "setHostNames")]
     #[Type("array<Zimbra\Admin\Struct\HostStats>")]
     #[XmlList(inline: true, entry: "hostname", namespace: "urn:zimbraAdmin")]
-    private $hostNames = [];
+    private array $hostNames = [];
 
     /**
      * Note.  For instance "Logger is not enabled"
@@ -50,7 +50,7 @@ class GetLoggerStatsResponse extends SoapResponse
     #[SerializedName("note")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $note;
+    private ?string $note = null;
 
     /**
      * Constructor

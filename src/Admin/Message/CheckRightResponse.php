@@ -41,7 +41,7 @@ class CheckRightResponse extends SoapResponse
     #[SerializedName("allow")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allow;
+    private bool $allow;
 
     /**
      * Via information for the grant that decisively lead to the result

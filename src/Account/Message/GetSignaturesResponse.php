@@ -33,7 +33,7 @@ class GetSignaturesResponse extends SoapResponse
     #[Accessor(getter: "getSignatures", setter: "setSignatures")]
     #[Type("array<Zimbra\Account\Struct\Signature>")]
     #[XmlList(inline: true, entry: "signature", namespace: "urn:zimbraAccount")]
-    private $signatures = [];
+    private array $signatures = [];
 
     /**
      * Constructor

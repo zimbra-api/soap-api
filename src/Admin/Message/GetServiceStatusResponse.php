@@ -50,7 +50,7 @@ class GetServiceStatusResponse extends SoapResponse
     #[Accessor(getter: "getServiceStatuses", setter: "setServiceStatuses")]
     #[Type("array<Zimbra\Admin\Struct\ServiceStatus>")]
     #[XmlList(inline: true, entry: "status", namespace: "urn:zimbraAdmin")]
-    private $serviceStatuses = [];
+    private array $serviceStatuses = [];
 
     /**
      * Constructor

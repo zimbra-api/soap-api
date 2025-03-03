@@ -57,7 +57,7 @@ class AutoProvAccountRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $password;
+    private ?string $password = null;
 
     /**
      * Constructor

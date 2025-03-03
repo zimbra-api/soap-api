@@ -32,7 +32,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Id
@@ -43,7 +43,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Domain name
@@ -54,7 +54,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     #[SerializedName("x-domainName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domainName;
+    private ?string $domainName = null;
 
     /**
      * Server name
@@ -65,7 +65,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     #[SerializedName("x-serverName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $serverName;
+    private ?string $serverName = null;
 
     /**
      * Constructor

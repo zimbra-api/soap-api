@@ -32,7 +32,7 @@ class IndexStats
     #[SerializedName("maxDocs")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxDocs;
+    private int $maxDocs;
 
     /**
      * number of deleted docs for the index
@@ -43,7 +43,7 @@ class IndexStats
     #[SerializedName("deletedDocs")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numDeletedDocs;
+    private int $numDeletedDocs;
 
     /**
      * Constructor

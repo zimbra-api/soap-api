@@ -44,7 +44,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     #[SerializedName("sync")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sync;
+    private ?bool $sync = null;
 
     /**
      * Accounts
@@ -54,7 +54,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

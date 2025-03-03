@@ -38,7 +38,7 @@ class CreateAlwaysOnClusterRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

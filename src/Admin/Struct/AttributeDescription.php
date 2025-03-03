@@ -32,7 +32,7 @@ class AttributeDescription
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private  $name;
 
     /**
      * Attribute description
@@ -43,7 +43,7 @@ class AttributeDescription
     #[SerializedName("desc")]
     #[Type("string")]
     #[XmlAttribute]
-    private $description;
+    private string $description;
 
     /**
      * Constructor

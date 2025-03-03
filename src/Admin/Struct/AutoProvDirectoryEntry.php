@@ -38,7 +38,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     #[SerializedName("dn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dn;
+    private string $dn;
 
     /**
      * Keys
@@ -48,7 +48,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     #[Accessor(getter: "getKeys", setter: "setKeys")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "key", namespace: "urn:zimbraAdmin")]
-    private $keys = [];
+    private array $keys = [];
 
     /**
      * Constructor

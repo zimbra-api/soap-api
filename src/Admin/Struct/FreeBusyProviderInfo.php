@@ -32,7 +32,7 @@ class FreeBusyProviderInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Propagate flag
@@ -43,7 +43,7 @@ class FreeBusyProviderInfo
     #[SerializedName("propagate")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $propagate;
+    private bool $propagate;
 
     /**
      * Free/Busy cache start time in seconds since the epoch
@@ -54,7 +54,7 @@ class FreeBusyProviderInfo
     #[SerializedName("start")]
     #[Type("int")]
     #[XmlAttribute]
-    private $start;
+    private int $start;
 
     /**
      * Free/Busy cache end time in seconds since the epoch
@@ -65,7 +65,7 @@ class FreeBusyProviderInfo
     #[SerializedName("end")]
     #[Type("int")]
     #[XmlAttribute]
-    private $end;
+    private int $end;
 
     /**
      * Queue location
@@ -76,7 +76,7 @@ class FreeBusyProviderInfo
     #[SerializedName("queue")]
     #[Type("string")]
     #[XmlAttribute]
-    private $queue;
+    private string $queue;
 
     /**
      * Prefix used in Zimbra ForeignPrincipal
@@ -87,7 +87,7 @@ class FreeBusyProviderInfo
     #[SerializedName("prefix")]
     #[Type("string")]
     #[XmlAttribute]
-    private $prefix;
+    private string $prefix;
 
     /**
      * Constructor

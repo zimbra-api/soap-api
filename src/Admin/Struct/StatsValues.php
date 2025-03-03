@@ -38,7 +38,7 @@ class StatsValues
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $t;
+    private string $t;
 
     /**
      * Stats
@@ -48,7 +48,7 @@ class StatsValues
     #[Accessor(getter: "getStats", setter: "setStats")]
     #[Type("array<Zimbra\Admin\Struct\NameAndValue>")]
     #[XmlList(inline: true, entry: "stat", namespace: "urn:zimbraAdmin")]
-    private $stats = [];
+    private array $stats = [];
 
     /**
      * Constructor

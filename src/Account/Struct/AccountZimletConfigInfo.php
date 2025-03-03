@@ -43,7 +43,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Version string
@@ -54,7 +54,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName("version")]
     #[Type("string")]
     #[XmlAttribute]
-    private $version;
+    private ?string $version = null;
 
     /**
      * Zimlet description
@@ -65,7 +65,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName("description")]
     #[Type("string")]
     #[XmlAttribute]
-    private $description;
+    private ?string $description = null;
 
     /**
      * Zimlet extension
@@ -76,7 +76,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName("extension")]
     #[Type("string")]
     #[XmlAttribute]
-    private $extension;
+    private ?string $extension = null;
 
     /**
      * Zimlet target
@@ -87,7 +87,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName("target")]
     #[Type("string")]
     #[XmlAttribute]
-    private $target;
+    private ?string $target = null;
 
     /**
      * Zimlet label
@@ -98,7 +98,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     #[SerializedName("label")]
     #[Type("string")]
     #[XmlAttribute]
-    private $label;
+    private ?string $label = null;
 
     /**
      * Zimlet global configuration information

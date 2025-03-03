@@ -38,7 +38,7 @@ class InDomainInfo
     #[Accessor(getter: "getDomains", setter: "setDomains")]
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
-    private $domains = [];
+    private array $domains = [];
 
     /**
      * Rights

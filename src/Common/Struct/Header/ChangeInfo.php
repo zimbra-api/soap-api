@@ -32,7 +32,7 @@ class ChangeInfo
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $changeId;
+    private ?string $changeId = null;
 
     /**
      * Change type
@@ -43,7 +43,7 @@ class ChangeInfo
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $changeType;
+    private ?string $changeType = null;
 
     /**
      * Constructor

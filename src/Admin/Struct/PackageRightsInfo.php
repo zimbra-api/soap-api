@@ -38,7 +38,7 @@ class PackageRightsInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Command cmds information
@@ -48,7 +48,7 @@ class PackageRightsInfo
     #[Accessor(getter: "getCmds", setter: "setCmds")]
     #[Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")]
     #[XmlList(inline: true, entry: "cmd", namespace: "urn:zimbraAdmin")]
-    private $cmds = [];
+    private array $cmds = [];
 
     /**
      * Constructor

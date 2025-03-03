@@ -32,7 +32,7 @@ class CosInfoAttr extends Attr
     #[SerializedName("c")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $cosAttr;
+    private ?bool $cosAttr = null;
 
     /**
      * Flags that the value of this attribute has been suppressed for permissions reasons
@@ -43,7 +43,7 @@ class CosInfoAttr extends Attr
     #[SerializedName("pd")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $permDenied;
+    private ?bool $permDenied = null;
 
     /**
      * Constructor

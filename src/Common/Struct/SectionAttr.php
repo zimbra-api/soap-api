@@ -32,7 +32,7 @@ class SectionAttr
     #[SerializedName("section")]
     #[Type("string")]
     #[XmlAttribute]
-    private $section;
+    private string $section;
 
     /**
      * Constructor

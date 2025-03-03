@@ -38,7 +38,7 @@ class TargetWithType
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Value matching target type if this is part of a response (otherwise blank)
@@ -48,7 +48,7 @@ class TargetWithType
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

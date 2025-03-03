@@ -38,7 +38,7 @@ abstract class HABMember
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $name;
+    private string $name;
 
     /**
      * Seniority index of the HAB group member
@@ -49,7 +49,7 @@ abstract class HABMember
     #[SerializedName("seniorityIndex")]
     #[Type("int")]
     #[XmlAttribute]
-    private $seniorityIndex;
+    private ?int $seniorityIndex = null;
 
     /**
      * Constructor

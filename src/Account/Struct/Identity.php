@@ -32,7 +32,7 @@ class Identity extends AttrsImpl
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Identity ID
@@ -43,7 +43,7 @@ class Identity extends AttrsImpl
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Constructor

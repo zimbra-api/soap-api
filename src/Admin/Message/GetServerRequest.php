@@ -49,7 +49,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("applyConfig")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyConfig;
+    private ?bool $applyConfig = null;
 
     /**
      * Server

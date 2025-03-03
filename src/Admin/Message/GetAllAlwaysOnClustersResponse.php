@@ -44,7 +44,7 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
             namespace: "urn:zimbraAdmin"
         )
     ]
-    private $clusterList = [];
+    private array $clusterList = [];
 
     /**
      * Constructor

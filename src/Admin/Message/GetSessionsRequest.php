@@ -55,7 +55,7 @@ class GetSessionsRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Limit - the number of sessions to return per page (0 is default and means all)
@@ -66,7 +66,7 @@ class GetSessionsRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Refresh. If 1 (true), ignore any cached results and start fresh.
@@ -77,7 +77,7 @@ class GetSessionsRequest extends SoapRequest
     #[SerializedName("refresh")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $refresh;
+    private ?bool $refresh = null;
 
     /**
      * Constructor

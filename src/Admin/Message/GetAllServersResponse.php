@@ -33,7 +33,7 @@ class GetAllServersResponse extends SoapResponse
     #[Accessor(getter: "getServerList", setter: "setServerList")]
     #[Type("array<Zimbra\Admin\Struct\ServerInfo>")]
     #[XmlList(inline: true, entry: "server", namespace: "urn:zimbraAdmin")]
-    private $serverList = [];
+    private array $serverList = [];
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class SyncGalAccountSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * SyncGalAccount data source specifications
@@ -49,7 +49,7 @@ class SyncGalAccountSpec
     #[Accessor(getter: "getDataSources", setter: "setDataSources")]
     #[Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")]
     #[XmlList(inline: true, entry: "datasource", namespace: "urn:zimbraAdmin")]
-    private $dataSources = [];
+    private array $dataSources = [];
 
     /**
      * Constructor

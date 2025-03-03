@@ -33,7 +33,7 @@ class ZimletAcl
     #[SerializedName("cos")]
     #[Type("string")]
     #[XmlAttribute]
-    private $cos;
+    private ?string $cos = null;
 
     /**
      * ACL

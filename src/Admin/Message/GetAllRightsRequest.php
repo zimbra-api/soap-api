@@ -39,7 +39,7 @@ class GetAllRightsRequest extends SoapRequest
     #[SerializedName("targetType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $targetType;
+    private ?string $targetType = null;
 
     /**
      * Flags whether to include all attribute names in the <attrs> elements in GetRightResponse
@@ -51,7 +51,7 @@ class GetAllRightsRequest extends SoapRequest
     #[SerializedName("expandAllAttrs")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $expandAllAttrs;
+    private ?bool $expandAllAttrs = null;
 
     /**
      * Right class to return

@@ -32,7 +32,7 @@ class MailboxInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Group ID
@@ -43,7 +43,7 @@ class MailboxInfo
     #[SerializedName("groupId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $groupId;
+    private int $groupId;
 
     /**
      * Account ID
@@ -54,7 +54,7 @@ class MailboxInfo
     #[SerializedName("accountId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accountId;
+    private string $accountId;
 
     /**
      * Index volume ID
@@ -65,7 +65,7 @@ class MailboxInfo
     #[SerializedName("indexVolumeId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $indexVolumeId;
+    private int $indexVolumeId;
 
     /**
      * Item ID checkpoint
@@ -76,7 +76,7 @@ class MailboxInfo
     #[SerializedName("itemIdCheckPoint")]
     #[Type("int")]
     #[XmlAttribute]
-    private $itemIdCheckPoint;
+    private int $itemIdCheckPoint;
 
     /**
      * Contact count
@@ -87,7 +87,7 @@ class MailboxInfo
     #[SerializedName("contactCount")]
     #[Type("int")]
     #[XmlAttribute]
-    private $contactCount;
+    private int $contactCount;
 
     /**
      * Size checkpoint
@@ -98,7 +98,7 @@ class MailboxInfo
     #[SerializedName("sizeCheckPoint")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sizeCheckPoint;
+    private int $sizeCheckPoint;
 
     /**
      * Change checkpoint
@@ -109,7 +109,7 @@ class MailboxInfo
     #[SerializedName("changeCheckPoint")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeCheckPoint;
+    private int $changeCheckPoint;
 
     /**
      * Tracking Sync
@@ -120,7 +120,7 @@ class MailboxInfo
     #[SerializedName("trackingSync")]
     #[Type("int")]
     #[XmlAttribute]
-    private $trackingSync;
+    private int $trackingSync;
 
     /**
      * Tracking IMAP
@@ -131,7 +131,7 @@ class MailboxInfo
     #[SerializedName("trackingImap")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $trackingImap;
+    private bool $trackingImap;
 
     /**
      * Last Backup At
@@ -142,7 +142,7 @@ class MailboxInfo
     #[SerializedName("lastBackupAt")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastBackupAt;
+    private int $lastBackupAt;
 
     /**
      * Last SOAP access
@@ -153,7 +153,7 @@ class MailboxInfo
     #[SerializedName("lastSoapAccess")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastSoapAccess;
+    private int $lastSoapAccess;
 
     /**
      * New Messages
@@ -164,7 +164,7 @@ class MailboxInfo
     #[SerializedName("newMessages")]
     #[Type("int")]
     #[XmlAttribute]
-    private $newMessages;
+    private int $newMessages;
 
     /**
      * Constructor

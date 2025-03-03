@@ -40,7 +40,7 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private bool $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
@@ -51,7 +51,7 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     #[SerializedName("searchTotal")]
     #[Type("int")]
     #[XmlAttribute]
-    private $searchTotal;
+    private int $searchTotal;
 
     /**
      * Entries
@@ -61,7 +61,7 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getEntries", setter: "setEntries")]
     #[Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")]
     #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
-    private $entries = [];
+    private array $entries = [];
 
     /**
      * Constructor

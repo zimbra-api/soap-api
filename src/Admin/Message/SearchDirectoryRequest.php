@@ -41,7 +41,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
@@ -52,7 +52,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("maxResults")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxResults;
+    private ?int $maxResults = null;
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
@@ -63,7 +63,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -74,7 +74,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * The domain name to limit the search to
@@ -85,7 +85,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private ?string $domain = null;
 
     /**
      * applyCos - Flag whether or not to apply the COS policy to account.
@@ -97,7 +97,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("applyCos")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyCos;
+    private ?bool $applyCos = null;
 
     /**
      * whether or not to apply the global config attrs to account.
@@ -109,7 +109,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("applyConfig")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyConfig;
+    private ?bool $applyConfig = null;
 
     /**
      * Name of attribute to sort on. Default is the account name.
@@ -120,7 +120,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * Comma-separated list of types to return.
@@ -132,7 +132,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $types;
+    private ?string $types = null;
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
@@ -143,7 +143,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("sortAscending")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sortAscending;
+    private ?bool $sortAscending = null;
 
     /**
      * Whether response should be count only. Default is 0 (false)
@@ -154,7 +154,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("countOnly")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isCountOnly;
+    private ?bool $isCountOnly = null;
 
     /**
      * Constructor

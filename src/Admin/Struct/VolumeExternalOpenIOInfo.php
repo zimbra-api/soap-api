@@ -32,7 +32,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * Specifies OpenIO account name
@@ -43,7 +43,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     #[SerializedName("account")]
     #[Type("string")]
     #[XmlAttribute]
-    private $account;
+    private ?string $account = null;
 
     /**
      * Specifies OpenIO namespace
@@ -54,7 +54,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     #[SerializedName("namespace")]
     #[Type("string")]
     #[XmlAttribute]
-    private $nameSpace;
+    private ?string $nameSpace = null;
 
     /**
      * Specifies OpenIO proxy port
@@ -65,7 +65,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     #[SerializedName("proxyPort")]
     #[Type("int")]
     #[XmlAttribute]
-    private $proxyPort;
+    private ?int $proxyPort = null;
 
     /**
      * Specifies OpenIO account port
@@ -76,7 +76,7 @@ class VolumeExternalOpenIOInfo extends BaseExternalVolume
     #[SerializedName("accountPort")]
     #[Type("int")]
     #[XmlAttribute]
-    private $accountPort;
+    private ?int $accountPort = null;
 
     /**
      * Constructor

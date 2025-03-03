@@ -33,7 +33,7 @@ class AccountPop3DataSource extends AccountDataSource implements Pop3DataSource
     #[SerializedName("leaveOnServer")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $leaveOnServer;
+    private ?bool $leaveOnServer = null;
 
     /**
      * Get leaveOnServer

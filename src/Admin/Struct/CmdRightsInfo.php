@@ -40,7 +40,7 @@ class CmdRightsInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Rights
@@ -52,7 +52,7 @@ class CmdRightsInfo
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "right", namespace: "urn:zimbraAdmin")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Notes
@@ -64,7 +64,7 @@ class CmdRightsInfo
     #[Type("array<string>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "note", namespace: "urn:zimbraAdmin")]
-    private $notes = [];
+    private array $notes = [];
 
     /**
      * Constructor

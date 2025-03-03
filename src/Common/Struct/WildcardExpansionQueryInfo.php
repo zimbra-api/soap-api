@@ -32,7 +32,7 @@ class WildcardExpansionQueryInfo
     #[SerializedName("str")]
     #[Type("string")]
     #[XmlAttribute]
-    private $str;
+    private string $str;
 
     /**
      * If value is 1 (true), then the wildcard was expanded and the matches are included in the search.
@@ -45,7 +45,7 @@ class WildcardExpansionQueryInfo
     #[SerializedName("expanded")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $expanded;
+    private bool $expanded;
 
     /**
      * Number expanded
@@ -56,7 +56,7 @@ class WildcardExpansionQueryInfo
     #[SerializedName("numExpanded")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numExpanded;
+    private int $numExpanded;
 
     /**
      * Constructor

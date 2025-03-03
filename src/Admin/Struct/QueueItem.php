@@ -32,7 +32,7 @@ class QueueItem
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Arrival time
@@ -43,7 +43,7 @@ class QueueItem
     #[SerializedName("time")]
     #[Type("string")]
     #[XmlAttribute]
-    private $time;
+    private string $time;
 
     /**
      * From domain
@@ -54,7 +54,7 @@ class QueueItem
     #[SerializedName("fromdomain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fromdomain;
+    private string $fromdomain;
 
     /**
      * Size
@@ -65,7 +65,7 @@ class QueueItem
     #[SerializedName("size")]
     #[Type("string")]
     #[XmlAttribute]
-    private $size;
+    private string $size;
 
     /**
      * Sender
@@ -76,7 +76,7 @@ class QueueItem
     #[SerializedName("from")]
     #[Type("string")]
     #[XmlAttribute]
-    private $from;
+    private string $from;
 
     /**
      * Comma separated list of recipients
@@ -87,7 +87,7 @@ class QueueItem
     #[SerializedName("to")]
     #[Type("string")]
     #[XmlAttribute]
-    private $to;
+    private string $to;
 
     /**
      * Hostname of origin
@@ -98,7 +98,7 @@ class QueueItem
     #[SerializedName("host")]
     #[Type("string")]
     #[XmlAttribute]
-    private $host;
+    private string $host;
 
     /**
      * IP address of origin
@@ -109,7 +109,7 @@ class QueueItem
     #[SerializedName("addr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $addr;
+    private string $addr;
 
     /**
      * Reason
@@ -120,7 +120,7 @@ class QueueItem
     #[SerializedName("reason")]
     #[Type("string")]
     #[XmlAttribute]
-    private $reason;
+    private string $reason;
 
     /**
      * Content filter
@@ -131,7 +131,7 @@ class QueueItem
     #[SerializedName("filter")]
     #[Type("string")]
     #[XmlAttribute]
-    private $filter;
+    private string $filter;
 
     /**
      * To domain
@@ -142,7 +142,7 @@ class QueueItem
     #[SerializedName("todomain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $todomain;
+    private string $todomain;
 
     /**
      * IP address message received from
@@ -153,7 +153,7 @@ class QueueItem
     #[SerializedName("received")]
     #[Type("string")]
     #[XmlAttribute]
-    private $received;
+    private string $received;
 
     /**
      * Constructor

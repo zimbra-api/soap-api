@@ -32,7 +32,7 @@ class LicenseExpirationInfo
     #[SerializedName("date")]
     #[Type("string")]
     #[XmlAttribute]
-    private $date;
+    private string $date;
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class RevokeRightsResponse extends SoapResponse
     #[Accessor(getter: "getAces", setter: "setAces")]
     #[Type("array<Zimbra\Account\Struct\AccountACEInfo>")]
     #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraAccount")]
-    private $aces = [];
+    private array $aces = [];
 
     /**
      * Constructor

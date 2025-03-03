@@ -32,7 +32,7 @@ class AdminZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     #[Accessor(getter: "getZimletProperties", setter: "setZimletProperties")]
     #[Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")]
     #[XmlList(inline: true, entry: "property", namespace: "urn:zimbraAdmin")]
-    private $properties = [];
+    private array $properties = [];
 
     /**
      * Constructor

@@ -37,7 +37,7 @@ class CheckAuthConfigRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Password
@@ -48,7 +48,7 @@ class CheckAuthConfigRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private string $password;
 
     /**
      * Constructor

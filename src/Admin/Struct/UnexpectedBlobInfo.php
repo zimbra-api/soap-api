@@ -32,7 +32,7 @@ class UnexpectedBlobInfo
     #[SerializedName("volumeId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $volumeId;
+    private int $volumeId;
 
     /**
      * Path
@@ -43,7 +43,7 @@ class UnexpectedBlobInfo
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private string $path;
 
     /**
      * File size
@@ -54,7 +54,7 @@ class UnexpectedBlobInfo
     #[SerializedName("fileSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fileSize;
+    private int $fileSize;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
@@ -65,7 +65,7 @@ class UnexpectedBlobInfo
     #[SerializedName("external")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $external;
+    private bool $external;
 
     /**
      * Constructor

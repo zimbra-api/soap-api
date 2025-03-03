@@ -35,7 +35,7 @@ class AdminKeyValuePairs implements KeyValuePairs
     #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
-    protected $keyValuePairs = [];
+    protected array $keyValuePairs = [];
 
     /**
      * constructor.

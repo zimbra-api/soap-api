@@ -38,7 +38,7 @@ class RightsEntriesInfo
     #[Accessor(getter: "getEntries", setter: "setEntries")]
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
-    private $entries = [];
+    private array $entries = [];
 
     /**
      * Effective rights

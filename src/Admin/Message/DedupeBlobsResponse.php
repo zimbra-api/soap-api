@@ -51,7 +51,7 @@ class DedupeBlobsResponse extends SoapResponse
     #[SerializedName("totalSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private ?int $totalSize = null;
 
     /**
      * Total count
@@ -62,7 +62,7 @@ class DedupeBlobsResponse extends SoapResponse
     #[SerializedName("totalCount")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalCount;
+    private ?int $totalCount = null;
 
     /**
      * volume blobs progress
@@ -83,7 +83,7 @@ class DedupeBlobsResponse extends SoapResponse
             namespace: "urn:zimbraAdmin"
         )
     ]
-    private $volumeBlobsProgress = [];
+    private array $volumeBlobsProgress = [];
 
     /**
      * blob digests progress
@@ -104,7 +104,7 @@ class DedupeBlobsResponse extends SoapResponse
             namespace: "urn:zimbraAdmin"
         )
     ]
-    private $blobDigestsProgress = [];
+    private array $blobDigestsProgress = [];
 
     /**
      * Constructor

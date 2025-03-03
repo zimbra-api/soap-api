@@ -32,7 +32,7 @@ class DLInfo extends ObjectInfo
     #[SerializedName("ref")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ref;
+    private string $ref;
 
     /**
      * Display name of group
@@ -43,7 +43,7 @@ class DLInfo extends ObjectInfo
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * Flags whether the group is dynamic or not
@@ -54,7 +54,7 @@ class DLInfo extends ObjectInfo
     #[SerializedName("dynamic")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dynamic;
+    private ?bool $dynamic = null;
 
     /**
      * Via
@@ -67,7 +67,7 @@ class DLInfo extends ObjectInfo
     #[SerializedName("via")]
     #[Type("string")]
     #[XmlAttribute]
-    private $via;
+    private ?string $via = null;
 
     /**
      * Flags whether user is the owner of the group.
@@ -79,7 +79,7 @@ class DLInfo extends ObjectInfo
     #[SerializedName("isOwner")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isOwner;
+    private ?bool $isOwner = null;
 
     /**
      * Flags whether user is a member of the group.
@@ -91,7 +91,7 @@ class DLInfo extends ObjectInfo
     #[SerializedName("isMember")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isMember;
+    private ?bool $isMember = null;
 
     /**
      * Constructor

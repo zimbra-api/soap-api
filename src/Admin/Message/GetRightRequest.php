@@ -42,7 +42,7 @@ class GetRightRequest extends SoapRequest
     #[SerializedName("expandAllAttrs")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $expandAllAttrs;
+    private ?bool $expandAllAttrs = null;
 
     /**
      * Right name
@@ -53,7 +53,7 @@ class GetRightRequest extends SoapRequest
     #[SerializedName("right")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $right;
+    private string $right;
 
     /**
      * Constructor

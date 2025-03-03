@@ -32,7 +32,7 @@ class AttachmentIdAttrib
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $aid;
+    private ?string $aid = null;
 
     /**
      * Constructor

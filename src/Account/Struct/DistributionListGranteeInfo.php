@@ -43,7 +43,7 @@ class DistributionListGranteeInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Grantee name
@@ -54,7 +54,7 @@ class DistributionListGranteeInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

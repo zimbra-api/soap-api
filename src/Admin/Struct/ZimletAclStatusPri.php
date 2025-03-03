@@ -39,7 +39,7 @@ class ZimletAclStatusPri
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Zimlet ACL

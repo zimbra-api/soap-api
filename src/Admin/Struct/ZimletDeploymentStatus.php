@@ -33,7 +33,7 @@ class ZimletDeploymentStatus
     #[SerializedName("server")]
     #[Type("string")]
     #[XmlAttribute]
-    private $server;
+    private string $server;
 
     /**
      * Status - valid values succeeded|failed|pending
@@ -54,7 +54,7 @@ class ZimletDeploymentStatus
     #[SerializedName("error")]
     #[Type("string")]
     #[XmlAttribute]
-    private $error;
+    private ?string $error = null;
 
     /**
      * Constructor

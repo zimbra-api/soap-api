@@ -32,7 +32,7 @@ class DistributionListMembershipInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Distribution list name
@@ -43,7 +43,7 @@ class DistributionListMembershipInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Present if the dl is a member of the returned list because they are either a direct
@@ -55,7 +55,7 @@ class DistributionListMembershipInfo
     #[SerializedName("via")]
     #[Type("string")]
     #[XmlAttribute]
-    private $via;
+    private ?string $via = null;
 
     /**
      * Constructor

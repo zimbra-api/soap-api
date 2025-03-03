@@ -33,7 +33,7 @@ class CheckRightsResponse extends SoapResponse
     #[Accessor(getter: "getTargets", setter: "setTargets")]
     #[Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")]
     #[XmlList(inline: true, entry: "target", namespace: "urn:zimbraAccount")]
-    private $targets = [];
+    private array $targets = [];
 
     /**
      * Constructor

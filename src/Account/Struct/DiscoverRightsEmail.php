@@ -32,7 +32,7 @@ class DiscoverRightsEmail
     #[SerializedName("addr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $addr;
+    private string $addr;
 
     /**
      * Constructor

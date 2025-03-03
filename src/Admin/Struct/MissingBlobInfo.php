@@ -32,7 +32,7 @@ class MissingBlobInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * revision
@@ -43,7 +43,7 @@ class MissingBlobInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private int $revision;
 
     /**
      * Data size
@@ -54,7 +54,7 @@ class MissingBlobInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private int $size;
 
     /**
      * volume id
@@ -65,7 +65,7 @@ class MissingBlobInfo
     #[SerializedName("volumeId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $volumeId;
+    private int $volumeId;
 
     /**
      * Blob path
@@ -76,7 +76,7 @@ class MissingBlobInfo
     #[SerializedName("blobPath")]
     #[Type("string")]
     #[XmlAttribute]
-    private $blobPath;
+    private string $blobPath;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
@@ -87,7 +87,7 @@ class MissingBlobInfo
     #[SerializedName("external")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $external;
+    private bool $external;
 
     /**
      * version
@@ -98,7 +98,7 @@ class MissingBlobInfo
     #[SerializedName("version")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private int $version;
 
     /**
      * Constructor

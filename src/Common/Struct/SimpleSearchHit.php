@@ -32,7 +32,7 @@ class SimpleSearchHit implements SearchHit
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Sort field value
@@ -43,7 +43,7 @@ class SimpleSearchHit implements SearchHit
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * Constructor

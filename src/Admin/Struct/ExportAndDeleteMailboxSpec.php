@@ -38,7 +38,7 @@ class ExportAndDeleteMailboxSpec
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Items
@@ -48,7 +48,7 @@ class ExportAndDeleteMailboxSpec
     #[Accessor(getter: "getItems", setter: "setItems")]
     #[Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")]
     #[XmlList(inline: true, entry: "item", namespace: "urn:zimbraAdmin")]
-    private $items = [];
+    private array $items = [];
 
     /**
      * Constructor

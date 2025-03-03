@@ -34,7 +34,7 @@ class AdminZimletContext implements ZimletContextInterface
     #[SerializedName("baseUrl")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimletBaseUrl;
+    private string $zimletBaseUrl;
 
     /**
      * Zimlet Priority
@@ -45,7 +45,7 @@ class AdminZimletContext implements ZimletContextInterface
     #[SerializedName("priority")]
     #[Type("int")]
     #[XmlAttribute]
-    private $zimletPriority;
+    private ?int $zimletPriority = null;
 
     /**
      * Zimlet presence

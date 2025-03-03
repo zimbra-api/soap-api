@@ -39,7 +39,7 @@ class MailboxBlobConsistency
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Information about missing blobs
@@ -51,7 +51,7 @@ class MailboxBlobConsistency
     #[Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "item", namespace: "urn:zimbraAdmin")]
-    private $missingBlobs = [];
+    private array $missingBlobs = [];
 
     /**
      * Information about items with incorrect sizes
@@ -63,7 +63,7 @@ class MailboxBlobConsistency
     #[Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "item", namespace: "urn:zimbraAdmin")]
-    private $incorrectSizes = [];
+    private array $incorrectSizes = [];
 
     /**
      * Information about unexpected blobs
@@ -75,7 +75,7 @@ class MailboxBlobConsistency
     #[Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "blob", namespace: "urn:zimbraAdmin")]
-    private $unexpectedBlobs = [];
+    private array $unexpectedBlobs = [];
 
     /**
      * Information about items with incorrect revisions
@@ -92,7 +92,7 @@ class MailboxBlobConsistency
     #[Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "item", namespace: "urn:zimbraAdmin")]
-    private $incorrectRevisions = [];
+    private array $incorrectRevisions = [];
 
     /**
      * Information about used blobs
@@ -104,7 +104,7 @@ class MailboxBlobConsistency
     #[Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "item", namespace: "urn:zimbraAdmin")]
-    private $usedBlobs = [];
+    private array $usedBlobs = [];
 
     /**
      * Constructor

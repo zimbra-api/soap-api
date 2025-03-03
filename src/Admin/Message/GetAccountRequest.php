@@ -52,7 +52,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("applyCos")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyCos;
+    private ?bool $applyCos = null;
 
     /**
      * Flag whether or not to get effective value (minimum of zimbraMailQuota and zimbraMailDomainQuota)
@@ -65,7 +65,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     #[SerializedName("effectiveQuota")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $effectiveQuota;
+    private ?bool $effectiveQuota = null;
 
     /**
      * Account

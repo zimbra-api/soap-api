@@ -38,7 +38,7 @@ class ConstraintAttr
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constraint information

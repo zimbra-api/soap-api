@@ -37,7 +37,7 @@ class GetAttributeInfoRequest extends SoapRequest
     #[SerializedName("attrs")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attrs;
+    private ?string $attrs = null;
 
     /**
      * Comma separated list of entry types. Attributes on the specified entry types will be returned.
@@ -52,7 +52,7 @@ class GetAttributeInfoRequest extends SoapRequest
     #[SerializedName("entryTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $entryTypes;
+    private ?string $entryTypes = null;
 
     /**
      * Constructor

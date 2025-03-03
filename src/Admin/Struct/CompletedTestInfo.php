@@ -32,7 +32,7 @@ class CompletedTestInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Number of seconds to execute the test
@@ -43,7 +43,7 @@ class CompletedTestInfo
     #[SerializedName("execSeconds")]
     #[Type("int")]
     #[XmlAttribute]
-    private $execSeconds;
+    private int $execSeconds;
 
     /**
      * Test class
@@ -54,7 +54,7 @@ class CompletedTestInfo
     #[SerializedName("class")]
     #[Type("string")]
     #[XmlAttribute]
-    private $className;
+    private string $className;
 
     /**
      * Constructor

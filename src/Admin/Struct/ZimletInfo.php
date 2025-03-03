@@ -32,7 +32,7 @@ class ZimletInfo extends AdminObjectInfo
     #[SerializedName("hasKeyword")]
     #[Type("string")]
     #[XmlAttribute]
-    private $hasKeyword;
+    private ?string $hasKeyword = null;
 
     /**
      * Constructor

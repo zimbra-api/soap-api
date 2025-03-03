@@ -38,7 +38,7 @@ class SessionForWaitSet
     #[SerializedName("account")]
     #[Type("string")]
     #[XmlAttribute]
-    private $account;
+    private string $account;
 
     /**
      * Interest types - Either all or some combination of the letters:
@@ -50,7 +50,7 @@ class SessionForWaitSet
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $interests;
+    private string $interests;
 
     /**
      * Last known sync token
@@ -61,7 +61,7 @@ class SessionForWaitSet
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * Mailbox sync token
@@ -72,7 +72,7 @@ class SessionForWaitSet
     #[SerializedName("mboxSyncToken")]
     #[Type("int")]
     #[XmlAttribute]
-    private $mboxSyncToken;
+    private ?int $mboxSyncToken = null;
 
     /**
      * @var int
@@ -81,7 +81,7 @@ class SessionForWaitSet
     #[SerializedName("mboxSyncTokenDiff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $mboxSyncTokenDiff;
+    private ?int $mboxSyncTokenDiff = null;
 
     /**
      * Account ID stored in WaitSetAccount object.  Differs from account value.
@@ -92,7 +92,7 @@ class SessionForWaitSet
     #[SerializedName("acctIdError")]
     #[Type("string")]
     #[XmlAttribute]
-    private $acctIdError;
+    private ?string $acctIdError = null;
 
     /**
      * WaitSet session Information

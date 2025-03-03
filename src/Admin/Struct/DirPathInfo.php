@@ -32,7 +32,7 @@ class DirPathInfo
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private string $path;
 
     /**
      * Flag whether exists
@@ -43,7 +43,7 @@ class DirPathInfo
     #[SerializedName("exists")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $exists;
+    private bool $exists;
 
     /**
      * Flag whether is directory
@@ -54,7 +54,7 @@ class DirPathInfo
     #[SerializedName("isDirectory")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $directory;
+    private bool $directory;
 
     /**
      * Path is readable
@@ -65,7 +65,7 @@ class DirPathInfo
     #[SerializedName("readable")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $readable;
+    private bool $readable;
 
     /**
      * Path is writable
@@ -76,7 +76,7 @@ class DirPathInfo
     #[SerializedName("writable")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $writable;
+    private bool $writable;
 
     /**
      * Constructor

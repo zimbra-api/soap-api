@@ -43,7 +43,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     #[SerializedName("exportDir")]
     #[Type("string")]
     #[XmlAttribute]
-    private $exportDir;
+    private ?string $exportDir = null;
 
     /**
      * Export filename prefix
@@ -59,7 +59,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     #[SerializedName("exportFilenamePrefix")]
     #[Type("string")]
     #[XmlAttribute]
-    private $exportFilenamePrefix;
+    private ?string $exportFilenamePrefix = null;
 
     /**
      * Export filename prefix

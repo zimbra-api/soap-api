@@ -32,7 +32,7 @@ class BlobRevisionInfo
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private string $path;
 
     /**
      * File size
@@ -43,7 +43,7 @@ class BlobRevisionInfo
     #[SerializedName("fileSize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fileSize;
+    private int $fileSize;
 
     /**
      * Revision number
@@ -54,7 +54,7 @@ class BlobRevisionInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private int $revision;
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
@@ -65,7 +65,7 @@ class BlobRevisionInfo
     #[SerializedName("external")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $external;
+    private bool $external;
 
     /**
      * Constructor

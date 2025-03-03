@@ -34,7 +34,7 @@ class ResetPasswordRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $password;
+    private string $password;
 
     /**
      * Constructor

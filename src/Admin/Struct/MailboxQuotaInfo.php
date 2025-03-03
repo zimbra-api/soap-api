@@ -32,7 +32,7 @@ class MailboxQuotaInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accountId;
+    private string $accountId;
 
     /**
      * Quota used
@@ -43,7 +43,7 @@ class MailboxQuotaInfo
     #[SerializedName("used")]
     #[Type("int")]
     #[XmlAttribute]
-    private $quotaUsed;
+    private int $quotaUsed;
 
     /**
      * Constructor

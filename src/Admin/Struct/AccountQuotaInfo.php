@@ -32,7 +32,7 @@ class AccountQuotaInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Account ID
@@ -43,7 +43,7 @@ class AccountQuotaInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Used quota in bytes, or 0 if no quota used
@@ -54,7 +54,7 @@ class AccountQuotaInfo
     #[SerializedName("used")]
     #[Type("int")]
     #[XmlAttribute]
-    private $quotaUsed;
+    private int $quotaUsed;
 
     /**
      * Quota limit in bytes, or 0 if unlimited
@@ -65,7 +65,7 @@ class AccountQuotaInfo
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $quotaLimit;
+    private int $quotaLimit;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class TzOnsetInfo
     #[SerializedName("mon")]
     #[Type("int")]
     #[XmlAttribute]
-    private $month;
+    private int $month;
 
     /**
      * Transition hour (0..23)
@@ -43,7 +43,7 @@ class TzOnsetInfo
     #[SerializedName("hour")]
     #[Type("int")]
     #[XmlAttribute]
-    private $hour;
+    private int $hour;
 
     /**
      * Transition minute (0..59)
@@ -54,7 +54,7 @@ class TzOnsetInfo
     #[SerializedName("min")]
     #[Type("int")]
     #[XmlAttribute]
-    private $minute;
+    private int $minute;
 
     /**
      * Transition second; 0..59, usually 0
@@ -65,7 +65,7 @@ class TzOnsetInfo
     #[SerializedName("sec")]
     #[Type("int")]
     #[XmlAttribute]
-    private $second;
+    private int $second;
 
     /**
      * Day of month (1..31)
@@ -76,7 +76,7 @@ class TzOnsetInfo
     #[SerializedName("mday")]
     #[Type("int")]
     #[XmlAttribute]
-    private $dayOfMonth;
+    private ?int $dayOfMonth = null;
 
     /**
      * Week number; 1=first, 2=second, 3=third, 4=fourth, -1=last
@@ -87,7 +87,7 @@ class TzOnsetInfo
     #[SerializedName("week")]
     #[Type("int")]
     #[XmlAttribute]
-    private $week;
+    private ?int $week = null;
 
     /**
      * Day of week; 1=Sunday, 2=Monday, etc.
@@ -98,7 +98,7 @@ class TzOnsetInfo
     #[SerializedName("wkday")]
     #[Type("int")]
     #[XmlAttribute]
-    private $dayOfWeek;
+    private ?int $dayOfWeek = null;
 
     /**
      * Constructor

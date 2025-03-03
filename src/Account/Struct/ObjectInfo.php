@@ -40,7 +40,7 @@ abstract class ObjectInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * ID
@@ -51,7 +51,7 @@ abstract class ObjectInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Attributes
@@ -61,7 +61,7 @@ abstract class ObjectInfo
     #[Accessor(getter: "getAttrList", setter: "setAttrList")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
-    private $attrList = [];
+    private array $attrList = [];
 
     /**
      * Constructor

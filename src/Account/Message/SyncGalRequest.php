@@ -34,7 +34,7 @@ class SyncGalRequest extends SoapRequest
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * GAL sync account ID
@@ -45,7 +45,7 @@ class SyncGalRequest extends SoapRequest
     #[SerializedName("galAcctId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $galAccountId;
+    private ?string $galAccountId = null;
 
     /**
      * Flag whether only the ID attributes for matching contacts should be returned.
@@ -56,7 +56,7 @@ class SyncGalRequest extends SoapRequest
     #[SerializedName("idOnly")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $idOnly;
+    private ?bool $idOnly = null;
 
     /**
      * Flag whether count of remaining records should be returned in response or not.
@@ -67,7 +67,7 @@ class SyncGalRequest extends SoapRequest
     #[SerializedName("getCount")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $getCount;
+    private ?bool $getCount = null;
 
     /**
      * An int specifying the maximum number of results to return
@@ -78,7 +78,7 @@ class SyncGalRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Constructor

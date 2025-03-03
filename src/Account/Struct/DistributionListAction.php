@@ -53,7 +53,7 @@ class DistributionListAction extends AccountKeyValuePairs
     #[SerializedName("newName")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $newName;
+    private ?string $newName = null;
 
     /**
      * Sub req
@@ -74,7 +74,7 @@ class DistributionListAction extends AccountKeyValuePairs
     #[Accessor(getter: "getMembers", setter: "setMembers")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAccount")]
-    private $members = [];
+    private array $members = [];
 
     /**
      * Owners
@@ -84,7 +84,7 @@ class DistributionListAction extends AccountKeyValuePairs
     #[Accessor(getter: "getOwners", setter: "setOwners")]
     #[Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")]
     #[XmlList(inline: true, entry: "owner", namespace: "urn:zimbraAccount")]
-    private $owners = [];
+    private array $owners = [];
 
     /**
      * Rights
@@ -94,7 +94,7 @@ class DistributionListAction extends AccountKeyValuePairs
     #[Accessor(getter: "getRights", setter: "setRights")]
     #[Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")]
     #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAccount")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

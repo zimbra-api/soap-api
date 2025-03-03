@@ -55,7 +55,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("keyAttr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $keyAttr;
+    private string $keyAttr;
 
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
@@ -66,7 +66,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Name to fill the auto provisioning search template configured on the domain
@@ -77,7 +77,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
@@ -88,7 +88,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("maxResults")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxResults;
+    private ?int $maxResults = null;
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
@@ -99,7 +99,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -110,7 +110,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Refresh - whether to always re-search in LDAP even when
@@ -122,7 +122,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements
     #[SerializedName("refresh")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $refresh;
+    private ?bool $refresh = null;
 
     /**
      * The domain name to limit the search to

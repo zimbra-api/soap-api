@@ -39,7 +39,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     #[SerializedName("ownerOf")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $ownerOf;
+    private ?bool $ownerOf = null;
 
     /**
      * Possible values: all|directOnly|none
@@ -62,7 +62,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     #[SerializedName("attrs")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attrs;
+    private ?string $attrs = null;
 
     /**
      * Constructor

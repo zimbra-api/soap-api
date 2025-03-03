@@ -33,7 +33,7 @@ class ReindexMailboxInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Comma separated list of types.
@@ -45,7 +45,7 @@ class ReindexMailboxInfo
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $types;
+    private ?string $types = null;
 
     /**
      * Comma separated list of IDs to re-index
@@ -56,7 +56,7 @@ class ReindexMailboxInfo
     #[SerializedName("ids")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ids;
+    private ?string $ids = null;
 
     /**
      * Constructor

@@ -43,7 +43,7 @@ class AccountACEInfo
     #[SerializedName("right")]
     #[Type("string")]
     #[XmlAttribute]
-    private $right;
+    private string $right;
 
     /**
      * Zimbra id
@@ -54,7 +54,7 @@ class AccountACEInfo
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * Display name
@@ -65,7 +65,7 @@ class AccountACEInfo
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * Access key
@@ -76,7 +76,7 @@ class AccountACEInfo
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessKey;
+    private ?string $accessKey = null;
 
     /**
      * Password
@@ -87,7 +87,7 @@ class AccountACEInfo
     #[SerializedName("pw")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * Deny
@@ -98,7 +98,7 @@ class AccountACEInfo
     #[SerializedName("deny")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $deny;
+    private ?bool $deny = null;
 
     /**
      * Check grantee type
@@ -109,7 +109,7 @@ class AccountACEInfo
     #[SerializedName("chkgt")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $checkGranteeType;
+    private ?bool $checkGranteeType = null;
 
     /**
      * Constructor

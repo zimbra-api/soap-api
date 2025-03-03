@@ -32,7 +32,7 @@ class Offset
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private int $offset;
 
     /**
      * Constructor

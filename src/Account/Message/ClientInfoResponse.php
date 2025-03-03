@@ -33,7 +33,7 @@ class ClientInfoResponse extends SoapResponse
     #[Accessor(getter: "getAttrList", setter: "setAttrList")]
     #[Type("array<Zimbra\Admin\Struct\Attr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
-    private $attrList = [];
+    private array $attrList = [];
 
     /**
      * Constructor

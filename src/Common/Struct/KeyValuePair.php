@@ -38,7 +38,7 @@ class KeyValuePair
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $key;
+    private string $key;
 
     /**
      * Value
@@ -48,7 +48,7 @@ class KeyValuePair
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

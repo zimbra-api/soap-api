@@ -38,7 +38,7 @@ class QueueQueryField
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Match specifications
@@ -48,7 +48,7 @@ class QueueQueryField
     #[Accessor(getter: "getMatches", setter: "setMatches")]
     #[Type("array<Zimbra\Admin\Struct\ValueAttrib>")]
     #[XmlList(inline: true, entry: "match", namespace: "urn:zimbraAdmin")]
-    private $matches = [];
+    private array $matches = [];
 
     /**
      * Constructor

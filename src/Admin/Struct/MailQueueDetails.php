@@ -38,7 +38,7 @@ class MailQueueDetails
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Scan time
@@ -49,7 +49,7 @@ class MailQueueDetails
     #[SerializedName("time")]
     #[Type("int")]
     #[XmlAttribute]
-    private $time;
+    private int $time;
 
     /**
      * Indicates that the server has not completed scanning the MTA queue, and that this
@@ -61,7 +61,7 @@ class MailQueueDetails
     #[SerializedName("scan")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $stillScanning;
+    private bool $stillScanning;
 
     /**
      * Total
@@ -72,7 +72,7 @@ class MailQueueDetails
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $total;
+    private int $total;
 
     /**
      * Indicates that more qi's are available past the limit specified in the request.
@@ -83,7 +83,7 @@ class MailQueueDetails
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private bool $more;
 
     /**
      * Queue summary.
@@ -95,7 +95,7 @@ class MailQueueDetails
     #[Accessor(getter: "getQueueSummaries", setter: "setQueueSummaries")]
     #[Type("array<Zimbra\Admin\Struct\QueueSummary>")]
     #[XmlList(inline: true, entry: "qs", namespace: "urn:zimbraAdmin")]
-    private $queueSummaries = [];
+    private array $queueSummaries = [];
 
     /**
      * The various queue items that match the requested query.
@@ -105,7 +105,7 @@ class MailQueueDetails
     #[Accessor(getter: "getQueueItems", setter: "setQueueItems")]
     #[Type("array<Zimbra\Admin\Struct\QueueItem>")]
     #[XmlList(inline: true, entry: "qi", namespace: "urn:zimbraAdmin")]
-    private $queueItems = [];
+    private array $queueItems = [];
 
     /**
      * Constructor

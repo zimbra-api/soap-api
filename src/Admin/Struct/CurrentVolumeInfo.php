@@ -32,7 +32,7 @@ class CurrentVolumeInfo
     #[SerializedName("type")]
     #[Type("int")]
     #[XmlAttribute]
-    private $type;
+    private int $type;
 
     /**
      * Id
@@ -43,7 +43,7 @@ class CurrentVolumeInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Constructor

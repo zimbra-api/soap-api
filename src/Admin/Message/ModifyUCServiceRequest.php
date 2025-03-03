@@ -39,7 +39,7 @@ class ModifyUCServiceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $id;
+    private string $id;
 
     /**
      * Constructor

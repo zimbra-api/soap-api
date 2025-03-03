@@ -32,7 +32,7 @@ class Right
     #[SerializedName("right")]
     #[Type("string")]
     #[XmlAttribute]
-    private $right;
+    private string $right;
 
     /**
      * Constructor

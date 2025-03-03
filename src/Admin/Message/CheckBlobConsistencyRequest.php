@@ -45,7 +45,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     #[SerializedName("checkSize")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $checkSize;
+    private ?bool $checkSize = null;
 
     /**
      * If set a complete list of all blobs used by the mailbox(es) is returned
@@ -56,7 +56,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     #[SerializedName("reportUsedBlobs")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $reportUsedBlobs;
+    private ?bool $reportUsedBlobs = null;
 
     /**
      * Volumes
@@ -66,7 +66,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     #[Accessor(getter: "getVolumes", setter: "setVolumes")]
     #[Type("array<Zimbra\Admin\Struct\IntIdAttr>")]
     #[XmlList(inline: true, entry: "volume", namespace: "urn:zimbraAdmin")]
-    private $volumes = [];
+    private array $volumes = [];
 
     /**
      * Mailboxes
@@ -76,7 +76,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     #[Accessor(getter: "getMailboxes", setter: "setMailboxes")]
     #[Type("array<Zimbra\Admin\Struct\IntIdAttr>")]
     #[XmlList(inline: true, entry: "mbox", namespace: "urn:zimbraAdmin")]
-    private $mailboxes = [];
+    private array $mailboxes = [];
 
     /**
      * Constructor

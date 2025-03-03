@@ -40,7 +40,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Members
@@ -50,7 +50,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     #[Accessor(getter: "getMembers", setter: "setMembers")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAdmin")]
-    private $members = [];
+    private array $members = [];
 
     /**
      * Constructor

@@ -48,7 +48,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("action")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $action;
+    private ?string $action = null;
 
     /**
      * Constructor

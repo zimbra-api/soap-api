@@ -32,7 +32,7 @@ class GranteeChooser
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private ?string $type = null;
 
     /**
      * Id
@@ -43,7 +43,7 @@ class GranteeChooser
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Name
@@ -54,7 +54,7 @@ class GranteeChooser
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Constructor

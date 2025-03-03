@@ -40,7 +40,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * The 0-based offset into the results list to return as the first result for this search operation.
@@ -51,7 +51,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Flags whether there are more results
@@ -62,7 +62,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * Flag whether the underlying search supported pagination.
@@ -75,7 +75,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
     #[SerializedName("paginationSupported")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $pagingSupported;
+    private ?bool $pagingSupported = null;
 
     /**
      * Matching calendar resources
@@ -91,7 +91,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
             namespace: "urn:zimbraAccount"
         )
     ]
-    private $calendarResources = [];
+    private array $calendarResources = [];
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class DeleteCosRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $id;
+    private string $id;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class OAuthConsumer
     #[SerializedName("accessToken")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessToken;
+    private ?string $accessToken = null;
 
     /**
      * Approved on
@@ -43,7 +43,7 @@ class OAuthConsumer
     #[SerializedName("approvedOn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $approvedOn;
+    private ?string $approvedOn = null;
 
     /**
      * Application name
@@ -54,7 +54,7 @@ class OAuthConsumer
     #[SerializedName("appName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $applicationName;
+    private ?string $applicationName = null;
 
     /**
      * Device
@@ -65,7 +65,7 @@ class OAuthConsumer
     #[SerializedName("device")]
     #[Type("string")]
     #[XmlAttribute]
-    private $device;
+    private ?string $device = null;
 
     /**
      * Constructor

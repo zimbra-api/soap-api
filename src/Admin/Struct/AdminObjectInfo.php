@@ -38,7 +38,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Id
@@ -49,7 +49,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Attribute list
@@ -59,7 +59,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     #[Accessor(getter: "getAttrList", setter: "setAttrList")]
     #[Type("array<Zimbra\Admin\Struct\Attr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $attrList = [];
+    private  array$attrList = [];
 
     /**
      * Constructor

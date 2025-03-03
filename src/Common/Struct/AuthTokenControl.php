@@ -32,7 +32,7 @@ class AuthTokenControl
     #[SerializedName("voidOnExpired")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $voidOnExpired;
+    private ?bool $voidOnExpired = null;
 
     /**
      * Constructor

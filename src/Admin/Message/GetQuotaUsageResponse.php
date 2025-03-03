@@ -40,7 +40,7 @@ class GetQuotaUsageResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private bool $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
@@ -51,7 +51,7 @@ class GetQuotaUsageResponse extends SoapResponse
     #[SerializedName("searchTotal")]
     #[Type("int")]
     #[XmlAttribute]
-    private $searchTotal;
+    private int $searchTotal;
 
     /**
      * Account quota information
@@ -61,7 +61,7 @@ class GetQuotaUsageResponse extends SoapResponse
     #[Accessor(getter: "getAccountQuotas", setter: "setAccountQuotas")]
     #[Type("array<Zimbra\Admin\Struct\AccountQuotaInfo>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accountQuotas = [];
+    private array $accountQuotas = [];
 
     /**
      * Constructor

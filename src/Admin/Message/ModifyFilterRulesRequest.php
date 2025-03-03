@@ -99,7 +99,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     #[Type("array<Zimbra\Mail\Struct\FilterRule>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
-    private $filterRules = [];
+    private array $filterRules = [];
 
     /**
      * Constructor

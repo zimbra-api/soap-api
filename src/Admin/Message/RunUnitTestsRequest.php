@@ -35,7 +35,7 @@ class RunUnitTestsRequest extends SoapRequest
     #[Accessor(getter: "getTests", setter: "setTests")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "test", namespace: "urn:zimbraAdmin")]
-    private $tests;
+    private array $tests;
 
     /**
      * Constructor

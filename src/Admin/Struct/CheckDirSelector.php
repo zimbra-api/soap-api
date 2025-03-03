@@ -32,7 +32,7 @@ class CheckDirSelector
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private string $path;
 
     /**
      * Whether to create the directory or not if it doesn't exist
@@ -43,7 +43,7 @@ class CheckDirSelector
     #[SerializedName("create")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $create;
+    private ?bool $create = null;
 
     /**
      * Constructor

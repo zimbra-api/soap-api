@@ -41,7 +41,7 @@ class ModifyVolumeRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Volume information

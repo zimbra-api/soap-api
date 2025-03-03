@@ -39,7 +39,7 @@ class Signature
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Id
@@ -50,7 +50,7 @@ class Signature
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Content Id
@@ -61,7 +61,7 @@ class Signature
     #[SerializedName("cid")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $cid;
+    private ?string $cid = null;
 
     /**
      * Content of the signature
@@ -71,7 +71,7 @@ class Signature
     #[Accessor(getter: "getContents", setter: "setContents")]
     #[Type("array<Zimbra\Account\Struct\SignatureContent>")]
     #[XmlList(inline: true, entry: "content", namespace: "urn:zimbraAccount")]
-    private $contents = [];
+    private array $contents = [];
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class FreeBusyQueueProvider
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Information on accounts
@@ -49,7 +49,7 @@ class FreeBusyQueueProvider
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

@@ -49,7 +49,7 @@ class DiscoverRightsTarget
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Target name
@@ -60,7 +60,7 @@ class DiscoverRightsTarget
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * If a discovered target is an account or a group and the entry has a display name set then this is set to that display name.
@@ -71,7 +71,7 @@ class DiscoverRightsTarget
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * Email addresses
@@ -81,7 +81,7 @@ class DiscoverRightsTarget
     #[Accessor(getter: "getEmails", setter: "setEmails")]
     #[Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")]
     #[XmlList(inline: true, entry: "email", namespace: "urn:zimbraAccount")]
-    private $emails = [];
+    private array $emails = [];
 
     /**
      * Constructor

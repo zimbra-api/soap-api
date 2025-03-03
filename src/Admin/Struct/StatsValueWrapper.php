@@ -32,7 +32,7 @@ class StatsValueWrapper
     #[Accessor(getter: "getStats", setter: "setStats")]
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlList(inline: true, entry: "stat", namespace: "urn:zimbraAdmin")]
-    private $stats = [];
+    private array $stats = [];
 
     /**
      * Constructor

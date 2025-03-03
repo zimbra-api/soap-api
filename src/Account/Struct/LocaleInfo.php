@@ -33,7 +33,7 @@ class LocaleInfo implements LocaleInterface
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Name of the locale in the locale itself
@@ -44,7 +44,7 @@ class LocaleInfo implements LocaleInterface
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Name of the locale in the users' locale
@@ -55,7 +55,7 @@ class LocaleInfo implements LocaleInterface
     #[SerializedName("localName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $localName;
+    private ?string $localName = null;
 
     /**
      * Constructor

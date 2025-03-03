@@ -38,7 +38,7 @@ class Stat
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Stat description
@@ -49,7 +49,7 @@ class Stat
     #[SerializedName("description")]
     #[Type("string")]
     #[XmlAttribute]
-    private $description;
+    private ?string $description = null;
 
     /**
      * Stat value
@@ -59,7 +59,7 @@ class Stat
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

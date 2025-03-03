@@ -40,7 +40,7 @@ class GetWhiteBlackListResponse extends SoapResponse
     #[Type("array<string>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
-    private $whiteListEntries = [];
+    private array $whiteListEntries = [];
 
     /**
      * Black list
@@ -52,7 +52,7 @@ class GetWhiteBlackListResponse extends SoapResponse
     #[Type("array<string>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "addr", namespace: "urn:zimbraAccount")]
-    private $blackListEntries = [];
+    private array $blackListEntries = [];
 
     /**
      * Constructor

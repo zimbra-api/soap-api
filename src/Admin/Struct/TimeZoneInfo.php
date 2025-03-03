@@ -32,7 +32,7 @@ class TimeZoneInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Timezone display name, e.g. "Pacific Standard Time"
@@ -43,7 +43,7 @@ class TimeZoneInfo
     #[SerializedName("displayName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private string $displayName;
 
     /**
      * Constructor

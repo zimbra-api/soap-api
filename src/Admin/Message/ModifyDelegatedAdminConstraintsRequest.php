@@ -54,7 +54,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Name
@@ -65,7 +65,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Constaint attributes
@@ -75,7 +75,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Admin\Struct\ConstraintAttr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Constructor

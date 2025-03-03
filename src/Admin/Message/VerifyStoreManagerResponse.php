@@ -33,7 +33,7 @@ class VerifyStoreManagerResponse extends SoapResponse
     #[SerializedName("storeManagerClass")]
     #[Type("string")]
     #[XmlAttribute]
-    private $storeManagerClass;
+    private ?string $storeManagerClass = null;
 
     /**
      * Incoming time
@@ -44,7 +44,7 @@ class VerifyStoreManagerResponse extends SoapResponse
     #[SerializedName("incomingTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $incomingTime;
+    private ?int $incomingTime = null;
 
     /**
      * Stage time
@@ -55,7 +55,7 @@ class VerifyStoreManagerResponse extends SoapResponse
     #[SerializedName("stageTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $stageTime;
+    private ?int $stageTime = null;
 
     /**
      * Link time
@@ -66,7 +66,7 @@ class VerifyStoreManagerResponse extends SoapResponse
     #[SerializedName("linkTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $linkTime;
+    private ?int $linkTime = null;
 
     /**
      * Fetch time
@@ -77,7 +77,7 @@ class VerifyStoreManagerResponse extends SoapResponse
     #[SerializedName("fetchTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fetchTime;
+    private ?int $fetchTime = null;
 
     /**
      * Delete time
@@ -88,7 +88,7 @@ class VerifyStoreManagerResponse extends SoapResponse
     #[SerializedName("deleteTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $deleteTime;
+    private ?int $deleteTime = null;
 
     /**
      * Constructor

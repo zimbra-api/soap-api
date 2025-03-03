@@ -33,7 +33,7 @@ class GetAllLocalesResponse extends SoapResponse
     #[Accessor(getter: "getLocales", setter: "setLocales")]
     #[Type("array<Zimbra\Account\Struct\LocaleInfo>")]
     #[XmlList(inline: true, entry: "locale", namespace: "urn:zimbraAccount")]
-    private $locales = [];
+    private array $locales = [];
 
     /**
      * Constructor

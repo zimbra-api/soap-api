@@ -39,7 +39,7 @@ class GetAllXMPPComponentsResponse extends SoapResponse
             namespace: "urn:zimbraAdmin"
         )
     ]
-    private $components = [];
+    private array $components = [];
 
     /**
      * Constructor

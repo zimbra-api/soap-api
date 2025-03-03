@@ -32,7 +32,7 @@ class CursorInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Sort val
@@ -43,7 +43,7 @@ class CursorInfo
     #[SerializedName("sortVal")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortVal;
+    private ?string $sortVal = null;
 
     /**
      * End sort val
@@ -54,7 +54,7 @@ class CursorInfo
     #[SerializedName("endSortVal")]
     #[Type("string")]
     #[XmlAttribute]
-    private $endSortVal;
+    private ?string $endSortVal = null;
 
     /**
      * Include offset
@@ -65,7 +65,7 @@ class CursorInfo
     #[SerializedName("includeOffset")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeOffset;
+    private ?bool $includeOffset = null;
 
     /**
      * Constructor

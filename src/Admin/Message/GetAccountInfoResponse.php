@@ -40,7 +40,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $name;
+    private string $name;
 
     /**
      * Currently only these attributes are returned: zimbraId, zimbraMailHost
@@ -50,7 +50,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[Accessor(getter: "getAttrList", setter: "setAttrList")]
     #[Type("array<Zimbra\Admin\Struct\Attr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $attrList = [];
+    private array $attrList = [];
 
     /**
      * Class of Service (COS) information for account
@@ -71,7 +71,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[Accessor(getter: "getSoapURLList", setter: "setSoapURLList")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "soapURL", namespace: "urn:zimbraAdmin")]
-    private $soapURLList = [];
+    private array $soapURLList = [];
 
     /**
      * URL for the Admin SOAP service
@@ -82,7 +82,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("adminSoapURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $adminSoapURL;
+    private ?string $adminSoapURL = null;
 
     /**
      * URL for Web Mail application
@@ -93,7 +93,7 @@ class GetAccountInfoResponse extends SoapResponse
     #[SerializedName("publicMailURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $publicMailURL;
+    private ?string $publicMailURL = null;
 
     /**
      * Constructor
@@ -111,8 +111,8 @@ class GetAccountInfoResponse extends SoapResponse
         array $attrList = [],
         ?CosInfo $cos = null,
         array $soapURLList = [],
-        string $adminSoapURL = null,
-        string $publicMailURL = null
+        ?string $adminSoapURL = null,
+        ?string $publicMailURL = null
     ) {
         $this->setName($name)
             ->setAttrList($attrList)

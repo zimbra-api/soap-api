@@ -40,7 +40,7 @@ class DomainAdminRight
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Right type
@@ -61,7 +61,7 @@ class DomainAdminRight
     #[SerializedName("desc")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $desc;
+    private string $desc;
 
     /**
      * Rights
@@ -73,7 +73,7 @@ class DomainAdminRight
     #[Type("array<Zimbra\Admin\Struct\RightWithName>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "r", namespace: "urn:zimbraAdmin")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

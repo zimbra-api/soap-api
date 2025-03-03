@@ -40,7 +40,7 @@ class SyncGalResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * New synchronization token
@@ -51,7 +51,7 @@ class SyncGalResponse extends SoapResponse
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * galDefinitionLastModified is the time at which the GAL definition is last modified.
@@ -68,7 +68,7 @@ class SyncGalResponse extends SoapResponse
     #[SerializedName("galDefinitionLastModified")]
     #[Type("string")]
     #[XmlAttribute]
-    private $galDefinitionLastModified;
+    private ?string $galDefinitionLastModified = null;
 
     /**
      * True if the SyncGal request is throttled
@@ -79,7 +79,7 @@ class SyncGalResponse extends SoapResponse
     #[SerializedName("throttled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $throttled;
+    private ?bool $throttled = null;
 
     /**
      * True if the fullSync is recommended
@@ -95,7 +95,7 @@ class SyncGalResponse extends SoapResponse
     #[SerializedName("fullSyncRecommended")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $fullSyncRecommended;
+    private ?bool $fullSyncRecommended = null;
 
     /**
      * count of records still to be returned in paginated response
@@ -106,7 +106,7 @@ class SyncGalResponse extends SoapResponse
     #[SerializedName("remain")]
     #[Type("int")]
     #[XmlAttribute]
-    private $remain;
+    private ?int $remain = null;
 
     /**
      * Details of contact
@@ -116,7 +116,7 @@ class SyncGalResponse extends SoapResponse
     #[Accessor(getter: "getContacts", setter: "setContacts")]
     #[Type("array<Zimbra\Account\Struct\ContactInfo>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAccount")]
-    private $contacts = [];
+    private array $contacts = [];
 
     /**
      * Details of deleted entries
@@ -126,7 +126,7 @@ class SyncGalResponse extends SoapResponse
     #[Accessor(getter: "getDeleted", setter: "setDeleted")]
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlList(inline: true, entry: "deleted", namespace: "urn:zimbraAccount")]
-    private $deleted = [];
+    private array $deleted = [];
 
     /**
      * Constructor

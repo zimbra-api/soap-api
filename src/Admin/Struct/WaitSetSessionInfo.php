@@ -32,7 +32,7 @@ class WaitSetSessionInfo
     #[SerializedName("interestMask")]
     #[Type("string")]
     #[XmlAttribute]
-    private $interestMask;
+    private string $interestMask;
 
     /**
      * Mailbox change ID
@@ -43,7 +43,7 @@ class WaitSetSessionInfo
     #[SerializedName("highestChangeId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $highestChangeId;
+    private int $highestChangeId;
 
     /**
      * Last access time
@@ -54,7 +54,7 @@ class WaitSetSessionInfo
     #[SerializedName("lastAccessTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastAccessTime;
+    private int $lastAccessTime;
 
     /**
      * Creation time
@@ -65,7 +65,7 @@ class WaitSetSessionInfo
     #[SerializedName("creationTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $creationTime;
+    private int $creationTime;
 
     /**
      * Session ID
@@ -76,7 +76,7 @@ class WaitSetSessionInfo
     #[SerializedName("sessionId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sessionId;
+    private string $sessionId;
 
     /**
      * Sync Token
@@ -87,7 +87,7 @@ class WaitSetSessionInfo
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * Comma separated list of IDs for folders.
@@ -98,7 +98,7 @@ class WaitSetSessionInfo
     #[SerializedName("folderInterests")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderInterests;
+    private ?string $folderInterests = null;
 
     /**
      * Comma separated list of IDs for folders.
@@ -109,7 +109,7 @@ class WaitSetSessionInfo
     #[SerializedName("changedFolders")]
     #[Type("string")]
     #[XmlAttribute]
-    private $changedFolders;
+    private ?string $changedFolders = null;
 
     /**
      * Constructor

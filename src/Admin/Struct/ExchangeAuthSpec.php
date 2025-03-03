@@ -33,7 +33,7 @@ class ExchangeAuthSpec
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private string $url;
 
     /**
      * Exchange user
@@ -44,7 +44,7 @@ class ExchangeAuthSpec
     #[SerializedName("user")]
     #[Type("string")]
     #[XmlAttribute]
-    private $authUserName;
+    private string $authUserName;
 
     /**
      * Exchange password
@@ -55,7 +55,7 @@ class ExchangeAuthSpec
     #[SerializedName("pass")]
     #[Type("string")]
     #[XmlAttribute]
-    private $authPassword;
+    private string $authPassword;
 
     /**
      * Auth scheme
@@ -76,7 +76,7 @@ class ExchangeAuthSpec
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private ?string $type = null;
 
     /**
      * Constructor

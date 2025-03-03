@@ -36,7 +36,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private ?string $domain = null;
 
     /**
      * whether to fetch quota usage for all domain accounts from across all mailbox servers,
@@ -48,7 +48,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("allServers")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allServers;
+    private ?bool $allServers = null;
 
     /**
      * Limit - the number of accounts to return (0 is default and means all)
@@ -59,7 +59,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Offset - the starting offset (0, 25, etc)
@@ -70,7 +70,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * SortBy - valid values: "percentUsed", "totalUsed", "quotaLimit"
@@ -81,7 +81,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * Whether to sort in ascending order 0 (false) is default, so highest quotas are returned first
@@ -92,7 +92,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("sortAscending")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sortAscending;
+    private ?bool $sortAscending = null;
 
     /**
      * Refresh - whether to always recalculate the data even when cached values are available.
@@ -104,7 +104,7 @@ class GetQuotaUsageRequest extends SoapRequest
     #[SerializedName("refresh")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $refresh;
+    private ?bool $refresh = null;
 
     /**
      * Constructor

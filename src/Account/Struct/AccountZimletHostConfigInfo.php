@@ -40,7 +40,7 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Host specifice zimlet configuration properties
@@ -50,7 +50,7 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
     #[Accessor(getter: "getZimletProperties", setter: "setZimletProperties")]
     #[Type("array<Zimbra\Account\Struct\AccountZimletProperty>")]
     #[XmlList(inline: true, entry: "property", namespace: "urn:zimbraAccount")]
-    private $properties = [];
+    private array $properties = [];
 
     /**
      * Constructor

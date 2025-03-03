@@ -34,7 +34,7 @@ class DumpSessionsRequest extends SoapRequest
     #[SerializedName("listSessions")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeAccounts;
+    private ?bool $includeAccounts = null;
 
     /**
      * Group by account flag
@@ -45,7 +45,7 @@ class DumpSessionsRequest extends SoapRequest
     #[SerializedName("groupByAccount")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $groupByAccount;
+    private ?bool $groupByAccount = null;
 
     /**
      * Constructor

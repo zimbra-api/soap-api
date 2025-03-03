@@ -32,7 +32,7 @@ class AttributeName
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

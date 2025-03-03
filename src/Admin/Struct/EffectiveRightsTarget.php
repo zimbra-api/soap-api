@@ -60,7 +60,7 @@ class EffectiveRightsTarget
     #[Accessor(getter: "getInDomainLists", setter: "setInDomainLists")]
     #[Type("array<Zimbra\Admin\Struct\InDomainInfo>")]
     #[XmlList(inline: true, entry: "inDomains", namespace: "urn:zimbraAdmin")]
-    private $inDomainLists = [];
+    private array $inDomainLists = [];
 
     /**
      * Entries lists
@@ -70,7 +70,7 @@ class EffectiveRightsTarget
     #[Accessor(getter: "getEntriesLists", setter: "setEntriesLists")]
     #[Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")]
     #[XmlList(inline: true, entry: "entries", namespace: "urn:zimbraAdmin")]
-    private $entriesLists = [];
+    private array $entriesLists = [];
 
     /**
      * Constructor

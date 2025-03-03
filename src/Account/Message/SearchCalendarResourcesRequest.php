@@ -56,7 +56,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("quick")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $quick;
+    private ?bool $quick = null;
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
@@ -67,7 +67,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
@@ -78,7 +78,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * The starting offset (0, 25, etc)
@@ -89,7 +89,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Client locale identification.
@@ -100,7 +100,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("locale")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $locale;
+    private ?string $locale = null;
 
     /**
      * Cursor specification
@@ -122,7 +122,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("galAcctId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $galAccountId;
+    private ?string $galAccountId = null;
 
     /**
      * If specified, passed through to the GAL search as the search key
@@ -133,7 +133,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Search Filter

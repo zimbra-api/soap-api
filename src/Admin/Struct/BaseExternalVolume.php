@@ -32,7 +32,7 @@ abstract class BaseExternalVolume
     #[SerializedName("storageType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $storageType;
+    private ?string $storageType = null;
 
     /**
      * Constructor

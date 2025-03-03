@@ -33,7 +33,7 @@ class CountObjectsResponse extends SoapResponse
     #[SerializedName("num")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private int $num;
 
     /**
      * Type
@@ -44,7 +44,7 @@ class CountObjectsResponse extends SoapResponse
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Constructor

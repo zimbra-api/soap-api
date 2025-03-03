@@ -33,7 +33,7 @@ class ComboRightInfo
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Right type
@@ -54,7 +54,7 @@ class ComboRightInfo
     #[SerializedName("targetType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $targetType;
+    private ?string $targetType = null;
 
     /**
      * Constructor

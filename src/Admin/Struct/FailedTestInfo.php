@@ -38,7 +38,7 @@ class FailedTestInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Failed test execution time
@@ -49,7 +49,7 @@ class FailedTestInfo
     #[SerializedName("execSeconds")]
     #[Type("int")]
     #[XmlAttribute]
-    private $execSeconds;
+    private int $execSeconds;
 
     /**
      * Failed test class name
@@ -60,7 +60,7 @@ class FailedTestInfo
     #[SerializedName("class")]
     #[Type("string")]
     #[XmlAttribute]
-    private $className;
+    private string $className;
 
     /**
      * Text of any exception thrown during the test
@@ -70,7 +70,7 @@ class FailedTestInfo
     #[Accessor(getter: "getThrowable", setter: "setThrowable")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $throwable;
+    private string $throwable;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class RightInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Right type.  Valid values : getAttrs | setAttrs | combo | preset
@@ -60,7 +60,7 @@ class RightInfo
     #[SerializedName("targetType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $targetType;
+    private ?string $targetType = null;
 
     /**
      * Right class
@@ -81,7 +81,7 @@ class RightInfo
     #[SerializedName("desc")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $desc;
+    private string $desc;
 
     /**
      * Attrs

@@ -37,7 +37,7 @@ class RightModifierInfo
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Deny flag - default is 0 (false)
@@ -48,7 +48,7 @@ class RightModifierInfo
     #[SerializedName("deny")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $deny;
+    private ?bool $deny = null;
 
     /**
      * Flag whether can delegate - default is 0 (false)
@@ -59,7 +59,7 @@ class RightModifierInfo
     #[SerializedName("canDelegate")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canDelegate;
+    private ?bool $canDelegate = null;
 
     /**
      * disinheritSubGroups flag - default is 0 (false)
@@ -75,7 +75,7 @@ class RightModifierInfo
     #[SerializedName("disinheritSubGroups")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $disinheritSubGroups;
+    private ?bool $disinheritSubGroups = null;
 
     /**
      * subDomain flag - default is 0 (false)
@@ -86,7 +86,7 @@ class RightModifierInfo
     #[SerializedName("subDomain")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $subDomain;
+    private ?bool $subDomain = null;
 
     /**
      * Constructor

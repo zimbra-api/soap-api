@@ -33,7 +33,7 @@ class VerifyIndexResponse extends SoapResponse
     #[SerializedName("status")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $status;
+    private bool $status;
 
     /**
      * Verification output
@@ -44,7 +44,7 @@ class VerifyIndexResponse extends SoapResponse
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $message;
+    private string $message;
 
     /**
      * Constructor

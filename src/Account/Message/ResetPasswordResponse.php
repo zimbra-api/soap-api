@@ -41,7 +41,7 @@ class ResetPasswordResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Attr>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Constructor

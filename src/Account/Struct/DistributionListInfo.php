@@ -40,7 +40,7 @@ class DistributionListInfo extends ObjectInfo
     #[SerializedName("isOwner")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isOwner;
+    private ?bool $isOwner = null;
 
     /**
      * Flags whether user is a member of the group.
@@ -52,7 +52,7 @@ class DistributionListInfo extends ObjectInfo
     #[SerializedName("isMember")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isMember;
+    private ?bool $isMember = null;
 
     /**
      * Flags whether the group is dynamic or not
@@ -63,7 +63,7 @@ class DistributionListInfo extends ObjectInfo
     #[SerializedName("dynamic")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dynamic;
+    private ?bool $dynamic = null;
 
     /**
      * Group members
@@ -73,7 +73,7 @@ class DistributionListInfo extends ObjectInfo
     #[Accessor(getter: "getMembers", setter: "setMembers")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAccount")]
-    private $members = [];
+    private array $members = [];
 
     /**
      * Group owners
@@ -85,7 +85,7 @@ class DistributionListInfo extends ObjectInfo
     #[Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "owner", namespace: "urn:zimbraAccount")]
-    private $owners = [];
+    private array $owners = [];
 
     /**
      * Rights
@@ -97,7 +97,7 @@ class DistributionListInfo extends ObjectInfo
     #[Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "right", namespace: "urn:zimbraAccount")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

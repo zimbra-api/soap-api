@@ -42,7 +42,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("authToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $authToken;
+    private ?string $authToken = null;
 
     /**
      * Life time for the authorization
@@ -53,7 +53,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("lifetime")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $lifetime;
+    private ?int $lifetime = null;
 
     /**
      * Trust lifetime, if a trusted token is issued
@@ -64,7 +64,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("trustLifetime")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $trustLifetime;
+    private ?int $trustLifetime = null;
 
     /**
      * Session information
@@ -87,7 +87,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("refer")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $refer;
+    private ?string $refer = null;
 
     /**
      * if requestedSkin specified, the name of the skin to use Always returned, might be same as original host request was sent to.
@@ -98,7 +98,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("skin")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $skin;
+    private ?string $skin = null;
 
     /**
      * If client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
@@ -109,7 +109,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("csrfToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $csrfToken;
+    private ?string $csrfToken = null;
 
     /**
      * Random secure device ID generated for the requesting device
@@ -120,7 +120,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("deviceId")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $deviceId;
+    private ?string $deviceId = null;
 
     /**
      * Trusted device token
@@ -131,7 +131,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("trustedToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $trustedToken;
+    private ?string $trustedToken = null;
 
     /**
      * Indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
@@ -142,7 +142,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("zmgProxy")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $zmgProxy;
+    private ?bool $zmgProxy = null;
 
     /**
      * Prefs
@@ -154,7 +154,7 @@ class AuthResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Pref>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "pref", namespace: "urn:zimbraAccount")]
-    private $prefs = [];
+    private array $prefs = [];
 
     /**
      * Attributes
@@ -166,7 +166,7 @@ class AuthResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Attr>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Two factor auth required
@@ -182,7 +182,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("twoFactorAuthRequired")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $twoFactorAuthRequired;
+    private ?bool $twoFactorAuthRequired = null;
 
     /**
      * Trusted devices enabled
@@ -198,7 +198,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("trustedDevicesEnabled")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $trustedDevicesEnabled;
+    private ?bool $trustedDevicesEnabled = null;
 
     /**
      * Two factor auth method allowed
@@ -233,7 +233,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("zimbraPrefPrimaryTwoFactorAuthMethod")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $prefPrimaryTwoFactorAuthMethod;
+    private ?string $prefPrimaryTwoFactorAuthMethod = null;
 
     /**
      * Pref primary two factor auth address
@@ -244,7 +244,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("zimbraPrefPasswordRecoveryAddress")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $prefPasswordRecoveryAddress;
+    private ?string $prefPasswordRecoveryAddress = null;
 
     /**
      * Reset password
@@ -255,7 +255,7 @@ class AuthResponse extends SoapResponse
     #[SerializedName("resetPassword")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $resetPassword;
+    private ?bool $resetPassword = null;
 
     /**
      * Constructor

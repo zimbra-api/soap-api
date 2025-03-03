@@ -50,7 +50,7 @@ class SyncGalAccountDataSourceSpec
     #[SerializedName("fullSync")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $fullSync;
+    private ?bool $fullSync = null;
 
     /**
      * Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
@@ -61,7 +61,7 @@ class SyncGalAccountDataSourceSpec
     #[SerializedName("reset")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $reset;
+    private ?bool $reset = null;
 
     /**
      * The value
@@ -71,7 +71,7 @@ class SyncGalAccountDataSourceSpec
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

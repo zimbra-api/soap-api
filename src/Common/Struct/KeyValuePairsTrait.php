@@ -31,7 +31,7 @@ trait KeyValuePairsTrait
     #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "a")]
-    protected $keyValuePairs = [];
+    protected array $keyValuePairs = [];
 
     /**
      * Add a kvp

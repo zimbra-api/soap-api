@@ -33,7 +33,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     #[SerializedName("serverList")]
     #[Type("string")]
     #[XmlAttribute]
-    private $serverList;
+    private ?string $serverList = null;
 
     /**
      * KETAMA_HASH, etc.
@@ -44,7 +44,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     #[SerializedName("hashAlgorithm")]
     #[Type("string")]
     #[XmlAttribute]
-    private $hashAlgorithm;
+    private ?string $hashAlgorithm = null;
 
     /**
      * Flags whether memcached binary protocol is in use or not
@@ -60,7 +60,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     #[SerializedName("binaryProtocol")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $binaryProtocolEnabled;
+    private ?bool $binaryProtocolEnabled = null;
 
     /**
      * Default entry expiry in seconds
@@ -76,7 +76,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     #[SerializedName("defaultExpirySeconds")]
     #[Type("int")]
     #[XmlAttribute]
-    private $defaultExpirySeconds;
+    private ?int $defaultExpirySeconds = null;
 
     /**
      * Default timeout in milliseconds
@@ -92,7 +92,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     #[SerializedName("defaultTimeoutMillis")]
     #[Type("int")]
     #[XmlAttribute]
-    private $defaultTimeoutMillis;
+    private ?int $defaultTimeoutMillis = null;
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class ModifyAlwaysOnClusterRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Constructor

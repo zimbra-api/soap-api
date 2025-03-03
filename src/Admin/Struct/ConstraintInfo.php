@@ -38,7 +38,7 @@ class ConstraintInfo
     #[SerializedName("min")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $min;
+    private ?string $min = null;
 
     /**
      * Maximum value
@@ -49,7 +49,7 @@ class ConstraintInfo
     #[SerializedName("max")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $max;
+    private ?string $max = null;
 
     /**
      * Acceptable Values
@@ -61,7 +61,7 @@ class ConstraintInfo
     #[Type("array<string>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "v", namespace: "urn:zimbraAdmin")]
-    private $values = [];
+    private array $values = [];
 
     /**
      * Constructor

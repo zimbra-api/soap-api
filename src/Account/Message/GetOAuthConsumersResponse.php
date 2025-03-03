@@ -39,7 +39,7 @@ class GetOAuthConsumersResponse extends SoapResponse
             namespace: "urn:zimbraAccount"
         )
     ]
-    private $consumers = [];
+    private array $consumers = [];
 
     /**
      * Constructor

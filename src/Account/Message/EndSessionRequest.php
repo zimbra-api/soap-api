@@ -37,7 +37,7 @@ class EndSessionRequest extends SoapRequest
     #[SerializedName("logoff")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $logoff;
+    private ?bool $logoff = null;
 
     /**
      * Flag to clear all web sessions of the user default is 0 (false)
@@ -53,7 +53,7 @@ class EndSessionRequest extends SoapRequest
     #[SerializedName("all")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $clearAllSoapSessions;
+    private ?bool $clearAllSoapSessions = null;
 
     /**
      * Flag to decide current session will be cleared or not default is 0 (false)
@@ -69,7 +69,7 @@ class EndSessionRequest extends SoapRequest
     #[SerializedName("excludeCurrent")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $excludeCurrentSession;
+    private ?bool $excludeCurrentSession = null;
 
     /**
      * End session for given session id
@@ -80,7 +80,7 @@ class EndSessionRequest extends SoapRequest
     #[SerializedName("sessionId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sessionId;
+    private ?string $sessionId = null;
 
     /**
      * Constructor

@@ -38,7 +38,7 @@ class ZimletStatusCos
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Information on zimlet status
@@ -48,7 +48,7 @@ class ZimletStatusCos
     #[Accessor(getter: "getZimlets", setter: "setZimlets")]
     #[Type("array<Zimbra\Admin\Struct\ZimletStatus>")]
     #[XmlList(inline: true, entry: "zimlet", namespace: "urn:zimbraAdmin")]
-    private $zimlets = [];
+    private array $zimlets = [];
 
     /**
      * Constructor

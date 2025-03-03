@@ -38,7 +38,7 @@ class ContactGroupMember
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Contact group member value
@@ -49,7 +49,7 @@ class ContactGroupMember
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private string $value;
 
     /**
      * Contact info

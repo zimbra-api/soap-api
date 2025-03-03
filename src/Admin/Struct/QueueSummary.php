@@ -38,7 +38,7 @@ class QueueSummary
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Queue summary items
@@ -48,7 +48,7 @@ class QueueSummary
     #[Accessor(getter: "getItems", setter: "setItems")]
     #[Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")]
     #[XmlList(inline: true, entry: "qsi", namespace: "urn:zimbraAdmin")]
-    private $items = [];
+    private array $items = [];
 
     /**
      * Constructor

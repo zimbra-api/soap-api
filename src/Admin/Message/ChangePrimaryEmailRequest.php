@@ -45,7 +45,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     #[SerializedName("newName")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $newName;
+    private string $newName;
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements
     #[SerializedName("section")]
     #[Type("string")]
     #[XmlAttribute]
-    private $section;
+    private ?string $section = null;
 
     /**
      * Constructor

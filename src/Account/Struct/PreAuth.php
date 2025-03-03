@@ -38,7 +38,7 @@ class PreAuth
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private string $value;
 
     /**
      * Time stamp
@@ -49,7 +49,7 @@ class PreAuth
     #[SerializedName("timestamp")]
     #[Type("int")]
     #[XmlAttribute]
-    private $timestamp;
+    private int $timestamp;
 
     /**
      * Expiration time of the authtoken, in milliseconds.
@@ -63,7 +63,7 @@ class PreAuth
     #[SerializedName("expires")]
     #[Type("int")]
     #[XmlAttribute]
-    private $expiresTimestamp;
+    private int $expiresTimestamp;
 
     /**
      * Constructor

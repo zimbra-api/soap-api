@@ -32,7 +32,7 @@ class AccountsAttrib
     #[SerializedName("accounts")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accounts;
+    private string $accounts;
 
     /**
      * Constructor

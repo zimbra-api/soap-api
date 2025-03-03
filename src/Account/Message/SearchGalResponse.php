@@ -40,7 +40,7 @@ class SearchGalResponse extends SoapResponse
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * The 0-based offset into the results list returned as the first result for this search operation.
@@ -51,7 +51,7 @@ class SearchGalResponse extends SoapResponse
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * Flags whether there are more results
@@ -62,7 +62,7 @@ class SearchGalResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * Flag whether the underlying search supported pagination.
@@ -75,7 +75,7 @@ class SearchGalResponse extends SoapResponse
     #[SerializedName("paginationSupported")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $pagingSupported;
+    private ?bool $pagingSupported = null;
 
     /**
      * Valid values: and|or
@@ -90,7 +90,7 @@ class SearchGalResponse extends SoapResponse
     #[SerializedName("tokenizeKey")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $tokenizeKey;
+    private ?bool $tokenizeKey = null;
 
     /**
      * Matching contacts
@@ -100,7 +100,7 @@ class SearchGalResponse extends SoapResponse
     #[Accessor(getter: "getContacts", setter: "setContacts")]
     #[Type("array<Zimbra\Account\Struct\ContactInfo>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraAccount")]
-    private $contacts;
+    private array $contacts;
 
     /**
      * Constructor

@@ -55,7 +55,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Name of pre-existing domain
@@ -66,7 +66,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("domain")]
     #[Type("string")]
     #[XmlAttribute]
-    private $domain;
+    private string $domain;
 
     /**
      * GalMode type
@@ -87,7 +87,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("folder")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Constructor

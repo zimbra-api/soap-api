@@ -32,7 +32,7 @@ class DomainAggregateQuotaInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Domain id
@@ -43,7 +43,7 @@ class DomainAggregateQuotaInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Quota used on server
@@ -54,7 +54,7 @@ class DomainAggregateQuotaInfo
     #[SerializedName("used")]
     #[Type("int")]
     #[XmlAttribute]
-    private $quotaUsed;
+    private int $quotaUsed;
 
     /**
      * Constructor

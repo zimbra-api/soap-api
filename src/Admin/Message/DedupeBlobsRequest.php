@@ -51,7 +51,7 @@ class DedupeBlobsRequest extends SoapRequest
     #[Accessor(getter: "getVolumes", setter: "setVolumes")]
     #[Type("array<Zimbra\Admin\Struct\IntIdAttr>")]
     #[XmlList(inline: true, entry: "volume", namespace: "urn:zimbraAdmin")]
-    private $volumes = [];
+    private array $volumes = [];
 
     /**
      * Constructor

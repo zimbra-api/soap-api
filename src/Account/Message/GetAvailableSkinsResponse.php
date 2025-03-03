@@ -32,7 +32,7 @@ class GetAvailableSkinsResponse extends SoapResponse
     #[Accessor(getter: "getSkins", setter: "setSkins")]
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlList(inline: true, entry: "skin", namespace: "urn:zimbraAccount")]
-    private $skins = [];
+    private array $skins = [];
 
     /**
      * Constructor

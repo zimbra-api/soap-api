@@ -38,7 +38,7 @@ class AccountSessionInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Account ID
@@ -49,7 +49,7 @@ class AccountSessionInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Information on sessions
@@ -59,7 +59,7 @@ class AccountSessionInfo
     #[Accessor(getter: "getSessions", setter: "setSessions")]
     #[Type("array<Zimbra\Admin\Struct\SessionInfo>")]
     #[XmlList(inline: true, entry: "s", namespace: "urn:zimbraAdmin")]
-    private $sessions = [];
+    private array $sessions = [];
 
     /**
      * Constructor

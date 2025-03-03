@@ -34,7 +34,7 @@ class GetAllDomainsRequest extends SoapRequest
     #[SerializedName("applyConfig")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $applyConfig;
+    private ?bool $applyConfig = null;
 
     /**
      * Constructor

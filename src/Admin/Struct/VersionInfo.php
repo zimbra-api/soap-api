@@ -32,7 +32,7 @@ class VersionInfo
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private ?string $type = null;
 
     /**
      * Version string
@@ -43,7 +43,7 @@ class VersionInfo
     #[SerializedName("version")]
     #[Type("string")]
     #[XmlAttribute]
-    private $version;
+    private ?string $version = null;
 
     /**
      * Release string
@@ -54,7 +54,7 @@ class VersionInfo
     #[SerializedName("release")]
     #[Type("string")]
     #[XmlAttribute]
-    private $release;
+    private ?string $release = null;
 
     /**
      * Build Date - format : YYYYMMDD-hhmm
@@ -65,7 +65,7 @@ class VersionInfo
     #[SerializedName("buildDate")]
     #[Type("string")]
     #[XmlAttribute]
-    private $buildDate;
+    private ?string $buildDate = null;
 
     /**
      * Host name
@@ -76,7 +76,7 @@ class VersionInfo
     #[SerializedName("host")]
     #[Type("string")]
     #[XmlAttribute]
-    private $host;
+    private ?string $host = null;
 
     /**
      * Major version
@@ -87,7 +87,7 @@ class VersionInfo
     #[SerializedName("majorversion")]
     #[Type("string")]
     #[XmlAttribute]
-    private $majorVersion;
+    private ?string $majorVersion = null;
 
     /**
      * Minor version
@@ -98,7 +98,7 @@ class VersionInfo
     #[SerializedName("minorversion")]
     #[Type("string")]
     #[XmlAttribute]
-    private $minorVersion;
+    private ?string $minorVersion = null;
 
     /**
      * Micro version
@@ -109,7 +109,7 @@ class VersionInfo
     #[SerializedName("microversion")]
     #[Type("string")]
     #[XmlAttribute]
-    private $microVersion;
+    private ?string $microVersion = null;
 
     /**
      * Platform
@@ -120,7 +120,7 @@ class VersionInfo
     #[SerializedName("platform")]
     #[Type("string")]
     #[XmlAttribute]
-    private $platform;
+    private ?string $platform = null;
 
     /**
      * Constructor

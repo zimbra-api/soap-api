@@ -38,7 +38,7 @@ class IncorrectBlobSizeInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Revision
@@ -49,7 +49,7 @@ class IncorrectBlobSizeInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private int $revision;
 
     /**
      * Size
@@ -60,7 +60,7 @@ class IncorrectBlobSizeInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private int $size;
 
     /**
      * Volume ID
@@ -71,7 +71,7 @@ class IncorrectBlobSizeInfo
     #[SerializedName("volumeId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $volumeId;
+    private int $volumeId;
 
     /**
      * Blob size information
@@ -82,7 +82,7 @@ class IncorrectBlobSizeInfo
     #[SerializedName("blob")]
     #[Type(BlobSizeInfo::class)]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
-    private $blob;
+    private ?BlobSizeInfo $blob = null;
 
     /**
      * Constructor

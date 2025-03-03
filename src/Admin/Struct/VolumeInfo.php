@@ -39,7 +39,7 @@ class VolumeInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private ?int $id = null;
 
     /**
      * Name or description of volume
@@ -50,7 +50,7 @@ class VolumeInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
@@ -61,7 +61,7 @@ class VolumeInfo
     #[SerializedName("rootpath")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rootPath;
+    private ?string $rootPath = null;
 
     /**
      * Volume type
@@ -72,7 +72,7 @@ class VolumeInfo
     #[SerializedName("type")]
     #[Type("int")]
     #[XmlAttribute]
-    private $type;
+    private ?int $type = null;
 
     /**
      * Specifies whether blobs in this volume are compressed
@@ -83,7 +83,7 @@ class VolumeInfo
     #[SerializedName("compressBlobs")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $compressBlobs;
+    private ?bool $compressBlobs = null;
 
     /**
      * Long value that specifies the maximum uncompressed file size, in bytes, of blobs
@@ -100,7 +100,7 @@ class VolumeInfo
     #[SerializedName("compressionThreshold")]
     #[Type("int")]
     #[XmlAttribute]
-    private $compressionThreshold;
+    private ?int $compressionThreshold = null;
 
     /**
      * The mgbits
@@ -111,7 +111,7 @@ class VolumeInfo
     #[SerializedName("mgbits")]
     #[Type("int")]
     #[XmlAttribute]
-    private $mgbits;
+    private ?int $mgbits = null;
 
     /**
      * The mbits
@@ -122,7 +122,7 @@ class VolumeInfo
     #[SerializedName("mbits")]
     #[Type("int")]
     #[XmlAttribute]
-    private $mbits;
+    private ?int $mbits = null;
 
     /**
      * The fgbits
@@ -133,7 +133,7 @@ class VolumeInfo
     #[SerializedName("fgbits")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fgbits;
+    private ?int $fgbits = null;
 
     /**
      * The fbits
@@ -144,7 +144,7 @@ class VolumeInfo
     #[SerializedName("fbits")]
     #[Type("int")]
     #[XmlAttribute]
-    private $fbits;
+    private ?int $fbits = null;
 
     /**
      * Set if the volume is current.
@@ -155,7 +155,7 @@ class VolumeInfo
     #[SerializedName("isCurrent")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isCurrent;
+    private ?bool $isCurrent = null;
 
     /**
      * Set if the volume is current.
@@ -166,7 +166,7 @@ class VolumeInfo
     #[SerializedName("current")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $current;
+    private ?bool $current = null;
 
     /**
      * Set to 1 for internal volumes and 2 for external volumes
@@ -177,7 +177,7 @@ class VolumeInfo
     #[SerializedName("storeType")]
     #[Type("int")]
     #[XmlAttribute]
-    private $storeType;
+    private ?int $storeType = null;
 
     /**
      * Store Manager Class
@@ -188,7 +188,7 @@ class VolumeInfo
     #[SerializedName("storeManagerClass")]
     #[Type("string")]
     #[XmlAttribute]
-    private $storeManagerClass;
+    private ?string $storeManagerClass = null;
 
     /**
      * Volume external information for S3
@@ -231,7 +231,7 @@ class VolumeInfo
     #[SerializedName("requestType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $requestType;
+    private ?string $requestType = null;
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class GetAllDomainsResponse extends SoapResponse
     #[Accessor(getter: "getDomainList", setter: "setDomainList")]
     #[Type("array<Zimbra\Admin\Struct\DomainInfo>")]
     #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
-    private $domainList = [];
+    private array $domainList = [];
 
     /**
      * Constructor

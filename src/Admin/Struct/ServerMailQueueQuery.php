@@ -49,7 +49,7 @@ class ServerMailQueueQuery
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $serverName;
+    private string $serverName;
 
     /**
      * Constructor

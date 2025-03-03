@@ -33,7 +33,7 @@ class CheckHealthResponse extends SoapResponse
     #[SerializedName("healthy")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $healthy;
+    private bool $healthy;
 
     /**
      * Constructor

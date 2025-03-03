@@ -41,7 +41,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     #[SerializedName("not")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $not;
+    private ?bool $not = null;
 
     /**
      * OR flag
@@ -52,7 +52,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     #[SerializedName("or")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $or;
+    private ?bool $or = null;
 
     /**
      * The array of compound conditions
@@ -67,7 +67,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     ]
     #[Type("array<Zimbra\Account\Struct\EntrySearchFilterMultiCond>")]
     #[XmlList(inline: true, entry: "conds", namespace: "urn:zimbraAccount")]
-    private $compoundConditions = [];
+    private array $compoundConditions = [];
 
     /**
      * The array of simple conditions
@@ -77,7 +77,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     #[Accessor(getter: "getSingleConditions", setter: "setSingleConditions")]
     #[Type("array<Zimbra\Account\Struct\EntrySearchFilterSingleCond>")]
     #[XmlList(inline: true, entry: "cond", namespace: "urn:zimbraAccount")]
-    private $singleConditions = [];
+    private array $singleConditions = [];
 
     /**
      * Constructor

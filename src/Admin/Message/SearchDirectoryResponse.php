@@ -47,7 +47,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[SerializedName("num")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private int $num;
 
     /**
      * 1 (true) if more accounts left to return
@@ -58,7 +58,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private bool $more;
 
     /**
      * Total number of accounts that matched search (not affected by limit/searchTotal)
@@ -69,7 +69,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[SerializedName("searchTotal")]
     #[Type("int")]
     #[XmlAttribute]
-    private $searchTotal;
+    private int $searchTotal;
 
     /**
      * Information on calendar resources
@@ -79,7 +79,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getCalendarResources", setter: "setCalendarResources")]
     #[Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")]
     #[XmlList(inline: true, entry: "calresource", namespace: "urn:zimbraAdmin")]
-    private $calResources = [];
+    private array $calResources = [];
 
     /**
      * Information on distribution lists
@@ -89,7 +89,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getDistributionLists", setter: "setDistributionLists")]
     #[Type("array<Zimbra\Admin\Struct\DistributionListInfo>")]
     #[XmlList(inline: true, entry: "dl", namespace: "urn:zimbraAdmin")]
-    private $dls = [];
+    private array $dls = [];
 
     /**
      * Information on aliases
@@ -99,7 +99,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getAliases", setter: "setAliases")]
     #[Type("array<Zimbra\Admin\Struct\AliasInfo>")]
     #[XmlList(inline: true, entry: "alias", namespace: "urn:zimbraAdmin")]
-    private $aliases = [];
+    private array $aliases = [];
 
     /**
      * Information on accounts
@@ -109,7 +109,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Admin\Struct\AccountInfo>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Information on domains
@@ -119,7 +119,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getDomains", setter: "setDomains")]
     #[Type("array<Zimbra\Admin\Struct\DomainInfo>")]
     #[XmlList(inline: true, entry: "domain", namespace: "urn:zimbraAdmin")]
-    private $domains = [];
+    private array $domains = [];
 
     /**
      * Information on Classes of Service (COS)
@@ -129,7 +129,7 @@ class SearchDirectoryResponse extends SoapResponse
     #[Accessor(getter: "getCOSes", setter: "setCOSes")]
     #[Type("array<Zimbra\Admin\Struct\CosInfo>")]
     #[XmlList(inline: true, entry: "cos", namespace: "urn:zimbraAdmin")]
-    private $coses = [];
+    private array $coses = [];
 
     /**
      * Constructor

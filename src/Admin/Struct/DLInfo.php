@@ -32,7 +32,7 @@ class DLInfo extends AdminObjectInfo
     #[SerializedName("dynamic")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dynamic;
+    private ?bool $dynamic = null;
 
     /**
      * Via
@@ -45,7 +45,7 @@ class DLInfo extends AdminObjectInfo
     #[SerializedName("via")]
     #[Type("string")]
     #[XmlAttribute]
-    private $via;
+    private string $via;
 
     /**
      * Constructor

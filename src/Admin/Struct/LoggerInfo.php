@@ -33,7 +33,7 @@ class LoggerInfo
     #[SerializedName("category")]
     #[Type("string")]
     #[XmlAttribute]
-    private $category;
+    private string $category;
 
     /**
      * Logging level

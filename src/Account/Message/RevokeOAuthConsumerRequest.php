@@ -33,7 +33,7 @@ class RevokeOAuthConsumerRequest extends SoapRequest
     #[SerializedName("accessToken")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessToken;
+    private string $accessToken;
 
     /**
      * Constructor

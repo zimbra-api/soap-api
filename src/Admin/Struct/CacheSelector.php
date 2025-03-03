@@ -37,7 +37,7 @@ class CacheSelector
     #[Accessor(getter: "getEntries", setter: "setEntries")]
     #[Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")]
     #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
-    private $entries = [];
+    private array $entries = [];
 
     /**
      * Comma separated list of cache types.
@@ -49,7 +49,7 @@ class CacheSelector
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $types;
+    private string $types;
 
     /**
      * The allServers flag
@@ -62,7 +62,7 @@ class CacheSelector
     #[SerializedName("allServers")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allServers;
+    private ?bool $allServers = null;
 
     /**
      * The imapServers flag
@@ -75,7 +75,7 @@ class CacheSelector
     #[SerializedName("imapServers")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $imapServers;
+    private ?bool $imapServers = null;
 
     /**
      * Constructor

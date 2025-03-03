@@ -34,7 +34,7 @@ class RightsAttrs
     #[SerializedName("all")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $all;
+    private ?bool $all = null;
 
     /**
      * Constructor

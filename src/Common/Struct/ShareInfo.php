@@ -32,7 +32,7 @@ class ShareInfo
     #[SerializedName("ownerId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerId;
+    private string $ownerId;
 
     /**
      * Owner email
@@ -43,7 +43,7 @@ class ShareInfo
     #[SerializedName("ownerEmail")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerEmail;
+    private string $ownerEmail;
 
     /**
      * Owner display name
@@ -54,7 +54,7 @@ class ShareInfo
     #[SerializedName("ownerName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerDisplayName;
+    private  string$ownerDisplayName;
 
     /**
      * Folder ID
@@ -65,7 +65,7 @@ class ShareInfo
     #[SerializedName("folderId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $folderId;
+    private int $folderId;
 
     /**
      * Folder UUID
@@ -76,7 +76,7 @@ class ShareInfo
     #[SerializedName("folderUuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderUuid;
+    private string $folderUuid;
 
     /**
      * Fully qualified path
@@ -87,7 +87,7 @@ class ShareInfo
     #[SerializedName("folderPath")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderPath;
+    private string $folderPath;
 
     /**
      * Default type
@@ -98,7 +98,7 @@ class ShareInfo
     #[SerializedName("view")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultView;
+    private string $defaultView;
 
     /**
      * Rights
@@ -109,7 +109,7 @@ class ShareInfo
     #[SerializedName("rights")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rights;
+    private string $rights;
 
     /**
      * Grantee type
@@ -120,7 +120,7 @@ class ShareInfo
     #[SerializedName("granteeType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $granteeType;
+    private string $granteeType;
 
     /**
      * Grantee ID
@@ -131,7 +131,7 @@ class ShareInfo
     #[SerializedName("granteeId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $granteeId;
+    private string $granteeId;
 
     /**
      * Grantee name
@@ -142,7 +142,7 @@ class ShareInfo
     #[SerializedName("granteeName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $granteeName;
+    private string $granteeName;
 
     /**
      * Grantee display name
@@ -158,7 +158,7 @@ class ShareInfo
     #[SerializedName("granteeDisplayName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $granteeDisplayName;
+    private string $granteeDisplayName;
 
     /**
      * Returned if the share is already mounted.
@@ -170,7 +170,7 @@ class ShareInfo
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $mountpointId;
+    private ?string $mountpointId = null;
 
     /**
      * Active sync is disabled.
@@ -181,7 +181,7 @@ class ShareInfo
     #[SerializedName("activeSyncDisabled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $activeSyncDisabled;
+    private bool $activeSyncDisabled = false;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class TimeAttr
     #[SerializedName("time")]
     #[Type("string")]
     #[XmlAttribute]
-    private $time;
+    private string $time;
 
     /**
      * Constructor

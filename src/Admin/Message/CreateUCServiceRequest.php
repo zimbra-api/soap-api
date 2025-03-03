@@ -37,7 +37,7 @@ class CreateUCServiceRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

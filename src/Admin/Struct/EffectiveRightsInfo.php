@@ -37,7 +37,7 @@ class EffectiveRightsInfo
     #[Accessor(getter: "getRights", setter: "setRights")]
     #[Type("array<Zimbra\Admin\Struct\RightWithName>")]
     #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraAdmin")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * All attributes that can be set

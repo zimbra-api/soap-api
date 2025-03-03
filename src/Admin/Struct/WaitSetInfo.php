@@ -40,7 +40,7 @@ class WaitSetInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $waitSetId;
+    private string $waitSetId;
 
     /**
      * WaitSet owner account ID
@@ -51,7 +51,7 @@ class WaitSetInfo
     #[SerializedName("owner")]
     #[Type("string")]
     #[XmlAttribute]
-    private $owner;
+    private string $owner;
 
     /**
      * Default interest types: comma-separated list.
@@ -63,7 +63,7 @@ class WaitSetInfo
     #[SerializedName("defTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultInterests;
+    private string $defaultInterests;
 
     /**
      * Last access date
@@ -74,7 +74,7 @@ class WaitSetInfo
     #[SerializedName("ld")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastAccessDate;
+    private int $lastAccessDate;
 
     /**
      * Error information
@@ -86,7 +86,7 @@ class WaitSetInfo
     #[Type("array<Zimbra\Common\Struct\IdAndType>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "error", namespace: "urn:zimbraAdmin")]
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * Comma separated list of account IDs
@@ -97,7 +97,7 @@ class WaitSetInfo
     #[SerializedName("ready")]
     #[Type(AccountsAttrib::class)]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
-    private $signalledAccounts;
+    private ?AccountsAttrib $signalledAccounts = null;
 
     /**
      * CB sequence number
@@ -108,7 +108,7 @@ class WaitSetInfo
     #[SerializedName("cbSeqNo")]
     #[Type("string")]
     #[XmlAttribute]
-    private $cbSeqNo;
+    private ?string $cbSeqNo = null;
 
     /**
      * Current sequence number
@@ -119,7 +119,7 @@ class WaitSetInfo
     #[SerializedName("currentSeqNo")]
     #[Type("string")]
     #[XmlAttribute]
-    private $currentSeqNo;
+    private ?string $currentSeqNo = null;
 
     /**
      * Next sequence number
@@ -130,7 +130,7 @@ class WaitSetInfo
     #[SerializedName("nextSeqNo")]
     #[Type("string")]
     #[XmlAttribute]
-    private $nextSeqNo;
+    private ?string $nextSeqNo = null;
 
     /**
      * Buffered commit information
@@ -142,7 +142,7 @@ class WaitSetInfo
     #[Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "commit", namespace: "urn:zimbraAdmin")]
-    private $bufferedCommits = [];
+    private array $bufferedCommits = [];
 
     /**
      * Session information
@@ -152,7 +152,7 @@ class WaitSetInfo
     #[Accessor(getter: "getSessions", setter: "setSessions")]
     #[Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")]
     #[XmlList(inline: true, entry: "session", namespace: "urn:zimbraAdmin")]
-    private $sessions = [];
+    private array $sessions = [];
 
     /**
      * Constructor

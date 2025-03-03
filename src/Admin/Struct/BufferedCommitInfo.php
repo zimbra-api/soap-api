@@ -32,7 +32,7 @@ class BufferedCommitInfo
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $aid;
+    private string $aid;
 
     /**
      * Commit ID
@@ -43,7 +43,7 @@ class BufferedCommitInfo
     #[SerializedName("cid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $cid;
+    private string $cid;
 
     /**
      * Constructor

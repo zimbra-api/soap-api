@@ -38,7 +38,7 @@ class SyncGalAccountRequest extends SoapRequest
     #[Accessor(getter: "getAccounts", setter: "setAccounts")]
     #[Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")]
     #[XmlList(inline: true, entry: "account", namespace: "urn:zimbraAdmin")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

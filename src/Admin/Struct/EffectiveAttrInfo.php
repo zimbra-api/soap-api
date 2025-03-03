@@ -39,7 +39,7 @@ class EffectiveAttrInfo
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constraint information
@@ -62,7 +62,7 @@ class EffectiveAttrInfo
     #[Type("array<string>")]
     #[XmlElement(namespace: "urn:zimbraAdmin")]
     #[XmlList(inline: false, entry: "v", namespace: "urn:zimbraAdmin")]
-    private $values = [];
+    private array $values = [];
 
     /**
      * Constructor

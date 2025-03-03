@@ -42,7 +42,7 @@ class GetDistributionListMembersResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * total number of distribution lists (not affected by limit/offset)
@@ -53,7 +53,7 @@ class GetDistributionListMembersResponse extends SoapResponse
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $total;
+    private ?int $total = null;
 
     /**
      * Distribution list members
@@ -63,7 +63,7 @@ class GetDistributionListMembersResponse extends SoapResponse
     #[Accessor(getter: "getDlMembers", setter: "setDlMembers")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dlm", namespace: "urn:zimbraAccount")]
-    private $dlMembers = [];
+    private array $dlMembers = [];
 
     /**
      * HAB Group members
@@ -81,7 +81,7 @@ class GetDistributionListMembersResponse extends SoapResponse
             namespace: "urn:zimbraAccount"
         )
     ]
-    private $habGroupMembers = [];
+    private array $habGroupMembers = [];
 
     /**
      * Constructor

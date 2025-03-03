@@ -40,7 +40,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * If 1 (true) then create a dynamic distribution list
@@ -51,7 +51,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("dynamic")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dynamic;
+    private ?bool $dynamic = null;
 
     /**
      * Constructor

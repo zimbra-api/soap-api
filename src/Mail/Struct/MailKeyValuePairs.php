@@ -34,7 +34,7 @@ class MailKeyValuePairs implements KeyValuePairs
     #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
-    protected $keyValuePairs = [];
+    protected array $keyValuePairs = [];
 
     /**
      * Constructor

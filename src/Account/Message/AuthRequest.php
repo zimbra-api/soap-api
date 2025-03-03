@@ -56,7 +56,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("persistAuthTokenCookie")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $persistAuthTokenCookie;
+    private ?bool $persistAuthTokenCookie = null;
 
     /**
      * Controls whether the client supports CSRF token
@@ -69,7 +69,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("csrfTokenSecured")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $csrfSupported;
+    private ?bool $csrfSupported = null;
 
     /**
      * Specifies the account to authenticate against
@@ -91,7 +91,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $password;
+    private ?string $password = null;
 
     /**
      * RecoveryCode to use in conjunction with an account in case of forgot password flow.
@@ -102,7 +102,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("recoveryCode")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $recoveryCode;
+    private ?string $recoveryCode = null;
 
     /**
      * The preauth
@@ -135,7 +135,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("jwtToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $jwtToken;
+    private ?string $jwtToken = null;
 
     /**
      * If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
@@ -146,7 +146,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("virtualHost")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $virtualHost;
+    private ?string $virtualHost = null;
 
     /**
      * Requested preference settings.
@@ -158,7 +158,7 @@ class AuthRequest extends SoapRequest
     #[Type("array<Zimbra\Account\Struct\Pref>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "pref", namespace: "urn:zimbraAccount")]
-    private $prefs = [];
+    private array $prefs = [];
 
     /**
      * Requested attribute settings.
@@ -171,7 +171,7 @@ class AuthRequest extends SoapRequest
     #[Type("array<Zimbra\Account\Struct\Attr>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * The requestedSkin. If specified the name of the skin requested by the client.
@@ -182,7 +182,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("requestedSkin")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $requestedSkin;
+    private ?string $requestedSkin = null;
 
     /**
      * The TOTP code used for two-factor authentication
@@ -193,7 +193,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("twoFactorCode")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $twoFactorCode;
+    private ?string $twoFactorCode = null;
 
     /**
      * Whether the client represents a trusted device
@@ -204,7 +204,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("deviceTrusted")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $deviceTrusted;
+    private ?bool $deviceTrusted = null;
 
     /**
      * Whether the client represents a trusted device
@@ -220,7 +220,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("trustedToken")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $trustedDeviceToken;
+    private ?string $trustedDeviceToken = null;
 
     /**
      * Unique device identifier; used to verify trusted mobile devices
@@ -231,7 +231,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("deviceId")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $deviceId;
+    private ?string $deviceId = null;
 
     /**
      * Generate device id
@@ -242,7 +242,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("generateDeviceId")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $generateDeviceId;
+    private ?bool $generateDeviceId = null;
 
     /**
      * Type of token to be returned, it can be auth or jwt
@@ -253,7 +253,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("tokenType")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tokenType;
+    private ?string $tokenType = null;
 
     /**
      * if true SameSite=Strict cookie will not be added in AuthToken
@@ -264,7 +264,7 @@ class AuthRequest extends SoapRequest
     #[SerializedName("ignoreSameSite")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $ignoreSameSite;
+    private ?bool $ignoreSameSite = null;
 
     /**
      * Constructor

@@ -54,7 +54,7 @@ class AccountInfo
     #[SerializedName("link")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $mountpointTraversed;
+    private ?bool $mountpointTraversed = null;
 
     /**
      * Value
@@ -64,7 +64,7 @@ class AccountInfo
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

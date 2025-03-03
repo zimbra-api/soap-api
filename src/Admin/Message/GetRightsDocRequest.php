@@ -34,7 +34,7 @@ class GetRightsDocRequest extends SoapRequest
     #[Accessor(getter: "getPkgs", setter: "setPkgs")]
     #[Type("array<Zimbra\Admin\Struct\PackageSelector>")]
     #[XmlList(inline: true, entry: "package", namespace: "urn:zimbraAdmin")]
-    private $pkgs = [];
+    private array $pkgs = [];
 
     /**
      * Constructor

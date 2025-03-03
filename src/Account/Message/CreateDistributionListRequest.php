@@ -49,7 +49,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * If 1 (true) then create a dynamic distribution list
@@ -60,7 +60,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     #[SerializedName("dynamic")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $dynamic;
+    private ?bool $dynamic = null;
 
     /**
      * Key value pairs
@@ -70,7 +70,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     #[Accessor(getter: "getKeyValuePairs", setter: "setKeyValuePairs")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAccount")]
-    protected $keyValuePairs = [];
+    protected array $keyValuePairs = [];
 
     /**
      * Constructor

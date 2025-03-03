@@ -34,7 +34,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     #[SerializedName("dn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dn;
+    private string $dn;
 
     /**
      * New DN - a valid LDAP DN String (RFC 2253) that describes the new DN to be given to the LDAP object
@@ -45,7 +45,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     #[SerializedName("new_dn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $newDn;
+    private string $newDn;
 
     /**
      * Constructor

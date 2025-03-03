@@ -38,7 +38,7 @@ class AccountLoggerInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Id
@@ -49,7 +49,7 @@ class AccountLoggerInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Logger information
@@ -59,7 +59,7 @@ class AccountLoggerInfo
     #[Accessor(getter: "getLoggers", setter: "setLoggers")]
     #[Type("array<Zimbra\Admin\Struct\LoggerInfo>")]
     #[XmlList(inline: true, entry: "logger", namespace: "urn:zimbraAdmin")]
-    private $loggers = [];
+    private array $loggers = [];
 
     /**
      * Constructor

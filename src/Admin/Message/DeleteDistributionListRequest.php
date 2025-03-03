@@ -34,7 +34,7 @@ class DeleteDistributionListRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * If true, cascade delete the hab-groups else return error
@@ -45,7 +45,7 @@ class DeleteDistributionListRequest extends SoapRequest
     #[SerializedName("cascadeDelete")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $cascadeDelete;
+    private ?bool $cascadeDelete = null;
 
     /**
      * Constructor

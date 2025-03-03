@@ -38,7 +38,7 @@ class CosInfo implements AdminObjectInterface
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * ID
@@ -49,7 +49,7 @@ class CosInfo implements AdminObjectInterface
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Flag whether is the default Class Of Service (COS)
@@ -60,7 +60,7 @@ class CosInfo implements AdminObjectInterface
     #[SerializedName("isDefaultCos")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isDefaultCos;
+    private ?bool $isDefaultCos = null;
 
     /**
      * Attribute list
@@ -70,7 +70,7 @@ class CosInfo implements AdminObjectInterface
     #[Accessor(getter: "getAttrList", setter: "setAttrList")]
     #[Type("array<Zimbra\Admin\Struct\CosInfoAttr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraAdmin")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Constructor

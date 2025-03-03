@@ -41,7 +41,7 @@ class WaitSetAddSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * The id
@@ -52,7 +52,7 @@ class WaitSetAddSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Last known sync token
@@ -63,7 +63,7 @@ class WaitSetAddSpec
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * Comma-separated list
@@ -74,7 +74,7 @@ class WaitSetAddSpec
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $interests;
+    private ?string $interests = null;
 
     /**
      * Folder interests
@@ -82,7 +82,7 @@ class WaitSetAddSpec
      * @var array
      */
     #[Exclude]
-    private $folderInterests = [];
+    private array $folderInterests = [];
 
     /**
      * Constructor

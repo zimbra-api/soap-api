@@ -58,7 +58,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("attSizeLimit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $attachmentSizeLimit;
+    private ?int $attachmentSizeLimit = null;
 
     /**
      * The size limit for documents
@@ -69,7 +69,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("docSizeLimit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $documentSizeLimit;
+    private ?int $documentSizeLimit = null;
 
     /**
      * returns true if the spell check is available on the server
@@ -85,7 +85,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("isSpellCheckAvailable")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $spellCheckAvailable;
+    private ?bool $spellCheckAvailable = null;
 
     /**
      * Server version: <major>[.<minor>[.<maintenance>]][build] <release> <date>[<type>]
@@ -96,7 +96,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("version")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $version;
+    private ?string $version = null;
 
     /**
      * Account ID
@@ -107,7 +107,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $accountId;
+    private ?string $accountId = null;
 
     /**
      * Profile image ID
@@ -118,7 +118,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("profileImageId")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $profileImageId;
+    private ?int $profileImageId = null;
 
     /**
      * Email address (user@domain)
@@ -129,7 +129,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $accountName;
+    private ?string $accountName = null;
 
     /**
      * Crumb
@@ -140,7 +140,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("crumb")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $crumb;
+    private ?string $crumb = null;
 
     /**
      * Number of milliseconds until auth token expires
@@ -151,7 +151,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("lifetime")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $lifetime;
+    private ?int $lifetime = null;
 
     /**
      * 1 (true) if the auth token is a delegated auth token issued to an admin account
@@ -162,7 +162,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("adminDelegated")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $adminDelegated;
+    private ?bool $adminDelegated = null;
 
     /**
      * Base REST URL for the requested account
@@ -173,7 +173,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("rest")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $restUrl;
+    private ?string $restUrl = null;
 
     /**
      * Mailbox quota used in bytes.
@@ -185,7 +185,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("used")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $quotaUsed;
+    private ?int $quotaUsed = null;
 
     /**
      * Time (in millis) of last write op from this session, or from *any* SOAP session if we don't have one
@@ -202,7 +202,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("prevSession")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $previousSessionTime;
+    private ?int $previousSessionTime = null;
 
     /**
      * Time (in millis) of last write op from any SOAP session before this session was initiated,
@@ -220,7 +220,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("accessed")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $lastWriteAccessTime;
+    private ?int $lastWriteAccessTime = null;
 
     /**
      * Number of messages received since the previous soap session, or since the last SOAP write op if we don't have a session.
@@ -237,7 +237,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("recent")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $recentMessageCount;
+    private ?int $recentMessageCount = null;
 
     /**
      * Class of service
@@ -260,7 +260,7 @@ class GetInfoResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Pref>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "pref", namespace: "urn:zimbraAccount")]
-    private $prefs = [];
+    private array $prefs = [];
 
     /**
      * Account attributes that aren't user-settable, but the front-end needs.
@@ -273,7 +273,7 @@ class GetInfoResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Attr>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "attr", namespace: "urn:zimbraAccount")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Zimlets
@@ -285,7 +285,7 @@ class GetInfoResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\AccountZimletInfo>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "zimlet", namespace: "urn:zimbraAccount")]
-    private $zimlets = [];
+    private array $zimlets = [];
 
     /**
      * Properties
@@ -297,7 +297,7 @@ class GetInfoResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Prop>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "prop", namespace: "urn:zimbraAccount")]
-    private $props = [];
+    private array $props = [];
 
     /**
      * Identities
@@ -309,7 +309,7 @@ class GetInfoResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\Identity>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "identity", namespace: "urn:zimbraAccount")]
-    private $identities = [];
+    private array $identities = [];
 
     /**
      * Signatures
@@ -327,7 +327,7 @@ class GetInfoResponse extends SoapResponse
             namespace: "urn:zimbraAccount"
         )
     ]
-    private $signatures = [];
+    private array $signatures = [];
 
     /**
      * Data sources
@@ -361,7 +361,7 @@ class GetInfoResponse extends SoapResponse
             namespace: "urn:zimbraAccount"
         )
     ]
-    private $childAccounts = [];
+    private array $childAccounts = [];
 
     /**
      * Discovered Rights - same as for DiscoverRightsResponse
@@ -373,7 +373,7 @@ class GetInfoResponse extends SoapResponse
     #[Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")]
     #[XmlElement(namespace: "urn:zimbraAccount")]
     #[XmlList(inline: false, entry: "targets", namespace: "urn:zimbraAccount")]
-    private $discoveredRights = [];
+    private array $discoveredRights = [];
 
     /**
      * URL to talk to for soap service for this account.
@@ -384,7 +384,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("soapURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $soapURL;
+    private ?string $soapURL = null;
 
     /**
      * Base public URL for the requested account
@@ -395,7 +395,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("publicURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $publicURL;
+    private ?string $publicURL = null;
 
     /**
      * URL to talk to in order to change a password.
@@ -407,7 +407,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("changePasswordURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $changePasswordURL;
+    private ?string $changePasswordURL = null;
 
     /**
      * base URL for accessing the admin console
@@ -418,7 +418,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("adminURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $adminURL;
+    private ?string $adminURL = null;
 
     /**
      * Proxy URL for accessing XMPP over BOSH.
@@ -430,7 +430,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("boshURL")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $boshURL;
+    private ?string $boshURL = null;
 
     /**
      * Boolean value denoting if this account has logged in over IMAP.
@@ -441,7 +441,7 @@ class GetInfoResponse extends SoapResponse
     #[SerializedName("isTrackingIMAP")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
-    private $isTrackingIMAP;
+    private ?bool $isTrackingIMAP = null;
 
     /**
      * Constructor

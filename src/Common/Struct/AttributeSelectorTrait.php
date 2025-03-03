@@ -31,7 +31,7 @@ trait AttributeSelectorTrait
     #[SerializedName("attrs")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attrs;
+    private ?string $attrs = null;
 
     /**
      * Get attributes

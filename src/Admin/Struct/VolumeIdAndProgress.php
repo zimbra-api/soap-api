@@ -32,7 +32,7 @@ class VolumeIdAndProgress
     #[SerializedName("volumeId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $volumeId;
+    private string $volumeId;
 
     /**
      * Progress
@@ -43,7 +43,7 @@ class VolumeIdAndProgress
     #[SerializedName("progress")]
     #[Type("string")]
     #[XmlAttribute]
-    private $progress;
+    private string $progress;
 
     /**
      * Constructor

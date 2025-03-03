@@ -46,7 +46,7 @@ class ChangePasswordRequest extends SoapRequest
     #[SerializedName("oldPassword")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $oldPassword;
+    private string $oldPassword;
 
     /**
      * New Password to assign
@@ -57,7 +57,7 @@ class ChangePasswordRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $password;
+    private string $password;
 
     /**
      * Virtual host
@@ -72,7 +72,7 @@ class ChangePasswordRequest extends SoapRequest
     #[SerializedName("virtualHost")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $virtualHost;
+    private ?string $virtualHost = null;
 
     /**
      * @var bool
@@ -81,7 +81,7 @@ class ChangePasswordRequest extends SoapRequest
     #[SerializedName("dryRun")]
     #[Type("bool")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $dryRun;
+    private ?bool $dryRun = null;
 
     /**
      * Auth token

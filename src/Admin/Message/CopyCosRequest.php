@@ -41,7 +41,7 @@ class CopyCosRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $newName;
+    private ?string $newName = null;
 
     /**
      * Source COS

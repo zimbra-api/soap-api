@@ -41,7 +41,7 @@ class GetDistributionListResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * Total number of members (not affected by limit/total)
@@ -53,7 +53,7 @@ class GetDistributionListResponse extends SoapResponse
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $total;
+    private ?int $total = null;
 
     /**
      * Information about distribution list

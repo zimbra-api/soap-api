@@ -32,7 +32,7 @@ class IntIdAttr
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class QueueSummaryItem
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $count;
+    private int $count;
 
     /**
      * Text for item.  e.g. "connect to 10.10.20.40 failed"
@@ -43,7 +43,7 @@ class QueueSummaryItem
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $term;
+    private string $term;
 
     /**
      * Constructor

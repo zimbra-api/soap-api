@@ -41,7 +41,7 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * New account's password
@@ -52,7 +52,7 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * Constructor

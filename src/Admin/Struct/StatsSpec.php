@@ -49,7 +49,7 @@ class StatsSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Limit
@@ -60,7 +60,7 @@ class StatsSpec
     #[SerializedName("limit")]
     #[Type("string")]
     #[XmlAttribute]
-    private $limit;
+    private ?string $limit = null;
 
     /**
      * Constructor

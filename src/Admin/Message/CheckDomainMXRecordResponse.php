@@ -38,7 +38,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     #[Accessor(getter: "getEntries", setter: "setEntries")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "entry", namespace: "urn:zimbraAdmin")]
-    private $entries = [];
+    private array $entries = [];
 
     /**
      * Code - Ok or Failed
@@ -49,7 +49,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     #[SerializedName("code")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $code;
+    private string $code;
 
     /**
      * Message associated with code="Failed"
@@ -60,7 +60,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
-    private $message;
+    private ?string $message = null;
 
     /**
      * Constructor

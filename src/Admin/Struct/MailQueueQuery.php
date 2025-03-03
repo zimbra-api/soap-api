@@ -49,7 +49,7 @@ class MailQueueQuery
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $queueName;
+    private string $queueName;
 
     /**
      * To fora a queue scan, set this to 1 (true)
@@ -60,7 +60,7 @@ class MailQueueQuery
     #[SerializedName("scan")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $scan;
+    private ?bool $scan = null;
 
     /**
      * Maximum time to wait for the scan to complete in seconds (default 3)
@@ -71,7 +71,7 @@ class MailQueueQuery
     #[SerializedName("wait")]
     #[Type("int")]
     #[XmlAttribute]
-    private $waitSeconds;
+    private ?int $waitSeconds = null;
 
     /**
      * Constructor

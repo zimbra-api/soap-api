@@ -51,7 +51,7 @@ class RunUnitTestsResponse extends SoapResponse
     #[SerializedName("numExecuted")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numExecuted;
+    private int $numExecuted;
 
     /**
      * Number of failed tests
@@ -62,7 +62,7 @@ class RunUnitTestsResponse extends SoapResponse
     #[SerializedName("numFailed")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numFailed;
+    private int $numFailed;
 
     /**
      * Constructor

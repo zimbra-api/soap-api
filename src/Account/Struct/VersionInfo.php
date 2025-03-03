@@ -32,7 +32,7 @@ class VersionInfo
     #[SerializedName("version")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fullVersion;
+    private string $fullVersion;
 
     /**
      * Release string
@@ -43,7 +43,7 @@ class VersionInfo
     #[SerializedName("release")]
     #[Type("string")]
     #[XmlAttribute]
-    private $release;
+    private string $release;
 
     /**
      * Build date in format: YYYYMMDD-hhmm
@@ -54,7 +54,7 @@ class VersionInfo
     #[SerializedName("buildDate")]
     #[Type("string")]
     #[XmlAttribute]
-    private $date;
+    private string $date;
 
     /**
      * Build host name
@@ -65,7 +65,7 @@ class VersionInfo
     #[SerializedName("host")]
     #[Type("string")]
     #[XmlAttribute]
-    private $host;
+    private string $host;
 
     /**
      * Constructor

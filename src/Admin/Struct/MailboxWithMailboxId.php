@@ -32,7 +32,7 @@ class MailboxWithMailboxId
     #[SerializedName("mbxid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $mbxid;
+    private int $mbxid;
 
     /**
      * Account ID
@@ -43,7 +43,7 @@ class MailboxWithMailboxId
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accountId;
+    private string $accountId;
 
     /**
      * Size in bytes
@@ -54,7 +54,7 @@ class MailboxWithMailboxId
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Constructor
