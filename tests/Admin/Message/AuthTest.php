@@ -69,22 +69,26 @@ class AuthResponseTest extends ZimbraTestCase
             $authToken,
             $csrfToken,
             $lifetime,
+            FALSE,
             FALSE
         );
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($csrfToken, $response->getCsrfToken());
         $this->assertSame($lifetime, $response->getLifetime());
         $this->assertFalse($response->getTwoFactorAuthRequired());
+        $this->assertFalse($response->getResetPassword());
 
         $response = new AuthResponse();
         $response->setAuthToken($authToken)
             ->setCsrfToken($csrfToken)
             ->setLifetime($lifetime)
-            ->setTwoFactorAuthRequired(TRUE);
+            ->setTwoFactorAuthRequired(TRUE)
+            ->setResetPassword(TRUE);
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($lifetime, $response->getLifetime());
         $this->assertSame($csrfToken, $response->getCsrfToken());
         $this->assertTrue($response->getTwoFactorAuthRequired());
+        $this->assertTrue($response->getResetPassword());
 
         $body = new AuthBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -118,6 +122,7 @@ class AuthResponseTest extends ZimbraTestCase
             <urn:csrfToken>$csrfToken</urn:csrfToken>
             <urn:lifetime>$lifetime</urn:lifetime>
             <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
+            <urn:resetPassword>true</urn:resetPassword>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>

@@ -75,19 +75,32 @@ class AuthResponse extends SoapResponse
     private $twoFactorAuthRequired;
 
     /**
+     * Reset password
+     *
+     * @var bool
+     */
+    #[Accessor(getter: "getResetPassword", setter: "setResetPassword")]
+    #[SerializedName("resetPassword")]
+    #[Type("bool")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAdmin")]
+    private $resetPassword;
+
+    /**
      * Constructor
      *
      * @param string $authToken
      * @param string $csrfToken
      * @param int    $lifetime
      * @param bool   $twoFactorAuthRequired
+     * @param bool   $resetPassword
      * @return self
      */
     public function __construct(
         ?string $authToken = null,
         ?string $csrfToken = null,
         ?int $lifetime = null,
-        ?bool $twoFactorAuthRequired = null
+        ?bool $twoFactorAuthRequired = null,
+        ?bool $resetPassword = null
     ) {
         if (null !== $authToken) {
             $this->setAuthToken($authToken);
@@ -100,6 +113,9 @@ class AuthResponse extends SoapResponse
         }
         if (null !== $twoFactorAuthRequired) {
             $this->setTwoFactorAuthRequired($twoFactorAuthRequired);
+        }
+        if (null !== $resetPassword) {
+            $this->setResetPassword($resetPassword);
         }
     }
 
@@ -188,6 +204,28 @@ class AuthResponse extends SoapResponse
     public function setTwoFactorAuthRequired(bool $twoFactorAuthRequired): self
     {
         $this->twoFactorAuthRequired = $twoFactorAuthRequired;
+        return $this;
+    }
+
+    /**
+     * Get resetPassword
+     *
+     * @return bool
+     */
+    public function getResetPassword(): ?bool
+    {
+        return $this->resetPassword;
+    }
+
+    /**
+     * Set resetPassword
+     *
+     * @param  bool $resetPassword
+     * @return self
+     */
+    public function setResetPassword(bool $resetPassword): self
+    {
+        $this->resetPassword = $resetPassword;
         return $this;
     }
 }
