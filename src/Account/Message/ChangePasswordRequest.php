@@ -89,7 +89,7 @@ class ChangePasswordRequest extends SoapRequest
     #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
     #[SerializedName("authToken")]
     #[Type(AuthToken::class)]
-    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
     private ?AuthToken $authToken;
 
     /**
