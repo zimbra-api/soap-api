@@ -42,6 +42,10 @@ class AuthTest extends ZimbraTestCase
         $csrfToken = $this->faker->sha256;
         $id = $this->faker->uuid;
         $type = $this->faker->word;
+        $allowedMethod = $this->faker->word;
+        $enabledMethod = $this->faker->word;
+        $authMethod = $this->faker->word;
+        $recoveryAddress = $this->faker->word;
 
         $time = $this->faker->unixTime;
         $lifetime = $this->faker->randomNumber;
@@ -158,6 +162,11 @@ class AuthTest extends ZimbraTestCase
             [$pref],
             [$attr],
             FALSE,
+            FALSE,
+            [$allowedMethod],
+            [$enabledMethod],
+            $authMethod,
+            $recoveryAddress,
             FALSE
         );
         $this->assertSame($token, $response->getAuthToken());
@@ -174,6 +183,11 @@ class AuthTest extends ZimbraTestCase
         $this->assertSame([$attr], $response->getAttrs());
         $this->assertFalse($response->getTwoFactorAuthRequired());
         $this->assertFalse($response->getTrustedDevicesEnabled());
+        $this->assertSame([$allowedMethod], $response->getTwoFactorAuthMethodAllowed());
+        $this->assertSame([$enabledMethod], $response->getTwoFactorAuthMethodEnabled());
+        $this->assertSame($authMethod, $response->getPrefPrimaryTwoFactorAuthMethod());
+        $this->assertSame($recoveryAddress, $response->getPrefPasswordRecoveryAddress());
+        $this->assertFalse($response->getResetPassword());
 
         $res = new AuthResponse();
         $response->setAuthToken($token)
@@ -189,7 +203,12 @@ class AuthTest extends ZimbraTestCase
             ->setPrefs([$pref])
             ->setAttrs([$attr])
             ->setTwoFactorAuthRequired(TRUE)
-            ->setTrustedDevicesEnabled(TRUE);
+            ->setTrustedDevicesEnabled(TRUE)
+            ->setTwoFactorAuthMethodAllowed([$allowedMethod])
+            ->setTwoFactorAuthMethodEnabled([$enabledMethod])
+            ->setPrefPrimaryTwoFactorAuthMethod($authMethod)
+            ->setPrefPasswordRecoveryAddress($recoveryAddress)
+            ->setResetPassword(TRUE);
         $this->assertSame($token, $response->getAuthToken());
         $this->assertSame($lifetime, $response->getLifetime());
         $this->assertSame($session, $response->getSession());
@@ -204,6 +223,11 @@ class AuthTest extends ZimbraTestCase
         $this->assertSame([$attr], $response->getAttrs());
         $this->assertTrue($response->getTwoFactorAuthRequired());
         $this->assertTrue($response->getTrustedDevicesEnabled());
+        $this->assertSame([$allowedMethod], $response->getTwoFactorAuthMethodAllowed());
+        $this->assertSame([$enabledMethod], $response->getTwoFactorAuthMethodEnabled());
+        $this->assertSame($authMethod, $response->getPrefPrimaryTwoFactorAuthMethod());
+        $this->assertSame($recoveryAddress, $response->getPrefPasswordRecoveryAddress());
+        $this->assertTrue($response->getResetPassword());
 
         $body = new AuthBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -264,6 +288,15 @@ class AuthTest extends ZimbraTestCase
             </urn:attrs>
             <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
             <urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>
+            <urn:zimbraTwoFactorAuthMethodAllowed>
+                <urn:method>$allowedMethod</urn:method>
+            </urn:zimbraTwoFactorAuthMethodAllowed>
+            <urn:zimbraTwoFactorAuthMethodEnabled>
+                <urn:method>$enabledMethod</urn:method>
+            </urn:zimbraTwoFactorAuthMethodEnabled>
+            <urn:zimbraPrefPrimaryTwoFactorAuthMethod>$authMethod</urn:zimbraPrefPrimaryTwoFactorAuthMethod>
+            <urn:zimbraPrefPasswordRecoveryAddress>$recoveryAddress</urn:zimbraPrefPasswordRecoveryAddress>
+            <urn:resetPassword>true</urn:resetPassword>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>

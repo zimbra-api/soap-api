@@ -201,6 +201,63 @@ class AuthResponse extends SoapResponse
     private $trustedDevicesEnabled;
 
     /**
+     * Two factor auth method allowed
+     *
+     * @var array
+     */
+    #[Accessor(getter: "getTwoFactorAuthMethodAllowed", setter: "setTwoFactorAuthMethodAllowed")]
+    #[SerializedName("zimbraTwoFactorAuthMethodAllowed")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "method", namespace: "urn:zimbraAccount")]
+    private array $twoFactorAuthMethodAllowed;
+
+    /**
+     * Two factor auth method enabled
+     *
+     * @var array
+     */
+    #[Accessor(getter: "getTwoFactorAuthMethodEnabled", setter: "setTwoFactorAuthMethodEnabled")]
+    #[SerializedName("zimbraTwoFactorAuthMethodEnabled")]
+    #[Type("array<string>")]
+    #[XmlElement(namespace: "urn:zimbraAccount")]
+    #[XmlList(inline: false, entry: "method", namespace: "urn:zimbraAccount")]
+    private array $twoFactorAuthMethodEnabled;
+
+    /**
+     * Pref primary two factor auth method
+     *
+     * @var string
+     */
+    #[Accessor(getter: "getPrefPrimaryTwoFactorAuthMethod", setter: "setPrefPrimaryTwoFactorAuthMethod")]
+    #[SerializedName("zimbraPrefPrimaryTwoFactorAuthMethod")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
+    private $prefPrimaryTwoFactorAuthMethod;
+
+    /**
+     * Pref primary two factor auth address
+     *
+     * @var string
+     */
+    #[Accessor(getter: "getPrefPasswordRecoveryAddress", setter: "setPrefPasswordRecoveryAddress")]
+    #[SerializedName("zimbraPrefPasswordRecoveryAddress")]
+    #[Type("string")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
+    private $prefPasswordRecoveryAddress;
+
+    /**
+     * Reset password
+     *
+     * @var string
+     */
+    #[Accessor(getter: "getResetPassword", setter: "setResetPassword")]
+    #[SerializedName("resetPassword")]
+    #[Type("bool")]
+    #[XmlElement(cdata: false, namespace: "urn:zimbraAccount")]
+    private $resetPassword;
+
+    /**
      * Constructor
      *
      * @param  string  $authToken
@@ -233,10 +290,18 @@ class AuthResponse extends SoapResponse
         array $prefs = [],
         array $attrs = [],
         ?bool $twoFactorAuthRequired = null,
-        ?bool $trustedDevicesEnabled = null
+        ?bool $trustedDevicesEnabled = null,
+        array $twoFactorAuthMethodAllowed = [],
+        array $twoFactorAuthMethodEnabled = [],
+        ?string $prefPrimaryTwoFactorAuthMethod = null,
+        ?string $prefPasswordRecoveryAddress = null,
+        ?bool $resetPassword = null
     ) {
         $this->session = $session;
-        $this->setPrefs($prefs)->setAttrs($attrs);
+        $this->setPrefs($prefs)
+            ->setAttrs($attrs)
+            ->setTwoFactorAuthMethodAllowed($twoFactorAuthMethodAllowed)
+            ->setTwoFactorAuthMethodEnabled($twoFactorAuthMethodEnabled);
         if (null !== $authToken) {
             $this->setAuthToken($authToken);
         }
@@ -269,6 +334,15 @@ class AuthResponse extends SoapResponse
         }
         if (null !== $trustedDevicesEnabled) {
             $this->setTrustedDevicesEnabled($trustedDevicesEnabled);
+        }
+        if (null !== $prefPrimaryTwoFactorAuthMethod) {
+            $this->setPrefPrimaryTwoFactorAuthMethod($prefPrimaryTwoFactorAuthMethod);
+        }
+        if (null !== $prefPasswordRecoveryAddress) {
+            $this->setPrefPasswordRecoveryAddress($prefPasswordRecoveryAddress);
+        }
+        if (null !== $resetPassword) {
+            $this->setResetPassword($resetPassword);
         }
     }
 
@@ -583,6 +657,116 @@ class AuthResponse extends SoapResponse
     public function setTrustedDevicesEnabled(bool $trustedDevicesEnabled): self
     {
         $this->trustedDevicesEnabled = $trustedDevicesEnabled;
+        return $this;
+    }
+
+    /**
+     * Get two factor auth method allowed
+     *
+     * @return array
+     */
+    public function getTwoFactorAuthMethodAllowed(): array
+    {
+        return $this->twoFactorAuthMethodAllowed;
+    }
+
+    /**
+     * Set two factor auth method allowed
+     *
+     * @param  array $methods
+     * @return self
+     */
+    public function setTwoFactorAuthMethodAllowed(array $methods): self
+    {
+        $this->twoFactorAuthMethodAllowed = $methods;
+        return $this;
+    }
+
+    /**
+     * Get two factor auth method enabled
+     *
+     * @return array
+     */
+    public function getTwoFactorAuthMethodEnabled(): array
+    {
+        return $this->twoFactorAuthMethodEnabled;
+    }
+
+    /**
+     * Set two factor auth method enabled
+     *
+     * @param  array $methods
+     * @return self
+     */
+    public function setTwoFactorAuthMethodEnabled(array $methods): self
+    {
+        $this->twoFactorAuthMethodEnabled = $methods;
+        return $this;
+    }
+
+    /**
+     * Get pref primary two factor auth address
+     *
+     * @return string
+     */
+    public function getPrefPrimaryTwoFactorAuthMethod(): ?string
+    {
+        return $this->prefPrimaryTwoFactorAuthMethod;
+    }
+
+    /**
+     * Set pref primary two factor auth address
+     *
+     * @param  string $method
+     * @return self
+     */
+    public function setPrefPrimaryTwoFactorAuthMethod(string $method): self
+    {
+        $this->prefPrimaryTwoFactorAuthMethod = $method;
+        return $this;
+    }
+
+    /**
+     * Get pref password recovery address
+     *
+     * @return string
+     */
+    public function getPrefPasswordRecoveryAddress(): ?string
+    {
+        return $this->prefPasswordRecoveryAddress;
+    }
+
+    /**
+     * Set pref password recovery address
+     *
+     * @param  string $address
+     * @return self
+     */
+    public function setPrefPasswordRecoveryAddress(string $address): self
+    {
+        $this->prefPasswordRecoveryAddress = $address;
+        return $this;
+    }
+
+    /**
+     * Get reset password
+     *
+     * @return bool
+     */
+    public function getResetPassword(): ?bool
+    {
+        return $this->resetPassword;
+    }
+
+    /**
+     * Set reset password
+     *
+     * @param  bool $resetPassword
+     * @return self
+     */
+    public function setResetPassword(bool $resetPassword): self
+    {
+        $this->resetPassword = $resetPassword;
         return $this;
     }
 }

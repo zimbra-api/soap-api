@@ -32,6 +32,10 @@ class AccountApiTest extends ZimbraTestCase
         $time = $this->faker->unixTime;
         $lifetime = $this->faker->randomNumber;
         $trustLifetime = $this->faker->randomNumber;
+        $allowedMethod = $this->faker->word;
+        $enabledMethod = $this->faker->word;
+        $authMethod = $this->faker->word;
+        $recoveryAddress = $this->faker->word;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -55,6 +59,15 @@ class AccountApiTest extends ZimbraTestCase
             </urn:attrs>
             <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
             <urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>
+            <urn:zimbraTwoFactorAuthMethodAllowed>
+                <urn:method>$allowedMethod</urn:method>
+            </urn:zimbraTwoFactorAuthMethodAllowed>
+            <urn:zimbraTwoFactorAuthMethodEnabled>
+                <urn:method>$enabledMethod</urn:method>
+            </urn:zimbraTwoFactorAuthMethodEnabled>
+            <urn:zimbraPrefPrimaryTwoFactorAuthMethod>$authMethod</urn:zimbraPrefPrimaryTwoFactorAuthMethod>
+            <urn:zimbraPrefPasswordRecoveryAddress>$recoveryAddress</urn:zimbraPrefPasswordRecoveryAddress>
+            <urn:resetPassword>true</urn:resetPassword>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>
@@ -80,6 +93,12 @@ EOT;
         $this->assertEquals($session, $response->getSession());
         $this->assertEquals([$pref], $response->getPrefs());
         $this->assertEquals([$attr], $response->getAttrs());
+
+        $this->assertSame([$allowedMethod], $response->getTwoFactorAuthMethodAllowed());
+        $this->assertSame([$enabledMethod], $response->getTwoFactorAuthMethodEnabled());
+        $this->assertSame($authMethod, $response->getPrefPrimaryTwoFactorAuthMethod());
+        $this->assertSame($recoveryAddress, $response->getPrefPasswordRecoveryAddress());
+        $this->assertTrue($response->getResetPassword());
     }
 
     public function testAuthByAccountName()
