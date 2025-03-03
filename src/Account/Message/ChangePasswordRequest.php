@@ -11,6 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -81,6 +82,17 @@ class ChangePasswordRequest extends SoapRequest
     private $dryRun;
 
     /**
+     * Auth token
+     *
+     * @var AuthToken
+     */
+    #[Accessor(getter: "getAuthToken", setter: "setAuthToken")]
+    #[SerializedName("authToken")]
+    #[Type(AuthToken::class)]
+    #[XmlElement(namespace: "urn:zimbraAdmin")]
+    private ?AuthToken $authToken;
+
+    /**
      * Constructor
      *
      * @param  AccountSelector $account
@@ -88,6 +100,7 @@ class ChangePasswordRequest extends SoapRequest
      * @param  string $newPassword
      * @param  string $virtualHost
      * @param  bool   $dryRun
+     * @param  AuthToken $authToken
      * @return self
      */
     public function __construct(
@@ -95,11 +108,13 @@ class ChangePasswordRequest extends SoapRequest
         string $oldPassword = "",
         string $newPassword = "",
         ?string $virtualHost = null,
-        ?bool $dryRun = null
+        ?bool $dryRun = null,
+        ?AuthToken $authToken = null
     ) {
         $this->setAccount($account)
             ->setOldPassword($oldPassword)
             ->setPassword($newPassword);
+        $this->authToken = $authToken;
         if (null !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
@@ -215,6 +230,28 @@ class ChangePasswordRequest extends SoapRequest
     public function setDryRun(bool $dryRun): self
     {
         $this->dryRun = $dryRun;
+        return $this;
+    }
+
+    /**
+     * Get auth token
+     *
+     * @return AuthToken
+     */
+    public function getAuthToken(): ?AuthToken
+    {
+        return $this->authToken;
+    }
+
+    /**
+     * Set auth token
+     *
+     * @param  AuthToken $authToken
+     * @return self
+     */
+    public function setAuthToken(AuthToken $authToken): self
+    {
+        $this->authToken = $authToken;
         return $this;
     }
 

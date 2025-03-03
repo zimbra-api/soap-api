@@ -168,7 +168,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         string $oldPassword,
         string $newPassword,
         ?string $virtualHost = null,
-        ?bool $dryRun = null
+        ?bool $dryRun = null,
+        ?AuthToken $authToken = null
     ): ?Message\ChangePasswordResponse {
         return $this->invoke(
             new Message\ChangePasswordRequest(
@@ -176,7 +177,8 @@ class AccountApi extends AbstractApi implements AccountApiInterface
                 $oldPassword,
                 $newPassword,
                 $virtualHost,
-                $dryRun
+                $dryRun,
+                $authToken
             )
         );
     }

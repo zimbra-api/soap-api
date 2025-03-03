@@ -2,6 +2,7 @@
 
 namespace Zimbra\Tests\Account\Message;
 
+use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Message\ChangePasswordEnvelope;
 use Zimbra\Account\Message\ChangePasswordBody;
 use Zimbra\Account\Message\ChangePasswordRequest;
@@ -23,31 +24,36 @@ class ChangePasswordTest extends ZimbraTestCase
         $authToken = $this->faker->sha256;
         $lifetime = $this->faker->randomNumber;
         $account = new AccountSelector(AccountBy::NAME, $value);
+        $token = new AuthToken($authToken, TRUE, $lifetime);
 
         $request = new ChangePasswordRequest(
             $account,
             $oldPassword,
             $newPassword,
             $virtualHost,
-            FALSE
+            FALSE,
+            $token
         );
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($oldPassword, $request->getOldPassword());
         $this->assertSame($newPassword, $request->getPassword());
         $this->assertSame($virtualHost, $request->getVirtualHost());
         $this->assertFalse($request->isDryRun());
+        $this->assertSame($token, $request->getAuthToken());
 
         $request = new ChangePasswordRequest(new AccountSelector());
         $request->setAccount($account)
             ->setOldPassword($oldPassword)
             ->setPassword($newPassword)
             ->setVirtualHost($virtualHost)
-            ->setDryRun(TRUE);
+            ->setDryRun(TRUE)
+            ->setAuthToken(token);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($oldPassword, $request->getOldPassword());
         $this->assertSame($newPassword, $request->getPassword());
         $this->assertSame($virtualHost, $request->getVirtualHost());
         $this->assertTrue($request->isDryRun());
+        $this->assertSame($token, $request->getAuthToken());
 
         $response = new ChangePasswordResponse(
             $authToken,
@@ -88,6 +94,7 @@ class ChangePasswordTest extends ZimbraTestCase
             <urn:password>$newPassword</urn:password>
             <urn:virtualHost>$virtualHost</urn:virtualHost>
             <urn:dryRun>true</urn:dryRun>
+            <urn:authToken verifyAccount="true" lifetime="$lifetime">$authToken</urn:authToken>
         </urn:ChangePasswordRequest>
         <urn:ChangePasswordResponse>
             <urn:authToken>$authToken</urn:authToken>

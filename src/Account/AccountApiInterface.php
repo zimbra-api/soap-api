@@ -167,6 +167,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $newPassword
      * @param  string $virtualHost
      * @param  bool   $dryRun
+     * @param  AuthToken $authToken
      * @return Message\ChangePasswordResponse
      */
     function changePassword(
@@ -174,7 +175,8 @@ interface AccountApiInterface extends ApiInterface
         string $oldPassword,
         string $newPassword,
         ?string $virtualHost = null,
-        ?bool $dryRun = null
+        ?bool $dryRun = null,
+        ?AuthToken $authToken = null
     ): ?Message\ChangePasswordResponse;
 
     /**
