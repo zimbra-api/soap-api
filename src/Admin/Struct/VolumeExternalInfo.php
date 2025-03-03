@@ -99,6 +99,17 @@ class VolumeExternalInfo extends BaseExternalVolume
     private $useIntelligentTiering;
 
     /**
+     * Specifies unified/shared enabled or not
+     *
+     * @var bool
+     */
+    #[Accessor(getter: "isUnified", setter: "setUnified")]
+    #[SerializedName("unified")]
+    #[Type("bool")]
+    #[XmlAttribute]
+    private $unified;
+
+    /**
      * Constructor
      *
      * @param string $storageType
@@ -107,6 +118,7 @@ class VolumeExternalInfo extends BaseExternalVolume
      * @param bool   $useInFrequentAccess
      * @param int    $useInFrequentAccessThreshold
      * @param bool   $useIntelligentTiering
+     * @param bool   $unified
      * @return self
      */
     public function __construct(
@@ -115,7 +127,8 @@ class VolumeExternalInfo extends BaseExternalVolume
         ?string $globalBucketConfigId = null,
         ?bool $useInFrequentAccess = null,
         ?int $useInFrequentAccessThreshold = null,
-        ?bool $useIntelligentTiering = null
+        ?bool $useIntelligentTiering = null,
+        ?bool $unified = null
     ) {
         parent::__construct($storageType);
         if (null !== $volumePrefix) {
@@ -134,6 +147,9 @@ class VolumeExternalInfo extends BaseExternalVolume
         }
         if (null !== $useIntelligentTiering) {
             $this->setUseIntelligentTiering($useIntelligentTiering);
+        }
+        if (null !== $unified) {
+            $this->setUnified($unified);
         }
     }
 
@@ -246,6 +262,28 @@ class VolumeExternalInfo extends BaseExternalVolume
         int $useInFrequentAccessThreshold
     ): self {
         $this->useInFrequentAccessThreshold = $useInFrequentAccessThreshold;
+        return $this;
+    }
+
+    /**
+     * Get the unified
+     *
+     * @return bool
+     */
+    public function isUnified(): ?bool
+    {
+        return $this->unified;
+    }
+
+    /**
+     * Set the unified
+     *
+     * @param  bool $unified
+     * @return self
+     */
+    public function setUnified(bool $unified): self
+    {
+        $this->unified = $unified;
         return $this;
     }
 }

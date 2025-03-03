@@ -223,6 +223,17 @@ class VolumeInfo
     private ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo;
 
     /**
+     * Request type
+     *
+     * @var string
+     */
+    #[Accessor(getter: "getRequestType", setter: "setRequestType")]
+    #[SerializedName("requestType")]
+    #[Type("string")]
+    #[XmlAttribute]
+    private $requestType;
+
+    /**
      * Constructor
      *
      * @param int    $id
@@ -241,6 +252,7 @@ class VolumeInfo
      * @param string $storeManagerClass
      * @param VolumeExternalInfo $volumeExternalInfo
      * @param VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo
+     * @param string $requestType
      * @return self
      */
     public function __construct(
@@ -259,7 +271,8 @@ class VolumeInfo
         ?int $storeType = null,
         ?string $storeManagerClass = null,
         ?VolumeExternalInfo $volumeExternalInfo = null,
-        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = null
+        ?VolumeExternalOpenIOInfo $volumeExternalOpenIOInfo = null,
+        ?string $requestType = null
     ) {
         if (null !== $id) {
             $this->setId($id);
@@ -302,6 +315,9 @@ class VolumeInfo
         }
         if (null !== $storeManagerClass) {
             $this->setStoreManagerClass($storeManagerClass);
+        }
+        if (null !== $requestType) {
+            $this->setRequestType($requestType);
         }
         $this->volumeExternalInfo = $volumeExternalInfo;
         $this->volumeExternalOpenIOInfo = $volumeExternalOpenIOInfo;
@@ -594,7 +610,7 @@ class VolumeInfo
     }
 
     /**
-     * Set the storeManagerClass
+     * Get the storeManagerClass
      *
      * @return string
      */
@@ -612,6 +628,28 @@ class VolumeInfo
     public function setStoreManagerClass(string $storeManagerClass): self
     {
         $this->storeManagerClass = $storeManagerClass;
+        return $this;
+    }
+
+    /**
+     * Get the requestType
+     *
+     * @return string
+     */
+    public function getRequestType(): ?string
+    {
+        return $this->requestType;
+    }
+
+    /**
+     * Set the requestType
+     *
+     * @param  string $requestType
+     * @return self
+     */
+    public function setRequestType(string $requestType): self
+    {
+        $this->requestType = $requestType;
         return $this;
     }
 
