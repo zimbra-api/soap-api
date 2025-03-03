@@ -31,13 +31,14 @@ class DocumentSpecTest extends ZimbraTestCase
         $action = $this->faker->word;
         $type = NewFileCreationTypes::DOCUMENT;
         $part = $this->faker->uuid;
+        $nodeId = $this->faker->uuid;
 
         $upload = new Id($id);
         $messagePart = new MessagePartSpec($part, $id);
         $docRevision = new IdVersion($id, $version);
 
         $doc = new StubDocumentSpec(
-            $name, $contentType, $description, $folderId, $id, $version, $content, FALSE, $flags, $action, $type, $upload, $messagePart, $docRevision
+            $name, $contentType, $description, $folderId, $id, $version, $content, FALSE, $flags, $action, $type, $upload, $messagePart, $docRevision, $nodeId
         );
         $this->assertSame($name, $doc->getName());
         $this->assertSame($contentType, $doc->getContentType());
@@ -53,6 +54,7 @@ class DocumentSpecTest extends ZimbraTestCase
         $this->assertSame($upload, $doc->getUpload());
         $this->assertSame($messagePart, $doc->getMessagePart());
         $this->assertSame($docRevision, $doc->getDocRevision());
+        $this->assertSame($nodeId, $doc->getNodeId());
 
         $doc = new StubDocumentSpec();
         $doc->setName($name)
@@ -68,7 +70,8 @@ class DocumentSpecTest extends ZimbraTestCase
             ->setType($type)
             ->setUpload($upload)
             ->setMessagePart($messagePart)
-            ->setDocRevision($docRevision);
+            ->setDocRevision($docRevision)
+            ->setNodeId($nodeId);
         $this->assertSame($name, $doc->getName());
         $this->assertSame($contentType, $doc->getContentType());
         $this->assertSame($description, $doc->getDescription());
@@ -83,10 +86,11 @@ class DocumentSpecTest extends ZimbraTestCase
         $this->assertSame($upload, $doc->getUpload());
         $this->assertSame($messagePart, $doc->getMessagePart());
         $this->assertSame($docRevision, $doc->getDocRevision());
+        $this->assertSame($nodeId, $doc->getNodeId());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags" action="$action" type="document" xmlns:urn="urn:zimbraMail">
+<result name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags" action="$action" type="document" nodeId="$nodeId" xmlns:urn="urn:zimbraMail">
     <urn:upload id="$id" />
     <urn:m part="$part" id="$id" />
     <urn:doc id="$id" ver="$version" />

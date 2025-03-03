@@ -186,6 +186,17 @@ class DocumentSpec
     private ?IdVersion $docRevision;
 
     /**
+     * Node ID for zExtras drive migration
+     *
+     * @var string
+     */
+    #[Accessor(getter: "getNodeId", setter: "setNodeId")]
+    #[SerializedName("nodeId")]
+    #[Type("string")]
+    #[XmlAttribute]
+    private $nodeId;
+
+    /**
      * Constructor
      *
      * @param  string $name
@@ -202,6 +213,7 @@ class DocumentSpec
      * @param  Id $upload
      * @param  MessagePartSpec $messagePart
      * @param  IdVersion $docRevision
+     * @param  string $nodeId
      * @return self
      */
     public function __construct(
@@ -218,7 +230,8 @@ class DocumentSpec
         ?NewFileCreationTypes $type = null,
         ?Id $upload = null,
         ?MessagePartSpec $messagePart = null,
-        ?IdVersion $docRevision = null
+        ?IdVersion $docRevision = null,
+        ?string $nodeId = null,
     ) {
         $this->upload = $upload;
         $this->messagePart = $messagePart;
@@ -253,6 +266,9 @@ class DocumentSpec
         }
         if (null !== $action) {
             $this->setAction($action);
+        }
+        if (null !== $nodeId) {
+            $this->setNodeId($nodeId);
         }
     }
 
@@ -561,6 +577,28 @@ class DocumentSpec
     public function setDocRevision(IdVersion $docRevision): self
     {
         $this->docRevision = $docRevision;
+        return $this;
+    }
+
+    /**
+     * Get nodeId
+     *
+     * @return string
+     */
+    public function getNodeId(): ?string
+    {
+        return $this->nodeId;
+    }
+
+    /**
+     * Set nodeId
+     *
+     * @param  string $nodeId
+     * @return self
+     */
+    public function setNodeId(string $nodeId): self
+    {
+        $this->nodeId = $nodeId;
         return $this;
     }
 }
