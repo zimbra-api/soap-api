@@ -61,7 +61,7 @@ class GetShareInfoTest extends ZimbraTestCase
             $folderId, $folderUuid, $folderPath,
             $defaultView, $rights,
             $granteeType, $granteeId, $granteeName, $granteeDisplayName,
-            $mountpointId
+            $mountpointId, TRUE
         );
         $response = new GetShareInfoResponse([$share]);
         $this->assertSame([$share], $response->getShares());
@@ -93,7 +93,7 @@ class GetShareInfoTest extends ZimbraTestCase
             <urn:owner by="name">$value</urn:owner>
         </urn:GetShareInfoRequest>
         <urn:GetShareInfoResponse>
-            <urn:share ownerId="$ownerId" ownerEmail="$ownerEmail" ownerName="$ownerDisplayName" folderId="$folderId" folderUuid="$folderUuid" folderPath="$folderPath" view="$defaultView" rights="$rights" granteeType="$granteeType" granteeId="$granteeId" granteeName="$granteeName" granteeDisplayName="$granteeDisplayName" mid="$mountpointId" />
+            <urn:share ownerId="$ownerId" ownerEmail="$ownerEmail" ownerName="$ownerDisplayName" folderId="$folderId" folderUuid="$folderUuid" folderPath="$folderPath" view="$defaultView" rights="$rights" granteeType="$granteeType" granteeId="$granteeId" granteeName="$granteeName" granteeDisplayName="$granteeDisplayName" mid="$mountpointId" activeSyncDisabled="true" />
         </urn:GetShareInfoResponse>
     </soap:Body>
 </soap:Envelope>

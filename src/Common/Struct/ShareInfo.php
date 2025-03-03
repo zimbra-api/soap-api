@@ -173,6 +173,17 @@ class ShareInfo
     private $mountpointId;
 
     /**
+     * Activesync is disabled.
+     *
+     * @var string
+     */
+    #[Accessor(getter: "isActiveSyncDisabled", setter: "setActiveSyncDisabled")]
+    #[SerializedName("activeSyncDisabled")]
+    #[Type("bool")]
+    #[XmlAttribute]
+    private $activeSyncDisabled;
+
+    /**
      * Constructor
      *
      * @param string $ownerId
@@ -188,6 +199,7 @@ class ShareInfo
      * @param string $granteeName
      * @param string $granteeDisplayName
      * @param string $mountpointId
+     * @param bool $activeSyncDisabled
      * @return self
      */
     public function __construct(
@@ -203,7 +215,8 @@ class ShareInfo
         string $granteeId = "",
         string $granteeName = "",
         string $granteeDisplayName = "",
-        string $mountpointId = null
+        ?string $mountpointId = null,
+        bool $activeSyncDisabled = false
     ) {
         $this->setOwnerId($ownerId)
             ->setOwnerEmail($ownerEmail)
@@ -216,7 +229,8 @@ class ShareInfo
             ->setGranteeType($granteeType)
             ->setGranteeId($granteeId)
             ->setGranteeName($granteeName)
-            ->setGranteeDisplayName($granteeDisplayName);
+            ->setGranteeDisplayName($granteeDisplayName)
+            ->setActiveSyncDisabled($activeSyncDisabled);
 
         if (null !== $mountpointId) {
             $this->setMountpointId($mountpointId);
@@ -506,6 +520,28 @@ class ShareInfo
     public function setMountpointId(string $mountpointId): self
     {
         $this->mountpointId = $mountpointId;
+        return $this;
+    }
+
+    /**
+     * Is active sync disabled
+     *
+     * @return bool
+     */
+    public function isActiveSyncDisabled(): bool
+    {
+        return $this->activeSyncDisabled;
+    }
+
+    /**
+     * Set active sync disabled
+     *
+     * @param  bool $activeSyncDisabled
+     * @return self
+     */
+    public function setActiveSyncDisabled(bool $activeSyncDisabled): self
+    {
+        $this->activeSyncDisabled = $activeSyncDisabled;
         return $this;
     }
 }

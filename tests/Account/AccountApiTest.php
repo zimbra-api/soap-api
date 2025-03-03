@@ -1312,7 +1312,7 @@ EOT;
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:GetShareInfoResponse>
-            <urn:share ownerId="$ownerId" ownerEmail="$ownerEmail" ownerName="$ownerDisplayName" folderId="$folderId" folderUuid="$folderUuid" folderPath="$folderPath" view="$defaultView" rights="$rights" granteeType="$granteeType" granteeId="$granteeId" granteeName="$granteeName" granteeDisplayName="$granteeDisplayName" mid="$mountpointId" />
+            <urn:share ownerId="$ownerId" ownerEmail="$ownerEmail" ownerName="$ownerDisplayName" folderId="$folderId" folderUuid="$folderUuid" folderPath="$folderPath" view="$defaultView" rights="$rights" granteeType="$granteeType" granteeId="$granteeId" granteeName="$granteeName" granteeDisplayName="$granteeDisplayName" mid="$mountpointId" activeSyncDisabled="true" />
         </urn:GetShareInfoResponse>
     </soap:Body>
 </soap:Envelope>
@@ -1325,7 +1325,7 @@ EOT;
             $folderId, $folderUuid, $folderPath,
             $defaultView, $rights,
             $granteeType, $granteeId, $granteeName, $granteeDisplayName,
-            $mountpointId
+            $mountpointId, TRUE
         );
         $this->assertEquals([$share], $response->getShares());
     }
