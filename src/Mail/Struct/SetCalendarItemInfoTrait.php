@@ -60,7 +60,6 @@ trait SetCalendarItemInfoTrait
      *
      * @param  ParticipationStatus $partStat
      * @param  Msg $msg
-     * @return self
      */
     public function __construct(
         ?ParticipationStatus $partStat = null,
@@ -68,7 +67,6 @@ trait SetCalendarItemInfoTrait
     ) {
         $this->partStat = $partStat;
         $this->msg = $msg;
-        return $this;
     }
 
     /**
