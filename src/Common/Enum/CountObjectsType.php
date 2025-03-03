@@ -104,4 +104,112 @@ enum CountObjectsType: string
      * @return string 'internalUserAccountX'
      */
     case INTERNAL_USER_ACCOUNT_X = "internalUserAccountX";
+
+    /**
+     * Constant for value 'internalUserAccountWithMobileSync'
+     * @return string 'internalUserAccountWithMobileSync'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_MOBILE_SYNC = "internalUserAccountWithMobileSync";
+
+    /**
+     * Constant for value 'internalUserAccountWithSmime'
+     * @return string 'internalUserAccountWithSmime'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_SMIME = "internalUserAccountWithSmime";
+
+    /**
+     * Constant for value 'internalUserAccountWithEws'
+     * @return string 'internalUserAccountWithEws'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_EWS = "internalUserAccountWithEws";
+
+    /**
+     * Constant for value 'internalUserAccountWithZimlets'
+     * @return string 'internalUserAccountWithZimlets'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_ZIMLETS = "internalUserAccountWithZimlets";
+
+    /**
+     * Constant for value 'internalUserAccountWithConversions'
+     * @return string 'internalUserAccountWithConversions'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_CONVERSIONS = "internalUserAccountWithConversions";
+
+    /**
+     * Constant for value 'internalUserAccountWithTagging'
+     * @return string 'internalUserAccountWithTagging'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_TAGGING = "internalUserAccountWithTagging";
+
+    /**
+     * Constant for value 'internalUserAccountWithCalendar'
+     * @return string 'internalUserAccountWithCalendar'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_CALENDAR = "internalUserAccountWithCalendar";
+
+    /**
+     * Constant for value 'internalUserAccountWithGroupCalendar'
+     * @return string 'internalUserAccountWithGroupCalendar'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_GROUP_CALENDAR = "internalUserAccountWithGroupCalendar";
+
+    /**
+     * Constant for value 'internalUserAccountWithTasks'
+     * @return string 'internalUserAccountWithTasks'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_TASKS = "internalUserAccountWithTasks";
+
+    /**
+     * Constant for value 'internalUserAccountWithSharing'
+     * @return string 'internalUserAccountWithSharing'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_SHARING = "internalUserAccountWithSharing";
+
+    /**
+     * Constant for value 'internalUserAccountWithBriefcases'
+     * @return string 'internalUserAccountWithBriefcases'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_BRIEFCASES = "internalUserAccountWithBriefcases";
+
+    /**
+     * Constant for value 'internalUserAccountWithViewInHtml'
+     * @return string 'internalUserAccountWithViewInHtml'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_VIEW_IN_HTML = "internalUserAccountWithViewInHtml";
+
+    /**
+     * Constant for value 'internalUserAccountWithChatAll'
+     * @return string 'internalUserAccountWithChatAll'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_CHAT_ALL = "internalUserAccountWithChatAll";
+
+    /**
+     * Constant for value 'internalUserAccountWithVideoAll'
+     * @return string 'internalUserAccountWithVideoAll'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_VIDEO_ALL = "internalUserAccountWithVideoAll";
+
+    /**
+     * Constant for value 'internalUserAccountWithDocumentEditing'
+     * @return string 'internalUserAccountWithDocumentEditing'
+     */
+    case INTERNAL_USER_ACCOUNT_WITH_DOCUMENT_EDITING = "internalUserAccountWithDocumentEditing";
+
+    /**
+     * Constant for value 'internalUserAccountsByCosesWithLdapFeature'
+     * @return string 'internalUserAccountsByCosesWithLdapFeature'
+     */
+    case INTERNAL_USER_ACCOUNTS_BY_COSES_WITH_LDAP_FEATURE = "internalUserAccountsByCosesWithLdapFeature";
+
+    /**
+     * Constant for value 'internalUserAccountsByCosWithLdapFeature'
+     * @return string 'internalUserAccountsByCosWithLdapFeature'
+     */
+    case INTERNAL_USER_ACCOUNTS_BY_COS_WITH_LDAP_FEATURE = "internalUserAccountsByCosWithLdapFeature";
+
+    /**
+     * Constant for value 'internalUserAccountsWithLdapFeatureCheck'
+     * @return string 'internalUserAccountsWithLdapFeatureCheck'
+     */
+    case INTERNAL_USER_ACCOUNTS_WITH_LDAP_FEATURE_CHECK = "internalUserAccountsWithLdapFeatureCheck";
 }
