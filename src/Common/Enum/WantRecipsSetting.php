@@ -38,4 +38,10 @@ enum WantRecipsSetting: string
      * @return string '2'
      */
     case PUT_BOTH = "2";
+
+    /**
+     * Constant for value '3'
+     * @return string '3'
+     */
+    case PUT_ALL = "3";
 }
