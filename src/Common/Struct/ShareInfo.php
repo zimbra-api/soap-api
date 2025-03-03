@@ -173,9 +173,9 @@ class ShareInfo
     private $mountpointId;
 
     /**
-     * Activesync is disabled.
+     * Active sync is disabled.
      *
-     * @var string
+     * @var bool
      */
     #[Accessor(getter: "isActiveSyncDisabled", setter: "setActiveSyncDisabled")]
     #[SerializedName("activeSyncDisabled")]

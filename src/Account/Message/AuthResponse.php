@@ -249,7 +249,7 @@ class AuthResponse extends SoapResponse
     /**
      * Reset password
      *
-     * @var string
+     * @var bool
      */
     #[Accessor(getter: "getResetPassword", setter: "setResetPassword")]
     #[SerializedName("resetPassword")]
