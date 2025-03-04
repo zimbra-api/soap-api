@@ -35,7 +35,7 @@ class BySetPosRule implements BySetPosRuleInterface
     #[SerializedName("poslist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $list;
+    private string $list;
 
     /**
      * Constructor

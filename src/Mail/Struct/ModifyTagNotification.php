@@ -32,7 +32,7 @@ class ModifyTagNotification extends ModifyNotification
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $id;
+    private int $id;
 
     /**
      * Name of modified tag
@@ -43,7 +43,7 @@ class ModifyTagNotification extends ModifyNotification
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

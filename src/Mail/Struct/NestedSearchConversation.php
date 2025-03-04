@@ -39,7 +39,7 @@ class NestedSearchConversation
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Number of messages in conversation without IMAP \Deleted flag set
@@ -50,7 +50,7 @@ class NestedSearchConversation
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private ?int $num = null;
 
     /**
      * Total number of messages in conversation
@@ -61,7 +61,7 @@ class NestedSearchConversation
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private ?int $totalSize = null;
 
     /**
      * Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
@@ -72,7 +72,7 @@ class NestedSearchConversation
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -83,7 +83,7 @@ class NestedSearchConversation
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -94,7 +94,7 @@ class NestedSearchConversation
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Message search hits
@@ -104,7 +104,7 @@ class NestedSearchConversation
     #[Accessor(getter: "getMessages", setter: "setMessages")]
     #[Type("array<Zimbra\Mail\Struct\MessageHitInfo>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $messages = [];
+    private array $messages = [];
 
     /**
      * Info block.  Used to return general status information about your search.

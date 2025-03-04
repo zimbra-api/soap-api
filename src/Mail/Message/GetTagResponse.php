@@ -33,7 +33,7 @@ class GetTagResponse extends SoapResponse
     #[Accessor(getter: "getTags", setter: "setTags")]
     #[Type("array<Zimbra\Mail\Struct\TagInfo>")]
     #[XmlList(inline: true, entry: "tag", namespace: "urn:zimbraMail")]
-    private $tags = [];
+    private array $tags = [];
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     #[SerializedName("tz")]
     #[Type("string")]
     #[XmlAttribute]
-    private $timezone;
+    private ?string $timezone = null;
 
     /**
      * Information on start date/time and end date/time or duration
@@ -50,7 +50,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     #[Accessor(getter: "getDtVals", setter: "setDtVals")]
     #[Type("array<Zimbra\Mail\Struct\DtVal>")]
     #[XmlList(inline: true, entry: "dtval", namespace: "urn:zimbraMail")]
-    private $dtVals = [];
+    private array $dtVals = [];
 
     /**
      * Constructor

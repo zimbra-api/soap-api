@@ -36,7 +36,7 @@ class GrantPermissionRequest extends SoapRequest
     #[Accessor(getter: "getAces", setter: "setAces")]
     #[Type("array<Zimbra\Mail\Struct\AccountACEinfo>")]
     #[XmlList(inline: true, entry: "ace", namespace: "urn:zimbraMail")]
-    private $aces = [];
+    private array $aces = [];
 
     /**
      * Constructor

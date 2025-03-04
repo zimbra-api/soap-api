@@ -33,7 +33,7 @@ class GetMiniCalResponse extends SoapResponse
     #[Accessor(getter: "getBusyDates", setter: "setBusyDates")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "date", namespace: "urn:zimbraMail")]
-    private $busyDates = [];
+    private array $busyDates = [];
 
     /**
      * Error for each calendar folder that couldn't be accessed
@@ -43,7 +43,7 @@ class GetMiniCalResponse extends SoapResponse
     #[Accessor(getter: "getErrors", setter: "setErrors")]
     #[Type("array<Zimbra\Mail\Struct\MiniCalError>")]
     #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraMail")]
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * Constructor

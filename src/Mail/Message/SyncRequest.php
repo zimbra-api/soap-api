@@ -41,7 +41,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * Calendar date. If present, omit all appointments and tasks that don't have
@@ -53,7 +53,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("calCutoff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $calendarCutoff;
+    private ?int $calendarCutoff = null;
 
     /**
      * Earliest Message date.
@@ -66,7 +66,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("msgCutoff")]
     #[Type("int")]
     #[XmlAttribute]
-    private $msgCutoff;
+    private ?int $msgCutoff = null;
 
     /**
      * Root folder ID.
@@ -78,7 +78,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * If specified and set, deletes are also broken down by item type
@@ -89,7 +89,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("typed")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $typedDeletes;
+    private ?bool $typedDeletes = null;
 
     /**
      * maximum number of deleted item ids returned in a response.
@@ -100,7 +100,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("deleteLimit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $deleteLimit;
+    private ?int $deleteLimit = null;
 
     /**
      * maximum number of modified item ids returned in a response.
@@ -111,7 +111,7 @@ class SyncRequest extends SoapRequest
     #[SerializedName("changeLimit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeLimit;
+    private ?int $changeLimit = null;
 
     /**
      * Constructor

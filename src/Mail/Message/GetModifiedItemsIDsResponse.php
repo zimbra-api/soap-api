@@ -32,7 +32,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     #[Accessor(getter: "getMids", setter: "setMids")]
     #[Type("array<int>")]
     #[XmlList(inline: true, entry: "mids", namespace: "urn:zimbraMail")]
-    private $mids = [];
+    private array $mids = [];
 
     /**
      * IDs of deleted items
@@ -42,7 +42,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     #[Accessor(getter: "getDids", setter: "setDids")]
     #[Type("array<int>")]
     #[XmlList(inline: true, entry: "dids", namespace: "urn:zimbraMail")]
-    private $dids = [];
+    private array $dids = [];
 
     /**
      * IDs of modified items
@@ -52,7 +52,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     #[Accessor(getter: "getIds", setter: "setIds")]
     #[Type("array<int>")]
     #[XmlList(inline: true, entry: "ids", namespace: "urn:zimbraMail")]
-    private $ids = [];
+    private array $ids = [];
 
     /**
      * Constructor

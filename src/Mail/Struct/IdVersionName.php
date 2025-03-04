@@ -32,7 +32,7 @@ class IdVersionName
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Version
@@ -43,7 +43,7 @@ class IdVersionName
     #[SerializedName("ver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private int $version;
 
     /**
      * The name
@@ -54,7 +54,7 @@ class IdVersionName
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

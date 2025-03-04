@@ -53,7 +53,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("ridZ")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurIdZ;
+    private ?string $recurIdZ = null;
 
     /**
      * Offset from GMT in milliseconds for start time in the time zone of the instance;
@@ -67,7 +67,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("tzo")]
     #[Type("int")]
     #[XmlAttribute]
-    private $tzOffset;
+    private ?int $tzOffset = null;
 
     /**
      * Actual free-busy status: Free, Busy, busy-Tentative, busy-Unavailable (a.k.a. OutOfOffice)
@@ -97,7 +97,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("percentComplete")]
     #[Type("string")]
     #[XmlAttribute]
-    private $taskPercentComplete;
+    private ?string $taskPercentComplete = null;
 
     /**
      * If set, this is a recurring appointment
@@ -108,7 +108,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("recur")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isRecurring;
+    private ?bool $isRecurring = null;
 
     /**
      * If set, this is a recurring appointment with exceptions
@@ -119,7 +119,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("hasEx")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $hasExceptions;
+    private ?bool $hasExceptions = null;
 
     /**
      * Priority
@@ -130,7 +130,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("priority")]
     #[Type("string")]
     #[XmlAttribute]
-    private $priority;
+    private ?string $priority = null;
 
     /**
      * Intended Free/Busy
@@ -161,7 +161,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Location
@@ -172,7 +172,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("loc")]
     #[Type("string")]
     #[XmlAttribute]
-    private $location;
+    private ?string $location = null;
 
     /**
      * If set, this appointment has other attendees
@@ -183,7 +183,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("otherAtt")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $hasOtherAttendees;
+    private ?bool $hasOtherAttendees = null;
 
     /**
      * Set if has alarm
@@ -194,7 +194,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("alarm")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $hasAlarm;
+    private ?bool $hasAlarm = null;
 
     /**
      * Default invite "am I organizer" flag
@@ -205,7 +205,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("isOrg")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isOrganizer;
+    private ?bool $isOrganizer = null;
 
     /**
      * Default invite mail item ID
@@ -216,7 +216,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("invId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $invId;
+    private ?string $invId = null;
 
     /**
      * Default invite component number
@@ -227,7 +227,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("compNum")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * Status - TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
@@ -260,7 +260,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("allDay")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allDay;
+    private ?bool $allDay = null;
 
     /**
      * Set if invite has changes that haven't been sent to attendees; for organizer only
@@ -271,7 +271,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("draft")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $draft;
+    private ?bool $draft = null;
 
     /**
      * Set if attendees were never notified of this invite; for organizer only
@@ -282,7 +282,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("neverSent")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $neverSent;
+    private ?bool $neverSent = null;
 
     /**
      * Due date in milliseconds. For tasks only
@@ -293,7 +293,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("dueDate")]
     #[Type("int")]
     #[XmlAttribute]
-    private $taskDueDate;
+    private ?int $taskDueDate = null;
 
     /**
      * Similar to the "tzo" attribute but for "dueDate". "tzoDue" can be different from
@@ -305,7 +305,7 @@ class CommonInstanceDataAttrs
     #[SerializedName("tzoDue")]
     #[Type("int")]
     #[XmlAttribute]
-    private $taskTzOffsetDue;
+    private ?int $taskTzOffsetDue = null;
 
     /**
      * Constructor

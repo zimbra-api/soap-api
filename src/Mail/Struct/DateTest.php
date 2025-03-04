@@ -43,7 +43,7 @@ class DateTest extends FilterTest
     #[SerializedName("date")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Constructor

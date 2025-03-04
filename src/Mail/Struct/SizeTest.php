@@ -43,7 +43,7 @@ class SizeTest extends FilterTest
     #[SerializedName("s")]
     #[Type("string")]
     #[XmlAttribute]
-    private $size;
+    private ?string $size = null;
 
     /**
      * Constructor

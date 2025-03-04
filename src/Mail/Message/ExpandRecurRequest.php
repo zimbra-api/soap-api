@@ -47,7 +47,7 @@ class ExpandRecurRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * End time in milliseconds
@@ -58,7 +58,7 @@ class ExpandRecurRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * Timezone definitions
@@ -68,7 +68,7 @@ class ExpandRecurRequest extends SoapRequest
     #[Accessor(getter: "getTimezones", setter: "setTimezones")]
     #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
     #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
-    private $timezones = [];
+    private array $timezones = [];
 
     /**
      * Specifications for series, modified instances and canceled instances
@@ -78,7 +78,7 @@ class ExpandRecurRequest extends SoapRequest
     #[Accessor(getter: "getInviteComponents", setter: "setInviteComponents")]
     #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")]
     #[XmlList(inline: true, entry: "comp", namespace: "urn:zimbraMail")]
-    private $inviteComponents = [];
+    private array $inviteComponents = [];
 
     /**
      * Specifications for series, modified instances and canceled instances
@@ -88,7 +88,7 @@ class ExpandRecurRequest extends SoapRequest
     #[Accessor(getter: "getExceptComponents", setter: "setExceptComponents")]
     #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")]
     #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
-    private $exceptComponents = [];
+    private array $exceptComponents = [];
 
     /**
      * Specifications for series, modified instances and canceled instances
@@ -98,7 +98,7 @@ class ExpandRecurRequest extends SoapRequest
     #[Accessor(getter: "getCancelComponents", setter: "setCancelComponents")]
     #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")]
     #[XmlList(inline: true, entry: "cancel", namespace: "urn:zimbraMail")]
-    private $cancelComponents = [];
+    private array $cancelComponents = [];
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class NoOpResponse extends SoapResponse
     #[SerializedName("waitDisallowed")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $waitDisallowed;
+    private ?bool $waitDisallowed = null;
 
     /**
      * Constructor

@@ -38,7 +38,7 @@ class AlarmDataInfo
     #[SerializedName("nextAlarm")]
     #[Type("int")]
     #[XmlAttribute]
-    private $nextAlarm;
+    private ?int $nextAlarm = null;
 
     /**
      * Start time of the meeting instance the alarm is reminding about
@@ -54,7 +54,7 @@ class AlarmDataInfo
     #[SerializedName("alarmInstStart")]
     #[Type("int")]
     #[XmlAttribute]
-    private $alarmInstanceStart;
+    private ?int $alarmInstanceStart = null;
 
     /**
      * Mail Item ID of the invite message with detailed information
@@ -65,7 +65,7 @@ class AlarmDataInfo
     #[SerializedName("invId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $invId;
+    private ?int $invId = null;
 
     /**
      * Component number
@@ -76,7 +76,7 @@ class AlarmDataInfo
     #[SerializedName("compNum")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * Meeting subject
@@ -87,7 +87,7 @@ class AlarmDataInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Meeting location
@@ -98,7 +98,7 @@ class AlarmDataInfo
     #[SerializedName("loc")]
     #[Type("string")]
     #[XmlAttribute]
-    private $location;
+    private ?string $location = null;
 
     /**
      * Details of the alarm

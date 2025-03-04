@@ -34,7 +34,7 @@ class GetApptSummariesRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * Range end in milliseconds since the epoch GMT
@@ -45,7 +45,7 @@ class GetApptSummariesRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * Folder ID. Optional folder to constrain requests to; otherwise, searches all folders but trash and spam
@@ -56,7 +56,7 @@ class GetApptSummariesRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Constructor

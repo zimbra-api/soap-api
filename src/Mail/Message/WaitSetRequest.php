@@ -69,7 +69,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[SerializedName("waitSet")]
     #[Type("string")]
     #[XmlAttribute]
-    private $waitSetId;
+    private string $waitSetId;
 
     /**
      * Last known lastKnownSeqNo number
@@ -80,7 +80,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[SerializedName("seq")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lastKnownSeqNo;
+    private string $lastKnownSeqNo;
 
     /**
      * Flag whether or not to block until some account has new data
@@ -91,7 +91,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[SerializedName("block")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $block;
+    private ?bool $block = null;
 
     /**
      * Default interest types: comma-separated list.  Currently:
@@ -109,7 +109,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[SerializedName("defTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultInterests;
+    private ?string $defaultInterests = null;
 
     /**
      * Timeout length
@@ -120,7 +120,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[SerializedName("timeout")]
     #[Type("int")]
     #[XmlAttribute]
-    private $timeout;
+    private ?int $timeout = null;
 
     /**
      * bool flag. If true, WaitSetResponse will include details of Pending Modifications.
@@ -131,7 +131,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[SerializedName("expand")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $expand;
+    private ?bool $expand = null;
 
     /**
      * Waitsets to add
@@ -143,7 +143,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraMail")]
-    private $addAccounts = [];
+    private array $addAccounts = [];
 
     /**
      * Waitsets to update
@@ -155,7 +155,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraMail")]
-    private $updateAccounts = [];
+    private array $updateAccounts = [];
 
     /**
      * Waitsets to remove
@@ -167,7 +167,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraMail")]
-    private $removeAccounts = [];
+    private array $removeAccounts = [];
 
     /**
      * Constructor

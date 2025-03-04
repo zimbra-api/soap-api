@@ -40,7 +40,7 @@ class GetCustomMetadataResponse extends SoapResponse
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Custom metadata

@@ -45,7 +45,7 @@ class RankingActionSpec
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private ?string $email = null;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class RetentionPolicy
     #[Type("array<Zimbra\Mail\Struct\Policy>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "policy", namespace: "urn:zimbraMail")]
-    private $keep = [];
+    private array $keep = [];
 
     /**
      * "Purge" retention policies
@@ -51,7 +51,7 @@ class RetentionPolicy
     #[Type("array<Zimbra\Mail\Struct\Policy>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "policy", namespace: "urn:zimbraMail")]
-    private $purge = [];
+    private array $purge = [];
 
     /**
      * Constructor

@@ -50,7 +50,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private ?int $startTime = null;
 
     /**
      * End time in millis.  If not specified, unlimited
@@ -61,7 +61,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private ?int $endTime = null;
 
     /**
      * Set this to get all instances, even those without conflicts.  By default only
@@ -73,7 +73,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[SerializedName("all")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allInstances;
+    private ?bool $allInstances = null;
 
     /**
      * UID of appointment to exclude from free/busy search
@@ -84,7 +84,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[SerializedName("excludeUid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $excludeUid;
+    private ?string $excludeUid = null;
 
     /**
      * Timezones
@@ -94,7 +94,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[Accessor(getter: "getTimezones", setter: "setTimezones")]
     #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
     #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
-    private $timezones = [];
+    private array $timezones = [];
 
     /**
      * Cancel expanded recurrences
@@ -104,7 +104,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[Accessor(getter: "getCancelComponents", setter: "setCancelComponents")]
     #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")]
     #[XmlList(inline: true, entry: "cancel", namespace: "urn:zimbraMail")]
-    private $cancelComponents = [];
+    private array $cancelComponents = [];
 
     /**
      * Invite expanded recurrences
@@ -124,7 +124,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[Accessor(getter: "getExceptComponents", setter: "setExceptComponents")]
     #[Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")]
     #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
-    private $exceptComponents = [];
+    private array $exceptComponents = [];
 
     /**
      * Freebusy user specifications
@@ -134,7 +134,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
     #[Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")]
     #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
-    private $freebusyUsers = [];
+    private array $freebusyUsers = [];
 
     /**
      * Constructor

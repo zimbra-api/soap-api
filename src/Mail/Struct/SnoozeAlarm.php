@@ -32,7 +32,7 @@ class SnoozeAlarm
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * When to show the alarm again in milliseconds since the epoch
@@ -43,7 +43,7 @@ class SnoozeAlarm
     #[SerializedName("until")]
     #[Type("int")]
     #[XmlAttribute]
-    private $snoozeUntil;
+    private int $snoozeUntil;
 
     /**
      * Constructor

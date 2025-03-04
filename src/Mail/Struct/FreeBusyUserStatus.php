@@ -34,7 +34,7 @@ class FreeBusyUserStatus
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)

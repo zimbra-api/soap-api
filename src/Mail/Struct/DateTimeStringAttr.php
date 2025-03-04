@@ -34,7 +34,7 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dateTime;
+    private string $dateTime;
 
     /**
      * Constructor

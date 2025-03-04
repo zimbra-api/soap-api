@@ -32,7 +32,7 @@ class CurrentDayOfWeekTest extends FilterTest
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $values;
+    private ?string $values = null;
 
     /**
      * Constructor

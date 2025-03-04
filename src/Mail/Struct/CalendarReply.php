@@ -35,7 +35,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $seq;
+    private int $seq;
 
     /**
      * DTSTAMP date in milliseconds
@@ -46,7 +46,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private int $date;
 
     /**
      * Attendee address
@@ -57,7 +57,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     #[SerializedName("at")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attendee;
+    private string $attendee;
 
     /**
      * iCalendar SENT-BY
@@ -68,7 +68,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     #[SerializedName("sentBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sentBy;
+    private ?string $sentBy = null;
 
     /**
      * iCalendar PTST (Participation status)

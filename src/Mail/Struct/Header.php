@@ -39,7 +39,7 @@ class Header
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Header value
@@ -49,7 +49,7 @@ class Header
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

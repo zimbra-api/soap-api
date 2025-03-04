@@ -38,7 +38,7 @@ class AddheaderAction extends FilterAction
     #[SerializedName("headerName")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $headerName;
+    private ?string $headerName = null;
 
     /**
      * New header value
@@ -49,7 +49,7 @@ class AddheaderAction extends FilterAction
     #[SerializedName("headerValue")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $headerValue;
+    private ?string $headerValue = null;
 
     /**
      * Last header
@@ -60,7 +60,7 @@ class AddheaderAction extends FilterAction
     #[SerializedName("last")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $last;
+    private ?bool $last = null;
 
     /**
      * Constructor

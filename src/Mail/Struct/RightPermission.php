@@ -39,7 +39,7 @@ class RightPermission
     #[SerializedName("allow")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allow;
+    private bool $allow;
 
     /**
      * Right name
@@ -49,7 +49,7 @@ class RightPermission
     #[Accessor(getter: "getRightName", setter: "setRightName")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $rightName;
+    private ?string $rightName = null;
 
     /**
      * Constructor

@@ -41,7 +41,7 @@ class Folder
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Item's UUID - a globally unique identifier
@@ -52,7 +52,7 @@ class Folder
     #[SerializedName("uuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uuid;
+    private string $uuid;
 
     /**
      * Name of folder; max length 128; whitespace is trimmed by server;
@@ -64,7 +64,7 @@ class Folder
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Absolute Folder path
@@ -80,7 +80,7 @@ class Folder
     #[SerializedName("absFolderPath")]
     #[Type("string")]
     #[XmlAttribute]
-    private $absoluteFolderPath;
+    private ?string $absoluteFolderPath = null;
 
     /**
      * ID of parent folder (absent for root folder)
@@ -91,7 +91,7 @@ class Folder
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $parentId;
+    private ?string $parentId = null;
 
     /**
      * UUID of parent folder (absent for root folder)
@@ -102,7 +102,7 @@ class Folder
     #[SerializedName("luuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderUuid;
+    private ?string $folderUuid = null;
 
     /**
      * Flags - checked in UI (#), exclude free/(b)usy info, IMAP subscribed (*),
@@ -115,7 +115,7 @@ class Folder
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -126,7 +126,7 @@ class Folder
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -137,7 +137,7 @@ class Folder
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * Number of unread messages in folder
@@ -148,7 +148,7 @@ class Folder
     #[SerializedName("u")]
     #[Type("int")]
     #[XmlAttribute]
-    private $unreadCount;
+    private ?int $unreadCount = null;
 
     /**
      * Number of unread messages with this tag, including those with the IMAP \\Deleted flag set
@@ -159,7 +159,7 @@ class Folder
     #[SerializedName("i4u")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapUnreadCount;
+    private ?int $imapUnreadCount = null;
 
     /**
      * Default type for the folder; used by web client to decide which view to use.
@@ -180,7 +180,7 @@ class Folder
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Modified sequence
@@ -191,7 +191,7 @@ class Folder
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Modified date in seconds
@@ -202,7 +202,7 @@ class Folder
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Number of non-subfolder items in folder
@@ -213,7 +213,7 @@ class Folder
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $itemCount;
+    private ?int $itemCount = null;
 
     /**
      * Number of non-subfolder items in folder, including those with the IMAP \\Deleted flag set
@@ -224,7 +224,7 @@ class Folder
     #[SerializedName("i4n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapItemCount;
+    private ?int $imapItemCount = null;
 
     /**
      * Total size of all of non-subfolder items in folder
@@ -235,7 +235,7 @@ class Folder
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private ?int $totalSize = null;
 
     /**
      * Imap modified sequence
@@ -251,7 +251,7 @@ class Folder
     #[SerializedName("i4ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapModifiedSequence;
+    private ?int $imapModifiedSequence = null;
 
     /**
      * IMAP UIDNEXT
@@ -262,7 +262,7 @@ class Folder
     #[SerializedName("i4next")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapUidNext;
+    private ?int $imapUidNext = null;
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
@@ -273,7 +273,7 @@ class Folder
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * Active sync status
@@ -284,7 +284,7 @@ class Folder
     #[SerializedName("activesyncdisabled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $activeSyncDisabled;
+    private ?bool $activeSyncDisabled = null;
 
     /**
      * Number of days for which web client would sync folder data for offline use
@@ -300,7 +300,7 @@ class Folder
     #[SerializedName("webOfflineSyncDays")]
     #[Type("int")]
     #[XmlAttribute]
-    private $webOfflineSyncDays;
+    private ?int $webOfflineSyncDays = null;
 
     /**
      * For remote folders, the access rights the authenticated user has on the folder -
@@ -312,7 +312,7 @@ class Folder
     #[SerializedName("perm")]
     #[Type("string")]
     #[XmlAttribute]
-    private $perm;
+    private ?string $perm = null;
 
     /**
      * Recursive
@@ -323,7 +323,7 @@ class Folder
     #[SerializedName("recursive")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $recursive;
+    private ?bool $recursive = null;
 
     /**
      * URL to the folder in the REST interface for rest-enabled apps (such as notebook)
@@ -334,7 +334,7 @@ class Folder
     #[SerializedName("rest")]
     #[Type("string")]
     #[XmlAttribute]
-    private $restUrl;
+    private ?string $restUrl = null;
 
     /**
      * Whether this folder can be deleted
@@ -345,7 +345,7 @@ class Folder
     #[SerializedName("deletable")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $deletable;
+    private ?bool $deletable = null;
 
     /**
      * Custom metadata
@@ -376,7 +376,7 @@ class Folder
     #[Accessor(getter: "getSubfolders", setter: "setSubfolders")]
     #[Type("array<Zimbra\Mail\Struct\Folder>")]
     #[XmlList(inline: true, entry: "folder", namespace: "urn:zimbraMail")]
-    private $subFolders = [];
+    private array $subFolders = [];
 
     /**
      * Mount points
@@ -386,7 +386,7 @@ class Folder
     #[Accessor(getter: "getMountpoints", setter: "setMountpoints")]
     #[Type("array<Zimbra\Mail\Struct\Mountpoint>")]
     #[XmlList(inline: true, entry: "link", namespace: "urn:zimbraMail")]
-    private $mountpoints = [];
+    private array $mountpoints = [];
 
     /**
      * Search folders
@@ -396,7 +396,7 @@ class Folder
     #[Accessor(getter: "getSearchFolders", setter: "setSearchFolders")]
     #[Type("array<Zimbra\Mail\Struct\SearchFolder>")]
     #[XmlList(inline: true, entry: "search", namespace: "urn:zimbraMail")]
-    private $searchFolders = [];
+    private array $searchFolders = [];
 
     /**
      * Retention policy

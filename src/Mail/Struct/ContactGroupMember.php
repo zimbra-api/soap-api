@@ -57,7 +57,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private string $value;
 
     /**
      * Contact information for dereferenced member.

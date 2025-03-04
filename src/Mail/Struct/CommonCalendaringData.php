@@ -39,7 +39,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("x_uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $xUid;
+    private ?string $xUid = null;
 
     /**
      * iCalendar UID
@@ -50,7 +50,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uid;
+    private ?string $uid = null;
 
     /**
      * Flags
@@ -61,7 +61,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -72,7 +72,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma separated list of tag names
@@ -83,7 +83,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Folder ID
@@ -94,7 +94,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Size
@@ -105,7 +105,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Modified date in seconds
@@ -116,7 +116,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Modified sequence
@@ -127,7 +127,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Revision number
@@ -138,7 +138,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Appointment ID
@@ -149,7 +149,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Constructor
@@ -193,8 +193,8 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @return self
      */
     public function __construct(
-        string $xUid = null,
-        string $uid = null,
+        ?string $xUid = null,
+        ?string $uid = null,
         ?string $flags = null,
         ?string $tags = null,
         ?string $tagNames = null,

@@ -44,7 +44,7 @@ class WkDay implements WkDayInterface
     #[SerializedName("ordwk")]
     #[Type("int")]
     #[XmlAttribute]
-    private $ordWk;
+    private ?int $ordWk = null;
 
     /**
      * Constructor

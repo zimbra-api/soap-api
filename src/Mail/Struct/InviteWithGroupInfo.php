@@ -50,7 +50,7 @@ class InviteWithGroupInfo
     #[Accessor(getter: "getTimezones", setter: "setTimezones")]
     #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
     #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
-    private $timezones = [];
+    private array $timezones = [];
 
     /**
      * Invite components
@@ -60,7 +60,7 @@ class InviteWithGroupInfo
     #[Accessor(getter: "getInviteComponents", setter: "setInviteComponents")]
     #[Type("array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>")]
     #[XmlList(inline: true, entry: "comp", namespace: "urn:zimbraMail")]
-    private $inviteComponents = [];
+    private array $inviteComponents = [];
 
     /**
      * Replies
@@ -72,7 +72,7 @@ class InviteWithGroupInfo
     #[Type("array<Zimbra\Mail\Struct\CalendarReply>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
-    private $calendarReplies = [];
+    private array $calendarReplies = [];
 
     /**
      * Constructor

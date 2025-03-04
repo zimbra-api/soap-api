@@ -65,7 +65,7 @@ class SearchConvResponse extends SoapResponse
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $queryOffset;
+    private ?int $queryOffset = null;
 
     /**
      * Set if there are more search results remaining.
@@ -76,7 +76,7 @@ class SearchConvResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $queryMore;
+    private ?bool $queryMore = null;
 
     /**
      * Nested Search Conversation (Only returned if request had "nest" attribute set)
@@ -97,7 +97,7 @@ class SearchConvResponse extends SoapResponse
     #[Accessor(getter: "getMessages", setter: "setMessages")]
     #[Type("array<Zimbra\Mail\Struct\MessageHitInfo>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $messages = [];
+    private array $messages = [];
 
     /**
      * Used to return general status information about your search.

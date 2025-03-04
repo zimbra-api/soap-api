@@ -31,7 +31,7 @@ class InviteTest extends FilterTest
     #[Accessor(getter: "getMethods", setter: "setMethods")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "method", namespace: "urn:zimbraMail")]
-    private $methods;
+    private array $methods = [];
 
     /**
      * Constructor

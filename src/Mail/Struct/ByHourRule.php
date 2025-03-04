@@ -34,7 +34,7 @@ class ByHourRule implements ByHourRuleInterface
     #[SerializedName("hrlist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $list;
+    private string $list;
 
     /**
      * Constructor

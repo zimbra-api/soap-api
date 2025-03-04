@@ -32,7 +32,7 @@ class DocAttachSpec extends AttachSpec
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private ?string $path = null;
 
     /**
      * Item ID
@@ -43,7 +43,7 @@ class DocAttachSpec extends AttachSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Optional Version.
@@ -54,7 +54,7 @@ class DocAttachSpec extends AttachSpec
     #[SerializedName("ver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private ?int $version = null;
 
     /**
      * Constructor

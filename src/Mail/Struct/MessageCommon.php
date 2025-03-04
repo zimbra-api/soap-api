@@ -39,7 +39,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Date Seconds since the epoch, from the date header in the message
@@ -50,7 +50,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Folder ID
@@ -61,7 +61,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Converstation ID
@@ -72,7 +72,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("cid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $conversationId;
+    private ?string $conversationId = null;
 
     /**
      * Flags.  (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me,
@@ -85,7 +85,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -96,7 +96,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma separated list of tag names
@@ -107,7 +107,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Revision
@@ -118,7 +118,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Date metadata changed
@@ -129,7 +129,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Change sequence
@@ -140,7 +140,7 @@ class MessageCommon implements MessageCommonInterface
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Custom metadata information
@@ -150,7 +150,7 @@ class MessageCommon implements MessageCommonInterface
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Constructor

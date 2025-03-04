@@ -41,7 +41,7 @@ class ForwardAppointmentRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * RECURRENCE-ID information if forwarding a single instance of a recurring appointment

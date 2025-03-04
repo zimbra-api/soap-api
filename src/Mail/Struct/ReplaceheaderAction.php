@@ -32,7 +32,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     #[SerializedName("newName")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $newName;
+    private ?string $newName = null;
 
     /**
      * New value
@@ -43,7 +43,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     #[SerializedName("newValue")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $newValue;
+    private ?string $newValue = null;
 
     /**
      * Constructor

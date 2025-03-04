@@ -34,7 +34,7 @@ class GeoInfo implements GeoInfoInterface
     #[SerializedName("lat")]
     #[Type("string")]
     #[XmlAttribute]
-    private $latitude;
+    private ?string $latitude = null;
 
     /**
      * Longitude (float value)
@@ -45,7 +45,7 @@ class GeoInfo implements GeoInfoInterface
     #[SerializedName("lon")]
     #[Type("string")]
     #[XmlAttribute]
-    private $longitude;
+    private ?string $longitude = null;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class AddedComment
     #[SerializedName("parentId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $parentId;
+    private string $parentId;
 
     /**
      * Comment text
@@ -43,7 +43,7 @@ class AddedComment
     #[SerializedName("text")]
     #[Type("string")]
     #[XmlAttribute]
-    private $text;
+    private string $text;
 
     /**
      * Constructor

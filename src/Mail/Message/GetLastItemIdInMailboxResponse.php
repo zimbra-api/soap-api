@@ -33,7 +33,7 @@ class GetLastItemIdInMailboxResponse extends SoapResponse
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $id;
+    private int $id;
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class DocumentSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Content Type
@@ -51,7 +51,7 @@ class DocumentSpec
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * Absolute Folder path
@@ -62,7 +62,7 @@ class DocumentSpec
     #[SerializedName("desc")]
     #[Type("string")]
     #[XmlAttribute]
-    private $description;
+    private ?string $description = null;
 
     /**
      * Folder ID
@@ -73,7 +73,7 @@ class DocumentSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Item ID
@@ -84,7 +84,7 @@ class DocumentSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Last known version
@@ -95,7 +95,7 @@ class DocumentSpec
     #[SerializedName("ver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private ?int $version = null;
 
     /**
      * Inlined document content string
@@ -106,7 +106,7 @@ class DocumentSpec
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlAttribute]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Active sync status
@@ -117,7 +117,7 @@ class DocumentSpec
     #[SerializedName("descEnabled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $descEnabled;
+    private ?bool $descEnabled = null;
 
     /**
      * Flags - Any of the flags specified in soap.txt, with the addition of "t",
@@ -129,7 +129,7 @@ class DocumentSpec
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Action on the Document
@@ -140,7 +140,7 @@ class DocumentSpec
     #[SerializedName("action")]
     #[Type("string")]
     #[XmlAttribute]
-    private $action;
+    private ?string $action = null;
 
     /**
      * Type of document that can be created
@@ -194,7 +194,7 @@ class DocumentSpec
     #[SerializedName("nodeId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $nodeId;
+    private ?string $nodeId = null;
 
     /**
      * Constructor

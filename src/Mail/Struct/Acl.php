@@ -44,7 +44,7 @@ class Acl
     #[SerializedName("internalGrantExpiry")]
     #[Type("int")]
     #[XmlAttribute]
-    private $internalGrantExpiry;
+    private ?int $internalGrantExpiry = null;
 
     /**
      * Time when grants to guest grantees expire.
@@ -55,7 +55,7 @@ class Acl
     #[SerializedName("guestGrantExpiry")]
     #[Type("int")]
     #[XmlAttribute]
-    private $guestGrantExpiry;
+    private ?int $guestGrantExpiry = null;
 
     /**
      * Grants
@@ -65,7 +65,7 @@ class Acl
     #[Accessor(getter: "getGrants", setter: "setGrants")]
     #[Type("array<Zimbra\Mail\Struct\Grant>")]
     #[XmlList(inline: true, entry: "grant", namespace: "urn:zimbraMail")]
-    private $grants = [];
+    private array $grants = [];
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class ConversationInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Number of (nondeleted) messages
@@ -50,7 +50,7 @@ class ConversationInfo
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private ?int $num = null;
 
     /**
      * Total number of messages (including deleted messages).
@@ -62,7 +62,7 @@ class ConversationInfo
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private ?int $totalSize = null;
 
     /**
      * Flags
@@ -73,7 +73,7 @@ class ConversationInfo
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints. DEPRECATED - use "tn" instead
@@ -84,7 +84,7 @@ class ConversationInfo
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -95,7 +95,7 @@ class ConversationInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Metadata and the subject as text
@@ -105,7 +105,7 @@ class ConversationInfo
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Subject
@@ -116,7 +116,7 @@ class ConversationInfo
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Chat messages
@@ -126,7 +126,7 @@ class ConversationInfo
     #[Accessor(getter: "getChatMessages", setter: "setChatMessages")]
     #[Type("array<Zimbra\Mail\Struct\ChatMessageInfo>")]
     #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
-    private $chatMessages = [];
+    private array $chatMessages = [];
 
     /**
      * Messages
@@ -136,7 +136,7 @@ class ConversationInfo
     #[Accessor(getter: "getMessages", setter: "setMessages")]
     #[Type("array<Zimbra\Mail\Struct\MessageInfo>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $messages = [];
+    private array $messages = [];
 
     /**
      * Constructor

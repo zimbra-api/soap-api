@@ -41,7 +41,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * Date
@@ -52,7 +52,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Set if the message matched the specified query string
@@ -63,7 +63,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[SerializedName("cm")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $contentMatched;
+    private ?bool $contentMatched = null;
 
     /**
      * Time in millis to show the alarm
@@ -74,7 +74,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[SerializedName("nextAlarm")]
     #[Type("int")]
     #[XmlAttribute]
-    private $nextAlarm;
+    private ?int $nextAlarm = null;
 
     /**
      * Organizer
@@ -95,7 +95,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[Accessor(getter: "getCategories", setter: "setCategories")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
-    private $categories;
+    private array $categories = [];
 
     /**
      * Information for iCalendar GEO property
@@ -117,7 +117,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Data for instances
@@ -127,7 +127,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[Accessor(getter: "getInstances", setter: "setInstances")]
     #[Type("array<Zimbra\Mail\Struct\InstanceDataInfo>")]
     #[XmlList(inline: true, entry: "inst", namespace: "urn:zimbraMail")]
-    private $instances = [];
+    private array $instances = [];
 
     /**
      * Alarm information
@@ -148,7 +148,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[Accessor(getter: "getInvites", setter: "setInvites")]
     #[Type("array<Zimbra\Mail\Struct\Invitation>")]
     #[XmlList(inline: true, entry: "inv", namespace: "urn:zimbraMail")]
-    private $invites = [];
+    private array $invites = [];
 
     /**
      * Replies
@@ -160,7 +160,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements
     #[Type("array<Zimbra\Mail\Struct\CalReply>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
-    private $replies = [];
+    private array $replies = [];
 
     /**
      * Constructor

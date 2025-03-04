@@ -52,7 +52,7 @@ class SaveDraftRequest extends SoapRequest
     #[SerializedName("wantImapUid")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantImapUid;
+    private ?bool $wantImapUid = null;
 
     /**
      * Set to return Modified Sequence. (default is unset.)
@@ -68,7 +68,7 @@ class SaveDraftRequest extends SoapRequest
     #[SerializedName("wantModSeq")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantModifiedSequence;
+    private ?bool $wantModifiedSequence = null;
 
     /**
      * Details of draft to save

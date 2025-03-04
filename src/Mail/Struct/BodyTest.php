@@ -32,7 +32,7 @@ class BodyTest extends FilterTest
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Case sensitive setting
@@ -43,7 +43,7 @@ class BodyTest extends FilterTest
     #[SerializedName("caseSensitive")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $caseSensitive;
+    private ?bool $caseSensitive = null;
 
     /**
      * Constructor

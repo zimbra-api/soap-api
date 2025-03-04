@@ -33,7 +33,7 @@ class ImportAppointmentsResponse extends SoapResponse
     #[SerializedName("ids")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ids;
+    private string $ids;
 
     /**
      * Number of imported appointments
@@ -44,7 +44,7 @@ class ImportAppointmentsResponse extends SoapResponse
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private int $num;
 
     /**
      * Constructor

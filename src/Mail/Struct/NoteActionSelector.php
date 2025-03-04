@@ -32,7 +32,7 @@ class NoteActionSelector extends ActionSelector
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlAttribute]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
@@ -43,7 +43,7 @@ class NoteActionSelector extends ActionSelector
     #[SerializedName("pos")]
     #[Type("string")]
     #[XmlAttribute]
-    private $bounds;
+    private ?string $bounds = null;
 
     /**
      * Constructor

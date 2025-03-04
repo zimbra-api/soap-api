@@ -45,7 +45,7 @@ class BrowseData
     #[SerializedName("h")]
     #[Type("string")]
     #[XmlAttribute]
-    private $browseDomainHeader;
+    private string $browseDomainHeader;
 
     /**
      * Frequency count
@@ -56,7 +56,7 @@ class BrowseData
     #[SerializedName("freq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $frequency;
+    private int $frequency;
 
     /**
      * Browse data.
@@ -69,7 +69,7 @@ class BrowseData
     #[Accessor(getter: "getData", setter: "setData")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $data;
+    private ?string $data = null;
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class GetAppointmentIdsSinceRequest extends SoapRequest
     #[SerializedName("lastSync")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastSync;
+    private int $lastSync;
 
     /**
      * Folder ID.
@@ -45,7 +45,7 @@ class GetAppointmentIdsSinceRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private string $folderId;
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class ActionSelector
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ids;
+    private ?string $ids = null;
 
     /**
      * The operation to perform
@@ -66,7 +66,7 @@ class ActionSelector
     #[SerializedName("op")]
     #[Type("string")]
     #[XmlAttribute]
-    private $operation;
+    private string $operation = "";
 
     /**
      * List of characters; constrains the set of affected items in a conversation. t|j|s|d|o
@@ -83,7 +83,7 @@ class ActionSelector
     #[SerializedName("tcon")]
     #[Type("string")]
     #[XmlAttribute]
-    private $constraint;
+    private ?string $constraint = null;
 
     /**
      * Deprecated - use "tn" instead
@@ -94,7 +94,7 @@ class ActionSelector
     #[SerializedName("tag")]
     #[Type("int")]
     #[XmlAttribute]
-    private $tag;
+    private ?int $tag = null;
 
     /**
      * Folder ID
@@ -105,7 +105,7 @@ class ActionSelector
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -116,7 +116,7 @@ class ActionSelector
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -127,7 +127,7 @@ class ActionSelector
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * Name
@@ -138,7 +138,7 @@ class ActionSelector
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Flags
@@ -149,7 +149,7 @@ class ActionSelector
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -160,7 +160,7 @@ class ActionSelector
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -171,7 +171,7 @@ class ActionSelector
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Flag to signify that any non-existent ids should be returned
@@ -182,7 +182,7 @@ class ActionSelector
     #[SerializedName("nei")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $nonExistentIds;
+    private ?bool $nonExistentIds = null;
 
     /**
      * Flag to signify that ids of new items should be returned applies to COPY action
@@ -193,7 +193,7 @@ class ActionSelector
     #[SerializedName("nci")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $newlyCreatedIds;
+    private ?bool $newlyCreatedIds = null;
 
     /**
      * Constructor

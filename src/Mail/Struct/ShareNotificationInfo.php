@@ -38,7 +38,7 @@ class ShareNotificationInfo
     #[SerializedName("status")]
     #[Type("string")]
     #[XmlAttribute]
-    private $status;
+    private string $status;
 
     /**
      * The item ID of the share notification message.
@@ -50,7 +50,7 @@ class ShareNotificationInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Date
@@ -61,7 +61,7 @@ class ShareNotificationInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private int $date;
 
     /**
      * Grantor information

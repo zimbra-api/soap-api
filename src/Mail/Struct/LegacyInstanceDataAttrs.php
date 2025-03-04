@@ -39,7 +39,7 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $duration;
+    private ?int $duration = null;
 
     /**
      * Constructor

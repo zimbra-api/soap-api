@@ -33,7 +33,7 @@ class DiffDocumentResponse extends SoapResponse
     #[Accessor(getter: "getChunks", setter: "setChunks")]
     #[Type("array<Zimbra\Mail\Struct\DispositionAndText>")]
     #[XmlList(inline: true, entry: "chunk", namespace: "urn:zimbraMail")]
-    private $chunks = [];
+    private array $chunks = [];
 
     /**
      * Constructor

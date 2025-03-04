@@ -33,7 +33,7 @@ class Misspelling
     #[SerializedName("word")]
     #[Type("string")]
     #[XmlAttribute]
-    private $word;
+    private string $word;
 
     /**
      * Comma separated list of suggestions.
@@ -45,7 +45,7 @@ class Misspelling
     #[SerializedName("suggestions")]
     #[Type("string")]
     #[XmlAttribute]
-    private $suggestions;
+    private ?string $suggestions = null;
 
     /**
      * Constructor

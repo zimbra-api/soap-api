@@ -39,7 +39,7 @@ class RestoreContactsRequest extends SoapRequest
     #[SerializedName("contactsBackupFileName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contactsBackupFileName;
+    private string $contactsBackupFileName;
 
     /**
      * Restore resolve action - one of ignore|modify|replace|reset

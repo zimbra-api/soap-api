@@ -40,7 +40,7 @@ class AutoCompleteResponse extends SoapResponse
     #[SerializedName("canBeCached")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canBeCached;
+    private ?bool $canBeCached = null;
 
     /**
      * Matches
@@ -50,7 +50,7 @@ class AutoCompleteResponse extends SoapResponse
     #[Accessor(getter: "getMatches", setter: "setMatches")]
     #[Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")]
     #[XmlList(inline: true, entry: "match", namespace: "urn:zimbraMail")]
-    private $matches = [];
+    private array $matches = [];
 
     /**
      * Constructor

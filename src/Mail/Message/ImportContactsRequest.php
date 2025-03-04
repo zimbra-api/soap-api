@@ -42,7 +42,7 @@ class ImportContactsRequest extends SoapRequest
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private string $contentType;
 
     /**
      * Optional Folder ID to import contacts to
@@ -53,7 +53,7 @@ class ImportContactsRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * The format of csv being imported. When it's not defined, Zimbra format is assumed.
@@ -65,7 +65,7 @@ class ImportContactsRequest extends SoapRequest
     #[SerializedName("csvfmt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $csvFormat;
+    private ?string $csvFormat = null;
 
     /**
      * The locale to use when there are multiple <csvfmtt> locales defined.
@@ -77,7 +77,7 @@ class ImportContactsRequest extends SoapRequest
     #[SerializedName("csvlocale")]
     #[Type("string")]
     #[XmlAttribute]
-    private $csvLocale;
+    private ?string $csvLocale = null;
 
     /**
      * Content specification

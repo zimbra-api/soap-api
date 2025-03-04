@@ -41,7 +41,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("method")]
     #[Type("string")]
     #[XmlAttribute]
-    private $method;
+    private ?string $method = null;
 
     /**
      * Component number of the invite
@@ -52,7 +52,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("compNum")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
@@ -63,7 +63,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("rsvp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $rsvp;
+    private ?bool $rsvp = null;
 
     /**
      * Priority (0 - 9; default = 0)
@@ -74,7 +74,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("priority")]
     #[Type("string")]
     #[XmlAttribute]
-    private $priority;
+    private ?string $priority = null;
 
     /**
      * Name
@@ -85,7 +85,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Location
@@ -96,7 +96,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("loc")]
     #[Type("string")]
     #[XmlAttribute]
-    private $location;
+    private ?string $location = null;
 
     /**
      * Percent complete for VTODO (0 - 100; default = 0)
@@ -107,7 +107,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("percentComplete")]
     #[Type("string")]
     #[XmlAttribute]
-    private $percentComplete;
+    private ?string $percentComplete = null;
 
     /**
      * VTODO COMPLETED DATE-TIME in format: yyyyMMddThhmmssZ
@@ -118,7 +118,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("completed")]
     #[Type("string")]
     #[XmlAttribute]
-    private $completed;
+    private ?string $completed = null;
 
     /**
      * Set if invite has no blob data, i.e. all data is in db metadata
@@ -129,7 +129,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("noBlob")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $noBlob;
+    private ?bool $noBlob = null;
 
     /**
      * The "actual" free-busy status of this invite (ie what the client should display).
@@ -172,7 +172,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("isOrg")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isOrganizer;
+    private ?bool $isOrganizer = null;
 
     /**
      * x uid
@@ -183,7 +183,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("x_uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $xUid;
+    private ?string $xUid = null;
 
     /**
      * UID to use when creating appointment.  Optional: client can request the UID to use
@@ -194,7 +194,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uid;
+    private ?string $uid = null;
 
     /**
      * Sequence number (default = 0)
@@ -205,7 +205,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sequence;
+    private ?int $sequence = null;
 
     /**
      * Date - used for zdsync
@@ -216,7 +216,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $dateTime;
+    private ?int $dateTime = null;
 
     /**
      * Mail item ID of appointment
@@ -227,7 +227,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("calItemId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calItemId;
+    private ?string $calItemId = null;
 
     /**
      * Appointment ID (deprecated)
@@ -238,7 +238,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("apptId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $deprecatedApptId;
+    private ?string $deprecatedApptId = null;
 
     /**
      * Folder of appointment
@@ -249,7 +249,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("ciFolder")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calItemFolder;
+    private ?string $calItemFolder = null;
 
     /**
      * Status - TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
@@ -282,7 +282,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * Set if this is invite is an exception
@@ -293,7 +293,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("ex")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isException;
+    private ?bool $isException = null;
 
     /**
      * Recurrence-id string in UTC timezone
@@ -304,7 +304,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("ridZ")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurIdZ;
+    private ?string $recurIdZ = null;
 
     /**
      * Set if is an all day appointment
@@ -315,7 +315,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("allDay")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isAllDay;
+    private ?bool $isAllDay = null;
 
     /**
      * Set if invite has changes that haven't been sent to attendees; for organizer only
@@ -326,7 +326,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("draft")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isDraft;
+    private ?bool $isDraft = null;
 
     /**
      * Set if attendees were never notified of this invite; for organizer only
@@ -337,7 +337,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("neverSent")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $neverSent;
+    private ?bool $neverSent = null;
 
     /**
      * Comma-separated list of changed data in an updated invite.
@@ -349,7 +349,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     #[SerializedName("changes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $changes;
+    private ?string $changes = null;
 
     /**
      * Constructor

@@ -40,7 +40,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private ?string $address = null;
 
     /**
      * URL - has same value as email-address.
@@ -51,7 +51,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $urls = null;
 
     /**
      * Friendly name - "CN" in iCalendar
@@ -62,7 +62,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayNames = null;
 
     /**
      * iCalendar SENT-BY
@@ -73,7 +73,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("sentBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sentBy;
+    private ?string $sentBys = null;
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user.
@@ -84,7 +84,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("dir")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dir;
+    private ?string $dirs = null;
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
@@ -95,7 +95,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("lang")]
     #[Type("string")]
     #[XmlAttribute]
-    private $language;
+    private ?string $languages = null;
 
     /**
      * Non-standard parameters (XPARAMs)
@@ -105,7 +105,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[Accessor(getter: "getXParams", setter: "setXParams")]
     #[Type("array<Zimbra\Mail\Struct\XParam>")]
     #[XmlList(inline: true, entry: "xparam", namespace: "urn:zimbraMail")]
-    private $xParams = [];
+    private array $xParams = [];
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class ImportContact
     #[SerializedName("ids")]
     #[Type("string")]
     #[XmlAttribute]
-    private $listOfCreatedIds;
+    private ?string $listOfCreatedIds = null;
 
     /**
      * Number imported
@@ -43,7 +43,7 @@ class ImportContact
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numImported;
+    private ?int $numImported = null;
 
     /**
      * Constructor

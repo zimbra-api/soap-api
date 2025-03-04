@@ -34,7 +34,7 @@ class IntervalRule implements IntervalRuleInterface
     #[SerializedName("ival")]
     #[Type("int")]
     #[XmlAttribute]
-    private $ival;
+    private int $ival;
 
     /**
      * Constructor

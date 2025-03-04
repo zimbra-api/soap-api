@@ -33,7 +33,7 @@ class ConversationMsgHitInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Size
@@ -44,7 +44,7 @@ class ConversationMsgHitInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Folder ID
@@ -55,7 +55,7 @@ class ConversationMsgHitInfo
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * flags
@@ -66,7 +66,7 @@ class ConversationMsgHitInfo
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Can optionally set autoSendTime to specify the time at which the draft should be
@@ -78,7 +78,7 @@ class ConversationMsgHitInfo
     #[SerializedName("autoSendTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $autoSendTime;
+    private ?int $autoSendTime = null;
 
     /**
      * date
@@ -89,7 +89,7 @@ class ConversationMsgHitInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Constructor

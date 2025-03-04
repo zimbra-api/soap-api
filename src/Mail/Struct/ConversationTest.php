@@ -32,7 +32,7 @@ class ConversationTest extends FilterTest
     #[SerializedName("where")]
     #[Type("string")]
     #[XmlAttribute]
-    private $where;
+    private ?string $where = null;
 
     /**
      * Constructor

@@ -38,7 +38,7 @@ class ICalContent
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * ICAL
@@ -48,7 +48,7 @@ class ICalContent
     #[Accessor(getter: "getIcal", setter: "setIcal")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $ical;
+    private ?string $ical = null;
 
     /**
      * Constructor

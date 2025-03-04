@@ -33,7 +33,7 @@ class RecoverAccountResponse extends SoapResponse
     #[SerializedName("recoveryAccount")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recoveryAccount;
+    private ?string $recoveryAccount = null;
 
     /**
      * attempts remaining before feature suspension
@@ -49,7 +49,7 @@ class RecoverAccountResponse extends SoapResponse
     #[SerializedName("recoveryAttemptsLeft")]
     #[Type("int")]
     #[XmlAttribute]
-    private $recoveryAttemptsLeft;
+    private ?int $recoveryAttemptsLeft = null;
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class GetFolderSpec
     #[SerializedName("uuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uuid;
+    private ?string $uuid = null;
 
     /**
      * Base folder ID
@@ -44,7 +44,7 @@ class GetFolderSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Base folder fully qualified path
@@ -55,7 +55,7 @@ class GetFolderSpec
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private ?string $path = null;
 
     /**
      * Constructor

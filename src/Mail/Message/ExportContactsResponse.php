@@ -33,7 +33,7 @@ class ExportContactsResponse extends SoapResponse
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private string $content;
 
     /**
      * Constructor

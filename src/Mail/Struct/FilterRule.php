@@ -38,7 +38,7 @@ class FilterRule
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Active flag. Set by default.
@@ -49,7 +49,7 @@ class FilterRule
     #[SerializedName("active")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $active;
+    private bool $active;
 
     /**
      * Filter variables

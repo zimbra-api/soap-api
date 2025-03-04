@@ -38,7 +38,7 @@ class PendingFolderModifications
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $folderId;
+    private int $folderId;
 
     /**
      * list of created items
@@ -48,7 +48,7 @@ class PendingFolderModifications
     #[Accessor(getter: "getCreated", setter: "setCreated")]
     #[Type("array<Zimbra\Mail\Struct\CreateItemNotification>")]
     #[XmlList(inline: true, entry: "created", namespace: "urn:zimbraMail")]
-    private $created = [];
+    private array $created = [];
 
     /**
      * list of deleted items
@@ -58,7 +58,7 @@ class PendingFolderModifications
     #[Accessor(getter: "getDeleted", setter: "setDeleted")]
     #[Type("array<Zimbra\Mail\Struct\DeleteItemNotification>")]
     #[XmlList(inline: true, entry: "deleted", namespace: "urn:zimbraMail")]
-    private $deleted = [];
+    private array $deleted = [];
 
     /**
      * list of modified messages
@@ -68,7 +68,7 @@ class PendingFolderModifications
     #[Accessor(getter: "getModifiedMsgs", setter: "setModifiedMsgs")]
     #[Type("array<Zimbra\Mail\Struct\ModifyItemNotification>")]
     #[XmlList(inline: true, entry: "modMsgs", namespace: "urn:zimbraMail")]
-    private $modifiedMsgs = [];
+    private array $modifiedMsgs = [];
 
     /**
      * list of modified tags
@@ -78,7 +78,7 @@ class PendingFolderModifications
     #[Accessor(getter: "getModifiedTags", setter: "setModifiedTags")]
     #[Type("array<Zimbra\Mail\Struct\ModifyTagNotification>")]
     #[XmlList(inline: true, entry: "modTags", namespace: "urn:zimbraMail")]
-    private $modifiedTags = [];
+    private array $modifiedTags = [];
 
     /**
      * list of renamed folders
@@ -88,7 +88,7 @@ class PendingFolderModifications
     #[Accessor(getter: "getRenamedFolders", setter: "setRenamedFolders")]
     #[Type("array<Zimbra\Mail\Struct\RenameFolderNotification>")]
     #[XmlList(inline: true, entry: "modFolders", namespace: "urn:zimbraMail")]
-    private $modifiedFolders = [];
+    private array $modifiedFolders = [];
 
     /**
      * Constructor

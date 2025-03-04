@@ -43,7 +43,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName("recursive")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $recursive;
+    private ?bool $recursive = null;
 
     /**
      * Target URL
@@ -54,7 +54,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * For fb operation - set the excludeFreeBusy bool for this folder (must specify for fb operation)
@@ -65,7 +65,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName("excludeFreeBusy")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $excludeFreeBusy;
+    private ?bool $excludeFreeBusy = null;
 
     /**
      * Grantee Zimbra ID
@@ -76,7 +76,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * Grantee type
@@ -97,7 +97,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName("view")]
     #[Type("string")]
     #[XmlAttribute]
-    private $view;
+    private ?string $view = null;
 
     /**
      * Grant
@@ -120,7 +120,7 @@ class FolderActionSelector extends ActionSelector
     #[Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "grant", namespace: "urn:zimbraMail")]
-    private $grants = [];
+    private array $grants = [];
 
     /**
      * Retention policy
@@ -142,7 +142,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName("numDays")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numDays;
+    private ?int $numDays = null;
 
     /**
      * Constructor

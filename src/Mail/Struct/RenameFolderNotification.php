@@ -32,7 +32,7 @@ class RenameFolderNotification extends ModifyNotification
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $folderId;
+    private int $folderId;
 
     /**
      * New path of renamed folder
@@ -43,7 +43,7 @@ class RenameFolderNotification extends ModifyNotification
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private string $path;
 
     /**
      * Constructor

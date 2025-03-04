@@ -41,7 +41,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * If the message matched the specified query string
@@ -52,7 +52,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     #[SerializedName("cm")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $contentMatched;
+    private ?bool $contentMatched = null;
 
     /**
      * Hit Parts -- indicators that the named parts matched the search string
@@ -62,7 +62,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     #[Accessor(getter: "getMessagePartHits", setter: "setMessagePartHits")]
     #[Type("array<Zimbra\Mail\Struct\Part>")]
     #[XmlList(inline: true, entry: "hp", namespace: "urn:zimbraMail")]
-    private $messagePartHits = [];
+    private array $messagePartHits = [];
 
     /**
      * Constructor

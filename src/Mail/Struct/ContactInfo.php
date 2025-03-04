@@ -47,7 +47,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * Set if the user can (has right to) expand group members.  Returned only if needExp
@@ -59,7 +59,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("exp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canExpand;
+    private ?bool $canExpand = null;
 
     /**
      * Unique contact ID
@@ -70,7 +70,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * IMAP UID
@@ -81,7 +81,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("i4uid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapUid;
+    private ?int $imapUid = null;
 
     /**
      * Folder ID. When creating a contact, this is the ID of the folder to create the contact in
@@ -92,7 +92,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Flags.  {flags} = (f)lagged, has (a)ttachment
@@ -103,7 +103,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -114,7 +114,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -125,7 +125,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Modified date in seconds
@@ -136,7 +136,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Modified sequence
@@ -152,7 +152,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequenceId;
+    private ?int $modifiedSequenceId = null;
 
     /**
      * Date in milliseconds
@@ -163,7 +163,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Saved sequence number
@@ -174,7 +174,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revisionId;
+    private ?int $revisionId = null;
 
     /**
      * Current "file as" string for display/sorting purposes; cannot be used to
@@ -186,7 +186,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("fileAsStr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fileAs;
+    private ?string $fileAs = null;
 
     /**
      * Contact email address
@@ -197,7 +197,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private ?string $email = null;
 
     /**
      * Contact email address 2
@@ -208,7 +208,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("email2")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email2;
+    private ?string $email2 = null;
 
     /**
      * Contact email address 3
@@ -219,7 +219,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("email3")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email3;
+    private ?string $email3 = null;
 
     /**
      * Contact type
@@ -230,7 +230,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private ?string $type = null;
 
     /**
      * Contact dlist
@@ -241,7 +241,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("dlist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dlist;
+    private ?string $dlist = null;
 
     /**
      * GAL entry reference
@@ -252,7 +252,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("ref")]
     #[Type("string")]
     #[XmlAttribute]
-    private $reference;
+    private ?string $reference = null;
 
     /**
      * If number of members on a GAL group is greater than the specified max,
@@ -264,7 +264,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("tooManyMembers")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $tooManyMembers;
+    private ?bool $tooManyMembers = null;
 
     /**
      * Custom metadata information
@@ -274,7 +274,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Attributes
@@ -284,7 +284,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Common\Struct\ContactAttr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Contact group members
@@ -299,7 +299,7 @@ class ContactInfo implements ContactInterface, SearchHit
     ]
     #[Type("array<Zimbra\Mail\Struct\ContactGroupMember>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $contactGroupMembers = [];
+    private array $contactGroupMembers = [];
 
     /**
      * Comma separated list of IDs of contact groups this contact is a member of. Only provided if requested
@@ -310,7 +310,7 @@ class ContactInfo implements ContactInterface, SearchHit
     #[SerializedName("memberOf")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $memberOf;
+    private ?string $memberOf = null;
 
     /**
      * Constructor

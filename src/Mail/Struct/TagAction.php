@@ -32,7 +32,7 @@ class TagAction extends FilterAction
     #[SerializedName("tagName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tag;
+    private ?string $tag = null;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class DiffDocumentVersionSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Revision 1
@@ -43,7 +43,7 @@ class DiffDocumentVersionSpec
     #[SerializedName("v1")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version1;
+    private ?int $version1 = null;
 
     /**
      * Revision 2
@@ -54,7 +54,7 @@ class DiffDocumentVersionSpec
     #[SerializedName("v2")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version2;
+    private ?int $version2 = null;
 
     /**
      * Constructor

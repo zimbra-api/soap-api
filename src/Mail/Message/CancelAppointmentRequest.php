@@ -43,7 +43,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Component number of default invite
@@ -54,7 +54,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName("comp")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * Modified sequence
@@ -65,7 +65,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Revision
@@ -76,7 +76,7 @@ class CancelAppointmentRequest extends SoapRequest
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Instance recurrence ID information

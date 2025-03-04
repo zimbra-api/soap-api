@@ -46,7 +46,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags (Deprecated - use {tag-names} instead)
@@ -57,7 +57,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma separated list of tag names
@@ -68,7 +68,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * ID of folder to create appointment in
@@ -79,7 +79,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
@@ -90,7 +90,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName("noNextAlarm")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $noNextAlarm;
+    private ?bool $noNextAlarm = null;
 
     /**
      * If specified, time when next alarm should go off.
@@ -104,7 +104,7 @@ class SetAppointmentRequest extends SoapRequest
     #[SerializedName("nextAlarm")]
     #[Type("int")]
     #[XmlAttribute]
-    private $nextAlarm;
+    private ?int $nextAlarm = null;
 
     /**
      * Default calendar item information
@@ -125,7 +125,7 @@ class SetAppointmentRequest extends SoapRequest
     #[Accessor(getter: "getExceptions", setter: "setExceptions")]
     #[Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")]
     #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
-    private $exceptions = [];
+    private array $exceptions = [];
 
     /**
      * Calendar item information for cancellations
@@ -135,7 +135,7 @@ class SetAppointmentRequest extends SoapRequest
     #[Accessor(getter: "getCancellations", setter: "setCancellations")]
     #[Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")]
     #[XmlList(inline: true, entry: "cancel", namespace: "urn:zimbraMail")]
-    private $cancellations = [];
+    private array $cancellations = [];
 
     /**
      * List of replies received from attendees.
@@ -151,7 +151,7 @@ class SetAppointmentRequest extends SoapRequest
     #[Type("array<Zimbra\Mail\Struct\CalReply>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
-    private $replies = [];
+    private array $replies = [];
 
     /**
      * Constructor

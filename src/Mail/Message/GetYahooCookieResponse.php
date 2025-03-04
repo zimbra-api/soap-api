@@ -33,7 +33,7 @@ class GetYahooCookieResponse extends SoapResponse
     #[SerializedName("error")]
     #[Type("string")]
     #[XmlAttribute]
-    private $error;
+    private ?string $error = null;
 
     /**
      * Crumb
@@ -44,7 +44,7 @@ class GetYahooCookieResponse extends SoapResponse
     #[SerializedName("crumb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $crumb;
+    private ?string $crumb = null;
 
     /**
      * Y
@@ -55,7 +55,7 @@ class GetYahooCookieResponse extends SoapResponse
     #[SerializedName("y")]
     #[Type("string")]
     #[XmlAttribute]
-    private $y;
+    private ?string $y = null;
 
     /**
      * T
@@ -66,7 +66,7 @@ class GetYahooCookieResponse extends SoapResponse
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $t;
+    private ?string $t = null;
 
     /**
      * Constructor

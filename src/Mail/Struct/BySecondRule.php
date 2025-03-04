@@ -34,7 +34,7 @@ class BySecondRule implements BySecondRuleInterface
     #[SerializedName("seclist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $list;
+    private string $list;
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     #[SerializedName("sync")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sync;
+    private ?bool $sync = null;
 
     /**
      * If set, MIME parts for body content are returned; default unset
@@ -44,7 +44,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     #[SerializedName("includeContent")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeContent;
+    private ?bool $includeContent = null;
 
     /**
      * If set, information for each invite is included; default set
@@ -55,7 +55,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     #[SerializedName("includeInvites")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeInvites;
+    private ?bool $includeInvites = null;
 
     /**
      * iCalendar UID
@@ -67,7 +67,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uid;
+    private ?string $uid = null;
 
     /**
      * Appointment ID.
@@ -79,7 +79,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Constructor

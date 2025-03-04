@@ -32,7 +32,7 @@ class TestDataSource
     #[SerializedName("success")]
     #[Type("int")]
     #[XmlAttribute]
-    private $success;
+    private int $success;
 
     /**
      * error message passed by DatImport::test method of the datasource being tested
@@ -43,7 +43,7 @@ class TestDataSource
     #[SerializedName("error")]
     #[Type("string")]
     #[XmlAttribute]
-    private $error;
+    private ?string $error = null;
 
     /**
      * Constructor

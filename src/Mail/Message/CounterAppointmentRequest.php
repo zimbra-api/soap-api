@@ -43,7 +43,7 @@ class CounterAppointmentRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Component number of default component
@@ -54,7 +54,7 @@ class CounterAppointmentRequest extends SoapRequest
     #[SerializedName("comp")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * Changed sequence of fetched version.
@@ -68,7 +68,7 @@ class CounterAppointmentRequest extends SoapRequest
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Revision
@@ -79,7 +79,7 @@ class CounterAppointmentRequest extends SoapRequest
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Details of counter proposal.

@@ -41,7 +41,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private string $part;
 
     /**
      * MIME Content-Type. The mime type is the content of the element.
@@ -52,7 +52,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private string $contentType;
 
     /**
      * Size in bytes
@@ -63,7 +63,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * MIME Content-Disposition
@@ -79,7 +79,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("cd")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentDisposition;
+    private ?string $contentDisposition = null;
 
     /**
      * Filename attribute from the Content-Disposition param list
@@ -90,7 +90,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("filename")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentFilename;
+    private ?string $contentFilename = null;
 
     /**
      * MIME Content-ID (for display of embedded images)
@@ -101,7 +101,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("ci")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentId;
+    private ?string $contentId = null;
 
     /**
      * MIME/Microsoft Content-Location (for display of embedded images)
@@ -112,7 +112,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("cl")]
     #[Type("string")]
     #[XmlAttribute]
-    private $location;
+    private ?string $location = null;
 
     /**
      * Set if this part is considered to be the "body" of the message for display purposes.
@@ -123,7 +123,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("body")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $body;
+    private ?bool $body = null;
 
     /**
      * Set if the content for the part is truncated
@@ -134,7 +134,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("truncated")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $truncatedContent;
+    private ?bool $truncatedContent = null;
 
     /**
      * The content of the part, if requested
@@ -145,7 +145,7 @@ class PartInfo implements PartInfoInterface
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Mime parts
@@ -155,7 +155,7 @@ class PartInfo implements PartInfoInterface
     #[Accessor(getter: "getMimeParts", setter: "setMimeParts")]
     #[Type("array<Zimbra\Mail\Struct\PartInfo>")]
     #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
-    private $mimeParts = [];
+    private array $mimeParts = [];
 
     /**
      * Constructor

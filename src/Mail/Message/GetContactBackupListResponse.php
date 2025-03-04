@@ -40,7 +40,7 @@ class GetContactBackupListResponse extends SoapResponse
     #[Type("array<string>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "backup", namespace: "urn:zimbraMail")]
-    private $backup = [];
+    private array $backup = [];
 
     /**
      * Constructor

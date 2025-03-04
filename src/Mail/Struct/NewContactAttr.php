@@ -39,7 +39,7 @@ class NewContactAttr
     #[SerializedName("n")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Upload ID
@@ -50,7 +50,7 @@ class NewContactAttr
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attachId;
+    private ?string $attachId = null;
 
     /**
      * Item ID.  Used in combination with subpart-name
@@ -61,7 +61,7 @@ class NewContactAttr
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private ?int $id = null;
 
     /**
      * Subpart Name
@@ -72,7 +72,7 @@ class NewContactAttr
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * Attribute data
@@ -85,7 +85,7 @@ class NewContactAttr
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

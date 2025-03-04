@@ -38,7 +38,7 @@ class ModifyContactSpec
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private ?int $id = null;
 
     /**
      * Comma-separated list of tag names
@@ -49,7 +49,7 @@ class ModifyContactSpec
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
@@ -59,7 +59,7 @@ class ModifyContactSpec
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Mail\Struct\ModifyContactAttr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Valid only if the contact being created is a contact group
@@ -75,7 +75,7 @@ class ModifyContactSpec
     ]
     #[Type("array<Zimbra\Mail\Struct\ModifyContactGroupMember>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $contactGroupMembers = [];
+    private array $contactGroupMembers = [];
 
     /**
      * Constructor

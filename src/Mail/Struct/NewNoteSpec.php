@@ -33,7 +33,7 @@ class NewNoteSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private string $folder;
 
     /**
      * Content
@@ -44,7 +44,7 @@ class NewNoteSpec
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlAttribute]
-    private $content;
+    private string $content;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -55,7 +55,7 @@ class NewNoteSpec
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
@@ -66,7 +66,7 @@ class NewNoteSpec
     #[SerializedName("pos")]
     #[Type("string")]
     #[XmlAttribute]
-    private $bounds;
+    private ?string $bounds = null;
 
     /**
      * Constructor

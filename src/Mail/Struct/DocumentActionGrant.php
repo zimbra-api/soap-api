@@ -33,7 +33,7 @@ class DocumentActionGrant extends ActionGrantSelector
     #[SerializedName("expiry")]
     #[Type("int")]
     #[XmlAttribute]
-    private ?int $expiry;
+    private ?int $expiry = null;
 
     /**
      * Constructor
@@ -67,7 +67,9 @@ class DocumentActionGrant extends ActionGrantSelector
             $password,
             $accessKey
         );
-        $this->expiry = $expiry;
+        if (null !== $expiry) {
+            $this->setExpiry($expiry);
+        }
     }
 
     /**

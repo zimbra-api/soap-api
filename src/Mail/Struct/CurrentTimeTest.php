@@ -43,7 +43,7 @@ class CurrentTimeTest extends FilterTest
     #[SerializedName("time")]
     #[Type("string")]
     #[XmlAttribute]
-    private $time;
+    private ?string $time = null;
 
     /**
      * Constructor

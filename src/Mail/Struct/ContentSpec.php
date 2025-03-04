@@ -38,7 +38,7 @@ class ContentSpec
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attachmentId;
+    private ?string $attachmentId = null;
 
     /**
      * Message ID of existing message. Used in conjunction with "part"
@@ -49,7 +49,7 @@ class ContentSpec
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $messageId;
+    private ?string $messageId = null;
 
     /**
      * Part identifier. This combined with "mid" identifies a part of an existing message
@@ -60,7 +60,7 @@ class ContentSpec
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * Inlined content data. Ignored if "aid" or "mid"/"part" specified
@@ -70,7 +70,7 @@ class ContentSpec
     #[Accessor(getter: "getText", setter: "setText")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $text;
+    private ?string $text = null;
 
     /**
      * Constructor

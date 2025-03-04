@@ -40,7 +40,7 @@ abstract class CalItemRequestBase extends SoapRequest
     #[SerializedName("echo")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $echo;
+    private ?bool $echo = null;
 
     /**
      * Maximum inlined length
@@ -51,7 +51,7 @@ abstract class CalItemRequestBase extends SoapRequest
     #[SerializedName("max")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxSize;
+    private ?int $maxSize = null;
 
     /**
      * Set if want HTML included in echoing
@@ -62,7 +62,7 @@ abstract class CalItemRequestBase extends SoapRequest
     #[SerializedName("want")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantHtml;
+    private ?bool $wantHtml = null;
 
     /**
      * Set if want "neuter" set for echoed response
@@ -73,7 +73,7 @@ abstract class CalItemRequestBase extends SoapRequest
     #[SerializedName("neuter")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $neuter;
+    private ?bool $neuter = null;
 
     /**
      * If set, ignore smtp 550 errors when sending the notification to attendees.
@@ -87,7 +87,7 @@ abstract class CalItemRequestBase extends SoapRequest
     #[SerializedName("forcesend")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $forceSend;
+    private ?bool $forceSend = null;
 
     /**
      * Message information

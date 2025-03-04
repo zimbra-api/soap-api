@@ -52,7 +52,7 @@ class CheckPermissionRequest extends SoapRequest
     #[Accessor(getter: "getRights", setter: "setRights")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "right", namespace: "urn:zimbraMail")]
-    private $rights = [];
+    private array $rights = [];
 
     /**
      * Constructor

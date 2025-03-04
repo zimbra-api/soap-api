@@ -36,7 +36,7 @@ class SuggestedQueryString
     ]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $suggestedQueryString;
+    private string $suggestedQueryString;
 
     /**
      * Constructor

@@ -52,7 +52,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
     #[SerializedName("warmup")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $warmup;
+    private ?bool $warmup = null;
 
     /**
      * Constructor

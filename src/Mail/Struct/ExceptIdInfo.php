@@ -32,7 +32,7 @@ class ExceptIdInfo
     #[SerializedName("recurId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurrenceId;
+    private string $recurrenceId;
 
     /**
      * Invite ID of exception
@@ -43,7 +43,7 @@ class ExceptIdInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Constructor

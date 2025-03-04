@@ -34,7 +34,7 @@ class ExportContactsRequest extends SoapRequest
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private string $contentType;
 
     /**
      * Optional folder id to export contacts from
@@ -45,7 +45,7 @@ class ExportContactsRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Optional csv format for exported contacts.  the supported formats are defined in
@@ -57,7 +57,7 @@ class ExportContactsRequest extends SoapRequest
     #[SerializedName("csvfmt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $csvFormat;
+    private ?string $csvFormat = null;
 
     /**
      * The locale to use when there are multiple {csv-format} locales defined.
@@ -69,7 +69,7 @@ class ExportContactsRequest extends SoapRequest
     #[SerializedName("csvlocale")]
     #[Type("string")]
     #[XmlAttribute]
-    private $csvLocale;
+    private ?string $csvLocale = null;
 
     /**
      * Optional delimiter character to use in the resulting csv file - usually "," or ";"
@@ -80,7 +80,7 @@ class ExportContactsRequest extends SoapRequest
     #[SerializedName("csvsep")]
     #[Type("string")]
     #[XmlAttribute]
-    private $csvDelimiter;
+    private ?string $csvDelimiter = null;
 
     /**
      * Constructor

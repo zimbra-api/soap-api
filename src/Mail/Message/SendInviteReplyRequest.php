@@ -42,7 +42,7 @@ class SendInviteReplyRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * component number of the invite
@@ -53,7 +53,7 @@ class SendInviteReplyRequest extends SoapRequest
     #[SerializedName("comp")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private int $componentNum;
 
     /**
      * Verb - ACCEPT, DECLINE, TENTATIVE, COMPLETED, DELEGATED
@@ -78,7 +78,7 @@ class SendInviteReplyRequest extends SoapRequest
     #[SerializedName("updateOrganizer")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $updateOrganizer;
+    private ?bool $updateOrganizer = null;
 
     /**
      * Identity ID to use to send reply
@@ -89,7 +89,7 @@ class SendInviteReplyRequest extends SoapRequest
     #[SerializedName("idnt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $identityId;
+    private ?string $identityId = null;
 
     /**
      * If supplied then reply to just one instance of the specified Invite (default is all instances)

@@ -32,7 +32,7 @@ class ReplyAction extends FilterAction
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Constructor

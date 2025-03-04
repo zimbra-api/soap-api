@@ -38,7 +38,7 @@ class HeaderTest extends FilterTest
     #[SerializedName("header")]
     #[Type("string")]
     #[XmlAttribute]
-    private $headers;
+    private ?string $headers = null;
 
     /**
      * String comparison type - is|contains|matches
@@ -94,7 +94,7 @@ class HeaderTest extends FilterTest
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Case sensitive setting
@@ -105,7 +105,7 @@ class HeaderTest extends FilterTest
     #[SerializedName("caseSensitive")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $caseSensitive;
+    private ?bool $caseSensitive = null;
 
     /**
      * Constructor

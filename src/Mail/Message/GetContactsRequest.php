@@ -56,7 +56,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("sync")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sync;
+    private ?bool $sync = null;
 
     /**
      * If is present, return only contacts in the specified folder.
@@ -67,7 +67,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Sort by
@@ -78,7 +78,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("sortBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortBy;
+    private ?string $sortBy = null;
 
     /**
      * If set, deref contact group members.
@@ -89,7 +89,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("derefGroupMember")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $derefGroupMember;
+    private ?bool $derefGroupMember = null;
 
     /**
      * If set, Include the list of contact groups this contact is a member of.
@@ -100,7 +100,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("memberOf")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeMemberOf;
+    private ?bool $includeMemberOf = null;
 
     /**
      * Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes
@@ -111,7 +111,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("returnHiddenAttrs")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $returnHiddenAttrs;
+    private ?bool $returnHiddenAttrs = null;
 
     /**
      * Whether to return smime certificate info
@@ -122,7 +122,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("returnCertInfo")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $returnCertInfo;
+    private ?bool $returnCertInfo = null;
 
     /**
      * Set to return IMAP UID.  (default is unset.)
@@ -133,7 +133,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("wantImapUid")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantImapUid;
+    private ?bool $wantImapUid = null;
 
     /**
      * Max members
@@ -144,7 +144,7 @@ class GetContactsRequest extends SoapRequest
     #[SerializedName("maxMembers")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxMembers;
+    private ?int $maxMembers = null;
 
     /**
      * Attrs - if present, return only the specified attribute(s).
@@ -154,7 +154,7 @@ class GetContactsRequest extends SoapRequest
     #[Accessor(getter: "getAttributes", setter: "setAttributes")]
     #[Type("array<Zimbra\Common\Struct\AttributeName>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
-    private $attributes = [];
+    private array $attributes = [];
 
     /**
      * If present, return only the specified attribute(s) for derefed members, applicable
@@ -165,7 +165,7 @@ class GetContactsRequest extends SoapRequest
     #[Accessor(getter: "getMemberAttributes", setter: "setMemberAttributes")]
     #[Type("array<Zimbra\Common\Struct\AttributeName>")]
     #[XmlList(inline: true, entry: "ma", namespace: "urn:zimbraMail")]
-    private $memberAttributes = [];
+    private array $memberAttributes = [];
 
     /**
      * If present, only get the specified contact(s).
@@ -175,7 +175,7 @@ class GetContactsRequest extends SoapRequest
     #[Accessor(getter: "getContacts", setter: "setContacts")]
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
-    private $contacts = [];
+    private array $contacts = [];
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class ListIMAPSubscriptionsResponse extends SoapResponse
     #[Accessor(getter: "getSubscriptions", setter: "setSubscriptions")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "sub", namespace: "urn:zimbraMail")]
-    private $subs = [];
+    private array $subs = [];
 
     /**
      * Constructor

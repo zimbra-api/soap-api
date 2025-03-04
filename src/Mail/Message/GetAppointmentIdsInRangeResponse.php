@@ -33,7 +33,7 @@ class GetAppointmentIdsInRangeResponse extends SoapResponse
     #[Accessor(getter: "getAppointmentData", setter: "setAppointmentData")]
     #[Type("array<Zimbra\Mail\Struct\AppointmentIdAndDate>")]
     #[XmlList(inline: true, entry: "apptData", namespace: "urn:zimbraMail")]
-    private $appointmentData = [];
+    private array $appointmentData = [];
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class PurgeRevisionSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Revision
@@ -43,7 +43,7 @@ class PurgeRevisionSpec
     #[SerializedName("ver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private int $version;
 
     /**
      * When set, the server will purge all the old revisions inclusive of the revision
@@ -60,7 +60,7 @@ class PurgeRevisionSpec
     #[SerializedName("includeOlderRevisions")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeOlderRevisions;
+    private ?bool $includeOlderRevisions = null;
 
     /**
      * Constructor

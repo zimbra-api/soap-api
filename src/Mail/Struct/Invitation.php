@@ -39,7 +39,7 @@ class Invitation
     #[SerializedName("type")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calItemType;
+    private string $calItemType;
 
     /**
      * Sequence number
@@ -50,7 +50,7 @@ class Invitation
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sequence;
+    private int $sequence;
 
     /**
      * Original mail item ID for invite
@@ -61,7 +61,7 @@ class Invitation
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Component number
@@ -72,7 +72,7 @@ class Invitation
     #[SerializedName("compNum")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private int $componentNum;
 
     /**
      * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
@@ -83,7 +83,7 @@ class Invitation
     #[SerializedName("recurId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurrenceId;
+    private ?string $recurrenceId = null;
 
     /**
      * Timezones
@@ -114,7 +114,7 @@ class Invitation
     #[Accessor(getter: "getPartInfos", setter: "setPartInfos")]
     #[Type("array<Zimbra\Mail\Struct\PartInfo>")]
     #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
-    private $partInfos = [];
+    private array $partInfos = [];
 
     /**
      * Share notifications
@@ -129,7 +129,7 @@ class Invitation
     ]
     #[Type("array<Zimbra\Mail\Struct\ShareNotification>")]
     #[XmlList(inline: true, entry: "shr", namespace: "urn:zimbraMail")]
-    private $shareNotifications = [];
+    private array $shareNotifications = [];
 
     /**
      * Distribution list subscription notifications
@@ -139,7 +139,7 @@ class Invitation
     #[Accessor(getter: "getDlSubs", setter: "setDlSubs")]
     #[Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")]
     #[XmlList(inline: true, entry: "dlSubs", namespace: "urn:zimbraMail")]
-    private $dlSubs = [];
+    private array $dlSubs = [];
 
     /**
      * Constructor

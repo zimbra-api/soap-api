@@ -58,7 +58,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     #[SerializedName("defTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultInterests;
+    private string $defaultInterests;
 
     /**
      * If {all-accounts} is set, then all mailboxes on the system will be listened
@@ -77,7 +77,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     #[SerializedName("allAccounts")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allAccounts;
+    private ?bool $allAccounts = null;
 
     /**
      * Waitsets to add
@@ -89,7 +89,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     #[Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "a", namespace: "urn:zimbraMail")]
-    private $accounts = [];
+    private array $accounts = [];
 
     /**
      * Constructor

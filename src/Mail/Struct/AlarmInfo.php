@@ -107,7 +107,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[SerializedName("summary")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $summary;
+    private ?string $summary = null;
 
     /**
      * Attendee information
@@ -117,7 +117,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[Accessor(getter: "getAttendees", setter: "setAttendees")]
     #[Type("array<Zimbra\Mail\Struct\CalendarAttendee>")]
     #[XmlList(inline: true, entry: "at", namespace: "urn:zimbraMail")]
-    private $attendees = [];
+    private array $attendees = [];
 
     /**
      * Non-standard properties (see RFC2445 section 4.8.8.1)
@@ -127,7 +127,7 @@ class AlarmInfo implements AlarmInfoInterface
     #[Accessor(getter: "getXProps", setter: "setXProps")]
     #[Type("array<Zimbra\Mail\Struct\XProp>")]
     #[XmlList(inline: true, entry: "xprop", namespace: "urn:zimbraMail")]
-    private $xProps = [];
+    private array $xProps = [];
 
     /**
      * Constructor

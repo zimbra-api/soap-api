@@ -32,7 +32,7 @@ class ModifyNotification
     #[SerializedName("change")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeBitmask;
+    private int $changeBitmask;
 
     /**
      * Constructor

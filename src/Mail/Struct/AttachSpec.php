@@ -32,7 +32,7 @@ abstract class AttachSpec
     #[SerializedName("optional")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $optional;
+    private ?bool $optional = null;
 
     /**
      * Constructor

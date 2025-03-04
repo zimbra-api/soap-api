@@ -50,7 +50,7 @@ class EditheaderTest
     #[SerializedName("countComparator")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $count;
+    private ?bool $count = null;
 
     /**
      * if true count comparison will be done
@@ -61,7 +61,7 @@ class EditheaderTest
     #[SerializedName("valueComparator")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $value;
+    private ?bool $value = null;
 
     /**
      * Relational comparator - gt|ge|lt|le|eq|ne
@@ -97,7 +97,7 @@ class EditheaderTest
     #[SerializedName("headerName")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $headerName;
+    private ?string $headerName = null;
 
     /**
      * Value of the header to be compared
@@ -107,7 +107,7 @@ class EditheaderTest
     #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "headerValue", namespace: "urn:zimbraMail")]
-    private $headerValue = [];
+    private array $headerValue = [];
 
     /**
      * Constructor

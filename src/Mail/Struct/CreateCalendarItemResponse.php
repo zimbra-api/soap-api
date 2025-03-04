@@ -40,7 +40,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName("calItemId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calItemId;
+    private ?string $calItemId = null;
 
     /**
      * Appointment ID (deprecated)
@@ -51,7 +51,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName("apptId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $deprecatedApptId;
+    private ?string $deprecatedApptId = null;
 
     /**
      * Invite Message ID
@@ -62,7 +62,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName("invId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calInvId;
+    private ?string $calInvId = null;
 
     /**
      * Change sequence
@@ -73,7 +73,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Revision
@@ -84,7 +84,7 @@ class CreateCalendarItemResponse extends SoapResponse
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Message information

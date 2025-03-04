@@ -34,7 +34,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
     #[SerializedName("minlist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $list;
+    private string $list;
 
     /**
      * Constructor

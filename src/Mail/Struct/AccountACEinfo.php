@@ -39,7 +39,7 @@ class AccountACEinfo
     #[SerializedName("right")]
     #[Type("string")]
     #[XmlAttribute]
-    private $right;
+    private string $right;
 
     /**
      * @var string
@@ -48,7 +48,7 @@ class AccountACEinfo
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * @var string
@@ -57,7 +57,7 @@ class AccountACEinfo
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * @var string
@@ -66,7 +66,7 @@ class AccountACEinfo
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessKey;
+    private ?string $accessKey = null;
 
     /**
      * @var string
@@ -75,7 +75,7 @@ class AccountACEinfo
     #[SerializedName("pw")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * @var bool
@@ -84,7 +84,7 @@ class AccountACEinfo
     #[SerializedName("deny")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $deny;
+    private ?bool $deny = null;
 
     /**
      * Constructor

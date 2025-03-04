@@ -41,7 +41,7 @@ class Msg
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attachmentId;
+    private ?string $attachmentId = null;
 
     /**
      * Original ID
@@ -52,7 +52,7 @@ class Msg
     #[SerializedName("origid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $origId;
+    private ?string $origId = null;
 
     /**
      * Reply type - r|w.  (r)eplied or for(w)arded.
@@ -73,7 +73,7 @@ class Msg
     #[SerializedName("idnt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $identityId;
+    private ?string $identityId = null;
 
     /**
      * Subject
@@ -84,7 +84,7 @@ class Msg
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlAttribute]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Headers
@@ -105,7 +105,7 @@ class Msg
     #[SerializedName("irt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $inReplyTo;
+    private ?string $inReplyTo = null;
 
     /**
      * Folder ID
@@ -116,7 +116,7 @@ class Msg
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Flags
@@ -127,7 +127,7 @@ class Msg
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Content
@@ -138,7 +138,7 @@ class Msg
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Mime part information
@@ -181,7 +181,7 @@ class Msg
     #[Accessor(getter: "getEmailAddresses", setter: "setEmailAddresses")]
     #[Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")]
     #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
-    private $emailAddresses = [];
+    private array $emailAddresses = [];
 
     /**
      * Timezones
@@ -191,7 +191,7 @@ class Msg
     #[Accessor(getter: "getTimezones", setter: "setTimezones")]
     #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
     #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
-    private $timezones = [];
+    private array $timezones = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -202,7 +202,7 @@ class Msg
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Constructor

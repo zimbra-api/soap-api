@@ -32,7 +32,7 @@ class SharedReminderMount
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Set to enable (or unset to disable) reminders for shared appointments/tasks
@@ -43,7 +43,7 @@ class SharedReminderMount
     #[SerializedName("reminder")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $showReminders;
+    private ?bool $showReminders = null;
 
     /**
      * Constructor

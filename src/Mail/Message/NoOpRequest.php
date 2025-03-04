@@ -57,7 +57,7 @@ class NoOpRequest extends SoapRequest
     #[SerializedName("wait")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wait;
+    private ?bool $wait = null;
 
     /**
      * If "wait" is set, the caller can use this setting to determine whether notifications
@@ -70,7 +70,7 @@ class NoOpRequest extends SoapRequest
     #[SerializedName("delegate")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeDelegates;
+    private ?bool $includeDelegates = null;
 
     /**
      * If specified, the server will only allow a given user to have one single
@@ -83,7 +83,7 @@ class NoOpRequest extends SoapRequest
     #[SerializedName("limitToOneBlocked")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $enforceLimit;
+    private ?bool $enforceLimit = null;
 
     /**
      * The client may specify a custom timeout-length for their request if they know
@@ -97,7 +97,7 @@ class NoOpRequest extends SoapRequest
     #[SerializedName("timeout")]
     #[Type("int")]
     #[XmlAttribute]
-    private $timeout;
+    private ?int $timeout = null;
 
     /**
      * Constructor

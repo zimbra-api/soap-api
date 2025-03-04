@@ -73,7 +73,7 @@ class SearchResponse extends SoapResponse
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $queryOffset;
+    private ?int $queryOffset = null;
 
     /**
      * Set if there are more search results remaining.
@@ -84,7 +84,7 @@ class SearchResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $queryMore;
+    private ?bool $queryMore = null;
 
     /**
      * All messages
@@ -95,7 +95,7 @@ class SearchResponse extends SoapResponse
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private ?int $totalSize = null;
 
     /**
      * Simple search hits
@@ -105,7 +105,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getSimpleHits", setter: "setSimpleHits")]
     #[Type("array<Zimbra\Common\Struct\SimpleSearchHit>")]
     #[XmlList(inline: true, entry: "hit", namespace: "urn:zimbraMail")]
-    private $simpleHits = [];
+    private array $simpleHits = [];
 
     /**
      * Conversation search hits
@@ -115,7 +115,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getConversationHits", setter: "setConversationHits")]
     #[Type("array<Zimbra\Mail\Struct\ConversationHitInfo>")]
     #[XmlList(inline: true, entry: "c", namespace: "urn:zimbraMail")]
-    private $conversationHits = [];
+    private array $conversationHits = [];
 
     /**
      * Message search hits
@@ -125,7 +125,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getMessageHits", setter: "setMessageHits")]
     #[Type("array<Zimbra\Mail\Struct\MessageHitInfo>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $messageHits = [];
+    private array $messageHits = [];
 
     /**
      * Chat search hits
@@ -135,7 +135,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getChatHits", setter: "setChatHits")]
     #[Type("array<Zimbra\Mail\Struct\ChatHitInfo>")]
     #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
-    private $chatHits = [];
+    private array $chatHits = [];
 
     /**
      * Message part search hits
@@ -145,7 +145,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getMessagePartHits", setter: "setMessagePartHits")]
     #[Type("array<Zimbra\Mail\Struct\MessagePartHitInfo>")]
     #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
-    private $messagePartHits = [];
+    private array $messagePartHits = [];
 
     /**
      * Contact search hits
@@ -155,7 +155,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getContactHits", setter: "setContactHits")]
     #[Type("array<Zimbra\Mail\Struct\ContactInfo>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
-    private $contactHits = [];
+    private array $contactHits = [];
 
     /**
      * Note search hits
@@ -165,7 +165,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getNoteHits", setter: "setNoteHits")]
     #[Type("array<Zimbra\Mail\Struct\NoteHitInfo>")]
     #[XmlList(inline: true, entry: "note", namespace: "urn:zimbraMail")]
-    private $noteHits = [];
+    private array $noteHits = [];
 
     /**
      * Document search hits
@@ -175,7 +175,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getDocumentHits", setter: "setDocumentHits")]
     #[Type("array<Zimbra\Mail\Struct\DocumentHitInfo>")]
     #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
-    private $documentHits = [];
+    private array $documentHits = [];
 
     /**
      * Wiki search hits
@@ -195,7 +195,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getAppointmentHits", setter: "setAppointmentHits")]
     #[Type("array<Zimbra\Mail\Struct\AppointmentHitInfo>")]
     #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
-    private $appointmentHits = [];
+    private array $appointmentHits = [];
 
     /**
      * Task search hits
@@ -205,7 +205,7 @@ class SearchResponse extends SoapResponse
     #[Accessor(getter: "getTaskHits", setter: "setTaskHits")]
     #[Type("array<Zimbra\Mail\Struct\TaskHitInfo>")]
     #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
-    private $taskHits = [];
+    private array $taskHits = [];
 
     /**
      * Used to return general status information about your search.

@@ -34,7 +34,7 @@ class DateAttr implements DateAttrInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $date;
+    private string $date;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class ItemSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Folder ID
@@ -43,7 +43,7 @@ class ItemSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Name
@@ -54,7 +54,7 @@ class ItemSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Fully qualified path
@@ -65,7 +65,7 @@ class ItemSpec
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private ?string $path = null;
 
     /**
      * Constructor

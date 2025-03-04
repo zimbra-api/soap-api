@@ -41,7 +41,7 @@ class GetFilterRulesResponse extends SoapResponse
     #[Type("array<Zimbra\Mail\Struct\FilterRule>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
-    private $filterRules = [];
+    private array $filterRules = [];
 
     /**
      * Constructor

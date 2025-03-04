@@ -40,7 +40,7 @@ class ContactSpec implements SpecifyContact
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private ?int $id = null;
 
     /**
      * ID of folder to create contact in. Un-specified means use the default Contacts folder.
@@ -51,7 +51,7 @@ class ContactSpec implements SpecifyContact
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -62,7 +62,7 @@ class ContactSpec implements SpecifyContact
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -73,7 +73,7 @@ class ContactSpec implements SpecifyContact
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Either a vcard or attributes can be specified but not both.
@@ -94,7 +94,7 @@ class ContactSpec implements SpecifyContact
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Mail\Struct\NewContactAttr>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Valid only if the contact being created is a contact group
@@ -110,7 +110,7 @@ class ContactSpec implements SpecifyContact
     ]
     #[Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $contactGroupMembers = [];
+    private array $contactGroupMembers = [];
 
     /**
      * Constructor

@@ -210,7 +210,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     #[Accessor(getter: "getXNames", setter: "setXNames")]
     #[Type("array<Zimbra\Mail\Struct\XNameRule>")]
     #[XmlList(inline: true, entry: "rule-x-name", namespace: "urn:zimbraMail")]
-    private $xNames = [];
+    private array $xNames = [];
 
     /**
      * Constructor

@@ -34,7 +34,7 @@ class NumAttr implements NumAttrInterface
     #[SerializedName("num")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private int $num;
 
     /**
      * Constructor

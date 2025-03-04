@@ -79,7 +79,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName("needCalendarSentByFixup")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needCalendarSentbyFixup;
+    private ?bool $needCalendarSentbyFixup = null;
 
     /**
      * Indicates whether this a forward of calendar invitation in which
@@ -91,7 +91,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName("isCalendarForward")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isCalendarForward;
+    private ?bool $isCalendarForward = null;
 
     /**
      * If set, a copy will not be saved to sent regardless of account/identity settings
@@ -102,7 +102,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName("noSave")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $noSaveToSent;
+    private ?bool $noSaveToSent = null;
 
     /**
      * If set, return the copy of the sent message, if it was saved, in the response.
@@ -113,7 +113,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName("fetchSavedMsg")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $fetchSavedMsg;
+    private ?bool $fetchSavedMsg = null;
 
     /**
      * Send UID
@@ -124,7 +124,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName("suid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sendUid;
+    private ?string $sendUid = null;
 
     /**
      * If set, delivery receipt notification will be sent.
@@ -135,7 +135,7 @@ class SendMsgRequest extends SoapRequest
     #[SerializedName("deliveryReport")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $deliveryReport;
+    private ?bool $deliveryReport = null;
 
     /**
      * Constructor

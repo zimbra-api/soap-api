@@ -34,7 +34,7 @@ class SendDeliveryReportRequest extends SoapRequest
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $messageId;
+    private string $messageId;
 
     /**
      * Constructor

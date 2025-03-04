@@ -34,7 +34,7 @@ class Grant
     #[SerializedName("perm")]
     #[Type("string")]
     #[XmlAttribute]
-    private $perm;
+    private string $perm;
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
@@ -55,7 +55,7 @@ class Grant
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $granteeId;
+    private string $granteeId;
 
     /**
      * Time when this grant expires
@@ -66,7 +66,7 @@ class Grant
     #[SerializedName("expiry")]
     #[Type("int")]
     #[XmlAttribute]
-    private $expiry;
+    private ?int $expiry = null;
 
     /**
      * Name or email address of the principal being granted rights.
@@ -77,7 +77,7 @@ class Grant
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $granteeName;
+    private ?string $granteeName = null;
 
     /**
      * Password for when granteeType is guest
@@ -88,7 +88,7 @@ class Grant
     #[SerializedName("pw")]
     #[Type("string")]
     #[XmlAttribute]
-    private $guestPassword;
+    private ?string $guestPassword = null;
 
     /**
      * Access key when granteeType is key
@@ -99,7 +99,7 @@ class Grant
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessKey;
+    private ?string $accessKey = null;
 
     /**
      * Constructor

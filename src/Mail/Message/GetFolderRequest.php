@@ -48,7 +48,7 @@ class GetFolderRequest extends SoapRequest
     #[SerializedName("visible")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isVisible;
+    private ?bool $isVisible = null;
 
     /**
      * If set then grantee names are supplied in the "d" attribute in <grant>.
@@ -59,7 +59,7 @@ class GetFolderRequest extends SoapRequest
     #[SerializedName("needGranteeName")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needGranteeName;
+    private ?bool $needGranteeName = null;
 
     /**
      * If "view" is set then only the folders with matching view will be returned.
@@ -71,7 +71,7 @@ class GetFolderRequest extends SoapRequest
     #[SerializedName("view")]
     #[Type("string")]
     #[XmlAttribute]
-    private $viewConstraint;
+    private ?string $viewConstraint = null;
 
     /**
      * If "depth" is set to a non-negative number, we include that many levels of subfolders in the response.
@@ -84,7 +84,7 @@ class GetFolderRequest extends SoapRequest
     #[SerializedName("depth")]
     #[Type("int")]
     #[XmlAttribute]
-    private $treeDepth;
+    private ?int $treeDepth = null;
 
     /**
      * If true, one level of mountpoints are traversed and the target folder's counts are applied to the local mountpoint.
@@ -103,7 +103,7 @@ class GetFolderRequest extends SoapRequest
     #[SerializedName("tr")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $traverseMountpoints;
+    private ?bool $traverseMountpoints = null;
 
     /**
      * Folder specification

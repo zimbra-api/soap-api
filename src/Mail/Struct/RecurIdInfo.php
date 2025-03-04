@@ -40,7 +40,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     #[SerializedName("rangeType")]
     #[Type("int")]
     #[XmlAttribute]
-    private $recurrenceRangeType;
+    private int $recurrenceRangeType;
 
     /**
      * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
@@ -51,7 +51,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     #[SerializedName("recurId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurrenceId;
+    private string $recurrenceId;
 
     /**
      * Timezone name
@@ -62,7 +62,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     #[SerializedName("tz")]
     #[Type("string")]
     #[XmlAttribute]
-    private $timezone;
+    private ?string $timezone = null;
 
     /**
      * Recurrence-id in UTC time zone; used in non-all-day appointments only
@@ -74,7 +74,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     #[SerializedName("ridZ")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurIdZ;
+    private ?string $recurIdZ = null;
 
     /**
      * Constructor

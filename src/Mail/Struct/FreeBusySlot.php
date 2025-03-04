@@ -33,7 +33,7 @@ class FreeBusySlot
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * GMT End time for slot in milliseconds
@@ -44,7 +44,7 @@ class FreeBusySlot
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * Calendar event id
@@ -55,7 +55,7 @@ class FreeBusySlot
     #[SerializedName("eventId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Appointment subject
@@ -66,7 +66,7 @@ class FreeBusySlot
     #[SerializedName("subject")]
     #[Type("string")]
     #[XmlAttribute]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Location of meeting
@@ -77,7 +77,7 @@ class FreeBusySlot
     #[SerializedName("location")]
     #[Type("string")]
     #[XmlAttribute]
-    private $location;
+    private ?string $location = null;
 
     /**
      * Returns a bool value whether this calendar event is a meeting or not.
@@ -88,7 +88,7 @@ class FreeBusySlot
     #[SerializedName("isMeeting")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isMeeting;
+    private ?bool $isMeeting = null;
 
     /**
      * Returns a bool indicating whether it is continuous or not.
@@ -99,7 +99,7 @@ class FreeBusySlot
     #[SerializedName("isRecurring")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isRecurring;
+    private ?bool $isRecurring = null;
 
     /**
      * Returns a bool indicating whether there is any exception or not.
@@ -110,7 +110,7 @@ class FreeBusySlot
     #[SerializedName("isException")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isException;
+    private ?bool $isException = null;
 
     /**
      * Returns a bool indicating whether any reminder has been set or not.
@@ -121,7 +121,7 @@ class FreeBusySlot
     #[SerializedName("isReminderSet")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isReminderSet;
+    private ?bool $isReminderSet = null;
 
     /**
      * Returns a bool indicating whether this meeting is private or not.
@@ -132,7 +132,7 @@ class FreeBusySlot
     #[SerializedName("isPrivate")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isPrivate;
+    private ?bool $isPrivate = null;
 
     /**
      * Returns a bool indicating hasPermission to view FreeBusy information
@@ -143,7 +143,7 @@ class FreeBusySlot
     #[SerializedName("hasPermission")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $hasPermission;
+    private ?bool $hasPermission = null;
 
     /**
      * Constructor

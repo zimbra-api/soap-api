@@ -40,7 +40,7 @@ class ConversationSummary
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Number of messages in conversation without IMAP \Deleted flag set
@@ -51,7 +51,7 @@ class ConversationSummary
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private ?int $num = null;
 
     /**
      * Number of unread messages in conversation
@@ -62,7 +62,7 @@ class ConversationSummary
     #[SerializedName("u")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numUnread;
+    private ?int $numUnread = null;
 
     /**
      * Total number of messages in conversation including those with the IMAP \Deleted flag set
@@ -73,7 +73,7 @@ class ConversationSummary
     #[SerializedName("total")]
     #[Type("int")]
     #[XmlAttribute]
-    private $totalSize;
+    private ?int $totalSize = null;
 
     /**
      * Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
@@ -84,7 +84,7 @@ class ConversationSummary
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -95,7 +95,7 @@ class ConversationSummary
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -106,7 +106,7 @@ class ConversationSummary
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Date (secs since epoch) of most recent message in the converstation
@@ -117,7 +117,7 @@ class ConversationSummary
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * If elided is set, some participants are missing before the first returned <e> element
@@ -128,7 +128,7 @@ class ConversationSummary
     #[SerializedName("elided")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $elided;
+    private ?bool $elided = null;
 
     /**
      * Modified date in seconds
@@ -139,7 +139,7 @@ class ConversationSummary
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Modified sequence
@@ -150,7 +150,7 @@ class ConversationSummary
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Custom metadata
@@ -160,7 +160,7 @@ class ConversationSummary
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Subject of conversation
@@ -171,7 +171,7 @@ class ConversationSummary
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -182,7 +182,7 @@ class ConversationSummary
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Email addresses
@@ -192,7 +192,7 @@ class ConversationSummary
     #[Accessor(getter: "getEmails", setter: "setEmails")]
     #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
     #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
-    private $emails = [];
+    private array $emails = [];
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class GetWorkingHoursResponse extends SoapResponse
     #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
     #[Type("array<Zimbra\Mail\Struct\FreeBusyUserInfo>")]
     #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
-    private $freebusyUsers = [];
+    private array $freebusyUsers = [];
 
     /**
      * Constructor

@@ -41,7 +41,7 @@ class NewFolderSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Default type for the folder; used by web client to decide which view to use;
@@ -63,7 +63,7 @@ class NewFolderSpec
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -74,7 +74,7 @@ class NewFolderSpec
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -85,7 +85,7 @@ class NewFolderSpec
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
@@ -96,7 +96,7 @@ class NewFolderSpec
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * Parent folder ID
@@ -107,7 +107,7 @@ class NewFolderSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $parentFolderId;
+    private string $parentFolderId;
 
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
@@ -118,7 +118,7 @@ class NewFolderSpec
     #[SerializedName("fie")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $fetchIfExists;
+    private ?bool $fetchIfExists = null;
 
     /**
      * If set (default) then if "url" is set, synchronize folder content on folder creation
@@ -129,7 +129,7 @@ class NewFolderSpec
     #[SerializedName("sync")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $syncToUrl;
+    private ?bool $syncToUrl = null;
 
     /**
      * Grant specification
@@ -141,7 +141,7 @@ class NewFolderSpec
     #[Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "grant", namespace: "urn:zimbraMail")]
-    private $grants = [];
+    private array $grants = [];
 
     /**
      * Constructor

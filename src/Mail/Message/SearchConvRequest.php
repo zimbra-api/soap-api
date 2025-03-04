@@ -43,7 +43,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     #[SerializedName("cid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $conversationId;
+    private string $conversationId;
 
     /**
      * If set then the response will contain a top level <c> element representing
@@ -56,7 +56,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     #[SerializedName("nest")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $nestMessages;
+    private ?bool $nestMessages = null;
 
     /**
      * Constructor

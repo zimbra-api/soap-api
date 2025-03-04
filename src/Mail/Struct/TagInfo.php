@@ -40,7 +40,7 @@ class TagInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Name
@@ -51,7 +51,7 @@ class TagInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -62,7 +62,7 @@ class TagInfo
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -73,7 +73,7 @@ class TagInfo
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * Unread count. Only present if value > 0
@@ -84,7 +84,7 @@ class TagInfo
     #[SerializedName("u")]
     #[Type("int")]
     #[XmlAttribute]
-    private $unread;
+    private ?int $unread = null;
 
     /**
      * Item count. Only present if value > 0
@@ -95,7 +95,7 @@ class TagInfo
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $count;
+    private ?int $count = null;
 
     /**
      * Date
@@ -106,7 +106,7 @@ class TagInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Revision
@@ -117,7 +117,7 @@ class TagInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Modified date in seconds
@@ -128,7 +128,7 @@ class TagInfo
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Modified sequence
@@ -139,7 +139,7 @@ class TagInfo
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Custom metadata
@@ -149,7 +149,7 @@ class TagInfo
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Retention policy

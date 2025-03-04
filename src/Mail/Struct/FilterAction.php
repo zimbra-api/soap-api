@@ -32,7 +32,7 @@ class FilterAction
     #[SerializedName("index")]
     #[Type("int")]
     #[XmlAttribute]
-    private $index;
+    private ?int $index = null;
 
     /**
      * Constructor

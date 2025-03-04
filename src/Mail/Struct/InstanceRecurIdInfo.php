@@ -33,7 +33,7 @@ class InstanceRecurIdInfo
     #[SerializedName("range")]
     #[Type("string")]
     #[XmlAttribute]
-    private $range;
+    private ?string $range = null;
 
     /**
      * Date and/or time.  Format is : YYYYMMDD['T'HHMMSS[Z]]
@@ -58,7 +58,7 @@ class InstanceRecurIdInfo
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dateTime;
+    private ?string $dateTime = null;
 
     /**
      * Java timezone identifier
@@ -69,7 +69,7 @@ class InstanceRecurIdInfo
     #[SerializedName("tz")]
     #[Type("string")]
     #[XmlAttribute]
-    private $timezone;
+    private ?string $timezone = null;
 
     /**
      * Constructor

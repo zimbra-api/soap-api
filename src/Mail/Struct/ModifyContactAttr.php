@@ -33,7 +33,7 @@ class ModifyContactAttr extends NewContactAttr
     #[SerializedName("op")]
     #[Type("string")]
     #[XmlAttribute]
-    private $operation;
+    private ?string $operation = null;
 
     /**
      * Constructor

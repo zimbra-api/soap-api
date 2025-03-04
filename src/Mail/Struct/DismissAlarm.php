@@ -32,7 +32,7 @@ class DismissAlarm
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Time alarm was dismissed, in millis
@@ -43,7 +43,7 @@ class DismissAlarm
     #[SerializedName("dismissedAt")]
     #[Type("int")]
     #[XmlAttribute]
-    private $dismissedAt;
+    private int $dismissedAt;
 
     /**
      * Constructor

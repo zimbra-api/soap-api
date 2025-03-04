@@ -57,7 +57,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[Accessor(getter: "getCategories", setter: "setCategories")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
-    private $categories = [];
+    private array $categories = [];
 
     /**
      * Comments - for iCalendar COMMENT properties
@@ -67,7 +67,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[Accessor(getter: "getComments", setter: "setComments")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "comment", namespace: "urn:zimbraMail")]
-    private $comments = [];
+    private array $comments = [];
 
     /**
      * Contacts - for iCalendar CONTACT properties
@@ -77,7 +77,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[Accessor(getter: "getContacts", setter: "setContacts")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "contact", namespace: "urn:zimbraMail")]
-    private $contacts = [];
+    private array $contacts = [];
 
     /**
      * for iCalendar GEO property
@@ -98,7 +98,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[Accessor(getter: "getAttendees", setter: "setAttendees")]
     #[Type("array<Zimbra\Mail\Struct\CalendarAttendee>")]
     #[XmlList(inline: true, entry: "at", namespace: "urn:zimbraMail")]
-    private $attendees = [];
+    private array $attendees = [];
 
     /**
      * Alarm information
@@ -108,7 +108,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[Accessor(getter: "getAlarms", setter: "setAlarms")]
     #[Type("array<Zimbra\Mail\Struct\AlarmInfo>")]
     #[XmlList(inline: true, entry: "alarm", namespace: "urn:zimbraMail")]
-    private $alarms = [];
+    private array $alarms = [];
 
     /**
      * XPROP properties
@@ -118,7 +118,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[Accessor(getter: "getXProps", setter: "setXProps")]
     #[Type("array<Zimbra\Mail\Struct\XProp>")]
     #[XmlList(inline: true, entry: "xprop", namespace: "urn:zimbraMail")]
-    private $xProps = [];
+    private array $xProps = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -129,7 +129,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Present if noBlob is set and invite has a plain text description
@@ -140,7 +140,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[SerializedName("desc")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $description;
+    private ?string $description = null;
 
     /**
      * Present if noBlob is set and invite has an HTML description
@@ -151,7 +151,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     #[SerializedName("descHtml")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $htmlDescription;
+    private ?string $htmlDescription = null;
 
     /**
      * Organizer

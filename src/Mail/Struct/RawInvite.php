@@ -39,7 +39,7 @@ class RawInvite
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uid;
+    private ?string $uid = null;
 
     /**
      * Summary
@@ -50,7 +50,7 @@ class RawInvite
     #[SerializedName("summary")]
     #[Type("string")]
     #[XmlAttribute]
-    private $summary;
+    private ?string $summary = null;
 
     /**
      * Raw iCalendar data
@@ -60,7 +60,7 @@ class RawInvite
     #[Accessor(getter: "getContent", setter: "setContent")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Constructor

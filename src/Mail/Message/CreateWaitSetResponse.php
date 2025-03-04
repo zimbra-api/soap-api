@@ -40,7 +40,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     #[SerializedName("waitSet")]
     #[Type("string")]
     #[XmlAttribute]
-    private $waitSetId;
+    private ?string $waitSetId = null;
 
     /**
      * Default interest types: comma-separated list.  Currently:
@@ -60,7 +60,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     #[SerializedName("defTypes")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultInterests;
+    private ?string $defaultInterests = null;
 
     /**
      * Sequence
@@ -71,7 +71,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sequence;
+    private ?int $sequence = null;
 
     /**
      * Error information
@@ -81,7 +81,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     #[Accessor(getter: "getErrors", setter: "setErrors")]
     #[Type("array<Zimbra\Common\Struct\IdAndType>")]
     #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraMail")]
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * Constructor

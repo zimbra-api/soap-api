@@ -37,7 +37,7 @@ class Rights
     #[SerializedName("perm")]
     #[Type("string")]
     #[XmlAttribute]
-    private $effectivePermissions;
+    private string $effectivePermissions;
 
     /**
      * Constructor

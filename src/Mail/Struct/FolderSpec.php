@@ -32,7 +32,7 @@ class FolderSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private string $folder;
 
     /**
      * Constructor

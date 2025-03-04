@@ -41,7 +41,7 @@ class ImportAppointmentsRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Content type
@@ -53,7 +53,7 @@ class ImportAppointmentsRequest extends SoapRequest
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private string $contentType;
 
     /**
      * Content specification

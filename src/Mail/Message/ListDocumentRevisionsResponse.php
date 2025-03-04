@@ -33,7 +33,7 @@ class ListDocumentRevisionsResponse extends SoapResponse
     #[Accessor(getter: "getRevisions", setter: "setRevisions")]
     #[Type("array<Zimbra\Mail\Struct\DocumentInfo>")]
     #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
-    private $revisions = [];
+    private array $revisions = [];
 
     /**
      * User information
@@ -43,7 +43,7 @@ class ListDocumentRevisionsResponse extends SoapResponse
     #[Accessor(getter: "getUsers", setter: "setUsers")]
     #[Type("array<Zimbra\Mail\Struct\IdEmailName>")]
     #[XmlList(inline: true, entry: "user", namespace: "urn:zimbraMail")]
-    private $users = [];
+    private array $users = [];
 
     /**
      * Constructor

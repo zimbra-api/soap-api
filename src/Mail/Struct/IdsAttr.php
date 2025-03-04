@@ -32,7 +32,7 @@ class IdsAttr
     #[SerializedName("ids")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ids;
+    private string $ids;
 
     /**
      * Constructor

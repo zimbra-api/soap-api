@@ -32,7 +32,7 @@ class FilterTest
     #[SerializedName("index")]
     #[Type("int")]
     #[XmlAttribute]
-    private $index;
+    private ?int $index = null;
 
     /**
      * Specifies a "not" condition for the test
@@ -43,7 +43,7 @@ class FilterTest
     #[SerializedName("negative")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $negative;
+    private ?bool $negative = null;
 
     /**
      * Constructor

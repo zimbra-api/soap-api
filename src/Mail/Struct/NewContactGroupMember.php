@@ -50,7 +50,7 @@ class NewContactGroupMember
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private string $value;
 
     /**
      * Constructor

@@ -47,7 +47,7 @@ class BulkAction
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Constructor

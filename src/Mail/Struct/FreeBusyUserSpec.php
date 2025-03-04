@@ -33,7 +33,7 @@ class FreeBusyUserSpec
     #[SerializedName("l")]
     #[Type("int")]
     #[XmlAttribute]
-    private $folderId;
+    private ?int $folderId = null;
 
     /**
      * Zimbra ID. Either "name" or "id" must be specified
@@ -44,7 +44,7 @@ class FreeBusyUserSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Email address.  Either "name" or "id" must be specified
@@ -55,7 +55,7 @@ class FreeBusyUserSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Constructor

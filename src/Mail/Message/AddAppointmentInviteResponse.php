@@ -33,7 +33,7 @@ class AddAppointmentInviteResponse extends SoapResponse
     #[SerializedName("calItemId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $calItemId;
+    private ?int $calItemId = null;
 
     /**
      * Invite ID of the added invite
@@ -44,7 +44,7 @@ class AddAppointmentInviteResponse extends SoapResponse
     #[SerializedName("invId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $invId;
+    private ?int $invId = null;
 
     /**
      * Component number of the added invite
@@ -55,7 +55,7 @@ class AddAppointmentInviteResponse extends SoapResponse
     #[SerializedName("compNum")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * Constructor

@@ -38,7 +38,7 @@ class DocumentActionSelector extends ActionSelector
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * Used for "grant" operation

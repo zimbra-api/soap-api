@@ -41,7 +41,7 @@ class CheckSpellingResponse extends SoapResponse
     #[SerializedName("available")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $available;
+    private bool $available;
 
     /**
      * Information for misspelled words
@@ -51,7 +51,7 @@ class CheckSpellingResponse extends SoapResponse
     #[Accessor(getter: "getMisspelledWords", setter: "setMisspelledWords")]
     #[Type("array<Zimbra\Mail\Struct\Misspelling>")]
     #[XmlList(inline: true, entry: "misspelled", namespace: "urn:zimbraMail")]
-    private $misspelledWords = [];
+    private array $misspelledWords = [];
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class ModifyProfileImageResponse extends SoapResponse
     #[SerializedName("itemId")]
     #[Type("int")]
     #[XmlAttribute]
-    private $itemId;
+    private ?int $itemId = null;
 
     /**
      * Constructor

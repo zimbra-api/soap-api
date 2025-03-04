@@ -35,7 +35,7 @@ class IMAPCopyRequest extends SoapRequest
     #[SerializedName("ids")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ids;
+    private string $ids;
 
     /**
      * Mail item type.
@@ -57,7 +57,7 @@ class IMAPCopyRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("int")]
     #[XmlAttribute]
-    private $folder;
+    private int $folder;
 
     /**
      * Constructor

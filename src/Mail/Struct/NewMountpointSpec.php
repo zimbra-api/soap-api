@@ -34,7 +34,7 @@ class NewMountpointSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * (optional) Default type for the folder; used by web client to decide which view to use;
@@ -56,7 +56,7 @@ class NewMountpointSpec
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -67,7 +67,7 @@ class NewMountpointSpec
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -78,7 +78,7 @@ class NewMountpointSpec
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
@@ -89,7 +89,7 @@ class NewMountpointSpec
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * Parent folder ID
@@ -100,7 +100,7 @@ class NewMountpointSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private string $folderId;
 
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
@@ -111,7 +111,7 @@ class NewMountpointSpec
     #[SerializedName("fie")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $fetchIfExists;
+    private ?bool $fetchIfExists = null;
 
     /**
      * If set, client should display reminders for shared appointments/tasks
@@ -122,7 +122,7 @@ class NewMountpointSpec
     #[SerializedName("reminder")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $reminderEnabled;
+    private ?bool $reminderEnabled = null;
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
@@ -133,7 +133,7 @@ class NewMountpointSpec
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerId;
+    private ?string $ownerId = null;
 
     /**
      * Primary email address of the owner of the linked-to resource
@@ -144,7 +144,7 @@ class NewMountpointSpec
     #[SerializedName("owner")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerName;
+    private ?string $ownerName = null;
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
@@ -155,7 +155,7 @@ class NewMountpointSpec
     #[SerializedName("rid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $remoteId;
+    private ?int $remoteId = null;
 
     /**
      * Path to shared item
@@ -166,7 +166,7 @@ class NewMountpointSpec
     #[SerializedName("path")]
     #[Type("string")]
     #[XmlAttribute]
-    private $path;
+    private ?string $path = null;
 
     /**
      * Constructor

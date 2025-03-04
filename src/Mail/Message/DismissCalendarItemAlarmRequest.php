@@ -34,7 +34,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     #[Accessor(getter: "getApptAlarms", setter: "setApptAlarms")]
     #[Type("array<Zimbra\Mail\Struct\DismissAppointmentAlarm>")]
     #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
-    private $apptAlarms = [];
+    private array $apptAlarms = [];
 
     /**
      * Details of task alarms to dismiss
@@ -44,7 +44,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     #[Accessor(getter: "getTaskAlarms", setter: "setTaskAlarms")]
     #[Type("array<Zimbra\Mail\Struct\DismissTaskAlarm>")]
     #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
-    private $taskAlarms = [];
+    private array $taskAlarms = [];
 
     /**
      * Constructor

@@ -36,7 +36,7 @@ class ByYearDayRule implements ByYearDayRuleInterface
     #[SerializedName("yrdaylist")]
     #[Type("string")]
     #[XmlAttribute]
-    private $list;
+    private string $list;
 
     /**
      * Constructor

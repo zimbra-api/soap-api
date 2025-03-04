@@ -38,7 +38,7 @@ class MiniCalError
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * ServiceException error code - service.PERM_DENIED, mail.NO_SUCH_FOLDER, account.NO_SUCH_ACCOUNT, etc.
@@ -49,7 +49,7 @@ class MiniCalError
     #[SerializedName("code")]
     #[Type("string")]
     #[XmlAttribute]
-    private $code;
+    private string $code;
 
     /**
      * Error message from the exception (but no stack trace)
@@ -59,7 +59,7 @@ class MiniCalError
     #[Accessor(getter: "getErrorMessage", setter: "setErrorMessage")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $errorMessage;
+    private ?string $errorMessage = null;
 
     /**
      * Constructor

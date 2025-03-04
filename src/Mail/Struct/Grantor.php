@@ -32,7 +32,7 @@ class Grantor
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Email address
@@ -43,7 +43,7 @@ class Grantor
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private string $email;
 
     /**
      * Grantor display name
@@ -54,7 +54,7 @@ class Grantor
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Constructor

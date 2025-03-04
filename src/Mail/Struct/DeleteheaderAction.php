@@ -38,7 +38,7 @@ class DeleteheaderAction extends FilterAction
     #[SerializedName("last")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $last;
+    private ?bool $last = null;
 
     /**
      * offset
@@ -49,7 +49,7 @@ class DeleteheaderAction extends FilterAction
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * tests

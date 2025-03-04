@@ -32,7 +32,7 @@ class MsgPartIds
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Comma separated list of part IDs to remove
@@ -43,7 +43,7 @@ class MsgPartIds
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $partIds;
+    private string $partIds;
 
     /**
      * Constructor

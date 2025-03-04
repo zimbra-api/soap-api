@@ -42,7 +42,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * IMAP UID
@@ -53,7 +53,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("i4uid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapUid;
+    private ?int $imapUid = null;
 
     /**
      * X-Zimbra-Calendar-Intended-For header
@@ -69,7 +69,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("cif")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calendarIntendedFor;
+    private ?string $calendarIntendedFor = null;
 
     /**
      * Message id of the message being replied to/forwarded (outbound messages only)
@@ -80,7 +80,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("origid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $origId;
+    private ?string $origId = null;
 
     /**
      * Reply type - r|w
@@ -101,7 +101,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("idnt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $identityId;
+    private ?string $identityId = null;
 
     /**
      * Draft account ID
@@ -112,7 +112,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("forAcct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $draftAccountId;
+    private ?string $draftAccountId = null;
 
     /**
      * Can optionally set this to specify the time at which the draft should be automatically sent by the server
@@ -123,7 +123,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("autoSendTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $draftAutoSendTime;
+    private ?int $draftAutoSendTime = null;
 
     /**
      * Date header
@@ -134,7 +134,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("sd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sentDate;
+    private ?int $sentDate = null;
 
     /**
      * Resent date
@@ -145,7 +145,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("rd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $resentDate;
+    private ?int $resentDate = null;
 
     /**
      * Part
@@ -156,7 +156,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -167,7 +167,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Email addresses
@@ -177,7 +177,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[Accessor(getter: "getEmails", setter: "setEmails")]
     #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
     #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
-    private $emails = [];
+    private array $emails = [];
 
     /**
      * Subject
@@ -188,7 +188,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Message ID
@@ -199,7 +199,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $messageIdHeader;
+    private ?string $messageIdHeader = null;
 
     /**
      * Message-ID header for message being replied to
@@ -210,7 +210,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[SerializedName("irt")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $inReplyTo;
+    private ?string $inReplyTo = null;
 
     /**
      * Invite information
@@ -231,7 +231,7 @@ class MsgWithGroupInfo extends MessageCommon
     #[Accessor(getter: "getHeaders", setter: "setHeaders")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
-    private $headers = [];
+    private array $headers = [];
 
     /**
      * Mime part information

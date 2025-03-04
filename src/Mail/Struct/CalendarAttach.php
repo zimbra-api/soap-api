@@ -40,7 +40,7 @@ class CalendarAttach implements CalendarAttachInterface
     #[SerializedName("uri")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uri;
+    private ?string $uri = null;
 
     /**
      * Content Type for binaryB64Data
@@ -51,7 +51,7 @@ class CalendarAttach implements CalendarAttachInterface
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * Base64 encoded binary alarrm attach data
@@ -61,7 +61,7 @@ class CalendarAttach implements CalendarAttachInterface
     #[Accessor(getter: "getBinaryB64Data", setter: "setBinaryB64Data")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $binaryB64Data;
+    private ?string $binaryB64Data = null;
 
     /**
      * Constructor

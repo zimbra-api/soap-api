@@ -47,7 +47,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * IMAP UID
@@ -58,7 +58,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("i4uid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapUid;
+    private ?int $imapUid = null;
 
     /**
      * X-Zimbra-Calendar-Intended-For header
@@ -74,7 +74,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("cif")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calendarIntendedFor;
+    private ?string $calendarIntendedFor = null;
 
     /**
      * Message id of the message being replied to/forwarded (outbound messages only)
@@ -85,7 +85,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("origid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $origId;
+    private ?string $origId = null;
 
     /**
      * Reply type - r|w: (r)eplied or for(w)arded.
@@ -106,7 +106,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("idnt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $identityId;
+    private ?string $identityId = null;
 
     /**
      * Draft account ID
@@ -117,7 +117,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("forAcct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $draftAccountId;
+    private ?string $draftAccountId = null;
 
     /**
      * Can optionally set this to specify the time at which the draft should be
@@ -129,7 +129,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("autoSendTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $draftAutoSendTime;
+    private ?int $draftAutoSendTime = null;
 
     /**
      * Date header
@@ -140,7 +140,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("sd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sentDate;
+    private ?int $sentDate = null;
 
     /**
      * Resent date
@@ -151,7 +151,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("rd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $resentDate;
+    private ?int $resentDate = null;
 
     /**
      * Part
@@ -162,7 +162,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -173,7 +173,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Email addresses
@@ -183,7 +183,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[Accessor(getter: "getEmails", setter: "setEmails")]
     #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
     #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
-    private $emails = [];
+    private array $emails = [];
 
     /**
      * Subject
@@ -194,7 +194,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Message ID
@@ -205,7 +205,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $messageIdHeader;
+    private ?string $messageIdHeader = null;
 
     /**
      * Message-ID header for message being replied to
@@ -216,7 +216,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[SerializedName("irt")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $inReplyTo;
+    private ?string $inReplyTo = null;
 
     /**
      * Parsed out iCalendar invite
@@ -237,7 +237,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[Accessor(getter: "getHeaders", setter: "setHeaders")]
     #[Type("array<Zimbra\Common\Struct\KeyValuePair>")]
     #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
-    private $headers = [];
+    private array $headers = [];
 
     /**
      * Part infomations
@@ -247,7 +247,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[Accessor(getter: "getPartInfos", setter: "setPartInfos")]
     #[Type("array<Zimbra\Mail\Struct\PartInfo>")]
     #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
-    private $partInfos = [];
+    private array $partInfos = [];
 
     /**
      * Share notifications
@@ -262,7 +262,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     ]
     #[Type("array<Zimbra\Mail\Struct\ShareNotification>")]
     #[XmlList(inline: true, entry: "shr", namespace: "urn:zimbraMail")]
-    private $shareNotifications = [];
+    private array $shareNotifications = [];
 
     /**
      * DL subscription notifications
@@ -272,7 +272,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     #[Accessor(getter: "getDlSubs", setter: "setDlSubs")]
     #[Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")]
     #[XmlList(inline: true, entry: "dlSubs", namespace: "urn:zimbraMail")]
-    private $dlSubs = [];
+    private array $dlSubs = [];
 
     /**
      * Constructor

@@ -41,7 +41,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private ?string $address = null;
 
     /**
      * URL - has same value as email-address.
@@ -52,7 +52,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private $url;
+    private ?string $url = null;
 
     /**
      * Friendly name - "CN" in iCalendar
@@ -63,7 +63,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * iCalendar SENT-BY
@@ -74,7 +74,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("sentBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sentBy;
+    private ?string $sentBy = null;
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user. the property.
@@ -85,7 +85,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("dir")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dir;
+    private ?string $dir = null;
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
@@ -96,7 +96,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("lang")]
     #[Type("string")]
     #[XmlAttribute]
-    private $language;
+    private ?string $language = null;
 
     /**
      * iCalendar CUTYPE (Calendar user type)
@@ -107,7 +107,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("cutype")]
     #[Type("string")]
     #[XmlAttribute]
-    private $cuType;
+    private ?string $cuType = null;
 
     /**
      * iCalendar ROLE
@@ -118,7 +118,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("role")]
     #[Type("string")]
     #[XmlAttribute]
-    private $role;
+    private ?string $role = null;
 
     /**
      * iCalendar PTST (Participation status)
@@ -143,7 +143,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("rsvp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $rsvp;
+    private ?bool $rsvp = null;
 
     /**
      * iCalendar MEMBER - The group or list membership of the calendar user
@@ -154,7 +154,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("member")]
     #[Type("string")]
     #[XmlAttribute]
-    private $member;
+    private ?string $member = null;
 
     /**
      * iCalendar DELEGATED-TO
@@ -165,7 +165,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("delegatedTo")]
     #[Type("string")]
     #[XmlAttribute]
-    private $delegatedTo;
+    private ?string $delegatedTo = null;
 
     /**
      * iCalendar DELEGATED-FROM
@@ -176,7 +176,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[SerializedName("delegatedFrom")]
     #[Type("string")]
     #[XmlAttribute]
-    private $delegatedFrom;
+    private ?string $delegatedFrom = null;
 
     /**
      * Non-standard parameters (XPARAMs)
@@ -186,7 +186,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     #[Accessor(getter: "getXParams", setter: "setXParams")]
     #[Type("array<Zimbra\Mail\Struct\XParam>")]
     #[XmlList(inline: true, entry: "xparam", namespace: "urn:zimbraMail")]
-    private $xParams;
+    private array $xParams;
 
     /**
      * Constructor

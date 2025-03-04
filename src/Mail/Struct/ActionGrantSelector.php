@@ -34,7 +34,7 @@ class ActionGrantSelector
     #[SerializedName("perm")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rights;
+    private string $rights;
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
@@ -55,7 +55,7 @@ class ActionGrantSelector
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * Name or email address of the grantee. Not present if granteeType is all or pub
@@ -66,7 +66,7 @@ class ActionGrantSelector
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * Retained for backwards compatibility.  Old way of specifying password
@@ -77,7 +77,7 @@ class ActionGrantSelector
     #[SerializedName("args")]
     #[Type("string")]
     #[XmlAttribute]
-    private $args;
+    private ?string $args = null;
 
     /**
      * Password when granteeType is gst
@@ -88,7 +88,7 @@ class ActionGrantSelector
     #[SerializedName("pw")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private ?string $password = null;
 
     /**
      * Optional argument.  Access key when granteeType is "key"
@@ -99,7 +99,7 @@ class ActionGrantSelector
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessKey;
+    private ?string $accessKey = null;
 
     /**
      * Constructor

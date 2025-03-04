@@ -39,7 +39,7 @@ class MimePartInfo
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * Content
@@ -50,7 +50,7 @@ class MimePartInfo
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlAttribute]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Content ID
@@ -61,7 +61,7 @@ class MimePartInfo
     #[SerializedName("ci")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentId;
+    private ?string $contentId = null;
 
     /**
      * MIME Parts
@@ -71,7 +71,7 @@ class MimePartInfo
     #[Accessor(getter: "getMimeParts", setter: "setMimeParts")]
     #[Type("array<Zimbra\Mail\Struct\MimePartInfo>")]
     #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
-    private $mimeParts = [];
+    private array $mimeParts = [];
 
     /**
      * Attachments

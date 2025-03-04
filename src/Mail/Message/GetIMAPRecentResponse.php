@@ -34,7 +34,7 @@ class GetIMAPRecentResponse extends SoapResponse
     #[SerializedName("n")]
     #[Type("int")]
     #[XmlAttribute]
-    private $num;
+    private int $num;
 
     /**
      * Constructor

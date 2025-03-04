@@ -40,7 +40,7 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     #[SerializedName("waitSet")]
     #[Type("string")]
     #[XmlAttribute]
-    private $waitSetId;
+    private string $waitSetId;
 
     /**
      * 1 (true) if canceled
@@ -51,7 +51,7 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     #[SerializedName("canceled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canceled;
+    private ?bool $canceled = null;
 
     /**
      * Sequence number
@@ -62,7 +62,7 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     #[SerializedName("seq")]
     #[Type("string")]
     #[XmlAttribute]
-    private $seqNo;
+    private ?string $seqNo = null;
 
     /**
      * Information on signaled accounts.
@@ -73,7 +73,7 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     #[Accessor(getter: "getSignalledAccounts", setter: "setSignalledAccounts")]
     #[Type("array<Zimbra\Mail\Struct\AccountWithModifications>")]
     #[XmlList(inline: true, entry: "a", namespace: "urn:zimbraMail")]
-    private $signalledAccounts = [];
+    private array $signalledAccounts = [];
 
     /**
      * Error information
@@ -83,7 +83,7 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     #[Accessor(getter: "getErrors", setter: "setErrors")]
     #[Type("array<Zimbra\Common\Struct\IdAndType>")]
     #[XmlList(inline: true, entry: "error", namespace: "urn:zimbraMail")]
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * Constructor

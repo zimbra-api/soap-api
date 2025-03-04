@@ -42,7 +42,7 @@ class MsgSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Supply a "part" and the retrieved data will be on the specified message/rfc822 subpart.
@@ -55,7 +55,7 @@ class MsgSpec
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * Set to return the raw message content rather than a parsed mime structure;
@@ -67,7 +67,7 @@ class MsgSpec
     #[SerializedName("raw")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $raw;
+    private ?bool $raw = null;
 
     /**
      * Set to mark the message as read, unset to leave the read status unchanged.
@@ -79,7 +79,7 @@ class MsgSpec
     #[SerializedName("read")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $markRead;
+    private ?bool $markRead = null;
 
     /**
      * Use {max-inlined-length} to limit the length of the text inlined into body <content>.
@@ -92,7 +92,7 @@ class MsgSpec
     #[SerializedName("max")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxInlinedLength;
+    private ?int $maxInlinedLength = null;
 
     /**
      * If set, never inline raw <content> for messages, specify by <url> instead.
@@ -105,7 +105,7 @@ class MsgSpec
     #[SerializedName("useContentUrl")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $useContentUrl;
+    private ?bool $useContentUrl = null;
 
     /**
      * Set to return defanged HTML content by default. (default is unset.)
@@ -116,7 +116,7 @@ class MsgSpec
     #[SerializedName("html")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantHtml;
+    private ?bool $wantHtml = null;
 
     /**
      * Set to return IMAP UID. (default is unset.)
@@ -127,7 +127,7 @@ class MsgSpec
     #[SerializedName("wantImapUid")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantImapUid;
+    private ?bool $wantImapUid = null;
 
     /**
      * Set to return Modified Sequence. (default is unset.)
@@ -143,7 +143,7 @@ class MsgSpec
     #[SerializedName("wantModSeq")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantModifiedSequence;
+    private ?bool $wantModifiedSequence = null;
 
     /**
      * Set to "neuter" <IMG> tags returned in HTML content; this involves
@@ -155,7 +155,7 @@ class MsgSpec
     #[SerializedName("neuter")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $neuter;
+    private ?bool $neuter = null;
 
     /**
      * Recurrence ID in format YYYYMMDD[ThhmmssZ].
@@ -168,7 +168,7 @@ class MsgSpec
     #[SerializedName("ridZ")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurIdZ;
+    private ?string $recurIdZ = null;
 
     /**
      * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
@@ -179,7 +179,7 @@ class MsgSpec
     #[SerializedName("needExp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needCanExpand;
+    private ?bool $needCanExpand = null;
 
     /**
      * wantContent = "full" to get the complete message along with the quoted content
@@ -205,7 +205,7 @@ class MsgSpec
     #[Accessor(getter: "getHeaders", setter: "setHeaders")]
     #[Type("array<Zimbra\Common\Struct\AttributeName>")]
     #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
-    private $headers = [];
+    private array $headers = [];
 
     /**
      * Constructor

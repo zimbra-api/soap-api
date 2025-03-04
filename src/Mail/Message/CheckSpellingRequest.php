@@ -44,7 +44,7 @@ class CheckSpellingRequest extends SoapRequest
     #[SerializedName("dictionary")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dictionary;
+    private ?string $dictionary = null;
 
     /**
      * Comma-separated list of words to ignore just for this request.  These words are added
@@ -56,7 +56,7 @@ class CheckSpellingRequest extends SoapRequest
     #[SerializedName("ignore")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ignoreList;
+    private ?string $ignoreList = null;
 
     /**
      * Text to spell check
@@ -66,7 +66,7 @@ class CheckSpellingRequest extends SoapRequest
     #[Accessor(getter: "getText", setter: "setText")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $text;
+    private ?string $text = null;
 
     /**
      * Constructor

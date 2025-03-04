@@ -32,7 +32,7 @@ class FilterVariable
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * value
@@ -43,7 +43,7 @@ class FilterVariable
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private string $value;
 
     /**
      * Constructor

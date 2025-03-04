@@ -39,7 +39,7 @@ class ConversationSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * if value is "1" or "all" the full expanded message structure is inlined for the
@@ -51,7 +51,7 @@ class ConversationSpec
     #[SerializedName("fetch")]
     #[Type("string")]
     #[XmlAttribute]
-    private $inlineRule;
+    private ?string $inlineRule = null;
 
     /**
      * Set to return defanged HTML content by default. (default is unset)
@@ -62,7 +62,7 @@ class ConversationSpec
     #[SerializedName("html")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantHtml;
+    private ?bool $wantHtml = null;
 
     /**
      * Maximum inlined length
@@ -73,7 +73,7 @@ class ConversationSpec
     #[SerializedName("max")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxInlinedLength;
+    private ?int $maxInlinedLength = null;
 
     /**
      * Set to return group info (isGroup and exp flags) on <e> elements in the response (default is unset.)
@@ -84,7 +84,7 @@ class ConversationSpec
     #[SerializedName("needExp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needCanExpand;
+    private ?bool $needCanExpand = null;
 
     /**
      * Requested headers. If <header>s are requested, any matching headers are
@@ -95,7 +95,7 @@ class ConversationSpec
     #[Accessor(getter: "getHeaders", setter: "setHeaders")]
     #[Type("array<Zimbra\Common\Struct\AttributeName>")]
     #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
-    private $headers = [];
+    private array $headers = [];
 
     /**
      * Constructor

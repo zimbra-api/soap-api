@@ -35,7 +35,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Component of default invite
@@ -46,7 +46,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     #[SerializedName("comp")]
     #[Type("int")]
     #[XmlAttribute]
-    private $numComponents;
+    private ?int $numComponents = null;
 
     /**
      * Change sequence of fetched series
@@ -57,7 +57,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Revision of fetched series
@@ -68,7 +68,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Constructor

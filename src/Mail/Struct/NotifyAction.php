@@ -38,7 +38,7 @@ class NotifyAction extends FilterAction
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private ?string $address = null;
 
     /**
      * Subject template
@@ -51,7 +51,7 @@ class NotifyAction extends FilterAction
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlAttribute]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Maximum body size in bytes
@@ -62,7 +62,7 @@ class NotifyAction extends FilterAction
     #[SerializedName("maxBodySize")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxBodySize;
+    private ?int $maxBodySize = null;
 
     /**
      * Body template
@@ -75,7 +75,7 @@ class NotifyAction extends FilterAction
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Optional - Either "*" or a comma-separated list of header names.
@@ -86,7 +86,7 @@ class NotifyAction extends FilterAction
     #[SerializedName("origHeaders")]
     #[Type("string")]
     #[XmlAttribute]
-    private $origHeaders;
+    private ?string $origHeaders = null;
 
     /**
      * Constructor

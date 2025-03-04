@@ -34,7 +34,7 @@ class MsgToSend extends Msg
     #[SerializedName("did")]
     #[Type("string")]
     #[XmlAttribute]
-    private $draftId;
+    private ?string $draftId = null;
 
     /**
      * If set, message gets constructed based on the "did" (id of the draft).
@@ -45,7 +45,7 @@ class MsgToSend extends Msg
     #[SerializedName("sfd")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $sendFromDraft;
+    private ?bool $sendFromDraft = null;
 
     /**
      * Id of the data source in case SMTP settings of that data source must be used for sending the message.
@@ -56,7 +56,7 @@ class MsgToSend extends Msg
     #[SerializedName("dsId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dataSourceId;
+    private ?string $dataSourceId = null;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class AddMsgSpec
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -50,7 +50,7 @@ class AddMsgSpec
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -61,7 +61,7 @@ class AddMsgSpec
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Folder pathname (starts with '/') or folder ID
@@ -72,7 +72,7 @@ class AddMsgSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * If set, then don't process iCal attachments.  Default is unset.
@@ -83,7 +83,7 @@ class AddMsgSpec
     #[SerializedName("noICal")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $noICal;
+    private ?bool $noICal = null;
 
     /**
      * (optional) Time the message was originally received, in MILLISECONDS since the epoch
@@ -94,7 +94,7 @@ class AddMsgSpec
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $dateReceived;
+    private ?int $dateReceived = null;
 
     /**
      * Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
@@ -105,7 +105,7 @@ class AddMsgSpec
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attachmentId;
+    private ?string $attachmentId = null;
 
     /**
      * The entire message's content.  (Omit if you specify an "aid" attribute.)
@@ -117,7 +117,7 @@ class AddMsgSpec
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Constructor

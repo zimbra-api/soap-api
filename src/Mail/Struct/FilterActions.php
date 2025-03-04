@@ -37,7 +37,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $filterVariables = [];
+    private array $filterVariables = [];
 
     /**
      * Keep filter actions
@@ -47,7 +47,7 @@ class FilterActions
     #[Accessor(getter: "getKeepActions", setter: "setKeepActions")]
     #[Type("array<Zimbra\Mail\Struct\KeepAction>")]
     #[XmlList(inline: true, entry: "actionKeep", namespace: "urn:zimbraMail")]
-    private $keepActions = [];
+    private array $keepActions = [];
 
     /**
      * Discard filter actions
@@ -63,7 +63,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $discardActions = [];
+    private array $discardActions = [];
 
     /**
      * File into filter actions
@@ -79,7 +79,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $fileIntoActions = [];
+    private array $fileIntoActions = [];
 
     /**
      * Flag filter actions
@@ -89,7 +89,7 @@ class FilterActions
     #[Accessor(getter: "getFlagActions", setter: "setFlagActions")]
     #[Type("array<Zimbra\Mail\Struct\FlagAction>")]
     #[XmlList(inline: true, entry: "actionFlag", namespace: "urn:zimbraMail")]
-    private $flagActions = [];
+    private array $flagActions = [];
 
     /**
      * Tag filter actions
@@ -99,7 +99,7 @@ class FilterActions
     #[Accessor(getter: "getTagActions", setter: "setTagActions")]
     #[Type("array<Zimbra\Mail\Struct\TagAction>")]
     #[XmlList(inline: true, entry: "actionTag", namespace: "urn:zimbraMail")]
-    private $tagActions = [];
+    private array $tagActions = [];
 
     /**
      * Redirect filter actions
@@ -115,7 +115,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $redirectActions = [];
+    private array $redirectActions = [];
 
     /**
      * Reply filter actions
@@ -125,7 +125,7 @@ class FilterActions
     #[Accessor(getter: "getReplyActions", setter: "setReplyActions")]
     #[Type("array<Zimbra\Mail\Struct\ReplyAction>")]
     #[XmlList(inline: true, entry: "actionReply", namespace: "urn:zimbraMail")]
-    private $replyActions = [];
+    private array $replyActions = [];
 
     /**
      * Notify filter actions
@@ -135,7 +135,7 @@ class FilterActions
     #[Accessor(getter: "getNotifyActions", setter: "setNotifyActions")]
     #[Type("array<Zimbra\Mail\Struct\NotifyAction>")]
     #[XmlList(inline: true, entry: "actionNotify", namespace: "urn:zimbraMail")]
-    private $notifyActions = [];
+    private array $notifyActions = [];
 
     /**
      * RFC compliant notify filter actions
@@ -156,7 +156,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $rfcCompliantNotifyActions = [];
+    private array $rfcCompliantNotifyActions = [];
 
     /**
      * Stop filter actions
@@ -166,7 +166,7 @@ class FilterActions
     #[Accessor(getter: "getStopActions", setter: "setStopActions")]
     #[Type("array<Zimbra\Mail\Struct\StopAction>")]
     #[XmlList(inline: true, entry: "actionStop", namespace: "urn:zimbraMail")]
-    private $stopActions = [];
+    private array $stopActions = [];
 
     /**
      * Reject filter actions
@@ -176,7 +176,7 @@ class FilterActions
     #[Accessor(getter: "getRejectActions", setter: "setRejectActions")]
     #[Type("array<Zimbra\Mail\Struct\RejectAction>")]
     #[XmlList(inline: true, entry: "actionReject", namespace: "urn:zimbraMail")]
-    private $rejectActions = [];
+    private array $rejectActions = [];
 
     /**
      * Ereject filter actions
@@ -192,7 +192,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $erejectActions = [];
+    private array $erejectActions = [];
 
     /**
      * Log filter actions
@@ -202,7 +202,7 @@ class FilterActions
     #[Accessor(getter: "getLogActions", setter: "setLogActions")]
     #[Type("array<Zimbra\Mail\Struct\LogAction>")]
     #[XmlList(inline: true, entry: "actionLog", namespace: "urn:zimbraMail")]
-    private $logActions = [];
+    private array $logActions = [];
 
     /**
      * Add header filter actions
@@ -218,7 +218,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $addheaderActions = [];
+    private array $addheaderActions = [];
 
     /**
      * Delete header filter actions
@@ -239,7 +239,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $deleteheaderActions = [];
+    private array $deleteheaderActions = [];
 
     /**
      * Replace header filter actions
@@ -260,7 +260,7 @@ class FilterActions
             namespace: "urn:zimbraMail"
         )
     ]
-    private $replaceheaderActions = [];
+    private array $replaceheaderActions = [];
 
     /**
      * Constructor

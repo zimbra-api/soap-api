@@ -33,7 +33,7 @@ class ActionResult
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Operation
@@ -44,7 +44,7 @@ class ActionResult
     #[SerializedName("op")]
     #[Type("string")]
     #[XmlAttribute]
-    private $operation;
+    private string $operation;
 
     /**
      * Comma-separated list of non-existent ids (if requested)
@@ -55,7 +55,7 @@ class ActionResult
     #[SerializedName("nei")]
     #[Type("string")]
     #[XmlAttribute]
-    private $nonExistentIds;
+    private ?string $nonExistentIds = null;
 
     /**
      * Comma-separated list of newly created ids (if requested)
@@ -66,7 +66,7 @@ class ActionResult
     #[SerializedName("nci")]
     #[Type("string")]
     #[XmlAttribute]
-    private $newlyCreatedIds;
+    private ?string $newlyCreatedIds = null;
 
     /**
      * Constructor

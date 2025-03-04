@@ -32,7 +32,7 @@ class ExpandedRecurrenceInstance
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private ?int $startTime = null;
 
     /**
      * Duration in milliseconds
@@ -43,7 +43,7 @@ class ExpandedRecurrenceInstance
     #[SerializedName("dur")]
     #[Type("int")]
     #[XmlAttribute]
-    private $duration;
+    private ?int $duration = null;
 
     /**
      * Set if the instance is for an all day appointment
@@ -54,7 +54,7 @@ class ExpandedRecurrenceInstance
     #[SerializedName("allDay")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $allDay;
+    private ?bool $allDay = null;
 
     /**
      * GMT offset of start time in milliseconds; returned only when allDay is set
@@ -65,7 +65,7 @@ class ExpandedRecurrenceInstance
     #[SerializedName("tzo")]
     #[Type("int")]
     #[XmlAttribute]
-    private $tzOffset;
+    private ?int $tzOffset = null;
 
     /**
      * Recurrence ID string in UTC timezone
@@ -76,7 +76,7 @@ class ExpandedRecurrenceInstance
     #[SerializedName("ridZ")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recurIdZ;
+    private ?string $recurIdZ = null;
 
     /**
      * Constructor

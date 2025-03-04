@@ -38,7 +38,7 @@ class Content
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attachUploadId;
+    private ?string $attachUploadId = null;
 
     /**
      * Inlined content data. Ignored if "aid" is specified
@@ -48,7 +48,7 @@ class Content
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

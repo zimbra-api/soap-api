@@ -40,7 +40,7 @@ class InvitationInfo extends InviteComponent
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Content-Type
@@ -51,7 +51,7 @@ class InvitationInfo extends InviteComponent
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * Content-Id
@@ -62,7 +62,7 @@ class InvitationInfo extends InviteComponent
     #[SerializedName("ci")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentId;
+    private ?string $contentId = null;
 
     /**
      * RAW RFC822 MESSAGE (XML-encoded) MUST CONTAIN A text/calendar PART
@@ -94,7 +94,7 @@ class InvitationInfo extends InviteComponent
     #[Accessor(getter: "getTimezones", setter: "setTimezones")]
     #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
     #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
-    private $timezones = [];
+    private array $timezones = [];
 
     /**
      * Meeting notes parts
@@ -104,7 +104,7 @@ class InvitationInfo extends InviteComponent
     #[Accessor(getter: "getMimeParts", setter: "setMimeParts")]
     #[Type("array<Zimbra\Mail\Struct\MimePartInfo>")]
     #[XmlList(inline: true, entry: "mp", namespace: "urn:zimbraMail")]
-    private $mimeParts = [];
+    private array $mimeParts = [];
 
     /**
      * Attachments

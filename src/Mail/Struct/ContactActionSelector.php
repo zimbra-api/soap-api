@@ -32,7 +32,7 @@ class ContactActionSelector extends ActionSelector
     #[Accessor(getter: "getAttrs", setter: "setAttrs")]
     #[Type("array<Zimbra\Mail\Struct\NewContactAttr>")]
     #[XmlList(inline: true, entry: "attr", namespace: "urn:zimbraMail")]
-    private $attrs = [];
+    private array $attrs = [];
 
     /**
      * Constructor

@@ -35,7 +35,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("neg")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $durationNegative;
+    private ?bool $durationNegative = null;
 
     /**
      * Weeks component of the duration
@@ -47,7 +47,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("w")]
     #[Type("int")]
     #[XmlAttribute]
-    private $weeks;
+    private ?int $weeks = null;
 
     /**
      * Days component of the duration
@@ -58,7 +58,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $days;
+    private ?int $days = null;
 
     /**
      * Hours component of the duration
@@ -69,7 +69,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("h")]
     #[Type("int")]
     #[XmlAttribute]
-    private $hours;
+    private ?int $hours = null;
 
     /**
      * Minutes component of the duration
@@ -80,7 +80,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("m")]
     #[Type("int")]
     #[XmlAttribute]
-    private $minutes;
+    private ?int $minutes = null;
 
     /**
      * Seconds component of the duration
@@ -91,7 +91,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $seconds;
+    private ?int $seconds = null;
 
     /**
      * Specifies whether the alarm is related to the start of end.
@@ -113,7 +113,7 @@ class DurationInfo implements DurationInfoInterface
     #[SerializedName("count")]
     #[Type("int")]
     #[XmlAttribute]
-    private $repeatCount;
+    private ?int $repeatCount = null;
 
     /**
      * Constructor
@@ -124,6 +124,8 @@ class DurationInfo implements DurationInfoInterface
      * @param  int $minutes
      * @param  int $seconds
      * @param  AlarmRelated $related
+     * @param  int $repeatCount
+     * @param  bool $durationNegative
      * @return self
      */
     public function __construct(
@@ -132,7 +134,9 @@ class DurationInfo implements DurationInfoInterface
         ?int $hours = null,
         ?int $minutes = null,
         ?int $seconds = null,
-        ?AlarmRelated $related = null
+        ?AlarmRelated $related = null,
+        ?int $repeatCount = null,
+        ?bool $durationNegative = null
     ) {
         $this->related = $related;
         if (null !== $weeks) {
@@ -149,6 +153,12 @@ class DurationInfo implements DurationInfoInterface
         }
         if (null !== $seconds) {
             $this->setSeconds($seconds);
+        }
+        if (null !== $repeatCount) {
+            $this->setRepeatCount($repeatCount);
+        }
+        if (null !== $durationNegative) {
+            $this->setDurationNegative($durationNegative);
         }
     }
 

@@ -34,7 +34,7 @@ class ICalReplyRequest extends SoapRequest
     #[SerializedName("ical")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $ical;
+    private string $ical;
 
     /**
      * Constructor

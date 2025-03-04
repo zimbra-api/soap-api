@@ -46,7 +46,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     #[Type("array<Zimbra\Common\Struct\NamedElement>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "filterRule", namespace: "urn:zimbraMail")]
-    private $filterRules = [];
+    private array $filterRules = [];
 
     /**
      * Comma-separated list of message IDs
@@ -68,7 +68,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Constructor

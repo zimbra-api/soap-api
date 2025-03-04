@@ -56,7 +56,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements
     #[Accessor(getter: "getCategories", setter: "setCategories")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
-    private $categories = [];
+    private array $categories = [];
 
     /**
      * Information for iCalendar GEO property
@@ -78,7 +78,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Instances
@@ -88,7 +88,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements
     #[Accessor(getter: "getInstances", setter: "setInstances")]
     #[Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")]
     #[XmlList(inline: true, entry: "inst", namespace: "urn:zimbraMail")]
-    private $instances = [];
+    private array $instances = [];
 
     /**
      * Alarm information

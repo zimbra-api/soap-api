@@ -34,7 +34,7 @@ class NewSearchFolderSpec
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * query
@@ -45,7 +45,7 @@ class NewSearchFolderSpec
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private string $query;
 
     /**
      * Search types
@@ -56,7 +56,7 @@ class NewSearchFolderSpec
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $searchTypes;
+    private ?string $searchTypes = null;
 
     /**
      * Sort by
@@ -77,7 +77,7 @@ class NewSearchFolderSpec
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -88,7 +88,7 @@ class NewSearchFolderSpec
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -99,7 +99,7 @@ class NewSearchFolderSpec
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * Parent folder ID
@@ -110,7 +110,7 @@ class NewSearchFolderSpec
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $parentFolderId;
+    private ?string $parentFolderId = null;
 
     /**
      * Constructor

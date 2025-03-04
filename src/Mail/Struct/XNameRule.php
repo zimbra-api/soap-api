@@ -34,7 +34,7 @@ class XNameRule implements XNameRuleInterface
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * XNAME value
@@ -45,7 +45,7 @@ class XNameRule implements XNameRuleInterface
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

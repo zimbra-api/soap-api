@@ -33,7 +33,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     #[SerializedName("oauthToken")]
     #[Type("string")]
     #[XmlAttribute]
-    private $oauthToken;
+    private ?string $oauthToken = null;
 
     /**
      * client Id for refreshing data source oauth token
@@ -44,7 +44,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     #[SerializedName("clientId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $clientId;
+    private ?string $clientId = null;
 
     /**
      * client secret for refreshing data source oauth token
@@ -55,7 +55,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     #[SerializedName("clientSecret")]
     #[Type("string")]
     #[XmlAttribute]
-    private $clientSecret;
+    private ?string $clientSecret = null;
 
     /**
      * bool field for client to denote if it wants to test the data source before creating
@@ -66,7 +66,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     #[SerializedName("test")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $test;
+    private ?bool $test = null;
 
     /**
      * Get oauthToken

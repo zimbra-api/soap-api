@@ -34,7 +34,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private string $folderId;
 
     /**
      * Value passed by IMAP client in CHANGEDSINCE modifier
@@ -45,7 +45,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modSeq;
+    private int $modSeq;
 
     /**
      * Constructor

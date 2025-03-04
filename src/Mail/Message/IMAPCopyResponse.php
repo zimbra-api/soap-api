@@ -33,7 +33,7 @@ class IMAPCopyResponse extends SoapResponse
     #[Accessor(getter: "getItems", setter: "setItems")]
     #[Type("array<Zimbra\Mail\Struct\IMAPItemInfo>")]
     #[XmlList(inline: true, entry: "item", namespace: "urn:zimbraMail")]
-    private $items = [];
+    private array $items = [];
 
     /**
      * Constructor

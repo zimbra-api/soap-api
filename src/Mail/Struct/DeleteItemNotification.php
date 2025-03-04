@@ -32,7 +32,7 @@ class DeleteItemNotification
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * Type of deleted item
@@ -43,7 +43,7 @@ class DeleteItemNotification
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Constructor

@@ -43,7 +43,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * Range end in milliseconds
@@ -54,7 +54,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * DEPRECATED. Comma-separated list of Zimbra IDs or emails.
@@ -66,7 +66,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uid;
+    private ?string $uid = null;
 
     /**
      * Comma separated list of Zimbra IDs
@@ -77,7 +77,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Comma separated list of emails
@@ -88,7 +88,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * UID of appointment to exclude from free/busy search
@@ -99,7 +99,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[SerializedName("excludeUid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $excludeUid;
+    private ?string $excludeUid = null;
 
     /**
      * To view free/busy for a single folders in particular accounts, use these.
@@ -109,7 +109,7 @@ class GetFreeBusyRequest extends SoapRequest
     #[Accessor(getter: "getFreebusyUsers", setter: "setFreebusyUsers")]
     #[Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")]
     #[XmlList(inline: true, entry: "usr", namespace: "urn:zimbraMail")]
-    private $freebusyUsers = [];
+    private array $freebusyUsers = [];
 
     /**
      * Constructor

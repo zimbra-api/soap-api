@@ -47,7 +47,7 @@ trait MailSearchParams
     #[SerializedName("includeTagDeleted")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeTagDeleted;
+    private ?bool $includeTagDeleted = null;
 
     /**
      * Set to 1 (true) to include items with the Muted calItemExpandStart set in results
@@ -58,7 +58,7 @@ trait MailSearchParams
     #[SerializedName("includeTagMuted")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeTagMuted;
+    private ?bool $includeTagMuted = null;
 
     /**
      * Comma separated list of allowable Task statuses.
@@ -75,7 +75,7 @@ trait MailSearchParams
     #[SerializedName("allowableTaskStatus")]
     #[Type("string")]
     #[XmlAttribute]
-    private $allowableTaskStatus;
+    private ?string $allowableTaskStatus = null;
 
     /**
      * Start time in milliseconds for the range to include instances for calendar items from.
@@ -91,7 +91,7 @@ trait MailSearchParams
     #[SerializedName("calExpandInstStart")]
     #[Type("int")]
     #[XmlAttribute]
-    private $calItemExpandStart;
+    private ?int $calItemExpandStart = null;
 
     /**
      * End time in milliseconds for the range to include instances for calendar items from.
@@ -102,7 +102,7 @@ trait MailSearchParams
     #[SerializedName("calExpandInstEnd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $calItemExpandEnd;
+    private ?int $calItemExpandEnd = null;
 
     /**
      * Query string
@@ -113,7 +113,7 @@ trait MailSearchParams
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Set this flat to 1 (true) to search dumpster data instead of live data.
@@ -124,7 +124,7 @@ trait MailSearchParams
     #[SerializedName("inDumpster")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $inDumpster;
+    private ?bool $inDumpster = null;
 
     /**
      * Comma separated list of search types
@@ -137,7 +137,7 @@ trait MailSearchParams
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $searchTypes;
+    private ?string $searchTypes = null;
 
     /**
      * Deprecated. Use {searchTypes} instead
@@ -148,7 +148,7 @@ trait MailSearchParams
     #[SerializedName("groupBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $groupBy;
+    private ?string $groupBy = null;
 
     /**
      * "Quick" flag.
@@ -164,7 +164,7 @@ trait MailSearchParams
     #[SerializedName("quick")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $quick;
+    private ?bool $quick = null;
 
     /**
      * SortBy setting.
@@ -198,7 +198,7 @@ trait MailSearchParams
     #[SerializedName("fetch")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fetch;
+    private ?string $fetch = null;
 
     /**
      * Inlined hits will be marked as read
@@ -209,7 +209,7 @@ trait MailSearchParams
     #[SerializedName("read")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $markRead;
+    private ?bool $markRead = null;
 
     /**
      * If specified, inlined body content in limited to the given length;
@@ -221,7 +221,7 @@ trait MailSearchParams
     #[SerializedName("max")]
     #[Type("int")]
     #[XmlAttribute]
-    private $maxInlinedLength;
+    private ?int $maxInlinedLength = null;
 
     /**
      * Set to 1 (true) to cause inlined hits to return HTML parts if available
@@ -232,7 +232,7 @@ trait MailSearchParams
     #[SerializedName("html")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantHtml;
+    private ?bool $wantHtml = null;
 
     /**
      * If 'needExp' is set in the request, two additional flags may be included in <e> elements for messages returned inline.
@@ -243,7 +243,7 @@ trait MailSearchParams
     #[SerializedName("needExp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needCanExpand;
+    private ?bool $needCanExpand = null;
 
     /**
      * Set to 0 (false) to stop images in inlined HTML parts from being "neutered"
@@ -254,7 +254,7 @@ trait MailSearchParams
     #[SerializedName("neuter")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $neuterImages;
+    private ?bool $neuterImages = null;
 
     /**
      * Setting specifying which recipients should be returned.
@@ -284,7 +284,7 @@ trait MailSearchParams
     #[SerializedName("prefetch")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $prefetch;
+    private ?bool $prefetch = null;
 
     /**
      * Specifies the type of result.
@@ -297,7 +297,7 @@ trait MailSearchParams
     #[SerializedName("resultMode")]
     #[Type("string")]
     #[XmlAttribute]
-    private $resultMode;
+    private ?string $resultMode = null;
 
     /**
      * By default, only matching messages are included in conversation results.
@@ -310,7 +310,7 @@ trait MailSearchParams
     #[SerializedName("fullConversation")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $fullConversation;
+    private ?bool $fullConversation = null;
 
     /**
      * By default, text without an operator searches the CONTENT field.
@@ -326,7 +326,7 @@ trait MailSearchParams
     #[SerializedName("field")]
     #[Type("string")]
     #[XmlAttribute]
-    private $field;
+    private ?string $field = null;
 
     /**
      * The maximum number of results to return. It defaults to 10 if not specified, and is capped by 1000
@@ -337,7 +337,7 @@ trait MailSearchParams
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private ?int $limit = null;
 
     /**
      * Specifies the 0-based offset into the results list to return as the first result for this search operation.
@@ -349,7 +349,7 @@ trait MailSearchParams
     #[SerializedName("offset")]
     #[Type("int")]
     #[XmlAttribute]
-    private $offset;
+    private ?int $offset = null;
 
     /**
      * if <header>s are requested, any matching headers are included in inlined message hits
@@ -359,7 +359,7 @@ trait MailSearchParams
     #[Accessor(getter: "getHeaders", setter: "setHeaders")]
     #[Type("array<Zimbra\Common\Struct\AttributeName>")]
     #[XmlList(inline: true, entry: "header", namespace: "urn:zimbraMail")]
-    private $headers = [];
+    private array $headers = [];
 
     /**
      * Timezone specification
@@ -387,7 +387,7 @@ trait MailSearchParams
     #[SerializedName("locale")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $locale;
+    private ?string $locale = null;
 
     /**
      * Cursor specification
@@ -420,7 +420,7 @@ trait MailSearchParams
     #[SerializedName("memberOf")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeMemberOf;
+    private ?bool $includeMemberOf = null;
 
     /**
      * Get includeTagDeleted

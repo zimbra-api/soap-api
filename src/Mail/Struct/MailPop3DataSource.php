@@ -33,7 +33,7 @@ class MailPop3DataSource extends MailDataSource implements Pop3DataSource
     #[SerializedName("leaveOnServer")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $leaveOnServer;
+    private ?bool $leaveOnServer = null;
 
     /**
      * Get leaveOnServer

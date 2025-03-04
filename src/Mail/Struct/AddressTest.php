@@ -39,7 +39,7 @@ class AddressTest extends FilterTest
     #[SerializedName("header")]
     #[Type("string")]
     #[XmlAttribute]
-    private $header;
+    private ?string $header = null;
 
     /**
      * Part of address to affect - all|localpart|domain
@@ -70,7 +70,7 @@ class AddressTest extends FilterTest
     #[SerializedName("caseSensitive")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $caseSensitive;
+    private ?bool $caseSensitive = null;
 
     /**
      * Value
@@ -81,7 +81,7 @@ class AddressTest extends FilterTest
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne

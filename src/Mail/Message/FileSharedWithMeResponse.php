@@ -33,7 +33,7 @@ class FileSharedWithMeResponse extends SoapResponse
     #[SerializedName("status")]
     #[Type("string")]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private $status;
+    private string $status;
 
     /**
      * Constructor

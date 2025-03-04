@@ -48,7 +48,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dateTime;
+    private ?string $dateTime = null;
 
     /**
      * Java timezone identifier
@@ -59,7 +59,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     #[SerializedName("tz")]
     #[Type("string")]
     #[XmlAttribute]
-    private $timezone;
+    private ?string $timezone = null;
 
     /**
      * UTC time as milliseconds since the epoch.  Set if non-all-day
@@ -70,7 +70,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     #[SerializedName("u")]
     #[Type("int")]
     #[XmlAttribute]
-    private $utcTime;
+    private ?int $utcTime = null;
 
     /**
      * Constructor

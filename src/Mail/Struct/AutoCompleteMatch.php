@@ -34,7 +34,7 @@ class AutoCompleteMatch
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private ?string $email = null;
 
     /**
      * Match type - gal|contact|rankingTable
@@ -55,7 +55,7 @@ class AutoCompleteMatch
     #[SerializedName("ranking")]
     #[Type("int")]
     #[XmlAttribute]
-    private $ranking;
+    private ?int $ranking = null;
 
     /**
      * Set if the entry is a group
@@ -66,7 +66,7 @@ class AutoCompleteMatch
     #[SerializedName("isGroup")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $group;
+    private ?bool $group = null;
 
     /**
      * Set if the user has the right to expand group members.  Returned only if
@@ -83,7 +83,7 @@ class AutoCompleteMatch
     #[SerializedName("exp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canExpandGroupMembers;
+    private ?bool $canExpandGroupMembers = null;
 
     /**
      * Id
@@ -94,7 +94,7 @@ class AutoCompleteMatch
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Folder ID
@@ -105,7 +105,7 @@ class AutoCompleteMatch
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * String that should be displayed by the client
@@ -116,7 +116,7 @@ class AutoCompleteMatch
     #[SerializedName("display")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * First Name
@@ -127,7 +127,7 @@ class AutoCompleteMatch
     #[SerializedName("first")]
     #[Type("string")]
     #[XmlAttribute]
-    private $firstName;
+    private ?string $firstName = null;
 
     /**
      * Middle Name
@@ -138,7 +138,7 @@ class AutoCompleteMatch
     #[SerializedName("middle")]
     #[Type("string")]
     #[XmlAttribute]
-    private $middleName;
+    private ?string $middleName = null;
 
     /**
      * Last Name
@@ -149,7 +149,7 @@ class AutoCompleteMatch
     #[SerializedName("last")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lastName;
+    private ?string $lastName = null;
 
     /**
      * Full Name
@@ -160,7 +160,7 @@ class AutoCompleteMatch
     #[SerializedName("full")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fullName;
+    private ?string $fullName = null;
 
     /**
      * Nick Name
@@ -171,7 +171,7 @@ class AutoCompleteMatch
     #[SerializedName("nick")]
     #[Type("string")]
     #[XmlAttribute]
-    private $nickname;
+    private ?string $nickname = null;
 
     /**
      * Company Name
@@ -182,7 +182,7 @@ class AutoCompleteMatch
     #[SerializedName("company")]
     #[Type("string")]
     #[XmlAttribute]
-    private $company;
+    private ?string $company = null;
 
     /**
      * FileAs
@@ -193,7 +193,7 @@ class AutoCompleteMatch
     #[SerializedName("fileas")]
     #[Type("string")]
     #[XmlAttribute]
-    private $fileAs;
+    private ?string $fileAs = null;
 
     /**
      * Constructor

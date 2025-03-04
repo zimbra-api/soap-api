@@ -38,7 +38,7 @@ class CommentInfo
     #[SerializedName("parentId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $parentId;
+    private ?string $parentId = null;
 
     /**
      * Item ID
@@ -49,7 +49,7 @@ class CommentInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Item's UUID - a globally unique identifier
@@ -60,7 +60,7 @@ class CommentInfo
     #[SerializedName("uuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uuid;
+    private ?string $uuid = null;
 
     /**
      * Creator email address
@@ -71,7 +71,7 @@ class CommentInfo
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $creatorEmail;
+    private ?string $creatorEmail = null;
 
     /**
      * Flags
@@ -82,7 +82,7 @@ class CommentInfo
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -93,7 +93,7 @@ class CommentInfo
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -104,7 +104,7 @@ class CommentInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -115,7 +115,7 @@ class CommentInfo
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -126,7 +126,7 @@ class CommentInfo
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * Timestamp
@@ -137,7 +137,7 @@ class CommentInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * metadata and the subject as text
@@ -147,7 +147,7 @@ class CommentInfo
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Constructor

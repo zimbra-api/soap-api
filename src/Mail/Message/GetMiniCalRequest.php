@@ -45,7 +45,7 @@ class GetMiniCalRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * Range end time in milliseconds
@@ -56,7 +56,7 @@ class GetMiniCalRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * Local and/or remote calendar folders
@@ -66,7 +66,7 @@ class GetMiniCalRequest extends SoapRequest
     #[Accessor(getter: "getFolders", setter: "setFolders")]
     #[Type("array<Zimbra\Common\Struct\Id>")]
     #[XmlList(inline: true, entry: "folder", namespace: "urn:zimbraMail")]
-    private $folders = [];
+    private array $folders = [];
 
     /**
      * Optional timezone specifier.

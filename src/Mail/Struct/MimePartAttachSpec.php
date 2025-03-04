@@ -32,7 +32,7 @@ class MimePartAttachSpec extends AttachSpec
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $messageId;
+    private string $messageId;
 
     /**
      * Part
@@ -43,7 +43,7 @@ class MimePartAttachSpec extends AttachSpec
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private string $part;
 
     /**
      * Constructor

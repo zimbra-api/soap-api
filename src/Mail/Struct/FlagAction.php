@@ -32,7 +32,7 @@ class FlagAction extends FilterAction
     #[SerializedName("flagName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flag;
+    private ?string $flag = null;
 
     /**
      * Constructor

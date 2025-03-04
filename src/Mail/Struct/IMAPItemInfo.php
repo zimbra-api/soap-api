@@ -32,7 +32,7 @@ class IMAPItemInfo
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private int $id;
 
     /**
      * IMAP UID
@@ -43,7 +43,7 @@ class IMAPItemInfo
     #[SerializedName("i4uid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $imapUid;
+    private int $imapUid;
 
     /**
      * Constructor

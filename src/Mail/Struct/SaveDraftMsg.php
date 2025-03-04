@@ -33,7 +33,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private ?int $id = null;
 
     /**
      * Account ID the draft is for
@@ -44,7 +44,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("forAcct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $draftAccountId;
+    private ?string $draftAccountId = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -55,7 +55,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma separated list of tag names
@@ -66,7 +66,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
@@ -77,7 +77,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("rgb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rgb;
+    private ?string $rgb = null;
 
     /**
      * Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -88,7 +88,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("color")]
     #[Type("int")]
     #[XmlAttribute]
-    private $color;
+    private ?int $color = null;
 
     /**
      * Auto send time in milliseconds since the epoch
@@ -99,7 +99,7 @@ class SaveDraftMsg extends Msg
     #[SerializedName("autoSendTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $autoSendTime;
+    private ?int $autoSendTime = null;
 
     /**
      * Constructor

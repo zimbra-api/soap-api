@@ -32,7 +32,7 @@ class FlaggedTest extends FilterTest
     #[SerializedName("flagName")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flag;
+    private ?string $flag = null;
 
     /**
      * Constructor

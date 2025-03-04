@@ -35,7 +35,7 @@ class EmailInfo implements EmailInfoInterface
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private ?string $address = null;
 
     /**
      * Display name. If we have personal name, first word in "word1 word2" format, or last
@@ -47,7 +47,7 @@ class EmailInfo implements EmailInfoInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $display;
+    private ?string $display = null;
 
     /**
      * The comment/name part of an address
@@ -58,7 +58,7 @@ class EmailInfo implements EmailInfoInterface
     #[SerializedName("p")]
     #[Type("string")]
     #[XmlAttribute]
-    private $personal;
+    private ?string $personal = null;
 
     /**
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
@@ -80,7 +80,7 @@ class EmailInfo implements EmailInfoInterface
     #[SerializedName("isGroup")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $group;
+    private ?bool $group = null;
 
     /**
      * Flags whether can expand group members
@@ -96,7 +96,7 @@ class EmailInfo implements EmailInfoInterface
     #[SerializedName("exp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $canExpandGroupMembers;
+    private ?bool $canExpandGroupMembers = null;
 
     /**
      * Constructor

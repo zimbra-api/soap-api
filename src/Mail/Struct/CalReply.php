@@ -33,7 +33,7 @@ class CalReply extends RecurIdInfo
     #[SerializedName("at")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attendee;
+    private string $attendee;
 
     /**
      * SENT-BY
@@ -44,7 +44,7 @@ class CalReply extends RecurIdInfo
     #[SerializedName("sentBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sentBy;
+    private ?string $sentBy = null;
 
     /**
      * iCalendar PTST (Participation status)
@@ -69,7 +69,7 @@ class CalReply extends RecurIdInfo
     #[SerializedName("seq")]
     #[Type("int")]
     #[XmlAttribute]
-    private $sequence;
+    private int $sequence;
 
     /**
      * Timestamp of reply
@@ -80,7 +80,7 @@ class CalReply extends RecurIdInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private int $date;
 
     /**
      * Constructor

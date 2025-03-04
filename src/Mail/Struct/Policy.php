@@ -43,7 +43,7 @@ class Policy
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * The name
@@ -54,7 +54,7 @@ class Policy
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * The duration
@@ -65,7 +65,7 @@ class Policy
     #[SerializedName("lifetime")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lifetime;
+    private ?string $lifetime = null;
 
     /**
      * Constructor

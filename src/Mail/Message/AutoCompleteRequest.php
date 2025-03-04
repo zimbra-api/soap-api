@@ -35,7 +35,7 @@ class AutoCompleteRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * type of addresses to auto-complete on
@@ -56,7 +56,7 @@ class AutoCompleteRequest extends SoapRequest
     #[SerializedName("needExp")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $needCanExpand;
+    private ?bool $needCanExpand = null;
 
     /**
      * Comma separated list of folder IDs
@@ -67,7 +67,7 @@ class AutoCompleteRequest extends SoapRequest
     #[SerializedName("folders")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderList;
+    private ?string $folderList = null;
 
     /**
      * Flag whether to include Global Address Book (GAL)
@@ -78,7 +78,7 @@ class AutoCompleteRequest extends SoapRequest
     #[SerializedName("includeGal")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $includeGal;
+    private ?bool $includeGal = null;
 
     /**
      * Constructor

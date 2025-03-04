@@ -56,7 +56,7 @@ class InviteInfo implements InviteInfoInterface
     #[Accessor(getter: "getTimezones", setter: "setTimezones")]
     #[Type("array<Zimbra\Mail\Struct\CalTZInfo>")]
     #[XmlList(inline: true, entry: "tz", namespace: "urn:zimbraMail")]
-    private $timezones = [];
+    private array $timezones = [];
 
     /**
      * Invite components
@@ -79,7 +79,7 @@ class InviteInfo implements InviteInfoInterface
     #[Type("array<Zimbra\Mail\Struct\CalendarReply>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
-    private $calendarReplies = [];
+    private array $calendarReplies = [];
 
     /**
      * Constructor

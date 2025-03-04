@@ -33,7 +33,7 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * Constructor

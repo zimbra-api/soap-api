@@ -32,7 +32,7 @@ class LinkInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Item's UUID - a globally unique identifier
@@ -43,7 +43,7 @@ class LinkInfo
     #[SerializedName("uuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uuid;
+    private string $uuid;
 
     /**
      * Item name
@@ -54,7 +54,7 @@ class LinkInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * Item type
@@ -65,7 +65,7 @@ class LinkInfo
     #[SerializedName("view")]
     #[Type("string")]
     #[XmlAttribute]
-    private $defaultView;
+    private string $defaultView;
 
     /**
      * Permissions granted
@@ -76,7 +76,7 @@ class LinkInfo
     #[SerializedName("perm")]
     #[Type("string")]
     #[XmlAttribute]
-    private $rights;
+    private ?string $rights = null;
 
     /**
      * Constructor

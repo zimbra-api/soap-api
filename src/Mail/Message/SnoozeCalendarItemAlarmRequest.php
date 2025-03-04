@@ -34,7 +34,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     #[Accessor(getter: "getApptAlarms", setter: "setApptAlarms")]
     #[Type("array<Zimbra\Mail\Struct\SnoozeAppointmentAlarm>")]
     #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
-    private $apptAlarms = [];
+    private array $apptAlarms = [];
 
     /**
      * Details of task alarms
@@ -44,7 +44,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     #[Accessor(getter: "getTaskAlarms", setter: "setTaskAlarms")]
     #[Type("array<Zimbra\Mail\Struct\SnoozeTaskAlarm>")]
     #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
-    private $taskAlarms = [];
+    private array $taskAlarms = [];
 
     /**
      * Constructor

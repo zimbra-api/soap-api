@@ -39,7 +39,7 @@ class VCardInfo
     #[SerializedName("mid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $messageId;
+    private ?string $messageId = null;
 
     /**
      * Part identifier.  Use in conjunction with message-id
@@ -50,7 +50,7 @@ class VCardInfo
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * Uploaded attachment ID
@@ -61,7 +61,7 @@ class VCardInfo
     #[SerializedName("aid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $attachId;
+    private ?string $attachId = null;
 
     /**
      * inlined VCARD data
@@ -71,7 +71,7 @@ class VCardInfo
     #[Accessor(getter: "getValue", setter: "setValue")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $value;
+    private ?string $value = null;
 
     /**
      * Constructor

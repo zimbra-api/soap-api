@@ -35,7 +35,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("action")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $action;
+    private string $action;
 
     /**
      * Name of the file which is to be shared
@@ -46,7 +46,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("filename")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fileName;
+    private string $fileName;
 
     /**
      * Owner File ID
@@ -57,7 +57,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("itemId")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $ownerFileId;
+    private int $ownerFileId;
 
     /**
      * Owner File UUID
@@ -68,7 +68,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("ruuid")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fileUUID;
+    private string $fileUUID;
 
     /**
      * File Owner Name
@@ -79,7 +79,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("owner")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fileOwnerName;
+    private string $fileOwnerName;
 
     /**
      * Permission provided to the file
@@ -90,7 +90,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("perm")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $rights;
+    private string $rights;
 
     /**
      * Content type of the file
@@ -101,7 +101,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $contentType;
+    private string $contentType;
 
     /**
      * Actual file size
@@ -112,7 +112,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $size;
+    private int $size;
 
     /**
      * Remote account owner ID
@@ -123,7 +123,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("rid")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $ownerAccountId;
+    private string $ownerAccountId;
 
     /**
      * Actual file modified date
@@ -134,7 +134,7 @@ class FileSharedWithMeRequest extends SoapRequest
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $date;
+    private int $date;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ trait MailDataSourceTrait
     #[SerializedName("imap")]
     #[Type(MailImapDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailImapDataSource $imapDataSource;
+    private ?MailImapDataSource $imapDataSource = null;
 
     /**
      * Pop3 data source
@@ -43,7 +43,7 @@ trait MailDataSourceTrait
     #[SerializedName("pop3")]
     #[Type(MailPop3DataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailPop3DataSource $pop3DataSource;
+    private ?MailPop3DataSource $pop3DataSource = null;
 
     /**
      * Caldav data source
@@ -54,7 +54,7 @@ trait MailDataSourceTrait
     #[SerializedName("caldav")]
     #[Type(MailCaldavDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailCaldavDataSource $caldavDataSource;
+    private ?MailCaldavDataSource $caldavDataSource = null;
 
     /**
      * Yab data source
@@ -65,7 +65,7 @@ trait MailDataSourceTrait
     #[SerializedName("yab")]
     #[Type(MailYabDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailYabDataSource $yabDataSource;
+    private ?MailYabDataSource $yabDataSource = null;
 
     /**
      * Rss data source
@@ -76,7 +76,7 @@ trait MailDataSourceTrait
     #[SerializedName("rss")]
     #[Type(MailRssDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailRssDataSource $rssDataSource;
+    private ?MailRssDataSource $rssDataSource = null;
 
     /**
      * Gal data source
@@ -87,7 +87,7 @@ trait MailDataSourceTrait
     #[SerializedName("gal")]
     #[Type(MailGalDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailGalDataSource $galDataSource;
+    private ?MailGalDataSource $galDataSource = null;
 
     /**
      * Cal data source
@@ -98,7 +98,7 @@ trait MailDataSourceTrait
     #[SerializedName("cal")]
     #[Type(MailCalDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailCalDataSource $calDataSource;
+    private ?MailCalDataSource $calDataSource = null;
 
     /**
      * Unknown data source
@@ -109,7 +109,7 @@ trait MailDataSourceTrait
     #[SerializedName("unknown")]
     #[Type(MailUnknownDataSource::class)]
     #[XmlElement(namespace: "urn:zimbraMail")]
-    private ?MailUnknownDataSource $unknownDataSource;
+    private ?MailUnknownDataSource $unknownDataSource = null;
 
     /**
      * Set dataSource

@@ -33,7 +33,7 @@ class SearchFolder extends Folder
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private ?string $query = null;
 
     /**
      * Sort by
@@ -55,7 +55,7 @@ class SearchFolder extends Folder
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $types;
+    private ?string $types = null;
 
     /**
      * Constructor

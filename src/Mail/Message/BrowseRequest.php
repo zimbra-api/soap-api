@@ -45,7 +45,7 @@ class BrowseRequest extends SoapRequest
     #[SerializedName("regex")]
     #[Type("string")]
     #[XmlAttribute]
-    private $regex;
+    private ?string $regex = null;
 
     /**
      * Return only a maximum number of entries as requested
@@ -56,7 +56,7 @@ class BrowseRequest extends SoapRequest
     #[SerializedName("maxToReturn")]
     #[Type("int")]
     #[XmlAttribute]
-    private $max;
+    private ?int $max = null;
 
     /**
      * Constructor

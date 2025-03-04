@@ -34,7 +34,7 @@ class GetAppointmentIdsInRangeRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * Range end in milliseconds since the epoch GMT
@@ -45,7 +45,7 @@ class GetAppointmentIdsInRangeRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * Folder ID.
@@ -56,7 +56,7 @@ class GetAppointmentIdsInRangeRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private string $folderId;
 
     /**
      * Constructor

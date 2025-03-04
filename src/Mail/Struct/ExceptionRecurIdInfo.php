@@ -49,7 +49,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $dateTime;
+    private string $dateTime;
 
     /**
      * Java timezone identifier
@@ -60,7 +60,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     #[SerializedName("tz")]
     #[Type("string")]
     #[XmlAttribute]
-    private $timezone;
+    private ?string $timezone = null;
 
     /**
      * Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
@@ -76,7 +76,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     #[SerializedName("rangeType")]
     #[Type("int")]
     #[XmlAttribute]
-    private $recurrenceRangeType;
+    private ?int $recurrenceRangeType = null;
 
     /**
      * Constructor

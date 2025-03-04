@@ -38,7 +38,7 @@ class RFCCompliantNotifyAction extends FilterAction
     #[SerializedName("from")]
     #[Type("string")]
     #[XmlAttribute]
-    private $from;
+    private ?string $from = null;
 
     /**
      * Notify Tag ":importance"
@@ -49,7 +49,7 @@ class RFCCompliantNotifyAction extends FilterAction
     #[SerializedName("importance")]
     #[Type("string")]
     #[XmlAttribute]
-    private $importance;
+    private ?string $importance = null;
 
     /**
      * Notify Tag ":options"
@@ -60,7 +60,7 @@ class RFCCompliantNotifyAction extends FilterAction
     #[SerializedName("options")]
     #[Type("string")]
     #[XmlAttribute]
-    private $options;
+    private ?string $options = null;
 
     /**
      * Notify Tag ":message"
@@ -71,7 +71,7 @@ class RFCCompliantNotifyAction extends FilterAction
     #[SerializedName("message")]
     #[Type("string")]
     #[XmlAttribute]
-    private $message;
+    private ?string $message = null;
 
     /**
      * Notify Parameter "method"
@@ -82,7 +82,7 @@ class RFCCompliantNotifyAction extends FilterAction
     #[SerializedName("method")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $method;
+    private ?string $method = null;
 
     /**
      * Constructor

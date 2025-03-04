@@ -32,7 +32,7 @@ class ImapMessageInfo extends IMAPItemInfo
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $type;
+    private string $type;
 
     /**
      * Flags
@@ -43,7 +43,7 @@ class ImapMessageInfo extends IMAPItemInfo
     #[SerializedName("f")]
     #[Type("int")]
     #[XmlAttribute]
-    private $flags;
+    private int $flags;
 
     /**
      * Comma separated list of name of tags associated with this item
@@ -54,7 +54,7 @@ class ImapMessageInfo extends IMAPItemInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private string $tags;
 
     /**
      * Constructor

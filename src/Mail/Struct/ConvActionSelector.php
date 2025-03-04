@@ -37,7 +37,7 @@ class ConvActionSelector extends ActionSelector
     #[SerializedName("acctRelPath")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $acctRelativePath;
+    private ?string $acctRelativePath = null;
 
     /**
      * Constructor

@@ -33,7 +33,7 @@ class GetYahooAuthTokenResponse extends SoapResponse
     #[SerializedName("failed")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $failed;
+    private ?bool $failed = null;
 
     /**
      * Constructor

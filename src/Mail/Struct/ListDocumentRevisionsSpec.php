@@ -32,7 +32,7 @@ class ListDocumentRevisionsSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Version
@@ -43,7 +43,7 @@ class ListDocumentRevisionsSpec
     #[SerializedName("ver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private ?int $version = null;
 
     /**
      * Maximum number of revisions to return starting from <version>
@@ -54,7 +54,7 @@ class ListDocumentRevisionsSpec
     #[SerializedName("count")]
     #[Type("int")]
     #[XmlAttribute]
-    private $count;
+    private ?int $count = null;
 
     /**
      * Constructor

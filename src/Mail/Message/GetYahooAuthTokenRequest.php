@@ -34,7 +34,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     #[SerializedName("user")]
     #[Type("string")]
     #[XmlAttribute]
-    private $user;
+    private string $user;
 
     /**
      * Password
@@ -45,7 +45,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     #[SerializedName("password")]
     #[Type("string")]
     #[XmlAttribute]
-    private $password;
+    private string $password;
 
     /**
      * Constructor

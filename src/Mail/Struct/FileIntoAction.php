@@ -32,7 +32,7 @@ class FileIntoAction extends FilterAction
     #[SerializedName("folderPath")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * If true, item will be copied to the new location, leaving the original in place.
@@ -44,7 +44,7 @@ class FileIntoAction extends FilterAction
     #[SerializedName("copy")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $copy;
+    private ?bool $copy = null;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class AppointmentIdAndDate
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Date
@@ -43,7 +43,7 @@ class AppointmentIdAndDate
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Constructor

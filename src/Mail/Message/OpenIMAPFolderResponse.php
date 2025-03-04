@@ -41,7 +41,7 @@ class OpenIMAPFolderResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $hasMore;
+    private ?bool $hasMore = null;
 
     /**
      * Messages
@@ -53,7 +53,7 @@ class OpenIMAPFolderResponse extends SoapResponse
     #[Type("array<Zimbra\Mail\Struct\ImapMessageInfo>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "m", namespace: "urn:zimbraMail")]
-    private $messages = [];
+    private array $messages = [];
 
     /**
      * Cursor to be used by the next request, if more results exist

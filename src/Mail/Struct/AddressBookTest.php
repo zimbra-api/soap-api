@@ -32,7 +32,7 @@ class AddressBookTest extends FilterTest
     #[SerializedName("header")]
     #[Type("string")]
     #[XmlAttribute]
-    private $header;
+    private ?string $header = null;
 
     /**
      * Constructor

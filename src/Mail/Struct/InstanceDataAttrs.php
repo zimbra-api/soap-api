@@ -39,7 +39,7 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
     #[SerializedName("dur")]
     #[Type("int")]
     #[XmlAttribute]
-    private $duration;
+    private ?int $duration = null;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class GetSpellDictionariesResponse extends SoapResponse
     #[Accessor(getter: "getDictionaries", setter: "setDictionaries")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "dictionary", namespace: "urn:zimbraMail")]
-    private $dictionaries = [];
+    private array $dictionaries = [];
 
     /**
      * Constructor

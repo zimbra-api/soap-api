@@ -45,7 +45,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     #[SerializedName("recoveryAccount")]
     #[Type("string")]
     #[XmlAttribute]
-    private $recoveryAccount;
+    private ?string $recoveryAccount = null;
 
     /**
      * recovery account verification code
@@ -56,7 +56,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     #[SerializedName("recoveryAccountVerificationCode")]
     #[Type("string")]
     #[XmlAttribute]
-    private $verificationCode;
+    private ?string $verificationCode = null;
 
     /**
      * recovery channel

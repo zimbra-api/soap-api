@@ -32,7 +32,7 @@ class IdEmailName
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Email
@@ -43,7 +43,7 @@ class IdEmailName
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private ?string $email = null;
 
     /**
      * The name
@@ -54,7 +54,7 @@ class IdEmailName
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Constructor

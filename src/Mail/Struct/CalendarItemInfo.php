@@ -39,7 +39,7 @@ class CalendarItemInfo
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -50,7 +50,7 @@ class CalendarItemInfo
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma separated list of tag names
@@ -61,7 +61,7 @@ class CalendarItemInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * iCalendar UID
@@ -72,7 +72,7 @@ class CalendarItemInfo
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uid;
+    private ?string $uid = null;
 
     /**
      * Appointment ID
@@ -83,7 +83,7 @@ class CalendarItemInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Revision number
@@ -94,7 +94,7 @@ class CalendarItemInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Size
@@ -105,7 +105,7 @@ class CalendarItemInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Date
@@ -116,7 +116,7 @@ class CalendarItemInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Folder ID
@@ -127,7 +127,7 @@ class CalendarItemInfo
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folder;
+    private ?string $folder = null;
 
     /**
      * Modified date in seconds
@@ -138,7 +138,7 @@ class CalendarItemInfo
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Modified sequence
@@ -149,7 +149,7 @@ class CalendarItemInfo
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Next alarm time
@@ -160,7 +160,7 @@ class CalendarItemInfo
     #[SerializedName("nextAlarm")]
     #[Type("int")]
     #[XmlAttribute]
-    private $nextAlarm;
+    private ?int $nextAlarm = null;
 
     /**
      * Has exceptions but no series
@@ -171,7 +171,7 @@ class CalendarItemInfo
     #[SerializedName("orphan")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $orphan;
+    private ?bool $orphan = null;
 
     /**
      * Invites
@@ -181,7 +181,7 @@ class CalendarItemInfo
     #[Accessor(getter: "getInvites", setter: "setInvites")]
     #[Type("array<Zimbra\Mail\Struct\Invitation>")]
     #[XmlList(inline: true, entry: "inv", namespace: "urn:zimbraMail")]
-    private $invites = [];
+    private array $invites = [];
 
     /**
      * Replies
@@ -193,7 +193,7 @@ class CalendarItemInfo
     #[Type("array<Zimbra\Mail\Struct\CalendarReply>")]
     #[XmlElement(namespace: "urn:zimbraMail")]
     #[XmlList(inline: false, entry: "reply", namespace: "urn:zimbraMail")]
-    private $calendarReplies = [];
+    private array $calendarReplies = [];
 
     /**
      * Metadata
@@ -203,7 +203,7 @@ class CalendarItemInfo
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * Constructor

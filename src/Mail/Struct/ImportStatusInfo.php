@@ -32,7 +32,7 @@ abstract class ImportStatusInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Whether data is currently being imported from this data source
@@ -43,7 +43,7 @@ abstract class ImportStatusInfo
     #[SerializedName("isRunning")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $running;
+    private ?bool $running = null;
 
     /**
      * Whether the last import completed successfully.
@@ -55,7 +55,7 @@ abstract class ImportStatusInfo
     #[SerializedName("success")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $success;
+    private ?bool $success = null;
 
     /**
      * If the last import failed, this is the error message that was returned.
@@ -67,7 +67,7 @@ abstract class ImportStatusInfo
     #[SerializedName("error")]
     #[Type("string")]
     #[XmlAttribute]
-    private $error;
+    private ?string $error = null;
 
     /**
      * Constructor

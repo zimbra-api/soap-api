@@ -54,7 +54,7 @@ class SyncResponse extends SoapResponse
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private int $changeDate;
 
     /**
      * New sync token
@@ -65,7 +65,7 @@ class SyncResponse extends SoapResponse
     #[SerializedName("token")]
     #[Type("string")]
     #[XmlAttribute]
-    private $token;
+    private ?string $token = null;
 
     /**
      * size
@@ -76,7 +76,7 @@ class SyncResponse extends SoapResponse
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * If set, the response does not bring the client completely up to date.
@@ -88,7 +88,7 @@ class SyncResponse extends SoapResponse
     #[SerializedName("more")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $more;
+    private ?bool $more = null;
 
     /**
      * Information on deletes
@@ -109,7 +109,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getFolderItems", setter: "setFolderItems")]
     #[Type("array<Zimbra\Mail\Struct\SyncFolder>")]
     #[XmlList(inline: true, entry: "folder", namespace: "urn:zimbraMail")]
-    private $folderItems = [];
+    private array $folderItems = [];
 
     /**
      * Tag items
@@ -119,7 +119,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getTagItems", setter: "setTagItems")]
     #[Type("array<Zimbra\Mail\Struct\TagInfo>")]
     #[XmlList(inline: true, entry: "tag", namespace: "urn:zimbraMail")]
-    private $tagItems = [];
+    private array $tagItems = [];
 
     /**
      * Note items
@@ -129,7 +129,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getNoteItems", setter: "setNoteItems")]
     #[Type("array<Zimbra\Mail\Struct\NoteInfo>")]
     #[XmlList(inline: true, entry: "note", namespace: "urn:zimbraMail")]
-    private $noteItems = [];
+    private array $noteItems = [];
 
     /**
      * Contact items
@@ -139,7 +139,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getContactItems", setter: "setContactItems")]
     #[Type("array<Zimbra\Mail\Struct\ContactInfo>")]
     #[XmlList(inline: true, entry: "cn", namespace: "urn:zimbraMail")]
-    private $contactItems = [];
+    private array $contactItems = [];
 
     /**
      * Calendar items
@@ -149,7 +149,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getApptItems", setter: "setApptItems")]
     #[Type("array<Zimbra\Mail\Struct\CalendarItemInfo>")]
     #[XmlList(inline: true, entry: "appt", namespace: "urn:zimbraMail")]
-    private $apptItems = [];
+    private array $apptItems = [];
 
     /**
      * Task items
@@ -159,7 +159,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getTaskItems", setter: "setTaskItems")]
     #[Type("array<Zimbra\Mail\Struct\TaskItemInfo>")]
     #[XmlList(inline: true, entry: "task", namespace: "urn:zimbraMail")]
-    private $taskItems = [];
+    private array $taskItems = [];
 
     /**
      * Conversation items
@@ -169,7 +169,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getConvItems", setter: "setConvItems")]
     #[Type("array<Zimbra\Mail\Struct\ConversationSummary>")]
     #[XmlList(inline: true, entry: "c", namespace: "urn:zimbraMail")]
-    private $convItems = [];
+    private array $convItems = [];
 
     /**
      * Wiki items
@@ -179,7 +179,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getWikiItems", setter: "setWikiItems")]
     #[Type("array<Zimbra\Mail\Struct\CommonDocumentInfo>")]
     #[XmlList(inline: true, entry: "w", namespace: "urn:zimbraMail")]
-    private $wikiItems = [];
+    private array $wikiItems = [];
 
     /**
      * Document items
@@ -189,7 +189,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getDocItems", setter: "setDocItems")]
     #[Type("array<Zimbra\Mail\Struct\DocumentInfo>")]
     #[XmlList(inline: true, entry: "doc", namespace: "urn:zimbraMail")]
-    private $docItems = [];
+    private array $docItems = [];
 
     /**
      * Message items
@@ -199,7 +199,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getMsgItems", setter: "setMsgItems")]
     #[Type("array<Zimbra\Mail\Struct\MessageSummary>")]
     #[XmlList(inline: true, entry: "m", namespace: "urn:zimbraMail")]
-    private $msgItems = [];
+    private array $msgItems = [];
 
     /**
      * Chat items
@@ -209,7 +209,7 @@ class SyncResponse extends SoapResponse
     #[Accessor(getter: "getChatItems", setter: "setChatItems")]
     #[Type("array<Zimbra\Mail\Struct\ChatSummary>")]
     #[XmlList(inline: true, entry: "chat", namespace: "urn:zimbraMail")]
-    private $chatItems = [];
+    private array $chatItems = [];
 
     /**
      * Constructor

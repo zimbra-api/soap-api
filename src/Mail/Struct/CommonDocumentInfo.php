@@ -39,7 +39,7 @@ class CommonDocumentInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Item's UUID - a globally unique identifier
@@ -50,7 +50,7 @@ class CommonDocumentInfo
     #[SerializedName("uuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uuid;
+    private ?string $uuid = null;
 
     /**
      * Name
@@ -61,7 +61,7 @@ class CommonDocumentInfo
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Size
@@ -72,7 +72,7 @@ class CommonDocumentInfo
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Date the item's content was last modified in milliseconds since 1970-01-01 00:00:00 UTC.
@@ -84,7 +84,7 @@ class CommonDocumentInfo
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Folder ID
@@ -95,7 +95,7 @@ class CommonDocumentInfo
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private ?string $folderId = null;
 
     /**
      * Folder UUID
@@ -106,7 +106,7 @@ class CommonDocumentInfo
     #[SerializedName("luuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderUuid;
+    private ?string $folderUuid = null;
 
     /**
      * Modified sequence
@@ -117,7 +117,7 @@ class CommonDocumentInfo
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Metadata version
@@ -128,7 +128,7 @@ class CommonDocumentInfo
     #[SerializedName("mdver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $metadataVersion;
+    private ?int $metadataVersion = null;
 
     /**
      * The date the item's metadata and/or content was last modified in seconds since 1970-01-01 00:00:00 UTC.
@@ -139,7 +139,7 @@ class CommonDocumentInfo
     #[SerializedName("md")]
     #[Type("int")]
     #[XmlAttribute]
-    private $changeDate;
+    private ?int $changeDate = null;
 
     /**
      * Revision
@@ -150,7 +150,7 @@ class CommonDocumentInfo
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Flags
@@ -161,7 +161,7 @@ class CommonDocumentInfo
     #[SerializedName("f")]
     #[Type("string")]
     #[XmlAttribute]
-    private $flags;
+    private ?string $flags = null;
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
@@ -172,7 +172,7 @@ class CommonDocumentInfo
     #[SerializedName("t")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tags;
+    private ?string $tags = null;
 
     /**
      * Comma-separated list of tag names
@@ -183,7 +183,7 @@ class CommonDocumentInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $tagNames;
+    private ?string $tagNames = null;
 
     /**
      * Optional description
@@ -194,7 +194,7 @@ class CommonDocumentInfo
     #[SerializedName("desc")]
     #[Type("string")]
     #[XmlAttribute]
-    private $description;
+    private ?string $description = null;
 
     /**
      * Content type
@@ -205,7 +205,7 @@ class CommonDocumentInfo
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * Flags whether description is enabled or not
@@ -216,7 +216,7 @@ class CommonDocumentInfo
     #[SerializedName("descEnabled")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $descEnabled;
+    private ?bool $descEnabled = null;
 
     /**
      * Version
@@ -227,7 +227,7 @@ class CommonDocumentInfo
     #[SerializedName("ver")]
     #[Type("int")]
     #[XmlAttribute]
-    private $version;
+    private ?int $version = null;
 
     /**
      * Last edited by
@@ -238,7 +238,7 @@ class CommonDocumentInfo
     #[SerializedName("leb")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lastEditedBy;
+    private ?string $lastEditedBy = null;
 
     /**
      * Revision creator
@@ -249,7 +249,7 @@ class CommonDocumentInfo
     #[SerializedName("cr")]
     #[Type("string")]
     #[XmlAttribute]
-    private $creator;
+    private ?string $creator = null;
 
     /**
      * Revision creation date in milliseconds since 1970-01-01 00:00:00 UTC.
@@ -260,7 +260,7 @@ class CommonDocumentInfo
     #[SerializedName("cd")]
     #[Type("int")]
     #[XmlAttribute]
-    private $createdDate;
+    private ?int $createdDate = null;
 
     /**
      * Custom metadata information
@@ -270,7 +270,7 @@ class CommonDocumentInfo
     #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
     #[Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")]
     #[XmlList(inline: true, entry: "meta", namespace: "urn:zimbraMail")]
-    private $metadatas = [];
+    private array $metadatas = [];
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -281,7 +281,7 @@ class CommonDocumentInfo
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * ACL for sharing

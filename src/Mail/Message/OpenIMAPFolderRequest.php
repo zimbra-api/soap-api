@@ -40,7 +40,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     #[SerializedName("l")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderId;
+    private string $folderId;
 
     /**
      * The maximum number of results to return
@@ -51,7 +51,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     #[SerializedName("limit")]
     #[Type("int")]
     #[XmlAttribute]
-    private $limit;
+    private int $limit;
 
     /**
      * Cursor specifying the last item on the previous results page

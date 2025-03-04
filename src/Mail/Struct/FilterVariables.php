@@ -37,7 +37,7 @@ class FilterVariables extends FilterAction
             namespace: "urn:zimbraMail"
         )
     ]
-    private $variables = [];
+    private array $variables = [];
 
     /**
      * Constructor

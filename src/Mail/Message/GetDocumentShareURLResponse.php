@@ -32,7 +32,7 @@ class GetDocumentShareURLResponse extends SoapResponse
     #[Accessor(getter: "getUrl", setter: "setUrl")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $url;
+    private string $url;
 
     /**
      * Constructor

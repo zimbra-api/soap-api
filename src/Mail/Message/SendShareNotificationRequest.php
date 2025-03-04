@@ -54,7 +54,7 @@ class SendShareNotificationRequest extends SoapRequest
     #[Accessor(getter: "getEmailAddresses", setter: "setEmailAddresses")]
     #[Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")]
     #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
-    private $emailAddresses = [];
+    private array $emailAddresses = [];
 
     /**
      * Set to "revoke" if it is a grant revoke notification. It is set to "expire"
@@ -76,7 +76,7 @@ class SendShareNotificationRequest extends SoapRequest
     #[SerializedName("notes")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $notes;
+    private ?string $notes = null;
 
     /**
      * Constructor

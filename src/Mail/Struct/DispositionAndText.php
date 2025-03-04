@@ -39,7 +39,7 @@ class DispositionAndText
     #[SerializedName("disp")]
     #[Type("string")]
     #[XmlAttribute]
-    private $disposition;
+    private ?string $disposition = null;
 
     /**
      * Text
@@ -49,7 +49,7 @@ class DispositionAndText
     #[Accessor(getter: "getText", setter: "setText")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $text;
+    private ?string $text = null;
 
     /**
      * Constructor

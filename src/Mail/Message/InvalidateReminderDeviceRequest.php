@@ -34,7 +34,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private string $address;
 
     /**
      * Constructor

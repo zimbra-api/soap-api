@@ -32,7 +32,7 @@ class ParentId
     #[SerializedName("parentId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $parentId;
+    private string $parentId;
 
     /**
      * Constructor

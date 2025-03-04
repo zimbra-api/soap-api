@@ -37,7 +37,7 @@ class AccountWithModifications
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $id;
+    private ?int $id = null;
 
     /**
      * Serialized pending modifications per folder
@@ -52,7 +52,7 @@ class AccountWithModifications
     ]
     #[Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")]
     #[XmlList(inline: true, entry: "mods", namespace: "urn:zimbraMail")]
-    private $mods = [];
+    private array $mods = [];
 
     /**
      * ID of the last change
@@ -63,7 +63,7 @@ class AccountWithModifications
     #[SerializedName("changeid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastChangeId;
+    private ?int $lastChangeId = null;
 
     /**
      * Constructor
@@ -151,7 +151,7 @@ class AccountWithModifications
      *
      * @return array
      */
-    public function getPendingFolderModifications(): ?array
+    public function getPendingFolderModifications(): array
     {
         return $this->mods;
     }

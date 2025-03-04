@@ -40,7 +40,7 @@ class ModifyProfileImageRequest extends SoapRequest
     #[SerializedName("uid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $uploadId;
+    private ?string $uploadId = null;
 
     /**
      * Base64 encoded image data
@@ -50,7 +50,7 @@ class ModifyProfileImageRequest extends SoapRequest
     #[Accessor(getter: "getImageB64Data", setter: "setImageB64Data")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $imageB64Data;
+    private ?string $imageB64Data = null;
 
     /**
      * Constructor

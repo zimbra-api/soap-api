@@ -38,7 +38,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Component number of default component
@@ -49,7 +49,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     #[SerializedName("comp")]
     #[Type("int")]
     #[XmlAttribute]
-    private $componentNum;
+    private ?int $componentNum = null;
 
     /**
      * Changed sequence of fetched version.
@@ -64,7 +64,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     #[SerializedName("ms")]
     #[Type("int")]
     #[XmlAttribute]
-    private $modifiedSequence;
+    private ?int $modifiedSequence = null;
 
     /**
      * Revision
@@ -75,7 +75,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     #[SerializedName("rev")]
     #[Type("int")]
     #[XmlAttribute]
-    private $revision;
+    private ?int $revision = null;
 
     /**
      * Constructor

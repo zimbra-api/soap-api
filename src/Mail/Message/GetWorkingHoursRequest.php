@@ -37,7 +37,7 @@ class GetWorkingHoursRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private int $startTime;
 
     /**
      * Range end in milliseconds since the epoch
@@ -48,7 +48,7 @@ class GetWorkingHoursRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private int $endTime;
 
     /**
      * Comma-separated list of Zimbra IDs
@@ -59,7 +59,7 @@ class GetWorkingHoursRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Comma-separated list of email addresses
@@ -70,7 +70,7 @@ class GetWorkingHoursRequest extends SoapRequest
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private ?string $name = null;
 
     /**
      * Constructor

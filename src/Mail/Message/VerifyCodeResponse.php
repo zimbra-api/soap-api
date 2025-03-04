@@ -33,7 +33,7 @@ class VerifyCodeResponse extends SoapResponse
     #[SerializedName("success")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $success = false;
+    private bool $success;
 
     /**
      * Constructor

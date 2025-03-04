@@ -32,7 +32,7 @@ class MessagePartSpec
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private string $part;
 
     /**
      * Message ID
@@ -43,7 +43,7 @@ class MessagePartSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Constructor

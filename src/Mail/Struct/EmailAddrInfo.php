@@ -34,7 +34,7 @@ class EmailAddrInfo
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private string $address;
 
     /**
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
@@ -56,7 +56,7 @@ class EmailAddrInfo
     #[SerializedName("p")]
     #[Type("string")]
     #[XmlAttribute]
-    private $personal;
+    private ?string $personal = null;
 
     /**
      * Constructor

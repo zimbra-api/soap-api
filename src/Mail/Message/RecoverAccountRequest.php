@@ -45,7 +45,7 @@ class RecoverAccountRequest extends SoapRequest
     #[SerializedName("email")]
     #[Type("string")]
     #[XmlAttribute]
-    private $email;
+    private string $email;
 
     /**
      * Channel

@@ -34,7 +34,7 @@ class XParam implements XParamInterface
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $name;
+    private string $name;
 
     /**
      * XPARAM value
@@ -45,7 +45,7 @@ class XParam implements XParamInterface
     #[SerializedName("value")]
     #[Type("string")]
     #[XmlAttribute]
-    private $value;
+    private string $value;
 
     /**
      * Constructor

@@ -42,7 +42,7 @@ class AddMsgRequest extends SoapRequest
     #[SerializedName("filterSent")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $filterSent;
+    private ?bool $filterSent = null;
 
     /**
      * Specification of the message to add

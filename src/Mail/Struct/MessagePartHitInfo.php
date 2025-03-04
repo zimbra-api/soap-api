@@ -39,7 +39,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Sort field value
@@ -50,7 +50,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("sf")]
     #[Type("string")]
     #[XmlAttribute]
-    private $sortField;
+    private ?string $sortField = null;
 
     /**
      * Size in bytes
@@ -61,7 +61,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $size;
+    private ?int $size = null;
 
     /**
      * Secs since epoch, from date header in message
@@ -72,7 +72,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("d")]
     #[Type("int")]
     #[XmlAttribute]
-    private $date;
+    private ?int $date = null;
 
     /**
      * Converstation id. only present if <m> is not enclosed within a <c> element
@@ -83,7 +83,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("cid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $conversationId;
+    private ?int $conversationId = null;
 
     /**
      * Message item ID
@@ -94,7 +94,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("mid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $messageId;
+    private ?int $messageId = null;
 
     /**
      * Content type
@@ -105,7 +105,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("ct")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentType;
+    private ?string $contentType = null;
 
     /**
      * File name
@@ -116,7 +116,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("name")]
     #[Type("string")]
     #[XmlAttribute]
-    private $contentName;
+    private ?string $contentName = null;
 
     /**
      * MIME part name
@@ -127,7 +127,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private ?string $part = null;
 
     /**
      * Email address information
@@ -149,7 +149,7 @@ class MessagePartHitInfo implements SearchHit
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * Constructor

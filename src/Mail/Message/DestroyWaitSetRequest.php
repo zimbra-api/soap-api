@@ -36,7 +36,7 @@ class DestroyWaitSetRequest extends SoapRequest
     #[SerializedName("waitSet")]
     #[Type("string")]
     #[XmlAttribute]
-    private $waitSetId;
+    private string $waitSetId;
 
     /**
      * Constructor

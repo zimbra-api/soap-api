@@ -32,7 +32,7 @@ class TagActionInfo
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $successes;
+    private string $successes;
 
     /**
      * Operations of tags affected by successfully applied operation
@@ -44,7 +44,7 @@ class TagActionInfo
     #[SerializedName("tn")]
     #[Type("string")]
     #[XmlAttribute]
-    private $successNames;
+    private ?string $successNames = null;
 
     /**
      * Operation - "read|!read|color|delete|rename|update|retentionpolicy"
@@ -55,7 +55,7 @@ class TagActionInfo
     #[SerializedName("op")]
     #[Type("string")]
     #[XmlAttribute]
-    private $operation;
+    private ?string $operation = null;
 
     /**
      * Constructor

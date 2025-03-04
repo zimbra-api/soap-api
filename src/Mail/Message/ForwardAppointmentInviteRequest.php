@@ -42,7 +42,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Details of the invite

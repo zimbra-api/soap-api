@@ -33,7 +33,7 @@ class RecordIMAPSessionResponse extends SoapResponse
     #[SerializedName("id")]
     #[Type("int")]
     #[XmlAttribute]
-    private $lastItemId;
+    private int $lastItemId;
 
     /**
      * UUID of the affected Folder
@@ -44,7 +44,7 @@ class RecordIMAPSessionResponse extends SoapResponse
     #[SerializedName("luuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $folderUuid;
+    private string $folderUuid;
 
     /**
      * Constructor

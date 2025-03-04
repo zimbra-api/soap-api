@@ -33,7 +33,7 @@ class GetCommentsResponse extends SoapResponse
     #[Accessor(getter: "getUsers", setter: "setUsers")]
     #[Type("array<Zimbra\Mail\Struct\IdEmailName>")]
     #[XmlList(inline: true, entry: "user", namespace: "urn:zimbraMail")]
-    private $users = [];
+    private array $users = [];
 
     /**
      * Comment information
@@ -43,7 +43,7 @@ class GetCommentsResponse extends SoapResponse
     #[Accessor(getter: "getComments", setter: "setComments")]
     #[Type("array<Zimbra\Mail\Struct\CommentInfo>")]
     #[XmlList(inline: true, entry: "comment", namespace: "urn:zimbraMail")]
-    private $comments = [];
+    private array $comments = [];
 
     /**
      * Constructor

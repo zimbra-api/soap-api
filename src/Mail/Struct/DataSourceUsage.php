@@ -32,7 +32,7 @@ class DataSourceUsage
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Usage
@@ -43,7 +43,7 @@ class DataSourceUsage
     #[SerializedName("usage")]
     #[Type("int")]
     #[XmlAttribute]
-    private $usage;
+    private int $usage;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class Notification implements NotificationInterface
     #[SerializedName("truncated")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $truncatedContent;
+    private ?bool $truncatedContent = null;
 
     /**
      * Content
@@ -50,7 +50,7 @@ class Notification implements NotificationInterface
     #[SerializedName("content")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Constructor

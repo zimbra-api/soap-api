@@ -38,7 +38,7 @@ class GetICalRequest extends SoapRequest
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private ?string $id = null;
 
     /**
      * Range start in milliseconds
@@ -49,7 +49,7 @@ class GetICalRequest extends SoapRequest
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private ?int $startTime = null;
 
     /**
      * Range end in milliseconds
@@ -60,7 +60,7 @@ class GetICalRequest extends SoapRequest
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private ?int $endTime = null;
 
     /**
      * Constructor

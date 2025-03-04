@@ -34,7 +34,7 @@ class ModifySearchFolderSpec
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * New search query
@@ -45,7 +45,7 @@ class ModifySearchFolderSpec
     #[SerializedName("query")]
     #[Type("string")]
     #[XmlAttribute]
-    private $query;
+    private string $query;
 
     /**
      * New type for the search folder
@@ -56,7 +56,7 @@ class ModifySearchFolderSpec
     #[SerializedName("types")]
     #[Type("string")]
     #[XmlAttribute]
-    private $searchTypes;
+    private ?string $searchTypes = null;
 
     /**
      * New sort order for

@@ -32,7 +32,7 @@ class DocumentInfo extends CommonDocumentInfo
     #[SerializedName("loid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lockOwnerId;
+    private ?string $lockOwnerId = null;
 
     /**
      * Lock owner account email address
@@ -43,7 +43,7 @@ class DocumentInfo extends CommonDocumentInfo
     #[SerializedName("loe")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lockOwnerEmail;
+    private ?string $lockOwnerEmail = null;
 
     /**
      * Lock timestamp
@@ -59,7 +59,7 @@ class DocumentInfo extends CommonDocumentInfo
     #[SerializedName("lt")]
     #[Type("string")]
     #[XmlAttribute]
-    private $lockOwnerTimestamp;
+    private ?string $lockOwnerTimestamp = null;
 
     /**
      * Constructor

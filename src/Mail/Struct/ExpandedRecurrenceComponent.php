@@ -50,7 +50,7 @@ class ExpandedRecurrenceComponent
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private ?int $startTime = null;
 
     /**
      * DTEND time in milliseconds since the Epoch
@@ -61,7 +61,7 @@ class ExpandedRecurrenceComponent
     #[SerializedName("e")]
     #[Type("int")]
     #[XmlAttribute]
-    private $endTime;
+    private ?int $endTime = null;
 
     /**
      * Duration

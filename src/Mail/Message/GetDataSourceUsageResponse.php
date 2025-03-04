@@ -45,7 +45,7 @@ class GetDataSourceUsageResponse extends SoapResponse
             namespace: "urn:zimbraMail"
         )
     ]
-    private $usages = [];
+    private array $usages = [];
 
     /**
      * @var int
@@ -54,7 +54,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     #[SerializedName("dsQuota")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $dataSourceQuota;
+    private int $dataSourceQuota;
 
     /**
      * @var int
@@ -68,7 +68,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     #[SerializedName("dsTotalQuota")]
     #[Type("int")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $totalQuota;
+    private int $totalQuota;
 
     /**
      * Constructor

@@ -39,7 +39,7 @@ class MessageSummary extends MessageCommon
     #[SerializedName("id")]
     #[Type("string")]
     #[XmlAttribute]
-    private $id;
+    private string $id;
 
     /**
      * Auto send time
@@ -50,7 +50,7 @@ class MessageSummary extends MessageCommon
     #[SerializedName("autoSendTime")]
     #[Type("int")]
     #[XmlAttribute]
-    private $autoSendTime;
+    private ?int $autoSendTime = null;
 
     /**
      * Email address information
@@ -60,7 +60,7 @@ class MessageSummary extends MessageCommon
     #[Accessor(getter: "getEmails", setter: "setEmails")]
     #[Type("array<Zimbra\Mail\Struct\EmailInfo>")]
     #[XmlList(inline: true, entry: "e", namespace: "urn:zimbraMail")]
-    private $emails = [];
+    private array $emails = [];
 
     /**
      * Subject
@@ -71,7 +71,7 @@ class MessageSummary extends MessageCommon
     #[SerializedName("su")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $subject;
+    private ?string $subject = null;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -82,7 +82,7 @@ class MessageSummary extends MessageCommon
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Invite information

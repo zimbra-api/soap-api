@@ -45,7 +45,7 @@ class ModifyContactRequest extends SoapRequest
     #[SerializedName("replace")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $replace;
+    private ?bool $replace = null;
 
     /**
      * If unset, the returned <cn> is just a placeholder containing the contact ID
@@ -57,7 +57,7 @@ class ModifyContactRequest extends SoapRequest
     #[SerializedName("verbose")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $verbose;
+    private ?bool $verbose = null;
 
     /**
      * Set to return IMAP UID. (default is unset.)
@@ -68,7 +68,7 @@ class ModifyContactRequest extends SoapRequest
     #[SerializedName("wantImapUid")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantImapUid;
+    private ?bool $wantImapUid = null;
 
     /**
      * Set to return Modified Sequence. (default is unset.)
@@ -84,7 +84,7 @@ class ModifyContactRequest extends SoapRequest
     #[SerializedName("wantModSeq")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $wantModifiedSequence;
+    private ?bool $wantModifiedSequence = null;
 
     /**
      * Specification of contact modifications

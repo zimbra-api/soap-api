@@ -38,7 +38,7 @@ class UpdatedAlarmInfo
     #[SerializedName("calItemId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calItemId;
+    private string $calItemId;
 
     /**
      * Updated alarm information

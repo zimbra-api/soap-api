@@ -33,7 +33,7 @@ class FolderActionResult extends ActionResult
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $zimbraId;
+    private ?string $zimbraId = null;
 
     /**
      * Display name
@@ -44,7 +44,7 @@ class FolderActionResult extends ActionResult
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private $displayName;
+    private ?string $displayName = null;
 
     /**
      * Access key (Password)
@@ -55,7 +55,7 @@ class FolderActionResult extends ActionResult
     #[SerializedName("key")]
     #[Type("string")]
     #[XmlAttribute]
-    private $accessKey;
+    private ?string $accessKey = null;
 
     /**
      * Constructor

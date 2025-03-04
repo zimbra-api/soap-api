@@ -32,7 +32,7 @@ class Mountpoint extends Folder
     #[SerializedName("owner")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerEmail;
+    private ?string $ownerEmail = null;
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
@@ -43,7 +43,7 @@ class Mountpoint extends Folder
     #[SerializedName("zid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $ownerAccountId;
+    private ?string $ownerAccountId = null;
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
@@ -54,7 +54,7 @@ class Mountpoint extends Folder
     #[SerializedName("rid")]
     #[Type("int")]
     #[XmlAttribute]
-    private $remoteFolderId;
+    private ?int $remoteFolderId = null;
 
     /**
      * UUID of the linked-to resource in the remote mailbox
@@ -65,7 +65,7 @@ class Mountpoint extends Folder
     #[SerializedName("ruuid")]
     #[Type("string")]
     #[XmlAttribute]
-    private $remoteUuid;
+    private ?string $remoteUuid = null;
 
     /**
      * The name presently used for the item by the owner
@@ -76,7 +76,7 @@ class Mountpoint extends Folder
     #[SerializedName("oname")]
     #[Type("string")]
     #[XmlAttribute]
-    private $remoteFolderName;
+    private ?string $remoteFolderName = null;
 
     /**
      * If set, client should display reminders for shared appointments/tasks
@@ -87,7 +87,7 @@ class Mountpoint extends Folder
     #[SerializedName("reminder")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $reminderEnabled;
+    private ?bool $reminderEnabled = null;
 
     /**
      * If "tr" is true in the request, broken is set if this is a broken link
@@ -98,7 +98,7 @@ class Mountpoint extends Folder
     #[SerializedName("broken")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $broken;
+    private ?bool $broken = null;
 
     /**
      * Constructor

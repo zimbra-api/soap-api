@@ -32,7 +32,7 @@ class RedirectAction extends FilterAction
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private ?string $address = null;
 
     /**
      * If true, item's copy will be redirected, leaving the original in place.
@@ -44,7 +44,7 @@ class RedirectAction extends FilterAction
     #[SerializedName("copy")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $copy;
+    private ?bool $copy = null;
 
     /**
      * Constructor

@@ -35,7 +35,7 @@ class VerifyCodeRequest extends SoapRequest
     #[SerializedName("a")]
     #[Type("string")]
     #[XmlAttribute]
-    private $address;
+    private ?string $address = null;
 
     /**
      * recovery account verification code
@@ -46,7 +46,7 @@ class VerifyCodeRequest extends SoapRequest
     #[SerializedName("code")]
     #[Type("string")]
     #[XmlAttribute]
-    private $verificationCode;
+    private ?string $verificationCode = null;
 
     /**
      * Constructor

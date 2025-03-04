@@ -41,7 +41,7 @@ class SetAppointmentResponse extends SoapResponse
     #[SerializedName("calItemId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $calItemId;
+    private ?string $calItemId = null;
 
     /**
      * Deprecated - appointment ID
@@ -52,7 +52,7 @@ class SetAppointmentResponse extends SoapResponse
     #[SerializedName("apptId")]
     #[Type("string")]
     #[XmlAttribute]
-    private $deprecatedApptId;
+    private ?string $deprecatedApptId = null;
 
     /**
      * Information about default invite
@@ -73,7 +73,7 @@ class SetAppointmentResponse extends SoapResponse
     #[Accessor(getter: "getExceptions", setter: "setExceptions")]
     #[Type("array<Zimbra\Mail\Struct\ExceptIdInfo>")]
     #[XmlList(inline: true, entry: "except", namespace: "urn:zimbraMail")]
-    private $exceptions = [];
+    private array $exceptions = [];
 
     /**
      * Constructor

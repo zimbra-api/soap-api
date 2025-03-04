@@ -32,7 +32,7 @@ class Part
     #[SerializedName("part")]
     #[Type("string")]
     #[XmlAttribute]
-    private $part;
+    private string $part;
 
     /**
      * Constructor

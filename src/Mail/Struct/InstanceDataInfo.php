@@ -46,7 +46,7 @@ class InstanceDataInfo extends InstanceDataAttrs
     #[SerializedName("s")]
     #[Type("int")]
     #[XmlAttribute]
-    private $startTime;
+    private ?int $startTime = null;
 
     /**
      * Set if is an exception
@@ -57,7 +57,7 @@ class InstanceDataInfo extends InstanceDataAttrs
     #[SerializedName("ex")]
     #[Type("bool")]
     #[XmlAttribute]
-    private $isException;
+    private ?bool $isException = null;
 
     /**
      * Organizer
@@ -78,7 +78,7 @@ class InstanceDataInfo extends InstanceDataAttrs
     #[Accessor(getter: "getCategories", setter: "setCategories")]
     #[Type("array<string>")]
     #[XmlList(inline: true, entry: "category", namespace: "urn:zimbraMail")]
-    private $categories = [];
+    private array $categories = [];
 
     /**
      * Information for iCalendar GEO property
@@ -100,7 +100,7 @@ class InstanceDataInfo extends InstanceDataAttrs
     #[SerializedName("fr")]
     #[Type("string")]
     #[XmlElement(cdata: false, namespace: "urn:zimbraMail")]
-    private $fragment;
+    private ?string $fragment = null;
 
     /**
      * Constructor

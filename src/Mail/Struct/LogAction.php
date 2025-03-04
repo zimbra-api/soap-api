@@ -48,7 +48,7 @@ class LogAction extends FilterAction
     #[Accessor(getter: "getContent", setter: "setContent")]
     #[Type("string")]
     #[XmlValue(cdata: false)]
-    private $content;
+    private ?string $content = null;
 
     /**
      * Constructor
