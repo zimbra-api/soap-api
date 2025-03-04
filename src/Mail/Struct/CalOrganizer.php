@@ -51,7 +51,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("url")]
     #[Type("string")]
     #[XmlAttribute]
-    private ?string $urls = null;
+    private ?string $url = null;
 
     /**
      * Friendly name - "CN" in iCalendar
@@ -62,7 +62,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("d")]
     #[Type("string")]
     #[XmlAttribute]
-    private ?string $displayNames = null;
+    private ?string $displayName = null;
 
     /**
      * iCalendar SENT-BY
@@ -73,7 +73,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("sentBy")]
     #[Type("string")]
     #[XmlAttribute]
-    private ?string $sentBys = null;
+    private ?string $sentBy = null;
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user.
@@ -84,7 +84,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("dir")]
     #[Type("string")]
     #[XmlAttribute]
-    private ?string $dirs = null;
+    private ?string $dir = null;
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
@@ -95,7 +95,7 @@ class CalOrganizer implements CalOrganizerInterface
     #[SerializedName("lang")]
     #[Type("string")]
     #[XmlAttribute]
-    private ?string $languages = null;
+    private ?string $language = null;
 
     /**
      * Non-standard parameters (XPARAMs)
