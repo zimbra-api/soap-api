@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 3.2.0 - 2025-02-04
+[Full Changelog](https://github.com/zimbra-api/soap-api/compare/3.1.0...3.2.0)
+
+* Update to version 10.1.4 Zimbra SOAP API
+
 ## 3.1.0 - 2024-09-30
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/3.0.3...3.1.0)
 
