@@ -376,7 +376,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function checkDomainMXRecord(
-        DomainSelector $domain = null
+        ?DomainSelector $domain = null
     ): ?Message\CheckDomainMXRecordResponse {
         return $this->invoke(new Message\CheckDomainMXRecordRequest($domain));
     }
