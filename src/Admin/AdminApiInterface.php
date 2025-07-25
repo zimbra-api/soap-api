@@ -373,7 +373,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\CheckDomainMXRecordResponse
      */
     function checkDomainMXRecord(
-        DomainSelector $domain = null
+        ?DomainSelector $domain = null
     ): ?Message\CheckDomainMXRecordResponse;
 
     /**
